@@ -125,6 +125,10 @@
       background:url("img/guest.png") no-repeat 0 0;
       position:relative
     }
+    #armor{
+      background:url("img/armor.png") no-repeat 0 0;
+      position:relative
+    }    
     .dashboard_zone{
       width:650px;
       margin-left:5px;
@@ -199,11 +203,11 @@
     var page_contain_height;
     var Speed=50;
     var rTimer=[];
-    var sBaseSettingLink0="<%622%>";
-    var sBaseSettingLink1="<%2903%>";
-    var sBaseSettingLink2="<%2904%>";
-    var isCableWAN = "<%702%>";
-    var isCable = "<%703%>";
+    var sBaseSettingLink0="<%699%>";
+    var sBaseSettingLink1="<%2914%>";
+    var sBaseSettingLink2="<%2915%>";
+    var isCableWAN = "<%778%>";
+    var isCable = "<%779%>";
   
   $(document).ready(function(){
   
@@ -219,9 +223,19 @@
     setParentalControlsState();
     setGuestNetworkState();
     queryCurrentStatus();
+    <%811%>        
+        setArmorState();
+    <%812%>        
       
     marquee_board_init();
-    
+
+    if ("<%773%>"=="1") {
+        $("#armor").css("display","none");
+    } else {
+        $("#armor").css("display","block");
+        $("#armor").css("cursor","default");
+    }
+
     $('.icon_status').each(function(){
       if(($(this).find(".marquee").length == 0) && ($(this).find(">span").length <=1))
         $(this).css("line-height","40px");
@@ -250,16 +264,16 @@
  /*    
     function setInternetState()
     {
-      var Internet_Result = <%2905%>;
-      var isCableWAN = "<%702%>";
+      var Internet_Result = <%2916%>;
+      var isCableWAN = "<%778%>";
       
       if (isCableWAN == "1")
       {
-        $('#internet_text').text("<%2906%>");
+        $('#internet_text').text("<%2917%>");
       }
       else
       {
-         $('#internet_text').text("<%2907%>");
+         $('#internet_text').text("<%2918%>");
       }
 
       if(Internet_Result == 0){
@@ -269,13 +283,13 @@
         $('#internet_stat').addClass('error-bottom');
       }
 
-      if(("<%622%>" != "") || (isCableWAN == "1")) {
+      if(("<%699%>" != "") || (isCableWAN == "1")) {
         if(Internet_Result == 0){
           $('#internet').click(function(ev){ 
             if (isCableWAN == "1")
               location.href = "cable_connection.htm";
             else
-              location.href = "<%622%>";
+              location.href = "<%699%>";
 
             parent.$('#page').width(parseInt(page_contain_width));
             parent.$('#page').height(parseInt(page_contain_height));
@@ -286,13 +300,13 @@
             parent.$('#basic-int').addClass('menuActive'); 
           });
           if (isCableWAN != "1")
-            parent.$('#INT_menu').attr("href","<%622%>");
+            parent.$('#INT_menu').attr("href","<%699%>");
         }else if(Internet_Result == 1){
           $('#internet').click(function(ev){
             if (isCableWAN == "1")
               location.href = "cable_DocsisOffline.htm";
             else
-              location.href = "<%2903%>";
+              location.href = "<%2914%>";
 
             parent.$('#page').width(parseInt(page_contain_width));
             parent.$('#page').height(parseInt(page_contain_height));
@@ -304,13 +318,13 @@
 
           });
           if (isCableWAN != "1")
-            parent.$('#INT_menu').attr("href","<%2903%>");
+            parent.$('#INT_menu').attr("href","<%2914%>");
         }else{
           $('#internet').click(function(ev){ 
             if (isCableWAN == "1")
               location.href = "cable_DocsisOffline.htm";
             else
-              location.href = "<%2904%>";
+              location.href = "<%2915%>";
 
             parent.$('#page').width(parseInt(page_contain_width));
             parent.$('#page').height(parseInt(page_contain_height));
@@ -322,7 +336,7 @@
 
           });
           if (isCableWAN != "1")
-            parent.$('#INT_menu').attr("href","<%2904%>");
+            parent.$('#INT_menu').attr("href","<%2915%>");
         }               
       }
                
@@ -331,9 +345,9 @@
     function setInternetState()
     {      
       if (isCableWAN == "1")
-        $('#internet_text').text("<%2906%>");
+        $('#internet_text').text("<%2917%>");
       else
-         $('#internet_text').text("<%2907%>");
+         $('#internet_text').text("<%2918%>");
 
       if((sBaseSettingLink0 != "") || (isCableWAN == "1")) {
           $('#internet').click(function(ev){ 
@@ -358,13 +372,17 @@
     }
     function setWirelessState()
     {
-      var Wireless_Security_Result = "<%1840%>";
+      var Wireless_Security_Result = "<%1838%>";
       var ap_mode_flag = document.getElementsByName("ap_mode");
       
       if(ap_mode_flag[0].value=="1")
       {
         if(isCable == "1")
         {
+            $("#wireless").prepend("<div class='warning-head'></div>");
+            $('#wlan_stat').addClass('warning-bottom');
+            $('#wlan_stat').css('height', '34px');
+        }else if (Wireless_Security_Result == "None"){
             $("#wireless").prepend("<div class='warning-head'></div>");
             $('#wlan_stat').addClass('warning-bottom');
             $('#wlan_stat').css('height', '34px');
@@ -377,7 +395,7 @@
       }
       
       $('#wireless').click(function(ev){  
-        location.href = "<%595%>";
+        location.href = "<%672%>";
         
         parent.$('#page').width(parseInt(page_contain_width));
         parent.$('#page').height(parseInt(page_contain_height));
@@ -387,13 +405,13 @@
         parent.$('.menuActive').removeClass('menuActive');
         parent.$('#basic-wls').addClass('menuActive');   
       });
-      parent.$('#WLS_menu').attr("href","<%595%>");
+      parent.$('#WLS_menu').attr("href","<%672%>");
     }
 
     function setAttachedDevicesState()
     {
         
-      var AttachedDevices_Result = "<%2908%>";
+      var AttachedDevices_Result = "<%2919%>";
       var iqos_clicked=0;                    
 
       $('#attached').click(function(ev){
@@ -409,9 +427,9 @@
         }
       });
 
-        if("<%703%>"=="1")
+        if("<%779%>"=="1")
         {
-            if("<%697%>"=="1")
+            if("<%773%>"=="1")
             {
                 if($("#attached").hasClass("icon_main basic_home_icon"))
                 {
@@ -423,21 +441,21 @@
 
     function setParentalControlsState()
     {
-      var ParentalControls_Result = <%2909%>;
+      var ParentalControls_Result = <%2920%>;
                  
-      var support = <%2910%>;
+      var support = <%2921%>;
       if(support == 0){
-        $('#ParentalControls-condition').text("<%2911%>"); 
+        $('#ParentalControls-condition').text("<%2922%>"); 
       }else{ 
         if(ParentalControls_Result == 1){
-            $('#ParentalControls-condition').text("<%2912%>");
+            $('#ParentalControls-condition').text("<%2923%>");
         }else if(ParentalControls_Result == 2){
-            $('#ParentalControls-condition').text("<%2913%>");
+            $('#ParentalControls-condition').text("<%2924%>");
         }else{
-            $('#ParentalControls-condition').text("<%2914%>");
+            $('#ParentalControls-condition').text("<%2925%>");
         }
       } 
-      if("<%622%>" != ""){
+      if("<%699%>" != ""){
         $('#parental').click(function(ev){ 
             parent.$('#PAR_menu').click();
         });
@@ -472,7 +490,7 @@
     function setGuestNetworkState()
     {
       $('#guest').click(function(ev){     
-        location.href = "<%706%>";
+        location.href = "<%782%>";
         parent.$('#page').width(parseInt(page_contain_width));
         parent.$('#page').height(parseInt(page_contain_height));
         parent.$('#page').css("margin-top","0");
@@ -481,9 +499,9 @@
         parent.$('#basic-gst').addClass('menuActive');  
       });
 
-        if("<%703%>"=="1")
+        if("<%779%>"=="1")
         {
-            if("<%697%>"=="1")
+            if("<%773%>"=="1")
             {
                 if($("#guest").hasClass("icon_main basic_home_icon"))
                 {
@@ -492,6 +510,29 @@
             }
         }
     }
+
+    function setArmorState()
+    {
+        var Armor_State = <%809%>;
+
+        if(Armor_State == 1){
+            $('#Armor-condition').text("<%2926%>");
+        }else if(Armor_State == 2){
+            $('#Armor-condition').text("<%2927%>");
+        }else{
+            $('#Armor-condition').text("<%2925%>");
+        }
+
+        $('#armor').click(function(ev){     
+                /*location.href = "<%782%>";*/
+                parent.$('#page').width(parseInt(page_contain_width));
+                parent.$('#page').height(parseInt(page_contain_height));
+                parent.$('#page').css("margin-top","0");
+                parent.$('#page').css("margin-left","30");
+                parent.$('.menuActive').removeClass('menuActive');
+                parent.$('#basic-gst').addClass('menuActive');  
+                });
+    }    
   });
   
   function marquee_board_init()
@@ -660,39 +701,47 @@
          <div class="dashboard_zone">
             <div id="internet" class="icon_main basic_home_icon">
               <div class="icon_name subtext"><span class="subtext" id="internet_text"></span></div>
-              <div id="internet_stat" class="icon_status Status-normal"><%2915%>:&nbsp;<span class='Condition-normal'><%2916%></span></div>
+              <div id="internet_stat" class="icon_status Status-normal"><%2928%>:&nbsp;<span class='Condition-normal'><%2929%></span></div>
             </div>
             <div id="wireless" class="icon_main basic_home_icon">
-              <div class="icon_name subtext"><%624%></div>
-              <div id="wlan_stat" class="icon_status Status-wireless-normal"><%2917%></div>
+              <div class="icon_name subtext"><%701%></div>
+              <div id="wlan_stat" class="icon_status Status-wireless-normal"><%2930%></div>
             </div>
 
             <div id="attached" class="icon_main basic_home_icon">
-              <div class="icon_name subtext"><%625%></div>
+              <div class="icon_name subtext"><%702%></div>
               <div id="attached_stat" class="icon_status Status-normal">
-                <span id="Satellites-status"><%2918%>:&nbsp;<span id="satellite_num" class="Condition-normal"><%2919%></span></span>
+                <span id="Satellites-status"><%2931%>:&nbsp;<span id="satellite_num" class="Condition-normal"><%2932%></span></span>
                 <br>
-                <span id="AttachedDevices-status"><%2920%>:&nbsp;<span id="dev_num" class="Condition-normal"><%2921%></span></span>
+                <span id="AttachedDevices-status"><%2933%>:&nbsp;<span id="dev_num" class="Condition-normal"><%2934%></span></span>
               </div>
             </div>
             <div id="parental" class="icon_main basic_home_icon" style="display:none">
-              <div class="icon_name subtext"><%2922%></div>
+              <div class="icon_name subtext"><%2935%></div>
               <div id="parant_control_stat" class="icon_status Status-normal">
                 
-                <span id="ParentalControls-status"><%2915%>:&nbsp;<span id="ParentalControls-condition" class="Condition-normal"></span></span>
+                <span id="ParentalControls-status"><%2928%>:&nbsp;<span id="ParentalControls-condition" class="Condition-normal"></span></span>
               </div>
             </div>
 
             <div id="guest" class="icon_main basic_home_icon">
-              <div class="icon_name subtext"><%707%></div>
-              <div id="guestNetwork_stat" class="icon_status Status-wireless-normal"><%2923%></div>
+              <div class="icon_name subtext"><%783%></div>
+              <div id="guestNetwork_stat" class="icon_status Status-wireless-normal"><%2936%></div>
             </div>
+            <%2937%>        
+            <div id="armor" class="icon_main basic_home_icon">
+              <div class="icon_name subtext"><%2938%></div>
+              <div id="armor_stat" class="icon_status Status-normal">              
+                <span id="Armor-status"><%2928%>:&nbsp;<span id="Armor-condition" class="Condition-normal"></span></span>
+              </div>
+            </div>
+            <%2939%>        
          </div>
          
          <form>
           <input type="hidden" name="curlang" value="<%9%>">  
-          <input type="hidden" name="sta_mode" value="<%698%>">  
-          <input type="hidden" name="ap_mode" value="<%697%>">  
+          <input type="hidden" name="sta_mode" value="<%774%>">  
+          <input type="hidden" name="ap_mode" value="<%773%>">  
          </form>
   </body>
  <head>

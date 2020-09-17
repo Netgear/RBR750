@@ -2,7 +2,7 @@
 <html>
 <head>
 <%11%>
-<title><%1879%></title> 
+<title><%1880%></title> 
 <link rel="stylesheet" href="<%13%>">
 <link rel="stylesheet" href="css/scrollbar.css">
 <link rel="stylesheet" href="css/button.css">
@@ -22,11 +22,11 @@ classes.num.all.fontSize = "10pt" ;
 <script language="javascript" type="text/javascript">
 <!-- hide script from old browsers
 /*var time_german =  [
-                "12:00<%555%>","00:30<%556%>","01:00<%556%>","01:30<%556%>","02:00<%556%>","02:30<%556%>","03:00<%556%>","03:30<%556%>","04:00<%556%>","04:30<%556%>",
-                "05:00<%556%>","05:30<%556%>","06:00<%556%>","06:30<%556%>","07:00<%556%>","07:30<%556%>","08:00<%556%>","08:30<%556%>","09:00<%556%>","09:30<%556%>", 
-                "10:00<%556%>","10:30<%556%>","11:00<%556%>","11:30<%556%>","12:00<%557%>","12:30<%558%>","01:00<%558%>","01:30<%558%>","02:00<%558%>","02:30<%558%>",
-                "03:00<%558%>","03:30<%558%>","04:00<%558%>","04:30<%558%>","05:00<%558%>","05:30<%558%>","06:00<%558%>","06:30<%558%>","07:00<%558%>","07:30<%558%>", 
-                "08:00<%558%>","08:30<%558%>","09:00<%558%>","09:30<%558%>","10:00<%558%>","10:30<%558%>","11:00<%558%>","11:30<%558%>"
+                "12:00<%633%>","00:30<%634%>","01:00<%634%>","01:30<%634%>","02:00<%634%>","02:30<%634%>","03:00<%634%>","03:30<%634%>","04:00<%634%>","04:30<%634%>",
+                "05:00<%634%>","05:30<%634%>","06:00<%634%>","06:30<%634%>","07:00<%634%>","07:30<%634%>","08:00<%634%>","08:30<%634%>","09:00<%634%>","09:30<%634%>", 
+                "10:00<%634%>","10:30<%634%>","11:00<%634%>","11:30<%634%>","12:00<%635%>","12:30<%636%>","01:00<%636%>","01:30<%636%>","02:00<%636%>","02:30<%636%>",
+                "03:00<%636%>","03:30<%636%>","04:00<%636%>","04:30<%636%>","05:00<%636%>","05:30<%636%>","06:00<%636%>","06:30<%636%>","07:00<%636%>","07:30<%636%>", 
+                "08:00<%636%>","08:30<%636%>","09:00<%636%>","09:30<%636%>","10:00<%636%>","10:30<%636%>","11:00<%636%>","11:30<%636%>"
             ];*/
 var time_german =  [
                 "12:00 midnight.","00:30 a.m.","01:00 a.m.","01:30 a.m.","02:00 a.m.","02:30 a.m.","03:00 a.m.","03:30 a.m.","04:00 a.m.","04:30 a.m.",
@@ -67,7 +67,7 @@ function checkData()
   }
   if(set_start_index == set_end_index )
   {
-    //alert("<%559%>");
+    //alert("<%637%>");
     alert("Start time is set equal to end time.");
     return false;
   }else if(set_start_index > set_end_index)	//Prevent the start time is set to large than the end time
@@ -158,20 +158,20 @@ function GetTime(STR, PARAM)
   {
     if (parseInt(hmArr[1]+hmArr[0], 10) == 0)
     {
-      //unit = "<%555%>";
+      //unit = "<%633%>";
       unit = "midnight.";
       hmArr[1] = '12';
     }else if (parseInt(hmArr[1]+hmArr[0], 10) == 1200 )
     {
-      //unit = "<%557%>";
+      //unit = "<%635%>";
       unit = "noon";
     }else if ((parseInt(hmArr[1]+hmArr[0], 10) > 0) && (parseInt(hmArr[1]+hmArr[0], 10) < 1200))
     {
-      //unit = "<%556%>";
+      //unit = "<%634%>";
       unit = "a.m.";
     }else
     {
-      //unit = "<%558%>";
+      //unit = "<%636%>";
       unit = "p.m.";
       hmArr[1] = ((parseInt(hmArr[1], 10) - 12) < 10) ? '0'+(parseInt(hmArr[1], 10) - 12): (parseInt(hmArr[1], 10) - 12);
     }
@@ -265,7 +265,7 @@ function changWeek(VAL)
     <form id="target"  name="frmschedules" method="POST" action="access_sche.cgi">
       <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
       <img class="subtop-image" src="<%76%>">
-      <div class="subhead2"> <%1336%></div>
+      <div class="subhead2"> <%1355%></div>
       <table border="0" style="height:370px"  class="subhead2-table">
 
         <tr align="left" valign="middle">
@@ -282,11 +282,11 @@ function changWeek(VAL)
           <table style="border-collapse:collapse;width:99%">
             <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
             <tr>
-              <td colspan="2" ><b><%1880%></b></td></tr>
+              <td colspan="2" ><b><%1881%></b></td></tr>
             </tr>
             <tr>
               <td colspan="1" width="7%">
-                <div ><%565%>:&nbsp;
+                <div ><%643%>:&nbsp;
               </td>
               <td colspan="1" >
                 <select name="start_time" id="start_time"></select>
@@ -294,20 +294,20 @@ function changWeek(VAL)
             </tr>
             <tr>
               <td colspan="1" width="7%" >
-                <div ><%566%>:&nbsp;
+                <div ><%644%>:&nbsp;
               </td>
               <td colspan="1" >
                 <select name="end_time" id="end_time"></select>
               </td>
             </tr>
             <tr>
-              <td colspan="2" ><b><%569%></b></td>
+              <td colspan="2" ><b><%647%></b></td>
             </tr>
             <tr>
-              <td colspan="2" ><input type="radio" name="selday" id="schedule_daily" value="daily" onclick="changWeek(this.value);"><%570%></td>
+              <td colspan="2" ><input type="radio" name="selday" id="schedule_daily" value="daily" onclick="changWeek(this.value);"><%648%></td>
             </tr>
             <tr>
-              <td colspan="2" ><input type="radio" name="selday" id="schedule_select" value="selday" onclick="changWeek(this.value);"><%571%></td>
+              <td colspan="2" ><input type="radio" name="selday" id="schedule_select" value="selday" onclick="changWeek(this.value);"><%649%></td>
             </tr>
 
             <tr>
@@ -315,27 +315,27 @@ function changWeek(VAL)
                 <table cellpadding="0" cellspacing="3" width="100%" id="weekly">
                   <tr>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="sun" id="cbox_sunday" value="sun"><%572%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="sun" id="cbox_sunday" value="sun"><%650%></div>
                     </td>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="mon" id="cbox_monday" value="mon"><%573%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="mon" id="cbox_monday" value="mon"><%651%></div>
                     </td>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="tue" id="cbox_tuesday" value="tue"><%574%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="tue" id="cbox_tuesday" value="tue"><%652%></div>
                     </td>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="wed" id="cbox_wednesday" value="wed"><%575%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="wed" id="cbox_wednesday" value="wed"><%653%></div>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="thu" id="cbox_thursday" value="thu"><%576%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="thu" id="cbox_thursday" value="thu"><%654%></div>
                     </td>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="fri" id="cbox_friday" value="fri"><%577%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="fri" id="cbox_friday" value="fri"><%655%></div>
                     </td>
                     <td>
-                      <div style="padding-left: 15%;"><input type="checkbox" name="sat" id="cbox_saturday" value="sat"><%578%></div>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="sat" id="cbox_saturday" value="sat"><%656%></div>
                     </td>
                   </tr>
                 </table>
@@ -354,12 +354,12 @@ function changWeek(VAL)
         <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
         <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
       </div>
-      <input name=sche_set_method type=hidden value= "<%1881%>">
+      <input name=sche_set_method type=hidden value= "<%1882%>">
       <!--
-      <input name=sche_set_tmp_start type=hidden value= "<%1882%>">
-      <input name=sche_set_tmp_end type=hidden value= "<%1883%>">
+      <input name=sche_set_tmp_start type=hidden value= "<%1883%>">
+      <input name=sche_set_tmp_end type=hidden value= "<%1884%>">
       -->
-      <input name=sche_set_tmp_rule type=hidden value= "<%1884%>">
+      <input name=sche_set_tmp_rule type=hidden value= "<%1885%>">
       <input name=start_time_default type=hidden value= "0">
       <input name=end_time_default type=hidden value= "24">
       <a name="helpframe-anchor"></a>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<link rel="stylesheet" href="form.css">
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+var delay_time = 10000;
+var t;
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            window.clearTimeout(t);
+            buttonFilter();
+        });
+
+    });
+
+
+
+function refreshPage() 
+{
+    t = window.setTimeout("window.location.href='RST_st_poe.htm'", delay_time);
+}
+
+function disableConButton()
+{
+    if(document.forms[0].pppoe_ip.value != "" && document.forms[0].pppoe_ip.value != "0.0.0.0"
+	   && document.forms[0].pppoe_ip.value != "--")
+    {
+        alert("<%1640%>");
+		return false;
+    }	
+    delay_time = 10000;
+    document.forms[0].Connect.disabled = true;
+    document.forms[0].Disconnect.disabled = true;
+<%379%>
+    if(document.forms[0].pppoe2.value == "enable")
+    {
+        document.forms[0].PPP2Connect.disabled = true;
+        document.forms[0].PPP2Disconnect.disabled = true;
+
+    }
+<%380%>
+    document.forms[0].ConMethod.value = "  Connect  ";
+    grayout_button("Connect");
+    document.forms[0].submit();    
+    
+    return true;
+}
+
+function disableDisConButton()
+{
+<%379%>
+    delay_time = 20000;
+<%380%>
+    document.forms[0].Connect.disabled = true;
+    document.forms[0].Disconnect.disabled = true;
+<%379%>
+    if(document.forms[0].pppoe2.value == "enable")
+    {
+        document.forms[0].PPP2Connect.disabled = true;
+        document.forms[0].PPP2Disconnect.disabled = true;
+
+    }
+<%380%>
+    document.forms[0].ConMethod.value = "Disconnect";
+
+    document.forms[0].submit();     
+    
+    return true;
+}
+<%379%>
+function disablePPP2ConButton()
+{
+    delay_time = 10000;
+    document.forms[0].Connect.disabled = true;
+    document.forms[0].Disconnect.disabled = true;
+    document.forms[0].PPP2Connect.disabled = true;
+    document.forms[0].PPP2Disconnect.disabled = true;
+    document.forms[0].ConMethod.value = "Connect2";
+    document.forms[0].submit();     
+    return true;
+}
+function disablePPP2DisConButton()
+{
+    delay_time = 20000;
+    document.forms[0].Connect.disabled = true;
+    document.forms[0].Disconnect.disabled = true;
+    document.forms[0].PPP2Connect.disabled = true;
+    document.forms[0].PPP2Disconnect.disabled = true;
+    document.forms[0].ConMethod.value = "Disconnect2";
+    document.forms[0].submit();    
+    return true; 
+}
+<%380%>
+function refreshparentpage()
+{
+    parent.window.opener.location.href="<%1454%>";
+    return true;
+}
+
+//-->
+</script>
+</head>
+<body  onLoad="refreshPage()" style="margin:0px;background-color:#e5e5e5">
+<form id="target"  name="poe_st" method="post" action="st_poe.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+
+<TABLE border=0 width="100%">
+
+ 
+ <TR>
+ <TD colspan="2" align="left" nowrap><h1><%1128%> </h1></TD>
+ </TR>
+ 
+</TABLE>
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+
+<tr> 
+ <td height="12"><hr class='blueBar'></td>
+</tr>
+</table>
+
+<%1641%>	
+<tr>
+ <td><b><%547%></b></td>
+</tr>
+<%1642%>	
+
+<table width="100%" border=1 cellspacing=1 cellpadding=4>
+<tr>
+	<TD NOWRAP width="50%"><B><%866%></B></td>
+	<TD NOWRAP width="50%"><%1643%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%1128%></B></td>
+	<TD NOWRAP><%1644%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%870%></B></td>
+	<TD NOWRAP><%1645%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%872%></B></td>
+	<TD NOWRAP><%1646%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%602%></B></td>
+	<TD NOWRAP><%1647%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%423%></B></td>
+        <TD NOWRAP><%1648%></td>
+</tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+ <TR>
+ <TD align="center" nowrap>
+<BR>
+&nbsp;&nbsp;&nbsp;
+<%1294%>
+<button type="submit" value="<%1649%>" name="Connect" id="Connect" class="<%1650%>" onClick="buttonClick(this,'<%1649%>');return disableConButton()" <%1639%>><span class="<%1651%>">&nbsp;&nbsp; <%1649%></span><span class="<%1652%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<%1295%>
+<%1296%>
+<button type="submit" value="<%1649%>" name="Connect" id="Connect" class="button-rule" onClick="buttonClick(this,'<%1649%>');return disableConButton()" disabled ><span class="roundleft_grey">&nbsp;&nbsp; <%1649%></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<%1297%>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%1653%>" name="Disconnect" class="button-rule" onClick="buttonClick(this,'<%1653%>');alert('<%1654%>'); return disableDisConButton()"><span class="roundleft_button">&nbsp;&nbsp; <%1653%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD>
+</TR>
+
+</TABLE>
+
+<%1641%>	
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+<tr>
+ <td height="12"><hr class='blueBar'></td>
+</tr>
+</table>
+
+<tr>
+ <td><b><%1655%></b></td>
+</tr>
+
+<table width="100%" border=1 cellspacing=1 cellpadding=4>
+<tr>
+	<TD NOWRAP width="50%"><B><%866%></B></td>
+	<TD NOWRAP width="50%"><%1656%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%1128%></B></td>
+	<TD NOWRAP><%1657%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%870%></B></td>
+	<TD NOWRAP><%1658%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%872%></B></td>
+	<TD NOWRAP><%1659%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%874%></B></td>
+	<TD NOWRAP><%1660%></td>
+</tr>
+<tr>
+	<TD NOWRAP><B><%423%></B></td>
+        <TD NOWRAP><%1661%></td>
+</tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+ <TR>
+ <TD align="center" nowrap>
+<BR>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%1649%>" name="PPP2Connect" class="<%1650%>" onclick="buttonClick(this,'<%1649%>');return disablePPP2ConButton()" <%1639%>><span class="<%1651%>">&nbsp;&nbsp; <%1649%></span><span class="<%1652%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%1653%>" name="PPP2Disconnect" class="button-rule" onClick="buttonClick(this,'<%1653%>');alert('<%1654%>'); return disablePPP2DisConButton()"><span class="roundleft_button">&nbsp;&nbsp; <%1653%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD>
+</TR>
+</table>
+<%1642%>	
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+<tr><td height="12"><hr class='blueBar'></td></tr>
+<TR><TD align="center">&nbsp;&nbsp;&nbsp;<button type=button value="<%863%>" name="close" class="button-rule" onclick="buttonClick(this,'<%863%>'); window.close();"><span class="roundleft_button">&nbsp;&nbsp; <%863%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD></TR>
+</TABLE>
+<input type="hidden" name="ConMethod" value="Disconnect">
+<input type="hidden" name="pppoe2" value="<%1662%><%1663%>">
+<input type="hidden" name="pppoe_ip" value="<%1647%>">
+
+</form>
+
+</body>
+</html>

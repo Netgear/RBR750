@@ -1,0 +1,1145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+
+<style type="text/css">  
+#wifi_2g_sche_div3 table tr td:not(:first-child){
+  cursor:pointer;
+}
+#wifi_5g_sche_div3 table tr td:not(:first-child){
+  cursor:pointer;
+}
+#wifi_2g_sche_div3_2 table tr td:not(:first-child){
+  cursor:pointer;
+}
+#wifi_5g_sche_div3_2 table tr td:not(:first-child){
+  cursor:pointer;
+}
+</style>
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+
+var DisableFixedIP = false;
+var DisableFixedDNS = false;
+
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+        
+        ruleScheduleBehavior("wifi_2g_sche_div3", "ruleSelect_2g", "select_2g_sche", "edit_sche_2g", "del_sche_2g");
+        ruleScheduleBehavior("wifi_5g_sche_div3", "ruleSelect_5g", "select_5g_sche", "edit_sche_5g", "del_sche_5g");
+        //ruleScheduleBehavior("wifi_2g_sche_div3_2", "ruleSelect_2g_2", "select_2g_sche_2", "edit_sche_2g_2", "del_sche_2g_2");
+        //ruleScheduleBehavior("wifi_5g_sche_div3_2", "ruleSelect_5g_2", "select_5g_sche_2", "edit_sche_5g_2", "del_sche_5g_2");
+        //hidden wifi guest schedule
+        //$('#wifi_2g_sche_div1_2').hide();
+        //$('#wifi_2g_sche_div2_2').hide();
+        //$('#wifi_2g_sche_div3_2').hide();
+        //$('#wifi_2g_sche_div4_2').hide();
+        //$('#wifi_5g_sche_div1_2').hide();
+        //$('#wifi_5g_sche_div2_2').hide();
+        //$('#wifi_5g_sche_div3_2').hide();
+        //$('#wifi_5g_sche_div4_2').hide();
+        //hidden all wifi schedule
+        $('div[id*="wifi_2g_sche_div"]').hide();
+        $('div[id*="wifi_5g_sche_div"]').hide();
+    });
+  
+    function ruleScheduleBehavior(sDIV, sInputCheckbox, sInputCurrent, sEditBtn, sDelBtn)
+    {
+      $("#"+sDIV+" table tr td:not(:first-child)").click(function(){
+        var trIdx = $("#"+sDIV+" table tr").index($(this).parent("tr"));
+        $("input[name="+sInputCheckbox+"]").each(function(){
+          if($(this).val() == trIdx)
+            $(this).attr("checked",true);
+        });
+        $("button[name="+sEditBtn+"]").click();
+      });
+      if($("input[name="+sInputCurrent+"]").val() != "")
+      {
+        var idx=parseInt($("input[name="+sInputCurrent+"]").val());
+        idx = idx -1;
+        if(idx > -1)
+          $("input[name="+sInputCheckbox+"]:eq("+idx+")").attr("checked",true);
+      }
+      if($("input[name="+sInputCheckbox+"]").length == 0)
+      {
+        $("button[name="+sEditBtn+"]").hide();
+        $("button[name="+sDelBtn+"]").hide();
+      }
+    }
+
+function toggleDisabled(el) 
+{
+    try 
+    {
+        el.disabled = true;
+    }
+    catch(E){}
+    if (el.childNodes && el.childNodes.length > 0) 
+    {
+        for (var x = 0; x < el.childNodes.length; x++) 
+        {
+            toggleDisabled(el.childNodes[x]);
+        }
+    }
+}
+function toggleEnabled(el) 
+{
+    try 
+    {
+        el.disabled = false;
+    }
+    catch(E){}
+    if (el.childNodes && el.childNodes.length > 0) 
+    {
+        for (var x = 0; x < el.childNodes.length; x++) 
+        {
+            toggleEnabled(el.childNodes[x]);
+        }
+    }
+}
+
+function checkData()
+{
+/*
+	var cf = document.forms[0];
+	var msg = "";
+	var frag = parseInt(cf.frag.value,10);
+        
+	if ((!_isNumeric(cf.frag.value)) || isNaN(frag) || frag > 2346 || frag < 256) {
+		alert("<%3383%>");
+		return false;
+	}
+	else
+		cf.frag.value = parseInt(cf.frag.value,10);
+    */    
+    var rts_2g = parseInt($("input[name=set_rts_2g]").val(),10);
+    var rts_5g = parseInt($("input[name=set_rts_5g]").val(),10);
+        
+	if ((!_isNumeric($("input[name=set_rts_2g]").val())) || isNaN(rts_2g) || rts_2g > 2347 || rts_2g < 1) {
+		alert("<%3384%>");
+		return false;
+	}
+	else
+		$("input[name=set_rts_2g]").val(rts_2g);
+        
+    if ((!_isNumeric($("input[name=set_rts_5g]").val())) || isNaN(rts_5g) || rts_5g > 2347 || rts_5g < 1) {
+		alert("<%3384%>");
+		return false;
+	}
+	else
+		$("input[name=set_rts_5g]").val(rts_5g);    
+        /*
+	if (cf.wifi_onoff.checked == true)
+	    cf.wifi_2g_sche_onoff.value = "1";
+	else
+	    cf.wifi_2g_sche_onoff.value = "0";
+
+        if (cf.enable_ap_mode.checked == true)
+        {
+            var ap_ipaddr = (cf.WPethr1.value << 24) | (cf.WPethr2.value << 16) | (cf.WPethr3.value << 8)| (cf.WPethr4.value);
+	    var ap_netmask = (cf.WMask1.value<< 24) | (cf.WMask2.value<< 16) | (cf.WMask3.value<< 8)| (cf.WMask4.value);
+        */
+
+        /*
+        if (cf.device_name.value == "")
+		msg+= "<%1044%>\n";
+
+    	if (cf.device_name.value.match( /[^\x20-\x7E]/ ))
+    	{
+    		cf.device_name.focus();
+    		msg+= "<%1045%>\n";
+    	}
+        */
+
+        /*
+    	if(!cf.APIpAssign.checked)
+    	{
+    		if(checkIP(cf.WPethr1,cf.WPethr2,cf.WPethr3,cf.WPethr4,255)
+    		    ||checkIPMatchWithNetmask(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,cf.WPethr1,cf.WPethr2,cf.WPethr3,cf.WPethr4))
+    			msg+= "<%10%>";
+    		else
+    		{
+    			cf.WPethr1.value = parseInt(cf.WPethr1.value,10);
+    			cf.WPethr2.value = parseInt(cf.WPethr2.value,10);
+    			cf.WPethr3.value = parseInt(cf.WPethr3.value,10);
+    			cf.WPethr4.value = parseInt(cf.WPethr4.value,10);
+    		}
+    		if(checkIP(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,255))
+    			msg+= "<%411%>";
+    		else
+    		{
+    			cf.WMask1.value = parseInt(cf.WMask1.value,10);
+    			cf.WMask2.value = parseInt(cf.WMask2.value,10);
+    			cf.WMask3.value = parseInt(cf.WMask3.value,10);
+    			cf.WMask4.value = parseInt(cf.WMask4.value,10);
+    		}
+    		if(checkIP(cf.WGateway1,cf.WGateway2,cf.WGateway3,cf.WGateway4,255)
+    		    ||checkIPMatchWithNetmask(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,cf.WGateway1,cf.WGateway2,cf.WGateway3,cf.WGateway4))
+    			msg+= "<%413%>";
+    		else
+    		{
+    			cf.WGateway1.value = parseInt(cf.WGateway1.value,10);
+    			cf.WGateway2.value = parseInt(cf.WGateway2.value,10);
+    			cf.WGateway3.value = parseInt(cf.WGateway3.value,10);
+    			cf.WGateway4.value = parseInt(cf.WGateway4.value,10);
+    		}
+    
+    		var ap_gateway = (cf.WGateway1.value<< 24) | (cf.WGateway2.value<< 16) | (cf.WGateway3.value<< 8)| (cf.WGateway4.value);
+    		var tmpip = cf.WPethr1.value+'.'+cf.WPethr2.value+'.'+cf.WPethr3.value+'.'+cf.WPethr4.value;
+    		var tmpgwip = cf.WGateway1.value+'.'+cf.WGateway2.value+'.'+cf.WGateway3.value+'.'+cf.WGateway4.value;
+    		if((ap_ipaddr&ap_netmask) != (ap_gateway&ap_netmask))
+    		{
+    			alert("<%414%>" + tmpip + "<%415%>" + tmpgwip);
+    			return false;
+    		}
+    	}
+    	if(!cf.APDnsAssign.checked)
+    	{
+    		if(checkIP(cf.DAddr1,cf.DAddr2,cf.DAddr3,cf.DAddr4,254)||(parseInt(cf.DAddr4.value,10)==0))
+    			msg+= "<%377%>";
+    		else
+    		{
+    			cf.DAddr1.value = parseInt(cf.DAddr1.value,10);
+    			cf.DAddr2.value = parseInt(cf.DAddr2.value,10);
+    			cf.DAddr3.value = parseInt(cf.DAddr3.value,10);
+    			cf.DAddr4.value = parseInt(cf.DAddr4.value,10);
+    		}
+    		if(cf.PDAddr1.value.length>0 || cf.PDAddr2.value.length>0 || cf.PDAddr3.value.length>0 || cf.PDAddr4.value.length>0)
+    		{
+    			if(checkIP(cf.PDAddr1,cf.PDAddr2,cf.PDAddr3,cf.PDAddr4,254)||(parseInt(cf.PDAddr4.value,10)==0))
+    				msg+= "<%378%>";
+    			else
+    			{
+    				cf.PDAddr1.value = parseInt(cf.PDAddr1.value,10);
+    				cf.PDAddr2.value = parseInt(cf.PDAddr2.value,10);
+    				cf.PDAddr3.value = parseInt(cf.PDAddr3.value,10);
+    				cf.PDAddr4.value = parseInt(cf.PDAddr4.value,10);
+    			}
+    		}
+    	}
+    	ap_mode_grayout();
+    	
+    	cf.apmode_ipaddr.value = cf.WPethr1.value+'.'+cf.WPethr2.value+'.'+cf.WPethr3.value+'.'+cf.WPethr4.value;
+    	cf.apmode_netmask.value = cf.WMask1.value+'.'+cf.WMask2.value+'.'+cf.WMask3.value+'.'+cf.WMask4.value;
+    	cf.apmode_gateway.value = cf.WGateway1.value+'.'+cf.WGateway2.value+'.'+cf.WGateway3.value+'.'+cf.WGateway4.value;
+    	cf.apmode_dns1_pri.value = cf.DAddr1.value+'.'+cf.DAddr2.value+'.'+cf.DAddr3.value+'.'+cf.DAddr4.value;
+    	cf.apmode_dns1_sec.value = cf.PDAddr1.value+'.'+cf.PDAddr2.value+'.'+cf.PDAddr3.value+'.'+cf.PDAddr4.value;
+        
+        if(<%773%>=="0")
+            alert("<%1375%>");
+	}
+	else
+	{
+        ap_mode_ungrayout(); 
+        
+        if(<%773%>=="1")
+            alert("<%1375%>");        
+	}
+	if (msg.length > 1)
+	{
+		alert(msg);
+		return false;
+	}
+    */
+
+
+	var cf = document.forms[0];
+    var index = cf.WRegion.selectedIndex;
+
+    if(cf.WRegion[index].value == "Africa")
+    {
+        cf.WRegion[index].value = "1";
+
+    }
+    else if(cf.WRegion[index].value == "Asia")
+    {
+        cf.WRegion[index].value = "2";
+    }
+    else if(cf.WRegion[index].value == "Australia")
+    {
+        cf.WRegion[index].value = "3";
+    }
+    else if(cf.WRegion[index].value == "Canada")
+    {
+        cf.WRegion[index].value = "4";
+    }
+    else if(cf.WRegion[index].value == "China")
+    {
+        cf.WRegion[index].value = "16";
+    }
+    else if(cf.WRegion[index].value == "Europe")
+    {
+        cf.WRegion[index].value = "5";
+    }
+    else if(cf.WRegion[index].value == "India")
+    {
+        cf.WRegion[index].value = "17";
+    }
+    else if(cf.WRegion[index].value == "Israel")
+    {
+        cf.WRegion[index].value = "6";
+    }
+    else if(cf.WRegion[index].value == "Japan")
+    {
+        cf.WRegion[index].value = "7";
+    }
+    else if(cf.WRegion[index].value == "Korea")
+    {
+        cf.WRegion[index].value = "8";
+    }
+    else if(cf.WRegion[index].value == "Malaysia")
+    {
+        cf.WRegion[index].value = "18";
+    }
+    else if(cf.WRegion[index].value == "Mexico")
+    {
+        cf.WRegion[index].value = "9";
+    }
+    else if(cf.WRegion[index].value == "Algeria")
+    {
+        cf.WRegion[index].value = "12";
+    }
+    else if(cf.WRegion[index].value == "Iran")
+    {
+        cf.WRegion[index].value = "19";
+    }
+    else if(cf.WRegion[index].value == "Egypt")
+    {
+        cf.WRegion[index].value = "20";
+    }
+    else if(cf.WRegion[index].value == "Turkey")
+    {
+        cf.WRegion[index].value = "21";
+    }
+    else if(cf.WRegion[index].value == "Saudi")
+    {
+        cf.WRegion[index].value = "22";
+    }
+    else if(cf.WRegion[index].value == "Russia")
+    {
+        cf.WRegion[index].value = "14";
+    }
+    else if(cf.WRegion[index].value == "Singapore")
+    {
+        cf.WRegion[index].value = "23";
+    }
+    else if(cf.WRegion[index].value == "South America")
+    {
+        cf.WRegion[index].value = "10";
+    }
+    else if(cf.WRegion[index].value == "Taiwan")
+    {
+        cf.WRegion[index].value = "24";
+    }
+    else if(cf.WRegion[index].value == "Hong Kong")
+    {
+        cf.WRegion[index].value = "25";
+    }
+    else if(cf.WRegion[index].value == "Vietnam")
+    {
+        cf.WRegion[index].value = "26";
+    }
+    else if(cf.WRegion[index].value == "United States")
+    {
+        cf.WRegion[index].value = "11";
+    }
+
+	return true;
+}
+/*
+function chgSel_2g(index)
+{
+    document.forms[0].select_2g_sche.value = index;
+    return true;
+}
+
+function chgSel_5g(index)
+{
+    document.forms[0].select_2g_sche.value = index;
+    return true;
+}
+*/
+function loadSettings()
+{
+    var cf = document.forms[0];
+    var preamble = "<%3385%>";
+    var tpc = "<%294%>";
+    var daisy = "<%3386%>";
+
+    if (preamble == "auto")
+        cf.set_preamble_2g.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_2g.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_2g.selectedIndex = 2;
+
+    if (tpc == "100")
+        cf.set_tpc_2g.selectedIndex = 0;
+    else if (tpc == "50")
+        cf.set_tpc_2g.selectedIndex = 1;
+    else if (tpc == "25")
+        cf.set_tpc_2g.selectedIndex = 2;
+
+    preamble = "<%3387%>";
+    tpc = "<%3388%>";
+
+    if (preamble == "auto")
+        cf.set_preamble_5g.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_5g.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_5g.selectedIndex = 2;
+
+    if (tpc == "100")
+        cf.set_tpc_5g.selectedIndex = 0;
+    else if (tpc == "50")
+        cf.set_tpc_5g.selectedIndex = 1;
+    else if (tpc == "25")
+        cf.set_tpc_5g.selectedIndex = 2;
+
+    if(daisy=="1")
+        cf.daisy_chain.checked = true;
+    else
+        cf.daisy_chain.checked = false;                                                                                                                 
+
+    <%3389%>
+        preamble = "<%3390%>";
+    if (preamble == "auto")
+        cf.set_preamble_5g_fh.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_5g_fh.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_5g_fh.selectedIndex = 2;
+    <%3391%>
+        /*
+           if (cf.wps_enable.value == "disabled")
+           {
+           cf.pin_disable.disabled = true;
+           cf.wsc_config.disabled = true;
+           }
+           var apmode_ipaddr = cf.apmode_ipaddr.value.split(".");
+           var apmode_netmask = cf.apmode_netmask.value.split(".");
+           var apmode_gateway = cf.apmode_gateway.value.split(".");
+           var apmode_dns1_pri = cf.apmode_dns1_pri.value.split(".");
+           var apmode_dns1_sec = cf.apmode_dns1_sec.value.split(".");
+
+           display_apmode();	
+           setIP();
+           cf.WPethr1.value = apmode_ipaddr[0];
+           cf.WPethr2.value = apmode_ipaddr[1];
+           cf.WPethr3.value = apmode_ipaddr[2];
+           cf.WPethr4.value = apmode_ipaddr[3];
+           cf.WMask1.value = apmode_netmask[0];
+           cf.WMask2.value = apmode_netmask[1];
+           cf.WMask3.value = apmode_netmask[2];
+           cf.WMask4.value = apmode_netmask[3];
+           cf.WGateway1.value = apmode_gateway[0];
+           cf.WGateway2.value = apmode_gateway[1];
+           cf.WGateway3.value = apmode_gateway[2];
+           cf.WGateway4.value = apmode_gateway[3];
+
+           setDNS();
+           if (cf.apmode_dns1_pri.value != "")
+           {
+           cf.DAddr1.value = apmode_dns1_pri[0];
+           cf.DAddr2.value = apmode_dns1_pri[1];
+           cf.DAddr3.value = apmode_dns1_pri[2];
+           cf.DAddr4.value = apmode_dns1_pri[3];
+           }
+           if (cf.apmode_dns1_sec.value != "")
+           {
+           cf.PDAddr1.value = apmode_dns1_sec[0];
+           cf.PDAddr2.value = apmode_dns1_sec[1];
+           cf.PDAddr3.value = apmode_dns1_sec[2];
+           cf.PDAddr4.value = apmode_dns1_sec[3];
+           }
+         */
+}
+
+
+function check_wifi_sche()
+{
+  if($("input[name=ntp_synced_flag]").val() == 0)
+  {                                       
+    $('div[id*="wifi_2g_sche_div"]').hide();
+    $('div[id*="wifi_5g_sche_div"]').hide();
+  } 
+  
+  /*
+    var cf = document.forms[0];
+    if (cf.ntp_synced_flag.value == 1 && cf.enable_ap.checked == true)
+    {
+    
+        var enableButton1;
+        var enableButton2;
+        var enableButton3;            
+            
+        toggleEnabled(document.getElementById("wifi_sche_div1"));
+    	toggleEnabled(document.getElementById("wifi_sche_div2"));
+    	toggleEnabled(document.getElementById("wifi_sche_div3"));
+        
+        enableButton1=document.getElementsByName("add_sche");
+        enableButton2=document.getElementsByName("edit_sche");
+        enableButton3=document.getElementsByName("del_sche");
+        
+        enableButton1[0].outerHTML='<button type="submit" value="<%1081%>" name="add_sche" class="button-rule" onclick="buttonClick(this,\'<%1081%>\');" ><span class="roundleft_button"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1081%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        enableButton2[0].outerHTML='<button type="submit" value="<%881%>" name="edit_sche" class="button-rule" onclick="buttonClick(this,\'<%881%>\');" ><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%881%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        enableButton3[0].outerHTML='<button type="submit" value="<%927%>" name="del_sche" class="button-rule" onclick="buttonClick(this,\'<%927%>\');" ><span class="roundleft_button"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%927%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+                 
+        enableButton1[0].style.cursor='default';        
+        enableButton2[0].style.cursor='default';         
+        enableButton3[0].style.cursor='default';   
+    }
+    else
+    {
+        var cf=document.forms[0];
+        var diableButton1;
+        var diableButton2;
+        var diableButton3;
+                
+    	toggleDisabled(document.getElementById("wifi_sche_div1"));
+    	toggleDisabled(document.getElementById("wifi_sche_div2"));
+    	toggleDisabled(document.getElementById("wifi_sche_div3"));
+        
+        diableButton1=document.getElementsByName("add_sche");
+        diableButton2=document.getElementsByName("edit_sche");
+        diableButton3=document.getElementsByName("del_sche");
+        
+        diableButton1[0].outerHTML='<button type="submit" value="<%1081%>" name="add_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1081%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        diableButton2[0].outerHTML='<button type="submit" value="<%881%>" name="edit_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%881%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        diableButton3[0].outerHTML='<button type="submit" value="<%927%>" name="del_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%927%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+                 
+        diableButton1[0].style.cursor='default';        
+        diableButton2[0].style.cursor='default';         
+        diableButton3[0].style.cursor='default';                  
+    }
+    */
+}
+function showWpsAlert()
+{
+    var cf = document.forms[0];
+    if(cf.show_wps_alert.value == "1")
+        alert("<%66%>");
+}
+
+function display_apmode()
+{
+    var cf = document.forms[0];
+    if (cf.enable_ap_mode.checked == true)
+    {
+        document.getElementById("apmode_display").style.display="block";
+    }
+    else
+    {
+        document.getElementById("apmode_display").style.display="none";
+    }
+}
+function setIP()
+{
+	var cf = document.forms[0];
+	var dflag = cf.APIpAssign.checked;
+	setDisabled(dflag,cf.WPethr1,cf.WPethr2,cf.WPethr3,cf.WPethr4,cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,cf.WGateway1,cf.WGateway2,cf.WGateway3,cf.WGateway4);
+	if (!cf.APIpAssign.checked)
+	{
+	    cf.APDnsAssign.checked = false;
+	    setDNS();
+	}
+	DisableFixedIP = dflag;
+}
+function setDNS()
+{
+	var cf = document.forms[0];
+	var dflag = cf.APDnsAssign.checked;
+	if (!cf.APIpAssign.checked && cf.APDnsAssign.checked)
+	{
+		cf.APDnsAssign.checked = false;
+		dflag = false;
+	}
+	setDisabled(dflag,cf.DAddr1,cf.DAddr2,cf.DAddr3,cf.DAddr4,cf.PDAddr1,cf.PDAddr2,cf.PDAddr3,cf.PDAddr4);
+	DisableFixedDNS = dflag;
+}
+function showWpsAlert()
+{
+    var cf = document.forms[0];
+    if(cf.show_wps_alert.value == "1")
+        alert("<%66%>");
+}
+
+function check_daisy_chain()
+{   
+    var cf = document.forms[0];          
+    var daisy = "<%3386%>";
+    if(!confirm("Enabling or disabling this feature causes all your Orbi to reboot."))
+    {
+        if(daisy=="1")
+            cf.daisy_chain.checked = true;
+        else
+            cf.daisy_chain.checked = false;
+
+        return false;
+    }
+    else
+    {
+        if(cf.daisy_chain.checked == true)
+            cf.hid_daisy_chain.value = "1";
+        else
+            cf.hid_daisy_chain.value = "0";
+
+        cf.buttonHit.value="daisy_chain";
+        cf.submit();
+    }
+}                                                     
+
+</script>
+</head>
+<body  onload="change_size();loadSettings();check_wifi_sche();showWpsAlert();" class="page-body" onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+<form id="target" name="formname" method="POST" action="wlg_adv.cgi">
+<input type="hidden" name="buttonHit">
+<input type="hidden" name="hid_daisy_chain">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"><%1853%></div>
+<table border="0" style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+  <td align="center" colspan="2" class="table-seperate-border">
+    <button class="button-cancel" type="reset" name="Cancel" id="cancel" value="<%83%>" onClick="location.href='WLG_adv_qca.htm';reset();loadSettings();"><%83%></button>
+    <button class="button-apply2" type="submit" name="Apply" id="apply" value="<%78%>" onClick="return checkData();" ><%78%></button>
+  </td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+<!-- 2.4GHz -->
+<tr>
+  <td colspan="2" height="12" ><hr class='blueBar'></td>
+</tr>
+
+<tr>
+  <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'Region')"><b><%85%></b></a></td>
+</tr>
+
+    <tr>
+    <td nowrap><%89%>:</td>
+
+	<%90%>
+	<td>
+	<select id="region_select" nowrap="nowrap" name="WRegion" size="1">
+		<option <%91%> value="0" disabled="1" >--- <%92%> ---</option>
+		<option <%93%> value="Africa"><%94%></option>
+		<option <%95%> value="Asia"><%96%></option>
+		<option <%97%> value="Australia"><%98%></option>
+		<option <%99%> value="Canada"><%100%></option>
+		<option <%101%> value="China"><%102%></option>
+		<option <%103%> value="Europe"><%104%></option>
+		<option <%105%> value="India"><%106%></option>
+		<option <%107%> value="Israel"><%108%></option>
+		<option <%109%> value="Japan"><%110%></option>
+		<option <%111%> value="Korea"><%112%></option>
+		<option <%113%> value="Malaysia"><%114%></option>
+		<option <%115%> value="Mexico"><%116%></option>
+		<option <%117%> value="Algeria"><%118%></option>
+		<option <%119%> value="Iran"><%120%></option>
+		<option <%121%> value="Egypt"><%122%></option>
+		<option <%123%> value="Turkey"><%124%></option>
+		<option <%125%> value="Saudi"><%126%></option>
+		<option id="ru_ww" <%127%> value="Russia"><%128%></option>
+		<option <%129%> value="Singapore"><%130%></option>
+		<option <%131%> value="South America"><%132%></option>
+		<option <%133%> value="Taiwan"><%134%></option>
+		<option <%135%> value="United States"><%136%></option>
+		<option <%3392%> value="Hong Kong"><%3393%></option>
+		<option <%3394%> value="Vietnam"><%3395%></option>
+	</select></td>
+    <%137%>
+
+    <%86%>
+    <td>
+	<select id="region_select" name="WRegion" size="1" disabled >
+		<option value="0">--- <%92%> ---</option>
+		<option value="1"><%94%></option> 
+		<option value="2"><%96%></option> 
+		<option value="3"><%98%></option>
+		<option value="10"><%132%></option>   
+		<option value="5"><%104%></option> 
+		<option value="6"><%108%></option> 
+		<option value="9"><%116%></option> 
+		<option value="8"><%112%></option> 
+		<option selected value="7"><%110%></option> 
+		<option value="12"><%138%></option>
+                <option id="ru_jp" value="14"><%128%></option>       
+		<option value="11"><%139%></option>
+	</select></td>
+    <input type="hidden" name="WRegion" value="7" />
+    <%88%>
+
+	<%3396%>
+    <td>
+
+	<select id="region_select" name="WRegion" size="1" disabled >
+		<option value="0">--- <%92%> ---</option>
+		<option value="1"><%94%></option> 
+		<option value="2"><%96%></option> 
+		<option value="3"><%98%></option>
+		<option <%99%> value="4"><%100%></option>
+		<option value="5"><%104%></option> 
+		<option value="6"><%108%></option> 
+		<option value="7"><%110%></option> 
+		<option value="8"><%112%></option> 
+		<option value="9"><%116%></option> 
+		<option value="12"><%138%></option>
+		<option value="10"><%132%></option>
+                <option id="ru_na" value="14"><%128%></option>
+		<option <%135%> value="11"><%136%></option>
+		<option <%101%> value="16"><%102%></option>
+    </select></td>
+    <input type="hidden" name="WRegion" value= "<%20%>">
+    <%3397%>
+	</tr>
+
+<tr>
+  <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1853%> (2.4GHz b/g/n/ax)</b></a></td>
+</tr>
+<!-- Following the Netgear Spec remove the ssid broadcast option -->
+<tr style="display: none;">
+  <td colspan="2">
+    <input type="checkbox" name="enable_bc_2g" id="enable_ssid_bc" value="ssid_24G_bc" <%3398%>><%157%>
+  </td>
+</tr>
+<!-- Following the Netgear Spec remove the ssid broadcast option -->
+<!--
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="enable_radio_2g" id="enable_ap" value="Enable"<%3399%>><%3400%>
+  </td>
+</tr>
+-->
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="enable_coexist_2g" id="enable_coexistence" value="1" <%3401%>><%159%>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="wmm_enable_2g" id="wmm_enable" value="1" <%3402%>><%2181%>
+  </td>
+</tr>
+<tr>
+  <td align="left"><%3403%>:&nbsp;&nbsp;</td>
+  <td align="left">
+    <input TYPE="text" NAME="set_rts_2g" id="rts" size=5 maxlength=4 value="<%3404%>">
+  </td>
+</tr>
+
+<tr>
+  <td align="left"><%3405%></td>
+  <td align="left">
+    <select name="set_preamble_2g" id="enable_short_preamble">
+      <!--
+      <option value="auto"><%180%></option>
+      <option value="long"><%3406%></option>
+      <option value="short"><%3407%></option>
+      -->
+      <option value="automatic"><%180%></option>
+      <option value="Long Preamble"><%3406%></option>
+      <option value="Short Preamble"><%3407%></option>
+    </select>
+  </td>
+</tr>
+
+<tr>
+  <td align="left"><%166%></td>
+  <td align="left">
+      <select name="set_tpc_2g" id="tx_power_ctrl">
+        <option value="100">100%</option>
+        <option value="50">50%</option>
+        <option value="25">25%</option>
+      </select>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_2g_sche_div1">
+      <input type="checkbox" name="wifi_off_2g" id="wifi_sche_div1" value="wifi_onoff" <%3408%>><%1348%>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" >
+    <div id="wifi_2g_sche_div2">
+      <b><%3409%></b>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_2g_sche_div3">
+      <table id="schedule_bgn_table" border="1" cellpadding="2" cellspacing="0" width="100%">
+        <tr>
+          <th width="10%" align="left"><span class="thead"><b><%1080%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%643%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%644%></b></th>
+          <th width="50%" align="left"><span class="thead"><b><%647%></b></th>
+        </tr>
+        <%3410%>
+      </table>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" align="center">
+    <div id="wifi_2g_sche_div4">
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g" id="add_sche" class="button-common" onclick="buttonClick(this,'<%926%>');" ><%926%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%881%>" name="edit_sche_2g" id="edit_sche" class="button-common" onclick="buttonClick(this,'<%881%>');" ><%881%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%927%>" name="del_sche_2g" id="del_sche" class="button-common" onclick="buttonClick(this,'<%927%>');" ><%927%></button>
+    </div>
+  </td>
+</tr>
+<!-- 2.4G Guest -->
+<tr>
+  <td colspan="2">
+    <div id="wifi_2g_sche_div1_2">
+      <input type="checkbox" name="wifi_off_2g_2" value="wifi_onoff" <%3411%>><%3412%>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" >
+    <div id="wifi_2g_sche_div2_2">
+      <b><%3413%></b>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_2g_sche_div3_2">
+      <table border="1" cellpadding="2" cellspacing="0" width="100%">
+        <tr>
+          <th width="10%" align="left"><span class="thead"><b><%1080%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%643%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%644%></b></th>
+          <th width="50%" align="left"><span class="thead"><b><%647%></b></th>
+        </tr>
+        <%3414%>
+      </table>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" align="center">
+    <div id="wifi_2g_sche_div4_2">
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%926%>');" ><%926%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%881%>" name="edit_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%881%>');" ><%881%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%927%>" name="del_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%927%>');" ><%927%></button>
+    </div>
+  </td>
+</tr>
+
+<!-- 5GHz -->
+<tr>
+  <td colspan="2" height="12" ><hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1853%> (5GHz 802.11a/n/ac/ax)</b></a></td>
+</tr>
+
+<!-- Following the Netgear Spec remove the ssid broadcast option -->
+<tr style="display: none;">
+  <td colspan="2">
+    <input type="checkbox" name="enable_bc_5g" id="ssid_bc_an" value="ssid_5G_bc" <%3415%>><%157%>
+  </td>
+</tr>
+<!-- Following the Netgear Spec remove the ssid broadcast option -->
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="wmm_enable_5g" id="wmm_enable_a" value="1" <%3416%>><%2182%>
+  </td>
+</tr>
+<tr>
+  <td align="left"><%3403%>:&nbsp;&nbsp;</td>
+  <td align="left">
+    <input TYPE="text" NAME="set_rts_5g" id="rts_an" size=5 maxlength=4 value="<%3417%>">
+  </td>
+</tr>
+
+<tr>
+  <td align="left"><%3405%></td>
+  <td align="left">
+    <select name="set_preamble_5g" id="enable_shortpreamble_an">
+      <!--
+      <option value="auto"><%180%></option>
+      <option value="long"><%3406%></option>
+      <option value="short"><%3407%></option>
+      -->
+      <option value="automatic"><%180%></option>
+      <option value="Long Preamble"><%3406%></option>
+      <option value="Short Preamble"><%3407%></option>
+    </select>
+  </td>
+</tr>
+
+<tr>
+  <td align="left"><%166%></td>
+  <td align="left">
+      <select name="set_tpc_5g" id="tx_power_ctrl_an">
+        <option value="100">100%</option>
+        <option value="50">50%</option>
+        <option value="25">25%</option>
+      </select>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_5g_sche_div1">
+      <input type="checkbox" name="wifi_off_5g" value="wifi_onoff" <%3418%>><%1348%>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" >
+    <div id="wifi_5g_sche_div2">
+      <b><%3409%></b>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_5g_sche_div3">
+      <table id="schedule_an_table" border="1" cellpadding="2" cellspacing="0" width="100%">
+        <tr>
+          <th width="10%" align="left"><span class="thead"><b><%1080%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%643%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%644%></b></th>
+          <th width="50%" align="left"><span class="thead"><b><%647%></b></th>
+        </tr>
+        <%3419%>
+      </table>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" align="center">
+    <div id="wifi_5g_sche_div4">
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g" id="add_sche_an" class="button-common" onclick="buttonClick(this,'<%926%>');" ><%926%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%881%>" name="edit_sche_5g" id="edit_sche_an" class="button-common" onclick="buttonClick(this,'<%881%>');" ><%881%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%927%>" name="del_sche_5g" id="del_sche_an" class="button-common" onclick="buttonClick(this,'<%927%>');" ><%927%></button>
+    </div>
+  </td>
+</tr>
+<!-- 5GHz guest-->
+<tr>
+  <td colspan="2">
+    <div id="wifi_5g_sche_div1_2">
+      <input type="checkbox" name="wifi_off_5g_2" value="wifi_onoff" <%3420%>><%3412%>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" >
+    <div id="wifi_5g_sche_div2_2">
+      <b><%3413%></b>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <div id="wifi_5g_sche_div3_2">
+      <table border="1" cellpadding="2" cellspacing="0" width="100%">
+        <tr>
+          <th width="10%" align="left"><span class="thead"><b><%1080%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%643%></b></th>
+          <th width="20%" align="left"><span class="thead"><b><%644%></b></th>
+          <th width="50%" align="left"><span class="thead"><b><%647%></b></th>
+        </tr>
+        <%3421%>
+      </table>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" align="center">
+    <div id="wifi_5g_sche_div4_2">
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%926%>');" ><%926%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%881%>" name="edit_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%881%>');" ><%881%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%927%>" name="del_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%927%>');" ><%927%></button>
+    </div>
+  </td>
+</tr>
+
+<!-- 5GHz-2 -->
+<%1841%>
+<tr>
+  <td colspan="2" height="12" ><hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1853%> (5GHz-2 802.11a/n/ac/ax)</b></a></td>
+</tr>
+
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="enable_bc_5g_fh" id="ssid_bc_an_fh" value="ssid_5G_bc" <%3422%>><%157%>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <input type="checkbox" name="wmm_enable_5g_fh" id="wmm_enable_a_fh" value="1" <%3423%>><%2182%>
+  </td>
+</tr>
+<tr>
+  <td align="left"><%3403%>:&nbsp;&nbsp;</td>
+  <td align="left">
+    <input TYPE="text" NAME="set_rts_5g_fh" id="rts_an_fh" size=5 maxlength=4 value="<%3424%>">
+  </td>
+</tr>
+
+<tr>
+  <td align="left"><%3405%></td>
+  <td align="left">
+    <select name="set_preamble_5g_fh" id="enable_shortpreamble_an_fh">
+      <option value="automatic"><%180%></option>
+      <option value="Long Preamble"><%3406%></option>
+      <option value="Short Preamble"><%3407%></option>
+    </select>
+  </td>
+</tr>
+<%1842%>
+
+                                                                                                                                                                                                                                                                                                                  
+<tr>
+  <td colspan="2" height="12" ><hr class='blueBar'></td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+
+
+<!-- Following the Netgear Spec remove the Backhaul Topology option -->
+<tr style="display: none;">
+    <td colspan="2" nowrap="nowrap"><b><%3425%></b>
+    </td>
+</tr>
+<tr style="display: none;"> 
+	<td nowrap colspan="2">                                             
+	<input type="checkbox" name="daisy_chain" id="daisy_chain" value="1" onclick="return check_daisy_chain();"><b><%3426%></b></td>
+	</td> 
+</tr>   
+
+<tr style="display: none;"><td>&nbsp;</td></tr>
+<!-- Following the Netgear Spec remove the Backhaul Topology option -->
+<tr>
+  <td width="60%" colspan="2" ><a href="javascript:loadhelp('WLG_adv', 'backhaulpassword')"><b><%3427%></b></a></td>
+</tr>          
+
+<tr>
+  <td nowrap><%3428%></td>
+</tr>
+
+<tr>
+  <td nowrap><%3429%></td>
+  <td align="left">
+    <button type="submit" id="gen_backhaul_pwd" name="gen_backhaul_pwd" value="1" class="button-common" onClick="buttonClick(this,'setup_acl');"><%1823%></span>
+    </button>
+  </td>
+</tr>
+
+
+<!-- Last Block -->
+<!-- Following the Netgear spec, removing the beamforming, mu-mimo and fast roaming option --> 
+<tr style="display: none;">
+  <td colspan="2" height="12" ><hr class='blueBar'></td>
+</tr>
+
+<tr style="display: none;">
+  <td colspan="2">
+    <input type="checkbox" name="enable_bf" id="enable_implicit_beamforming" value="1" <%3430%>><b><%3431%></b></td>
+</tr>
+
+<tr style="display: none;">
+  <td colspan="2">
+    <input type="checkbox" name="enable_mimo" id="enable_mu" value="1" <%3432%>><b><%3433%></b></td>
+</tr>
+
+
+<tr style="display: none;">
+  <td colspan="2">
+    <input type="checkbox" name="enable_fast_roaming" id="enable_fr" value="1" <%3434%>><b><%3435%></b></td>
+</tr>
+<!-- Following the Netgear spec, removing the beamforming, mu-mimo and fast roaming option -->
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_adv_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+<input type="hidden" name="ntp_synced_flag" value="<%1151%>">
+<input type="hidden" name="select_2g_sche" value="<%3436%>">
+<input type="hidden" name="select_5g_sche" value="<%3437%>">
+<input type="hidden" name="select_2g_sche_2" value="<%3438%>">
+<input type="hidden" name="select_5g_sche_2" value="<%3439%>">
+<input type="hidden" name="show_wps_alert" value="<%272%>">
+<!--
+<input type="hidden" name="wps_enable" value="<%3440%>">
+<input type="hidden" name="wifi_2g_state" value="<%68%>">
+
+<input type="hidden" name="wifi_2g_sche_onoff" value="">
+<input type="hidden" name="wifi_2g_sche_num" value="<%3441%>">
+
+<input type="hidden" name="select_2g_sche" value="-1">
+<INPUT name=apmode_ipaddr type=hidden value= "<%1623%>">
+<INPUT name=apmode_netmask type=hidden value= "<%1624%>">
+<INPUT name=apmode_gateway type=hidden value= "<%1626%>">
+<INPUT name=apmode_dns_sel type=hidden value= "<%1892%>">
+<INPUT name=apmode_dns1_pri type=hidden value= "<%1631%>">
+<INPUT name=apmode_dns1_sec type=hidden value= "<%1632%>">
+-->
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+</html>

@@ -5,22 +5,22 @@
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <%0%>
-    <title><%668%></title>
+    <title><%7%></title>
     <link rel="stylesheet" href="styles/main.css">
     <%2%>
   </head>
   <body class="connectedDevices postSetup twoColumns">
 
-    <%410%>
+    <%3%>
 
     <div class="container sliderWrap">
 
-      <%1118%>
+      <%499%>
 
       <div id="slider">
         <div class="main clearfix" style="padding-bottom:100px;">
 
-          <h1 id="connectedDevice"><%668%></h1>
+          <h1 id="connectedDevice"><%7%></h1>
 
           <form id="connectedDevicesForm" name="connectedDevicesForm" action="devices.cgi" method="POST" autocomplete="off">        
 
@@ -32,24 +32,24 @@
                 <table class="devicesList roundCorners">
                   <thead>
                     <tr>
-                      <th><%1119%></th>
-                      <th><%539%></th>
-                      <th><%582%></th>
-                      <th><%1120%></th>
+                      <th><%500%></th>
+                      <th><%54%></th>
+                      <th><%86%></th>
+                      <th><%501%></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr id="extender_24g">
                       <td>2.4G</td>
-                      <td><%540%></td>
-                      <td><%1121%></td>
-                      <td><%1122%></td>
+                      <td><%502%></td>
+                      <td><%503%></td>
+                      <td><%504%></td>
                     </tr>
                     <tr id="extender_5g">
                       <td>5G</td>
-                      <td><%435%></td>
-                      <td><%1123%></td>
-                      <td><%1124%></td>                      
+                      <td><%289%></td>
+                      <td><%505%></td>
+                      <td><%506%></td>                      
                     </tr>
                   </tbody>
                 </table>
@@ -58,38 +58,38 @@
               <div id="wired_devices" >
                 <div class="tableControl">
                   <h3>&nbsp;</h3>
-                  <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt1"><%24%></span></a> 
+                  <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt1"><%51%></span></a> 
                 </div>
                 <table class="devicesList roundCorners">
                   <thead>
                     <tr>
-                      <th><%582%></th>
-                      <th><%583%></th>
-                      <th><%1120%></th>
-                      <th><%419%></th>
+                      <th><%86%></th>
+                      <th><%87%></th>
+                      <th><%501%></th>
+                      <th><%295%></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <%1125%>
+                    <%507%>
                   </tbody>
                 </table>
               </div>
 
               <div class="tableControl" style="display:none">
-                <h3><%1126%></h3>
-                <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt2"><%24%></span></a>
+                <h3><%508%></h3>
+                <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt2"><%51%></span></a>
               </div>
               <div class="aclSwitch" style="display:none">
-                <input type="checkbox" id="accessControl" name="access_control"><label for="accessControl"><%855%></label>
+                <input type="checkbox" id="accessControl" name="access_control"><label for="accessControl"><%85%></label>
               </div>
               <table class="devicesList wifiDevices roundCorners" style="display:none">
                 <thead>
                   <tr>
-                    <th><%582%></th>
-                    <th><%1127%></th>
-                    <th><%1120%></th>
-                    <th><%857%></th>
-                    <th><%858%></th>
+                    <th><%86%></th>
+                    <th><%509%></th>
+                    <th><%501%></th>
+                    <th><%89%></th>
+                    <th><%90%></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,18 +98,18 @@
               </table>
             </div>             
 
-          <input type="hidden" name="show_wps_alert" value="<%620%>">
-          <input type="hidden" name="accessLimit" value="<%1128%>">
+          <input type="hidden" name="show_wps_alert" value="<%73%>">
+          <input type="hidden" name="accessLimit" value="<%510%>">
           <input type="hidden" name="accessRules" value="">
         </form>
                 
         </div> <!-- end main -->
-        <%440%>
+        <%44%>
         
       </div> 
       
     </div> <!-- end container -->
-    <%441%>
+    <%45%>
   
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/main.js"></script>
@@ -118,7 +118,7 @@
     $.noConflict();
     jQuery(document).ready(function($) {
       var cf = document.forms["connectedDevicesForm"];
-      var acl_mac_num = <%1129%>;
+      var acl_mac_num = <%511%>;
       var g_accessLimit = cf.accessLimit.value;
       var g_accessRules = cf.accessRules.value;
 
@@ -135,17 +135,17 @@
         }
       }
 
-      if("<%12%>" != "3"){
+      if("<%48%>" != "3"){
           document.getElementById("wallPlug_mode_repeater_wp").style.display="none";
       } else {
           document.getElementById("wallPlug_mode_repeater").style.display="none";
       }
 
-      if ("<%88%>" != "1") {
+      if ("<%141%>" != "1") {
         //$('#wifi_extender').css('display', 'none');	/* ORBI_WP set to none*/
         //$('#wired_devices').css('display', 'none');		/* ORBI_WP set to none*/
-        if ("<%508%>" == "1") {
-          if ("<%509%>" == "2.4G")
+        if ("<%303%>" == "1") {
+          if ("<%304%>" == "2.4G")
             $('#extender_5g').css('display', 'none');
           else
             $('#extender_24g').css('display', 'none');
@@ -185,8 +185,8 @@
         var thisTr = $(this).parents('tr');
 
         if ($(this).is(':checked')) {
-          if (acl_mac_num >= <%884%>){
-            alert("<%885%>");
+          if (acl_mac_num >= <%121%>){
+            alert("<%122%>");
             $(this).prop("checked", false);
             return false;
           }
@@ -222,7 +222,7 @@
       });
 
       if (cf.show_wps_alert.value == "1")
-        alert("<%852%>");
+        alert("<%80%>");
 
     });
 

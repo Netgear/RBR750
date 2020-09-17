@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/form2.css">
+<link rel="stylesheet" type="text/css" href="css/tabs.css">
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<style type="text/css">
+ul.tabs div.tab {
+  width:130px;
+}
+.thead{
+  font-weight:normal;
+}
+#full-page-container{
+  padding-left:20px;
+  position:relative;
+}
+.help-frame-div{
+    margin-left:10px;
+}
+.subfooter-image, .subhead2-bottom{
+    padding-left:0px;
+}
+.skip_btn{
+    color:#00b4f5; cursor:pointer; text-decoration:none; font-size:13px;
+}
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!-- 
+var showit = (document.layers) ? "show" : "visible";
+var hideit = (document.layers) ? "hide" : "hidden";
+var NS4 = (document.layers);
+var animationTimer = null;
+var pgbarTimer = null;
+var select_sat = -1;
+
+var AllFWStatus = null;
+var sParameter = "";
+var iFWUpgradeStatusQuery=0, maxFWUpgradeStatusQuery=64;
+var iFWUpgradeStatusTimer=3000;
+var upgrading_msg="<%1696%>";
+var queryStatusTimerObj=null;
+var serial_number = "<%1697%>";
+var product_url = "<%1698%>";
+        
+$(document).ready(function()
+{   
+	//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+	$('#manual').click(function(ev){
+    $(".Online-container").hide();  
+    $(".manual-container").show();
+    $("#manual").addClass('current');
+    $("#online").removeClass('current');
+	});
+
+	$('#online').click(function(ev){
+    $(".manual-container").hide();  
+    $(".Online-container").show();
+    $("#manual").removeClass('current');
+    $("#online").addClass('current');
+	});
+
+    autoupdate=$("input[name=hid_autoupdate]").val();
+    if(autoupdate=="0" || autoupdate=="1")
+        $("input:radio[name=autoupdate]").filter("[value="+autoupdate+"]").attr('checked', true);
+    else
+        $("input:radio[name=autoupdate]").filter("[value=0]").attr('checked', true);
+
+	$("#target").submit(function() {
+    buttonFilter();
+	});
+    
+    if($("input[name=hid_sat_count]").val() == 0)
+        buttonStyle('disable', $("button[name=Update]"));
+
+    var sUrl=$("form:eq(0)").attr('action');
+    aStr = sUrl.split("?");
+    if(aStr.length == 2)
+        sParameter = "?"+aStr[1];
+    else
+        sParameter = "";
+		
+	if($("input[name=wan_status]").val() == "down"){
+		buttonStyle('enable', $("button[name=Check]"));	
+	}else{ 
+		buttonStyle('disable', $("button[name=Check]")); 
+	}
+	buttonStyle('disable', $("button[name=UpdateAll]"));
+	buttonStyle('disable', $("button[name=Update]"));
+	queryFWUpgradeStatus();
+});
+
+function loadSettings()
+{
+    wizard_marker = window.parent.document.getElementById('wizard_marker'); 
+    if (wizard_marker) {
+        $("#skip").show();
+        $("#manual_sel_tab").hide();
+    }
+    else {
+        $("#skip").hide();
+        $("#manual_sel_tab").show();
+    }
+    
+    <%1699%>
+    charcount = 0;
+    $('#online').click();
+}
+
+function setVisible(divID, setto)
+{
+	if (NS4)
+		document.layers[divID].visibility = setto;
+	else if (document.all)
+		document.all(divID).style.visibility = setto;
+	else if (document.getElementById)
+		document.getElementById(divID).style.visibility = setto;
+}
+
+function stopAnimation()
+{
+	if(animationTimer != null)
+		clearTimeout(animationTimer);
+	setVisible('animation', hideit);
+
+	if(pgbarTimer != null)
+		clearTimeout(pgbarTimer);
+	setVisible('pgbar', hideit);
+	setVisible('loading', hideit);
+}
+
+function showAnimation()
+{
+	updateProgress();
+}
+
+function checkData()
+{
+	var up_msg = "<%1700%>\n";
+	var a;
+	var msg="";
+	var temp_win;
+	var t_str; 
+	var ver_index=0;
+	var main_ver=0;
+	var checkflag=false;
+	var uploadFile;
+
+	uploadFile=document.getElementsByName("mtenFWUpload");	
+	t_str=uploadFile[0].value;       
+
+	if(t_str.split) 
+		a = t_str.split(".");
+	else
+		a = cdisplit(t_str,".");
+	if(t_str.length == 0)
+	{
+		alert("<%1701%>\n");
+		return false;
+	}
+	//if((a.length<2)||(a[0]=="")||((a[a.length-1].toLowerCase()!="img") && (a[a.length-1].toLowerCase()!="chk") && (a[a.length-1].toLowerCase()!="bin")))
+	if((a.length<2)||(a[0]=="")||(a[a.length-1].toLowerCase()!="chk"))
+	{
+	 alert("<%1702%>chk\n");
+	 return false;
+	}
+	if (!confirm(up_msg))
+	{
+		return false;
+	}
+		setTimeout("showAnimation()", 50);
+	return true;
+}
+
+
+function is_ie6()
+{
+	var browser=navigator.appName 
+	var b_version=navigator.appVersion 
+	var version=b_version.split(";"); 
+	var trim_Version=version[1].replace(/[ ]/g,""); 
+
+	if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") 
+		return true;
+	else
+		return false;
+}
+
+function set_check_upgrade()
+{
+		var cf = document.forms[0];
+		cf.IS_check_upgrade.value = 0;
+		charcount = 0;
+		document.location.href="UPG_upgrade_ver_check.htm";
+
+	//<%1703%>
+	//location.reload();
+}
+
+
+function myFunction() {
+    //var msg = document.getElementById("releasenote0").value
+    var w = window.open();
+    w.document.open();
+    w.document.write("<h1>Hello World!</h1>");
+    w.document.close();
+}
+var topPos, leftPos;
+function open_satellite_page(mac) {
+    if(AllFWStatus == null)
+        return;
+    if(!AllFWStatus.hasOwnProperty('satellite'))
+        return;
+    $.each(AllFWStatus.satellite, function(i, info){
+        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('ip'))
+            return;
+        if(info.mac==mac){
+            window.open("http://" + info.ip + "/fwUpdate.htm", '' ,'width=600,height=500,top='+topPos+', left='+leftPos+', status=yes, resizable=yes, scrollbars=yes');
+            return false;
+        }
+    });
+	
+    
+}
+function manual_upgrade2(){
+	var counts = 0;
+    topPos=50;
+    leftPos=150;
+    var i=0;
+    $("input[name=satupdate]").each(function(){
+        if($(this).attr("checked")){
+            counts++;
+            setTimeout(open_satellite_page($(this).val()), 10);
+            topPos+=2;
+            leftPos+=5;
+        }
+        i++;
+    });
+    if(counts == 0)
+        alert("<%1704%>");
+}
+
+function handleClick(cb) {
+  //alert("Clicked, new value = " + cb.value);
+  var select_i = cb.value;
+  
+  if(cb.checked == true)
+      select_sat = parseInt(select_i,2);
+  else
+      select_sat = -1;
+}
+function confirm_chk_upgrade()
+{
+    stopAnimation();
+    var r = confirm("Uploading a firmware manually may cause incompatibility issues among Orbi devices. " +
+		"NETGEAR strongly suggests using Online Update to update your firmware. " + "Do you still want to proceed?");
+    if (r == true) 
+    {
+       document.forms[0].submit();
+	return true;
+    } 
+    return false;
+}
+function checkData()
+{
+    $("form:first").attr("action", "upgrade_config.cgi"+sParameter);
+    $("form:first").attr("enctype", "");
+}
+
+function redirect_to_start()
+{
+    /* <!-- % upgrade_cgi_set_blank_state("0"); % -->   */
+	document.location.href="UPG_upgrade_skip.htm";
+    //top.location.replace(product_url + "?sn=" + serial_number);
+}
+var winObj;
+function see_detail(id){
+    $.ajax({
+        url: "ajax/upgrade_show_release.cgi"+sParameter,
+        type: "POST",
+        data: {'index':id},
+        success: function(html){
+            if(winObj != null){
+               if(!winObj.closed){
+                  winObj.close();  
+               } 
+            }
+            winObj = window.open('', 'fw_releasenote', 'width=625, height=400, top=70, left=230, status=yes, resizable=yes, scrollbars=yes');
+            winObj.document.write(html);
+            winObj.focus();
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+        }
+    });  
+}
+
+function queryFWUpgradeStatus(){
+    iFWUpgradeStatusQuery++;
+    if(iFWUpgradeStatusQuery > maxFWUpgradeStatusQuery)
+        buttonStyle('enable', $("button[name=Check]"));
+
+    if(iFWUpgradeStatusQuery > 10)
+        iFWUpgradeStatusTimer=5000;
+    $.ajax({
+        url: "ajax/upgrade_status.cgi"+sParameter,
+        dateType : 'json',
+        data: {'count':iFWUpgradeStatusQuery},
+        type: "POST",
+        success: function(data){
+            updateFWCheckTable(data);
+            
+            if(data.hasOwnProperty('done')){
+                if(data.done != "1")
+                    queryStatusTimerObj = setTimeout(queryFWUpgradeStatus, iFWUpgradeStatusTimer);
+            }
+            
+            
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            queryStatusTimerObj = setTimeout(queryFWUpgradeStatus, iFWUpgradeStatusTimer);
+        }
+    }); 
+}
+function _replacehtml(target, value){
+    if(target.html() != value)
+        target.html(value);
+}
+function SortByModelName(x,y){
+    rsp = ((x.model == y.model) ? 0 : ( (x.model > y.model) ? 1: -1));
+    if(rsp==0)
+        return ((x.device == y.device) ? 0 : ( (x.device > y.device) ? 1: -1));
+    else
+        return rsp;
+}
+function updateFWCheckTable(data){
+    var allowupgrade=0;
+    if(!data.hasOwnProperty('base') || !data.hasOwnProperty('satellite'))
+        return;
+    if($('#fw_check_table').length == 0)
+        return;
+    if(!data.base.hasOwnProperty('mac') ||!data.base.hasOwnProperty('title') ||!data.base.hasOwnProperty('model') ||!data.base.hasOwnProperty('device') ||!data.base.hasOwnProperty('currentVer') ||!data.base.hasOwnProperty('newVer') ||!data.base.hasOwnProperty('status') ||!data.base.hasOwnProperty('allowupgrade'))
+        return;
+
+    //update base
+    _replacehtml($('#fw_check_table > tbody > tr:eq(0) > td:eq(0)'), data.base.title);
+    _replacehtml($('#fw_check_table > tbody > tr:eq(0) > td:eq(1)'), data.base.model);
+    _replacehtml($('#fw_check_table > tbody > tr:eq(0) > td:eq(2)'), data.base.device);
+    _replacehtml($('#fw_check_table > tbody > tr:eq(0) > td:eq(3)'), data.base.currentVer);
+    _replacehtml($('#fw_check_table > tbody > tr:eq(0) > td:eq(4)'), data.base.status);
+    if(data.base.allowupgrade == -1)
+        allowupgrade = -1;
+    else if(allowupgrade != -1)
+        allowupgrade = allowupgrade + data.base.allowupgrade;
+    
+    if(data.satellite.length){  //sort by model name
+        data.satellite.sort(SortByModelName);
+    }
+    var currentTRlength=$('#fw_check_table > tbody > tr').length;
+    var rebuild_flag=false;
+
+    if((currentTRlength -1) != data.satellite.length){
+        rebuild_flag=true;
+    }else{
+        $.each(data.satellite, function(i, info){
+            if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade') || info.mac === "")
+                return;
+
+            iSatellite = $("#fw_check_table input[name='satmac']").index($("input[value='"+info.mac+"']"));
+            if(iSatellite == -1){
+                rebuild_flag=true;
+            }
+        });
+    }
+    if(rebuild_flag){
+        if($("input[name=orbi_wiz_stage]").val() !=2){ 
+            if(currentTRlength>1)
+            for(i=currentTRlength ; i>0 ; i--)
+                $("#fw_check_table > tbody > tr:eq("+i+")").remove(); 
+        } 
+        $("#fw_upgrade_table > tbody > tr").remove(); 
+    }
+    
+    $.each(data.satellite, function(i, info){
+        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade') || info.mac === "")
+        return;
+
+        if(info.allowupgrade == -1)
+            allowupgrade = -1;
+        else if(allowupgrade != -1)
+            allowupgrade = allowupgrade + info.allowupgrade;
+        iSatellite = $("#fw_check_table input[name='satmac']").index($("input[value='"+info.mac+"']"));
+        if(rebuild_flag || (iSatellite == -1)){
+            newtr = "<tr><td nowrap align='center' class='thead'><input type='hidden' name='satmac' value='"+info.mac+"'>"+info.title+"</td>";
+            newtr = newtr+"<td nowrap align='center' class='thead'>"+info.model+"</td>";
+            newtr = newtr+"<td nowrap align='center' class='thead'>"+info.device+"</td>";
+            newtr = newtr+"<td nowrap align='center' class='thead'>"+info.currentVer+"</td>";
+            newtr = newtr+"<td nowrap align='left' class='thead'>"+info.status+"</td></tr>";
+            $('#fw_check_table > tbody').append(newtr);
+            
+            newtr = "<tr><td nowrap align='left' class='thead'><input type='checkbox' name='satupdate' value='"+info.mac+"'>"+info.model+"</td>";
+            newtr = newtr+"<td nowrap align='left' class='thead'>"+info.device+"</td>";
+            newtr = newtr+"<td nowrap align='left' class='thead'>"+info.currentVer+"</td></tr>";
+            $('#fw_upgrade_table > tbody').append(newtr);
+        }
+        else{
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(0)"), "<input type='hidden' name='satmac' value='"+info.mac+"'>"+info.title);
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(1)"), info.model);
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(2)"), info.device);
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(3)"), info.currentVer);
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(4)"), info.status);
+            
+            if($("#fw_upgrade_table > tbody > tr:eq("+iSatellite+") > td:eq(0) > input[name=satupdate]").val() != info.mac)
+                _replacehtml($("#fw_upgrade_table > tbody > tr:eq("+iSatellite+") > td:eq(0)"), "<input type='checkbox' name='satupdate' value='"+info.mac+"'>"+info.model);
+            _replacehtml($("#fw_upgrade_table > tbody > tr:eq("+iSatellite+") > td:eq(1)"), info.device);
+            _replacehtml($("#fw_upgrade_table > tbody > tr:eq("+iSatellite+") > td:eq(2)"), info.currentVer);
+        }
+    });
+    
+    AllFWStatus = data;
+    
+    if(data.hasOwnProperty('done')){
+        if(data.done == "1"){
+            buttonStyle('enable', $("button[name=Check]"));
+            if(allowupgrade > 0)
+                buttonStyle('enable', $("button[name=UpdateAll]"));
+        }
+    }
+    
+    if(data.satellite.length)
+        buttonStyle('enable', $("button[name=Update]"));
+    else
+        buttonStyle('disable', $("button[name=Update]"));
+}
+
+function buttonStyle(type, target){
+    if(type=='enable'){
+        if(target.attr('disabled')!='')
+            target.addClass('new_apply_bt').removeClass('new_apply_bt_disable').attr('disabled', '');
+    }
+    else{
+        if(target.attr('disabled')=='')
+            target.addClass('new_apply_bt_disable').removeClass('new_apply_bt').attr('disabled', 'disabled');
+    }
+        
+}
+
+function page_reload(){
+    location.reload();
+}
+
+function toBasicPage() {
+    location.href = 'start.htm';
+}
+
+function checkUpdateAll(){
+    var allowupgrade = 0;
+    buttonStyle('disable', $("button[name=UpdateAll]"));
+    buttonStyle('disable', $("button[name=Check]")); 
+    if(queryStatusTimerObj !== null){
+        clearTimeout(queryStatusTimerObj);
+        queryStatusTimerObj=null;
+    }
+    if(AllFWStatus.base.allowupgrade){
+        //location.href='UPG_upgradeall.htm';
+        
+        _replacehtml($("#fw_check_table > tbody > tr:eq(0) > td:eq(4)"), upgrading_msg);
+        $.each(AllFWStatus.satellite, function(i, info){
+            if(!info.allowupgrade)
+                return;
+            iSatellite = $("#fw_check_table input[name='satmac']").index($("input[value='"+info.mac+"']"));
+            _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(4)"), upgrading_msg);
+            
+        });       
+
+        $("input[name=UpdateAll]").val("1");
+        $("#updateall_form").submit();
+        return;
+    }
+
+    allowupgrade = 0;
+
+    $.each(AllFWStatus.satellite, function(i, info){
+        allowupgrade = allowupgrade + info.allowupgrade;
+    });
+
+    if(allowupgrade){    //only satellite
+        $.ajax({
+            url: "ajax/upgrade_satellite"+sParameter,
+            dateType : 'json',
+            type: "POST",
+            success: function(data){
+                $.each(AllFWStatus.satellite, function(i, info){
+                    if(!info.allowupgrade)
+                        return;
+                    iSatellite = $("#fw_check_table input[name='satmac']").index($("input[value='"+info.mac+"']"));
+                    _replacehtml($("#fw_check_table > tbody > tr:eq("+(iSatellite+1)+") > td:eq(4)"), upgrading_msg);
+                    
+                });
+                setTimeout(toBasicPage, 4000);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                location.reload();
+            }
+        });
+    
+    }
+}
+//-->
+</script>
+</head>
+<body  onload="change_size();stopAnimation();loadSettings();" class="page-body" style="background:#FFFFFF" onResize="change_size();">
+
+<div id="full-page-container">
+<form method="POST" action="upgrade_check.cgi" ENCTYPE="multipart/form-data" style="margin:0px"  >
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<input type="hidden" name="IS_check_upgrade" value="0">
+<input id="sat" type="hidden" name="sat" value="">
+
+<ul class="tabs" width="100%" id="manual_sel_tab" >
+    <li><div id="online" class="tab" href="#"><%1705%></div></li>
+    <li><div id="manual" class="tab" href="#"><%1706%></div></li>    
+</ul>
+	<div id="main" class="scroll-pane Online-container">
+	<div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%735%></div>
+	
+    <table border="0" style="width:99%">
+    <!--
+    <tr align="left" valign="middle">
+        <td align="center" colspan="2" class="table-seperate-border">
+            <button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='UPG_upgrade.htm'" type="BUTTON" name="Cancel" id="cancel" class="button-cancel" ><%84%></button>
+            <button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT" name="action" id="apply" class=<%79%> ><%81%></button>
+        </td>
+    </tr>
+    -->
+    <tr valign="middle" id="skip">
+        <td align="right" colspan="2" id="skip"> <a class="skip_btn" id="skip_button" onclick="redirect_to_start();"><%1707%></a> </td>
+    </tr>
+    <!--
+    <tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
+	<tr>
+         <td colspan="2" height="18"><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><b><%1708%></b></a><br><br>
+            <%1709%><br>
+            <input type="radio" name="autoupdate" value="1"> <%624%>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="autoupdate" value="0"> <%625%>
+         </td>
+    </tr>
+    -->
+    <tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
+	<tr><td colspan="2">
+		<table style="border-collapse:collapse;width:100%">
+			<tr><td><p></p></td></tr>
+			<tr>
+			<td><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><%1710%></a></td>
+			<td class="subhead2-text-context">
+			<button  type="button" name="Check" id="refresh" class="new_apply_bt ui-corner-all" value="<%1711%>" onClick="buttonClick(this,'<%1711%>');set_check_upgrade();"><%1711%></button>
+			</td>
+			</tr>
+		</table>
+		<input type="hidden" name="ver_check_enable" value="1">
+        </td></tr>
+	<tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
+    <tr><td colspan="2">
+		<table border="0" class="subhead2-multi-table" style="margin:0px;border-collapse:collapse;width:100%">
+			<tr>
+				<td colspan="2" align="left" style="font-size:120%;color:#8181F7;" ><a href="javascript:loadhelp('UPG_upgrade','locate')" > <b><%1001%>:</b></a></td>
+			</tr>
+			<tr>
+			<td colspan="2">
+				<table id="fw_check_table" border="1" cellpadding="2" cellspacing="0" width="80%">
+                    <thead>
+                        <tr>		
+                            <th nowrap align="center" width="6%" class="thead"><span></span></th>
+                            <th nowrap align="center" class="thead"><%1712%></th>
+                            <th nowrap align="center" class="thead"><%982%></th>
+                            <th nowrap align="center" class="thead"><%1713%></th>
+                            <!--<td nowrap align="center" class="thead"><%1714%></th>-->
+                            <th nowrap align="center" class="thead"><%1001%></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td nowrap align="center" class="thead">Router</td>
+                        <td nowrap align="center" class="thead"><%601%></td>
+                        <td nowrap align="center" class="thead"><%879%></td>
+                        <td nowrap align="center" class="thead"><%1715%></td>
+                        <!--<%1716%>-->
+                        <%1717%>
+                    </tr>
+                    </tbody>
+				</table>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="2" class="subhead2-text-context" style="padding-top:10px" >
+				<button type="button" name="UpdateAll" id="upgrade_all" VALUE="UpdateAll" class="new_apply_bt ui-corner-all" style="float: right;" onClick="checkUpdateAll()"><%1718%></button>
+			</td>
+			</tr>
+			<tr><td colspan="2" align="center" style="font-size:12px;color:#5882FA;font-family:Arial;font-weight:bold;"><p></p></td></tr>
+		</table>
+		<!-- Show loading.gif -->	
+		<table border="0"  class="subhead2-multi-table" style="display:none">
+			<tr>
+			<td class="" colspan="2">
+			<div align="left" ID="pgbar" style="position:relative;top:0;left:0;visibility:hide;visibility:hidden;">
+			<table border="0" style="border-collapse:collapse;" >
+
+				<tr>
+				<td colspan="2" ><BIG><%1719%>  2  <%1720%>
+				 </BIG></td>
+				</tr>
+				<tr>
+				<td align="center" colspan="2" ><input type="text" name="progress" class="prgbar" value="" style="color: blue" size="42"
+					contentEditable=false onkeydown="return false;" onbeforeeditfocus="return false;" onpaste="return false;"></td>
+				</tr>
+				<tr>
+				 <td colspan="2" >
+				 <div class = "LoadingImg" style="border:0; padding-top: 0px" >
+				<img id="loading" src="loading.gif" frameborder="0" border="0" >
+				</div>
+				<div align="center" ID="animation" style="position:relative;top:0;left:0">
+				<br><img src="upload_new.gif" width="290" height="82" alt="" border="0">
+				</div>
+				</td>
+				</tr>
+			</table>
+			</div>
+			</td>
+			</tr>
+
+		</table>
+	</td>
+	</tr>
+	</table>
+	</div> 
+
+       <!-- Open folder then  choose chk file -->
+	<div id="main1" class="scroll-pane manual-container" style="display:none">
+    <div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%735%></div>
+    <table border="0" style="width:99%">
+				<tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
+				<tr><td><p></p></td></tr>	
+				<tr><td><p><%1721%></p></td></tr>
+        <tr>
+          <td>
+            <input type="file" name="mtenFWUpload" id="file" size="23" maxlength="1024" style="padding-top:20px;position:absolute;opacity:0;filter:alpha(opacity=0);" onchange="this.form.upfile.value=this.value.substr(this.value.lastIndexOf('\\')+1);" contentEditable=false onkeydown="return false;" onbeforeeditfocus="return false;" onpaste="return false;">
+			<input type="text" name="upfile" id="upfile" size="20" maxlength="1024" readonly>
+			&nbsp;&nbsp;&nbsp;<button type="button" name ="browse" id="browse" value="browse" <%1722%> onclick="buttonClick(this,'browse');this.form.file.click();"><span <%1722%>><%844%></span></button>	
+				
+          </td>
+          <td class="subhead2-text-context" >
+				<button  type="button" NAME="Upgrade" id="Upload" VALUE="Upload" <%1722%> style="float: right;" onClick="confirm_chk_upgrade();"><%1723%></button>
+            </td>
+        </tr>
+
+		<tr style="height:10px"><td colspan="2" height="12" class="">&nbsp;</td></tr>
+		<tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
+		<tr><td><p><%1724%></p></td></tr>
+		<tr>
+			<td colspan="2">
+        <table id="fw_upgrade_table" border="1" cellpadding="2" cellspacing="0" width="80%">
+        <thead>
+            <tr>		
+                <th nowrap align="left" class="thead"><%1712%></th>
+                <th nowrap align="left" class="thead"><%982%></th>
+                <th nowrap align="left" class="thead"><%1713%></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="subhead2-text-context" style="padding-top:10px" >
+			<button type="button" name="Update" id="Update" VALUE="Update" class="new_apply_bt ui-corner-all" style="float: right;" onclick="manual_upgrade2()"><%1725%></button>
+			</td>
+		</tr>
+	<tr><td><p></p></td></tr>
+
+      </table><br>
+	</div>
+	
+	<div class="help-frame-div" >
+	<iframe id="helpframe" src="UPG_upgrade_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe>
+	</div>
+	<img class="subfooter-image" src="img/subhead2-bottom.gif">
+	<div class="subhead2-bottom" >
+	<span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+	<span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+
+	<span class="button-help-arrow">
+	<img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+	</div>
+	<a name="helpframe-anchor"></a>      
+
+    <input name="help-frame-div_magic_top" type="hidden" value="3">
+    <input name="hid_autoupdate" type="hidden" value= "<%1726%>">
+    <input name="hid_sat_count" type="hidden" value= "<%305%>">
+    <input name="wan_status" type="hidden" value= "<%1727%>">
+    <input name="orbi_wiz_stage" type="hidden" value= "<%1245%>">
+</div> 
+</form> 
+
+<form id="updateall_form" method="POST" action="upgrade_allsat.cgi">
+<input type="Hidden" name="UpdateAll" value="0"></input>
+</form>
+
+</body>
+</html>

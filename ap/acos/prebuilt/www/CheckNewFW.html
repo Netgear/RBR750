@@ -13,7 +13,7 @@
 var pchar = "|"; // progress char
 var maxchars = 90; 
 var delay_time = 1500; // msecs
-var charcount = <%2042%>;
+var charcount = <%2043%>;
 var update_count = 0;
 
 function stop1()
@@ -31,7 +31,7 @@ function warning()
 {
 	var cf = document.forms[0];
 	if (!cf.ver_check_ena.checked) {
-		if (confirm("<%2043%>")) {
+		if (confirm("<%2044%>")) {
 			cf.ver_check_enable.value = 0;
             do_submit();
             return;
@@ -106,7 +106,7 @@ function set_ver_check()
 <table border="0" cellpadding="0" cellspacing="3" width="100%">
 <tr>
 <td colspan="2">
-<h1><%2044%></H1>
+<h1><%2045%></H1>
 </td>
 </tr>
 
@@ -115,7 +115,7 @@ function set_ver_check()
 </tr>
 
 <tr>
-<td colspan="2"><%2045%>90<%2046%></td>
+<td colspan="2"><%2046%>90<%2047%></td>
 </tr>
 <tr></tr>
 <tr></tr>
@@ -129,7 +129,7 @@ function set_ver_check()
 <TR>
 <TD colspan="2" nowrap valign=top>
     <div id="ver_checkbox" style ="visibility:visible">
-        <input type=checkbox NAME=ver_check_ena value="1" onclick='warning();' <%2047%>><%2048%></td>
+        <input type=checkbox NAME=ver_check_ena value="1" onclick='warning();' <%2048%>><%2049%></td>
     </div>
 </tr>
 <tr></tr>
@@ -142,9 +142,9 @@ function set_ver_check()
 </table>
 <input type="hidden" name="stop" value="no">
 <input type="hidden" name="menu_top_hide" value="no">
-<input type="hidden" name="pgbarcount" value="<%2042%>">
-<input type="hidden" name="ver_check_enable" value="<%2049%>">
-<input type="hidden" name="enable_ap_mode" value="<%697%>">
+<input type="hidden" name="pgbarcount" value="<%2043%>">
+<input type="hidden" name="ver_check_enable" value="<%2050%>">
+<input type="hidden" name="enable_ap_mode" value="<%773%>">
 </form>
 <p></p>
 </body>

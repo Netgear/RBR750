@@ -29,5 +29,6 @@ usg() { uci show $1 | sort | grep -i $2; }
 alias rs='routerinfo && showconfig'
 alias ns='nvram  show | sort'
 alias nsg='nvram show | sort | grep -i'
+alias ntsg='nvram tmpshow | sort | grep -i'
 alias fg='logread -f | grep repacd'
 alias lfg='logread -f | grep -i'

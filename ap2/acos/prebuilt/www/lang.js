@@ -26,15 +26,15 @@ function ShowLanguageList()
     var gui_lang = form.gui_lang.value;
     var local_srpt = form.local_srptlang.value.split(" ");
 
-    if("<%1130%>" == "1")
+    if("<%512%>" == "1")
     {
-        if("<%1131%>" == "1")
+        if("<%513%>" == "1")
             form.curlang.value = "Auto";
         else
-            form.curlang.value = "<%914%>";
+            form.curlang.value = "<%160%>";
     }
     else
-        form.curlang.value = "<%914%>";
+        form.curlang.value = "<%160%>";
 
     gui_region = form.curlang.value;
 
@@ -72,7 +72,7 @@ function chgLang2()
         choice_text = choice;
     
     if (choice != gui_region){
-        if(confirm("<%519%> "+ gui_lang_local + ""+"<%520%> "+""+ choice_text + "?")){
+        if(confirm("<%327%> "+ gui_lang_local + ""+"<%328%> "+""+ choice_text + "?")){
             form.targetlang.value = document.getElementById('showLangList').value;
             setTimeout("do_submit_0()",1000);
         }

@@ -9,7 +9,7 @@
 function goBasic()
 {
      var ret;
-     ret = confirm("<%417%>");
+     ret = confirm("<%407%>");
      if(ret==1){
          top.location.href="genie_basic.htm";
      }else{
@@ -33,12 +33,12 @@ function checkData()
 	var cf = document.forms[0];
 	var msg = "";
 
-	msg+= checkBlank(cf.bpa_username, "<%383%>");
-	msg+= checkBlank(cf.bpa_server, "<%1834%>");
+	msg+= checkBlank(cf.bpa_username, "<%373%>");
+	msg+= checkBlank(cf.bpa_server, "<%2454%>");
 	if(cf.bpa_idletime.value.length<=0)
-	 msg+= "<%384%>";
+	 msg+= "<%374%>";
 	else if(!_isNumeric(cf.bpa_idletime.value))
-	 msg+= "<%385%>";
+	 msg+= "<%375%>";
 	if (msg.length > 1)
 	{
 		alert(msg);
@@ -61,14 +61,14 @@ function goSetting() {
 <tr>
 	<td>&nbsp;</td>
 	<td class="centerTd">
-		<h2 style="color:#ff0000;"><%418%></h2>
+		<h2 style="color:#ff0000;"><%408%></h2>
         </td>
 	<td>&nbsp;</td>
 
 </tr>
 <tr>	
 	<td>&nbsp;</td>
-	<td class="textRow centerTd"><p><%419%></p></td>
+	<td class="textRow centerTd"><p><%409%></p></td>
 	<td>&nbsp;</td>
 </tr>
 <tr style="height:10px">
@@ -76,23 +76,23 @@ function goSetting() {
 </tr>
 <tr>
 	<td>&nbsp;</td>
-	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%394%></span><input type="text" name="pppoe_username" style="width:150px;position:relative; left:20px;top:-2px;height:18px" type="text" name="bpa_username" size="15" maxlength="60" value="<%1837%>"></td>
+	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%384%></span><input type="text" name="pppoe_username" style="width:150px;position:relative; left:20px;top:-2px;height:18px" type="text" name="bpa_username" size="15" maxlength="60" value="<%2874%>"></td>
 	&nbsp;</td>
 </tr>
 <tr>
 	<td>&nbsp;</td>
-	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%379%></span><input type="password" style="width:150px;position:relative; left:20px;top:-2px;height:18px" name="bpa_passwd" size="15" maxlength="50" value="<%1838%>"></td>
+	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%369%></span><input type="password" style="width:150px;position:relative; left:20px;top:-2px;height:18px" name="bpa_passwd" size="15" maxlength="50" value="<%2875%>"></td>
 	<td>&nbsp;</td>
 </tr>
 
 <tr>
 	<td>&nbsp;</td>
-	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%2868%></span><input type="text" style="width:150px;position:relative; left:20px;top:-2px;height:18px" name="bpa_server" size="15" maxlength="128" value="<%1839%>"></td>
+	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%2876%></span><input type="text" style="width:150px;position:relative; left:20px;top:-2px;height:18px" name="bpa_server" size="15" maxlength="128" value="<%2877%>"></td>
 	<td>&nbsp;</td>
 </tr>
 <tr>
 	<td>&nbsp;</td>
-	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%430%></span><input type="text" style="width:150px;position:relative; left:20px;top:-2px;height:18px" class="num" name="bpa_idletime" size="4" maxlength="3" value="<%1835%>"></td>
+	<td NOWRAP class="inputRow centerTd" tabindex="-1" onFocus="this.blur()"style="background:url(roundedcornr_input.gif) no-repeat 270px top;padding-top:8px;"><span style="display:-moz-inline-box;display:inline-block;width:240px;text-align:right;padding-bottom:5px;padding-right:10px"><%420%></span><input type="text" style="width:150px;position:relative; left:20px;top:-2px;height:18px" class="num" name="bpa_idletime" size="4" maxlength="3" value="<%2878%>"></td>
 	<td>&nbsp;</td>
 </tr>
 <tr style="height:10px">
@@ -102,7 +102,7 @@ function goSetting() {
 	<td>&nbsp;</td>
 	<td class="textRow centerTd2">
 		<div ID="buttons">
-			<button class="purpleBtn" name="Next" onClick="goBasic();" type="button"><span><%420%></span></button>
+			<button class="purpleBtn" name="Next" onClick="goBasic();" type="button"><span><%410%></span></button>
 			<span style="display:-moz-inline-box;display:inline-block;width:20px;"></span>
 			<button value="submit"  class="purpleBtn" width=100px name="Next" onClick="return checkData()" type="submit"><span><%309%></span></button>
 		</div>
@@ -111,7 +111,7 @@ function goSetting() {
 </tr>
 </table>
 <form name="formname" method="POST" action="genie_bpa.cgi"> 
-<input type="hidden" name="runtest" value="<%813%>">
+<input type="hidden" name="runtest" value="<%570%>">
 </form>
 </body>
 </html>

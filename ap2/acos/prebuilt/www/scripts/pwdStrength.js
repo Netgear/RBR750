@@ -39,12 +39,12 @@
 */
 
 (function($){ 
-	$.fn.shortPass = "<%899%>";
-	$.fn.longPass = "<%900%>";
-	$.fn.badPass = "<%901%>";
-	$.fn.goodPass = "<%902%>";
-	$.fn.strongPass = "<%903%>";
-	$.fn.samePassword = "<%904%>";
+	$.fn.shortPass = "<%144%>";
+	$.fn.longPass = "<%145%>";
+	$.fn.badPass = "<%146%>";
+	$.fn.goodPass = "<%147%>";
+	$.fn.strongPass = "<%148%>";
+	$.fn.samePassword = "<%149%>";
 	$.fn.resultStyle = "";
 	
 	 $.fn.passStrength = function(options) {  

@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+var isInited = 0;
+
+var vApply = "<%3442%>";
+var vCancel = "<%3443%>";
+var vLocked = "<%3444%>";
+var vOperational = "<%3445%>";
+var vDisabled = "<%3446%>";
+var vNotLocked = "<%3447%>";
+var vUnknown = "<%3448%>";
+var vNotSync = "<%3449%>";
+var vInProgress = "<%3450%>";
+
+var str_ds_chan_subhead = "<%3451%>";
+var str_us_chan_subhead = "<%3452%>";
+var str_partial_service = "<%3453%>";
+var str_ds_ofdm_chan_subhead = "<%3454%>";
+var str_us_ofdma_chan_subhead = "<%3455%>";
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+    
+    var urlParams;
+    (window.onpopstate = function () {
+        var match,
+            pl     = /\+/g,  // Regex for replacing addition symbol with a space
+            search = /([^&=]+)=?([^&]*)/g,
+            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+            query  = window.location.search.substring(1);
+
+        urlParams = {};
+        while (match = search.exec(query))
+           urlParams[decode(match[1])] = decode(match[2]);
+    })();
+
+    
+    function docsisOffline()
+    {
+        document.getElementById("AcquireDsChanelStatus").innerHTML = "0 Hz";
+        document.getElementById("AcquireDsChanelComment").innerHTML = vInProgress;
+        document.getElementById("ConnectivityStateStatus").innerHTML = vInProgress;
+        document.getElementById("ConnectivityStateComment").innerHTML = vNotSync;
+        document.getElementById("BootStateStatus").innerHTML = vInProgress;
+        document.getElementById("BootStateComment").innerHTML = vUnknown;
+        document.getElementById("SecurityStatus").innerHTML = vDisabled;
+        document.getElementById("SecurityComment").innerHTML = vDisabled;
+        document.getElementById("IpProvModeStatus").innerHTML = vInProgress;
+        document.getElementById("IpProvModeComment").innerHTML = vUnknown; 
+        document.getElementById("DownstreamBondedChannels").innerHTML = str_ds_chan_subhead;
+        document.getElementById("UpstreamBondedChannels").innerHTML = str_us_chan_subhead;
+        document.getElementById("DownstreamOFDMChannels").innerHTML = str_ds_ofdm_chan_subhead;
+        document.getElementById("UpstreamOFDMAChannels").innerHTML = str_us_ofdma_chan_subhead;
+        document.getElementById("CurrentSystemTime").innerHTML = "Thu Jan 1 01:43:25 1970";
+    }
+    
+    function updateDocsisInfo(strDocsisInfo)
+    {
+        var tagValueList = strDocsisInfo;
+        tagValues = tagValueList.split("|");
+        
+        for (i =0; i < tagValues.length; i++)
+        {
+            if (tagValues[i] == "Apply")
+                tagValues[i] = vApply;
+            else if (tagValues[i] == "Cancel")
+                tagValues[i] = vCancel;
+            else if (tagValues[i] == "Locked")
+                tagValues[i] = vLocked;
+            else if (tagValues[i] == "Operational")
+                tagValues[i] = vOperational;
+            else if (tagValues[i] == "Disabled")
+                tagValues[i] = vDisabled;
+            else if (tagValues[i] == "Not Locked")
+                tagValues[i] = vNotLocked;
+            else if (tagValues[i] == "Unknown")
+                tagValues[i] = vUnknown;
+        }
+        
+        document.getElementById("AcquireDsChanelStatus").innerHTML = tagValues[0] + " Hz";
+        document.getElementById("AcquireDsChanelComment").innerHTML = tagValues[1];
+        document.getElementById("ConnectivityStateStatus").innerHTML = tagValues[2];
+        document.getElementById("ConnectivityStateComment").innerHTML = tagValues[3];
+        document.getElementById("BootStateStatus").innerHTML = tagValues[4];
+        document.getElementById("BootStateComment").innerHTML = tagValues[5];
+        // document.getElementById("ConfigurationFileStatus").innerHTML = tagValues[6];
+        // document.getElementById("ConfigurationFileComment").innerHTML = tagValues[7];
+        document.getElementById("SecurityStatus").innerHTML = tagValues[8];
+        document.getElementById("SecurityComment").innerHTML = tagValues[9];
+        document.getElementById("CurrentSystemTime").innerHTML = tagValues[10];
+        
+        var cf = document.forms[0];
+        cf.starting_freq.value = tagValues[11];
+        
+        document.getElementById("IpProvModeStatus").innerHTML = tagValues[13];
+        document.getElementById("IpProvModeComment").innerHTML = tagValues[14];   
+
+        if( tagValues[15] == 1 )
+        {
+            document.getElementById("DownstreamBondedChannels").innerHTML = str_ds_chan_subhead + " " + str_partial_service;
+        }
+        else
+        {
+            document.getElementById("DownstreamBondedChannels").innerHTML = str_ds_chan_subhead;
+        }
+        if( tagValues[16] == 1 )
+        {
+            document.getElementById("UpstreamBondedChannels").innerHTML = str_us_chan_subhead + " " + str_partial_service;
+        }
+        else
+        {
+            document.getElementById("UpstreamBondedChannels").innerHTML = str_us_chan_subhead;
+        }
+        if( tagValues[17] == 1 )
+        {
+            document.getElementById("DownstreamOFDMChannels").innerHTML = str_ds_ofdm_chan_subhead + " " + str_partial_service;
+        }
+        else
+        {
+            document.getElementById("DownstreamOFDMChannels").innerHTML = str_ds_ofdm_chan_subhead;
+        }
+
+        if( tagValues[18] == 1 )
+        {
+            document.getElementById("UpstreamOFDMAChannels").innerHTML = str_us_ofdma_chan_subhead + " " + str_partial_service;
+        }
+        else
+        {
+            document.getElementById("UpstreamOFDMAChannels").innerHTML = str_us_ofdma_chan_subhead;
+        }
+    }
+    
+    function drawTable(tableId, tags, onAddRowCB)
+    {
+        var cellsNum = 0;
+        var item = 0;
+        var totalTagNum = tags.length - 1; // expect the first 1
+        var theTable = document.getElementById(tableId);
+
+        if ( !tags[tags.length - 1])
+            totalTagNum --;
+        cellsNum = totalTagNum /  parseInt(tags[0]);
+
+        if (theTable != null)
+        {
+            while (theTable.rows.length > 1)
+            {
+                theTable.deleteRow(theTable.rows.length - 1); 
+            }
+
+            for (item = 0; item < parseInt(tags[0]); item++)
+            {
+                var newRow = theTable.insertRow(-1); 
+                var cellsList = onAddRowCB(newRow, item , (item * cellsNum) + 1, tags);
+                
+                if (cellsList.length > 0)
+                {
+                    for (i = 0; i < cellsList.length; i++)
+                    {
+                        if (cellsList[i].length == 0)
+                        {
+                            newRow.insertCell(-1).innerHTML = '&nbsp;';
+                        }
+                        else
+                        {
+                            newRow.insertCell(-1).innerHTML = cellsList[i];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    function onAddDsRowCB(newRow, rowId, firstCellIdx, tags)
+    {
+        for (i =0; i < tags.length; i++)
+        {
+            if (tags[i] == "Apply")
+                tags[i] = vApply;
+            else if (tags[i] == "Cancel")
+                tags[i] = vCancel;
+            else if (tags[i] == "Locked")
+                tags[i] = vLocked;
+            else if (tags[i] == "Operational")
+                tags[i] = vOperational;
+            else if (tags[i] == "Disabled")
+                tags[i] = vDisabled;
+            else if (tags[i] == "Not Locked")
+                tags[i] = vNotLocked;
+            else if (tags[i] == "Unknown")
+                tags[i] = vUnknown;
+        }
+        var cellsArray = new Array();
+        
+        /*
+        if (tags[firstCellIdx + 1] == "Not Locked")
+            return cellsArray;
+        */
+
+        cellsArray [0] = tags[firstCellIdx + 0];
+        cellsArray [1] = tags[firstCellIdx + 1];
+        cellsArray [2] = tags[firstCellIdx + 2];
+        cellsArray [3] = tags[firstCellIdx + 3];
+        cellsArray [4] = tags[firstCellIdx + 4];
+        cellsArray [5] = tags[firstCellIdx + 5] + " dBmV";
+        cellsArray [6] = tags[firstCellIdx + 6] + " dB";
+        cellsArray [7] = tags[firstCellIdx + 7];
+        cellsArray [8] = tags[firstCellIdx + 8];
+
+        return cellsArray;
+    }
+    
+    function updateDSTable(strDSTable)
+    {
+        var tagValueList = strDSTable;
+        tagValues = tagValueList.split("|");
+        drawTable('dsTable', tagValues, onAddDsRowCB);
+    }
+    
+    function onAddUsRowCB(newRow, rowId, firstCellIdx, tags)
+    {
+        for (i =0; i < tags.length; i++)
+        {
+            if (tags[i] == "Apply")
+                tags[i] = vApply;
+            else if (tags[i] == "Cancel")
+                tags[i] = vCancel;
+            else if (tags[i] == "Locked")
+                tags[i] = vLocked;
+            else if (tags[i] == "Operational")
+                tags[i] = vOperational;
+            else if (tags[i] == "Disabled")
+                tags[i] = vDisabled;
+            else if (tags[i] == "Not Locked")
+                tags[i] = vNotLocked;
+            else if (tags[i] == "Unknown")
+                tags[i] = vUnknown;
+        }
+        var cellsArray = new Array();
+        
+        /*
+        if (tags[firstCellIdx + 1] == "Not Locked")
+            return cellsArray;
+        */
+
+        cellsArray [0] = tags[firstCellIdx + 0];
+        cellsArray [1] = tags[firstCellIdx + 1];
+        cellsArray [2] = tags[firstCellIdx + 2];
+        cellsArray [3] = tags[firstCellIdx + 3];
+        cellsArray [4] = tags[firstCellIdx + 4] + " Ksym/sec";
+        cellsArray [5] = tags[firstCellIdx + 5];
+        cellsArray [6] = tags[firstCellIdx + 6] + " dBmV";
+
+        return cellsArray;
+    }
+    
+    function updateUSTable(strUSTable)
+    {
+        var tagValueList = strUSTable;
+        tagValues = tagValueList.split("|");
+        drawTable('usTable', tagValues, onAddUsRowCB);
+    }
+    function onAddDsOfdmRowCB(newRow, rowId, firstCellIdx, tags)
+    {
+        for (i =0; i < tags.length; i++)
+        {
+            if (tags[i] == "Apply")
+                tags[i] = vApply;
+            else if (tags[i] == "Cancel")
+                tags[i] = vCancel;
+            else if (tags[i] == "Locked")
+                tags[i] = vLocked;
+            else if (tags[i] == "Operational")
+                tags[i] = vOperational;
+            else if (tags[i] == "Disabled")
+                tags[i] = vDisabled;
+            else if (tags[i] == "Not Locked")
+                tags[i] = vNotLocked;
+            else if (tags[i] == "Unknown")
+                tags[i] = vUnknown;
+        }
+        var cellsArray = new Array();
+
+        /*
+        if (tags[firstCellIdx + 1] == "Not Locked")
+            return cellsArray;
+        */
+
+        cellsArray [0] = tags[firstCellIdx + 0];
+        cellsArray [1] = tags[firstCellIdx + 1];
+        cellsArray [2] = tags[firstCellIdx + 2];
+        cellsArray [3] = tags[firstCellIdx + 3];
+        cellsArray [4] = tags[firstCellIdx + 4];
+        cellsArray [5] = tags[firstCellIdx + 5];
+        cellsArray [6] = tags[firstCellIdx + 6];
+        cellsArray [7] = tags[firstCellIdx + 7];
+        cellsArray [8] = tags[firstCellIdx + 8];
+        cellsArray [9] = tags[firstCellIdx + 9];
+        cellsArray [10] = tags[firstCellIdx + 10];
+
+        return cellsArray;
+    }
+
+    function updateDSOfdmTable(strDSOfdmTable)
+    {
+        var tagValueList = strDSOfdmTable;
+        tagValues = tagValueList.split("|");
+        drawTable('dsOfdmTable', tagValues, onAddDsOfdmRowCB);
+    }
+
+    function onAddUsOfdmaRowCB(newRow, rowId, firstCellIdx, tags)
+    {
+        for (i =0; i < tags.length; i++)
+        {
+            if (tags[i] == "Apply")
+                tags[i] = vApply;
+            else if (tags[i] == "Cancel")
+                tags[i] = vCancel;
+            else if (tags[i] == "Locked")
+                tags[i] = vLocked;
+            else if (tags[i] == "Operational")
+                tags[i] = vOperational;
+            else if (tags[i] == "Disabled")
+                tags[i] = vDisabled;
+            else if (tags[i] == "Not Locked")
+                tags[i] = vNotLocked;
+            else if (tags[i] == "Unknown")
+                tags[i] = vUnknown;
+        }
+        var cellsArray = new Array();
+
+        /*
+        if (tags[firstCellIdx + 1] == "Not Locked")
+            return cellsArray;
+        */
+
+        cellsArray [0] = tags[firstCellIdx + 0];
+        cellsArray [1] = tags[firstCellIdx + 1];
+        cellsArray [2] = tags[firstCellIdx + 2];
+        cellsArray [3] = tags[firstCellIdx + 3];
+        cellsArray [4] = tags[firstCellIdx + 4];
+        cellsArray [5] = tags[firstCellIdx + 5];
+
+        return cellsArray;
+    }
+
+    function updateUSOfdmaTable(strUSOfdmaTable)
+    {
+        var tagValueList = strUSOfdmaTable;
+        tagValues = tagValueList.split("|");
+        drawTable('usOfdmaTable', tagValues, onAddUsOfdmaRowCB);
+    }
+
+    function init()
+    {
+        isInited = 1;
+        
+        if (urlParams["offline"] == "1")
+        {
+            docsisOffline();
+            $("#full-page-container").show();
+            return true;
+        }
+        else
+        {
+            var strDocsisInfo = "<%3456%>";
+            var strDSTable = "<%3457%>";
+            var strUSTable = "<%3458%>";
+            var strDSOfdmTable = "<%3459%>";
+            var strUSOfdmaTable = "<%3460%>";
+            if ((strDocsisInfo.length > 0) && (strDSTable.length > 0) && (strUSTable.length > 0) && (strDSOfdmTable.length > 0) && (strUSOfdmaTable.length > 0))
+            {
+                updateDocsisInfo(strDocsisInfo);
+                updateDSTable(strDSTable);
+                updateUSTable(strUSTable);
+                updateDSOfdmTable(strDSOfdmTable);
+                updateUSOfdmaTable(strUSOfdmaTable);
+                $("#full-page-container").show();
+            }
+            else
+            {
+                window.location.href="cable_DocsisOffline.htm";
+            }
+            
+        }
+
+        return true;
+    }
+
+    function check_apply()
+    {
+        var cf = document.forms[0];
+        cf.apply.value=1;
+        
+        if ((cf.starting_freq.value < 108000000) || (cf.starting_freq.value > 1002000000))
+        {
+            alert("<%3461%>");
+            return false;
+        }
+        
+        return true;
+    }
+//-->
+</script>
+</head>
+<body  onload="change_size();init();" class="page-body"  onResize="change_size();" >
+    <img class="cover-image" src="<%74%>">
+    <img class="body-image" src="<%75%>">
+    <div id="full-page-container" style="display:none">
+        <form id="target"  action=cableConnection.cgi method="POST">
+            <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+            <img class="subtop-image" src="<%76%>">
+            <div class="subhead2"> <%3462%></div>
+            <table border="0" style="height:370px" class="subhead2-table">
+                <tr align="left" valign="middle">
+                    <td align="center" colspan="2" class="table-seperate-border">
+                        <button value="<%83%>" onclick="buttonClick(this,'<%83%>');reset();init();" type=button name=action_cancel class="button-cancel" ><%84%></button>
+                        <button value="<%78%>"  onclick="if(!isInited) return false; buttonClick(this,'<%78%>');check_apply();" type=submit name=action_apply class="button-apply2"><%81%></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="scrollpane-table-seperate-border" colspan="2">
+                        <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+                            <table style="border-collapse:collapse;width:99%">
+                                <tr><td><b><%3463%></b></td></tr>
+                                <tr><td><%3464%></td></tr>
+                                <tr>
+                                    <td height="12"> 
+                                        <%3465%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" name="starting_freq" value="" size="24" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> 
+                                    </td>
+                                </tr>
+                                <tr><td height="12" ><hr class='blueBar'></td></tr>
+                                <tr><td><b><%3466%></b></td></tr>
+                                <tr><td>
+                                    <table class="startup_proc_table" border="1" cellpadding="6" cellspacing="0">
+                                        <tr class="table_header">
+                                            <td><%3467%></td>
+                                            <td><%3468%></td>
+                                            <td><%3469%></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span><%3470%></span></td>
+                                            <td><span id="AcquireDsChanelStatus"></span></td>
+                                            <td><span id="AcquireDsChanelComment"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span><%3471%></span></td>
+                                            <td><span id="ConnectivityStateStatus"></span></td>
+                                            <td><span id="ConnectivityStateComment"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span><%3472%></span></td>
+                                            <td><span id="BootStateStatus"></span></td>
+                                            <td><span id="BootStateComment"></span></td>
+                                        </tr>
+                                        <!-- 
+                                        <tr>
+                                            <td><span><%3473%></span></td>
+                                            <td><span id=id="ConfigurationFileStatus"></span></td>
+                                            <td><span id="ConfigurationFileComment"></span></td>
+                                        </tr>
+                                        -->
+                                        <tr>
+                                            <td><span><%3474%></span></td>
+                                            <td><span id="SecurityStatus"></span></td>
+                                            <td><span id="SecurityComment"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span><%3475%></span></td>
+                                            <td><span id="IpProvModeStatus"></span></td>
+                                            <td><span id="IpProvModeComment"></span></td>
+                                        </tr>
+                                        <!-- <%3476%> -->
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"><hr class='blueBar'></td></tr>
+                                <tr><td><b id="DownstreamBondedChannels"></b></td></tr>
+                                <tr><td>
+                                    <table class="startup_proc_table" border="1" cellpadding="2" cellspacing="0" width="100%" id="dsTable">
+                                        <tr class="table_header">
+                                            <td><%3477%></td>
+                                            <td><%3478%></td>
+                                            <td><%3479%></td>
+                                            <td><%3480%></td>
+                                            <td><%3481%></td>
+                                            <td><%3482%></td>
+                                            <td><%3483%></td>
+                                            <td><%3484%></td>
+                                            <td><%3485%></td>
+                                        </tr>
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"><hr class='blueBar'></td></tr>
+                                <tr><td><b id="UpstreamBondedChannels"></b></td></tr>
+                                <tr><td>
+                                    <table class="startup_proc_table" border="1" cellpadding="2" cellspacing="0" width="100%" id="usTable">
+                                        <tr class="table_header">
+                                            <td><%3486%></td>
+                                            <td><%3487%></td>
+                                            <td><%3488%></td>
+                                            <td><%3489%></td>
+                                            <td><%3490%></td>
+                                            <td><%3491%></td>
+                                            <td><%3492%></td>
+                                        </tr>
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"><hr class='blueBar'></td></tr>
+                                <tr><td><b id="DownstreamOFDMChannels"></b></td></tr>
+                                <tr><td>
+                                    <table class="startup_proc_table" border="1" cellpadding="1" cellspacing="0" width="100%" id="dsOfdmTable">
+                                        <tr class="table_header">
+                                            <td><%3493%></td>
+                                            <td><%3494%></td>
+                                            <td><%3495%></td>
+                                            <td><%3496%></td>
+                                            <td><%3497%></td>
+                                            <td><%3498%></td>
+                                            <td><%3499%></td>
+                                            <td><%3500%></td>
+                                            <td><%3501%></td>
+                                            <td><%3502%></td>
+                                            <td><%3503%></td>
+                                        </tr>
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"><hr class='blueBar'></td></tr>
+                                <tr><td><b id="UpstreamOFDMAChannels"></b></td></tr>
+                                <tr><td>
+                                    <table class="startup_proc_table" border="1" cellpadding="2" cellspacing="0" width="60%" id="usOfdmaTable">
+                                        <tr class="table_header">
+                                            <td><%3504%></td>
+                                            <td><%3505%></td>
+                                            <td><%3506%></td>
+                                            <td><%3507%></td>
+                                            <td><%3508%></td>
+                                            <td><%3509%></td>
+                                        </tr>
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"><hr class='blueBar'></td></tr>
+                                <tr><td> <b><%3510%>: <span id="CurrentSystemTime"></span></b></td></tr>
+								<tr><td><b><%1512%></b> <!><%1513%><!></td></tr>
+                                <tr><td height="12"></td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="cable_connection_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+            </table>
+            <img class="subfooter-image" src="img/subhead2-bottom.gif">
+            <div class="subhead2-bottom" >
+                <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+                <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+                <span class="button-help-arrow">
+                <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+                <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+            </div>
+            
+            <INPUT name=apply type=hidden value= 0>
+            
+            <a name="helpframe-anchor"></a>
+        </form>
+    </div>
+</body>
+</html>

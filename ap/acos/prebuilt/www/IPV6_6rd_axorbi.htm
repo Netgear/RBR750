@@ -130,18 +130,18 @@ function checkData()
     
     if(cf.BRIp1.value.length<=0 || cf.BRIp2.value.length<=0 || cf.BRIp3.value.length<=0 || cf.BRIp4.value.length<=0)
     {
-        msg+= "<%386%>";
+        msg+= "<%376%>";
     }        
     else if(checkIP(cf.BRIp1,cf.BRIp2,cf.BRIp3,cf.BRIp4,254)
         || (parseInt(cf.BRIp4.value,10) == 0))
     {
-        msg+= "<%386%>";
+        msg+= "<%376%>";
     }
     else
     {
         /*Not Sure if the relay IP text is number*/
         if(checkIP(cf.BRIp1,cf.BRIp2,cf.BRIp3,cf.BRIp4,254)){
-        msg+="<%386%>";
+        msg+="<%376%>";
                 cf.BRIp1.value = "";
                 cf.BRIp2.value = "";
                 cf.BRIp3.value = "";
@@ -163,7 +163,7 @@ function checkData()
             cf.PDAddr5.value == "" && cf.PDAddr6.value == "" &&
             cf.PDAddr7.value == "" && cf.PDAddr8.value == "")
         {
-            alert("<%2724%>");
+            alert("<%2735%>");
             return false;
             //pri_dns = 1;
         }
@@ -172,12 +172,12 @@ function checkData()
                  checkFiled(cf.PDAddr5) || checkFiled(cf.PDAddr6) ||
                  checkFiled(cf.PDAddr7) || checkFiled(cf.PDAddr8))
         {
-            alert("<%2725%>");
+            alert("<%2736%>");
             return false;
         }
         else if (checkUnicast(cf.PDAddr1))
         {
-            alert("<%2724%><%2726%>");
+            alert("<%2735%><%2737%>");
             return false;
         }
 
@@ -195,12 +195,12 @@ function checkData()
                  checkFiled(cf.SDAddr5) || checkFiled(cf.SDAddr6) ||
                  checkFiled(cf.SDAddr7) || checkFiled(cf.SDAddr8))
         {
-            alert("<%2727%>");
+            alert("<%2738%>");
             return false;
         }
         else if (checkUnicast(cf.SDAddr1))
         {
-            alert("<%2728%><%2726%>");
+            alert("<%2739%><%2737%>");
             return false;
         }
     
@@ -211,7 +211,7 @@ function checkData()
         {
             if (isIPv6Equals(cf.ipv6rd_wan_dns1_pri.value, cf.ipv6rd_wan_dns1_sec.value))
             {
-                alert("<%2729%>");
+                alert("<%2740%>");
                 return false;
             }
         }
@@ -224,7 +224,7 @@ function checkData()
         if(cf.IPv6_interface_id1.value.length<=0 || cf.IPv6_interface_id2.value.length<=0 || cf.IPv6_interface_id3.value.length<=0 || cf.IPv6_interface_id4.value.length<=0
            || !(isHex(cf.IPv6_interface_id1.value) && isHex(cf.IPv6_interface_id2.value) && isHex(cf.IPv6_interface_id3.value) && isHex(cf.IPv6_interface_id4.value)))
         {
-            msg+= "<%2730%>";
+            msg+= "<%2741%>";
         }
         else 
             cf.ipv6_interface_id.value = cf.IPv6_interface_id1.value+":"+cf.IPv6_interface_id2.value+":"+cf.IPv6_interface_id3.value+":"+cf.IPv6_interface_id4.value;
@@ -235,7 +235,7 @@ function checkData()
 	msg+= checkInt(cf.mtu, "MTU value", 1, parseInt(cf.wan_way.value,10), true);
 	if((parseInt(cf.mtu.value,10)>parseInt(cf.wan_way.value,10))
 			||(parseInt(cf.mtu.value,10)<616))
-		msg += "<%1756%> "+cf.wan_way.value+"\n"; 
+		msg += "<%1783%> "+cf.wan_way.value+"\n"; 
 
     if (msg.length > 1)
     {
@@ -244,13 +244,13 @@ function checkData()
     }
 
     if (cf.wan_proto.value == "pppoe" && cf.wan_pppoe_dod.value != "0")
-        if (!confirm("<%2796%>"))
+        if (!confirm("<%2807%>"))
             return false;
     if (cf.wan_proto.value == "pptp" && cf.wan_pptp_dod.value != "0")
-        if (!confirm("<%2796%>"))
+        if (!confirm("<%2807%>"))
             return false;
     if (cf.wan_proto.value == "l2tp" && cf.wan_l2tp_dod.value != "0")
-        if (!confirm("<%2796%>"))
+        if (!confirm("<%2807%>"))
             return false;
             
     if (prefix_sections == 1) {
@@ -383,12 +383,12 @@ function loadSettings()
 <form id="target"  name="formname" method="POST" action="ipv6_6rd.cgi">
 <input type="hidden" id="buttonHit" name="buttonHit"><input type="hidden" id="buttonValue" name="buttonValue"> 
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1441%></div>
+<div class="subhead2"> <%1460%></div>
 <table border="0"     class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
-<button type="button" value="BUTTON"  onClick="buttonClick(this,'Refresh');location.reload();" name="Refresh" id="refresh" class="button-common"><%2732%></button>
+<button type="button" value="BUTTON"  onClick="buttonClick(this,'Refresh');location.reload();" name="Refresh" id="refresh" class="button-common"><%2743%></button>
 <button type="button" value="BUTTON"  onClick="buttonClick(this,'<%83%>');reset();loadSettings();" name="Cancel" id="cancel" class="button-cancel"><%84%></button>
 <button type="submit" value="SUBMIT"  onClick="buttonClick(this,'<%78%>');return checkData()" name="apply" id="apply" class=<%79%>><%81%></button></td>
 </tr>
@@ -396,31 +396,31 @@ function loadSettings()
 <tr><td colspan="2" class="scrollpane-table-seperate-border"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
 
 <tr>
- <td width="60%"><a><b><%2733%></b></a></td>
+ <td width="60%"><a><b><%2744%></b></a></td>
  <td width="40%" align="right">
     <select name="login_type" id="login_type" onChange="setServer()">
-        <option value="disabled"><%408%></option>
-		<option value="autoDetect"><%2734%></option>
-		<option value="6to4"><%2735%></option>
-		<option value="passthrough"><%2736%></option>
-		<option value="fixed"><%2737%></option>
-        <option value="dhcp"><%2738%></option>
-        <option value="pppoe"><%411%></option>
-        <option value="autoconfig"><%2739%></option>
-		<option value="6rd" selected><%2740%></option>			
+        <option value="disabled"><%398%></option>
+		<option value="autoDetect"><%2745%></option>
+		<option value="6to4"><%2746%></option>
+		<option value="passthrough"><%2747%></option>
+		<option value="fixed"><%2748%></option>
+        <option value="dhcp"><%2749%></option>
+        <option value="pppoe"><%401%></option>
+        <option value="autoconfig"><%2750%></option>
+		<option value="6rd" selected><%2751%></option>			
     </select>
  </td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-    <td nowrap colspan="2"><b><%2813%></b></td>
+    <td nowrap colspan="2"><b><%2824%></b></td>
 </tr>
 <tr style="display:none">
-    <td width="60%" nowrap><input type="checkbox" id="6rd_enable" name="enable" ><%2814%></td>
+    <td width="60%" nowrap><input type="checkbox" id="6rd_enable" name="enable" ><%2825%></td>
 </tr>
 
 <tr>
-    <td nowrap><%2815%></td>
+    <td nowrap><%2826%></td>
     <td width="40%" nowrap align="right" class="num">
 	<div style="float:right">
     <input type="text" id="prefix_hex1" name="prefix_hex1" class="num" size="4" maxlength="4" value="0" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheckv6(this,0)">:<input type="text" id="prefix_hex2" name="prefix_hex2" class="num" size="4" maxlength="4" value="0" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,0)">:<input type="text" id="prefix_hex3" name="prefix_hex3" class="num" size="4" maxlength="4" value="0" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,0)">:<input type="text" id="prefix_hex4" name="prefix_hex4" class="num" size="4" maxlength="4" value="0" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,1)">
@@ -429,13 +429,13 @@ function loadSettings()
 </tr>
 
 <tr>
-    <td nowrap><%2816%></td>
+    <td nowrap><%2827%></td>
     <td width="40%" nowrap align="right">
     <input type="text" id="prefix_len" name="prefix_len" class="num" size="4" maxlength="2">
     </td>
 </tr>
 <tr>
-    <td nowrap><%2817%></td>
+    <td nowrap><%2828%></td>
     <td width="40%" nowrap align="right" class="num">
 	<div style="float:right">
         <input type="text" id="BRIp1" name="BRIp1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIP) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" id="BRIp2" name="BRIp2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIP) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" id="BRIp3" name="BRIp3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIP) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" id="BRIp4" name="BRIp4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIP) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)">
@@ -443,23 +443,23 @@ function loadSettings()
 	</td>
 </tr>
 <tr>
-    <td nowrap><%2818%></td>
+    <td nowrap><%2829%></td>
     <td width="40%" nowrap align="right"><input type="text" id="masklen" name="masklen" value=""  class="num" size="4" maxlength="2"></td>
 </tr>
 
 <!-- Add ipv6 wan dns settings begin -->
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-	<td nowrap colspan="2"><b>IPv6 <%401%></b></td>
+	<td nowrap colspan="2"><b>IPv6 <%391%></b></td>
 </tr>
 <tr>
-	<td colspan="2" nowrap><input type="radio" id="DNSAssign_autodns" name="DNSAssign" value="0" onClick="setDNS()"><%402%></td>
+	<td colspan="2" nowrap><input type="radio" id="DNSAssign_autodns" name="DNSAssign" value="0" onClick="setDNS()"><%392%></td>
 </tr>
 <tr>
-	<td colspan="2" nowrap><input type="radio" id="DNSAssign_these" name="DNSAssign" value="1" onClick="setDNS()"><%403%></td>
+	<td colspan="2" nowrap><input type="radio" id="DNSAssign_these" name="DNSAssign" value="1" onClick="setDNS()"><%393%></td>
 </tr>
 <tr>
-	<td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%404%></td>
+	<td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%394%></td>
 	<td nowrap align="right" class="num">
 	<div style="float:right">
         <input type="text" id="PDAddr1" name="PDAddr1" class="num" size="4" maxlength="4" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheckv6(this,0)">:
@@ -474,7 +474,7 @@ function loadSettings()
 	</td>
 </tr>
 <tr>
-	<td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%405%></td>
+	<td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%395%></td>
 	<td nowrap align="right" class="num">
 	<div style="float:right">
         <input type="text" id="SDAddr1" name="SDAddr1" class="num" size="4" maxlength="4" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheckv6(this,0)">:
@@ -492,31 +492,31 @@ function loadSettings()
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-    <td width="50%" colspan="2" ><b><%639%></b></td>
+    <td width="50%" colspan="2" ><b><%715%></b></td>
 </tr>
 <tr>
 
 </tr>
 <tr>
-    <td colspan="2" ><b><%2744%></b></td>
+    <td colspan="2" ><b><%2755%></b></td>
 </tr>
 <tr>
-    <td colspan="2" ><img src="spacer.gif" width="10" height="12" border="0"><%2745%></td>
+    <td colspan="2" ><img src="spacer.gif" width="10" height="12" border="0"><%2756%></td>
 </tr>
 <tr>
-    <td nowrap colspan="2"><b><%2746%></b></td>
+    <td nowrap colspan="2"><b><%2757%></b></td>
 </tr>
 <tr>
-    <td colspan="2" nowrap><input type="radio" id="IpAssign_dhcp" name="IpAssign" value="dhcp" <%2747%>><%2748%></td>
+    <td colspan="2" nowrap><input type="radio" id="IpAssign_dhcp" name="IpAssign" value="dhcp" <%2758%>><%2759%></td>
 </tr>
 <tr>
-    <td colspan="2" nowrap><input type="radio" id="IpAssign_auto" name="IpAssign" value="auto" <%2749%>><%2739%></td>
+    <td colspan="2" nowrap><input type="radio" id="IpAssign_auto" name="IpAssign" value="auto" <%2760%>><%2750%></td>
 </tr>
 <tr>
     <td colspan="2" ><img src="spacer.gif" width="10" height="1" border="0">
 </tr>
 <tr>
-    <td nowrap colspan="2"><input  type="checkbox" id="useInterfaceId" <%2750%> name="useInterfaceId" value="" onclick= "checkInterfaceID();"><b><%2751%></b></td>
+    <td nowrap colspan="2"><input  type="checkbox" id="useInterfaceId" <%2761%> name="useInterfaceId" value="" onclick= "checkInterfaceID();"><b><%2762%></b></td>
 </tr>
 <tr>
     <td colspan="2" ><img src="spacer.gif" width="10" height="12" border="0">
@@ -527,7 +527,7 @@ function loadSettings()
 </tr>
 
 <tr>
-	<td>&nbsp;<a href="javascript:loadhelp('WAN_wan','mtu')" tabindex="-1"><b><%1778%></b><%1779%></a></td>
+	<td>&nbsp;<a href="javascript:loadhelp('WAN_wan','mtu')" tabindex="-1"><b><%1805%></b><%1806%></a></td>
 	<td align="right" class="num">
 	<div style="float:right">
 	<input type="text" id="mtu_size" name="mtu" size="5" maxlength="4">
@@ -552,23 +552,23 @@ function loadSettings()
 
 
 <input type="hidden" id="ipv6_interfaceid_enable" name="ipv6_interfaceid_enable" value="">
-<input type="hidden" id="ipv6_interface_id" name="ipv6_interface_id" value="<%2752%>">
-<input type="hidden" id="ipv6rd_rule" name="ipv6rd_rule" value="<%2819%>">
-<input type="hidden" id="ipv6rd_rule_auto" name="ipv6rd_rule_auto" value="<%2820%>">
+<input type="hidden" id="ipv6_interface_id" name="ipv6_interface_id" value="<%2763%>">
+<input type="hidden" id="ipv6rd_rule" name="ipv6rd_rule" value="<%2830%>">
+<input type="hidden" id="ipv6rd_rule_auto" name="ipv6rd_rule_auto" value="<%2831%>">
 <input type="hidden" id="ipv6_br_ip" name="ipv6_br_ip" value="">
 <input type="hidden" id="ipv6_prefix" name="ipv6_prefix" value="">
 <input type="hidden" id="ipv6_prefix_hex" name="ipv6_prefix_hex" value="">
 <INPUT type="hidden" id="ipv6_proto" name="ipv6_proto" value= "6rd">
-<INPUT type="hidden" id="ipv6rd_auto_mode" name="ipv6rd_auto_mode" value= "<%2821%>">
-<INPUT type="hidden" id="ipv6rd_wan_dns_sel" name="ipv6rd_wan_dns_sel" value= "<%2753%>">
-<INPUT type="hidden" id="ipv6rd_wan_dns1_pri" name="ipv6rd_wan_dns1_pri" value= "<%2754%>">
-<INPUT type="hidden" id="ipv6rd_wan_dns1_sec" name="ipv6rd_wan_dns1_sec" value= "<%2755%>">
-<INPUT type="hidden" id="ipv6rd_wan_mtu" name="ipv6rd_wan_mtu" value= "<%2822%>">
+<INPUT type="hidden" id="ipv6rd_auto_mode" name="ipv6rd_auto_mode" value= "<%2832%>">
+<INPUT type="hidden" id="ipv6rd_wan_dns_sel" name="ipv6rd_wan_dns_sel" value= "<%2764%>">
+<INPUT type="hidden" id="ipv6rd_wan_dns1_pri" name="ipv6rd_wan_dns1_pri" value= "<%2765%>">
+<INPUT type="hidden" id="ipv6rd_wan_dns1_sec" name="ipv6rd_wan_dns1_sec" value= "<%2766%>">
+<INPUT type="hidden" id="ipv6rd_wan_mtu" name="ipv6rd_wan_mtu" value= "<%2833%>">
 <INPUT type="hidden" id="wan_way" name="wan_way" value="1500">
-<INPUT type="hidden" id="wan_proto" name="wan_proto" value= "<%765%>">
-<INPUT type="hidden" id="wan_pppoe_dod" name="wan_pppoe_dod" value= "<%822%>">
-<INPUT type="hidden" id="wan_pptp_dod" name="wan_pptp_dod" value= "<%862%>">
-<INPUT type="hidden" id="wan_l2tp_dod" name="wan_l2tp_dod" value= "<%1180%>">
+<INPUT type="hidden" id="wan_proto" name="wan_proto" value= "<%594%>">
+<INPUT type="hidden" id="wan_pppoe_dod" name="wan_pppoe_dod" value= "<%534%>">
+<INPUT type="hidden" id="wan_pptp_dod" name="wan_pptp_dod" value= "<%883%>">
+<INPUT type="hidden" id="wan_l2tp_dod" name="wan_l2tp_dod" value= "<%1200%>">
 <a name="helpframe-anchor"></a>
 </form>
 

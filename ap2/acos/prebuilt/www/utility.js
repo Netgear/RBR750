@@ -348,7 +348,7 @@ function get_browser()
    		return "";		
 } 
 
-var msg_invalid_ip = "<%77%>\n";
+var msg_invalid_ip = "<%161%>\n";
 function isIPaddr(addr) {
     var i;
     var a;

@@ -45,7 +45,7 @@ function loadSettings()
 	else
 		cf5.action_rstp_enable.checked = false;
         
-    if("<%12%>" != "3")
+    if("<%48%>" != "3")
     {
         document.getElementById("wallPlug_mode_repeater_wp").style.display="none";
     } 
@@ -66,7 +66,7 @@ function loadSettings()
 	    <div class="container">
 		  <header>
 		    <img id="logo" src="img/logos/genie.png" alt="Netgear genie logo" />
-		    <p id="byline"><%1232%> <%958%></p>
+		    <p id="byline"><%604%> <%215%></p>
 		  </header>
 		</div>
 	  </div>
@@ -77,15 +77,15 @@ function loadSettings()
 	  <div class="main">
         <h1 style="font-size:18px">Basic Information</h1>
         <div class="sectionWrap withBottomShadow clearfix">
-          <p><strong>Firmware Version: </strong><%417%></p>
-          <p><strong>CPU Load: </strong><%1241%>%</p>
-          <p><strong>Memory Usage(Used/Total): </strong><%1242%> MB/<%1243%> MB</p>
+          <p><strong>Firmware Version: </strong><%253%></p>
+          <p><strong>CPU Load: </strong><%605%>%</p>
+          <p><strong>Memory Usage(Used/Total): </strong><%606%> MB/<%607%> MB</p>
 <!--
-          <p><strong>Flash Usage(Used/Total): </strong><%1244%> MB/<%1245%> MB</p>
+          <p><strong>Flash Usage(Used/Total): </strong><%608%> MB/<%609%> MB</p>
           <p><strong>Network Session(Active/Total): </strong>820/65536</p>
 -->		  
-          <p><strong>System Uptime: </strong><%1246%></p>
-          <p><strong>Hop Count: </strong><%1247%></p>
+          <p><strong>System Uptime: </strong><%610%></p>
+          <p><strong>Hop Count: </strong><%611%></p>
  
         </div>
 
@@ -103,11 +103,11 @@ function loadSettings()
                   <div id="EnableWifiDebug" style="display:none">
 					<input type="checkbox" name="action_Enable_Wifi_Debug" value="1" onclick="document.forms['debugLogForm'].submit();" />&nbsp;&nbsp;<strong>Enable Wifi Debug</strong>
 					<br /><br />
-		            <p style="display:inline">Wifi Debug Options<input type="text" name="wifi_debug_option" value="<%1248%>" style="display:inline; width:25%" /></p>
-					<input type="hidden" name="Start_When_Boot_Up" value="<%1249%>">			
-					<input type="hidden" name="Enable_Wifi_Debug" value="<%1250%>">
+		            <p style="display:inline">Wifi Debug Options<input type="text" name="wifi_debug_option" value="<%612%>" style="display:inline; width:25%" /></p>
+					<input type="hidden" name="Start_When_Boot_Up" value="<%613%>">			
+					<input type="hidden" name="Enable_Wifi_Debug" value="<%614%>">
                     </div>
-					<!--  <input type="hidden" name="Enable_Roaming_Debug" value="<%1251%>">   -->
+					<!--  <input type="hidden" name="Enable_Roaming_Debug" value="<%615%>">   -->
 							
 					<input type="hidden" name="form" value="enablePageForm">
 						
@@ -119,21 +119,21 @@ function loadSettings()
 					<input type="button" class="btn disabled" id="Save_Debug_File" value="Save Debug File" onclick="save_debug_log();" />
 					<br /><br />
 					<input type="hidden" name="form_name" value="debugLogForm">
-					<input type="hidden" name="Enable_LANWAN_Packet_Capture" value="<%1252%>">	
-					<input type="hidden" name="capture_in_process" value="<%1253%>">
+					<input type="hidden" name="Enable_LANWAN_Packet_Capture" value="<%616%>">	
+					<input type="hidden" name="capture_in_process" value="<%617%>">
 					
 				</form>
 			</div>
 			<div class="sectionDetails general" style="display:none">
 				<form id="telnetEnableForm" name="telnetEnableForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
 					<input type="checkbox" name="action_telnet_enable" onclick="document.forms['telnetEnableForm'].submit();" />&nbsp;&nbsp;<strong>Enable Telnet</strong>
-					<input type="hidden" name="telnet_enable" value="<%1254%>">
+					<input type="hidden" name="telnet_enable" value="<%618%>">
 					<input type="hidden" name="form_name" value="telnetEnableForm">
 				</form>
 			<div class="sectionDetails general" style="display:none">
 				<form id="rstpEnableForm" name="rstpEnableForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
-					<input type="checkbox" name="action_rstp_enable" value="<%1255%>" onclick="document.forms['rstpEnableForm'].submit();" />&nbsp;&nbsp;<strong>Enable RSTP</strong>
-					<input type="hidden" name="rstp_enable" value="<%1255%>">
+					<input type="checkbox" name="action_rstp_enable" value="<%619%>" onclick="document.forms['rstpEnableForm'].submit();" />&nbsp;&nbsp;<strong>Enable RSTP</strong>
+					<input type="hidden" name="rstp_enable" value="<%619%>">
 					<input type="hidden" name="form_name" value="rstpEnableForm">
 				</form>
 			</div>				

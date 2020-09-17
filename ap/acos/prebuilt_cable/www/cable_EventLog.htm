@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+var isInited = 0;
+var vEmergency = "<%3515%>";
+var vAlert = "<%3516%>";
+var vCritical = "<%3517%>";
+var vError = "<%3518%>";
+var vWarning = "<%3134%>";
+var vNotice = "<%3519%>";
+var vInformation = "<%3520%>";
+var vDebug = "<%3521%>";
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+  
+    function drawTable(tableId, tags, onAddRowCB)
+    {
+        var cellsNum = 0;
+        var item = 0;
+        var totalTagNum = tags.length - 1; // expect the first 1
+        var theTable = document.getElementById(tableId);
+
+        if ( !tags[tags.length - 1])
+            totalTagNum --;
+        cellsNum = totalTagNum /  parseInt(tags[0]);
+
+        if (theTable != null)
+        {
+            while (theTable.rows.length > 1)
+            {
+                theTable.deleteRow(theTable.rows.length - 1); 
+            }
+
+            for (item = 0; item < parseInt(tags[0]); item++)
+            {
+                var newRow = theTable.insertRow(-1); 
+                var cellsList = onAddRowCB(newRow, item , (item * cellsNum) + 1, tags);
+                
+                if (cellsList.length > 0)
+                {
+                    for (i = 0; i < cellsList.length; i++)
+                    {
+                        if (cellsList[i].length == 0)
+                        {
+                            newRow.insertCell(-1).innerHTML = '&nbsp;';
+                        }
+                        else
+                        {
+                            newRow.insertCell(-1).innerHTML = cellsList[i];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    function load_xml_content_string(xmlData)
+    {
+        if (window.ActiveXObject)
+        {
+            //for IE
+            xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+            xmlDoc.async="false";
+            xmlDoc.loadXML(xmlData);
+            return xmlDoc;
+        }
+        else if (document.implementation && document.implementation.createDocument)
+        {
+            //for Mozila
+            parser=new DOMParser();
+            xmlDoc=parser.parseFromString(xmlData,"text/xml");
+            return xmlDoc;
+        }
+    }
+    
+    function drawTableFromXML( tableID, xmlFormat, funcCB)
+    {
+        var xmlDoc = load_xml_content_string(xmlFormat);
+        var tagValueList = xmlDoc.getElementsByTagName("tr").length + '|';
+        
+        rows=xmlDoc.documentElement.childNodes;
+        for (i = 0; i < rows.length;i++)
+        {
+            if (rows[i].nodeType!=3)
+            {
+                for(j =0 ; j < rows[i].childNodes.length ; j++)
+                {
+                    if (rows[i].childNodes[j].nodeType!=3)
+                    {
+                        tagName = rows[i].childNodes[j].nodeName;
+                        tagValueList += xmlDoc.getElementsByTagName(tagName)[i].childNodes[0].nodeValue;
+                        tagValueList += '|';    
+                    }
+                }
+            }
+        }
+        drawTable(tableID, tagValueList.split("|"), funcCB);
+    }
+    
+    function convertPriorityString(priority)
+    {
+        var str="";
+        switch (priority)
+        {
+            case "1": str = vEmergency; break;
+            case "2": str = vAlert; break;
+            case "3": str = vCritical; break;
+            case "4": str = vError; break;
+            case "5": str = vWarning; break;
+            case "6": str = vNotice; break;
+            case "7": str = vInformation; break;
+            case "8": str = vDebug; break;
+        }
+        
+        str += " (" + priority + ") ";
+        return str;
+    }
+    
+    function onAddRowCB(newRow, rowId, firstCellIdx, tags)
+    {
+        var cellsArray = new Array(); // No Used
+     
+        var cellA = newRow.insertCell(-1);
+        cellA.align = "center";
+        cellA.innerHTML = tags[firstCellIdx + 1];
+        
+
+        var cellB = newRow.insertCell(-1);
+        cellB.align = "center";
+        cellB.innerHTML = convertPriorityString(tags[firstCellIdx + 4]);
+        
+
+        var cellC = newRow.insertCell(-1);
+        cellC.align = "left";
+        cellC.innerHTML = tags[firstCellIdx + 6];
+     
+        return cellsArray;
+    }
+    
+    function refresh()
+    {
+        window.location.href="cable_EventLog.htm";
+    }
+
+    function init()
+    {
+        isInited = 1;
+        var xmlFormat = '<docsDevEventTable><%3522%></docsDevEventTable>';
+        drawTableFromXML('EventLogTable', xmlFormat, onAddRowCB);
+        return true;
+    }
+
+//-->
+</script>
+</head>
+<body  onload="change_size();init();" class="page-body"  onResize="change_size();" >
+    <img class="cover-image" src="<%74%>">
+    <img class="body-image" src="<%75%>">
+    <div id="full-page-container">
+        <form id="target"  action=cableEventLog.cgi method="POST">
+            <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+            <img class="subtop-image" src="<%76%>">
+            <div class="subhead2"> <%790%></div>
+            <table border="0" style="height:370px" class="subhead2-table">
+                <tr align="left" valign="middle">
+                    <td align="center" colspan="2" class="table-seperate-border">
+                        <button value="<%1330%>"  type="submit" name=action_clear class="button-common" ><%1330%></button>
+                        <button value="<%980%>"  type="button" name=action_refresh class="button-common" onClick="buttonClick(this,'<%980%>');refresh();"><%980%></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="scrollpane-table-seperate-border" colspan="2">
+                        <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+                            <table style="border-collapse:collapse;width:99%">
+                                <tr><td height="12"></td></tr>
+                                <tr><td height="12" ><hr class='blueBar'></td></tr>
+                                <tr><td height="12"></td></tr>
+                                
+                                <tr><td>
+                                    <table class="tbWhite eventlog_table" border="0" cellpadding="0" cellspacing="0" width="100%" id="EventLogTable">
+                                      <thead>
+                                        <tr>
+                                            <td><span class="subheadtext"><%3523%></span></td>
+                                            <td><span class="subheadtext"><%3524%></span></td>
+                                            <td><span class="subheadtext"><%3525%></span></td>
+                                        </tr>
+                                      <thead>
+                                      <tbody>
+                                      </tbody>
+                                    </table>
+                                </td></tr>
+                                <tr><td height="12"></td></tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="cable_EventLog_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+            </table>
+            <img class="subfooter-image" src="img/subhead2-bottom.gif">
+            <div class="subhead2-bottom" >
+                <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+                <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+                <span class="button-help-arrow">
+                <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+                <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+            </div>
+
+            <a name="helpframe-anchor"></a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title><%529%></title>
+<link rel="stylesheet" href="css/MNUAccess.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="script/script.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+function alertMessage()
+{
+	alert("<%2974%>");
+}
+
+  
+function showQuestion1()
+{
+	var questions = [	"<%314%>",
+						"<%315%>",
+						"<%316%>",
+						"<%317%>",
+						"<%318%>",
+						"<%319%>",
+						"<%320%>",
+						"<%321%>",
+						"<%322%>",
+						"<%323%>"	];
+						
+	document.write(questions[<%313%>]);				
+	return true;
+}
+function showQuestion2()
+{
+	var questions = [	"<%325%>",
+						"<%326%>",
+						"<%327%>",
+						"<%328%>",
+						"<%329%>",
+						"<%330%>",
+						"<%331%>",
+						"<%332%>",
+						"<%333%>"	];
+						
+	document.write(questions[<%324%>]);				
+	return true;
+}
+
+//-->
+</script>
+</head>
+<body  bgcolor="#FFFFFF" onload="alertMessage();">
+<p class="MNUTitle"><%530%></p>
+
+<form method="POST" action="passwordrecovered.cgi">
+	<table border="0" cellpadding="0" cellspacing="3" style="width:600px">
+    <col width="200" />
+    <col width="400" />
+		<tr>
+			<td colspan="2" class="MNUText"><%2972%></td>
+		</tr>
+		<tr>
+			<td align="right" class="MNUText"><%341%></td>
+			<td align="left" class="MNUText">
+				<script language="javascript" type="text/javascript">
+				<!--
+				showQuestion1();	
+				//-->
+				</script>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" class="MNUText"><%480%></td>
+			<td align="left" class="MNUText"><input type="text" name="answer1" size=""></td>
+		</tr>
+		<tr>
+			<td align="right" class="MNUText"><%342%></td>
+			<td align="left" class="MNUText">
+				<script language="javascript" type="text/javascript">
+				<!--
+				showQuestion2();	
+				//-->
+				</script>			
+			</td>
+		</tr>
+		<tr>
+			<td align="right" class="MNUText"><%480%></td>
+			<td align="left" class="MNUText"><input type="text" name="answer2" size=""></td>
+		</tr>
+		<tr>
+			<td align="right" class="MNUText"><%519%></td>
+			<td align="left" class="MNUText"></td>
+		</tr>
+		<tr >	
+			<td class="MNUText" colspan="2">
+                <button type="RESET" value="Cancel" class="button-cancel" name="Cancel" > <%84%> </button>
+                <button type="SUBMIT" value="Continue" class="button-apply2" name="Continue" > <%2973%> </button>
+			</td>
+		</tr>
+		
+	</table>
+</form>
+
+</body>
+</html>

@@ -6,8 +6,10 @@
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <%0%>
-  <title>NETGEAR <%647%></title>
+  <title>NETGEAR <%150%></title>
 <script type="text/javascript">
+ console.log("access_cgi_logout");
+  <%355%>
 function ShowLanguageList()
 {
     var form=document.forms["langForm"];
@@ -17,15 +19,15 @@ function ShowLanguageList()
     var local_srpt = form.local_srptlang.value.split(" ");
     var gui_lang_local;
 
-    if("<%1130%>" == "1")
+    if("<%512%>" == "1")
     {
-        if("<%1131%>" == "1")
+        if("<%513%>" == "1")
             form.curlang.value = "Auto";
         else
-            form.curlang.value = "<%914%>";
+            form.curlang.value = "<%160%>";
     }
     else
-        form.curlang.value = "<%914%>";
+        form.curlang.value = "<%160%>";
 
     gui_region = form.curlang.value;
 
@@ -224,10 +226,11 @@ header {
   .processButtons .btn { width: 220px; height: 44px; padding: 0; font-size: 17px; line-height: 44px; margin-top: 10px; text-align: center;}
   .processButtons a {margin-right: 10px;}
 </style>
+
 </head>
   <body class="reboot setup" onLoad="calc_prgbar();updateProgress()">
 
-    <%3%>
+    <%356%>
 
     <form id="mainForm" action="update.cgi" method="POST" target="" >
       <div id="content">
@@ -236,7 +239,7 @@ header {
           <div class="main simpleChoiceWrapper clearfix">
             <div id="probar">
               <center>
-                <p><%1190%></p>
+                <p><%577%></p>
                 <br>
                 <div>
                   <img id="probar_img" src="img/bar_00.gif"></img>
@@ -247,7 +250,7 @@ header {
             <div id="button" style="display: none;">
               <div class="centerButtons">
                 <div class="processButtons">
-                  <a class="btn primary" name="continue" id="connectedNetwork" onclick="redirect();return false;"><%1191%></a>
+                  <a class="btn primary" name="continue" id="connectedNetwork" onclick="redirect();return false;"><%578%></a>
                 </div>
               </div>
             </div>
@@ -268,18 +271,18 @@ header {
           </div> <!-- end main -->
         </div> <!-- end container -->
       </div>
-    <input type="hidden" name="next_file" value="<%1089%>">
+    <input type="hidden" name="next_file" value="<%464%>">
     </form>
 
     <script type="text/javascript">
-    if("<%12%>" != "3"){
+    if("<%48%>" != "3"){
 		 document.getElementById("wallPlug_rebootingg_new").style.display="none";
 	 }
     <!--
     var maxchars = 10; 
-    var delay_time = <%1192%>; // msecs
+    var delay_time = <%579%>; // msecs
     var charcount = 0; 
-    var total_time = <%1193%>;; // msecs
+    var total_time = <%580%>;; // msecs
     var bar_pic = ['bar_00.gif', 'bar_11.gif', 'bar_22.gif', 'bar_33.gif', 'bar_44.gif', 'bar_55.gif', 'bar_66.gif', 'bar_77.gif', 'bar_88.gif', 'bar_99.gif'];
 
     function calc_prgbar()

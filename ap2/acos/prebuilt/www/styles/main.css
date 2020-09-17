@@ -3838,7 +3838,18 @@ input.synchDateTime {
 
  .productSideStatus{
   position:absolute;
-  background-image: url('../img/product-rbs150.png');
+  background-image: url('../img/satellite_rbs750.png');
+  background-repeat: no-repeat;
+  width:110px;
+  height:180px;
+  bottom:95px;
+  left:32%;
+  top:26%;
+ }
+
+ .productSideStatus2{
+  position:absolute;
+  background-image: url('../img/satellite.png');
   background-repeat: no-repeat;
   width:110px;
   height:180px;
@@ -4027,6 +4038,13 @@ input.synchDateTime {
   }
 
  .productSideStatus{
+  width:55px;
+  height:90px;
+  bottom:52px;
+  left:26%;
+  background-size:100%;
+ }
+ .productSideStatus2{
   width:55px;
   height:90px;
   bottom:52px;

@@ -52,9 +52,9 @@ function checkData()
 	if( checkMacStr(cf.mac_addr) || MacStrallf(cf.mac_addr) )
 		msg += "<%0%>\n";
     if( cf.dev_name.value.length < 1 )
-		msg+="<%1031%>\n";
+		msg+="<%1052%>\n";
 	if (cf.dev_name.value.match( /[^\x20-\x7E]/ ))
-		msg+="<%1032%>\n";
+		msg+="<%1053%>\n";
 	if (msg.length > 1) {
 		alert(msg);
 		return false;
@@ -74,8 +74,8 @@ function checkData()
 <form id="target"  name="frmLan" method="POST" action="access_control_add.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 	<img class="subtop-image" src="<%76%>">
-<div class="subhead2" id="allowed_list_head"> <%1033%></div>
-<div class="subhead2" id="blocked_list_head"> <%1034%></div>
+<div class="subhead2" id="allowed_list_head"> <%1054%></div>
+<div class="subhead2" id="blocked_list_head"> <%1055%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -91,11 +91,11 @@ function checkData()
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
-<td nowrap><%1035%></td>
+<td nowrap><%1056%></td>
 <td nowrap><input type="text" size="17" maxlength="17" id="mac_addr" name="mac_addr"></td>
 </tr>
 <tr>
-<td nowrap><%642%></td>
+<td nowrap><%718%></td>
 <td nowrap><input type="text" size="24" maxlength="32" id="dev_name" name="dev_name"></td>
 </tr>
 
@@ -119,7 +119,7 @@ function checkData()
       </div>
 
 
-    <input name="access_control_add_type" type="hidden" value="<%1036%>">
+    <input name="access_control_add_type" type="hidden" value="<%1057%>">
 
 </form>
 

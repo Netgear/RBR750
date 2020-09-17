@@ -149,7 +149,7 @@ function checkInt(text_input_field, field_name, min_value, max_value, required)
 }
 function chkMacLen(mac){
 	if((mac.value.length != 12) || (mac.value=="000000000000")){
-		alert("<%905%>");
+		alert("<%151%>");
 		mac.value = "";
 		return false;
 	}
@@ -213,7 +213,7 @@ function MACAddressBlur(address)
 	address.value = MAC;
 	if ((address.value.length != 12) || (address.value=="000000000000"))
 	{
-		alert("<%905%>");
+		alert("<%151%>");
 		return false;
 	}
 	else

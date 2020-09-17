@@ -824,11 +824,11 @@ function subpage_resize()
         $('#page_contain2').width(parseInt(page_contain_width));  
         $('#page_contain2').height(parseInt(page_contain_height));  
         $('#page_contain2').css("margin-top","5");            
-        $('#formframe').attr("scrolling","no");
-        $('#formframe').width(parseInt(page_width));
-        $('#formframe').height(parseInt(page_height));
-        $('#formframe').css("margin-top","0");
-        $('#formframe').css("margin-left","30");      
+        $('#page').attr("scrolling","no");
+        $('#page').width(parseInt(page_width));
+        $('#page').height(parseInt(page_height));
+        $('#page').css("margin-top","0");
+        $('#page').css("margin-left","30");
     }               
          
 

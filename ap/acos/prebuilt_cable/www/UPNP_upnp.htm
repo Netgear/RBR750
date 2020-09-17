@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>		
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function trim(vString)
+{ 
+	var tString = vString;
+
+	//trim left spaces
+	if (tString.charAt(0) == " ")
+		tString = trim(tString.substring(1, tString.length));
+
+	//trim right spaces
+	if (tString.charAt(tString.length-1) == " ")
+		tString = trim(tString.substring(0, tString.length-1));
+
+	return(tString);
+}
+function isNumOnly(vString)
+{
+	var NUMBERS = "0123456789";
+	var valid = true;
+	for(var i=0;i<vString.length;i++)
+		if(NUMBERS.indexOf(vString.charAt(i))<0)
+			valid = false;
+			
+	return(valid);
+}
+function isNull(vField) {
+	var ret = false;
+	vField.value = trim(vField.value)
+	
+	if (vField.value.length == 0)
+		ret = true;
+	return(ret)
+}
+function CheckAdverTimeVal(vField)
+{
+	if(isNull(vField)){
+		alert("<%3%> " + vField.name);
+		vField.value = vField.form.hiddenAdverTime.value;
+		vField.focus();
+		return false;
+	}
+	if(!isNumOnly(vField.value)){
+		alert(vField.name + " <%6%>");
+		vField.value = vField.form.hiddenAdverTime.value;
+		vField.focus();
+		return false;
+	}
+	if((vField.value >1440 )||(vField.value <= 0 )){
+		alert(vField.name + " <%1740%>");
+		vField.value = vField.form.hiddenAdverTime.value;
+		vField.focus();
+		return false;
+	}	
+	return true
+}
+function CheckTimeToLiveVal(vField)
+{
+	if(isNull(vField)){
+		alert("<%3%> " + vField.name);
+		vField.value = vField.form.hiddenTimeToLive.value;
+		vField.focus();
+		return false;
+	}
+	if(!isNumOnly(vField.value)){
+		alert(vField.name + " <%6%>");
+		vField.value = vField.form.hiddenTimeToLive.value
+		vField.focus()
+		return false	
+	}
+	if((vField.value > 255 )||(vField.value <= 0 )){
+		alert(vField.name + " <%1741%>")
+		vField.value = vField.form.hiddenTimeToLive.value
+		vField.focus()
+		return false 
+	}
+	return true
+}
+
+function finishchech()
+{
+    var cf = document.forms[0];
+
+	if(!CheckAdverTimeVal(document.formname.AdverTime))
+		return false;
+	else if(!CheckTimeToLiveVal(document.formname.TimeToLive))
+		return false;
+	else
+	{
+	    //document.formname.submit();
+	    if (cf.UPnP.checked)
+	        cf.hiddenTurnUPnPOn.value = 1;
+	    else
+	        cf.hiddenTurnUPnPOn.value = 0;
+	    return true
+	}
+}
+
+function fresh()
+{
+window.location.href="UPNP_upnp.htm";
+}
+
+function init()
+{
+    var cf = document.forms[0];
+
+    if (cf.hiddenTurnUPnPOn.value == 1)
+        cf.UPnP.checked = true;
+    else
+        cf.UPnP.checked = false;
+}
+//-->
+</script>
+</head>
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="change_size(); init();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="formname" method="POST" action="upnp.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+ 
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%755%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%980%>" OnClick="buttonClick(this,'<%980%>');fresh();" type="button" name="refresh" id="refresh" class="button-common"><%980%></button>
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='UPNP_upnp.htm'" type="button" name="cancel" id="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return finishchech()" type="submit" name="apply" id="apply" class=<%79%> ><%81%></button>
+
+
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+		
+	
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+
+<tr><td nowrap width="46%"><input type="checkbox" name="UPnP" id="upnp" value="UPnP"><B><a href="javascript:loadhelp('UPNP_upnp','turnon')" tabindex="-1"><%1742%></a></B></td>
+<td nowrap width="54%"></td></tr>
+ 
+<tr><td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','adv')" tabindex="-1"><%1743%></a> </B><%1744%></td>
+<td nowrap width="54%" align="right"><input type="text" class="num" name="AdverTime" id="adver_time" size="5" maxlength="4" value="<%1745%>" onFocus="this.select();" ></td>
+</tr>
+
+<tr>
+ <td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','live')" tabindex="-1"><%1746%></a></b> <%1747%></td>
+	<td nowrap width="54%" align="right"><input type="text" class="num" name="TimeToLive" id="time_to_live" size="5" maxlength="3" value="<%1748%>" onFocus="this.select();" ></td>
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+ <td colspan="2"><b><a href="javascript:loadhelp('UPNP_upnp','table')" tabindex="-1"><%1749%></a></b></td>
+</tr>
+
+<tr>
+<td colspan="2">
+
+<table id="upnp_portmap" class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th width="10%" align="center"><span class="thead"><%1677%></span></th>
+      <th width="15%" align="center"><span class="thead"><%943%></span></th>
+      <th width="15%" align="center"><span class="thead"><%1750%></span></th>
+      <th width="15%" align="center"><span class="thead"><%1751%></span></th>
+      <th width="25%" align="center"><span class="thead"><%602%></span></th>
+    </tr> 
+  </thead>
+  <tbody>
+	<!><%1752%><!>
+  </tbody>
+</table>
+</td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="UPNP_upnp_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</TABLE>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+ 
+
+<input type="hidden" value="<%1753%>" name="hiddenTurnUPnPOn">
+<input type="hidden" value="<%1745%>" name="hiddenAdverTime">
+<input type="hidden" value="<%1748%>" name="hiddenTimeToLive">
+
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+ <head>
+  <%11%>
+</head>
+
+</html>
+
+

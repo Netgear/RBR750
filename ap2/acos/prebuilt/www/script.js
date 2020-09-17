@@ -706,7 +706,7 @@ function do_search()
 {
 	var key = document.getElementById("footerSearchField").value.replace(/ /g,"%20");
 	if (key == "")
-		key = "<%647%>";
+		key = "<%150%>";
 	
 	var winoptions = "width=960,height=800,menubar=yes,scrollbars=yes,toolbar=yes,status=yes,location=yes,resizable=yes";
 	var url="http://www.netgear.com/search.aspx?q="+key;

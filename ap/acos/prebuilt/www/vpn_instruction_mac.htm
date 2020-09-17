@@ -26,6 +26,32 @@
     });
 
 //-->
+function ddns_check()
+{
+	var ddns_enable_check = "<%1120%>";
+	var openvpnEnable = "<%538%>";
+
+    var cf = document.forms[0];
+
+	if(openvpnEnable == "disable"){
+		alert("<%1174%>");
+		cf.openvpnActive.focus();
+		return false;
+	}
+
+	if(ddns_enable_check == 0){
+		alert("<%1175%>");
+	}
+
+	return true;
+}
+
+function change_location(new_location)
+{
+	window.location.href = new_location;
+	return true;
+}
+
 </script> 
 </head>
 <body  onload="change_size();" class="page-body" onResize="change_size();" >
@@ -36,7 +62,7 @@
 <form id="target" method="POST" action="">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1205%> </div>
+<div class="subhead2"> <%1225%> </div>
 
 <table border="0" style="height:370px" class="subhead2-table">
 <tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
@@ -44,14 +70,16 @@
 
 <TR>
 <TD>
-<BR><%1206%>
-<BR><%1207%>
-<BR><%1208%>
-<BR><%1209%>
-<BR><%1210%> 
-<BR><%1211%> 
-<BR><%1212%>
-<BR><%1213%>
+<BR><%1226%>
+<br>
+<BR><%1227%>
+<BR><%1228%>
+<BR><%1229%>
+<BR><button type="BUTTON" value="nonwindows_zip" name="non-windows" id="non_window" class="button-common" onclick="buttonClick(this,'nonwindows_zip'); if(!ddns_check()) return; change_location('nonwindows.zip');"><%1181%></button>
+<BR><%1230%>
+<BR><%1231%>
+<br>
+<BR><%1232%>
 </TD>
 </TR>
 

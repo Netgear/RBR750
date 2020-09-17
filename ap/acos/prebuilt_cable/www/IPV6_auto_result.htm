@@ -1,0 +1,21 @@
+<html><head>
+<%11%>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+function reload()
+{
+    var cf = document.forms[0];
+    if (cf.ipv6_auto_err.value != "0")
+        window.location.href = "IPV6_auto_error.htm";
+    else
+        window.location.href = "<%756%>";
+}
+//-->
+</script></head>
+<body bgcolor="#ffffff">
+<img class="cover-image" src="<%74%>" onload="reload();">
+<form name="browser_name" method="post" action="ipv6auto.cgi">
+<input type="hidden" name="ipv6_auto_err" value="<%2809%>">
+</form>
+</body></html>

@@ -1,0 +1,140 @@
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript" src="repeater.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- 
+var msg1='The link rate LED is amber, indicating that the Extender is connecting to the existing network at fair speed.';
+var msg2='The link rate LED is green, indicating that the Extender is connecting to the existing network at optimal speed. Click "Finish" to exit the installation. ';
+
+function Loadsettings()
+{
+    var cf = document.forms[0];
+    
+    if (cf.link_status.value == 1)//red
+    {
+        document.getElementById("green_amber").style.display="none";
+        document.getElementById("red").style.display="block";
+        //document.getElementById("view").innerHTML=msg1;
+    }
+    else if (cf.link_status.value == 2)//amber
+    {
+        document.getElementById("green_amber").style.display="block";
+        document.getElementById("view").innerHTML=msg1;
+        document.getElementById("red").style.display="none";
+    }
+    else if (cf.link_status.value == 3)//green
+    {
+        document.getElementById("green_amber").style.display="block";
+        document.getElementById("view").innerHTML=msg2;
+        document.getElementById("red").style.display="none";
+    }
+}
+
+function CheckData()
+{
+    var cf = document.forms[0];
+    var changeMsg = "Do you want to add 'WNR2000RPT Configuration' as a bookmark?";
+    
+    if(!confirm(changeMsg))
+        return ture;
+    else
+        return ture;
+}
+
+//-->
+</script> 
+</head>
+<body bgcolor="#ffffff" onload="Loadsettings()">
+<form method="POST" action=" ">
+<div id="green_amber" style="display: none;">
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+
+<tr>
+	<td colspan="2"><b>Congratulations! The Extender has successfully connected to your existing network.</b></td>
+</tr>
+
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td colspan="2"><b><div id="view"><br></div></b></td>
+</tr>
+<!--<tr>
+	<td colspan="2"><b>The link rate LED is green, indicating that the Extender is connecting to the existing network at optimal speed. Click "Finish" to exit the installation. </b></td>
+</tr>-->
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td align="right"><input type="button" name="Finish" value=" Finish" onclick="msg_close();" ></td>
+</tr>
+
+</table>
+</div>
+
+<!--
+<div id="amber" style="display: none;">
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+
+<tr>
+	<td colspan="2"><b>Congratulations! The Extender has successfully connected to your existing network.</b></td>
+</tr>
+
+
+<tr> 
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+	<td colspan="2"><b>The link rate LED is amber, indicating that the Extender is connecting to the existing network at fair speed.</b></td>
+</tr>
+</table>
+</div>
+-->
+
+<div id="red" style="display: none;">
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+
+<tr>
+	<td colspan="2"><b>Please remove Externer closer to your existing router or gateway.</b></td>
+</tr>
+
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+	<td colspan="2">The link rate LED is red, indicating that the Extender is not getting good connecting to the existing network. <b>It is recommanded that you improve the connection by following questiong 4 at FAQ section on the back of placemat</b>. When you are ready, click "Try again". If you like to complete the setup as is, click "Finish". Otherwise, click the "Cancel" to select a different network.</td>
+</tr>
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td align="left"><input type="button" name="Cancel" value=" Cancel" onclick="window.location.href='wizard_to_welcome.html'" ></td>
+    <td align="center"><input type="button" name="Finish" value=" Finish" onclick="msg_close();" ></td>
+    <td align="right"><input type="button" name="Try again" value=" Try again" onclick="window.location.href='IA_finish.htm'" ></td>
+</tr>
+
+</table>
+</div>
+
+
+<!--<INPUT type=hidden name="link_status" value="<%2675%>">-->
+<INPUT type=hidden name="link_status" value="<%2675%>">
+</form>
+<p>
+</p>
+</body>
+</html>
+

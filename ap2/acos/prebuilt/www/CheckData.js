@@ -1,5 +1,5 @@
 /* for WPS 2.0 checking */
-var wps_version = "<%917%>";  
+var wps_version = "<%164%>";  
 var show_open_or_wps_v20_msg = false;
 
 // ---------------------------- Start of  WEP functions ----------------------------
@@ -22,9 +22,9 @@ function checkKey(evt)
     if ((lastkeypressed != 13) && (lastkeypressed != 8) && ( keyTooBig || keyTooBig_5g) )
     {
         if(keyTooBig==true)
-        alert("<%918%> " + keysize + " <%919%>");
+        alert("<%165%> " + keysize + " <%166%>");
         if(keyTooBig_5g==true)
-        alert("<%918%> " + keysize_5g + " <%919%>");
+        alert("<%165%> " + keysize_5g + " <%166%>");
         keyTooBig = false;
         keyTooBig_5g = false;
         chkSize(lastObj); // for NS 6/7
@@ -70,7 +70,7 @@ function CheckData_NONE()
     if (wps_version == "2.0")
     {
         if (!show_open_or_wps_v20_msg) {
-            if (!confirm("<%920%>")) {
+            if (!confirm("<%167%>")) {
                 return false;
             }
         }
@@ -81,8 +81,8 @@ function CheckData_NONE()
 
 function CheckData_WEP(wepenc, wep_key_no, key, key1, key2, key3, key4)
 {
-    var msg_key64_type = "<%921%>";
-    var msg_key128_type = "<%922%>";
+    var msg_key64_type = "<%168%>";
+    var msg_key128_type = "<%169%>";
     
     var msg = ""; var blankFlag = false; var sizeOK = false; var i;
     var len = (wepenc.selectedIndex==0)?10:((wepenc.selectedIndex==1)?26:32);
@@ -256,7 +256,7 @@ function CheckData_WPA(passphrase)
 {
     if(passphrase.value.length < 8)
     {
-        alert("<%874%>");
+        alert("<%108%>");
         passphrase.focus();
         return false;    
     }
@@ -264,7 +264,7 @@ function CheckData_WPA(passphrase)
     {
         if ( isHex(passphrase.value) == false)
         {
-            alert("<%874%>");
+            alert("<%108%>");
             //passphrase.value = "";
             passphrase.focus();
             return false;
@@ -273,7 +273,7 @@ function CheckData_WPA(passphrase)
     
     if (passphrase.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%923%>");
+        alert("<%170%>");
         passphrase.focus();
         return false;
     }
@@ -283,29 +283,29 @@ function CheckData_WPA(passphrase)
 
 function CheckData_Manual(ssid, security_type, passphrase, wepenc, wep_key_no, key, key1, key2, key3, key4)
 {
-    var msg_key64_type = "<%921%>";
-    var msg_key128_type = "<%922%>";
+    var msg_key64_type = "<%168%>";
+    var msg_key128_type = "<%169%>";
 
     var security_type_value = security_type.value;    
     var msg = "";
 
     if (ssid.value == "")
     {
-        alert("<%480%>");
+        alert("<%81%>");
         ssid.focus();
         return false;
     }
 
     if (ssid.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%481%>");
+        alert("<%82%>");
         ssid.focus();
         return false;
     }
     
     if (security_type_value == -1) // not selected
     {
-        alert("<%482%>");
+        alert("<%171%>");
         security_type.focus();
         return false;
     }

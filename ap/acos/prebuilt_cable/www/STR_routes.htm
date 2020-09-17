@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!-- 
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function chgSel(index)
+{
+ document.forms[0].select.value = index;
+ return true;
+}
+//-->
+</script> 
+</head>
+<body  onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="frmRoutes" method="POST" action="routes.cgi">
+<input type="hidden" id="buttonHit" name="buttonHit"><input type="hidden" id="buttonValue" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%753%></div>
+<table border="0" style="height:370px" class="subhead2-table">
+
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:410px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+<td colspan="2">
+	<table id="static_routes" class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th width="5%" align="center">&nbsp;</th>
+      <th width="5%" align="center">#</th>
+      <th width="15%" align="center"><%1677%></th>
+      <th width="25%" align="center"><%1678%></th>
+      <th width="25%" align="center"><%1679%></th>
+      <th width="25%" align="center"><%1680%></th>
+    </tr>
+  </thead>
+  <tbody>
+	<%1681%>
+  </tbody>
+	</table>
+</td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+	<td colspan="2" align="center">
+		<button type="SUBMIT" value="<%926%>" name="Add" id="add" class="button-common" onclick="buttonClick(this,'<%926%>');" ><%926%></button>
+		<button type="submit" value="<%881%>" name="Edit" id="edit" class="button-common" onclick="buttonClick(this,'<%881%>');" ><%881%></button>
+		<button type="submit" value="<%927%>" name="Delete" id="delete" class="button-common" onclick="buttonClick(this,'<%927%>');" ><%927%></button>
+		<input type="hidden"  name="select" value="-1" id="Select">
+	</td>
+</tr>
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="STR_routes_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+</html>
+

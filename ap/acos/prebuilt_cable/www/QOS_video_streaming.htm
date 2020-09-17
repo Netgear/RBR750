@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function check_EQUAL_RANG()
+{
+	var cf = document.forms[0];
+	
+	if(cf.EQUAL_METHOD[0].checked) {
+		document.getElementsByName("div_percent")[0].style.display = "block";
+		document.getElementsByName("div_number")[0].style.display = "none";
+	} else {
+		document.getElementsByName("div_percent")[0].style.display = "none";
+		document.getElementsByName("div_number")[0].style.display = "block";
+	}	
+	
+	return true;
+}
+
+function grayout_all_items(iter)
+{
+	var cf = document.forms[0];
+	/*
+	cf.Addr1.disabled = iter;
+	cf.Addr2.disabled = iter;
+	cf.Addr3.disabled = iter;
+	cf.Addr4.disabled = iter;
+	*/
+	cf.WIN_BWSTATBLE.disabled 		= iter;	
+	cf.WIN_BWCHG.disabled 			= iter;	
+	cf.WIN_BWHDROP.disabled 		= iter;		
+	cf.WIN_ADAPT.disabled 			= iter;	
+	cf.WIN_RUNNING.disabled 			= iter;
+	cf.EQUAL_RANG_PERCENT.disabled  = iter;
+	cf.EQUAL_RANG_NUMBER.disabled	= iter;
+	cf.PER_TOLERANCE.disabled 		= iter;
+	cf.PER_TOLERANCE_PICKUP.disabled 		= iter;
+	cf.DELTA_BWL_MIN.disabled 		= iter;
+	cf.DELTA_BWL_PICKUP_MIN.disabled 		= iter;
+	cf.BWL_ZERO.disabled 			= iter;
+	cf.ZERO_TRAFFIC.disabled 		= iter;
+	cf.BWH_MIN.disabled 			= iter;
+	cf.CONFIG_AVG_Q_SIZE.disabled 	= iter;
+	cf.BWL_PREDROP_PERIOD.disabled  = iter;
+	//cf.FORCE_DROP_PERIOD.disabled   = iter;
+	cf.EQUAL_METHOD[0].disabled		= iter;
+	cf.EQUAL_METHOD[1].disabled		= iter;
+	cf.NEED_CHECK_BWH_IN_VAGUE[0].disabled = iter;
+	cf.NEED_CHECK_BWH_IN_VAGUE[1].disabled = iter;
+	cf.BWL_LIMIT_REAL_PERCENT.disabled  = iter;
+	
+	return true;
+}
+
+function check_enable()
+{
+	var cf = document.forms[0];
+
+	if(cf.QOS_ENABLE.checked)
+		grayout_all_items(false);
+	else
+		grayout_all_items(true);
+
+	return true;
+}
+
+function loadSettings()
+{
+	var cf = document.forms[0];
+	var youtube_IP = cf.NV_YoutubeIP.value.split(".");
+	
+	if(cf.NV_QOS_ENABLE.value==1) {
+		cf.QOS_ENABLE.checked = true;
+		grayout_all_items(false);
+	} else {
+		cf.QOS_ENABLE.checked = false;
+		grayout_all_items(true);	
+	}	
+	/*
+	cf.Addr1.value = youtube_IP[0];
+	cf.Addr2.value = youtube_IP[1];
+	cf.Addr3.value = youtube_IP[2];
+	cf.Addr4.value = youtube_IP[3];
+	*/
+	cf.WIN_BWSTATBLE.value 		= cf.NV_WIN_BWSTATBLE.value;
+	cf.WIN_BWCHG.value 			= cf.NV_WIN_BWCHG.value;
+	cf.WIN_BWHDROP.value 		= cf.NV_WIN_BWHDROP.value;
+	cf.WIN_ADAPT.value 			= cf.NV_WIN_ADAPT.value;
+	cf.WIN_RUNNING.value 			= cf.NV_WIN_RUNNING.value;
+	cf.EQUAL_RANG_PERCENT.value = cf.NV_EQUAL_RANG_PERCENT.value;
+	cf.EQUAL_RANG_NUMBER.value	= cf.NV_EQUAL_RANG_NUMBER.value;
+	//cf.DELTA_BWL.value 			= cf.NV_DELTA_BWL.value;
+	cf.PER_TOLERANCE.value 		= cf.NV_PER_TOLERANCE.value;
+	cf.PER_TOLERANCE_PICKUP.value 		= cf.NV_PER_TOLERANCE_PICKUP.value;
+	cf.DELTA_BWL_MIN.value 		= cf.NV_DELTA_BWL_MIN.value;
+	cf.DELTA_BWL_PICKUP_MIN.value 		= cf.NV_DELTA_BWL_PICKUP_MIN.value;
+	cf.BWL_ZERO.value 			= cf.NV_BWL_ZERO.value;
+	cf.ZERO_TRAFFIC.value 		= cf.NV_ZERO_TRAFFIC.value;
+	cf.BWH_MIN.value 			= cf.NV_BWH_MIN.value;
+	cf.CONFIG_AVG_Q_SIZE.value = cf.NV_CONFIG_AVG_Q_SIZE.value;
+	cf.BWL_PREDROP_PERIOD.value = cf.NV_BWL_PREDROP_PERIOD.value;
+	//cf.FORCE_DROP_PERIOD.value  = cf.NV_FORCE_DROP_PERIOD.value;
+	cf.BWL_LIMIT_REAL_PERCENT.value = cf.NV_BWL_LIMIT_REAL_PERCENT.value;
+
+	cf.EQUAL_METHOD[cf.NV_EQUAL_METHOD.value].checked		= 1;
+	if(cf.NV_NEED_CHECK_BWH_IN_VAGUE.value==1)
+		cf.NEED_CHECK_BWH_IN_VAGUE[0].checked = 1;
+	else
+		cf.NEED_CHECK_BWH_IN_VAGUE[1].checked = 1;
+
+	check_EQUAL_RANG();
+	check_enable();
+
+	return true;
+}
+
+
+function checkData()
+{
+	var cf = document.forms[0];
+/*
+	cf.NV_YoutubeIP.value = cf.Addr1.value + "." + cf.Addr2.value + "." + cf.Addr3.value + "." + cf.Addr4.value;
+*/	
+	return true;
+}
+
+
+//-->
+</script> 
+</head>
+<body  onload="change_size();loadSettings();loadAlert();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="frmRules" method="POST" action="qos_video_streaming.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> QoS Video Streaming Tunning</div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');return checkData();"  type="submit" name="apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onclick="buttonClick(this,'<%83%>');loadSettings();" type="button" name="cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+<td colspan="2"> 
+	<input type="checkbox" name="QOS_ENABLE" onClick="check_enable();" value="1"><b> Enable QoS Video Streaming</b>
+</td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<!--
+<tr>
+<td> <b>High Priority IP Address</b></td>
+<td>
+	<input type="text" name="Addr1" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
+	<input type="text" name="Addr2" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+	<input type="text" name="Addr3" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+	<input type="text" name="Addr4" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)">
+</td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+-->
+
+<tr>
+	<td colspan="2"> 
+		<p><b>Tunning Variables</b></p>
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		WIN_BWSTATBLE (The critical value to check whether state is stable.)
+	</td>
+	<td>
+		<input type="text" name="WIN_BWSTATBLE" class="num" size="4" maxlength="3">
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		WIN_BWCHG (Used to check whether downlink bandwidth is changed.)
+	</td>
+	<td>
+		<input type="text" name="WIN_BWCHG" class="num" size="4" maxlength="3">
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		WIN_BWHDROP (The variable is used in picking-up state to check whether BWL_limit is pickup enough.)
+	</td>
+	<td>
+		<input type="text" name="WIN_BWHDROP" class="num" size="4" maxlength="3">
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		WIN_ADAPT (The period to check bandwidth.)
+	</td>	
+	<td>
+		<input type="text" name="WIN_ADAPT" class="num" size="4" maxlength="3"> seconds
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		WIN_RUNNING (the continuous none zero BWH to go from vague state to balanced state.)
+	</td>	
+	<td>
+		<input type="text" name="WIN_RUNNING" class="num" size="4" maxlength="3"> 
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		NEED_CHECK_BWH_IN_VAGUE (check BWh is equal in vague state.)
+	</td>	
+	<td>
+		<input type="radio" name="NEED_CHECK_BWH_IN_VAGUE" value="1"> enable
+		<input type="radio" name="NEED_CHECK_BWH_IN_VAGUE" value="0"> disable
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		EQUAL_METHOD (Use % or number to define previous and current bandwith is equal.)
+	</td>
+	<td>
+		<input type="radio" name="EQUAL_METHOD" value="0" onClick="check_EQUAL_RANG();"> by percent
+		<input type="radio" name="EQUAL_METHOD" value="1" onClick="check_EQUAL_RANG();"> by number
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		EQUAL_RANG (The range for EQUAL_METHOD.)
+	</td>
+	<td> 
+		<div name="div_percent"><input type="text" name="EQUAL_RANG_PERCENT" class="num" size="4" maxlength="3"> %</div>
+		<div name="div_number"><input type="text" name="EQUAL_RANG_NUMBER" class="num" size="4" maxlength="5"> KBytes</div>
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		PER_TOLERANCE (Use the percent to get the DELTA_BWL.)
+	</td>
+	<td>
+		<input type="text" name="PER_TOLERANCE" class="num" size="4" maxlength="3"> %
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		PER_TOLERANCE_PICKUP (Use the percent to get the DELTA_BWL_PICKUP.)
+	</td>
+	<td>
+		<input type="text" name="PER_TOLERANCE_PICKUP" class="num" size="4" maxlength="3"> %
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		DELTA_BWL_MIN (The minimun value of DELTA_BWL.)
+	</td>
+	<td>
+		<input type="text" name="DELTA_BWL_MIN" class="num" size="4" maxlength="5"> KBytes
+	</td>
+</tr>
+<tr>
+	<td nowrap> 
+		DELTA_BWL_PICKUP_MIN (The minimun value of DELTA_BWL_PICKUP.)
+	</td>
+	<td>
+		<input type="text" name="DELTA_BWL_PICKUP_MIN" class="num" size="4" maxlength="5"> KBytes
+	</td>
+</tr>
+<tr>
+	<td > 
+		BWL_ZERO (The definition of the minimun limitation of BWlow traffic.)
+	</td>
+	<td>
+		<input type="text" name="BWL_ZERO" class="num" size="4" maxlength="5"> KBytes
+	</td>
+</tr>
+<tr>
+	<td > 
+		ZERO_TRAFFIC (The definition of zero traffic.)
+	</td>
+	<td>
+		<input type="text" name="ZERO_TRAFFIC" class="num" size="4" maxlength="5"> KBytes
+	</td>
+</tr>
+<tr>
+	<td > 
+		BWH_MIN (the mininum bandwidth for high priority traffic)
+	</td>
+	<td>
+		<input type="text" name="BWH_MIN" class="num" size="4" maxlength="5"> KBytes
+	</td>
+</tr>
+<tr>
+	<td > 
+		CONFIG_AVG_Q_SIZE (the size of bwl queue, max is 32)
+	</td>
+	<td>
+		<input type="text" name="CONFIG_AVG_Q_SIZE" class="num" size="4" maxlength="5">
+	</td>
+</tr>
+<tr>
+	<td > 
+		BWL_PREDROP_PERIOD (the pre-drop period in vague)
+	</td>
+	<td>
+		<input type="text" name="BWL_PREDROP_PERIOD" class="num" size="4" maxlength="5"> Seconds
+	</td>
+</tr>
+<tr>
+	<td > 
+		BWL_LIMIT_REAL_PERCENT (BWL_LIMIT * BWL_LIMIT_REAL_PERCENT / 100 is the real BWL_limit)
+	</td>
+	<td>
+		<input type="text" name="BWL_LIMIT_REAL_PERCENT" class="num" size="4" maxlength="5"> %
+	</td>
+</tr>
+<!--
+<tr>
+	<td > 
+		FORCE_DROP_PERIOD (the period to force drop BWL_limit)
+	</td>
+	<td>
+		<input type="text" name="FORCE_DROP_PERIOD" class="num" size="4" maxlength="5"> seconds
+	</td>
+</tr>
+-->
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+
+
+<tr>
+<input type="hidden" name="NV_QOS_ENABLE" value="<%2191%>">
+<input type="hidden" name="NV_YoutubeIP" value="<%2217%>">
+<input type="hidden" name="NV_WIN_BWSTATBLE" value="<%2218%>">
+<input type="hidden" name="NV_WIN_BWCHG" value="<%2219%>">
+<input type="hidden" name="NV_WIN_BWHDROP" value="<%2220%>">
+<input type="hidden" name="NV_WIN_ADAPT" value="<%2221%>">
+<input type="hidden" name="NV_WIN_RUNNING" value="<%2222%>">
+<input type="hidden" name="NV_EQUAL_METHOD" value="<%2223%>">
+<input type="hidden" name="NV_EQUAL_RANG_PERCENT" value="<%2224%>">
+<input type="hidden" name="NV_EQUAL_RANG_NUMBER" value="<%2225%>">
+<input type="hidden" name="NV_PER_TOLERANCE" value="<%2226%>">
+<input type="hidden" name="NV_PER_TOLERANCE_PICKUP" value="<%2227%>">
+<input type="hidden" name="NV_DELTA_BWL_MIN" value="<%2228%>">
+<input type="hidden" name="NV_DELTA_BWL_PICKUP_MIN" value="<%2229%>">
+<input type="hidden" name="NV_BWL_ZERO" value="<%2230%>">
+<input type="hidden" name="NV_ZERO_TRAFFIC" value="<%2231%>">
+<input type="hidden" name="NV_BWH_MIN" value="<%2232%>">
+<input type="hidden" name="NV_FORCE_DROP_PERIOD" value="<%2233%>">
+<input type="hidden" name="NV_CONFIG_AVG_Q_SIZE" value="<%2234%>">
+<input type="hidden" name="NV_BWL_PREDROP_PERIOD" value="<%2235%>">
+<input type="hidden" name="NV_NEED_CHECK_BWH_IN_VAGUE" value="<%2236%>">
+<input type="hidden" name="NV_BWL_LIMIT_REAL_PERCENT" value="<%2237%>">
+
+</tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="QOS_main_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+
+
+
+
+
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+</html>
+
+

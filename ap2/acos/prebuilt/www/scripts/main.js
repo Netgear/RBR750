@@ -137,7 +137,7 @@
         validStates=[];
         
         
-      var web_timeout_min = parseInt('<%864%>',10), // unit:minute
+      var web_timeout_min = parseInt('<%96%>',10), // unit:minute
         web_timeout = web_timeout_min * 60,
         web_timeout_warning = (web_timeout_min - 1) * 60,
         web_time_elapsed = 0,
@@ -222,13 +222,13 @@
         var screenOverlay = "<div id='screenOverlay'></div>";
         var popupWarning = "", popupHint = "";
         popupWarning += "<div id='web_timeout_warning' class='dashboardPopup timeout' style='display:none'>";
-        popupWarning += "<p><%865%></p><br>";
-        popupWarning += "<a class='btn primary close extendTime'><%866%></a>";
-        popupWarning += "<a class='btn secondary close'><%867%></a></div>";
+        popupWarning += "<p><%97%></p><br>";
+        popupWarning += "<a class='btn primary close extendTime'><%98%></a>";
+        popupWarning += "<a class='btn secondary close'><%99%></a></div>";
         
         popupHint += "<div id='web_timeout_hint' class='dashboardPopup timeout' style='display:none'>";
-        popupHint += "<p><%868%></p><br>";
-        popupHint += "<a class='btn primary close'><%487%></a></div>";
+        popupHint += "<p><%100%></p><br>";
+        popupHint += "<a class='btn primary close'><%101%></a></div>";
 
         // prepend elements to <body>, avoid overlap covered issue
         $(popupHint).prependTo($('body'));
@@ -376,7 +376,7 @@
           if (container || ($.trim(verifyPwdValue).length && !obj.siblings('.verifyPwd').is(':focus'))) {
             // add an error and alert
             // filter type="text" input created in jquery.placeholder.js for IE8 and IE9 
-            obj.siblings('.verifyPwd').not('.placeholder').addClass('alert').after("<span class='error'><%869%></span>");
+            obj.siblings('.verifyPwd').not('.placeholder').addClass('alert').after("<span class='error'><%102%></span>");
           }
           
           // if this sub routine is used without a container then container will be empty
@@ -428,12 +428,12 @@
         obj.removeClass('alert');
 
         if (($.trim(email).length > MAX_EMAIL_CHARACTERS) && (!obj.is(':focus'))) {
-          obj.addClass('alert').after("<span class='error'><%870%></span>");
+          obj.addClass('alert').after("<span class='error'><%103%></span>");
           return false;
         }
 
         if ((!email_reg.test(email)) && (!obj.is(':focus'))) {
-          obj.addClass('alert').after("<span class='error'><%870%></span>");
+          obj.addClass('alert').after("<span class='error'><%103%></span>");
           return false;
         }
 
@@ -497,7 +497,7 @@
        *
        ******************************************************************************************/
       if ($('.timePicker').length) {
-        if ("<%818%>" == "1") {
+        if ("<%104%>" == "1") {
           $('.timePicker').timepicker({
             disableTouchKeyboard: true,
             disableTextInput: true,
@@ -760,7 +760,7 @@
             setStatusFlag(thisContainer, AUTO_SELECT, true);
 
             if ($(this).parents('tr').hasClass('dfs')) {
-              alert("<%871%>");
+              alert("<%105%>");
               setStatusFlag(thisContainer, NOT_DFS, false);
             }
             else
@@ -1207,10 +1207,10 @@
           case '2':  // WEP selected
             break;
           case '3':  // WPA-PSK [TKIP] selected
-            alert("<%872%>");
+            alert("<%106%>");
             break;
           case '5':  // WPA-PSK [TKIP] + WPA2-PSK [AES] selected
-            alert("<%873%>");
+            alert("<%107%>");
             break;
           }
           
@@ -1264,7 +1264,7 @@
             setStatusFlag(thisContainer, VALID_PWD, false);
             updateButton($('#nextStep'), 'networkInput');
             
-            $(this).next().after("<p class='pwdError'><%874%></p>");
+            $(this).next().after("<p class='pwdError'><%108%></p>");
           } else {
             // we have a valid password enable the verify input field
             $(this).siblings('.verifyPwd').prop('disabled', false);
@@ -1558,7 +1558,7 @@
             }
             if (i === 3) {
               // add the see all link
-              $(this).after("<tr class='moreLink'><td><a><%875%></a></td></tr>");
+              $(this).after("<tr class='moreLink'><td><a><%109%></a></td></tr>");
             }
           });
         });
@@ -1571,7 +1571,7 @@
           if ($(this).hasClass('open')) {
             $(this)
               .removeClass('open')
-              .text("<%875%>")
+              .text("<%109%>")
               .parents('.availableNetworks')
               .find('.hideOnMobile')
               // hide the tds as webkit doesn't hide trs
@@ -1581,7 +1581,7 @@
             } else {
             $(this)
               .addClass('open')
-              .text("<%876%>")
+              .text("<%110%>")
               .parents('.availableNetworks')
               .find('.hideOnMobile')
               .each( function () {
@@ -1616,14 +1616,14 @@
             if ($(this).hasClass('showAdvSettings')) {
               $(this)
                 .removeClass('showAdvSettings')
-                .text("<%877%>")
+                .text("<%111%>")
                 .parents('.sectionDetails')
                 .find('.advancedSettings')
                 .hide();
             } else {
               $(this)
                 .addClass('showAdvSettings')
-                .text("<%878%>")
+                .text("<%112%>")
                 .parents('.sectionDetails')
                 .find('.advancedSettings')
                 .show();
@@ -1737,7 +1737,7 @@
           $('.manualNetworkInput').on('blur', '.primaryPwd', function() {
             var pwd = $(this).val();
             if ($.trim(pwd).length < MIN_PWD_CHARACTERS || $.trim(pwd).length > MAX_PWD_CHARACTERS) {
-              $(this).next().after("<p class='pwdError'><%874%></p>");
+              $(this).next().after("<p class='pwdError'><%108%></p>");
             } else {
               // we have a valid password enable the verify input field
               $(this).siblings('.verifyPwd').prop('disabled', false);
@@ -1824,7 +1824,7 @@
                 // make values available to be changed
                   $(this)
                   .addClass('editMode')
-                  .html('<%488%>')
+                  .html('<%113%>')
                   .parents('tr')
                   .find(':text')
                   .prop('disabled', false);
@@ -1891,14 +1891,14 @@
            if ($(this).hasClass('showAdvSettings')) {
              $(this)
                .removeClass('showAdvSettings')
-               .text("<%877%>")
+               .text("<%111%>")
                .parents('#usbPortForm')
                .find('#workgroupWrap')
                .slideUp();
            } else {
              $(this)
                .addClass('showAdvSettings')
-               .text("<%878%>")
+               .text("<%112%>")
                .parents('#usbPortForm')
                .find('#workgroupWrap')
                .slideDown();
@@ -1909,26 +1909,26 @@
          $('#addFolderBt').on('touchclick', function (){
          
            if ($("#no_usb_device").val() === '1')
-             alert("<%879%>");
+             alert("<%114%>");
            else {
              // how many rows are there
              var numberOfRows = $(this).parent().prev('.devicesList').find('tbody').find('tr').length,
                  rowNumber = numberOfRows + 1,
                  newRowContent = "";
              if (numberOfRows >= 256)
-               alert("<%880%>");
+               alert("<%115%>");
              else {
                // build the row html
                var addFolderNum = $("input[name^='add_folder_name'][id^='addFolderName']").length;
                addFolderNum = addFolderNum + 1;
                newRowContent += "<tr>";
-               newRowContent += "<td><span class='tdLabel'>Folder Name:</span><input type='button' id='addFolderName" + addFolderNum + "' class='btn roundCorners controlBtn' style='width:100%; margin: 0px auto;'onClick='add_folder();' name='add_folder_name" + addFolderNum +  "' value='<%881%>'></td>";
+               newRowContent += "<td><span class='tdLabel'>Folder Name:</span><input type='button' id='addFolderName" + addFolderNum + "' class='btn roundCorners controlBtn' style='width:100%; margin: 0px auto;'onClick='add_folder();' name='add_folder_name" + addFolderNum +  "' value='<%116%>'></td>";
                newRowContent += "<td><span class='tdLabel'>Folder Address:</span><input id='addFolderAddress" + addFolderNum + "' type='text' size='21' maxlength='20' name='add_folder_address" + addFolderNum + "' value=''></td>";
-               newRowContent += "<td><span class='tdLabel'>Read Access:</span><select id='addReadAccess" + addFolderNum + "' name='add_read_access" + addFolderNum + "'><option selected value='1'><%637%></option><option value='2'><%636%></option></select></td>";
-               newRowContent += "<td><span class='tdLabel'>Write Access:</span><select id='addWriteAccess" + addFolderNum + "' name='add_write_access" + addFolderNum + "'><option selected value='1'><%637%></option><option value='2'><%636%></option></select></td>";
+               newRowContent += "<td><span class='tdLabel'>Read Access:</span><select id='addReadAccess" + addFolderNum + "' name='add_read_access" + addFolderNum + "'><option selected value='1'><%117%></option><option value='2'><%118%></option></select></td>";
+               newRowContent += "<td><span class='tdLabel'>Write Access:</span><select id='addWriteAccess" + addFolderNum + "' name='add_write_access" + addFolderNum + "'><option selected value='1'><%117%></option><option value='2'><%118%></option></select></td>";
                newRowContent += "<td><span class='tdLabel'>Total Space:</span><span class='tdLabel'>Enable:</span><input type='text' name='total_space" + rowNumber + "' value='--' disabled></td>";
                newRowContent += "<td><span class='tdLabel'>Available Space:</span><input type='text' name='avail_space" + rowNumber + "' value='--' disabled></td>";
-               newRowContent += "<td class='cancelNewFolder' colspan=2><span class='tdLabel'>Edit:</span><a id='addCancelBt" + addFolderNum + "' class='editDevice editMode cancelDevice'><%488%></a></td>";
+               newRowContent += "<td class='cancelNewFolder' colspan=2><span class='tdLabel'>Edit:</span><a id='addCancelBt" + addFolderNum + "' class='editDevice editMode cancelDevice'><%113%></a></td>";
                newRowContent += "</tr>";
              
                $(this).parent().prev('.devicesList').find('tbody').append(newRowContent);
@@ -2034,7 +2034,7 @@
           var pwd = $(this).val();
           //if ($.trim(pwd).length < MIN_USERPWD_CHARACTERS || $.trim(pwd).length > MAX_USERPWD_CHARACTERS) {
 	      if(0) {
-            $(this).next().after("<p class='pwdError'><%882%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%883%></p>");
+            $(this).next().after("<p class='pwdError'><%119%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%120%></p>");
           }
           
           check_pwd_settings();
@@ -2162,7 +2162,7 @@
           $(this).removeClass('alert');
           //if ($.trim(pwd).length < MIN_USERPWD_CHARACTERS || $.trim(pwd).length > MAX_USERPWD_CHARACTERS) {
 		  if(0) {
-            $(this).next().after("<p class='error'><%882%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%883%></p>");
+            $(this).next().after("<p class='error'><%119%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%120%></p>");
           }        
         });
       } // end web login page
@@ -2221,7 +2221,7 @@
             obj = $(this).next().next();
           //if ($.trim(pwd).length < MIN_USERPWD_CHARACTERS || $.trim(pwd).length > MAX_USERPWD_CHARACTERS) {
 	      if(0) {
-            obj.after("<p class='pwdError'><%882%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%883%></p>");
+            obj.after("<p class='pwdError'><%119%>" + MIN_USERPWD_CHARACTERS + "-" + MAX_USERPWD_CHARACTERS + "<%120%></p>");
           }
           
           check_login_setup();
@@ -2518,7 +2518,7 @@
 
           case 'WPA-AUTO-PSK':  // WPA-PSK [TKIP] + WPA2-PSK [AES] selected
             thisContainer.find('.pwdInput').slideDown();
-            alert("<%873%>");
+            alert("<%107%>");
             break;
           }
         });
@@ -2687,8 +2687,8 @@
                     var thisTr = $(this).parents('tr');
 
                     if ($(this).is(':checked')) {
-                      if (acl_mac_num >= <%884%>){
-                        alert("<%885%>");
+                      if (acl_mac_num >= <%121%>){
+                        alert("<%122%>");
                         $(this).prop("checked", false);
                         return false;
                       }
@@ -2723,7 +2723,7 @@
                   });
 
                   if (cf.show_wps_alert.value == "1")
-                    alert("<%852%>");
+                    alert("<%80%>");
 
                   // attach a close handler
                   $thisModalBox.find('.close').click(function () {
@@ -2850,15 +2850,15 @@
          * 3: red 
          * 4: not connected 
         */
-        var rootap_link_led_status = "<%886%>";
-        var client_link_led_status = "<%887%>";
-        var rootap_arrow_led_status = "<%888%>";
-        var client_arrow_led_status = "<%889%>";
-        var rootap_link_status_2g = "<%503%>";
-        var rootap_link_status_5g = "<%504%>";
-        var client_link_status_2g = "<%505%>";
-        var client_link_status_5g = "<%506%>";
-        var access_point_mode = "<%890%>";
+        var rootap_link_led_status = "<%123%>";
+        var client_link_led_status = "<%124%>";
+        var rootap_arrow_led_status = "<%125%>";
+        var client_arrow_led_status = "<%126%>";
+        var rootap_link_status_2g = "<%127%>";
+        var rootap_link_status_5g = "<%128%>";
+        var client_link_status_2g = "<%129%>";
+        var client_link_status_5g = "<%130%>";
+        var access_point_mode = "<%131%>";
         var client_2g_on = 1;
         var client_5g_on = 1;
         var rootap_2g_on = 1;
@@ -2908,7 +2908,7 @@
               $("#cc_icon2").addClass('green_routerSideImage');
               
               $("#cc_text1").addClass('letters_green_topLine');
-              $("#cc_text1").html("<%891%>");
+              $("#cc_text1").html("<%132%>");
               
               $("#cc_icon3").addClass('smallMarkImage');
               $("#cc_icon3").addClass('whiteCircleBottom');
@@ -2916,7 +2916,7 @@
               $("#cc_icon4").addClass('green_deviceSideImage');
 
               $("#cc_text2").addClass('letters_green_bottomLine');
-              $("#cc_text2").html("<%891%>");
+              $("#cc_text2").html("<%132%>");
             } else if (rootap_arrow_led_status != 0) {
               //case: rootap(amber/red)<---device(left arrow blink)
               $("#cc_blackshade").addClass('smallMarkImage');
@@ -2931,14 +2931,14 @@
 
               if (rootap_link_led_status == 2) {
                 $("#cc_icon2").addClass('amber_routerSideImage');
-                $("#cc_text1").html("<%892%>");
+                $("#cc_text1").html("<%133%>");
               } else if (rootap_link_led_status == 3) {
                 $("#cc_icon2").addClass('red_routerSideImage');
-                $("#cc_text1").html("<%893%>");
+                $("#cc_text1").html("<%134%>");
               }
 
               $("#cc_text2").addClass('letters_bottomLine');
-              $("#cc_text2").html("<%894%>");
+              $("#cc_text2").html("<%135%>");
             } else if (client_arrow_led_status != 0) {
               //case: device(right arrow blink)--->client(amber/red)
               $("#cc_blackshade").addClass('smallMarkImage');
@@ -2953,17 +2953,17 @@
 
               if (client_link_led_status == 2) {
                 $("#cc_icon3").addClass('amber_deviceSideImage');
-                $("#cc_text1").html("<%892%>");
+                $("#cc_text1").html("<%133%>");
               } else if (client_link_led_status == 3) {
                 $("#cc_icon3").addClass('red_deviceSideImage');
-                $("#cc_text1").html("<%893%>");
+                $("#cc_text1").html("<%134%>");
               }
 
               $("#cc_text2").addClass('letters_bottomLine');
-              if("<%12%>" != "3"){
-                $("#cc_text2").html("<%895%>");
+              if("<%48%>" != "3"){
+                $("#cc_text2").html("<%136%>");
               } else{
-                $("#cc_text2").html("<%896%>");
+                $("#cc_text2").html("<%137%>");
               }
             }
           }
@@ -3002,7 +3002,7 @@
                 $("#cc_icon2").addClass('linkRate5g_right'); //to be improved
               
               $("#cc_text1").addClass('letters_green_topLine');
-              $("#cc_text1").html("<%891%>");
+              $("#cc_text1").html("<%132%>");
               
               if (rootap_2g_on == 1 && rootap_5g_on == 1)
               {
@@ -3011,7 +3011,7 @@
                 $("#cc_icon4").addClass('smallMarkImage');
                 $("#cc_icon4").addClass('linkRate5g_bottom');
                 $("#cc_text2").addClass('letters_green_bottomLine');
-                $("#cc_text2").html("<%891%>");
+                $("#cc_text2").html("<%132%>");
               }
             }
             else if (rootap_link_status_2g == 2 || rootap_link_status_2g == 3)
@@ -3029,9 +3029,9 @@
                 $("#cc_icon3").addClass('linkRate5g_right');
                 $("#cc_text1").addClass('letters_topLine');
                 if (rootap_link_status_2g == 2)
-                  $("#cc_text1").html("<%892%>");
+                  $("#cc_text1").html("<%133%>");
                 else //3
-                  $("#cc_text1").html("<%893%>");
+                  $("#cc_text1").html("<%134%>");
               }
               else
               {
@@ -3045,17 +3045,17 @@
                 
                 $("#cc_text1").addClass('letters_green_topLine');
                 if (rootap_link_status_2g == 2)
-                  $("#cc_text1").html("<%892%>");
+                  $("#cc_text1").html("<%133%>");
                 else //3
-                  $("#cc_text1").html("<%893%>");
+                  $("#cc_text1").html("<%134%>");
               }
               
               $("#cc_text2").addClass('letters_bottomLine');
               
-			  if("<%12%>" != "3"){
-                $("#cc_text2").html("<%895%>");
+			  if("<%48%>" != "3"){
+                $("#cc_text2").html("<%136%>");
               } else{
-                $("#cc_text2").html("<%896%>");
+                $("#cc_text2").html("<%137%>");
               }
             }
           }
@@ -3073,11 +3073,11 @@
               || rootap_link_status_2g == 2 || rootap_link_status_5g == 2 
               || rootap_link_status_2g == 3 || rootap_link_status_5g == 3)
           {
-            $("#title_string").html("<%483%>");
+            $("#title_string").html("<%138%>");
           }
           else 
           {
-            $("#title_string").append("<%137%>");
+            $("#title_string").append("<%139%>");
           }
         }
         else //access point
@@ -3086,11 +3086,11 @@
               || client_link_status_2g == 2 || client_link_status_5g == 2
               || client_link_status_2g == 3 || client_link_status_5g == 3)
           {
-            $("#title_string").html("<%124%>");
+            $("#title_string").html("<%140%>");
           }
           else
           {
-            $("#title_string").html("<%137%>");
+            $("#title_string").html("<%139%>");
           }
         }
 
@@ -3159,13 +3159,13 @@
 
         if (design == "GECKO") {
           if ($('.connectedDevices').length) {
-            if ("<%88%>" == "1")
+            if ("<%141%>" == "1")
               $('#wired_devices').css('display', 'none');
           }
         }
       }
 
-      set_design("<%897%>");
+      set_design("<%142%>");
 
       if ($('.tipLink').length) {
         $('body').tipload();
@@ -3291,7 +3291,7 @@
     
     $.fn.tipload = function () {
       var msgStatus = false,
-      msgContainer = "<div id='loadingBox' class='modalBox hidden'><p id='loadingMsg' class='recommendation'></p>  <a class='btn primary close'><%898%></a></div>";
+      msgContainer = "<div id='loadingBox' class='modalBox hidden'><p id='loadingMsg' class='recommendation'></p>  <a class='btn primary close'><%143%></a></div>";
 
       if(typeof($(this).data('msgStatus')) == "undefined" 
         || $(this).data('msgStatus') === false) {

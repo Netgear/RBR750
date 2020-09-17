@@ -64,10 +64,10 @@ function clickDownloadButton()
 
 var initRegion;
 var preRegion;
-var changeMsg = "<%926%>";
+var changeMsg = "<%174%>";
 var notShown = true;
-var StartChannel = new Array(<%927%>);
-var FinishChannel = new Array(<%928%>);
+var StartChannel = new Array(<%175%>);
+var FinishChannel = new Array(<%176%>);
 
 /* region define:
  * value    -- region
@@ -99,7 +99,7 @@ var FinishChannel = new Array(<%928%>);
  */
 var Channel_All_80M = 
     new Array (
-    <%931%>
+    <%179%>
         );
 
 var OpMode_BG_TEXT;
@@ -128,7 +128,7 @@ var SecuOption_WPA2_VALUE;
 var SecuOption_MIX_TEXT;
 var SecuOption_MIX_VALUE;
 
-var curr_region = "<%617%>";
+var curr_region = "<%180%>";
 
 function setDivVisiable(setDiv,flag)
 {
@@ -453,13 +453,13 @@ function CheckData24G()
     
     if (cf.ssid.value == "")
     {
-        alert("<%480%>");
+        alert("<%81%>");
         return false;
     }
 
     if (cf.ssid.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%481%>");
+        alert("<%82%>");
         return false;
     }
 
@@ -470,7 +470,7 @@ function CheckData24G()
     else if( ("WPA-AUTO-PSK" == cf.ap_24g_sec.value) || ("WPA-PSK" == cf.ap_24g_sec.value) || ("WPA2-PSK" == cf.ap_24g_sec.value) )
     {
         if (pass != ver_pass)
-          return alertR("<%935%>");
+          return alertR("<%186%>");
         
         return CheckData_WPA(cf.passphrase);
     }
@@ -479,7 +479,7 @@ function CheckData24G()
     else
     {
         cf.sec_type.focus();
-        return alertR("<%482%>");
+        return alertR("<%171%>");
     }
 }
 
@@ -494,13 +494,13 @@ function CheckData5G()
 
     if (cf.ssid_5g.value == "")
     {
-        alert("<%480%>");
+        alert("<%81%>");
         return false;
     }
 
     if (cf.ssid_5g.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%481%>");
+        alert("<%82%>");
         return false;
     }
 
@@ -511,7 +511,7 @@ function CheckData5G()
     else if( ("WPA-AUTO-PSK" == cf.ap_5g_sec.value) || ("WPA-PSK" == cf.ap_5g_sec.value) || ("WPA2-PSK" == cf.ap_5g_sec.value) ) 
     {
         if (pass != ver_pass)
-          return alertR("<%935%>");
+          return alertR("<%186%>");
         
         return CheckData_WPA(cf.passphrase_5g);
     }
@@ -520,7 +520,7 @@ function CheckData5G()
     else
     {
         cf.sec_type_5g.focus();
-        return alertR("<%482%>");
+        return alertR("<%171%>");
     }
 }
 
@@ -561,14 +561,14 @@ function setChannel()
 function setAutoChannel_24g()
 {
     var cf = document.forms["mainForm"];
-    cf.channel.options[0].text = "<%936%>";
+    cf.channel.options[0].text = "<%187%>";
     cf.channel.options[0].value = 0;
 }
 
 function setAutoChannel_5g()
 {
     var cf = document.forms["mainForm"];
-    cf.channel_5g.options[0].text = "<%936%>";
+    cf.channel_5g.options[0].text = "<%187%>";
     cf.channel_5g.options[0].value = 0;
 }
 
@@ -583,7 +583,7 @@ function setChannel_24g()
     else
         cf.channel.options.length = FinishChannel[index] - StartChannel[index] + 2;
 
-    cf.channel.options[0].text = "<%936%>";
+    cf.channel.options[0].text = "<%187%>";
     cf.channel.options[0].value = 0;
 
     for (var i = StartChannel[index]; i <= FinishChannel[index]; i++) {
@@ -600,7 +600,7 @@ function setChannel_5g()
     var cf = document.forms["mainForm"];
     var ch_list = cf.channel_5g;
     var index = cf.wregion.selectedIndex;
-    var currChVal_5g = "<%614%>";
+    var currChVal_5g = "<%188%>";
     var len=0, i=0;
 
     ch_list.options.length = 100;
@@ -608,7 +608,7 @@ function setChannel_5g()
     {
         if (Channel_All_80M[index][0] == 0)
         {
-            ch_list.options[len].text = "<%936%>";
+            ch_list.options[len].text = "<%187%>";
             ch_list.options[len].value = Channel_All_80M[index][0];
             len++;
         }
@@ -639,7 +639,7 @@ function checkRegion()
     if (cf.wregion.options[cf.wregion.selectedIndex].value == "0")
     {
         cf.wregion.focus();
-        return alertR("<%937%>");
+        return alertR("<%189%>");
     }
     if (notShown)
         notShown = false;
@@ -891,7 +891,7 @@ $("#saveBt1").on('click', function() {
     });
 
 $("#uploadBt").on('click', function() {
-    var msg = "<%704%>" + "1-2" + "<%705%>";
+    var msg = "<%46%>" + "1-2" + "<%47%>";
     $('body').msgshow(msg);
     document.forms["updateFirmwareForm"].submit();
     });

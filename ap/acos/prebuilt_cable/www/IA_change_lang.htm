@@ -1,0 +1,178 @@
+<HTML>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript" src="repeater.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+function refreshled()
+{
+	top.ledframe.location.href="IA_led.htm";
+}
+
+function ShowLanguageList()
+{
+    //alert("show list");
+	var form=document.forms[0];
+	var suportlanguage = form.srptlang.value.split(" ");
+	var gui_region = form.curlang.value;
+    var local_srpt = form.local_srptlang.value.split(" ");
+	for(i=0; i < suportlanguage.length; i++)
+	{
+		if(suportlanguage[i] == gui_region)
+			document.write('<option value='+gui_region+' selected >'+suportlanguage[i]+'</option>');
+		else
+			document.write('<option value='+suportlanguage[i]+'>'+suportlanguage[i]+'</option>');
+	}
+}
+
+function wait()
+{
+    var Sys = {};
+    var cf = document.forms[0];
+    var ua = navigator.userAgent.toLowerCase();
+    if (window.ActiveXObject)
+        Sys.ie = ua.match(/msie ([\d.]+)/)[1]
+    
+    if (Sys.ie)
+        cf.browser.value = "ie";    
+    
+    if (Sys.ie)
+    {
+        var brslang=navigator.browserLanguage;
+        var browser_language=brslang.toLowerCase();
+        var subBrowser=brslang.substring(0,3);
+        
+        if ( browser_language == "zh" || subBrowser == "zh-" )
+            browser_language="Chinese";
+        else if ( browser_language == "de" || subBrowser == "de-" )
+            browser_language="German";
+        else if ( browser_language == "ja" || subBrowser == "ja-" )
+            browser_language="Japanese";
+        else if ( browser_language == "ko" || subBrowser == "ko-" )
+            browser_language="Korean";
+        else if ( browser_language == "ru" || subBrowser == "ru-" )
+            browser_language="Russian";
+        else if ( browser_language == "pl" || subBrowser == "pl-" )
+            browser_language="Polish";
+        else if ( browser_language == "es" || subBrowser == "es-" )
+            browser_language="Spanish";
+        else if ( browser_language == "fr" || subBrowser == "fr-" )
+            browser_language="French";
+		else if ( browser_language == "pt" || subBrowser == "pt-" )
+			browser_language="Portuguese";
+		else if ( browser_language == "it" || subBrowser == "it-")
+			browser_language="Italian";
+		else if ( browser_language == "sv" || subBrowser == "sv-")
+			browser_language="Swedish";
+		else if ( browser_language == "da" || subBrowser == "da-")
+			browser_language="Danish";
+		else if ( browser_language == "el" || subBrowser == "el-")
+			browser_language="Greek";
+		else if ( browser_language == "nn" || subBrowser == "nn-")
+			browser_language="Norwegian";
+		else if ( browser_language == "cs" || subBrowser == "cs-")
+			browser_language="Czech";
+		else if ( browser_language == "sl" || subBrowser == "sl-")
+			browser_language="Slovenian";
+		else if ( browser_language == "hu" || subBrowser == "hu-")
+			browser_language="Hungarian";
+		else if ( browser_language == "ro" || subBrowser == "ro-")
+			browser_language="Romanian";
+		else if ( browser_language == "fi" || subBrowser == "fi-")
+			browser_language="Finnish";
+		else if ( browser_language == "sk" || subBrowser == "sk-")
+			browser_language="Slovak"; 
+		            
+        cf.brslanguage.value=browser_language;
+     }
+     else
+     {
+        cf.brslanguage.value="";
+     }
+
+     cf.version.value=navigator.appVersion;
+     document.forms[0].submit();
+}
+
+function chgLang()
+{
+	var form=document.forms[0];
+	var srptlang = form.srptlang.value;
+	var suportlanguage = srptlang.split(" ");
+	for(i=0; i<suportlanguage.length; i++)
+	{
+		if(form.choicelang.selectedIndex == i )
+		{
+			form.select_region.value=srptlang[i];
+			break;
+		}
+	}
+}
+
+function CheckData()
+{
+    var form=document.forms[0];
+    //var gui_region = form.curlang.value;
+    //if (form.choicelang.value != gui_region)
+    //{
+//        form.choicelang.disabled=true;
+//        form.Apply.disabled=true;
+        //top.formframe.location.href="IA_wait_scan.htm";
+		form.submit();
+	//}
+}
+//-->
+</SCRIPT>    
+</head>    
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 marginheight="0" marginwidth="0" onload="refreshled();">
+<form name="frmLanguage" method="POST" action="lang_change.cgi">
+    <table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <!--<tr>
+            <td><font color="#0099cc"><b>Please select your preferred language.</b><br></font></td>
+        </tr>-->
+        <tr>
+	       <td colspan="2"><h1>Please select your preferred language.</h1></td>
+        </tr>
+        <tr>
+            <td height=33%><img src="spacer.gif" width="25" height="18" border="0" alt=""></td>
+        </tr>
+        <tr> <!-- RULE -->
+            <td colspan="2" height="12"><hr class='blueBar'></td>
+        </tr>
+    
+        <tr>
+            <td >
+            <select name="choicelang" size="1"  onchange="chgLang()">
+            <!--<script><%2648%></script>-->
+            <option value="English" selected >English</option>
+            </select></td>
+        </tr>
+        
+        <tr> <!-- RULE -->
+            <td colspan="2" height="12"><hr class='blueBar'></td>
+        </tr>
+        <tr>
+            <!--<td height=33%><img src="spacer.gif" width="90%" height="18" border="0" alt="">-->
+            <td align="right"><input type="button" name="Next" value="Continue" onclick="CheckData();" ></td>
+        </tr>
+    </table>
+</form>
+<input type="hidden" name="brslanguage" value="">
+<input type="hidden" name="select_region" value="">
+<input type="hidden" name="related_region" value="">
+<input type="hidden" name="version" value="">
+<input type="hidden" name="browser" value="">
+<input type="hidden" name="curlang" value="<%9%>"> 
+<input type="hidden" name="local_srptlang" value="English">
+<input type="hidden" name="srptlang" value="English">
+<input type="hidden" name="srptlang" value="English">
+</BODY>
+</HTML>

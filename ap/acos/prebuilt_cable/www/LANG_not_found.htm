@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            buttonFilter();
+        });     
+    });
+
+function restoreLang()
+{
+
+    var gui_region = $(windowTopFrame).find("#curlang").val();
+    var menu = $(windowTopFrame).find('#language');
+
+    $(menu).children().each(function() {
+        if ($(this).val() == gui_region) {
+            this.selected = true;
+            return false;
+        }
+    }); 
+}
+
+
+function goHome() {
+       
+    if(top.$("#basic-pane").is(":visible")){
+         top.loadPage("DashBoard.htm");
+    }else{
+         top.loadPage2("ADVANCED_home.htm");
+    }
+}
+//-->
+</script>
+</head>
+<body  style="margin:0px;padding-left:20px" onLoad="restoreLang();">
+<form id="target"  name="formname">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<table border="0"   width="100%">
+<%683%>
+<%684%>
+    <input type="hidden" name="curlang" value="Auto"> 
+<%685%>
+<%686%>
+	<input type="hidden" name="curlang" value="<%9%>"> 
+<%687%>
+<%688%>
+<%689%>
+	<input type="hidden" name="curlang" value="<%9%>">
+<%690%>
+<tr>
+    <td colspan="2">
+        <h1><%2567%></h1>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2" align="center">
+        <b><%2578%></b>
+    </td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr>
+    <td colspan="2" align="center"><br><br><br>
+        <button type="button" value="<%490%>" name="Back" class="button-common" onClick="buttonClick(this,'<%490%>');goHome();"><%490%></button>
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

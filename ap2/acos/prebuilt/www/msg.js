@@ -1,12 +1,12 @@
 //public message
-var msg_blank = "%s <%906%>";
-var msg_space = "<%907%> %s\n";
-var msg_blank_in = "<%908%> %s\n";
-var msg_invalid = "\n<%909%> %s\n<%910%>: \n%s\n\n";
-var msg_check_invalid = "%s <%911%>";
-var msg_greater = "%s <%912%> %s";
-var msg_less = "%s <%913%> %s";
-var current_gui_language = "<%914%>";
+var msg_blank = "%s <%152%>";
+var msg_space = "<%153%> %s\n";
+var msg_blank_in = "<%154%> %s\n";
+var msg_invalid = "\n<%155%> %s\n<%156%>: \n%s\n\n";
+var msg_check_invalid = "%s <%157%>";
+var msg_greater = "%s <%158%> %s";
+var msg_less = "%s <%159%> %s";
+var current_gui_language = "<%160%>";
 
 function addstr(input_msg)
 {

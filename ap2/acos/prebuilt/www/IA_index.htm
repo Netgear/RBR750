@@ -5,10 +5,10 @@
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		<%0%>
-		<title><%13%></title>
+		<title><%363%></title>
 		<link rel="stylesheet" href="styles/main.css">
 		<script type="text/javascript">
-			if ("<%1038%>" == "1") {
+			if ("<%364%>" == "1") {
 				top.location.href = "IA_select_mode.htm";
 			}
 		</script>
@@ -16,18 +16,18 @@
 	</head>
   <body class="setup switch">
 
-		<%3%>
+		<%356%>
 	
 	  <form id="mainForm" action="ia_manual_setting.cgi" method="POST" target="" >
 	  <div>
 	    <div class="container">
 	      <div class="main clearfix">
 				<div id="switchWiFi" style="display:none">
-				<h1><%1039%> <a id="learnMoreExtender" class="tipLink"><%5%></a></h1>
+				<h1><%365%> <a id="learnMoreExtender" class="tipLink"><%221%></a></h1>
 				<p><div class="wifi switchDiv"></div>
 				</div>
 				<div id="switchWired" style="display:none">
-				<h1><%1040%> <a id="learnMoreAP" class="tipLink"><%5%></a></h1>
+				<h1><%366%> <a id="learnMoreAP" class="tipLink"><%221%></a></h1>
 				<p><div class="wired switchDiv"></div>
 				</div>
 	    </div> <!-- end main -->
@@ -39,8 +39,8 @@
 	    	<footer>
 	      	<div class="centerButtons">
 	  	    	<div class="processButtons">
-	  	    		<a class="btn secondary" style="text-transform:uppercase" id="setupLaterBt"><%8%></a>
-	  	    		<a class="btn primary" style="text-transform:uppercase" id="continueBt"><%1037%></a>
+	  	    		<a class="btn secondary" style="text-transform:uppercase" id="setupLaterBt"><%367%></a>
+	  	    		<a class="btn primary" style="text-transform:uppercase" id="continueBt"><%362%></a>
 	  	    	</div>
 	  	    </div>			    
 	      </footer>
@@ -56,17 +56,17 @@
 
     $.noConflict();
     jQuery(document).ready(function($) {
-        <%1041%>
-        <%1042%>;
+        <%368%>
+        <%369%>;
 
-        var msgStr = "<p><%9%></p>"
-          + "<p><%10%></p>"
-          + "<p><%11%></p>";
+        var msgStr = "<p><%370%></p>"
+          + "<p><%371%></p>"
+          + "<p><%372%></p>";
         $('.tipLink').data('msg', msgStr);
 
         var next_page;
-        var wire_mode = "<%1043%>";
-        var without_hw_switch_ap = "<%1038%>";
+        var wire_mode = "<%373%>";
+        var without_hw_switch_ap = "<%364%>";
         if (without_hw_switch_ap != "1") {
             if (wire_mode == "1") {
                 $('#switchWired').css('display', 'block');

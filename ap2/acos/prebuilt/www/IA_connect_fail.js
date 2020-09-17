@@ -64,12 +64,12 @@ function CheckData()
 
 function dfs_alert()
 {
-    var block_ch_time = "<%1082%>";
+    var block_ch_time = "<%432%>";
     var minute = Math.floor(block_ch_time / 60);
     var second = Math.floor(block_ch_time % 60);
-    var msg = "<%871%>" + "<%948%>"
-        + minute + "<%949%>" 
-        + second + "<%950%>";
+    var msg = "<%105%>" + "<%203%>"
+        + minute + "<%204%>" 
+        + second + "<%205%>";
     alert(msg);
 }
 
@@ -78,7 +78,7 @@ function CheckSkip()
     var cf = document.forms["mainForm"];
 
     if("5" == cf.fail_band.value && 
-       "1" == "<%1083%>")
+       "1" == "<%433%>")
     {
         dfs_alert();
         cf.skipBt.disabled=true;

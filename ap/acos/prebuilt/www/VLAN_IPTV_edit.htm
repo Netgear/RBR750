@@ -42,22 +42,22 @@ function checkData()
 
     if (cf.vlan_name.value == "" || (cf.vlan_name.value.match( /[^\x21-\x7E]/ )))
     {
-        msg+="<%2950%>\n";
+        msg+="<%2970%>\n";
         alert(msg);
         return false;
     }
     if ((!_isNumeric(cf.vlan_id.value)) || isNaN(vlan_id) || vlan_id > 4094 || vlan_id < 1) {
-        alert("<%2951%>");
+        alert("<%2971%>");
         return false;
     }
         
     if ((!_isNumeric(cf.vlan_prio.value)) || isNaN(vlan_prio) || vlan_prio > 7 || vlan_prio < 0) {
-        alert("<%2953%>");
+        alert("<%2973%>");
         return false;
     }
 
     if ( vlan_id == 4094 || vlan_id == 4093) {
-        alert("<%2952%>");
+        alert("<%2972%>");
         return false;
     }
 
@@ -78,32 +78,32 @@ function checkData()
         i++;
     }
     if (conflict) {
-        alert("<%2954%> "+cf.vlan_name.value+" <%2955%>");
+        alert("<%2974%> "+cf.vlan_name.value+" <%2975%>");
         return false;
     }
     
     if (cf.vlan_name.value == "Internet")
         return true;
     
-    if(<%2926%>(!cf.vlan_ports_0.checked) && <%2927%>(!cf.vlan_ports_1.checked) && (!cf.vlan_ports_2.checked)
+    if(<%614%>(!cf.vlan_ports_0.checked) && <%615%>(!cf.vlan_ports_1.checked) && (!cf.vlan_ports_2.checked)
          && (!cf.vlan_ports_3.checked) && (!cf.vlan_ports_4.checked) && (!cf.vlan_ports_5.checked)
-<%2924%>
+<%610%>
          && (!cf.vlan_ports_6.checked)
-<%2925%>
+<%611%>
          )
     {
-        alert("<%2957%>");
+        alert("<%612%>");
         return false;
     }
     
-    if(<%2926%>(cf.vlan_ports_0.checked) && <%2927%>(cf.vlan_ports_1.checked) && (cf.vlan_ports_2.checked)
+    if(<%614%>(cf.vlan_ports_0.checked) && <%615%>(cf.vlan_ports_1.checked) && (cf.vlan_ports_2.checked)
          && (cf.vlan_ports_3.checked) && (cf.vlan_ports_4.checked) && (cf.vlan_ports_5.checked)
-<%2924%>
+<%610%>
          && (cf.vlan_ports_6.checked)
-<%2925%>
+<%611%>
          )
     {
-        alert("<%2956%>");
+        alert("<%613%>");
         return false;
     }
 
@@ -116,37 +116,168 @@ function checkData()
 function loadSettings()
 {
     var cf = document.forms[0];
-    cf.vlan_name.value = "<%2961%>";
+    cf.vlan_name.value = "<%2979%>";
+    
+   
     
     if(cf.vlan_name.value == "Internet")
     {
         document.getElementById("vlan_name").readOnly = true
         document.getElementById("vlan_support_lan").style.display = "none";
     }
-    cf.vlan_id.value = "<%2962%>";
-    cf.vlan_prio.value = "<%2963%>";
+    cf.vlan_id.value = "<%2980%>";
+    cf.vlan_prio.value = "<%2981%>";
     
-    var vlan_ports= "<%2964%>";
+    var vlan_ports= "<%2982%>";
     
-    if (vlan_ports & 0x1)
-        cf.vlan_ports_0.checked = true;
-    if (vlan_ports & 0x2)
-        cf.vlan_ports_1.checked = true;
-    if (vlan_ports & 0x4)
-        cf.vlan_ports_2.checked = true;
+    if(cf.vlan_name.value != "Internet")
+    {
+        if (vlan_ports & 0x1)
+           cf.vlan_ports_0.checked = true;
+        if (vlan_ports & 0x2)
+           cf.vlan_ports_1.checked = true;
+        if (vlan_ports & 0x4)
+           cf.vlan_ports_2.checked = true;
     if (vlan_ports & 0x8)
         cf.vlan_ports_3.checked = true;
     if (vlan_ports & 0x10)
         cf.vlan_ports_4.checked = true;
     if (vlan_ports & 0x20)
         cf.vlan_ports_5.checked = true;
-<%2924%>
+<%610%>
     if (vlan_ports & 0x40)
         cf.vlan_ports_6.checked = true;
-<%2925%>
+<%611%>
+    }
+
+<%464%>
+  if(cf.orig_vlan_isp.value=="orange_france_dhcp") 
+  {
+	    cf.customer_login.value = cf.vlan_customer_login.value.substring(3);
+  }
+  else if(cf.orig_vlan_isp.value=="orange_france_pppoe") 
+  {
+     cf.customer_login.value = cf.vlan_customer_login.value;
+     cf.customer_password.value = cf.vlan_customer_passwd.value; 
+  }
+	if(cf.orig_vlan_isp.value=="orange_france_dhcp") // Orange France DHCP
+		cf.vlan_isp.selectedIndex = 0;
+	else if(cf.orig_vlan_isp.value=="orange_france_pppoe") // Orange France PPPoE
+		cf.vlan_isp.selectedIndex = 1;
+	else if(cf.orig_vlan_isp.value=="singtel_singapore_dhcp") // Sintel Singapore DHCP
+		cf.vlan_isp.selectedIndex = 2;
+	else if(cf.orig_vlan_isp.value=="unifi_malaysia_dhcp") // unifi malaysia DHCP
+		cf.vlan_isp.selectedIndex = 3;
+	else if(cf.orig_vlan_isp.value=="maxis_malaysia_dhcp") // maxis_malaysia DHCP
+		cf.vlan_isp.selectedIndex = 4;						
+	else // others
+		cf.vlan_isp.selectedIndex = 5;
+	setISPProfile();
+<%465%>
 
 }
+<%464%>
+function setISPProfile(mode)
+{
+	var cf = document.forms[0];
+	var stype = cf.vlan_isp.selectedIndex;
+	var org_isp = cf.orig_vlan_isp.value;
 
+
+	if(stype==0) // Orange France DHCP
+	{
+
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.value = "832";
+		cf.vlan_id.readOnly = true;
+		cf.vlan_id.style.backgroundColor = "LightGray";
+		cf.vlan_prio.value = "6";
+		cf.vlan_prio.readOnly = true;
+		cf.vlan_prio.style.backgroundColor = "LightGray";
+		document.getElementById("customer_login_tr1").style.display="table-row";
+		document.getElementById("customer_password_tr1").style.display="none";
+		document.getElementById("customer_login_tr2").style.display="table-row";
+    cf.orange_wan_type.value = "dhcp";
+	}
+	else if(stype==1) // Orange France PPPoE
+	{
+
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.value = "835";
+		cf.vlan_id.readOnly = true;
+		cf.vlan_id.style.backgroundColor = "LightGray";
+		cf.vlan_prio.value = "0";
+		cf.vlan_prio.readOnly = true;
+		cf.vlan_prio.style.backgroundColor = "LightGray";		
+		document.getElementById("customer_login_tr1").style.display="table-row";
+		document.getElementById("customer_password_tr1").style.display="table-row";
+		document.getElementById("customer_login_tr2").style.display="table-row";  
+    cf.orange_wan_type.value = "pppoe";    
+	}
+	else if(stype==2) // Sintel DHCP
+	{
+
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.value = "10";
+		cf.vlan_prio.value = "0";
+		cf.vlan_id.readOnly = true;
+		cf.vlan_id.style.backgroundColor = "LightGray";		
+		cf.vlan_prio.readOnly = true;
+		cf.vlan_prio.style.backgroundColor = "LightGray";	
+		document.getElementById("customer_login_tr1").style.display="none";
+		document.getElementById("customer_password_tr1").style.display="none";
+		document.getElementById("customer_login_tr2").style.display="none";		
+    cf.orange_wan_type.value = "";	
+	}
+	else if(stype==3) // Unifi Malaysia DHCP
+	{
+  
+   
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.value = "500";
+		cf.vlan_id.readOnly = true;
+		cf.vlan_id.style.backgroundColor = "LightGray";
+		cf.vlan_prio.value = "0";
+		cf.vlan_prio.readOnly = true;
+		cf.vlan_prio.style.backgroundColor = "LightGray";
+		document.getElementById("customer_login_tr1").style.display="none";
+		document.getElementById("customer_password_tr1").style.display="none";
+		document.getElementById("customer_login_tr2").style.display="none";
+        cf.orange_wan_type.value = "";			
+	}	
+	else if(stype==4) // Maxis Malaysia DHCP
+	{
+ 
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.value = "621";
+		cf.vlan_id.readOnly = true;
+		cf.vlan_id.style.backgroundColor = "LightGray";
+		cf.vlan_prio.value = "0";
+		cf.vlan_prio.readOnly = true;
+		cf.vlan_prio.style.backgroundColor = "LightGray";
+		document.getElementById("customer_login_tr1").style.display="none";
+		document.getElementById("customer_password_tr1").style.display="none";
+		document.getElementById("customer_login_tr2").style.display="none";
+        cf.orange_wan_type.value = "";			
+	}
+	else // other
+	{
+
+		document.getElementById("vlan_name").readOnly = true;
+		cf.vlan_id.readOnly = false;
+		cf.vlan_id.style.backgroundColor = "white";
+		cf.vlan_prio.readOnly = false;
+		cf.vlan_prio.style.backgroundColor = "white";
+		cf.vlan_id.value = "";
+		cf.vlan_prio.value = "";
+		document.getElementById("customer_login_tr1").style.display="none";
+		document.getElementById("customer_password_tr1").style.display="none";
+		document.getElementById("customer_login_tr2").style.display="none";
+	}
+	
+	return 0;
+}
+<%465%>
 //-->
 </script> 
 </head>
@@ -158,7 +289,7 @@ function loadSettings()
 <form id="target"  method="POST" action="vlan_rule.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
     <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%2965%></div>
+<div class="subhead2"> <%2983%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -174,29 +305,43 @@ function loadSettings()
 
 <tr><td>
 <table border="0"   width="100%">
-
+<%475%>
 <tr>
-    <td nowrap><%2939%></td>
+    <td nowrap>ISP Profile</td>
+    <td width="50%" align="left" >
+		<select name="vlan_isp" size="1" onChange="setISPProfile()">
+			<option id=orange_france_dhcp value="orange_france_dhcp">France Orange DHCP</option>
+			<option id=orange_france_pppoe value="orange_france_pppoe">France Orange PPPoE</option>
+			<option id=singtel_singapore_dhcp value="singtel_singapore_dhcp">SingTel Singapore DHCP</option>
+			<option id=unifi_malaysia_dhcp value="unifi_malaysia_dhcp">Unifi Malaysia DHCP</option>
+			<option id=maxis_malaysia_dhcp value="maxis_malaysia_dhcp">Maxis Malaysia DHCP</option>			
+			<option value="others">Others</option>
+		</select>
+	</td>    
+</tr>
+<%476%>
+<tr>
+    <td nowrap><%2958%></td>
     <td width="50%" align="left" ><input type="text" id = "vlan_name" name="vlan_name" value="" size="15" maxlength="10"></td>
 </tr>
 <tr>
-    <td nowrap><%2940%></td>
+    <td nowrap><%2959%></td>
     <td width="50%" align="left">
         <input type="text" id="vlan_id" name="vlan_id" value="" class="num" size="10" maxlength="4">
-    <%2959%>
+    <%2977%>
     </td>
 </tr>
 <tr>
-    <td nowrap><%2941%></td>
+    <td nowrap><%2960%></td>
     <td width="50%" align="left">
         <input type="text" id="vlan_prio" name="vlan_prio" value="" class="num" size="10" maxlength="1">
-    <%2960%>
+    <%2978%>
     </td>
 </tr>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr id="vlan_support_lan">
     <td nowrap colspan=2>
-    <td style="<%2926%>display: none<%2927%>">
+    <td style="<%614%>display: none<%615%>">
       <input type="checkbox" id="vlan_ports_0" name="vlan_ports_0">Port1
     </td>
     <td>
@@ -205,22 +350,35 @@ function loadSettings()
     <td>
       <input type="checkbox" id="vlan_ports_2" name="vlan_ports_2">Port3
     </td>
- <%1559%>    
+ <%616%>    
     <td>
       <input type="checkbox" id="vlan_ports_3" name="vlan_ports_3">Port4
     </td>
- <%1569%>       
+ <%617%>       
 <!--    
     <input type="checkbox" name="vlan_ports_4">WiFi-2.4G
     <input type="checkbox" name="vlan_ports_5">WiFi-5G
 -->    
-<%2935%>
+<%618%>
     <input type="checkbox"  style="display: none;" id="vlan_ports_6" name="vlan_ports_6">
-<%2936%>
+<%619%>
 </td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
+<%475%>
+<tr id=customer_login_tr1>
+    <td nowrap>Customer Login</td>
+    <td width="50%" align="left" ><input type="text" id = "customer_login" name="customer_login" value="" size="65" maxlength="64"></td>
+</tr>
+
+<tr id=customer_password_tr1>
+    <td nowrap>Password</td>
+    <td width="50%" align="left" ><input type="text" id = "customer_password" name="customer_password" value="" size="65" maxlength="64"></td>
+</tr>
+<tr id=customer_login_tr2><td colspan="2" height="12" ><div style="background-image:url('liteblue.gif');width:100%">&nbsp;</div></td></tr>
+
+<%476%>
 
 </table></td></tr>
 </table></div></td></tr>
@@ -235,10 +393,16 @@ function loadSettings()
     <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
       </div>
 
-<input type="hidden" name="vlan_rule_name" value="<%2947%>">
-<input type="hidden" name="orig_vlan_name" value="<%2961%>">
-<INPUT name="vlan_enable" type="hidden" value= "<%2944%>">
+<input type="hidden" name="vlan_rule_name" value="<%2966%>">
+<input type="hidden" name="orig_vlan_name" value="<%2979%>">
+<INPUT name="vlan_enable" type="hidden" value= "<%2963%>">
 <INPUT name="vlan_mode" type="hidden" value="edit">
+<%475%>
+<INPUT name="vlan_customer_login" type="hidden" value="<%590%>">
+<INPUT name="vlan_customer_passwd" type="hidden" value="<%2984%>">
+<INPUT name="orig_vlan_isp" type="hidden" value="<%2985%>">
+<input name="orange_wan_type" type=hidden value="<%2986%>">
+<%476%>
 
 <a name="helpframe-anchor"></a>
 </form>

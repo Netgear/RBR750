@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+    classes.num.all.fontFamily = "Courier";
+    classes.num.all.fontSize = "10pt" ;
+</style>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var msg = "";
+    var vlan_id = parseInt(cf.vlan_id.value,10);
+    var vlan_prio = parseInt(cf.vlan_prio.value,10);
+    var vlan_rule=cf.vlan_rule_name.value.split(" ");
+    var i = 0, conflict, reply;
+
+	<%464%>
+	if(cf.vlan_name.value=="orange_france_tv")
+		;
+	else
+	<%465%>
+    if (cf.vlan_name.value.match( /[^\x21-\x7E]/ ) || cf.vlan_name.value == "" )
+    {
+        msg+="<%2945%>\n";
+        alert(msg);
+        return false;
+    }
+    if ((!_isNumeric(cf.vlan_id.value)) || isNaN(vlan_id) || vlan_id > 4094 || vlan_id < 1) {
+        alert("<%2946%>");
+        return false;
+    }
+
+    if ( vlan_id == 4094 || vlan_id == 4093) {
+        alert("<%2947%>");
+        return false;
+    }
+        
+    if ((!_isNumeric(cf.vlan_prio.value)) || isNaN(vlan_prio) || vlan_prio > 7 || vlan_prio < 0) {
+        alert("<%2948%>");
+        return false;
+    }
+    while(typeof vlan_rule[i] != "undefined")
+    {
+        if (vlan_rule[i]==cf.vlan_name.value)
+        {
+            conflict = true;
+            break;
+        }
+        i++;
+    }
+    if (conflict) {
+        alert("<%2949%> "+cf.vlan_name.value+" <%2950%>");
+        return false;
+    }
+
+    if(cf.vlan_ports_0.checked || cf.vlan_ports_1.checked || cf.vlan_ports_2.checked || cf.vlan_ports_3.checked || cf.vlan_ports_4.checked)
+    {
+        if(<%614%>cf.vlan_ports_0.checked && <%615%>cf.vlan_ports_1.checked && cf.vlan_ports_2.checked && cf.vlan_ports_3.checked && cf.vlan_ports_4.checked)   
+        {
+            alert("<%613%>");
+            return false;
+        }
+    }
+    else
+    {
+        alert("<%612%>");
+        return false;
+    }
+
+
+    
+    return true;
+}
+
+function setOrangeTVPorts()
+{
+	var cf = document.forms[0];
+	
+	cf.vlan_ports_0.checked = false;
+	cf.vlan_ports_1.checked = false;
+	cf.vlan_ports_2.checked = true;
+	cf.vlan_ports_3.checked = false;
+	cf.vlan_ports_4.checked = false;
+	cf.vlan_ports_5.checked = false;
+	cf.vlan_ports_6.checked = false;
+
+	return 0;
+}
+
+function setISPProfile()
+{
+
+	<%464%>
+	var cf = document.forms[0];
+	var stype = cf.vlan_isp.selectedIndex; 
+	if(stype==0)  // orange isp
+	{
+		cf.vlan_name.value = "orange_france_tv";
+	//	cf.vlan_name.disabled = true;
+	 	document.getElementById("vlan_name").readOnly=true;
+	        document.getElementById("vlan_name").style.backgroundColor = "LightGray";
+		cf.vlan_id.value = "840";
+		document.getElementById("vlan_id").readOnly=true;
+		document.getElementById("vlan_id").style.backgroundColor = "LightGray";
+		//cf.vlan_id.disabled = true;
+		cf.vlan_prio.value = "5";
+		document.getElementById("vlan_prio").readOnly=true;
+		document.getElementById("vlan_prio").style.backgroundColor = "LightGray";
+		//cf.vlan_prio.disabled = true;
+		document.getElementById("if_list").style.display="none";
+		setOrangeTVPorts();
+	}else if(stype==1)  // Sintel isp
+	{
+		cf.vlan_name.value = "SingTelSingaporeIPTV";
+	//	cf.vlan_name.disabled = true;
+	 	document.getElementById("vlan_name").readOnly=true;
+	        document.getElementById("vlan_name").style.backgroundColor = "LightGray";
+		cf.vlan_id.value = "20";
+		document.getElementById("vlan_id").readOnly=true;
+		document.getElementById("vlan_id").style.backgroundColor = "LightGray";
+		//cf.vlan_id.disabled = true;
+		cf.vlan_prio.value = "4";
+		document.getElementById("vlan_prio").readOnly=true;
+		document.getElementById("vlan_prio").style.backgroundColor = "LightGray";
+		//cf.vlan_prio.disabled = true;
+		document.getElementById("if_list").style.display="block";	
+	}
+	else if(stype==2)  // Unifi Malaysia IPTV
+	{
+		cf.vlan_name.value = "UnifiMalaysiaIPTV";
+	//	cf.vlan_name.disabled = true;
+	 	document.getElementById("vlan_name").readOnly=true;
+	        document.getElementById("vlan_name").style.backgroundColor = "LightGray";
+		cf.vlan_id.value = "600";
+		document.getElementById("vlan_id").readOnly=true;
+		document.getElementById("vlan_id").style.backgroundColor = "LightGray";
+		//cf.vlan_id.disabled = true;
+		cf.vlan_prio.value = "0";
+		document.getElementById("vlan_prio").readOnly=true;
+		document.getElementById("vlan_prio").style.backgroundColor = "LightGray";
+		//cf.vlan_prio.disabled = true;
+		document.getElementById("if_list").style.display="block";	
+	}
+	else if(stype==3)  // Maxis Malaysia IPTV
+	{
+		cf.vlan_name.value = "MaxisMalaysiaIPTV";
+	//	cf.vlan_name.disabled = true;
+	 	document.getElementById("vlan_name").readOnly=true;
+	        document.getElementById("vlan_name").style.backgroundColor = "LightGray";
+		cf.vlan_id.value = "823";
+		document.getElementById("vlan_id").readOnly=true;
+		document.getElementById("vlan_id").style.backgroundColor = "LightGray";
+		//cf.vlan_id.disabled = true;
+		cf.vlan_prio.value = "0";
+		document.getElementById("vlan_prio").readOnly=true;
+		document.getElementById("vlan_prio").style.backgroundColor = "LightGray";
+		//cf.vlan_prio.disabled = true;
+		document.getElementById("if_list").style.display="block";	
+	}
+ 	else // Others
+	{
+		cf.vlan_name.value = "";
+		cf.vlan_name.disabled = false;
+		cf.vlan_id.disabled = false;
+		cf.vlan_prio.disabled = false;
+		cf.vlan_id.value = "";
+		cf.vlan_prio.value = "";
+	 	document.getElementById("vlan_name").readOnly=false;
+	        document.getElementById("vlan_name").style.backgroundColor = "white";
+		document.getElementById("vlan_id").readOnly=false;
+		document.getElementById("vlan_id").style.backgroundColor = "white";
+		document.getElementById("vlan_prio").readOnly=false;
+		document.getElementById("vlan_prio").style.backgroundColor = "white";						
+		document.getElementById("if_list").style.display="block";
+	}
+   	
+	<%465%>
+	
+	return 0;
+}
+
+function loadSettings()
+{
+	var cf = document.forms[0];
+	<%464%>
+	cf.vlan_isp.selectedIndex = 4; // Other by default
+	<%465%>
+	setISPProfile();
+	return 0;
+}
+
+//-->
+</script> 
+</head>
+<body  onload="change_size();loadSettings();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="vlan_rule.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%2951%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='VLAN_IPTV.htm'" type="Button" id="cancel" name="cancel" class="button-cancel" ><%84%></button>
+<button value="<%926%>" onClick="buttonClick(this,'<%926%>');if(!checkData()) return false;" type="SUBMIT" id="apply" name="apply" class=<%79%> ><%926%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr><td>
+<table border="0"   width="100%">
+<%475%>
+<tr>
+    <td nowrap>ISP Profile</td>
+    <td width="50%" align="left" class="num">
+		<select name=vlan_isp id="vlan_isp" onchange="setISPProfile();">
+			<option value="orange_france_tv">Orange France TV</option>
+			<option value="singtel_singapore_iptv">SingTel Singapore IPTV</option>
+			<option value="unifi_malaysia_iptv">Unifi Malaysia IPTV</option>
+			<option value="maxis_malaysia_iptv">Maxis Malaysia IPTV</option>			
+			<option value="others">Others</option>
+		</select>
+	</td>
+</tr>
+<%476%>
+<tr>
+    <td nowrap><%2933%></td>
+    <td width="50%" align="left"><input type="text" id="vlan_name" name="vlan_name" size="15" maxlength="10"></td>
+</tr>
+<tr>
+    <td nowrap><%2934%></td>
+    <td width="50%" align="left">
+        <input type="text" id="vlan_id" name="vlan_id" class="num" size="10" maxlength="4">
+    <%2952%>
+    </td>
+</tr>
+<tr>
+    <td nowrap><%2935%></td>
+    <td width="50%" align="left">
+        <input type="text" id="vlan_prio" name="vlan_prio" class="num" size="10" maxlength="1" value="0">
+    <%2953%>
+    </td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr id="if_list">
+    <td nowrap colspan=2>
+    <td style="<%614%>display: none<%615%>">
+      <input type="checkbox" id="vlan_ports_0" name="vlan_ports_0">Port1
+    </td>
+    <td>
+      <input type="checkbox" id="vlan_ports_1" name="vlan_ports_1">Port2
+    </td>
+    <td>
+      <input type="checkbox" id="vlan_ports_2" name="vlan_ports_2">Port3
+    </td>
+ <%616%>    
+    <td>
+      <input type="checkbox" id="vlan_ports_3" name="vlan_ports_3">Port4
+    </td>
+ <%617%>   
+<!--    
+    <input type="checkbox" name="vlan_ports_4">WiFi-2.4G
+    <input type="checkbox" name="vlan_ports_5">WiFi-5G
+-->    
+<%618%>
+    <input type="checkbox"  style="display: none;" name="vlan_ports_6" name="vlan_ports_6">
+<%619%>
+
+   </td>
+    
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+
+</table></td></tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="VLAN_IPTV_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+<input type="hidden" name="vlan_rule_name" value="<%2941%>">
+<INPUT name="vlan_mode" type="hidden" value="add">
+  <input type="hidden" name="wifi_dual_5g_band" value="<%2187%>">
+
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+</html>
+

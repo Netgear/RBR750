@@ -1,0 +1,717 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="script/sorttable.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<style type="text/css">
+.DeviceICON img{
+  width:72px;
+  height:72px;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 21px;
+  /*height: 34px;*/
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background-color: #ccc;*/
+  background-color: rgb(248, 248, 248);
+  -webkit-transition: .4s;
+  transition: .4s;
+    border: 1px solid hsla(0, 0%, 87%, 0.36);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #DDD;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:after {
+  position: absolute;
+  content: "<%646%>";
+  height: 15px;
+  left: 20px;
+  bottom: 2px;
+}
+
+input:checked + .slider {
+  background-color: #00ADE6;
+  border:0;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00ADE6;
+  border:0;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(60px);
+  -ms-transform: translateX(60px);
+  transform: translateX(60px);
+  background-color: #FFF;
+    bottom: 3px;
+}
+
+input:checked + .slider:after {
+  content: "<%1019%>";
+  left: 10px;
+  bottom: 3px;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* The switch - the box around the slider: for sync button, enabled/disabled switch */
+.enable_switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 21px;
+  /*height: 34px;*/
+}
+
+/* Hide default HTML checkbox */
+.enable_switch input {display:none;}
+
+/* The slider */
+.enable_slider {
+  position: absolute;
+  cursor: pointer;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background-color: #ccc;*/
+  background-color: rgb(248, 248, 248);
+  -webkit-transition: .4s;
+  transition: .4s;
+    border: 1px solid hsla(0, 0%, 87%, 0.36);
+}
+
+.enable_slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #DDD;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.enable_slider:after {
+  position: absolute;
+  content: "<%625%>";
+  height: 15px;
+  left: 20px;
+  bottom: 2px;
+}
+
+input:checked + .enable_slider {
+  background-color: #97c453;
+  border:0;
+}
+
+input:focus + .enable_slider {
+  box-shadow: 0 0 1px #97c453;
+  border:0;
+}
+
+input:checked + .enable_slider:before {
+  -webkit-transform: translateX(60px);
+  -ms-transform: translateX(60px);
+  transform: translateX(60px);
+  background-color: #FFF;
+    bottom: 3px;
+}
+
+input:checked + .enable_slider:after {
+  content: "<%624%>";
+  left: 10px;
+  bottom: 3px;
+}
+
+/* Rounded sliders */
+.enable_slider.round {
+  border-radius: 34px;
+}
+
+.enable_slider.round:before {
+  border-radius: 50%;
+}
+
+.OutdoorSAT{
+    display:none;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+    var time_german =  [
+                "12:00 midnight.","00:30 a.m.","01:00 a.m.","01:30 a.m.","02:00 a.m.","02:30 a.m.","03:00 a.m.","03:30 a.m.","04:00 a.m.","04:30 a.m.",
+                "05:00 a.m.","05:30 a.m.","06:00 a.m.","06:30 a.m.","07:00 a.m.","07:30 a.m.","08:00 a.m.","08:30 a.m.","09:00 a.m.","09:30 a.m.", 
+                "10:00 a.m.","10:30 a.m.","11:00 a.m.","11:30 a.m.","12:00 noon","12:30 p.m.","01:00 p.m.","01:30 p.m.","02:00 p.m.","02:30 p.m.",
+                "03:00 p.m.","03:30 p.m.","04:00 p.m.","04:30 p.m.","05:00 p.m.","05:30 p.m.","06:00 p.m.","06:30 p.m.","07:00 p.m.","07:30 p.m.", 
+                "08:00 p.m.","08:30 p.m.","09:00 p.m.","09:30 p.m.","10:00 p.m.","10:30 p.m.","11:00 p.m.","11:30 p.m."
+            ];
+    var aWeek =["<%1056%>","<%1057%>","<%1058%>","<%1059%>","<%1060%>","<%1061%>","<%1062%>","<%648%>"];
+    var satTimerObj=null; 
+//    var satNotifyTimerObj=null;    
+    var device_type_path="device_type/";
+    var unknown_device_icon="img/Device_0.png";
+    var iconArray={};
+    var sParameter="";
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+        
+        actionURL=$("form:eq(0)").attr("action");
+        aStr = actionURL.split("?");
+        if(aStr.length == 2)
+            sParameter = "?"+aStr[1];
+        else
+            sParameter = "";
+        
+        if($("input[name=hid_dev_category]").val() != "0")
+        {
+          iconArray[0]={ "img" : unknown_device_icon, "txt" : "<%1017%>", "val" : "unknown(0)"};
+          iconArray[-1]={ "img" : unknown_device_icon, "txt" : "<%1063%>", "val" : "default(-1)"};
+          $.getJSON("device_type/device_type_fing.json"+sParameter, function (data){
+            $.each(data, function(key,val){
+              iconArray[val["Device Index"]]={ "img" : device_type_path +"icon/"+val["Icon"], "txt" : val["Device type"], "val" : val["Device type"]};
+            });
+
+            sDefaultValue = $("input[name=hid_dev_defaulttype]").val().replace(/^.+\(/g,"").replace(/\).*/g, "");
+
+            if(iconArray.hasOwnProperty(sDefaultValue)){
+                iconArray[-1]['img']=iconArray[sDefaultValue]['img'];
+                iconArray[-1]['val']=iconArray[sDefaultValue]['val'];
+            }
+
+            $.each(iconArray, function(key,value){
+              if(key==0)    //skip unknown devices
+                return;
+              $("select[name=sel_dev_type]").append($("<option></option>").attr("value", key).text(value.txt));
+            
+            });
+            
+            $("select[name=sel_dev_type]").change(function(){
+              sSelectedDevice = $("select[name=sel_dev_type]").find(":selected").val();
+              if(!iconArray.hasOwnProperty(sSelectedDevice))
+                sSelectedDevice = 0;
+              $("#device_type_icon").html("<div class='DeviceICON'><img src='"+iconArray[sSelectedDevice].img+"' alt=\'"+iconArray[sSelectedDevice].txt+"\' title=\'"+iconArray[sSelectedDevice].txt+"\'/></div>");
+            });
+            
+            sCurrentValue = $("input[name=hid_dev_type]").val().replace(/^.+\(/g,"").replace(/\).*/g, "");
+            iFound=0;
+            if(iconArray.hasOwnProperty(sCurrentValue)){
+                $("select[name=sel_dev_type]").val(sCurrentValue).change();
+                iFound = 1;
+            }
+            if(iFound == 0){    //recover older format.
+                sCurrentValue = $("input[name=hid_dev_type]").val().replace(/\([0-9]*\)/g,"");
+                $.each(iconArray, function(key,value){
+                  if(key==0)    //skip unknown devices
+                    return;
+                  if(sCurrentValue.toUpperCase() == value.txt.toUpperCase()){
+                    $("select[name=sel_dev_type]").val(key).change();
+                    iFound=1;
+                  }
+                });
+            }
+            if(iFound == 0)
+                $("select[name=sel_dev_type]").val(19).change();
+          }); 
+        }        
+        else
+        {
+            $(".NonSatellites").css('display','none');
+            var model_input = document.getElementById("orbi_model");
+            model_input.setAttribute("readonly", "true");
+            model_input.style.backgroundColor = "#cccccccc"
+        }
+        
+        $("#led_schedule").click(function(){
+            changeLedSchedule();
+        });      
+   
+        if($("input[name=ntp_update_result]").val() == "1")
+            $("#ntp_warning_msg").hide();
+        else
+            $("#ntp_warning_msg").show();
+
+        refreshSatInfo(0);
+    });
+
+function loadSettings()
+{
+	var access_control_add_type = document.getElementsByName("access_control_add_type")[0].value;
+
+	return 0;
+}
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var msg = "";
+
+    var devName = cf.dev_name.value;
+    var devModel = cf.dev_model.value;
+    
+    if($("input[name=dev_model").is(":visible"))
+        if( devModel.length < 1 )
+            msg+="<%1064%>\n";
+	if( devName.length < 1 )
+		msg+="<%1044%>\n";
+    if (devName.match( /[^\x20-\x7E]/ ) || devModel.match( /[^\x20-\x7E]/ ))
+        msg+="<%1065%>\n";
+    if (msg.length > 1) {
+        alert(msg);
+        return false;
+    }
+    
+    if($("#orbi_devtype").is(":visible")){
+        var sel_dev_type=$("#orbi_devtype").val();
+        $("input[name=dev_type]").val(iconArray[sel_dev_type]["val"]);
+    }
+
+    //cf.dev_mac.value = cf.dev_mac.value.replace(/:/g,"");
+
+    return true;			
+}
+/*
+function queryNTPStatus(){
+    $.ajax({
+        url: "ajax/ntpStatus.cgi"+sParameter,
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          if(msg.status == 0)
+            $("#ntp_warning").show();
+          else
+            $("#ntp_warning_msg").hide();
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            $("#ntp_warning_msg").show();
+        }
+    }); 
+}
+*/
+function querySatInfo(){
+    $.ajax({
+        url: "ajax/get_sat_info"+sParameter,
+        data:"mac="+$("input[name=dev_mac").val(),
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          
+          if(msg.satmodel == 2){
+            $(".OutdoorSAT").show();
+            if(msg.led_on == 1){
+                $("#led_switch").attr("checked", true);
+                $("#lightbright").attr("disabled", false);
+            }
+            else{
+                $("#led_switch").attr("checked", false);
+                $("#lightbright").attr("disabled", true);
+            }
+            
+            if(msg.led_brightness>0)
+                $("#lightbright").val(msg.led_brightness);
+            if(msg.led_schedule == 1)
+                $("#led_schedule").attr("checked", true);
+            else
+                $("#led_schedule").attr("checked", false);    
+            if(msg.led_sync == 1){
+                $("#sync_switch").attr("checked", true);
+                $("#sync_btn_warning").show();
+            }
+            else{
+                $("#sync_switch").attr("checked", false);
+                $("#sync_btn_warning").hide();
+            }
+            
+            $("#sch_thead > tbody > tr").remove(); 
+            $.each(msg.schedule_rules, function(idx, info){
+                weekstr="";
+                if(info.recurrence == 127)
+                    weekstr=aWeek[aWeek.length-1];
+                else if(info.recurrence == 0)
+                    weekstr="";
+                else{
+                    for(i=0;i<(aWeek.length -1);i++){
+                        if((info.recurrence & Math.pow(2,i)))
+                            weekstr = weekstr + aWeek[i] + " ";
+                    }
+                    if(weekstr.length > 2)
+                        weekstr=weekstr.substr(0, weekstr.length-1);
+                }
+                inputstr="<input type='radio' name='sche_select' class='ImpactOnNTP' value='"+(idx+1)+"'";
+                newtr = "<tr><td align='center'>"+inputstr+"</td><td align='center'>"+time_german[info.start]+"</td><td align='center'>"+time_german[info.end]+"</td><td align='center'>"+weekstr+"</td><td align='center'>"+info.bright+"%</td></tr>"
+                
+                $('#sch_thead > tbody').append(newtr);
+            });
+            
+         if($("input[name=ntp_update_result]").val() == "1"){
+            $("#edit_sche").attr('disabled', true);
+            $("#delete_sche").attr('disabled', true);
+            $("input[name=sche_select]").click(function(){
+                $("#edit_sche").attr('disabled', false);
+                $("#delete_sche").attr('disabled', false);
+                });
+            }
+         else{
+            $(".ImpactOnNTP").attr('disabled', true);
+            }
+          }
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+
+        }
+    }); 
+}
+/*
+function notifySatUpdateStatus(){
+    $.ajax({
+        url: "ajax/notify_sat_led"+sParameter,
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+        }
+    }); 
+}
+*/
+function refreshSatInfo(sec){
+    
+    if(satTimerObj !== null){
+        clearTimeout(satTimerObj);
+        satTimerObj=null;
+    }
+    //if(satNotifyTimerObj !== null){
+    //    clearTimeout(satNotifyTimerObj);
+    //    satNotifyTimerObj=null;
+    //}
+    
+    if(sec > 0){
+        //if(sec < 4000)
+        //    sec = 4000;
+        //satNotifyTimerObj = setTimeout("notifySatUpdateStatus()", sec-3000);
+        satTimerObj = setTimeout("querySatInfo()", sec);
+    }
+    else
+        querySatInfo();
+}
+function changeLedOnOff(){
+    disable_all_element();    
+    if($("#led_switch").attr("checked")==true)
+        enable=1;
+    else
+        enable=0;
+    $.ajax({
+        url: "ajax/update_sat_led"+sParameter,
+        data:"type=onoff&val="+enable+"&val2="+$("#lightbright").val(),
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          enable_all_element();
+          refreshSatInfo(7000);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+          enable_all_element();  
+          refreshSatInfo(4000);
+        }
+    });
+}
+function changeLedSchedule(){
+    disable_all_element();    
+    if($("#led_schedule").attr("checked")==true)
+        enable=1;
+    else
+        enable=0;
+    $.ajax({
+        url: "ajax/update_sat_led"+sParameter,
+        data:"type=schedule&val="+enable,
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          enable_all_element();
+          refreshSatInfo(7000);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+          enable_all_element();  
+          refreshSatInfo(4000);
+        }
+    });
+}
+function changeSyncButton(){
+    disable_all_element();    
+    if($("#sync_switch").attr("checked")==true){
+        enable=1;
+        $("#sync_btn_warning").show();
+    }
+    else{
+        enable=0;
+        $("#sync_btn_warning").hide();
+    }
+    $.ajax({
+        url: "ajax/update_sat_led"+sParameter,
+        data:"type=sync&val="+enable,
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          enable_all_element();
+          refreshSatInfo(7000);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+          enable_all_element();  
+          refreshSatInfo(4000);
+        }
+    });
+}
+function changeBrightness(){
+    disable_all_element();
+    if($("#led_switch").attr("checked")==true)
+        enable=1;
+    else
+        enable=0;
+        
+    $.ajax({
+        url: "ajax/update_sat_led"+sParameter,
+        data:"type=bright&val="+$("#lightbright").val()+"&val2="+enable,
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+          enable_all_element();
+          refreshSatInfo(7000);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+          enable_all_element();  
+          refreshSatInfo(4000);
+        }
+    });
+}
+
+function disable_all_element(){
+    $("button").attr('disabled', true);
+    $("input").attr('disabled', true);
+    $("select").attr('disabled', true);
+}
+function enable_all_element(){
+    $("button").attr('disabled', false);
+    $("input").attr('disabled', false);
+    $("select").attr('disabled', false);
+    
+    if($("input[name=ntp_update_result]").val() == "1"){
+      if($("input[name=sche_select]:checked").length == 0){
+          $("#edit_sche").attr('disabled', true);
+          $("#delete_sche").attr('disabled', true);
+        }
+    }
+    else{
+        $(".ImpactOnNTP").attr('disabled', true);
+    }
+    
+    if($("#led_switch").attr("checked") == true)
+        $("#lightbright").attr("disabled", false);
+    else
+        $("#lightbright").attr("disabled", true);
+}
+//-->
+</script> 
+</head>
+<body  onload="change_size();loadSettings();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="frmLan" method="POST" action="attached_device_edit.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+	<img class="subtop-image" src="<%76%>">
+<div class="subhead2"><%1066%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='DEV_device2.htm'" type="BUTTON" name="Cancel" id="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT" name="action" id="apply" class=<%79%> ><%81%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2">
+  <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+    <table style="border-collapse:collapse;width:99%">
+      <tr><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr>
+      <td nowrap><%1067%></td>
+      <td nowrap><%1068%></td>
+      <td id="device_type_icon" rowspan="5"></td>
+      </tr>
+      <tr>
+      <td nowrap><%1048%></td>
+      <td nowrap><%1069%></td>
+      </tr>
+      <tr>
+      <td nowrap><%1070%></td>
+      <td nowrap><input type="text" size="24" maxlength="30" name="dev_model" id="orbi_model" value="<%1071%>"></td>
+      </tr>
+      <tr>
+      <td nowrap><%718%></td>
+      <td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="orbi_name" value="<%1072%>"></td>
+      </tr>
+      <tr class="NonSatellites">
+      <td nowrap><%1073%></td>
+      <td nowrap>
+        <select name="sel_dev_type" id="orbi_devtype"></select>
+      </td>
+      </tr>
+      <tr><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr class="OutdoorSAT">
+          <td nowrap><div class="page_sub_title"><%1074%></div></td>
+          <td nowrap>
+            <label class="switch">
+                <input type="checkbox" name="led_switch" id="led_switch" onclick="changeLedOnOff()"><div class="slider round"></div>
+            </label>
+          </td>
+      </tr>
+      <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr class="OutdoorSAT">
+          <td nowrap><div class="page_sub_title"><%1075%></div></td>
+          <td nowrap></td>
+      </tr>
+      <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr class="OutdoorSAT">
+          <td nowrap><b style="color:#7d706c"><%1076%> :</b></td>
+          <td nowrap><select class="divselect" name="lightbright" id="lightbright" onchange="changeBrightness()">
+            <!--<option value="0"><%646%></option>-->
+            <option value="100">100%</option>
+            <option value="75">75%</option>
+            <option value="50">50%</option>
+            <option value="25">25%</option>
+          </select></td>
+      </tr>
+      <tr class="OutdoorSAT">
+        <td colspan="2" nowrap><input type="checkbox" name="led_schedule" id="led_schedule" class="ImpactOnNTP" value="1"><b style="color:#7d706c"><%1077%></b></td>
+      </tr>
+      <tr class="OutdoorSAT">
+        <td colspan="2" nowrap style="color:red"><b id="ntp_warning" style="display:none"><%1078%></b></td>
+      </tr>
+      <tr class="OutdoorSAT">
+        <td colspan="2" nowrap><b><%1079%></b></td>
+      </tr>
+      <tr class="OutdoorSAT">
+        <td colspan="2" width="100%">
+            <table id="sch_thead" class="tbWhite sortable" border="0" cellpadding="0" cellspacing="0" width="99%">
+            <thead>
+              <tr>
+                <td nowrap align="center" width="8%"><span class="subheadtext"><%1080%></span></td>
+                <td nowrap align="center" width="25%"><span class="subheadtext"><%643%></span></td>
+                <td nowrap align="center" width="25%"><span class="subheadtext"><%644%></span></td>
+                <td nowrap align="center" width="25%"><span class="subheadtext"><%647%></span></td>
+                <td nowrap align="center"><span class="subheadtext"><%645%></span></td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </td>
+        <tr>
+        <td class="OutdoorSAT" colspan="2" nowrap align="center">
+            <button type="submit" value="add" id="add_sche" name="add_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'add_white');"><%1081%></button>
+            &nbsp;&nbsp;&nbsp;
+            <button type="submit" value="edit" id="edit_sche" name="edit_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'edit');"><%881%></button>
+            &nbsp;&nbsp;&nbsp;
+            <button type="submit" value="Delete" id="delete_sche" name="delete_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'Delete');"><%927%></button>
+        </td>
+      </tr>
+    </tr>
+      <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr class="OutdoorSAT">
+          <td nowrap><div class="page_sub_title"><%1082%></div></td>
+          <td nowrap>
+            <label class="enable_switch">
+                <input type="checkbox" name="sync_switch" id="sync_switch" onclick="changeSyncButton()"><div class="enable_slider round"></div>
+            </label>
+          </td>
+      </tr>
+      <tr class="OutdoorSAT">
+        <td colspan="2" nowrap style="color:red"><b id="sync_btn_warning" style="display:none"><%1083%></b></td>
+      </tr>
+      <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr><td colspan="3" height="12"><hr id="black_list_line2" class='blueBar' style="display:none"></td></tr>
+    </table>
+  </div>
+  </td></tr>
+
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="DEV_control_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+  <a name="helpframe-anchor"></a>
+  <img class="subfooter-image" src="img/subhead2-bottom.gif">
+  <div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+    <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+  </div>
+
+  <input name="access_control_add_type" type="hidden" value="allowed_list">
+  <input name="is_edit_itself" type="hidden" value="<%1055%>">
+  <input name="dev_mac" type="hidden" value="<%1069%>">
+  <input type="hidden" name="hid_dev_type" value="<%1084%>">
+  <input type="hidden" name="hid_dev_category" value="<%1085%>">
+  <input type="hidden" name="hid_dev_defaulttype" value="<%1086%>">
+  <input type="hidden" name="dev_type" value="">
+  <input name="ntp_update_result" type="hidden" value="<%1087%>">
+  
+</form>
+
+</div>
+</body>
+ 
+</html>
+

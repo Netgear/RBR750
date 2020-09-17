@@ -23,8 +23,8 @@ function loadSettings()
 
         if (!_isNumeric(cf.num_of_entries.value) || isNaN(numberOfEntries)
             || numberOfEntries > 10 || numberOfEntries < 3) {
-            alert("<%924%>");
-            cf.num_of_entries.value="<%925%>";
+            alert("<%172%>");
+            cf.num_of_entries.value="<%173%>";
         }
     });
 
@@ -57,12 +57,12 @@ function checkData()
 
 var initRegion;
 var preRegion;
-var changeMsg = "<%926%>";
+var changeMsg = "<%174%>";
 var notShown = true; // only shown region change message once
 var initialized = false;
 // "--",Africa,Asia,Australia,Canada,Europe,Israel,Japan,Korea,Mexico,Middle East,South America,USA
-var StartChannel = new Array(<%927%>);
-var FinishChannel = new Array(<%928%>);
+var StartChannel = new Array(<%175%>);
+var FinishChannel = new Array(<%176%>);
 
 /* region define:
  * value    -- region
@@ -94,15 +94,15 @@ var FinishChannel = new Array(<%928%>);
  */
 var Channel_All_20M = 
     new Array (
-    <%929%>
+    <%177%>
         );
 var Channel_All_40M = 
     new Array (
-    <%930%>
+    <%178%>
         );
 var Channel_All_80M = 
     new Array (
-    <%931%>
+    <%179%>
         );
 
 var OpMode_BG_TEXT;
@@ -133,9 +133,9 @@ var SecuOption_MIX_VALUE;
 
 var selected1 = 100, selected2 = 100;
 var security_2g = "init", security_5g = "init";
-var curr_region = "<%617%>";
+var curr_region = "<%180%>";
 var have_alert=0;
-var keep_ssid_warning="<%932%>";
+var keep_ssid_warning="<%181%>";
 
 if(!Array.indexOf){  
    Array.prototype.indexOf = function(Object){  
@@ -373,7 +373,7 @@ function loadSettings_wireless()
     if (cf.wregion.options[cf.wregion.selectedIndex].value == "21")
         setDivVisiable($("#5g_network"), 1);
 
-    if ("<%631%>" == "enabled")
+    if ("<%182%>" == "enabled")
         WPS_wizard_ungrayout();
     else
         WPS_wizard_grayout();
@@ -552,7 +552,7 @@ function change_sec(band_type, sec_type)
                 /* we add a redundant assignment here so that the 
                    following warning alert wouldn't appear twice */
                 cf.opmode_5g.selectedIndex = 0;
-                alert("<%872%>");
+                alert("<%106%>");
                 setChannel();
                 cf.opmode_5g.selectedIndex = 0;
             }
@@ -570,7 +570,7 @@ function change_sec(band_type, sec_type)
                 && ((cf.opmode.selectedIndex!=selected1) || (sec_type != security_2g)) 
                 )
             {
-                alert("<%873%>");
+                alert("<%107%>");
             }
         }
         else
@@ -612,7 +612,7 @@ function change_sec(band_type, sec_type)
                 /* we add a redundant assignment here so that the 
                    following warning alert wouldn't appear twice */
                 cf.opmode.selectedIndex = 0;
-                alert("<%872%>");
+                alert("<%106%>");
                 cf.opmode.selectedIndex = 0;
             }
         }
@@ -629,7 +629,7 @@ function change_sec(band_type, sec_type)
                 && ((cf.opmode_5g.selectedIndex!=selected2) || (sec_type != security_5g)) 
                 )
             {
-                alert("<%873%>");
+                alert("<%107%>");
             }
         }
         else
@@ -661,7 +661,7 @@ function checkData_wireless()
     {
         if (cf.enable_ap.checked == false && cf.enable_ap_5g.checked == false)
         {
-            alert("<%933%>");
+            alert("<%183%>");
             return false;
         }
     }
@@ -705,7 +705,7 @@ function checkData_wireless()
     /* advanced wrap */
     if (!cf.ssid_bc.checked || !cf.ssid_bc_5g.checked)
     {
-        if (!confirm("<%934%>"))
+        if (!confirm("<%184%>"))
             return false;
         
         WPS_wizard_grayout();
@@ -713,7 +713,7 @@ function checkData_wireless()
 
     if (need_disable_wps)
     {
-        if (!confirm("<%479%>"))
+        if (!confirm("<%185%>"))
             return false;
         
         WPS_wizard_grayout();
@@ -733,13 +733,13 @@ function CheckData24G()
     
     if (cf.ssid.value == "")
     {
-        alert("<%480%>");
+        alert("<%81%>");
         return false;
     }
 
     if (cf.ssid.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%481%>");
+        alert("<%82%>");
         return false;
     }
  
@@ -759,7 +759,7 @@ function CheckData24G()
     else if( ("WPA-AUTO-PSK" == cf.ap_24g_sec.value) || ("WPA-PSK" == cf.ap_24g_sec.value) || ("WPA2-PSK" == cf.ap_24g_sec.value) )
     {
         if (pass != ver_pass)
-          return alertR("<%935%>");
+          return alertR("<%186%>");
         
         return CheckData_WPA(cf.passphrase);
     }
@@ -768,7 +768,7 @@ function CheckData24G()
     else
     {
         cf.sec_type.focus();
-        return alertR("<%482%>");
+        return alertR("<%171%>");
     }
 }
 
@@ -783,13 +783,13 @@ function CheckData5G()
            
     if (cf.ssid_5g.value == "")
     {
-        alert("<%480%>");
+        alert("<%81%>");
         return false;
     }
 
     if (cf.ssid_5g.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%481%>");
+        alert("<%82%>");
         return false;
     }
 
@@ -809,7 +809,7 @@ function CheckData5G()
     else if( ("WPA-AUTO-PSK" == cf.ap_5g_sec.value) || ("WPA-PSK" == cf.ap_5g_sec.value) || ("WPA2-PSK" == cf.ap_5g_sec.value) ) 
     {
         if (pass != ver_pass)
-          return alertR("<%935%>");
+          return alertR("<%186%>");
         
         return CheckData_WPA(cf.passphrase_5g);
     }
@@ -818,7 +818,7 @@ function CheckData5G()
     else
     {
         cf.sec_type_5g.focus();
-        return alertR("<%482%>");
+        return alertR("<%171%>");
     }
 }
 
@@ -860,14 +860,14 @@ function setChannel()
 function setAutoChannel_24g()
 {
     var cf = document.forms["mainForm"];
-    cf.channel.options[0].text = "<%936%>";
+    cf.channel.options[0].text = "<%187%>";
     cf.channel.options[0].value = 0;
 }
 
 function setAutoChannel_5g()
 {
     var cf = document.forms["mainForm"];
-    cf.channel_5g.options[0].text = "<%936%>";
+    cf.channel_5g.options[0].text = "<%187%>";
     cf.channel_5g.options[0].value = 0;
 }
 
@@ -888,7 +888,7 @@ function setChannel_24g()
     else
         cf.channel.options.length = FinishChannel[index] - StartChannel[index] + 2;
 
-    cf.channel.options[0].text = "<%936%>";
+    cf.channel.options[0].text = "<%187%>";
     cf.channel.options[0].value = 0;
 
     for (var i = StartChannel[index]; i <= FinishChannel[index]; i++) {
@@ -906,7 +906,7 @@ function setChannel_5g()
     var ch_list = cf.channel_5g;
     //var index = cf.wRegion.options[cf.wRegion.selectedIndex].value;
     var index = cf.wregion.selectedIndex;
-    var currChVal_5g = "<%614%>";
+    var currChVal_5g = "<%188%>";
     var len=0, i=0;
 
     ch_list.options.length = 100;
@@ -916,7 +916,7 @@ function setChannel_5g()
         {
             if (Channel_All_80M[index][0] == 0)
             {
-                ch_list.options[len].text = "<%936%>";
+                ch_list.options[len].text = "<%187%>";
                 ch_list.options[len].value = Channel_All_80M[index][0];
                 len++;
             }
@@ -936,7 +936,7 @@ function setChannel_5g()
         {
             if (Channel_All_40M[index][0] == 0)
             {
-                ch_list.options[len].text = "<%936%>";
+                ch_list.options[len].text = "<%187%>";
                 ch_list.options[len].value = Channel_All_40M[index][0];
                 len++;
             }
@@ -956,7 +956,7 @@ function setChannel_5g()
         {
             if (Channel_All_20M[index][0] == 0)
             {
-                ch_list.options[len].text = "<%936%>";
+                ch_list.options[len].text = "<%187%>";
                 ch_list.options[len].value = Channel_All_20M[index][0];
                 len++;
             }
@@ -989,7 +989,7 @@ function checkRegion()
     if (cf.wregion.options[cf.wregion.selectedIndex].value == "0")
     {
         cf.wregion.focus();
-        return alertR("<%937%>");
+        return alertR("<%189%>");
     }
     if (notShown)
         notShown = false;
@@ -1005,7 +1005,7 @@ function checkRegion()
 function chgCh(from)
 {
     var cf = document.forms["mainForm"];
-    var pre_wlanstate2 = "<%938%>";
+    var pre_wlanstate2 = "<%190%>";
     
     if (from == 1)
     {
@@ -1459,11 +1459,11 @@ function checkData_nat()
 
         if(checkIP(cf.LMask1,cf.LMask2,cf.LMask3,cf.LMask4,255)
             ||!isNetmask(cf.LMask1, cf.LMask2, cf.LMask3, cf.LMask4))
-            msg+= "<%78%>";
+            msg+= "<%191%>";
         if(checkIP(cf.LPethr1,cf.LPethr2,cf.LPethr3,cf.LPethr4,254)
             ||(parseInt(cf.LPethr4.value,10)==0)
             ||parseInt(cf.LPethr1.value,10)>224)
-            msg+= "<%77%>";
+            msg+= "<%161%>";
 
         var wan_proto = cf.wan_proto.value;
         var wan_ipaddr = cf.wan_ipaddr.value.split(".");
@@ -1477,7 +1477,7 @@ function checkData_nat()
             && (l_netmask & w_netmask & l_ipaddr)
                 == (l_netmask & w_netmask & w_ipaddr))
         {
-            alert("<%939%>");
+            alert("<%192%>");
             return false;
         }
             
@@ -1496,7 +1496,7 @@ function checkData_nat()
             && (l_netmask & w_netmask & l_ipaddr)
                 == (l_netmask & w_netmask & w_ipaddr))
         {
-            alert("<%939%>");
+            alert("<%192%>");
             return false;
         }
 
@@ -1519,7 +1519,7 @@ function checkData_nat()
                 && (l_netmask & w_netmask & l_ipaddr)
                     == (l_netmask & w_netmask & dns_pri_ipaddr2))
             {
-                alert("<%939%>");
+                alert("<%192%>");
                 return false;
             }
             
@@ -1528,7 +1528,7 @@ function checkData_nat()
                 && (l_netmask & w_netmask & l_ipaddr)
                     == (l_netmask & w_netmask & dns_sec_ipaddr2))
             {
-                alert("<%939%>");
+                alert("<%192%>");
                 return false;
             }
         }
@@ -1551,7 +1551,7 @@ function checkData_nat()
                         != (cf.LPethr4.value & cf.LMask4.value))
                 || ((cf.sysPoolFinishAddr4.value & cf.LMask4.value)
                         != (cf.LPethr4.value & cf.LMask4.value)) ) {
-                alert("<%940%>");
+                alert("<%193%>");
                 return false;
             }
             cf.dhcp_start.value = cf.LPethr1.value+'.'+cf.LPethr2.value+'.'+cf.LPethr3.value+'.'+cf.sysPoolStartingAddr4.value;
@@ -1561,7 +1561,7 @@ function checkData_nat()
         else
         {
             cf.lan_proto.value = "static";
-            alert("<%941%>");
+            alert("<%194%>");
         }
     }
 
@@ -1585,18 +1585,18 @@ function checkData_ipAddress()
     var msg = "";
 
     if (cf.device_name.value == "")
-        msg+= "<%942%>\n";
+        msg+= "<%195%>\n";
     
     if (cf.device_name.value.match( /[^\x20-\x7E]/ ))
     {
         cf.device_name.focus();
-        msg+= "<%943%>\n";
+        msg+= "<%196%>\n";
     }
 
     if(cf.ip_assign[1].checked)
     {
         if(checkIP(cf.ethr1,cf.ethr2,cf.ethr3,cf.ethr4,255))
-            msg+= "<%77%>";
+            msg+= "<%161%>";
         else
         {
             cf.ethr1.value = parseInt(cf.ethr1.value,10);
@@ -1605,7 +1605,7 @@ function checkData_ipAddress()
             cf.ethr4.value = parseInt(cf.ethr4.value,10);
         }
         if(checkIP(cf.mask1,cf.mask2,cf.mask3,cf.mask4,255))
-            msg+= "<%78%>";
+            msg+= "<%191%>";
         else
         {
             cf.mask1.value = parseInt(cf.mask1.value,10);
@@ -1614,7 +1614,7 @@ function checkData_ipAddress()
             cf.mask4.value = parseInt(cf.mask4.value,10);
         }
         if(checkIP(cf.gateway1,cf.gateway2,cf.gateway3,cf.gateway4,255))
-            msg+= "<%79%>";
+            msg+= "<%197%>";
         else
         {
             cf.gateway1.value = parseInt(cf.gateway1.value,10);
@@ -1623,7 +1623,7 @@ function checkData_ipAddress()
             cf.gateway4.value = parseInt(cf.gateway4.value,10);
         }
         if(checkIP(cf.pri_addr1,cf.pri_addr2,cf.pri_addr3,cf.pri_addr4,254)||(parseInt(cf.pri_addr4.value,10)==0))
-            msg+= "<%80%>";
+            msg+= "<%198%>";
         else
         {
             cf.pri_addr1.value = parseInt(cf.pri_addr1.value,10);
@@ -1648,7 +1648,7 @@ function checkData_ipAddress()
     {
         if (cf.nat_mode.value == "0")
         {
-            if (!confirm("<%944%>"))
+            if (!confirm("<%199%>"))
                 return false;
         }
     }
@@ -1680,7 +1680,7 @@ function setGray()
 
 function loadSettings_WPS()
 {
-    <%945%>
+    <%200%>
     
     var cf = document.forms["mainForm"];
     display_wps_attack_compromise();
@@ -1710,7 +1710,7 @@ function showWpsAlert()
 {
     var cf = document.forms["mainForm"];
     if(cf.show_wps_alert.value == "1")
-        setTimeout("alert('<%852%>')",500);
+        setTimeout("alert('<%80%>')",500);
 }
 
 function changeWscConfig(isChecked)
@@ -1750,18 +1750,18 @@ function checkChannel()
     if (ch < 52 || ch > 140)
         return true;
 
-    alert("<%946%>");
+    alert("<%201%>");
     return true;
 }
 
 function dfs_alert()
 {
-    var block_ch_time = "<%947%>";
+    var block_ch_time = "<%202%>";
     var minute = Math.floor(block_ch_time / 60);
     var second = Math.floor(block_ch_time % 60);
-    var msg = "<%871%>" + "<%948%>"
-        + minute + "<%949%>" 
-        + second + "<%950%>";
+    var msg = "<%105%>" + "<%203%>"
+        + minute + "<%204%>" 
+        + second + "<%205%>";
     alert(msg);
 }
 

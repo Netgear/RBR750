@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+var isInited = 0;
+
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+    function init()
+    {
+        return true;
+    }
+
+//-->
+</script>
+</head>
+<body  onload="change_size();init();" class="page-body"  onResize="change_size();" >
+    <img class="cover-image" src="<%74%>">
+    <img class="body-image" src="<%75%>">
+    <div id="full-page-container">
+        <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+        <img class="subtop-image" src="<%76%>">
+        <div class="subhead2"> <%970%></div>
+        <table border="0" style="height:370px" class="subhead2-table">
+            <tr>
+                <td class="scrollpane-table-seperate-border" colspan="2">
+                    <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+                        <table style="border-collapse:collapse;width:99%">
+                            <tr><td height="12" ><hr class='blueBar'></td></tr>
+                            <tr><td height="12"></td></tr>
+                            <tr><td align=center><b><%3455%></b></td></tr>
+                            <tr><td height="12"></td></tr>
+                            <tr><td height="12"><hr class='blueBar'></td></tr>
+                            <tr><td height="12"></td></tr>
+                            <tr><td align=center><%3456%></td></tr>
+                            <tr><td align=center><a style="color:blue; text-decoration:underline" href="cable_connection.htm?offline=1"><%3457%></a></td></tr>
+                            <tr><td height="12"></td></tr>
+                            <tr><td height="12"></td></tr>
+                            <tr><td align=center>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" value="<%1746%>" name="defaults" class="button-common" onClick="buttonClick(this,'<%1746%>');location.href='DashBoard.htm'"><%1746%></button>
+                            </td></tr>
+                            <tr><td height="12"></td></tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

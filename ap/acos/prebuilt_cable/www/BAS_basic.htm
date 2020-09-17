@@ -1,0 +1,41 @@
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<script src="script/script.js"></script>
+<script language="javascript" type="text/javascript">
+<!--  
+    
+function checkType(wan_proto) // called from basictop.htm
+{
+//	if (basictop.document.forms[0])
+	if (1)
+	{
+		if (wan_proto == "pppoe")
+		    basicbuttom.location.href = "BAS_pppoe.htm";
+		else if (wan_proto == "pptp")
+		    basicbuttom.location.href = "BAS_pptp.htm";
+		else if (wan_proto == "bpa")
+		    basicbuttom.location.href = "BAS_bpa.htm";
+		else if (wan_proto == "l2tp")
+		    basicbuttom.location.href = "BAS_l2tp.htm";
+		else
+		    basicbuttom.location.href = "BAS_ether.htm";
+	}
+	else 
+	    window.setTimeout(checkType(),300);
+}
+
+function loadSettings()
+{
+	window.location.href = "BAS_basictop.htm";
+}
+
+//-->
+</script>
+
+ </head>
+ <body  onload="loadSettings();" class="page-body" >
+ 
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<script src="script/script.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+function do_submit()
+{
+    document.forms[0].submit();
+}
+function wait()
+{   
+    //setTimeout("do_submit()",2000);
+    var form = document.forms[0];
+    form.targetTimezone.value = (new Date().getTimeZoneOffsetWithDst())/-60;
+    setTimeout("do_submit()",1000);
+    //window.parent.document.getElementById('lang_menu').disabled = true;
+
+}
+//-->
+</script>
+</head>
+<body bgcolor="#ffffff" onLoad="wait();">
+<form name="formname" method="POST" action="autoTimeZone_setup.cgi"> 
+	<input type="hidden" name="targetTimezone" value="">
+</form>
+</body>
+</html>

@@ -138,14 +138,14 @@ function checkData()
         
     if (cf.device_name2.value == "")
     {
-        alert("<%1031%>");
+        alert("<%1052%>");
         return false;
     }
 
     if (cf.device_name2.value.match( /[^\x20-\x7E]/ ))
     {
         cf.device_name2.focus();
-        alert("<%1032%>");
+        alert("<%1053%>");
         return false;
     }
     
@@ -167,7 +167,7 @@ function checkData()
             
         if(checkIP(cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,255))
         {
-            alert("<%421%>");
+            alert("<%411%>");
             return false;
         }
         else
@@ -181,7 +181,7 @@ function checkData()
         if(checkIP(cf.SGateway1,cf.SGateway2,cf.SGateway3,cf.SGateway4,255)
                 ||checkIPMatchWithNetmask(cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,cf.SGateway1,cf.SGateway2,cf.SGateway3,cf.SGateway4))
         {
-            alert("<%423%>");
+            alert("<%413%>");
             return false;
         }
         else
@@ -198,7 +198,7 @@ function checkData()
             
         if((sta_ipaddr&sta_netmask) != (sta_gateway&sta_netmask))
         {
-            alert("<%424%>" + tmpip + "<%425%>" + tmpgwip);
+            alert("<%414%>" + tmpip + "<%415%>" + tmpgwip);
             return false;
         }
         
@@ -206,7 +206,7 @@ function checkData()
         {
             if(checkIP(cf.SDAddr1,cf.SDAddr2,cf.SDAddr3,cf.SDAddr4,254)||(parseInt(cf.SDAddr4.value,10)==0))
             {
-                alert("<%387%>");
+                alert("<%377%>");
                 return false;
             }
             else
@@ -221,7 +221,7 @@ function checkData()
             {
                 if(checkIP(cf.SPDAddr1,cf.SPDAddr2,cf.SPDAddr3,cf.SPDAddr4,254)||(parseInt(cf.SPDAddr4.value,10)==0))
                 {
-                    alert("<%388%>");
+                    alert("<%378%>");
                     return false;
                 }
                 else
@@ -242,7 +242,7 @@ function checkData()
         cf.stamode_dns1_sec.value = cf.SPDAddr1.value+'.'+cf.SPDAddr2.value+'.'+cf.SPDAddr3.value+'.'+cf.SPDAddr4.value;
     }
 
-    alert("<%1384%>");
+    alert("<%1403%>");
 
     
     if (msg.length > 1)
@@ -265,12 +265,12 @@ function checkData()
   <form id="target"  method="POST" action="operation_mode.cgi" NAME=general>
     <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
     <img class="subtop-image" src="img/subhead2-top_noh.gif">
-    <div class="subhead2"> <%664%></div>
+    <div class="subhead2"> <%740%></div>
       <table border="0"    style="height:370px"  class="subhead2-table">
         <tr align="left" valign="top">
           <td align="center" colspan="2" class="table-seperate-border2">
             <button class="button-cancel" type="reset" name="Cancel" value="<%83%>" onClick="location.href='WLG_opmode_main.htm';"><%83%></button>
-            <button class="<%3194%>" type="submit" name="Apply" value="<%78%>" onClick="return checkData();" ><%78%></button>
+            <button class="<%3263%>" type="submit" name="Apply" value="<%78%>" onClick="return checkData();" ><%78%></button>
           </td>
         </tr>
         <tr>
@@ -280,20 +280,20 @@ function checkData()
                 <tr >
                   <td>    
 		                  <div class="box ui-corner-all router">
-			                  <div class="radio_box"><input type="radio" name="operation_type" value=0 onclick="select_type(0)"> <%3195%></div>
-			                  <div class="<%3198%>" style="margin-left:20px" onclick="select_type(0)"><img src="img/opmode_router.gif"></div>
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=0 onclick="select_type(0)"> <%3264%></div>
+			                  <div class="<%3267%>" style="margin-left:20px" onclick="select_type(0)"><img src="img/opmode_router.gif"></div>
 		                  </div>
 		                  <div class="box ui-corner-all ap">
-			                  <div class="radio_box"><input type="radio" name="operation_type" value=1 onclick="select_type(1)"> <%3196%></div>
-			                  <div class="<%3199%>" style="margin-left:20px" onclick="select_type(1)"><img src="img/opmode_ap.gif"></div>
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=1 onclick="select_type(1)"> <%3265%></div>
+			                  <div class="<%3268%>" style="margin-left:20px" onclick="select_type(1)"><img src="img/opmode_ap.gif"></div>
 		                  </div>
 		                  <div class="box_select ui-corner-all bridge">
-			                  <div class="radio_box"><input type="radio" name="operation_type" value=2 checked> <%3262%> </div>
-			                  <div class="<%3263%>" style="margin-left:20px" onclick="select_type(2);"><img src="img/opmode_bridge.gif"></div>
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=2 checked> <%3331%> </div>
+			                  <div class="<%3332%>" style="margin-left:20px" onclick="select_type(2);"><img src="img/opmode_bridge.gif"></div>
 		                  </div>
 		                  <div class="box ui-corner-all repeating">
-			                  <div class="radio_box"><input type="radio" name="operation_type" value=3 onclick="select_type(3);"> <%3264%> </div>
-			                  <div class="<%3265%>" style="margin-left:20px" onclick="select_type(3);"><img src="img/opmode_extender.gif"></div>
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=3 onclick="select_type(3);"> <%3333%> </div>
+			                  <div class="<%3334%>" style="margin-left:20px" onclick="select_type(3);"><img src="img/opmode_extender.gif"></div>
 		                  </div>
                   </td>
                 </tr>
@@ -301,42 +301,42 @@ function checkData()
                 	<td style='width:500px' style="padding-left:50px">
             	      <table border="0" cellpadding="0" cellspacing="3" >
 	                    <tr>
-		                    <button value="bridge_page" onClick="openBridgeWindow();" type="button" name="bridge_page" class="button-rule" ><span class="roundleft_button"><span class ="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%3266%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+		                    <button value="bridge_page" onClick="openBridgeWindow();" type="button" name="bridge_page" class="button-rule" ><span class="roundleft_button"><span class ="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%3335%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
                       </tr>
                       <tr>
-    	                  <td nowrap><%969%></td>
-                        <td width="60%" align="right"><INPUT TYPE="text" MAXLENGTH="12" SIZE="24" NAME="device_name2" value="<%1386%>"></td>
+    	                  <td nowrap><%990%></td>
+                        <td width="60%" align="right"><INPUT TYPE="text" MAXLENGTH="12" SIZE="24" NAME="device_name2" value="<%1405%>"></td>
                       </tr>
                       <tr>
                         <td colspan=2>
-                          <INPUT TYPE="checkbox" NAME="StaIpAssign" value="dyn_ip" <%1911%> onclick="setIP_sta();">
-                          <%3267%>
+                          <INPUT TYPE="checkbox" NAME="StaIpAssign" value="dyn_ip" <%1912%> onclick="setIP_sta();">
+                          <%3336%>
                         </td>
                       </tr>
                       <tr>
-    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%806%></td>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%602%></td>
     	                  <td nowrap align="right"><input type="text" name="SPethr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPethr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)" >.<input type="text" name="SPethr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPethr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
                       </tr>
                       <tr>
-    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%807%></td>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%603%></td>
     	                  <td align="right"><input type="text" name="SMask1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
                       </tr>
                       <tr>
-    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%808%></td>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%604%></td>
     	                  <td align="right"><input type="text" name="SGateway1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
                       </tr>
                       <tr>
                         <td colspan=2>
-                          <INPUT TYPE="checkbox" NAME="StaDnsAssign" value="dyn_dns" <%3268%> onclick="setDNS_sta();">
-                          <%3269%>
+                          <INPUT TYPE="checkbox" NAME="StaDnsAssign" value="dyn_dns" <%3337%> onclick="setDNS_sta();">
+                          <%3338%>
                         </td>
                       </tr>
                       <tr>
-    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%404%></td>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%394%></td>
     	                  <td nowrap align="right"><input type="text" name="SDAddr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
                       </tr>
                       <tr>
-    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%405%></td>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%395%></td>
     	                  <td nowrap align="right"><input type="text" name="SPDAddr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
                       </tr>
                     </TABLE>
@@ -358,13 +358,13 @@ function checkData()
       </div>
     </div>
 
-<input type="hidden" name="pre_mode" value="<%3197%>" >
+<input type="hidden" name="pre_mode" value="<%3266%>" >
 <input type="hidden" name="enable_operation_mode" value="bridge" >
-<INPUT name="stamode_ipaddr" type="hidden" value= "<%1623%>">
-<INPUT name="stamode_netmask" type="hidden" value= "<%1624%>">
-<INPUT name="stamode_gateway" type="hidden" value= "<%1626%>">
-<INPUT name="stamode_dns1_pri" type="hidden" value= "<%1631%>">
-<INPUT name="stamode_dns1_sec" type="hidden" value= "<%1632%>">
+<INPUT name="stamode_ipaddr" type="hidden" value= "<%1651%>">
+<INPUT name="stamode_netmask" type="hidden" value= "<%1652%>">
+<INPUT name="stamode_gateway" type="hidden" value= "<%1654%>">
+<INPUT name="stamode_dns1_pri" type="hidden" value= "<%1659%>">
+<INPUT name="stamode_dns1_sec" type="hidden" value= "<%1660%>">
 <a name="helpframe-anchor"></a>
 
   </form>

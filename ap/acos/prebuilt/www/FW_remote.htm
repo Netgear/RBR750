@@ -44,17 +44,17 @@ function checkRemoteMG()
 	    cf.http_rmaccessby.value = "ip_range";
 		if (checkIP(cf.start_ip_1, cf.start_ip_2, cf.start_ip_3, cf.start_ip_4, 254))
 		{
-			alert("<%1342%>");
+			alert("<%1361%>");
 			return false;
 		}
 		else if (checkIP(cf.fin_ip_1, cf.fin_ip_2, cf.fin_ip_3, cf.fin_ip_4, 254))
 		{
-			alert("<%1343%>");
+			alert("<%1362%>");
 			return false;
 		}
 		else if (cp_ip(cf.start_ip_1,cf.start_ip_2,cf.start_ip_3,cf.start_ip_4,cf.fin_ip_1,cf.fin_ip_2,cf.fin_ip_3,cf.fin_ip_4))
 		{
-			alert("<%1344%>");
+			alert("<%1363%>");
 			return false;
 		}
 		else
@@ -102,7 +102,7 @@ function checkRemoteMG()
 	   parseInt(cf.http_rmport.value,10) > 65534 ||
 	   cf.http_rmport.value.indexOf(".") != -1)
 	{
-	    alert("<%1345%>");
+	    alert("<%1364%>");
 	    cf.http_rmport.focus();
 	    return false;
 	}
@@ -234,7 +234,7 @@ function clearData3()
 <form id="target"  name="remotemg" action="fwRemote.cgi" method="post">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 	<img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%678%></div>
+<div class="subhead2"> <%754%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -274,26 +274,26 @@ function clearData3()
              overflow: hidden;
             text-overflow: ellipsis;
             width: 92%;
-            "><%1346%></span></span></td></tr>-->
+            "><%1365%></span></span></td></tr>-->
         <!--Foxconn remove end, lina, 2017/07/06 -->
 <!-- Security Enhancement start -->
-		<tr><td nowrap colspan="2" style="font-size: 16px; color: #ADA7D7"><b><%678%>:</b></td></tr>
+		<tr><td nowrap colspan="2" style="font-size: 16px; color: #ADA7D7"><b><%754%>:</b></td></tr>
 <!-- Security Enhancement end -->		
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         <tr>
             <td nowrap colspan="2">
-                <input type="checkbox"  name="remote_mg_enable" id="remote_mg_enable" value="remote_mg"><a href="javascript:loadhelp('FW_remote','turnon')" tabindex="-1"><b><%1347%></b></a></td></tr>
+                <input type="checkbox"  name="remote_mg_enable" id="remote_mg_enable" value="remote_mg"><a href="javascript:loadhelp('FW_remote','turnon')" tabindex="-1"><b><%1366%></b></a></td></tr>
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         <tr>
-            <td nowrap colspan="2"><a href="javascript:loadhelp('FW_remote','address')" tabindex="-1"><b><%1348%>:</b></a></td></tr>
+            <td nowrap colspan="2"><a href="javascript:loadhelp('FW_remote','address')" tabindex="-1"><b><%1367%>:</b></a></td></tr>
         <tr>
-            <td nowrap colspan="2" id="rm_addr"><%1349%></td></tr>
+            <td nowrap colspan="2" id="rm_addr"><%1368%></td></tr>
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         <tr>
-            <td valign="top" colspan="2"><A href="javascript:loadhelp('FW_remote','access')" tabindex="-1"><B><%1350%>:</b></a></td></tr>
+            <td valign="top" colspan="2"><A href="javascript:loadhelp('FW_remote','access')" tabindex="-1"><B><%1369%>:</b></a></td></tr>
         <tr>
             <td nowrap width="50%">
-                <input type="radio" name="rm_access" id="rm_only" value="ip_single" onClick="clearData3()"> <%1351%>:</td>
+                <input type="radio" name="rm_access" id="rm_only" value="ip_single" onClick="clearData3()"> <%1370%>:</td>
             <td nowrap width="50%" align="left">
                 <input type="text" class="num" size="4" maxlength="3" name="local_ip_1" id="local_ip_1" value="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="local_ip_2" id="local_ip_2" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
@@ -303,15 +303,15 @@ function clearData3()
             <td colspan="2">&nbsp;</td></tr>
         <tr>
             <td nowrap>
-                <input type="radio" name="rm_access" id="rm_range" value="ip_range" onClick="clearData2()"> <%942%>:</td>
-            <td nowrap align="left"><%1352%> <span>
+                <input type="radio" name="rm_access" id="rm_range" value="ip_range" onClick="clearData2()"> <%963%>:</td>
+            <td nowrap align="left"><%1371%> <span>
                 <input type="text" class="num" size="4" maxlength="3" name="start_ip_1" id="start_ip_1" value="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="start_ip_2" id="start_ip_2" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="start_ip_3" id="start_ip_3" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="start_ip_4" id="start_ip_4" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></span></td></tr>
         <tr>
             <td nowrap>&nbsp;</td>
-            <td nowrap align="left"> <%1353%> <span>
+            <td nowrap align="left"> <%1372%> <span>
                 <input type="text" class="num" size="4" maxlength="3" name="fin_ip_1" id="fin_ip_1" value="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="fin_ip_2" id="fin_ip_2" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
                 <input type="text" class="num" size="4" maxlength="3" name="fin_ip_3" id="fin_ip_3" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
@@ -320,12 +320,12 @@ function clearData3()
             <td colspan="2">&nbsp;</td></tr>
         <tr>
             <td nowrap colspan="2">
-                <input type="radio"  checked name="rm_access" id="rm_all" value="all" onClick="clearData1()"> <%1354%></td></tr>
+                <input type="radio"  checked name="rm_access" id="rm_all" value="all" onClick="clearData1()"> <%1373%></td></tr>
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         <tr>
-            <td nowrap><a href="javascript:loadhelp('FW_remote','port')" tabindex="-1"><b><%1355%>:</b></a></td>
+            <td nowrap><a href="javascript:loadhelp('FW_remote','port')" tabindex="-1"><b><%1374%>:</b></a></td>
             <td nowrap align="left">
-                <input type="text" class="num" name="http_rmport" id="http_rmport" value="<%1356%>" size=6 maxlength=5></td></tr>
+                <input type="text" class="num" name="http_rmport" id="http_rmport" value="<%1375%>" size=6 maxlength=5></td></tr>
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         
     </table></div></td></tr>
@@ -342,11 +342,11 @@ function clearData3()
 
 
 
-    <INPUT name=http_rmenable type=hidden value= "<%1357%>">
-    <INPUT name=http_rmstartip type=hidden value= "<%1358%>">
-    <INPUT name=http_rmendip type=hidden value= "<%1359%>">
-    <INPUT name=http_wanipaddr type=hidden value= "<%1360%>">
-	<INPUT name=http_rmaccessby type=hidden value= "<%1361%>">
+    <INPUT name=http_rmenable type=hidden value= "<%1376%>">
+    <INPUT name=http_rmstartip type=hidden value= "<%1377%>">
+    <INPUT name=http_rmendip type=hidden value= "<%1378%>">
+    <INPUT name=http_wanipaddr type=hidden value= "<%1379%>">
+	<INPUT name=http_rmaccessby type=hidden value= "<%1380%>">
 	
 <a name="helpframe-anchor"></a>
 </form>

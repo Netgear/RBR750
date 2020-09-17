@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+    classes.num.all.fontFamily = "Courier";
+    classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+var initialized = false;
+
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function ssid_submit()
+{
+    var fm=document.forms[0];
+    fm.ssid_sel_submit.value = "1";
+    fm.secure_sel_submit.value = "0";
+    
+    fm.submit();
+    return true;
+}
+
+function secure_submit()
+{
+    var fm=document.forms[0];
+    fm.ssid_sel_submit.value = "0";
+    fm.secure_sel_submit.value = "1";
+    
+    fm.submit();
+    return true;
+}
+
+function displayWepWpaRadio()
+{
+    var cf = document.forms[0];
+    var wlan_mode = "<%2398%>";
+    
+    if (wlan_mode == "g&#32;and&#32;b")//Up to 54Mbps
+    {
+        document.getElementById("wep_radio_2G").style.display="block";
+        document.getElementById("wpa_radio_2G").style.display="block";
+        
+    }
+    else
+    {
+        document.getElementById("wep_radio_2G").style.display="none";
+        document.getElementById("wpa_radio_2G").style.display="none";
+    }
+}
+
+function initScrn()
+{
+    var defaultKey;
+    var fm=document.forms[0];
+    var i;
+    var srvip = fm.radius_ip.value.split(".");
+
+    var profile_idx = <%2399%>;
+    if (!profile_idx || profile_idx < 1 || profile_idx > 3)
+        profile_idx = 1;
+    var sel_index = profile_idx - 1;
+    //fm.ssidSelect[sel_index].checked = true;
+
+    if (fm.bssid_enable.value == "1")
+        fm.enable_bssid.checked = true;
+    else
+        fm.enable_bssid.checked = false;
+
+    if (fm.ssid_bc_enable.value == "1")
+        fm.enable_ssid_bc.checked = true;
+    else
+        fm.enable_ssid_bc.checked = false;
+
+    if (fm.enable_allow_access.value == "1" || fm.enable_apmode.value == "1")
+        fm.allow_access.checked = true;
+    else
+        fm.allow_access.checked = false;
+
+    if(fm.enable_apmode.value == "1")
+        fm.allow_access.disabled = true;
+             
+    if (fm.enable_isolation.value == "1")
+        fm.enable_isolate.checked = true;
+    else if (fm.enable_isolation.value != "111")
+        fm.enable_isolate.checked = false;
+
+    if (fm.radius_ip.value != "") {
+        fm.srv_ip1.value = srvip[0];
+	    fm.srv_ip2.value = srvip[1];
+    	fm.srv_ip3.value = srvip[2];
+        fm.srv_ip4.value = srvip[3];
+    }
+
+    fm.srv_port.value = fm.radius_port.value;
+    fm.srv_secret.value = fm.radius_secret.value;
+    if (fm.wpa_rekey_ena.value == 1)
+        fm.rekey_ena.checked = true;
+    else
+        fm.rekey_ena.checked = false;
+    fm.gtk_rekey.value = fm.wpa_gtk_rekey.value;
+    displayWepWpaRadio();
+    
+    initialized=true;
+}
+
+function checkData()
+{
+    var cf = document.forms[0];
+
+    
+    if (cf.ssid.value == "")
+    {
+        alert("<%53%>");
+        return false;
+    }
+
+    if (cf.ssid.value.match( /[^\x20-\x7E]/ ))
+    {
+        alert("<%54%>");
+        cf.ssid.focus();
+        return false;
+    }
+
+    if(checkIP(cf.srv_ip1,cf.srv_ip2,cf.srv_ip3,cf.srv_ip4,254) ||
+              (parseInt(cf.srv_ip4.value) == 0) ||
+              (parseInt(cf.srv_ip1.value) > 224))
+    {
+        alert("<%2423%>");
+        return false;
+    }
+
+    var port = parseInt(cf.srv_port.value);
+    if (port < 1 || port > 65535) 
+    {
+        alert("<%2424%>");
+        return false;
+    }
+
+    cf.radius_ip.value = cf.srv_ip1.value+"."+cf.srv_ip2.value+"."+cf.srv_ip3.value+"."+cf.srv_ip4.value; 
+
+    if (cf.bssid_enabled.value == "1")
+        if (!confirm("<%44%>"))
+            return false;
+
+    return true;
+}
+function showWpsAlert()
+{
+    var cf = document.forms[0];
+    if(cf.show_wps_alert.value == "1")
+        alert("<%66%>");
+}
+// -->
+</script>
+</head>
+<body  onload="change_size();initScrn();showWpsAlert();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="wlg_sec_profile_main.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%2400%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');return checkData();" type="SUBMIT" name="Apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onclick="buttonClick(this,'<%83%>');"  type="SUBMIT" name="Cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+
+ 
+
+<tr><td>
+<table border="0"   width="100%">
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+<td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','wireless')" tabindex="-1"><b><%738%> - <%2401%> <%2399%></b></a></td>
+</tr>
+
+<tr>
+<td align="left" colspan="2" ><input type="checkbox" name="enable_bssid" value="1"><%2402%></td>
+</tr>
+
+<tr>
+<td align="left" colspan="2" ><input type="checkbox" name="enable_ssid_bc" value="1"><%157%></td>
+</tr>
+
+<tr>
+<td align="left" colspan="2" ><input type="checkbox" name="allow_access" value="1"><%2403%></td>
+</tr>
+
+<%152%>
+<tr>
+<td align="left" colspan="2" ><input type="checkbox" name="enable_isolate" value="1"><%154%></td>
+</tr>
+<%155%>
+
+<tr>
+<td align="left" colspan="2" ><%2404%><input type="text" name="ssid" value="<%1846%>" size="20" maxlength="32"></td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','security')" tabindex="-1"><b><%170%> - <%2401%> <%2399%></b></a></td></tr>
+
+<tr><td colspan="2">
+<table cellpadding="0" cellspacing="3" width="100%">
+<tr>
+        <td colspan="2"><input type="radio" name="security_type" value="Disable" onClick="return secure_submit();" ><%171%><td></tr>
+<tr>
+        <td colspan="2">
+        <div id="wep_radio_2G" style="display: block;">
+        <input type="radio" name="security_type" value="WEP" onClick="buttonFilter();return secure_submit();" ><%172%>
+        </div>
+        </td>
+</tr>
+<tr>
+    <td colspan="2">
+    <div id="wpa_radio_2G" style="display: block;">
+    <input type="radio" name="security_type" value="WPA-PSK" <%173%> onClick="buttonFilter();return secure_submit();" ><%174%>
+    </div>
+    </td>
+</tr>
+<tr>
+	<td colspan="2"><input type="radio" name="security_type" value="WPA2-PSK" <%173%> <%2425%> onClick="buttonFilter();return secure_submit();" ><%175%></td></tr>
+<tr>
+	<td colspan="2"><input type="radio" name="security_type" value="AUTO-PSK" <%173%> <%2426%> onClick="buttonFilter();return secure_submit();" ><%176%></td></tr>
+
+</table>
+</td></tr>
+
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    <tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%2427%></b></a></td></tr>
+    <tr>
+	<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%602%></td>
+	<td width="50%" align="left">
+        <input type="text" name="srv_ip1" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
+        <input type="text" name="srv_ip2" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+        <input type="text" name="srv_ip3" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+        <input type="text" name="srv_ip4" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)">
+    </td>
+</tr>
+<tr>
+    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%2428%></td>
+	<td width="50%" align="left"><input type="text" name="srv_port" class="num" size="6" maxlength="5"></td>
+</tr>
+<tr>
+    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%2429%></td>
+	<td width="50%" align="left"><input type="text" name="srv_secret" size="22" maxlength="20">
+	</td>
+</tr>
+
+<tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%2430%></b></a></td></tr>
+
+<TR>
+    <TD nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=checkbox NAME=rekey_ena value="1">&nbsp;<%2431%></td>
+    <td width="50%" align="left"><input type="text" name="gtk_rekey" class="num" size="7" maxlength="5"> <%1611%></td>
+</tr>
+
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    
+  </table></td></tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_wireless_2_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> Help Center </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> Show/Hide Help Center </span>
+      </div>
+
+
+
+  <input type="hidden" name="radius_ip" value="<%2432%>">
+  <input type="hidden" name="radius_port" value="<%2433%>">
+  <input type="hidden" name="radius_secret" value="<%2434%>">
+  <input type="hidden" name="wpa_rekey_ena" value="<%2435%>">
+  <input type="hidden" name="wpa_gtk_rekey" value="<%2436%>">
+  <input type="hidden" name="only_mode" value="0">
+  <input type="hidden" name="bssid_enable" value="<%2413%>">
+  <input type="hidden" name="ssid_bc_enable" value="<%2414%>">
+  <input type="hidden" name="enable_allow_access" value="<%2415%>">
+  <input type="hidden" name="enable_isolation" value="<%2416%>">
+  <input type="hidden" name="ssid_sel_submit" value="0">
+  <input type="hidden" name="secure_sel_submit" value="0">
+  <input type="hidden" name="show_wps_alert" value="<%272%>">
+  <input type="hidden" name="enable_apmode" value="<%773%>">
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+</html>
+

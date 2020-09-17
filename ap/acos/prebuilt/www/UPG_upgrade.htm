@@ -49,10 +49,10 @@ var AllFWStatus = null;
 var sParameter = "";
 var iFWUpgradeStatusQuery=0, maxFWUpgradeStatusQuery=64;
 var iFWUpgradeStatusTimer=3000;
-var upgrading_msg="<%1695%>";
+var upgrading_msg="<%1723%>";
 var queryStatusTimerObj=null;
-var serial_number = "<%1696%>";
-var product_url = "<%1697%>";
+var serial_number = "<%1724%>";
+var product_url = "<%1725%>";
         
 $(document).ready(function()
 {   
@@ -113,7 +113,7 @@ function loadSettings()
         $("#manual_sel_tab").show();
     }
     
-    <%1698%>
+    <%1726%>
     charcount = 0;
     $('#online').click();
 }
@@ -147,7 +147,7 @@ function showAnimation()
 
 function checkData()
 {
-	var up_msg = "<%1699%>\n";
+	var up_msg = "<%1727%>\n";
 	var a;
 	var msg="";
 	var temp_win;
@@ -166,13 +166,13 @@ function checkData()
 		a = cdisplit(t_str,".");
 	if(t_str.length == 0)
 	{
-		alert("<%1700%>\n");
+		alert("<%1728%>\n");
 		return false;
 	}
 	//if((a.length<2)||(a[0]=="")||((a[a.length-1].toLowerCase()!="img") && (a[a.length-1].toLowerCase()!="chk") && (a[a.length-1].toLowerCase()!="bin")))
 	if((a.length<2)||(a[0]=="")||(a[a.length-1].toLowerCase()!="chk"))
 	{
-	 alert("<%1701%>chk\n");
+	 alert("<%1729%>chk\n");
 	 return false;
 	}
 	if (!confirm(up_msg))
@@ -204,7 +204,7 @@ function set_check_upgrade()
 		charcount = 0;
 		document.location.href="UPG_upgrade_ver_check.htm";
 
-	//<%1702%>
+	//<%1730%>
 	//location.reload();
 }
 
@@ -248,7 +248,7 @@ function manual_upgrade2(){
         i++;
     });
     if(counts == 0)
-        alert("<%1703%>");
+        alert("<%1731%>");
 }
 
 function handleClick(cb) {
@@ -373,8 +373,9 @@ function updateFWCheckTable(data){
         rebuild_flag=true;
     }else{
         $.each(data.satellite, function(i, info){
-            if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade'))
+            if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade') || info.mac === "")
                 return;
+
             iSatellite = $("#fw_check_table input[name='satmac']").index($("input[value='"+info.mac+"']"));
             if(iSatellite == -1){
                 rebuild_flag=true;
@@ -391,8 +392,9 @@ function updateFWCheckTable(data){
     }
     
     $.each(data.satellite, function(i, info){
-        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade'))
-            return;
+        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('title') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('device') ||!info.hasOwnProperty('currentVer') ||!info.hasOwnProperty('newVer') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('allowupgrade') || info.mac === "")
+        return;
+
         if(info.allowupgrade == -1)
             allowupgrade = -1;
         else if(allowupgrade != -1)
@@ -464,6 +466,7 @@ function toBasicPage() {
 function checkUpdateAll(){
     var allowupgrade = 0;
     buttonStyle('disable', $("button[name=UpdateAll]"));
+    buttonStyle('disable', $("button[name=Check]")); 
     if(queryStatusTimerObj !== null){
         clearTimeout(queryStatusTimerObj);
         queryStatusTimerObj=null;
@@ -525,11 +528,11 @@ function checkUpdateAll(){
 <input id="sat" type="hidden" name="sat" value="">
 
 <ul class="tabs" width="100%" id="manual_sel_tab" >
-    <li><div id="online" class="tab" href="#"><%1704%></div></li>
-    <li><div id="manual" class="tab" href="#"><%1705%></div></li>    
+    <li><div id="online" class="tab" href="#"><%1732%></div></li>
+    <li><div id="manual" class="tab" href="#"><%1733%></div></li>    
 </ul>
 	<div id="main" class="scroll-pane Online-container">
-	<div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%659%></div>
+	<div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%735%></div>
 	
     <table border="0" style="width:99%">
     <!--
@@ -541,15 +544,15 @@ function checkUpdateAll(){
     </tr>
     -->
     <tr valign="middle" id="skip">
-        <td align="right" colspan="2" id="skip"> <a class="skip_btn" id="skip_button" onclick="redirect_to_start();"><%1706%></a> </td>
+        <td align="right" colspan="2" id="skip"> <a class="skip_btn" id="skip_button" onclick="redirect_to_start();"><%1734%></a> </td>
     </tr>
     <!--
     <tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
 	<tr>
-         <td colspan="2" height="18"><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><b><%1707%></b></a><br><br>
-            <%1708%><br>
-            <input type="radio" name="autoupdate" value="1"> <%544%>&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="autoupdate" value="0"> <%545%>
+         <td colspan="2" height="18"><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><b><%1735%></b></a><br><br>
+            <%1736%><br>
+            <input type="radio" name="autoupdate" value="1"> <%624%>&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="autoupdate" value="0"> <%625%>
          </td>
     </tr>
     -->
@@ -558,9 +561,9 @@ function checkUpdateAll(){
 		<table style="border-collapse:collapse;width:100%">
 			<tr><td><p></p></td></tr>
 			<tr>
-			<td><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><%1709%></a></td>
+			<td><a href="javascript:loadhelp('UPG_upgrade','check')" tabindex="-1"><%1737%></a></td>
 			<td class="subhead2-text-context">
-			<button  type="button" name="Check" id="refresh" class="new_apply_bt ui-corner-all" value="<%1710%>" onClick="buttonClick(this,'<%1710%>');set_check_upgrade();"><%1710%></button>
+			<button  type="button" name="Check" id="refresh" class="new_apply_bt ui-corner-all" value="<%1738%>" onClick="buttonClick(this,'<%1738%>');set_check_upgrade();"><%1738%></button>
 			</td>
 			</tr>
 		</table>
@@ -570,7 +573,7 @@ function checkUpdateAll(){
     <tr><td colspan="2">
 		<table border="0" class="subhead2-multi-table" style="margin:0px;border-collapse:collapse;width:100%">
 			<tr>
-				<td colspan="2" align="left" style="font-size:120%;color:#8181F7;" ><a href="javascript:loadhelp('UPG_upgrade','locate')" > <b><%988%>:</b></a></td>
+				<td colspan="2" align="left" style="font-size:120%;color:#8181F7;" ><a href="javascript:loadhelp('UPG_upgrade','locate')" > <b><%1009%>:</b></a></td>
 			</tr>
 			<tr>
 			<td colspan="2">
@@ -578,21 +581,21 @@ function checkUpdateAll(){
                     <thead>
                         <tr>		
                             <th nowrap align="center" width="6%" class="thead"><span></span></th>
-                            <th nowrap align="center" class="thead"><%1711%></th>
-                            <th nowrap align="center" class="thead"><%969%></th>
-                            <th nowrap align="center" class="thead"><%1712%></th>
-                            <!--<td nowrap align="center" class="thead"><%1713%></th>-->
-                            <th nowrap align="center" class="thead"><%988%></th>
+                            <th nowrap align="center" class="thead"><%1739%></th>
+                            <th nowrap align="center" class="thead"><%990%></th>
+                            <th nowrap align="center" class="thead"><%1740%></th>
+                            <!--<td nowrap align="center" class="thead"><%1741%></th>-->
+                            <th nowrap align="center" class="thead"><%1009%></th>
                         </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td nowrap align="center" class="thead">Router</td>
-                        <td nowrap align="center" class="thead"><%1714%></td>
-                        <td nowrap align="center" class="thead"><%801%></td>
-                        <td nowrap align="center" class="thead"><%1715%></td>
-                        <!--<%1716%>-->
-                        <%1717%>
+                        <td nowrap align="center" class="thead"><%601%></td>
+                        <td nowrap align="center" class="thead"><%879%></td>
+                        <td nowrap align="center" class="thead"><%1742%></td>
+                        <!--<%1743%>-->
+                        <%1744%>
                     </tr>
                     </tbody>
 				</table>
@@ -600,7 +603,7 @@ function checkUpdateAll(){
 			</tr>
 			<tr>
 				<td colspan="2" class="subhead2-text-context" style="padding-top:10px" >
-				<button type="button" name="UpdateAll" id="upgrade_all" VALUE="UpdateAll" class="new_apply_bt ui-corner-all" style="float: right;" onClick="checkUpdateAll()"><%1718%></button>
+				<button type="button" name="UpdateAll" id="upgrade_all" VALUE="UpdateAll" class="new_apply_bt ui-corner-all" style="float: right;" onClick="checkUpdateAll()"><%1745%></button>
 			</td>
 			</tr>
 			<tr><td colspan="2" align="center" style="font-size:12px;color:#5882FA;font-family:Arial;font-weight:bold;"><p></p></td></tr>
@@ -613,7 +616,7 @@ function checkUpdateAll(){
 			<table border="0" style="border-collapse:collapse;" >
 
 				<tr>
-				<td colspan="2" ><BIG><%1719%>  2  <%1720%>
+				<td colspan="2" ><BIG><%1746%>  2  <%1747%>
 				 </BIG></td>
 				</tr>
 				<tr>
@@ -643,34 +646,34 @@ function checkUpdateAll(){
 
        <!-- Open folder then  choose chk file -->
 	<div id="main1" class="scroll-pane manual-container" style="display:none">
-    <div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%659%></div>
+    <div style="font-size:16px;color:#A9A9F5;font-family:Arial;font-weight:bold;padding-left:10px;padding-top:30px;"><%735%></div>
     <table border="0" style="width:99%">
 				<tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
 				<tr><td><p></p></td></tr>	
-				<tr><td><p><%1721%></p></td></tr>
+				<tr><td><p><%1748%></p></td></tr>
         <tr>
           <td>
             <input type="file" name="mtenFWUpload" id="file" size="23" maxlength="1024" style="padding-top:20px;position:absolute;opacity:0;filter:alpha(opacity=0);" onchange="this.form.upfile.value=this.value.substr(this.value.lastIndexOf('\\')+1);" contentEditable=false onkeydown="return false;" onbeforeeditfocus="return false;" onpaste="return false;">
 			<input type="text" name="upfile" id="upfile" size="20" maxlength="1024" readonly>
-			&nbsp;&nbsp;&nbsp;<button type="button" name ="browse" id="browse" value="browse" <%1722%> onclick="buttonClick(this,'browse');this.form.file.click();"><span <%1722%>><%755%></span></button>	
+			&nbsp;&nbsp;&nbsp;<button type="button" name ="browse" id="browse" value="browse" <%1749%> onclick="buttonClick(this,'browse');this.form.file.click();"><span <%1749%>><%844%></span></button>	
 				
           </td>
           <td class="subhead2-text-context" >
-				<button  type="button" NAME="Upgrade" id="Upload" VALUE="Upload" <%1722%> style="float: right;" onClick="confirm_chk_upgrade();"><%1723%></button>
+				<button  type="button" NAME="Upgrade" id="Upload" VALUE="Upload" <%1749%> style="float: right;" onClick="confirm_chk_upgrade();"><%1750%></button>
             </td>
         </tr>
 
 		<tr style="height:10px"><td colspan="2" height="12" class="">&nbsp;</td></tr>
 		<tr><td colspan="2" height="12" class="" ><hr class='blueBar'></td></tr>
-		<tr><td><p><%1724%></p></td></tr>
+		<tr><td><p><%1751%></p></td></tr>
 		<tr>
 			<td colspan="2">
         <table id="fw_upgrade_table" border="1" cellpadding="2" cellspacing="0" width="80%">
         <thead>
             <tr>		
-                <th nowrap align="left" class="thead"><%1711%></th>
-                <th nowrap align="left" class="thead"><%969%></th>
-                <th nowrap align="left" class="thead"><%1712%></th>
+                <th nowrap align="left" class="thead"><%1739%></th>
+                <th nowrap align="left" class="thead"><%990%></th>
+                <th nowrap align="left" class="thead"><%1740%></th>
             </tr>
         </thead>
         <tbody>
@@ -680,7 +683,7 @@ function checkUpdateAll(){
 		</tr>
 		<tr>
 			<td colspan="2" class="subhead2-text-context" style="padding-top:10px" >
-			<button type="button" name="Update" id="Update" VALUE="Update" class="new_apply_bt ui-corner-all" style="float: right;" onclick="manual_upgrade2()"><%1725%></button>
+			<button type="button" name="Update" id="Update" VALUE="Update" class="new_apply_bt ui-corner-all" style="float: right;" onclick="manual_upgrade2()"><%1752%></button>
 			</td>
 		</tr>
 	<tr><td><p></p></td></tr>
@@ -703,10 +706,10 @@ function checkUpdateAll(){
 	<a name="helpframe-anchor"></a>      
 
     <input name="help-frame-div_magic_top" type="hidden" value="3">
-    <input name="hid_autoupdate" type="hidden" value= "<%1726%>">
+    <input name="hid_autoupdate" type="hidden" value= "<%1753%>">
     <input name="hid_sat_count" type="hidden" value= "<%305%>">
-    <input name="wan_status" type="hidden" value= "<%1727%>">
-    <input name="orbi_wiz_stage" type="hidden" value= "<%1233%>">
+    <input name="wan_status" type="hidden" value= "<%1754%>">
+    <input name="orbi_wiz_stage" type="hidden" value= "<%1252%>">
 </div> 
 </form> 
 

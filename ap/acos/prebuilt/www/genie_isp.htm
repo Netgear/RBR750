@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%11%>
+<%14%>
+<script language="javascript" type="text/javascript" src="script/script.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="<%296%>">
+<script language="javascript" type="text/javascript">
+ 
+function checkData(){
+	var cf = document.forms[0];
+	var checkBox = document.getElementById("enable_vlan_tv");
+	var stype = cf.vlan_isp.selectedIndex;
+	if (checkBox.checked == true)
+	{
+		if(stype==2) /* SingTel Singapore DHCP */
+		{
+		    cf.vlan_isp_tv_vendor.value = "singtel_singapore_iptv";
+		    cf.vlan_isp_tv_id.value = "20";
+		    cf.vlan_isp_tv_priority.value = "4";
+		}else if(stype==3) /* unifi_malaysia_dhcp */
+		{
+		    cf.vlan_isp_tv_vendor.value = "unifi_malaysia_iptv";
+		    cf.vlan_isp_tv_id.value = "600";
+		    cf.vlan_isp_tv_priority.value = "0";
+		}else if(stype==4) /* maxis_malaysia_dhcp */
+		{
+		    cf.vlan_isp_tv_vendor.value = "maxis_malaysia_iptv";
+		    cf.vlan_isp_tv_id.value = "823";
+		    cf.vlan_isp_tv_priority.value = "0";		   
+		}
+		
+		
+    		if((!cf.vlan_ports_0.checked) && (!cf.vlan_ports_1.checked) && (!cf.vlan_ports_2.checked)
+         		&& (!cf.vlan_ports_3.checked) && (!cf.vlan_ports_4.checked) && (!cf.vlan_ports_5.checked)
+			<%610%>
+	       		&& (!cf.vlan_ports_6.checked)
+			<%611%>
+         	)
+    		{
+        		alert("<%612%>");
+        		return false;
+    		}
+    		
+		if((cf.vlan_ports_0.checked) && (cf.vlan_ports_1.checked) && (cf.vlan_ports_2.checked)
+         		&& (cf.vlan_ports_3.checked) && (cf.vlan_ports_4.checked) && (cf.vlan_ports_5.checked)
+			<%610%>
+         		&& (cf.vlan_ports_6.checked)
+			<%611%>
+         	)
+    		{
+        		alert("<%613%>");
+        		return false;
+    		}
+
+			
+	}
+
+    
+    	
+	return true;
+}
+
+function goBack()
+{
+	window.location.href="Orbi_config_wan.htm";
+	return 0;
+}
+
+function setISPIPTV()
+{
+	var checkBox = document.getElementById("enable_vlan_tv");
+
+	if (checkBox.checked)
+	{		
+		document.getElementById("vlan_support_lan").style.display="table-row";
+	}else
+	{	
+		document.getElementById("vlan_support_lan").style.display="none";
+	}   
+	return 0;
+}
+
+function setISPProfile()
+{
+	var cf = document.forms[0];
+	var stype = cf.vlan_isp.selectedIndex;
+
+
+	if(stype==0) /* Orange France DHCP */
+	{
+		cf.orange_wan_type.value = "dhcp";
+		cf.orange_isp.value = "1";
+		cf.vlan_isp_wan_type.value = "none";
+		cf.enable_isp_vlan.value = "0";			
+		document.getElementById("dhcp_login_name").style.display="table-row";
+		document.getElementById("pppoe_login_name").style.display="none";
+		document.getElementById("pppoe_password").style.display="none";
+		document.getElementById("tr_enable_orange_tv").style.display="table-row";
+		document.getElementById("tr_enable_vlan_tv").style.display="none";	
+		document.getElementById("vlan_support_lan").style.display="none";	
+	}
+	else if(stype==1) /* Orange France PPPoE */
+	{
+		cf.orange_wan_type.value = "pppoe";
+		cf.orange_isp.value = "1";
+		cf.vlan_isp_wan_type.value = "none";
+		cf.enable_isp_vlan.value = "0";			
+		document.getElementById("dhcp_login_name").style.display="none";
+		document.getElementById("pppoe_login_name").style.display="table-row";
+		document.getElementById("pppoe_password").style.display="table-row";
+		document.getElementById("tr_enable_orange_tv").style.display="table-row";
+		document.getElementById("tr_enable_vlan_tv").style.display="none";
+		document.getElementById("vlan_support_lan").style.display="none";		
+	}
+	else if(stype==2) /* SingTel Singapore DHCP */
+	{
+		cf.orange_wan_type.value = "none";
+		cf.orange_isp.value = "0";
+		cf.vlan_isp_wan_type.value = "dhcp";
+		cf.enable_isp_vlan.value = "1";
+		cf.vlan_isp_vendor.value = "sigtel_singapore_dhcp";
+		cf.vlan_isp_id.value = "10";
+		cf.vlan_isp_priority.value = "0";
+						
+		document.getElementById("dhcp_login_name").style.display="none";
+		document.getElementById("pppoe_login_name").style.display="none";
+		document.getElementById("pppoe_password").style.display="none";
+		document.getElementById("tr_enable_orange_tv").style.display="none";
+		document.getElementById("tr_enable_vlan_tv").style.display="table-row";
+		document.getElementById("vlan_support_lan").style.display="none";
+
+	}
+	else if(stype==3) /* unifi_malaysia_dhcp */
+	{
+		cf.orange_wan_type.value = "none";
+		cf.orange_isp.value = "0";
+		cf.vlan_isp_wan_type.value = "dhcp";
+		cf.enable_isp_vlan.value = "1";
+		cf.vlan_isp_vendor.value = "unifi_malaysia_dhcp";
+		cf.vlan_isp_id.value = "500";
+		cf.vlan_isp_priority.value = "0";				
+		document.getElementById("dhcp_login_name").style.display="none";
+		document.getElementById("pppoe_login_name").style.display="none";
+		document.getElementById("pppoe_password").style.display="none";
+		document.getElementById("tr_enable_orange_tv").style.display="none";
+		document.getElementById("tr_enable_vlan_tv").style.display="table-row";
+		document.getElementById("vlan_support_lan").style.display="none";
+
+	}
+	else if(stype==4) /* maxis_malaysia_dhcp */
+	{
+		cf.orange_wan_type.value = "none";
+		cf.orange_isp.value = "0";
+		cf.vlan_isp_wan_type.value = "dhcp";
+		cf.enable_isp_vlan.value = "1";
+		cf.vlan_isp_vendor.value = "maxis_malaysia_dhcp";
+		cf.vlan_isp_id.value = "621";
+		cf.vlan_isp_priority.value = "0";
+				
+		document.getElementById("dhcp_login_name").style.display="none";
+		document.getElementById("pppoe_login_name").style.display="none";
+		document.getElementById("pppoe_password").style.display="none";
+		document.getElementById("tr_enable_orange_tv").style.display="none";
+		document.getElementById("tr_enable_vlan_tv").style.display="table-row";
+		document.getElementById("vlan_support_lan").style.display="none";
+
+	}			
+	return 0;
+}
+
+</script>
+</head>
+
+<body onload="setISPProfile();">
+<div  class="dialog-content">
+<form id="target"  method="POST" action="genie_isp.cgi">
+<div class="wizard-card"> 
+	<table border="0" cellpadding="0" cellspacing="3" width="99%">
+	<tr style="height:10px">
+		<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td height="10px">&nbsp;</td><td>&nbsp;</td>
+	<tr>
+	<tr>
+		<td>&nbsp;</td><td class="centerTd"></td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td class="centerTd"></td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td height="10px">&nbsp;</td><td>&nbsp;</td>
+	<tr>
+	<tr>
+		<td>&nbsp;</td><td height="10px">&nbsp;</td><td>&nbsp;</td>
+	<tr>
+	<tr>
+		<td>&nbsp;</td><td class="centerTd"></td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>		
+		<td class="centerTd">
+			<table>
+				<tr>
+					<td><span>My ISP Profile</span></td>
+					<td width=30px>&nbsp;</td>
+					<td>		
+						<select name="vlan_isp" onchange="setISPProfile();">
+							<option value="orange_france_dhcp">Orange France DHCP</option>
+							<option value="orange_france_pppoe">Orange France PPPoE</option>
+							<option value="sigtel_singapore_dhcp">SingTel Singapore DHCP</option>
+							<option value="unifi_malaysia_dhcp">Unifi Malaysia DHCP</option>
+							<option value="maxis_malaysia_dhcp">Maxis Malaysia DHCP</option>
+						</select>
+					</td>
+				</tr>
+				<tr id="dhcp_login_name">
+					<td><span>Login Name</span></td>
+					<td width=30px>&nbsp;</td>
+					<td><input type="text" name="system_name"></td>
+				</tr>
+				<tr id="pppoe_login_name">
+					<td><span>Login Name</span></td>
+					<td width=30px>&nbsp;</td>
+					<td><input type="text" name="pppoe_username"></td>
+				</tr>
+				<tr id="pppoe_password">
+					<td><span>Password</span></td>
+					<td width=30px>&nbsp;</td>
+					<td><input type="password" name="pppoe_passwd"></td>
+				</tr>
+				<tr>
+					<td width=30px>&nbsp;</td>
+					<td width=30px>&nbsp;</td>
+					<td width=30px>&nbsp;</td>
+				</tr>
+				<tr id="tr_enable_orange_tv">
+					<td colspan=3>
+						<input type="checkbox" name="enable_orange_tv" value="1">
+						<span style="padding-left:10px;">Enable Orange TV</span>
+					</td>
+				</tr>
+				<tr id="tr_enable_vlan_tv">
+					<td colspan=3>
+						<input id="enable_vlan_tv" type="checkbox" name="enable_vlan_tv" value="1" onClick="setISPIPTV();">
+						<span  style="padding-left:10px;">Enable IPTV</span>
+					</td>
+				</tr>				
+<tr id="vlan_support_lan">
+
+    <td style="<%614%>display: none<%615%>" colspan="3" align="center">
+      <input type="checkbox" id="vlan_ports_0" name="vlan_ports_0">Port1
+      &nbsp;<input type="checkbox" id="vlan_ports_1" name="vlan_ports_1">Port2
+      &nbsp;<input type="checkbox" id="vlan_ports_2" name="vlan_ports_2">Port3
+ <%616%>    
+      &nbsp;<input type="checkbox" id="vlan_ports_3" name="vlan_ports_3">Port4
+ <%617%>
+ &nbsp;          
+    </td>
+   
+<!--    
+    <input type="checkbox" name="vlan_ports_4">WiFi-2.4G
+    <input type="checkbox" name="vlan_ports_5">WiFi-5G
+-->    
+<%618%>
+    <input type="checkbox"  style="display: none;" id="vlan_ports_6" name="vlan_ports_6">
+<%619%>
+</td>
+</tr>			
+			</table>
+		</td>
+		<td>&nbsp;</td>	
+	</tr>
+	<tr style="line-height:10px">
+		<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+	<tr style="line-height:10px">
+		<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>	
+		<td class="centerTd2" align="center">
+			<button type="button" style="width:100px" value="submit" class="waves-effect waves-light btn button-nav" name="next" onClick="goBack();" ><span>Back</span></button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="submit" style="width:100px" value="submit" class="waves-effect waves-light btn button-nav" name="next" onClick="return checkData();" ><span><%303%></span></button>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+	</div>
+	<input type="hidden" name="orange_isp" value="0">
+	<input type="hidden" name="orange_wan_type" value="dhcp">
+	<input type="hidden" name="enable_isp_vlan" value="0">
+	<input type="hidden" name="vlan_isp_wan_type" value="dhcp">
+	<input type="hidden" name="vlan_isp_vendor" value="">
+	<input type="hidden" name="vlan_isp_id" value="">
+	<input type="hidden" name="vlan_isp_priority" value="">
+	<input type="hidden" name="vlan_isp_tv_vendor" value="">	
+	<input type="hidden" name="vlan_isp_tv_id" value="">	
+	<input type="hidden" name="vlan_isp_tv_priority" value="">			
+</form>
+</div>
+</body>
+
+</html>
