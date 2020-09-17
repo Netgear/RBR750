@@ -61,7 +61,7 @@ function remove_disk()
 	
 	if(cf.usb_num.value == 0)
 	{
-        msg+= "<%3128%>.\n";
+        msg+= "<%3172%>.\n";
     }
     if (msg.length > 1)
 	{
@@ -76,12 +76,12 @@ function edit_folder()
 	cf = document.forms[0];
 	if(cf.no_usb_device.value == 1)
 	{
-	    alert("<%3128%>.");
+	    alert("<%3172%>.");
 		return false;
 	}
 	if(cf.select.value == -1)
 	{
-		alert("<%3129%>");
+		alert("<%3173%>");
 		return false;
 	}
 	cf.action.value = "edit";
@@ -94,12 +94,12 @@ function delete_folder()
 	cf=document.forms[0];
 	if(cf.no_usb_device.value == 1)
 	{
-	    alert("<%3128%>.");
+	    alert("<%3172%>.");
 		return false;
 	}
 	if(cf.select.value == -1)
 	{
-		alert("<%3129%>\n");
+		alert("<%3173%>\n");
 		return false;
 	}
     
@@ -125,7 +125,7 @@ function delete_folder()
 
     if ( cf.no_dlna.value != 1 )  {
         if(checkAdminFolder==1 && folderNum>1)
-            alert("<%3130%>");
+            alert("<%3174%>");
     }
     return true;
 }
@@ -135,18 +135,18 @@ function checkData()
 	var cf=document.forms[0];
 	var space_flag=0;
 	var msg = "";
-	<%788%>
+	<%796%>
 	var dev_name=cf.deviceName.value;
 
 	msg+= checkBlank(cf.deviceName, "deviceName");
-	<%789%>
+	<%797%>
 	msg+= checkBlank(cf.workGroup, "workGroup");
 	if (msg.length > 1)
 	{
 		alert(msg);
 		return false;
 	}
-	<%788%>
+	<%796%>
 	if (   (cf.deviceName.value.match( /[\x21-\x2C]/ ))
 	    || (cf.deviceName.value.match( /[\x2E-\x2F]/ ))
         || (cf.deviceName.value.match( /[\x3A-\x40]/ ))
@@ -155,26 +155,26 @@ function checkData()
         || (cf.deviceName.value.match( /[^\x21-\x7E]/ ))
        )
 	{
-		alert("<%1032%>\n");
+		alert("<%1041%>\n");
 		return false;
 	}
-	<%789%>
+	<%797%>
 
 	if(cf.workGroup.value == ""){
-		alert("<%3131%>.\n");
+		alert("<%3175%>.\n");
 		return false;
 	}
 	if (cf.workGroup.value.match( /[^\x20-\x7E]/ ))
 	{
 		cf.workGroup.focus();
-		alert("<%3131%>.\n");
+		alert("<%3175%>.\n");
 		return false;
 	}
 	
 	var portvalue=parseInt(cf.http_via_port.value);
 	if ((cf.is_https.value == "1") && (portvalue == 80) )
 	{
-		alert("<%3132%>");
+		alert("<%3176%>");
 		return false;
 	} else
 	if( (isNaN(cf.http_via_port.value) || !_isNumeric(cf.http_via_port.value)||
@@ -182,22 +182,22 @@ function checkData()
 	   parseInt(cf.http_via_port.value,10) > 65534 ||
 	   cf.http_via_port.value.indexOf(".") != -1 ) && (cf.http_via_port.value !=443) )
 	{
-		alert("<%3132%>");
+		alert("<%3176%>");
 		return false;
 	} else if ( (cf.is_https.value == "0") && (portvalue == 443) ) {
-		alert("<%3132%>");
+		alert("<%3176%>");
                 return false;
         }		
 
     portvalue=parseInt(cf.ftp_via_port.value);
     if( isNaN(cf.ftp_via_port.value) || cf.ftp_via_port.value < 21 || (cf.ftp_via_port.value > 21 & cf.ftp_via_port.value < 1024) || cf.ftp_via_port.value > 65534)
     {
-	    alert("<%3133%>");
+	    alert("<%3177%>");
 	    return false;
     }
     if (cf.ftp_via_port.value == cf.http_via_port.value)
     {
-        alert("<%3134%>");
+        alert("<%3178%>");
 	    return false;
     }
     
@@ -228,20 +228,20 @@ function adjust_table_column()
 function loadSettings()
 {
     var cf=document.forms[0];
-    var adv_add_edit_page = <%3135%>;
+    var adv_add_edit_page = <%3179%>;
 	if (cf.no_usb_device.value == 1)
         {
 
 var removeButton;
 cf.Remove.disabled = 'true';
 removeButton=document.getElementsByName("Remove");
-removeButton[0].outerHTML='<button type="submit" disabled value="<%2994%>" name="Remove" class="button-grey" onClick="buttonClick(this,\'<%2994%>\');return remove_disk();"><span class="roundleft_grey">&nbsp;&nbsp; <%2994%></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+removeButton[0].outerHTML='<button type="submit" disabled value="<%2993%>" name="Remove" class="button-grey" onClick="buttonClick(this,\'<%2993%>\');return remove_disk();"><span class="roundleft_grey">&nbsp;&nbsp; <%2993%></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
 removeButton[0].style.cursor='default';
 }
 
     if (cf.umountsucc.value == "1")
     {
-         alert("<%3136%>");
+         alert("<%3180%>");
     }
     else if (cf.umountsucc.value == "2")
     {
@@ -291,7 +291,7 @@ function creat_folder()
     var cf=document.forms[0];
     if(cf.no_usb_device.value == 1)
 	{
-	    alert("<%3128%>.\n");
+	    alert("<%3172%>.\n");
 		return false;
 	}
 	if(cf.sharefolderNum.value >= 256)
@@ -313,15 +313,15 @@ document.forms[0].submit();
 <form id="target"  name="frmService" method="post" action="usb_adv.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<%3137%>
-<div class="subhead2"> <%3138%></div>
-<%3139%>
+<%3181%>
+<div class="subhead2"> <%3182%></div>
+<%3183%>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
 &nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');checkData();" type="button" name="Apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
-&nbsp;&nbsp;&nbsp;<button value="<%83%>" onclick="buttonClick(this,'<%967%>');location.href='USB_adv_tab.htm'" type="button" name="Refresh" class="button-rule" ><span class="roundleft_button"><span class="refresh-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%967%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onclick="buttonClick(this,'<%976%>');location.href='USB_adv_tab.htm'" type="button" name="Refresh" class="button-rule" ><span class="roundleft_button"><span class="refresh-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%976%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 </td>
 </tr>
 
@@ -335,22 +335,22 @@ document.forms[0].submit();
 <table border="0" cellpadding="2" cellspacing="0" width="60%">
 <tr>
 <td><a href="javascript:loadhelp('USB_adv','device')" 
-	tabindex="-1"><b><%3140%> :</b></a></td>
+	tabindex="-1"><b><%3184%> :</b></a></td>
 <td width="30%">
-	<%641%>
-	<%3141%>
-	&nbsp;&nbsp;&nbsp;<button type="button" value="<%803%>" name="Edit" class="button-rule" onClick="parent.location.href='DEV_name.htm';"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%803%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-	<%643%>
-	<%800%>
-	<input type="text" name="deviceName" size="21" maxlength="15" value="<%3141%>">
-	<%802%>
+	<%640%>
+	<%3185%>
+	&nbsp;&nbsp;&nbsp;<button type="button" value="<%811%>" name="Edit" class="button-rule" onClick="parent.location.href='DEV_name.htm';"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%811%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+	<%642%>
+	<%808%>
+	<input type="text" name="deviceName" size="21" maxlength="15" value="<%3185%>">
+	<%810%>
 </td>
 </tr>
 <tr><td></td></tr>
 <tr>
 <td><a href="javascript:loadhelp('USB_adv','workgroup')" 
-	tabindex="-1"><b><%3142%> :</b></a></td>
-<td width="30%"><input type="text" name="workGroup" size="21" maxlength="15" value="<%3143%>"></td>
+	tabindex="-1"><b><%3186%> :</b></a></td>
+<td width="30%"><input type="text" name="workGroup" size="21" maxlength="15" value="<%3187%>"></td>
 </tr>
 </table>
 </td>
@@ -361,75 +361,75 @@ document.forms[0].submit();
 <td colspan="2">
 <table border="1" cellpadding="2" cellspacing="0" width="60%">
 <tr>
-<td align="center" nowrap="nowrap"><span class="thead"><%848%></span></td>
-<td align="center" nowrap="nowrap"><span class="thead"><%3144%></span></td>
-<td align="center" nowrap="nowrap"><span class="thead"><%3145%></span></td>
-<td align="center" nowrap="nowrap"><span class="thead"><%910%></span></td>
-<%3146%>
-<td align="center" nowrap="nowrap"><span class="thead"><%3147%></span></td>
-<%3148%>
+<td align="center" nowrap="nowrap"><span class="thead"><%857%></span></td>
+<td align="center" nowrap="nowrap"><span class="thead"><%3188%></span></td>
+<td align="center" nowrap="nowrap"><span class="thead"><%3189%></span></td>
+<td align="center" nowrap="nowrap"><span class="thead"><%919%></span></td>
+<%3190%>
+<td align="center" nowrap="nowrap"><span class="thead"><%3191%></span></td>
+<%3192%>
 </tr>
 <tr>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_samba" value="enable_samba" <%3149%>></td>
-<td align="center" nowrap="nowrap"><%3150%></td>
-<td align="center" nowrap="nowrap"><%3151%></td>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_samba" value="enable_samba" <%3193%>></td>
+<td align="center" nowrap="nowrap"><%3194%></td>
+<td align="center" nowrap="nowrap"><%3195%></td>
 <td align="center" nowrap="nowrap">-</td>
-<%3146%>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_samba_protect" value="enable_samba_protect" <%3152%>></td>
-<%3148%>
+<%3190%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_samba_protect" value="enable_samba_protect" <%3196%>></td>
+<%3192%>
 </tr>
 <tr>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_http" value="enable_http" <%3153%>></td>
-<td align="center" nowrap="nowrap"><%3154%></td>
-<td align="center" nowrap="nowrap"><%3155%></td>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_http" value="enable_http" <%3197%>></td>
+<td align="center" nowrap="nowrap"><%3198%></td>
+<td align="center" nowrap="nowrap"><%3199%></td>
 <td align="center" nowrap="nowrap">80</td>
-<%3146%>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_http_protect" value="enable_http_protect" <%3156%>></td>
-<%3148%>
+<%3190%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_http_protect" value="enable_http_protect" <%3200%>></td>
+<%3192%>
 </tr>
 <tr>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_http" value="enable_wan_http" <%3157%>></td>
-<%3158%>
-<td align="center" nowrap="nowrap"><%3154%>S (<%3159%>)</td>
-<%3160%>
-<td align="center" nowrap="nowrap"><%3154%> (<%3159%>)</td>
-<%3161%>
-<td align="center" nowrap="nowrap"><%3162%></td>
-<td align="center" nowrap="nowrap"><input type="text" name="http_via_port" size="5" maxlength="5" value="<%3163%>"></td>
-<%3146%>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_http_protect" value="enable_wan_http_protect" <%3164%>></td>
-<%3148%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_http" value="enable_wan_http" <%3201%>></td>
+<%3202%>
+<td align="center" nowrap="nowrap"><%3198%>S (<%3203%>)</td>
+<%3204%>
+<td align="center" nowrap="nowrap"><%3198%> (<%3203%>)</td>
+<%3205%>
+<td align="center" nowrap="nowrap"><%3206%></td>
+<td align="center" nowrap="nowrap"><input type="text" name="http_via_port" size="5" maxlength="5" value="<%3207%>"></td>
+<%3190%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_http_protect" value="enable_wan_http_protect" <%3208%>></td>
+<%3192%>
 </tr>
 <tr>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_ftp" value="enable_ftp" <%3165%>></td>
-<td align="center" nowrap="nowrap"><%3166%></td>
-<td align="center" nowrap="nowrap"><%3167%></td>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_ftp" value="enable_ftp" <%3209%>></td>
+<td align="center" nowrap="nowrap"><%3210%></td>
+<td align="center" nowrap="nowrap"><%3211%></td>
 <td align="center" nowrap="nowrap">21</td>
-<%3146%>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_ftp_protect" value="enable_ftp_protect" <%3168%>></td>
-<%3148%>
+<%3190%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_ftp_protect" value="enable_ftp_protect" <%3212%>></td>
+<%3192%>
 </tr>
 <tr>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_ftp" value="enable_wan_ftp" <%3169%>></td>
-<td align="center" nowrap="nowrap"><%3166%> (<%3159%>)</td>
-<td align="center" nowrap="nowrap"><%3170%></td>
-<td align="center" nowrap="nowrap"><input type="text" name="ftp_via_port" size="5" maxlength="5" value="<%3171%>"></td>
-<%3146%>
-<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_ftp_protect" value="enable_wan_ftp_protect" <%3172%>></td>
-<%3148%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_ftp" value="enable_wan_ftp" <%3213%>></td>
+<td align="center" nowrap="nowrap"><%3210%> (<%3203%>)</td>
+<td align="center" nowrap="nowrap"><%3214%></td>
+<td align="center" nowrap="nowrap"><input type="text" name="ftp_via_port" size="5" maxlength="5" value="<%3215%>"></td>
+<%3190%>
+<td align="center" nowrap="nowrap"><input type="checkbox" name="enable_wan_ftp_protect" value="enable_wan_ftp_protect" <%3216%>></td>
+<%3192%>
 </tr>
 </table>
 </td>
 </tr>
-<%3146%>
-<tr><td colspan="2" ><%3173%></td></tr>
-<%3148%>
+<%3190%>
+<tr><td colspan="2" ><%3217%></td></tr>
+<%3192%>
 
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
-<td colspan="2" ><a href="javascript:loadhelp('USB_adv','available')" tabindex="-1"><b><%3174%></b></a></td>
+<td colspan="2" ><a href="javascript:loadhelp('USB_adv','available')" tabindex="-1"><b><%3218%></b></a></td>
 </tr>
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
 <tr>
@@ -437,34 +437,34 @@ document.forms[0].submit();
 	<table border="1" cellpadding="2" cellspacing="0" width="100%">
 	<tr>
 	<td align="center" nowrap="nowrap" width="5%"><span class="thead"> &nbsp;</span></td>
-	<td align="center" nowrap="nowrap" width="17%"><span class="thead"><%3175%></span></td>
-	<td align="center" nowrap="nowrap" width="14%"><span class="thead"><%3176%></span></td>
-	<td align="center" nowrap="nowrap" width="14%"><span class="thead"><%3177%></span></td>
-	<td align="center" nowrap="nowrap" width="15%"><span class="thead"><%3178%></span></td>
-	<td align="center" nowrap="nowrap" width="15%"><span class="thead"><%3179%></span></td>
-	<td align="center" nowrap="nowrap" width="10%"><span class="thead"><%3180%></span></td>
-	<td align="center" nowrap="nowrap" width="10%"><span class="thead"><%3181%></span></td>
+	<td align="center" nowrap="nowrap" width="17%"><span class="thead"><%3219%></span></td>
+	<td align="center" nowrap="nowrap" width="14%"><span class="thead"><%3220%></span></td>
+	<td align="center" nowrap="nowrap" width="14%"><span class="thead"><%3221%></span></td>
+	<td align="center" nowrap="nowrap" width="15%"><span class="thead"><%3222%></span></td>
+	<td align="center" nowrap="nowrap" width="15%"><span class="thead"><%3223%></span></td>
+	<td align="center" nowrap="nowrap" width="10%"><span class="thead"><%3224%></span></td>
+	<td align="center" nowrap="nowrap" width="10%"><span class="thead"><%3225%></span></td>
 	</tr>
 
-	<%3182%>
+	<%3226%>
 	</table>
 	</td>
 </tr>
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
 <tr>
 <td colspan="2" >
-&nbsp;&nbsp;&nbsp;<button type="button" value="<%803%>" name="Edit" class="button-rule" onclick="buttonClick(this,'<%803%>');edit_folder();"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%803%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-&nbsp;&nbsp;&nbsp;<button type="button" value="<%3183%>" name="Add" class="button-rule" onClick="buttonClick(this,'<%3183%>');creat_folder();"><span class="roundleft_button">&nbsp;&nbsp; <%3183%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-&nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="Delete" class=<%3184%> onclick="buttonClick(this,'<%914%>');return delete_folder();"><span class="<%3185%>"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%914%></span></span><span class="<%3186%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td>
+&nbsp;&nbsp;&nbsp;<button type="button" value="<%811%>" name="Edit" class="button-rule" onclick="buttonClick(this,'<%811%>');edit_folder();"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%811%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button type="button" value="<%3227%>" name="Add" class="button-rule" onClick="buttonClick(this,'<%3227%>');creat_folder();"><span class="roundleft_button">&nbsp;&nbsp; <%3227%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="Delete" class=<%3228%> onclick="buttonClick(this,'<%923%>');return delete_folder();"><span class="<%3229%>"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%923%></span></span><span class="<%3230%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td>
 </tr>
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
-<tr><td colspan="2" ><%3187%></td></tr>
+<tr><td colspan="2" ><%3231%></td></tr>
 <tr><td colspan="2" ></td></tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
 <tr>
 <td colspan="2" >
-&nbsp;&nbsp;&nbsp;<button type="submit" value="<%2994%>" name="Remove" class=<%3184%> onClick="buttonClick(this,'<%2994%>');return remove_disk();"><span class="<%3185%>">&nbsp;&nbsp; <%2994%></span><span class="<%3186%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%2993%>" name="Remove" class=<%3228%> onClick="buttonClick(this,'<%2993%>');return remove_disk();"><span class="<%3229%>">&nbsp;&nbsp; <%2993%></span><span class="<%3230%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 </td>
 </tr>
 <tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr><tr><td colspan="2" ></td></tr>
@@ -485,15 +485,15 @@ document.forms[0].submit();
 
 
 
-<input type="hidden" name="usb_num" value="<%3188%>">
+<input type="hidden" name="usb_num" value="<%3232%>">
 <input type="hidden" name="select" value="0">
 <input type="hidden" name="action" value="advance">
-<INPUT name=umountsucc type=hidden value="<%3189%>">
-<input type="hidden" name="enable_apmode" value="<%697%>">
-<input type="hidden" name="enable_stamode" value="<%698%>">
-<input type="hidden" name="is_https" value="<%3190%>">
-<INPUT name=router_smb_link_style type=hidden value="<%3191%>">
-<input name="no_dlna" type="hidden" value="<%3192%>">
+<INPUT name=umountsucc type=hidden value="<%3233%>">
+<input type="hidden" name="enable_apmode" value="<%696%>">
+<input type="hidden" name="enable_stamode" value="<%697%>">
+<input type="hidden" name="is_https" value="<%3234%>">
+<INPUT name=router_smb_link_style type=hidden value="<%3235%>">
+<input name="no_dlna" type="hidden" value="<%3236%>">
 <a name="helpframe-anchor"></a>
 </form>
 </div>

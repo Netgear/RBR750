@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%40%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="setup" onload="updateProgress();">
+
+        <%3%>
+    
+      <form id="selectNetwork" name="mainForm" action="ia_finish.cgi" method="POST" target="">
+      
+      <div id="content">
+          <div class="container">
+                <div class="main">
+                    <div class="loadingMessage roundCorners" id="loadingMessage"><%41%></div>
+                    <div class="clearfix" id="clearfix" style="display:none">
+                        <h1><%125%></h1>
+                        <div style="word-wrap:break-word;word-break:break-all;">
+                            <div id="24g_info" class="column first" style="display:none">
+                            <h2><%484%><i class="signalStrength icon-three-bars"></i></h2>
+                            <ul class='networkStatus'>
+                                <li><%96%> <strong><%127%></strong></li>
+                                <li><%128%> <strong><%129%></strong></li>
+                                <li class="nonwep"><%130%> <span><strong><%131%></strong></span></li>
+                                <!------ 2.4G WEP DIV Start ------>
+                                <li class="wep" style="display: none;">
+                                <table align="left" border="0" width="100%">
+                                    
+                                <tr><td nowrap="nowrap"><%106%>:&nbsp;<%1084%></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%110%><span id="key1" value="<%560%>"><%560%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy1" value="<%1085%>" onclick="copyToClipboard('key1')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%111%><span id="key2" value="<%562%>"><%562%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy2" value="<%1085%>" onclick="copyToClipboard('key2')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%112%><span id="key3" value="<%564%>"><%564%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy3" value="<%1085%>" onclick="copyToClipboard('key3')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%113%><span id="key4" value="<%566%>"><%566%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy4" value="<%1085%>" onclick="copyToClipboard('key4')"></td>
+                                </tr>
+                        
+                                </table>
+                                </li><!-- end wep -->   
+                                <!------ 2.4G WEP DIV End ------>
+
+                            </ul>
+                            </div>
+                            <div id="5g_info" class="column" style="display:none">
+                            <h2><%485%><i class="signalStrength icon-three-bars"></i></h2>
+                            <ul class='networkStatus'>
+                                <li><%96%> <strong><%133%></strong></li>
+                                <li><%128%> <strong><%134%></strong></li>
+                                <li class="nonwep_5g"><%130%> <span><strong><%135%></strong></span></li>
+                                <!------ 5G WEP DIV Start ------>
+                                <li class="wep_5g" style="display: none;">
+                                <table align="left" border="0" width="100%">
+                                    
+                                <tr><td nowrap="nowrap"><%106%>:&nbsp;<%1086%></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%110%><span id="key_5g1" value="<%575%>"><%575%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy_5g1" value="<%1085%>" onclick="copyToClipboard('key_5g1')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%111%><span id="key_5g2" value="<%577%>"><%577%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy_5g2" value="<%1085%>" onclick="copyToClipboard('key_5g2')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%112%><span id="key_5g3" value="<%579%>"><%579%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy_5g3" value="<%1085%>" onclick="copyToClipboard('key_5g3')"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td nowrap="nowrap"><%113%><span id="key_5g4" value="<%581%>"><%581%></span></td>
+                                    <td><input class="common_bt" type="button" id="cpy_5g4" value="<%1085%>" onclick="copyToClipboard('key_5g4')"></td>
+                                </tr>
+                        
+                                </table>
+                                </li><!-- end wep -->   
+                                <!------ 5G WEP DIV End ------>
+                            </ul>
+                            <ul>
+                            <li>&nbsp;</li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div id="ClickBtnInfo" style="display:block;float:left">
+                            <h1><%1087%></h1>
+                        </div>
+                    </div> <!-- end clearfix -->
+                </div> <!-- end main -->
+          </div> <!-- end container -->
+      </div>
+      <div id="fixedFooter">
+          <div class="container">
+            <footer>
+              <div class="centerButtons">
+                  <div class="processButtons" id="processButtons" style="display:none">
+                    <input id="continueBtn" name="continue" class="btn primary" type="button" value="<%1037%>" onclick="change_url('IA_review_setting.htm');">
+                </div>
+                </div>	    
+            </footer>
+          </div>
+        </div><!-- end fixed footer -->
+      <input type="hidden" name="current_page" value="IA_finish">
+      <input type="hidden" name="mode" value="<%120%>">
+      <input type="hidden" name="apband" value="<%121%>">
+      <input type="hidden" name="ap_24g_sec" value="<%118%>">
+      <input type="hidden" name="ap_5g_sec" value="<%119%>">
+      <input type="hidden" name="ap_mode_flag" id="ap_mode_flag" value="<%507%>">
+      </form>
+        
+            
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/pwdStrength.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="changeUrl.js"></script>
+        <script language="javascript" type="text/javascript">
+        var maxchars = 10;
+        var delay_time = 3000; // msecs
+        var charcount = 0;
+        function updateProgress()
+        {
+            var iOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/i);
+
+            if ((charcount < maxchars) && (!iOS))
+            {
+                charcount=charcount+0.5;
+                setTimeout("updateProgress()",delay_time);
+            }
+            else
+            {
+                var cf  = document.forms["mainForm"];
+
+                $('#loadingMessage').css('display', 'none');
+                $('#clearfix').css('display', 'block');
+
+                $('#ClickBtnInfo').css('display', 'block');
+                $('#processButtons').css('display', 'block');
+
+                var status_2g = "<%505%>";
+                var status_5g = "<%506%>";
+                //check if 2g should be displayed
+                if (status_2g != "0")
+                  $('#24g_info').css('display', 'block');
+                //check if 5g should be displayed
+                if (status_5g != "0")
+                  $('#5g_info').css('display', 'block');
+                
+                if (status_2g != "0" && status_5g == "0")
+                {
+                  $('#24g_info').removeClass("first");
+                  $('#24g_info').addClass("center");
+                }
+                else if (status_2g == "0" && status_5g != "0")
+                {
+                  $('#5g_info').addClass("center");
+                }
+                
+                if("WEP" == cf.ap_24g_sec.value)
+                {
+                   $('.wep').css('display', 'block');
+                   $('.common_bt').css('display', 'none');
+                   $('.nonwep').css('display', 'none');
+                }
+                else if("None" == cf.ap_24g_sec.value)
+                {
+                   $('.wep').css('display', 'none');
+                   $('.nonwep').css('display', 'none');
+                }
+                else
+                {
+                   $('.wep').css('display', 'none');
+                   $('.nonwep').css('display', 'block');
+                }
+                
+                if("WEP" == cf.ap_5g_sec.value)
+                {
+                   $('.wep_5g').css('display', 'block');
+                   $('.common_bt').css('display', 'none');
+                   $('.nonwep_5g').css('display', 'none');
+                }
+                else if("None" == cf.ap_5g_sec.value)
+                {
+                   $('.wep_5g').css('display', 'none');
+                   $('.nonwep_5g').css('display', 'none');
+                }
+                else
+                {
+                   $('.wep_5g').css('display', 'none');
+                   $('.nonwep_5g').css('display', 'block');
+                }
+            }
+        }
+
+        </script> 
+  </body>
+</html>

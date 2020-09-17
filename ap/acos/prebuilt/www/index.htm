@@ -16,13 +16,17 @@ function loadnext() {
 
     if("<%580%>" == "1")
     {   
-        top.location.replace("http://orbilogin.com/APP_index.htm");
+        if("<%581%>" == "1")
+		{
+		    top.location.replace("IA_IP_SUBNET.htm");
+		}else
+		    top.location.replace("http://orbilogin.com/APP_index.htm");
     }
     else if ("<%581%>" == "1")
-        top.location.replace("http://orbilogin.com/start_update.htm");
+        top.location.replace("start_update.htm");
     else if ("<%582%>" == "1" || 
              "<%582%>" == "3")
-        top.location.replace("http://<%583%>/traffic_start_update.htm");
+        top.location.replace("traffic_start_update.htm");
     else
 	    top.location.replace("start.htm");
 }
@@ -30,10 +34,10 @@ function loadnext() {
 <body bgcolor="#ffffff" text="#666666" onload="loadnext()"> 
 <div ID="alltext" STYLE="position:absolute;left:50px;top:200px;">
 <font face="Arial,Helvetica">
-<h4><%584%></h4>
-<p><%585%>
-<P><%586%>
-<P><%587%></p>
+<h4><%583%></h4>
+<p><%584%>
+<P><%585%>
+<P><%586%></p>
 </font>
 </div>
 </body>

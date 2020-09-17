@@ -1,0 +1,920 @@
+bh_internet_checking ="Internetkapcsolat ellenőrzése; kérem, várjon …";
+bh_config_net_connection ="Internetkapcsolat konfigurálása";
+bh_connection_further_action ="Még nincs csatlakozva az internethez.";
+bh_want_genie_help ="Szeretné, hogy a NETGEAR Genie a segítségére legyen?";
+bh_yes_mark ="Igen";
+bh_no_genie_help ="Nem, magam szeretném konfigurálni az internetkapcsolatot.";
+bh_no_genie_help_confirm ="Az internetkapcsolat konfigurálása hálózati tapasztalatot igényel. Biztosan ezt kívánja tenni?"
+bh_have_saved_copy ="Az útválasztó beállításait egy fájlba mentettem, és most szeretném visszaállítani az útválasztót azokra a beállításokra."
+bh_next_mark ="Tovább";
+bh_detecting_connection ="Internetkapcsolat azonosítása";
+bh_plz_wait_process ="A folyamat eltarthat egy-két percig; kérem, várjon...";
+bh_no_cable ="Nincs Ethernet kábel csatlakoztatva az útválasztó internetes portjához.";
+bh_wizard_setup_nowan_check ="Ellenőrizze, hogy a kábel megfelelő módon van-e csatlakoztatva a szélessávú modem portjához, illetve az útválasztó internetes portjához.";
+bh_click_try_again ="Ellenőrizze az Ethernet kábelt, majd kattintson a <b>Próbálja újra</b> opcióra.";
+bh_try_again ="Próbálja újra";
+bh_pppoe_connection ="A rendszer PPPoE DSL internetkapcsolatot azonosított";
+bh_enter_info_below ="Adja meg lentebb a szükséges adatokat.";
+bh_pppoe_login_name ="Felhasználónév";
+bh_ddns_passwd ="Jelszó";
+bh_ISP_namePasswd_error ="Hibás internetszolgáltatói felhasználónév vagy jelszó";
+bh_enter_info_again ="Adja meg újra a szükséges adatokat.";
+bh_pptp_connection ="A rendszer PPTP internetkapcsolatot azonosított";
+bh_basic_pptp_servip ="Kiszolgáló címe";
+bh_sta_routes_gtwip ="Átjáró IP-címe";
+bh_basic_pptp_connection_id ="Kapcsolat azonosítója/neve";
+bh_bpa_connection ="A rendszer BigPond internetkapcsolatot azonosított"; 
+bh_basic_bpa_auth_serv ="Hitelesítési kiszolgáló";
+bh_basic_pppoe_idle ="Üresjárati időkorlát (perc)";
+bh_L2TP_connection="A rendszer L2TP internetkapcsolatot azonosított";
+bh_L2TP_MyIP="Saját IP-cím";
+bh_L2TP_subnetmask="Alhálózati maszk";
+bh_no_internet_ip ="Probléma az internetkapcsolat azonosításával";
+bh_no_internet_ip2 ="Probléma az internetkapcsolat azonosításával – IP-cím";
+bh_no_internet_ip3 ="Probléma az internetkapcsolat azonosításával – MAC-cím";
+bh_if_have_static_ip ="Internetszolgáltatója statikus (fix) IP-címet bocsátott rendelkezésére? Ez <b>nagyon ritka</b> eset. ";
+bh_yes_correct ="Igen. Internetszolgáltatóm statikus (fix) IP-címet bocsátott rendelkezésemre.";
+bh_not_have_static_ip ="Nem, internetszolgáltatóm nem bocsátott rendelkezésemre statikus (fix) IP-címet.";
+bh_do_not_know ="Nem tudom. ";
+bh_select_option ="Válasszon ki egy opciót, majd a folytatáshoz kattintson a <b>Tovább</b> gombra.";
+bh_select_an_option ="Előbb válasszon a lehetőségek közül.";
+bh_fix_ip_setting ="Statikus (fix) internetes IP-beállítások";
+bh_enter_ip_setting ="Adja meg az internetszolgáltatójától kapott statikus (fix) IP-címet, majd a folytatáshoz kattintson a <b>Tovább</b> gombra.";
+bh_info_mark_ip ="IP-cím";
+bh_info_mark_mask ="Alhálózati maszk";
+bh_constatus_defgtw="Alapértelmezett átjáró";
+bh_preferred_dns ="Preferált DNS kiszolgáló";
+bh_alternate_dns ="Helyettesítő DNS kiszolgáló";
+bh_genie_cannot_find_ip ="Ennek oka valószínűleg a következő esetek valamelyike:";
+bh_genie_cannot_find_ip_reason1 ="1.  A modem nem volt megfelelően újraindítva a kábelezési lépés során.";
+bh_genie_cannot_find_ip_reason1_desc ="A probléma megoldásához indítsa újra a modemet (kapcsolja ki, majd be). Ha a modem akkumulátorral működik, újraindításához szükség lehet az akkumulátor eltávolítására, majd visszahelyezésére. Az újraindítást követően várjon 2 percet a modem teljes elindulásáig."; 
+bh_genie_cannot_find_ip_reason2 ="2.  A sárga Ethernet kábel nincs teljesen csatlakoztatva, illetve rossz helyre van csatlakoztatva.";
+bh_genie_cannot_find_ip_reason2_desc ="A probléma megoldásához győződjön meg arról, hogy a sárga Ethernet kábel megfelelően csatlakoztatva van a szélessávú modem portjához és az útválasztó internetes portjához.";
+bh_select_no_IP_option ="Válassza ki az alábbi opciók egyikét, majd folytatáshoz kattintson a <b>Tovább</b> gombra:";
+bh_select_no_IP_option1 ="Éppen elindítottam a modemet, és vártam 2 percig.";
+bh_select_no_IP_option2 ="Ethernet kábellel oldottam meg egy problémát.";
+bh_select_no_IP_option3 ="A fentiek egyike sem.";
+bh_use_pc_mac ="Ha előzőleg számítógéppel vagy egy másik útválasztóval csatlakozott az internethez, a NETGEAR Genie a már előzőleg használt MAC-címet használhatja.";
+bh_mac_in_product_label ="A MAC-cím egy egyedi szám.  A számítógép, illetve az útválasztó MAC-címe a terméklapon található.";
+bh_enter_mac ="Adja meg a MAC-címet.";
+bh_mac_format ="(formátum: AABBCCDDEEFF)";
+bh_settings_restoration ="Az útválasztó beállításainak visszaállítása ";
+bh_browser_file ="Tallózzon az útválasztó beállításainak korábban elmentett biztonsági mentés fájljára, majd a folytatáshoz kattintson a <b>Tovább</b> gombra.";
+bh_back_mark ="Vissza";
+bh_settings_restoring ="Az útválasztó beállításainak visszaállítása"; 
+bh_plz_waite_restore ="Ez eltarthat néhány percig; kérem, várjon …";
+bh_apply_connection ="Az internetkapcsolat beállításainak alkalmazása";
+bh_plz_waite_apply_connection ="A folyamat eltarthat egy-két percig; kérem, várjon...";
+bh_netword_issue ="Hálózati csatlakozási probléma";
+bh_cannot_connect_internet ="A jelenlegi beállításokkal az útválasztó nem tud az internethez kapcsolódni.";
+bh_plz_reveiw_items ="Kérjük, tekintse át a következőket:";
+bh_cable_connection ="- Ellenőrizze, hogy a kábelek csatlakozása megfelelő-e. Kövesse az útválasztó telepítési útmutatójának utasításait.";
+bh_modem_power_properly ="- Ellenőrizze, hogy a szélessávú modem megfelelő módon van-e csatlakoztatva. Ha akkumulátorral működtetett modemmel rendelkezik, a modem újraindításához távolítsa el az akkumulátort, majd helyezze vissza.";
+bh_try_again_or_manual_config ="Szeretné, hogy a NETGEAR Genie újra próbálja?";
+bh_I_want_manual_config ="Nem. Magam szeretném konfigurálni az internetkapcsolatot."; 
+bh_manual_config_connection ="Magam szeretném konfigurálni az internetkapcsolatot";
+bh_congratulations ="Gratulálunk!";
+bh_connect_success_1 ="A csatlakozás az internethez sikeresen megtörtént.";
+bh_connect_success_2 ="Ez az útválasztó a következő előre megadott beállításokkal rendelkezik: egyedi vezeték nélküli hálózati név (SSID) és ";
+bh_network_key ="hálózati kulcs (jelszó)";
+bh_rollover_help_text ="Az útválasztó WPA2-PSK vezeték nélküli biztonsággal van eleve ellátva a hálózat illetéktelen hozzáférés elleni védelme érdekében. Vezeték nélküli hálózatra való csatlakozáshoz hálózati kulcsot (jelszót) kell megadnia. Az előzetesen megadott beállítások a készülék egyedi adatai, akár a gyári szám.  Ha szeretné ezeket módosítani, később megteheti ezt az útválasztó webes felhasználói felületének Vezeték nélküli beállítások képernyőjén."; 
+bh_wireless_name ="Vezeték nélküli hálózat neve (SSID)"
+bh_wireless ="Vezeték nélküli ";
+bh_wpa_wpa2_passpharse ="Hálózati kulcs (jelszó)"; 
+bh_print_this ="Nyomtatás";
+bh_take_to_internet ="Továbblépés az internetre";
+bh_plz_wait_moment ="Kérem, várjon egy pillanatig...";
+bh_not_support_print ="A számítógép nem támogatja a nyomtatót.";
+bh_login_name_null ="A felhasználó neve nem lehet üres.";
+bh_password_error ="Érvénytelen jelszó.";
+bh_idle_time_null ="Kérem, adja meg az üresjárati időt.<br>";
+bh_invalid_idle_time ="Érvénytelen üresjárati idő. Kérem, adjon meg megfelelő számot.<br>";
+bh_invalid_myip ="Érvénytelen IP-cím. Kérem, adja meg újra, vagy hagyja üresen.";
+bh_invalid_gateway ="Érvénytelen átjáró IP-cím. Kérem, adja meg újra.<br>";
+bh_bpa_invalid_serv_name ="Érvénytelen a hitelesítő kiszolgáló IP-címe.";
+bh_invalid_servip_length ="A címkék max. 63 karaktert tartalmazhatnak.<br>";
+bh_invalid_ip ="Érvénytelen IP-cím. Kérem, adja meg újra.";
+bh_invalid_mask ="Érvénytelen alhálózati maszk. Kérem, adja meg újra.<br>";
+bh_same_subnet_ip_gtw ="Az IP-címnek és az átjáró címének egyazon alhálózatban kell lennie.<br>";
+bh_same_lan_wan_subnet ="A LAN IP-címe és a WAN IP-címe nem lehet egyazon alhálózatban.<br>";
+bh_filename_null ="A fájlnév nem lehet üres.";
+bh_not_correct_file ="Kérem, rendelje hozzá a megfelelő fájlt. A fájlformátum *.";
+bh_ask_for_restore ="Figyelmeztetés <br>A beállítások visszaállítása a konfigurációs fájlból törli a jelenlegi beállításokat. <br>Biztosan ezt kívánja tenni?";
+bh_invalid_primary_dns ="Érvénytelen elsődleges DNS-cím. Kérem, adja meg újra.<br>";
+bh_invalid_second_dns ="Érvénytelen másodlagos DNS-cím. Kérem, adja meg újra.<br>";
+bh_dns_must_specified ="Meg kell adnia DNS-címet.";
+bh_invalid_mac ="Érvénytelen MAC-cím.";
+bh_failure_head ="Hiba";
+bh_few_second ="A képernyő néhány másodperc múlva automatikusan az előző képernyőre vált...";
+bh_important ="Fontos frissítés";
+bh_wanlan_conflict_info ="Az internetszolgáltatóval való ütközés elkerülése érdekében útválasztójának IP-címe a következőre módosult: ";
+bh_continue_mark ="Folytatás";
+bh_connect_no_sec1 = "A vezeték nélküli biztonság nem engedélyezett ezen az útválasztón. A NETGEAR nyomatékosan ajánlja, hogy ";
+bh_connect_no_sec2 = "Kattintson ide";
+bh_connect_no_sec3 = " engedélyezze a vezeték nélküli biztonságot és a hálózat védelmét.";
+bh_firmware_version = "Útválasztó készülékszoftver-verziója";
+bh_multi_login_info = "Egy másik eszközről már bejelentkezett. Egyszerre csak egy eszköz lehet bejelentkezve. Ha erről az eszközről bejelentkezik, a másik eszköz ki lesz jelentkeztetve. Folytatja?";
+bh_no_mark = "NEM"
+DFS_radar_mark="Ez a DFS csatorna nem használható, mert a rendszer előzőleg észlelte a radart. Váltson másik csatornára, vagy várjon ";
+RU_fixip_warn="Внимание! Вы используете фиксированный (статический) IP-адрес для вашего внутреннего интерфейса доступа к локальным ресурсам провайдера. Для того чтобы доступ к ресурсам работал корректно, вам необходимо по завершению текущей настройки указать статические маршруты. Для их настройки перейдите в меню «Статические маршруты» и следуйте соответствующим указаниям в справке. Используйте IP-адрес шлюза, который предоставил вам провайдер, в качестве шлюза назначения для каждого из добавленных маршрутов."
+
+wait_for_searching = "A NETGEAR genie WiFi hálózatokat keres a környezetében. <br>Acest proces durează aproximativ 1 minut."
+ca_wireless_ap = "Válassza ki a meglévő hálózat nevét."
+sel_24g="Válassza ki a 2,4 GHz-es WiFi hálózatot, amelyen a bővítőt az útválasztóhoz csatlakoztatja:"
+refresh_mark = "Frissítés"
+continue_mark = " Folytatás"
+guest_table_ssid = "SSID"
+info_mark_chan = "Csatorna"
+ca_ap_signal = "Jel"
+guest_table_secur = "Biztonság"
+ca_manual_wl_ssid = "Saját vezeték nélküli SSID kézi megadása"
+sel_5g="Válassza ki az 5 GHz-es WiFi hálózatot, amelyen a bővítőt az útválasztóhoz csatlakoztatja:"
+ca_ap_head = "Adja meg a kiválasztott WiFi hálózat biztonsági beállításait"
+network_24g = "A meglévő 2,4 GHz-es hálózat:"
+info_mark_ssid = "Név (SSID)"
+email_none = "Nincs"
+r_wep = "WEP"
+wpapsk = "WPA-PSK [TKIP]"
+r_wpa2 = "WPA2-PSK [AES]"
+sec_enc_head = "Biztonsági titkosítás (WEP)"
+ca_12_encr = "Titkosítás erőssége"
+sec_key = "Biztonsági titkosítás (WEP) kulcsa"
+sec_phr = "Jelszó (hálózati kulcs):"
+generate_mark = "Létrehozás"
+sec_key1 = "1. kulcs:"
+sec_key2 = "2. kulcs:"
+sec_key3 = "3. kulcs:"
+sec_key4 = "4. kulcs:"
+sec_863_or_64h = "(8-63 karakter vagy 64 hexadecimális számjegy)"
+wpa_decribion1 = "Ha a hozzáférés-szabályozási lista (ACL) engedélyezett az útválasztón, akkor győződjön meg róla, hogy hozzáadta az alábbi MAC-címet az útválasztó hozzáférés-szabályozási listájához (ACL). "
+wpa_decribion2 = "A vezeték nélküli adapter MAC-címe "
+wpa_decribion3 = " "
+ca_mac="Az eszköz MAC címe a következő: "
+network_5g = "A meglévő 5 GHz-es hálózat:"
+back_mark = " <Vissza "
+ca_retry_head = "A bővítő nem tudott csatlakozni a meglévő hálózathoz."
+ca_retry_message = "Írja be újra a jelszót, és próbálkozzon újra.<br><br>Ha a helyes jelszót írta be, és a bővítő nem csatlakozott meglévő vezeték nélküli<br>hálózatához, lehetséges, hogy a bővítőt közelebb kell vinnie az útválasztóhoz, vagy jobban látható<br>helyre kell tennie. A probléma elkülönítéséhez ellenőrizze a bővítőn található LED-eket. A LED-ek magyarázata a termék telepítési útmutatójában és <br>használati útmutatójában található<br><br>Eltérő hálózat kiválasztásához kattintson a Mégse gombra."
+keep_ssid_warning = "Az eszközök számára biztosított optimális vezeték nélküli teljesítmény érdekében a NETGEAR javasolja, hogy tartson fenn egy egyedi SSID azonosítót a bővítő hálózat számára, és csak akkor csatlakozzon a bővítő hálózatára, ha a meglévő hálózat nem biztosít megfelelő lefedettséget. "
+ca_apsetting_head = "Adja meg a bővítő hálózat beállításait."
+info_mark_2g_ssid = "2,4 GHz-es hálózat neve (SSID): "
+info_mark_5g_ssid = "5 GHz-es hálózat neve (SSID): "
+eth_bind_band="Az Ethernet portok a következő WiFi sávot használják:"
+ca_ap_use_same_sec = "Meglévő biztonsági üzemmód és jelszóbeállítások használata."
+r_wpas = "WPA-PSK [TKIP] + WPA2-PSK [AES]"
+route_title = "router form"
+wait_for_connect = "A NETGEAR genie beállítja a WiFi kapcsolatot a meglévő WiFi útválasztó és a bővítő között.<br>Ez több másodpercet vehet igénybe."
+wait_for_connect2="A NETGEAR genie alkalmazza a beállításokat.<br>Ez megközelítőleg 1 percet vesz igénybe."
+ca_15_logging_1 = "Most már csak egy lépésnyire van a telepítés befejezésétől. "
+ca_15_logging_2 = "A bővítő hálózat létrejött:"
+ca_15_repeater_24g = "Bővítő hálózat (2,4 GHz b/g/n):"
+ca_15_repeater_5g = " Bővítő hálózat (5 GHz b/g/n):"
+ca_15_ssid = "Vezeték nélküli hálózat neve (SSID) "
+ca_15_sec = "Biztonság típusa"
+cp_passwd = "jelszó másolása"
+ca_15_logging_3=“Kapcsolódjon újra a vezeték nélküli eszközzel (eszközökkel) az új bővítő hálózathoz. A vezeték nélküli eszközön (laptop, táblagép, okostelefon, játékkonzol stb.) használja a vezeték nélküli kezelőt az új (fent említett) bővítő hálózat megkereséséhez és a csatlakozáshoz. Például laptopon, a Windows WiFi kezelő használatával csatlakoztathatja a számítógépet a bővítő hálózatához a fent leírtak szerint.”
+ca_checkbox="A WiFi készülékek csatlakoztatása után kattintson a Folytatás gombra."
+next_mark = " Folytatás"
+ca_con_success_head = "Gratulálunk! A bővítő sikeresen csatlakozott a meglévő hálózathoz."
+finish = " Befejezés "
+ca_connect_uncomplete_head = "Helyezze a bővítőt közelebb a meglévő útválasztóhoz vagy átjáróhoz."
+ca_connect_uncomplete_1 = "A kapcsolat sebessége LED vörösen világít. Ez azt jelenti, hogy a bővítő nem rendelkezik megfelelő kapcsolattal a meglévő vezeték nélküli hálózathoz. "
+ca_connect_uncomplete_2 = "<b>A NETGEAR javaslata, hogy helyezze közelebb a bővítőt az útválasztóhoz, jobb láthatóság mellett, majd kattintson a Próbálja újra lehetőségre.</b><br><br> "
+ca_connect_uncomplete_3 = "Ha másik hálózatot kíván választani, kattintson a Mégse gombra.<br><br> "
+ca_connect_uncomplete_4 = "A beállítás befejezéséhez az adott állapotban, kattintson a Befejezés gombra.<br> "
+ca_connect_uncomplete_5 = " "
+tryagain_mark = " Próbálja újra "
+ca_connect_uncomplete_wpa = "A kiválasztott hálózat már nem érhető el.  Győződjön meg róla, hogy a meglévő hálózati berendezések a bővítő közelében találhatók."
+24g_flag="2.4GHz"
+5g_flag="5GHz"
+select_network="1-Válassza ki a hálózatot"
+apply_sec="2-Alkalmazza a biztonsági beállításokat"
+connect_network="3-Konfigurálja a bővítőt"
+config_repeater="4-Véglegesítse a beállításokat"
+review_setting="5-Tekintse át a beállításokat"
+ca_change_24g="A bővítő 2,4 GHz-es hálózatának neve (SSID) a következőre módosult: "
+ca_change_5g="A bővítő 5 GHz-es hálózatának neve (SSID) a következőre módosult: "
+ca_change_5g_2=", és az 5 GHz-es hálózatának neve (SSID) a következőre módosult: "
+ca_follow=". \n\nA beállítás befejezéséhez kövesse az utasítást."
+ca_con_success="A kapcsolat sebessége LED zöld színnel világít, ami azt jelzi, hogy a bővítő <br> a lehető legmagasabb sebességgel csatlakozik a meglévő hálózathoz."
+ca_con_amber="A kapcsolat sebessége LED borostyán színnel világít, ami azt jelzi, hogy a bővítő <br> megfelelő sebességgel csatlakozik a meglévő hálózathoz."
+ca_retry_message1="Írja be újra a jelszót, és próbálkozzon újra."
+ca_retry_message2="Ha a helyes jelszót írta be, és a bővítő nem csatlakozott meglévő vezeték nélküli hálózatához, lehetséges, hogy a bővítőt közelebb kell vinnie az útválasztóhoz, vagy jobban látható helyre kell tennie. A probléma elkülönítéséhez ellenőrizze a bővítőn található LED-eket. A LED-ek magyarázata a termék telepítési útmutatójában és használati útmutatójában található."
+ca_retry_message3="Eltérő hálózat kiválasztásához kattintson a Mégse gombra."
+sec_type="Biztonsági beállítások"
+select_country="Válasszon országot vagy régiót"
+select_band_head="Select the WiFi band you would like to connect your devices to:"
+performance_head="FastLane technology offers maximum performance by using both 2.4 and 5GHz bands to create one fast connection. To configure FastLane technology, you will need a dual band router."
+
+select="Kiválasztás"
+security_null="Válassza ki a WiFi hálózat biztonsági üzemmódját."
+coun_select1="--- Válassza ki a régiót ---"
+coun_af="Afrika"
+coun_as="Ázsia"
+coun_au="Ausztrália"
+coun_ca="Kanada"
+coun_eu="Európa"
+coun_fr="Franciaország"
+coun_is="Izrael"
+coun_jp="Japán"
+coun_mx="Mexico"
+coun_sa="South America"
+coun_us="United States"
+coun_ko="Korea"
+coun_middle_east="Közel-Kelet"
+coun_ru="Russia"
+coun_ch="China" 
+coun_in="India"
+coun_ma="Malaysia"
+coun_middle_east_asy="Middle East(Algeria/Syria/Yemen)"
+coun_middle_east_ilq="Middle East(Iran/Labanon/Qatar)"
+coun_middle_east_tetk="Middle East(Turkey/Egypt/Tunisia/Kuwait)"
+coun_middle_east_sa="Middle East(Saudi Arabia)"
+coun_middle_east_uae="Middle East(United Arab Emirates)"
+coun_si="Singapore"
+coun_tw="Taiwan"
+coun_na="Észak-Amerika"
+back_mark_2="Vissza"
+coun_select="Please select the correct region for your location."
+ssid_same="A 2.4G és 5G hálózatnak ugyanaz az SSID azonosítója"
+ssid_null="Az SSID nem lehet üres!"
+a_notssid="Ez a karakter SSID-ben nem engedélyezett"
+alert_wpapsk="FONTOS\nA WPA-PSK [TKIP] KIZÁRÓLAG \"Legfeljebb 54 Mb/mp\" (korábbi G) módban működik, N módban nem.\nA NETGEAR a WPA2-PSK [AES] titkosítás használatát ajánlja a teljes N sebesség eléréséhez."
+alert_autopsk="FONTOS\nA WPA-PSK [TKIP] csak \"Legfeljebb 54 Mb/mp\" (korábbi G) sebességen működhet, N sebességen nem.\nA NETGEAR a WPA2-PSK [AES] titkosítás használatát ajánlja a teljes N sebesség eléréséhez."
+skip_mark="Kihagyás"
+cancel_mark="Mégsem"
+passphrase_notice="A jelszó 8~63 ASCII karakterből, vagy pontosan 64 hexa számból áll. A hexa szám a következő karakterek egyike: 0, 1, 2, ..., 8, 9, A, B, C, D, E, F."
+a_notallowpassp="Character is not allowed in passphrase."
+m_key64="Érvénytelen kulcs.\n\nA kulcs csak 10 hexadecimális (0~9 és A~F) karakter lehet."
+m_key128="Érvénytelen kulcs.\n\nA kulcs csak 26 hexadecimális (0~9 és A~F) karakter lehet."
+ca_add_bookmark="Do you want to add \"Extender Configuration\" as a bookmark?"
+
+ca_configure="Bővítő konfigurálása"
+ca_notice1="Nem tud csatlakozni az internethez."
+ca_notice2="Szeretné, hogy a NETGEAR genie a segítségére legyen?"
+wizard_setup_yes="Igen."
+ca_select_no="NEM. MANUÁLISAN SZERETNÉM CSATLAKOZTATNI."
+wps_next_mark=" Tovább "
+
+//20120215 Netgear update GUI
+menu1="1. lépés: WiFi hálózat kiválasztása"
+menu2="2. lépés: bővítő beállítása"
+menu3="3. lépés: beállítások alkalmazása"
+ca_notice1_1="A WiFi jelerősítő nincs csatlakoztatva a routerhez. Igénybe kívánja venni a NETGEAR genie segítségét?"
+ca_ap_manual_head="Adja meg a meglévő útválasztó WiFi hálózatának beállításait"
+ca_wireless_ap_24g="Válassza ki a 2,4 GHz-es WiFi hálózat nevét."
+ca_wireless_ap_5g="Válassza ki az 5 GHz-es WiFi hálózat nevét."
+sel_5g_des_1="A bővítő támogatja a kétsávos üzemmódot: 2,4 GHz és 5 GHz."
+sel_5g_des_2="Válassza ki a 2,4 GHz-es WiFi hálózatot, amelyhez csatlakozni kíván, Majd kattintson a <b>Folytatás gombra az 5 GHz-es hálózat kiválasztásához, vagy kattintson a <b>Kihagyás</b> gombra közvetlenül az 5 GHz-es hálózat kiválasztásához."
+not_support_5g="Az útválasztó nem támogatja az 5 GHz-es sávot."
+confirm_24g="5 GHz-es hálózati beállítással kell rendelkeznie, hogy átugorhassa a 2,4 GHz-es beállítást, különben a bővítő nem fog tudni csatlakozni a meglévő hálózathoz. Biztos, hogy folytatni szeretné?"
+
+//user select network type
+private_network="Magánhálózat"
+public_network="Nyilvános hálózat (ennek kiválasztásával engedélyezi a következőt: NAT/tűzfal)"
+ca_wifi_head="Ez a WiFi hálózat ("
+ca_wifi_head_rest=") otthoni magánhálózat vagy nyilvános hálózat (például hotelben vagy kávézóban)?"
+ca_wire_head="Ez a vezetékes kapcsolat otthoni magánhálózat vagy nyilvános hálózat (mint például hotelben vagy kávézóban)?"
+
+genie_menu1="1. lépés: internetkapcsolat észlelése"
+genie_menu2="2. lépés: bővítő beállítása"
+genie_menu3="3. lépés: beállítások alkalmazása"
+
+sel_2g_des_1="A bővítő támogatja a kétsávos üzemmódot: 2,4 GHz és 5 GHz."
+sel_2g_des_2="Válassza ki a 2,4 GHz-es WiFi hálózatot, amelyhez csatlakozni kíván, Majd kattintson a <b>Folytatás gombra az 5 GHz-es hálózat kiválasztásához, vagy kattintson a <b>Kihagyás</b> gombra közvetlenül az 5 GHz-es hálózat kiválasztásához."
+
+link_rate_localization1="2 perccel azután, hogy a bővítő az útválasztóhoz vagy átjáróhoz és egy ügyfélhez csatlakozott, ellenőrizze, hogy a bővítőn található nyíl LED-ek villognak-e. A villogó nyíl azt jelenti, hogy a jobb WiFi teljesítmény érdekében helyezze át a bővítőt egy másik helyre.<br>Ha a bővítő a WiFi teljesítmény szempontjából megfelelő helyen található, a nyíl LED-ek nem villognak."
+link_rate_localization2="A bal oldali nyíl LED villog:"
+link_rate_localization3="Helyezze a bővítőt közelebb az útválasztóhoz vagy átjáróhoz. Ha ez nem lehetséges, akkor próbálja meg javítani a láthatóságot az útválasztó és a bővítő között."
+link_rate_localization4="A jobb oldali nyíl LED villog:"
+link_rate_localization5="Helyezze a bővítőt közelebb a kliens pozíciójához (a bővítő WiFi hálózatát használó számítógéphez vagy eszközhöz)."
+router_link_rate_behavior="<b>A Router Link LED működése:</b><br>Zöld: Kábel csatlakoztatva, IP-cím lekérdezve<br>Piros: Kábel csatlakoztatva, azonban IP-cím lekérdezése sikertelen<br>Ki: Nincs kábel csatlakoztatva"
+client_link_rate_behavior="<b>A Client Link LED működése:</b><br>Zöld: Jó minőség<br>Sárga: Megfelelő minőség<br>Piros: Gyenge minőség"
+
+internet_via_WiFi="Az erősítőn lévő kapcsoló WiFi erősítő állásba van kapcsolva."
+internet_via_Wired="Az erősítőn lévő kapcsoló Hozzáférési pont állásba van kapcsolva."
+
+ca_15_repeater="Bővítő hálózat"
+ca1_15_checkbox="A számítógépem a bővítő hálózatához csatlakozik. (A jelölőnégyzet kiválasztása aktiválja a Tovább gombot.)"
+extender_info="Használja a vezeték nélküli profilkezelő szoftvert (Windows, NETGEAR Adapter Wizard stb.) a bővítő hálózatára való újbóli csatlakozáshoz az alább megjelenített információkkal. "
+disable_dhcp="Internal DHCP Server will be disabled. Do you want to continue?"
+
+/////////////////////////////////////////////New GUI Strings////////////////////////////////////////////////////////
+
+save_upper="MENTÉS"
+cancel_upper="MÉGSE"
+back_upper="VISSZA"
+next_upper="TOVÁBB"
+ok_lower="OK"
+
+//screen1.html
+choose_mode="Válasszon üzemmódot"
+welcome_genie="A NETGEAR genie üdvözli Önt! Hogyan szeretné használni hálózati erősítőjét?"
+ap_mark="Hozzáférési pont"
+
+//howToUse.html
+extend_exist_network="A WiFi-hálózat erősítő opció kiválasztásával kiterjesztheti jelenlegi WiFi-hálózatának hatáskörét."
+wifi_hotspot="A Hozzáférési pont opció kiválasztásával létrehozhat egy WiFi hotspotot egy olyan helyen, ahol van vezetékes kapcsolat."
+
+//screen2.html
+genie_setup="A NETGEAR genie telepítő üdvözli Önt"
+setup_option="Csatlakoztassa készülékét. Válasszon az alábbi telepítési opciók közül."
+connect_extender_browser="Hálózati erősítőjét egy webböngészőben futó telepítő segítségével tudja csatlakoztatni. Az intelligens telepítő lehetővé teszi egy egyedi hálózati név és jelszó beállítását az erősítőhöz."
+smart_setup="Intelligens telepítő"
+connect_extender_wps="Csatlakoztassa a hálózati erősítőt: ehhez nyomja meg az alábbi WPS TELEPÍTÉSE gombot, vagy a hálózati erősítőn található gombot. Ehhez jelenlegi útválasztójának támogatnia kell a WPS funkciót."
+wps_setup_new="WiFi Protected Setup (WPS)"
+
+//screen3-access.html
+look_internet_conn="Internetkapcsolat keresése."
+connect_detect="Kapcsolat felismerve"
+no_connect_detect="Nincs kapcsolat"
+
+//screen4-access.html
+decect_conn="Hiba a kapcsolatok felderítése közben"
+not_find_conn="Nem találtunk internetkapcsolatot."
+try_str="Próbálkozzon az alábbiakkal, majd próbálja újra."
+restart_router_info="Indítsa újra az útválasztót: ehhez kapcsolja ki, majd kapcsolja újra be. Az újraindítás után hagyjon két percet az útválasztónak, hogy elinduljon."
+check_info="Győződjön meg róla, hogy a megfelelő portot használja, és az Ethernet-kábel megfelelően csatlakoztatva van az erősítő és az útválasztó portjához."
+operation_tip="Válassza ki az alábbi opciók egyikét, majd kattintson a Próbálja újra gombra a folytatáshoz:"
+operation_process="Újraindítottam a modemet és vártam két percet."
+problem_info="Az Ethernet-kábellel volt probléma, de már megoldottam."
+none_info="Egyéb."
+try_again_sign="Próbálja újra"
+
+//screen5-access.html
+conn_type="Hol található a hálózat"
+inquery_network_conn="A vezetékes Ethernet-kapcsolat nyilvános vagy magánhálózathoz kapcsolódik?"
+setting_network="Használja ezt a beállítást, ha vezetékes otthoni hálózathoz kapcsolódik."
+home_network_mark="Otthoni hálózat"
+firewall_enable="Engedélyezi a NAT tűzfalat, mely egy extra védelmi vonalat biztosít. Használja ezt a beállítást, ha például egy hotel vagy kávézó vezetékes hálózatához kapcsolódik."
+network_public="Nyilvános hálózat"
+
+//networkTypeNote.html
+network_type_note="A kártékony robotok folyamatosan pásztázzák az internetet olyan eszközök után kutatva, melyek kéretlen levelek vagy személyiséglopás áldozatai lehetnek. Sok alkalmazás nyitva hagyja a kapcsolatokat. Ha a kártékony szoftver kapcsolódik ezekhez az alkalmazásokhoz, akkor a hibákat kihasználva átveheti az irányítást rendszere felett és kártékony szoftvereket telepíthet. A NAT tűzfal blokkolja ezeket a kártékony pásztázásokat és kapcsolatokat."
+
+//screen6-access.html
+info_ap="Adjon nevet a hálózatnak, és állítsa be a hozzáférési pont hálózatainak biztonsági beállításait."
+band_24g="2,4 GHz-es hálózat"
+band_5g="5 GHz-es hálózat"
+
+//securitySettingsNote.html
+security_setting_note="A kiterjesztett hálózatnak ugyanazt a nevet is adhatja, mint a már meglévő hálózatnak. Javasoljuk azonban, hogy eltérő hálózati nevet használjon, hogy tudja, mikor használja a kiterjesztett hálózatot."
+
+//screen7-access.html
+apply_settings="Beállítások alkalmazása folyamatban. <br/>Ez pár pillanatig eltarthat."
+mark_setting="Beállítások alkalmazva"
+
+//screen8-access-dual-connected.html
+success_create_ap="Hozzáférési pont sikeresen létrehozva."
+24g_ap_network="2,4 GHz-es hozzáférési pont hálózat"
+5g_ap_network="5 GHz-es hozzáférési pont hálózat"
+
+//screen8-access-dual-notConnected.html
+info_fail_conn="Létrehozta a hozzáférési pontot, de nem találtunk internetkapcsolatot."
+run_setup="Próbálja meg ismét lefuttatni a telepítőt."
+
+//screen10-access-connected.html
+ap_up_tip="Hozzáférési pontja működik."
+ap_24g_setting="Hozzáférési pont vezeték nélküli beállításai (2,4 GHz)"
+ap_5g_setting="Hozzáférési pont vezeték nélküli beállításai (5 GHz)"
+
+//screen10-access-notConnected.html
+conn_ap_info="A hozzáférési ponthoz való csatlakozáshoz kattintson az alábbi intelligens beállítási gombra."
+
+//screen3-extender.html
+select_network_title="Válasszon hálózatot"
+select_network_extend="Válassza ki azt a hálózatot, amit ki szeretne bővíteni."
+deselect_wifi="Ha csak az egyik WiFi-frekvenciát szeretné kiterjeszteni, akkor vegye ki a jelölést a nem kívánt négyzetből."
+learn_more_mark="További információ »"
+24g_wifi="2,4 GHz-es WiFi-hálózatok"
+wpa_wpa2_sec="WPA/WPA2-PSK"
+wpa2_psk="WPA2-PSK"
+manual_input_ssid="Hálózat nevének (SSID) kézi megadása"
+pwd_char="Adja meg a jelszót (8-63 karakter):"
+verify_pwd="Jelszó megerősítése:"
+scan_str="Keresés"
+5g_wifi="5 GHz-es WiFi-hálózatok"
+
+//selectNetworkNote.html
+recommend_info="Annak érdekében, hogy a kiterjesztett hálózat teljesítménye megfelelő legyen, javasoljuk, hogy a jelenlegi hálózat térereje legalább 60%-os legyen."
+
+//screen4-extender.html
+24g_network="2,4 GHz-es jelenlegi hálózat"
+
+//screen4b-extender.html
+enter_pwd="Jelszó megadása"
+pwd_enter_tip="Adja meg a jelenlegi hálózat jelszavát (hálózati kulcsát)."
+5g_network="5 GHz-es jelenlegi hálózat"
+network_selected="Kiválasztott hálózat:"
+protocol_sec="Biztonsági protokoll:"
+show_pwd="Jelszó megjelenítése"
+
+//screen5-extender.html
+security_setting="Biztonsági beállítások megadása"
+wifi_enter_tip="Adjon nevet a hálózatnak, és állítsa be a kiterjesztett WiFi hálózatainak biztonsági beállításait."
+24g_extend="2,4 GHz-es kiterjesztett hálózat"
+same_exist_pwd="A jelenlegi hálózat jelszavának használata"
+use_differ_pwd="Külön jelszó használata"
+5g_extend="5 GHz-es kiterjesztett hálózat"
+
+//screen6-extender-dual.html
+extender_success_conn="A hálózati erősítő sikeresen csatlakozott a meglévő WiFi-hálózathoz"
+main_network_conn="A WiFi-képes készülékekkel ugyanúgy tud csatlakozni a hálózathoz, mint a főhálózathoz. A csatlakozáshoz használja az alábbi adatokat."
+
+//screen7-extender.html
+title_register="Regisztráció"
+info_register_extender="Hálózati erősítőjének regisztrálásával értesítéseket kaphat a szoftverfrissítésekről<br />és az aktuális ajánlatokról."
+skip_reg_mark="Regisztráció kihagyása »"
+first_name_mark="Keresztnév"
+last_name_mark="Vezetéknév"
+email_lable="E-mail"
+country_lable="Ország"
+date_purchase="Vásárlás dátuma"
+serial_num="Sorozatszám"
+info_product="A termékem felújított termék, vagy nincs sorozatszáma"
+genie_mark="NETGEAR genie elmentése a könyvjelzőkbe"
+info_comm="E-mailes tájékoztatóanyagok a NETGEAR-től"
+install_info="WiFi Analytics alkalmazás telepítése (csak Androidra)"
+country_af="Afganisztán"
+country_aland="Åland-szigetek"
+country_alb="Albánia"
+country_alg="Algéria"
+country_am="Amerikai Szamoa"
+country_and="Andorra"
+country_ang="Angola"
+country_an="Anguilla"
+country_ant="Antarktisz"
+country_anba="Antigua és Barbuda"
+country_arg="Argentína"
+country_arm="Örményország"
+country_aru="Aruba"
+country_aus="Ausztria"
+country_az="Azerbajdzsán"
+country_bah="Bahamák"
+country_bahr="Bahrein"
+country_ban="Banglades"
+country_bar="Barbados"
+country_bela="Fehéroroszország"
+country_belg="Belgium"
+country_beli="Belize"
+country_ben="Benin"
+country_ber="Bermuda"
+country_bhu="Bhután"
+country_bol="Bolívia"
+country_boss="Bonaire, Sint Eustatius és Saba"
+country_boh="Bosznia-Hercegovina"
+country_bot="Botswana"
+country_bou="Bouvet-sziget"
+country_bra="Brazília"
+country_bri="Brit Indiai-óceáni Terület"
+country_bru="Brunei Darussalam"
+country_bul="Bulgária"
+country_burf="Burkina Faso"
+country_buru="Burundi"
+country_cam="Kambodzsa"
+country_camer="Kamerun"
+country_cav="Zöld-foki-szigetek"
+country_cay="Kajmán-szigetek"
+country_cenaf="Közép-afrikai Köztársaság"
+country_cha="Csád"
+country_chi="Chile"
+country_chr="Karácsony-sziget"
+country_coc="Kókusz (Keeling)-szigetek"
+country_col="Kolumbia"
+country_com="Comore-szigetek"
+country_con="Kongó"
+country_cor="Kongói Demokratikus Köztársaság"
+country_cki="Cook-szigetek"
+country_cos="Costa Rica"
+country_ci="Côte d'Ivoire"
+country_cro="Horvátország"
+country_cub="Kuba"
+country_cur="Curaçao"
+country_cyp="Ciprus"
+country_cze="Csehország"
+country_den="Dánia"
+country_dj="Dzsibuti"
+country_dom="Dominika"
+country_dop="Dominikai Köztársaság"
+country_ecu="Ecuador"
+country_egy="Egyiptom"
+country_eis="El Salvador"
+country_eqc="Egyenlítői Guinea"
+country_eri="Eritrea"
+country_est="Észtország"
+country_eth="Etiópia"
+country_fim="Falkland-szigetek (Malvin-szigetek)"
+country_fai="Faroe-szigetek"
+count_fi="Fidzsi"
+count_fin="Finnország"
+country_fg="Francia Guiana"
+country_fp="Francia Polinézia"
+country_fst="Francia déli területek"
+country_ga="Gabon"
+country_gam="Gambia"
+country_geo="Grúzia"
+country_ger="Németország"
+country_gha="Ghána"
+country_gib="Gibraltár"
+country_gre="Görögország"
+country_grd="Grönland"
+country_gra="Grenada"
+country_guad="Guadeloupe"
+coun_gm="Guam"
+country_gua="Guatemala"
+country_guer="Guernsey"
+country_gui="Guinea"
+country_gub="Guinea-Bissau"
+coun_gua="Guyana"
+coun_hai="Haiti"
+country_himi="Heard-sziget és McDonald-szigetek"
+country_hs="Vatikán"
+country_ho="Honduras"
+coun_hk="Hong Kong"
+coun_hu="Magyarország"
+coun_ice="Izland"
+coun_ind="Indonézia"
+coun_iir="Irán"
+coun_ira="Irak"
+coun_ire="Írország"
+coun_iom="Man-sziget"
+coun_ita="Olaszország"
+coun_jam="Jamaica"
+coun_jer="Jersey"
+coun_jo="Jordánia"
+coun_kaz="Kazahsztán"
+coun_ken="Kenya"
+coun_kir="Kiribati"
+coun_kdp="Koreai Népi Demokratikus Köztársaság"
+coun_kp="Koreai Köztársaság"
+coun_ku="Kuvait"
+coun_ky="Kirgizisztán"
+coun_lap="Laosz"
+coun_la="Lettország"
+coun_leb="Libanon"
+coun_les="Lesotho"
+coun_lib="Libéria"
+coun_lia="Líbia"
+coun_lin="Liechtenstein"
+coun_lth="Litvánia"
+coun_lu="Luxembourg"
+coun_mac="Makaó"
+coun_may="Macedónia"
+coun_mad="Madagaszkár"
+coun_mal="Malawi"
+coun_mald="Maldív-szigetek"
+coun_mali="Mali"
+coun_malt="Málta"
+coun_mari="Marshall-szigetek"
+coun_mar="Martinique"
+coun_mau="Mauritánia"
+coun_maur="Mauritius"
+coun_mye="Mayotte"
+coun_mfs="Mikronéziai Államközösség"
+coun_mor="Moldova"
+coun_mon="Monaco"
+coun_mona="Mongólia"
+coun_mot="Montenegró"
+coun_moe="Montserrat"
+coun_moc="Marokkó"
+coun_moz="Mozambik"
+coun_myr="Mianmar"
+coun_nam="Namíbia"
+coun_nau="Nauru"
+coun_nep="Nepál"
+coun_net="Hollandia"
+coun_nec="Új-Kaledónia"
+coun_nez="Új-Zéland"
+coun_nic="Nicaragua"
+coun_nig="Niger"
+coun_nigr="Nigéria"
+coun_niu="Niue"
+coun_noi="Norfolk-sziget"
+coun_nom="Észak-Marina-szigetek"
+coun_now="Norvégia"
+coun_om="Omán"
+coun_pak="Pakisztán"
+coun_pal="Palau"
+coun_pto="Palesztina"
+coun_pan="Panama"
+coun_neca="Új-Kaledónia"
+coun_para="Paraguay"
+coun_per="Peru"
+coun_phi="Fülöp-szigetek"
+coun_pit="Pitcairn"
+coun_pol="Lengyelország"
+coun_por="Portugália"
+coun_pur="Puerto Rico"
+coun_qat="Katar"
+coun_rui="Réunion"
+coun_rom="Románia"
+coun_rf="Oroszország"
+coun_rwa="Ruanda"
+coun_sb="Saint Barthélemy"
+coun_sht="Szent Ilona, Ascension és Tristan da Cunha"
+coun_skn="Saint Kitts és Nevis"
+coun_sl="Saint Lucia"
+coun_sm="Szent Márton-sziget (francia rész)"
+coun_spm="Saint Pierre és Miquelon"
+coun_svg="Saint Vincent és Grenada"
+coun_sam="Szamoa"
+coun_smo="San Marino"
+coun_stp="Sao Tome és Principe"
+coun_sab="Szaúd-Arábia"
+coun_sen="Szenegál"
+coun_ser="Szerbia"
+coun_sey="Seychelle-szigetek"
+coun_sil="Sierra Leone"
+coun_smd="Sint Maarten (holland rész)"
+coun_slk="Szlovákia"
+coun_slv="Szlovénia"
+coun_sid="Salamon-szigetek"
+coun_som="Szomália"
+coun_saf="Dél-Afrika"
+coun_sgs="Déli-Georgia és Déli-Sandwich-szigetek"
+coun_ssu="Dél-Szudán"
+coun_spn="Spanyolország"
+coun_sln="Srí Lanka"
+coun_sud="Szudán"
+coun_sur="Suriname"
+coun_sjm="Svalbard és Jan Mayen"
+coun_swl="Szváziföld"
+coun_swe="Svédország"
+coun_swz="Svájc"
+coun_sar="Szíria"
+coun_tp="Tajvan"
+coun_tas="Tadzsikisztán"
+coun_tur="Tanzánia"
+coun_thl="Thaiföld"
+coun_til="Kelet-Timor"
+coun_tgo="Togo"
+coun_tok="Tokelau"
+coun_ton="Tonga"
+coun_trt="Trinidad és Tobago"
+coun_tun="Tunézia"
+coun_tuk="Törökország"
+coun_tis="Türkmenisztán"
+coun_tci="Turks és Caicos-szigetek"
+coun_tuv="Tuvalu"
+coun_uga="Uganda"
+coun_ukr="Ukrajna"
+coun_uae="Egyesült Arab Emirátusok"
+coun_ukm="Egyesült Királyság"
+coun_usmi="Az Amerikai Egyesült Államok lakatlan külbirtokai"
+coun_ury="Uruguay"
+coun_uzb="Üzbegisztán"
+coun_vat="Vanuatu"
+coun_vbr="Venezuela"
+coun_vnm="Vietnam"
+coun_vib="Virgin-szigetek, brit"
+coun_vius="Virgin-szigetek, USA"
+coun_wf="Wallis és Futuna"
+coun_wsh="Nyugat-Szahara"
+coun_yem="Jemen"
+coun_zam="Zambia"
+coun_zbw="Zimbabwe"
+
+//registerInfoNote.html
+new_product_info="WiFi-erősítőjének regisztrálásával hozzáférést kap terméktámogatásokhoz, szoftverfrissítési értesítésekhez és új termékek információihoz."
+register_at="Regisztrálhat a <a href="http://my.netgear.com/registration" target="_blank">my.netgear.com/registration</p> címen is."
+
+//screen8-extender-good.html
+wifi_setting="WiFi-beállítások"
+pwd_setting="Jelszóbeállítások"
+do_more="További lehetőségek"
+acc_schedule="Hozzáférés-ütemezés"
+wifi_cov="WiFi-lefedettség"
+fast_lane="FastLane"
+usb_port="USB-port"
+//extender_conn_run="WiFi-erősítője megfelelően működik."
+extender_conn_run="Orbi Wall Plug műholdja csatlakoztatva van."
+conn_again="Intelligens beállítás"
+conn_24g_netwk="Csatlakozás meglévő hálózathoz (2,4 GHz)"
+conn_5g_netwk="Csatlakozás meglévő hálózathoz (5 GHz)"
+extend_24g_status="<span id="wallPlug_02">Az Orbi Satellite WiFi-állapota (2,4 GHz)</span><span id="wallPlug_02_wp">Orbi Wall Plug műhold WiFi-állapota (2,4 GHz)</span>"
+extend_5g_status="<span id="wallPlug_03">Az Orbi Satellite WiFi-állapota (5GHz)</span><span id="wallPlug_03_wp">Orbi Wall Plug műhold WiFi-állapota (5 GHz)</span>"
+wf_analytics_app="WiFi Analytics alkalmazás"
+opti_wifi="Optimalizálja WiFi hálózatát az ingyenes Android alkalmazással."
+install_now_mark="Telepítse most »"
+help_inquer="Segítségre van szüksége?"
+way_submit_question="Kérdezze meg támogató csapatunkat chaten, e-mailen vagy telefonon."
+foot_lic="Licenc"
+foot_search="Súgó keresése"
+
+//screen8-extender-noConnection.html
+info_improve_conn="Helyezze közelebb az erősítőt, hogy javítsa kapcsolatát."
+
+//wifiSettings.html
+region_setting="Régióbeállítások:"
+enable_2g_5g="2,4 GHz-es és 5 GHz-es WiFi-hálózat engedélyezése"
+enable_2g="2,4 GHz-es WiFi-hálózat engedélyezése"
+enable_5g="5 Ghz-es WiFi-hálózat engedélyezése"
+broadcast_network="A hálózat nevének (SSID) megjelenítése"
+get_ip_dynamically="Az IP-cím dinamikus lekérdezése az útválasztótól"
+wifi_device="WiFi-s készülékek"
+disable_access_ctrl="Hozzáférés-vezérlés kikapcsolása"
+add_wifi_dev="WiFi-s eszköz hozzáadása"
+pin_enable="WPS PIN engedélyezése"
+disable_pin_info="A PIN automatikus kikapcsolása"
+fail_entry="sikertelen PIN belépések után, a PIN megóvása érdekében."
+led_blink="Az eszközön a WPS LED lassan villogni fog, ha a PIN automatikusan kikapcsolt"
+keep_24g_wifi_setting="Meglévő WiFi-beállítások megtartása a 2,4 GHz-es hálózathoz"
+keep_5g_wifi_setting="Meglévő WiFi-beállítások megtartása az 5 GHz-es hálózathoz"
+wifi_disable="WiFi kikapcsolása"
+
+//pwdSettings.html
+pwd_protect_info="Kapcsolja be vagy ki a jelszóvédelmet vagy változtasson meg egy jelszót az erősítő webes menüjének és az intelligens telepítő jogosulatlan hozzáférésének megelőzésére."
+pwd_on="Jelszó bekapcsolása"
+pwd_off="Jelszó kikapcsolása"
+new_user_nm="Új felhasználónév"
+new_pwd_char="Új jelszó (8-32 karakter):"
+
+//backUpSettings.html
+create_backup_file="Készítsen biztonsági mentést a jelenlegi WiFi-erősítő beállításokról."
+backup_upper="BIZTONSÁGI MENTÉS"
+restore_settings_way="Előző biztonsági mentés visszaállítása."
+browse_upper="TALLÓZÁS"
+reset_lower="Visszaállítás"
+restore_default_setting="A gyári alapértékek visszaállítása."
+reset_upper="VISSZAÁLLÍTÁS"
+restore_upper="HELYREÁLLÍTÁS"
+
+//fwUpdate.html
+check_update="Frissítések keresése"
+check_online="FRISSÍTÉSEK KERESÉSE ONLINE"
+upload_file="Frissítés feltöltése"
+select_update_file="Keresse meg és válassza ki a frissítést az eszközén."
+upload_upper="FELTÖLTÉS"
+
+//accessSchedule.html
+wifi_access_schedule="Ezzel a funkcióval szabályozhatja az összes felhasználó hozzáférését a nap bizonyos időszakai során. Ezt a funkciót szülői felügyeletre vagy biztonsági lehetőségként is használhatja. A hozzáférés-ütemezés letiltja az internet-hozzáférést a beállított időszakok alapján."
+access_on="Hozzáférés-ütemezés bekapcsolása"
+access_off="Hozzáférés-ütemezés kikapcsolása"
+sel_days="Nap kiválasztása"
+only_weekdays="Csak hétköznap"
+only_weekend="Csak hétvégén"
+time_for_days="Ugyanakkor minden nap"
+select_time_for_days="Kiválasztott időpont kiválasztott napon"
+24_hours="24 óra"
+sys_clock="Erősítő órája"
+sync_with_clock="Szinkronizálási óra"
+maintain_internal_clock="A WiFi erősítő belső órájának beállítása. Ahhoz, hogy a WiFi hozzáférés-ütemezések helyesen működjenek, a beállításoknak megfelelőeknek kell lenniük."
+
+//accessScheduleNote.html
+access_schedule_inter="A hozzáférés-ütemezés bekapcsolása kikapcsolja a vezeték nélküli és vezetékes internet-hozzáférést a megadott napokon."
+
+//guestNetwork.html
+guest_network_info="A vendég hálózat egy különálló vezeték nélküli hálózatot hoz létre a vendégeknek. Vezeték nélküli eszközök csatlakozhatnak a vendég hálózathoz és az internethez, anélkül, hogy a magánhálózatához hozzáférnének."
+band_mark="Frekvenciasáv"
+ssid_mark="Hálózat neve (SSID)"
+broadcast_ssid="Hálózat nevének (SSID) megjelenítése"
+add_guest_netw="Vendég hálózat hozzáadása"
+
+//connectedeviceInfo.html
+conn_dev_for="Csatlakoztatott eszközök:"
+
+//wifiCoverage.html
+adjust_extend_wifi_info="A kiterjesztett WiFi hálózat teljesítményének és tartományának beállítása. Kisebb lefedettségért válasszon kisebb teljesítményt. Nagyobb lefedettségért válasszon nagyobb teljesítményt."
+wireless_out_power="Vezeték nélküli teljesítmény"
+
+//fastLane.html
+fast_lane_head="FastLane technológia"
+enable_fastlane_info="A FastLane technológia üzemmód bekapcsolásával mindkét WiFi frekvenciasávot használhatja, így egy extra nagysebességű kapcsolatot hozhat létre, mely ideális HD video lejátszására és játékra."
+basic_option="<strong>Alap</strong> – Egyidejűleg a 2,4 és az 5 GHz-es frekvenciasávhoz is csatlakoztathat eszközöket. Egyidejűleg mindkét WiFi frekvenciasávot (2,4 és 5 GHz) kiterjeszti, azonban csökkenti a WiFi teljesítményt."
+fastlane_option="<strong>FastLane technológia</strong> – Maximális teljesítményt nyújt, azonban a kapcsolatot egy frekvenciasávra (2,4 vagy 5 GHz) korlátozza."
+extender_info_one="Az útválasztótól a hálózati erősítő felé csak a 2,4 GHz-es kapcsolat elérhető, a hálózati erősítőtől az eszközök felé pedig csak az 5 GHz-es kapcsolat elérhető."
+extender_info_two="Az útválasztótól a hálózati erősítő felé csak az 5 GHz-es kapcsolat elérhető, a hálózati erősítőtől az eszközök felé pedig csak a 2,4 GHz-es kapcsolat elérhető. (Az útválasztónak támogatnia kell az 5 GHz-es frekvenciasávot.)"
+
+//usbPort.html
+general_mark="Általános"
+usb_port_on="USB-port bekapcsolása"
+usb_port_off="USB-port kikapcsolása"
+share_content="Tartalom megosztása"
+share_printer="Nyomtató megosztása"
+
+update_mark="Frissítés"
+network_neighbor="Hálózati helyek"
+conn_device="Csatlakoztatott eszközök"
+avai_space="Rendelkezésre álló hely"
+add_folder_sign="Mappa hozzáadása"
+content_scan_tip="Tartalom keresése (új fájlok hozzáadásakor)"
+
+//csrf_timeout.htm
+csrf_timeout="Sajnáljuk, az időkorlátja lejárt.<br> A menüre kattintva lépjen be újra az oldalra."
+
+//web_login.html
+login_page="Felhasználói bejelentkezés"
+login_email="E-mail"
+login_passwd="Jelszó"
+login_checkbox="Emlékezzen rám"
+login_btn="BEJELENTKEZÉS"
+login_help="Felhasználónév és jelszó súgó"
+login_setup_btn="ÚJ ERŐSÍTŐ BEÁLLÍTÁSA"
+login_error="Nem egyezik a felhasználónév és jelszó."
+extender_setup="Fiók létrehozása"
+passwod_recovery="Az e-mail címe és jelszava alább látható:"
+extender_accept_1="Elfogadom a használati feltételeket"
+extender_accept_2="Minden mező kötelezően kitöltendő, hacsak nem „opcionális” jelölésű"
+
+//extra strings
+pwd_tip_text="Ezt a jelszót szeretném használni az 5 GHz-es hálózathoz"
+foot_search_ph="Keresési kifejezés beírása…"
+setup_later="Beállítás később"
+later_note="A Beállítás később gomb megnyomásával elhalaszthatja a beállítást. Az erősítőt a telepítő futtatásával tudja majd a későbbiekben a meglévő hálózatra csatlakoztatni."
+
+//AP mode page
+connection_issue_note1="Az erősítő nem csatlakoztatható a routerhez."
+connection_issue_note2="Győződjön meg róla, hogy az UTP hálózati kábel megfelelően csatlakoztatva van az erősítő és a router portjára."
+ap_select_no_1="Saját magam szeretném konfigurálni az erősítőt."
+ap_select_no_2="Az access point üzemmódhoz fix IP-címet szeretnék beállítani."
+ap_try_again_or_manual_config="Szeretné, hogy az Intelligens beállításvarázsló újra megpróbálja?"
+ap_fixed_ip_setting_note="Megjegyzés: A <b>Tovább</b> gombra kattintva az erősítő az új IP-címhez lesz hozzárendelve. Ez esetben előfordulhat, hogy a böngésző hálózati kapcsolata megszakad. Az erősítőhöz való csatlakozáshoz lehetséges, hogy módosítani kell az eszköz IP-címét. Ekkor zárja be a böngésző ablakát, majd indítsa azt el újra."
+
+browser_support="A NETGEAR javasolja az Internet Explorer böngésző Internet Explorer 8 vagy újabb verzióra frissítését, hogy a NETGEAR genie használható legyen a telepítéshez."
+
+pwd_short="Túl rövid"
+pwd_long="Túl hosszú"
+pwd_weak="Gyenge"
+pwd_good="Megfelelő"
+pwd_strong="Erős"
+pwd_same="Felhasználónév és jelszó megegyezik."
+pwd_no_match="NEM EGYEZIK!"
+pwd_error_1="A jelszónak "
+pwd_error_2=" karakterből kell állnia"
+see_more="Több megjelenítése"
+see_less="Kevesebb megjelenítése"
+
+amber_info="A sárga jelentése:<b>megfelelő kapcsolat</b>"
+green_info="A zöld jelentése:<b>legjobb kapcsolat</b>"
+red_info="A piros jelentése:<b>gyenge kapcsolat</b>"
+closer_extender="Helyezze közelebb a számítógépet vagy mobileszközt az erősítőhöz"
+closer_router="Helyezze az erősítőt közelebb a routerhez."
+extender_str="Erősítő"
+device_str="Eszköz"
+pwd_answer="Válasz"
+ethernet_link="Ethernet"
+re_enter_pwd="Írja be ismét a jelszót"
+router_str="Router"
+
+password_tip="Válasszon jelszót az erősítő beállítások oldalaihoz."
+question_tip="Ha elfelejti a felhasználónevet vagy a jelszót, ezzel a kérdéssel tudja visszaállítani azt."
+error_email_addr="Érvénytelen e-mail cím."
+
+mode_repeater="<span id="wallPlug_mode_repeater">Orbi szatellit</span><span id="wallPlug_mode_repeater_wp">Orbi Wall Plug műhold</span>"
+mode_wifiwan="<span id="wallPlug_mode_wifiwan">Orbi szatellit</span><span id="wallPlug_mode_wifiwan_wp">Orbi Wall Plug műhold</span>"
+mode_ap="Wi-Fi hozzáférési pont"
+mode_router="Wi-Fi hozzáférési pont"
+
+ques1_0="Válasszon egy kérdést"
+ques1_1="Mi a neve az első Ön által vásárolt NETGEAR terméknek?"
+ques1_2="Hogy hívták első iskoláját?"
+ques1_3="Mi legidősebb nővére keresztneve?"
+ques1_4="Mi legidősebb bátyja keresztneve?"
+ques1_5="Melyik városban született?"
+ques1_6="Mi nagymamája keresztneve?"
+ques1_7="Mi nagypapája keresztneve?"
+ques1_8="Melyik évben (ÉÉÉÉ) érettségizett?"
+ques1_9="Hogy hívták első munkáltatóját?"
+ques2_0="Válasszon egy kérdést"
+ques2_1="Mi legfiatalabb húga keresztneve?"
+ques2_2="Mi legfiatalabb öccse keresztneve?"
+ques2_3="Mi édesapja második keresztneve?"
+ques2_4="Mi édesanyja második keresztneve?"
+ques2_5="Mi volt első főnöke keresztneve?"
+ques2_6="Melyik városban született az édesanyja?"
+ques2_7="Melyik városban született az édesapja?"
+ques2_8="Hogy hívják legjobb barátját?"
+
+info_signal_strength="Jelerősség"
+
+ca_15_repeater_24g_new="2,4 GHz-es kiterjesztett hálózat"
+ca_15_repeater_5g_new="5 GHz-es kiterjesztett hálózat"
+network_name="Hálózat neve"
+network_ssid="Hálózat neve (SSID):"
+wlan_ap_security="Biztonság:"
+sec_off="Nincs"
+
+lan_mark_ip="IP-cím"
+lan_mark_subnet="IP alhálózati maszk"
+lan_mark_gateway="Átjáró IP-címe"
+basic_int_primary_dns="Elsődleges DNS-kiszolgáló"
+basic_int_second_dns="Másodlagos DNS"
+
+sn_registered="Ez a gyári szám már regisztrálva van a rendszerünkben. Köszönjük, hogy regisztrálta a termékét!"
+check_answer_info="A megadott adatok nem egyeznek a routerben mentett adatokkal. Adja meg újra."
+email_tip="Az e-mail címet a rendszer a termék, illetve a my.netgear.com oldal ügyfélportálja rendszergazdájának neveként használja majd. Ha a my.netgear.com oldalon korábban hozott már létre fiókot, itt is ugyanazt a címet kell használnia."
+
+DFS_radar_mark=“Ez a DFS csatorna nem használható, mert a rendszer előzőleg észlelte a radart.”
+DFS_radar_mark0=" Váltson másik csatornára, vagy várjon "
+DFS_radar_mark1="perc "
+DFS_radar_mark2="másodperc ideig a csatorna használatára."
+
+
+
+orbi_satellite="Orbi Wall Plug műhold"
+ia_hijack_title="<span id="wallPlug_ia_hijack_title">Orbi Satellite egysége nem csatlakozik az Orbi hálózathoz.</span><span id="wallPlug_ia_hijack_title_wp">Orbi Wall Plug műholdja nem csatlakozik az Orbi hálózathoz</span>"
+ia_hijack_content1="Ennek legvalószínűbb oka a következő esetek egyike:<br>"
+ia_hijack_content2="<span id="wallPlug_ia_hijack_content2">&bull;Lehetséges, hogy túl távol van az Orbi hálózattól.<br></span><span id="wallPlug_ia_hijack_content2_wp">&bull;Előfordulhat, hogy Orbi Wall Plug műholdja túl messze van az Orbi routertől.<br></span>"
+ia_hijack_content3="<span id="wallPlug_ia_hijack_content3">Kérjük, kapcsolja ki a Satellite-et, hozza közelebb, majd kapcsolja vissza. Várjon 2 percet, hogy az Orbi Satellite teljesen elinduljon.<br></span><span id="wallPlug_ia_hijack_content3_wp">Kapcsolja ki az Orbi Wall Plug műholdat, vigye közelebb az Orbi routerhez, és kapcsolja be ismét. Várjon két percig, amíg az Orbi Wall Plug műhold csatlakozik az Orbi hálózathoz.<br></span>"
+ia_hijack_content4="<span id="wallPlug_ia_hijack_content4">&bull;Lehetséges, hogy Orbi Satellite egységének beállítása nem volt sikeres.<br></span><span id="wallPlug_ia_hijack_content4_wp">&bull;Előfordulhat, hogy Orbi Wall Plug műholdja nincs megfelelően beállítva.<br></span>"
+ia_hijack_content5="<span id="wallPlug_ia_hijack_content5">Ellenőrizze, hogy Orbi Router és Orbi Satellite egységei be vannak-e kapcsolva, nyomja meg a SYNC gombot mindkét egységen. A teljes beállításhoz várjon 2 percet.</span><span id="wallPlug_ia_hijack_content5_wp">Ellenőrizze, hogy az Orbi router és az Orbi Wall Plug műhold egyaránt be van-e kapcsolva, majd mindkét eszközön nyomja meg a <b>Sync</b> gombot. Várjon két percig, amíg az Orbi Wall Plug műhold csatlakozik az Orbi hálózathoz.</span>"
+

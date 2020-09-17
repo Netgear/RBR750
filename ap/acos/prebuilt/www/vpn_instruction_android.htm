@@ -26,6 +26,31 @@
     });
 
 //-->
+function ddns_check()
+{
+	var ddns_enable_check = "<%1108%>";
+	var openvpnEnable = "<%799%>";
+
+	var cf = document.forms[0];
+
+	if(openvpnEnable == "disable"){
+		alert("<%1162%>");
+		cf.openvpnActive.focus();
+		return false;
+	}
+
+	if(ddns_enable_check == 0){
+		alert("<%1163%>");
+	}
+
+	return true;
+}
+
+function change_location(new_location)
+{
+	window.location.href = new_location;
+	return true;
+}
 </script> 
 </head>
 <body  onload="change_size();" class="page-body" onResize="change_size();" >
@@ -36,7 +61,7 @@
 <form id="target" method="POST" action="">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1214%> </div>
+<div class="subhead2"> <%1221%> </div>
 
 <table border="0" style="height:370px" class="subhead2-table">
 <tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
@@ -44,13 +69,16 @@
 
 <TR>
 <TD>
+<BR><%1222%>
+<br>
 <BR><%1215%>
-<BR><%1207%>
-<BR><%1216%>
-<BR><%1217%>
-<BR><%1218%>  
-<BR><%1219%>
-<BR><%1213%>
+<BR><%1223%>
+<BR><%1224%>
+<br><button type="BUTTON" value="smartphone_zip" name="smartphone" id="smart_phone" class="button-common" onclick="buttonClick(this,'smartphone_zip'); if(!ddns_check()) return; change_location('smartphone.zip');"><%1170%></button>
+<BR><%1225%>
+<BR><%1226%>
+<br>
+<BR><%1220%>
 </TD>
 </TR>
 

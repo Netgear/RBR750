@@ -22,7 +22,7 @@
 <!--
 var isIE = document.all;
 var disable = false;
-var serv_array=[<%916%>];
+var serv_array=[<%925%>];
   
     $(document).ready(function()
     {	
@@ -91,7 +91,7 @@ function filterIPtype()
  }
  else if(sel==2)
  {
-<%917%>
+<%926%>
  }
 }
 function handlefilterLayout(){
@@ -127,38 +127,38 @@ function check_data()
  var txt,i,c;
 
  if(cf.portstart.value==""||cf.portend.value=="")
-    return alertR("<%918%>");
+    return alertR("<%927%>");
  txt=cf.portstart.value;
 
  for(i=0;i<txt.length;i++)
  {
    c=txt.charAt(i);
    if("0123456789".indexOf(c,0)<0)
-     return alertR("<%919%>");
+     return alertR("<%928%>");
  }
  txt=cf.portend.value;
  for(i=0;i<txt.length;i++)
  {
    c=txt.charAt(i);
    if("0123456789".indexOf(c,0)<0)
-     return alertR("<%920%>");
+     return alertR("<%929%>");
  }
  if(parseInt(cf.portstart.value,10)<1||parseInt(cf.portstart.value,10)>65535)
-   return alertR("<%919%>");
+   return alertR("<%928%>");
  if(parseInt(cf.portend.value,10)<1||parseInt(cf.portend.value,10)>65535)
-   return alertR("<%920%>"); 
+   return alertR("<%929%>"); 
  if(parseInt(cf.portend.value,10)<parseInt(cf.portstart.value,10))
-   return alertR("<%921%>");
+   return alertR("<%930%>");
  txt=cf.userdefined.value;
- if(txt==""|| txt.match(/[^A-Za-z0-9_]/))
-   return alertR("<%922%>");
+ if(txt==""|| txt.match(/[^A-Za-z0-9_ /()-]/))
+   return alertR("<%931%>");
 
  cf.portstart.value = parseInt(cf.portstart.value,10);
  cf.portend.value = parseInt(cf.portend.value,10);
 
  
- var str_lan_ip = "<%583%>";
- var str_lan_netmask = "<%818%>";
+ var str_lan_ip = "<%826%>";
+ var str_lan_netmask = "<%827%>";
  var lan_ip = str_lan_ip.split(".");
  var lan_netmask = str_lan_netmask.split(".");
  var lan_ipaddr = (lan_ip[0] << 24) | (lan_ip[1] << 16) | (lan_ip[2] << 8)| (lan_ip[3]);
@@ -188,7 +188,7 @@ function check_data()
 	cf.f_startip4.value = parseInt(cf.f_startip4.value,10);
  }
  if((sel==1)&&(cp_ip(cf.f_endip1,cf.f_endip2,cf.f_endip3,cf.f_endip4,cf.f_startip1,cf.f_startip2,cf.f_startip3,cf.f_startip4)==false)) 
-    return alertR("<%923%>");
+    return alertR("<%932%>");
  else if(sel==1)
  {
  	cf.f_endip1.value = parseInt(cf.f_endip1.value,10);
@@ -207,30 +207,30 @@ function check_data()
 <img class="body-image" src="<%75%>">
 <div id="full-page-container">
 
-<%924%>			
+<%933%>			
 	<form id="target"  name="formname" method="POST" action="fw_serv_add.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
-<%925%>			
-<%926%>			
+<%934%>			
+<%935%>			
 	<form name="formname" method="POST" action="pppoe2_fw_serv_add.cgi">
-<%927%>			
+<%936%>			
 		<div>
 			
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%928%></div>
+<div class="subhead2"> <%937%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
 &nbsp;&nbsp;&nbsp;
-<%924%>
+<%933%>
 <button type="button" name="cancel" id="cancel" value="<%83%>" onClick="buttonClick(this,'<%83%>'); location.href='BKS_service.htm';" class="button-cancel" ><%84%></button>
-<button type="submit" name="apply" id="add" value="<%913%>" onclick="buttonClick(this,'<%913%>'); return check_data();" class=<%79%> ><%913%></button>
-<%925%>
-<%926%>
+<button type="submit" name="apply" id="add" value="<%922%>" onclick="buttonClick(this,'<%922%>'); return check_data();" class=<%79%> ><%922%></button>
+<%934%>
+<%935%>
 <button type="button" name="cancel" id="cancel" value="<%83%>" onClick=" location.href='BKS_service_ppp2.htm';" class="button-common" ><%84%></button>
-<button type="submit" name="apply" id="add" value="<%913%>" onclick=" return check_data();" class=<%79%> ><%913%></button>
-<%927%>
+<button type="submit" name="apply" id="add" value="<%922%>" onclick=" return check_data();" class=<%79%> ><%922%></button>
+<%936%>
 </td>
 </tr>
 
@@ -244,32 +244,32 @@ function check_data()
 <table border ="0"   width="100%">
 
 <tr>
- <td width="50%"><%909%></td>
+ <td width="50%"><%918%></td>
 						
  <td width="50%"> 
  <select NAME="service_type" id="service_type" size="1" onchange="chg_by_service(0);">
- <%929%></select></td>
+ <%938%></select></td>
 </tr>
 <tr>
- <td width="50%"><%930%></td>
+ <td width="50%"><%939%></td>
  <td width="50%"> 
- <select name="protocol" id="protocol" size="1" onfocus="if(disable) this.blur();"><option value="TCP" selected><%931%></option><option value="UDP"><%932%></option><option value="TCP/UDP"><%933%></option></select>
+ <select name="protocol" id="protocol" size="1" onfocus="if(disable) this.blur();"><option value="TCP" selected><%940%></option><option value="UDP"><%941%></option><option value="TCP/UDP"><%942%></option></select>
 	</td>
 </tr>
 <tr>
- <td width="50%"><%934%></td>
+ <td width="50%"><%943%></td>
  <td width="50%"> 
  <input type="text" name="portstart" id="portstart" size="7" maxlength="5" value="" onfocus="if(disable) this.blur();">(1~65535)
 	</td>
 </tr>
 <tr>
- <td width="50%"><%935%></td>
+ <td width="50%"><%944%></td>
  <td width="50%"> 
  <input type="text" name="portend" id="portend" size="7" maxlength="5" value="" onfocus="if(disable) this.blur();">(1~65535)
 	</td>
 </tr>
 <tr>
- <td width="50%" nowrap><%936%>&nbsp;</td>
+ <td width="50%" nowrap><%945%>&nbsp;</td>
  <td width="50%"> 
  <input type="text" name="userdefined" id="userdefined" size="20" maxlength="30" value="" onfocus="if(disable) this.blur();">
  </td>
@@ -281,7 +281,7 @@ function check_data()
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-	<td colspan="2"><a href="javascript:loadhelp('BKS_service_add','ip')" tabindex="-1"><b><%937%> :</b></td>
+	<td colspan="2"><a href="javascript:loadhelp('BKS_service_add','ip')" tabindex="-1"><b><%946%> :</b></td>
 </tr>
 </table></td></tr>
 
@@ -290,32 +290,32 @@ function check_data()
 
 <tr>
  <td width="50%" align="left" valign="top" nowrap> 
- <input type="radio" name="iptype" id ="filter_ip_single" value="single" onclick="filterIPtype()"><%938%> :</td>
+ <input type="radio" name="iptype" id ="filter_ip_single" value="single" onclick="filterIPtype()"><%947%> :</td>
 	<td width="50%" align="left" nowrap>					
-			<input type="text" class="num IPSingle" name="f_pcip1" id="single_ipaddress1" size="4" maxlength="3" value="<%939%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPSingle" name="f_pcip2" id="single_ipaddress2" size="4" maxlength="3" value="<%940%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPSingle" name="f_pcip3" id="single_ipaddress3" size="4" maxlength="3" value="<%941%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPSingle" name="f_pcip1" id="single_ipaddress1" size="4" maxlength="3" value="<%948%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPSingle" name="f_pcip2" id="single_ipaddress2" size="4" maxlength="3" value="<%949%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPSingle" name="f_pcip3" id="single_ipaddress3" size="4" maxlength="3" value="<%950%>" onfocus="valid(this,0);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
 			<input type="text" class="num IPSingle" name="f_pcip4" id="single_ipaddress4" size="4" maxlength="3" value="" onfocus="valid(this,0);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
 </tr>		
 <tr>
 	<td width="50%" align="left" nowrap valign="top"><br>
-			<input type="radio" name="iptype" id="filter_ip_range" value="range_addr" onclick="filterIPtype()"><%942%>:</td>
+			<input type="radio" name="iptype" id="filter_ip_range" value="range_addr" onclick="filterIPtype()"><%951%>:</td>
 	<td width="50%" align="left" nowrap valign="top"><BR>
-			<input type="text" class="num IPRange" name="f_startip1" id="range_start_ipaddress1" size="4" maxlength="3" value="<%939%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPRange" name="f_startip2" id="range_start_ipaddress2" size="4" maxlength="3" value="<%940%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPRange" name="f_startip3" id="range_start_ipaddress3" size="4" maxlength="3" value="<%941%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_startip1" id="range_start_ipaddress1" size="4" maxlength="3" value="<%948%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_startip2" id="range_start_ipaddress2" size="4" maxlength="3" value="<%949%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_startip3" id="range_start_ipaddress3" size="4" maxlength="3" value="<%950%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
 			<input type="text" class="num IPRange" name="f_startip4" id="range_start_ipaddress4" size="4" maxlength="3" value="" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
 </tr>
 <tr>
-	<td width="50%" align="right"><%943%>&nbsp;</td>
+	<td width="50%" align="right"><%952%>&nbsp;</td>
 	<td width="50%" align="left" nowrap>
-			<input type="text" class="num IPRange" name="f_endip1" id="range_end_ipaddress1" size="4" maxlength="3" value="<%939%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPRange" name="f_endip2" id="range_end_ipaddress2" size="4" maxlength="3" value="<%940%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
-			<input type="text" class="num IPRange" name="f_endip3" id="range_end_ipaddress3" size="4" maxlength="3" value="<%941%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_endip1" id="range_end_ipaddress1" size="4" maxlength="3" value="<%948%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_endip2" id="range_end_ipaddress2" size="4" maxlength="3" value="<%949%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
+			<input type="text" class="num IPRange" name="f_endip3" id="range_end_ipaddress3" size="4" maxlength="3" value="<%950%>" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
 			<input type="text" class="num IPRange" name="f_endip4" id="range_end_ipaddress4" size="4" maxlength="3" value="" onfocus="valid(this,1);" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
 </tr>
 <tr>
-	<td colspan="2"><input type="radio" name="iptype" id="filter_ip_all" checked value="all" onclick="filterIPtype()"><%944%></td>
+	<td colspan="2"><input type="radio" name="iptype" id="filter_ip_all" checked value="all" onclick="filterIPtype()"><%953%></td>
 </tr>
 
 

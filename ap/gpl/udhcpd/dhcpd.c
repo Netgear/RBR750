@@ -74,6 +74,143 @@ static void signal_handler(int sig)
 	}
 }
 
+static void fing_format_dhcp_option_string(struct dhcpMessage* packet, char* out_str, unsigned int len)
+{
+    int i, length, option55Req = 0;
+    unsigned char *optionptr;
+    int over = 0, done = 0, curr = OPTION_FIELD;
+
+    optionptr = packet->options;
+    i = 0;
+    /* foxconn modified start, zacker, 09/18/2009, @big_size_pkt */
+    //length = 308;
+    /* Foxconn modified start pling 05/11/2012 */
+    /* Fix a DHCP server crash issue:
+     * DHCP server packet was not modified to receive large size packet.
+     * So we only check options for LEN_OPTIONS long.
+     */
+    if (packet->op == BOOTREQUEST)
+        length = LEN_OPTIONS;
+    else
+        length = LEN_OPTIONS + LEN_PADDING;
+    /* Foxconn modified end pling 05/11/2012 */
+    /* foxconn modified end, zacker, 09/18/2009, @big_size_pkt */
+    while (!done) {
+        if (i >= length) {
+            LOG(LOG_WARNING, "bogus packet, option fields too long.");
+            return;
+        }
+#if 0
+        if (optionptr[i + OPT_CODE] == code) {
+            if (i + 1 + optionptr[i + OPT_LEN] >= length) {
+                LOG(LOG_WARNING, "bogus packet, option fields too long.");
+                return NULL;
+            }
+            return optionptr + i + 2;
+        }	
+#endif
+
+        switch (optionptr[i + OPT_CODE]) {
+            case DHCP_PADDING:
+                i++;
+                break;
+                /* Foxconn Harry added start 2020/04/20, Following the Fing team's request, we just need to collect the option 55 parameters */
+            case DHCP_PARAM_REQ:
+                for (option55Req = 1; option55Req <= optionptr[i + OPT_LEN]; option55Req++) {        
+                    if(strlen(out_str)+5>len)
+                        return;
+                    else
+                    {
+                        char buf[16];
+                        if(strlen(out_str)>0)
+                            strcat(out_str, ",");
+                        snprintf(buf, sizeof(buf), "%d", optionptr[i + OPT_LEN + option55Req]);
+                        strcat(out_str, buf);
+                    }
+                }
+                i += optionptr[OPT_LEN + i] + 2;
+                break; 
+                /* Foxconn Harry added start 2020/04/20, Following the Fing team's request, we just need to collect the option 55 parameters */
+            case DHCP_OPTION_OVER:
+                if (i + 1 + optionptr[i + OPT_LEN] >= length) {
+                    LOG(LOG_WARNING, "bogus packet, option fields too long.");
+                    return;
+                }
+                over = optionptr[i + 3];
+                i += optionptr[OPT_LEN] + 2;
+                break;
+            case DHCP_END:
+                if (curr == OPTION_FIELD && over & FILE_FIELD) {
+                    optionptr = packet->file;
+                    i = 0;
+                    length = 128;
+                    curr = FILE_FIELD;
+                } else if (curr == FILE_FIELD && over & SNAME_FIELD) {
+                    optionptr = packet->sname;
+                    i = 0;
+                    length = 64;
+                    curr = SNAME_FIELD;
+                } else done = 1;
+                break;
+            default:
+                i += optionptr[OPT_LEN + i] + 2;
+        }
+    }
+    return;
+}
+
+static void fing_write_client_info2file(struct dhcpMessage* packet, struct dhcpOfferedAddr *lease)
+{
+    FILE *fp;
+    char path[64];
+    unsigned char mac[6];
+    char dhcp_option_str[128];
+    struct in_addr client_ip;
+    //char client_ip_str[32];
+    char buf[512];
+    unsigned char* hostname = NULL;
+    unsigned char* vendor = NULL;
+    char vendor_buf[256] = {0};
+    char hostname_buf[256] = {0};
+
+    memcpy(mac, &lease->chaddr[0], 6);
+    sprintf(path,"/tmp/dhcp_info_for_fing/%.2X:%.2X:%.2X:%.2X:%.2X:%.2X",
+            mac[0], mac[1], mac[2],
+            mac[3], mac[4], mac[5]);
+    if (!(fp = fopen(path, "w")))
+    {
+        DEBUG(LOG_WARNING,"cant no open %s",path);
+    }
+    if(fp)
+    {
+        client_ip.s_addr = lease->yiaddr;
+        snprintf(buf, sizeof(buf)-1, "ip %s\n", inet_ntoa(client_ip));
+        fputs(buf, fp);
+        memset(dhcp_option_str, 0, sizeof(dhcp_option_str));
+        fing_format_dhcp_option_string(packet, dhcp_option_str, sizeof(dhcp_option_str));
+        snprintf(buf, sizeof(buf)-1, "params %s\n", dhcp_option_str);
+        fputs(buf, fp);
+        //fwrite(dhcp_option_str, sizeof(dhcp_option_str), 1, fp);
+        vendor = get_option(packet, DHCP_VENDOR);
+        if(vendor)
+        {
+            strncpy(vendor_buf, (char*)vendor, vendor[-1]);
+            snprintf(buf, sizeof(buf)-1, "vendor %s\n", vendor_buf);
+            fputs(buf, fp);
+        }
+        hostname = get_option(packet, DHCP_HOST_NAME);
+        if(hostname)
+        {
+            strncpy(hostname_buf, (char*)hostname, hostname[-1]);
+            snprintf(buf, sizeof(buf)-1, "hostname %s\n", hostname_buf);
+            fputs(buf, fp);
+        }
+        fclose(fp);
+    } 
+
+}
+
+
 #ifdef COMBINED_BINARY	
 int udhcpd_main(int argc, char *argv[])
 #else
@@ -102,7 +239,8 @@ int main(int argc, char *argv[])
 
     sprintf(cmd,"mkdir /tmp/dhcp_device_release");
     system(cmd);
-    
+    mkdir("/tmp/dhcp_info_for_fing", 0777);
+
 	memset(&server_config, 0, sizeof(struct server_config_t));
 	
 	if (argc < 2)
@@ -314,7 +452,8 @@ int main(int argc, char *argv[])
                 {
                     fwrite(lease->chaddr, 16, 1, fp);
                     fclose(fp);
-                }   
+                }
+                fing_write_client_info2file(&packet, lease);
                 write_leases(); /*Rewrite lease table into file.*/
 			
 			/* what to do if we have no record of the client */

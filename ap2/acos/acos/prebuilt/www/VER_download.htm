@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%664%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="fwUpdate postSetup twoColumns" onLoad="wait1();">
+        <%410%>
+        
+      <div class="container sliderWrap">
+        <%1150%>
+        
+        <div id="slider">
+          <div class="main clearfix">
+
+          <h1><%664%></h1>
+
+            <form id="target" name="mainForm" method="POST" action="ver_download.cgi">
+            <ul class="formElements">
+              <li><hr></li>
+              <li>
+                <p class="instruction"><b><%1151%></b></p>
+              </li>
+              <li><hr></li>
+            </ul>
+
+            <div class="formButtons bottom">
+              <div class="mobileFooter">
+                <div class="mobileCenterButtons">
+                  <div>
+                    <input class="btn primary" type="button" name="cancel_dl_bt" id="cancelDlBt" value="<%488%>" onClick="stop1();">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="stop" value="no">
+            <input type="hidden" name="menu_top_hide" value="no">
+            </form>
+        </div> <!-- end main -->
+          <%440%>
+          <%441%>
+        </div> 
+        
+      </div> <!-- end container -->
+    
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+      <!--
+        function do_submit(){
+            document.forms["mainForm"].submit();
+        }
+
+        function wait1()
+        {
+            setTimeout('do_submit()',2000);
+        }
+
+        function stop1()
+        {
+            document.forms["mainForm"].stop.value = "yes";
+            document.forms["mainForm"].submit();
+        }
+      //-->
+      </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<html><head>
+<%0%>
+<title>NETGEAR <%647%></title>
+<script language="javascript" type="text/javascript">
+
+/**
+ * note: conditional comments has been removed in Internet Explorer 10
+ */
+var ie = (function(){
+    var undef,
+        v = 3,
+        div = document.createElement('div'),
+        all = div.getElementsByTagName('i');
+
+    while (
+        div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+        all[0]
+    );
+
+    return v > 4 ? v : undef;
+
+}());
+
+function checkBrowser() {
+    if (ie && ie < 8)
+        return true;
+
+    return false;
+}
+
+function loadnext() {
+    var showit=(document.layers)?"show":"block";
+    var hideit=(document.layers)?"hide":"none";
+    var el = "alltext";
+    var is_repeater="<%974%>";
+	var is_orbi_wp="<%975%>";
+    var url = "";
+    
+    if (document.all)
+        document.all(el).style.display = hideit ;
+    else if (document.getElementById)
+        document.getElementById(el).style.display = hideit ;
+    else if (document.layers)
+        document.layers[el].visibility = hideit ;
+
+    if (checkBrowser())
+    {
+        document.getElementById("header_str").innerHTML = "<h4><%976%></h4>";
+        return;
+    }
+    
+	if(is_orbi_wp == "1")
+	{
+        /* remove path part of the location url: index.htm should be in the root folder */
+        url = "http://"+top.location.host+"/";
+        if (top.location.pathname.length > 0 && top.location.pathname.indexOf("/", 1) > 0)
+        {
+            top.location.replace(url);
+        }
+        
+        if("<%977%>" == "1")
+            top.location.replace(url + "IA_hijack.htm");
+		else
+			top.location.replace(url + "start.htm");
+		
+		return;
+	}
+	
+    if(is_repeater == "1")
+    {
+        /* remove path part of the location url: index.htm should be in the root folder */
+        url = "http://"+top.location.host+"/";
+        if (top.location.pathname.length > 0 && top.location.pathname.indexOf("/", 1) > 0)
+        {
+            top.location.replace(url);
+        }
+    }
+    
+    if("<%957%>" == "1")
+    {
+        if ("<%978%>" != "1") {
+            top.location.replace(url + "web_login.html");
+        } else if (is_repeater == "1") {
+            if(("1" == "<%979%>") 
+                && ("WW" == "<%980%>"
+                    || "" == "<%980%>"))
+                top.location.replace(url + "IA_welcome.htm");
+            else if ("<%981%>" == "3")
+            {
+                top.location.replace(url + "IA_review_setting.htm");
+            }
+            else
+                top.location.replace(url + "IA_index.htm");
+        } else if ("<%982%>" == "1")
+            top.location.replace("welcome.htm");
+        else
+            top.location.replace("start.htm");
+    }
+    else if (is_repeater == "1")
+    {
+        if ("<%981%>" == "3")
+        {
+            top.location.replace(url + "IA_review_setting.htm");
+        }
+        else if ("<%983%>" == "Disable")
+            top.location.replace(url + "IA_sche_hijack.htm");
+        else if("<%977%>" == "1")
+            top.location.replace(url + "IA_hijack.htm");
+        else
+            top.location.replace(url + "start.htm");
+    }
+    else if ("<%984%>" == "1")
+        top.location.replace(url + "start.htm");
+    else if ("<%985%>" == "1" || 
+             "<%985%>" == "3")
+        top.location.replace(url + "traffic_start_update.htm");
+    else
+        top.location.replace("start.htm"); 
+}
+</script></head>
+<body bgcolor="#ffffff" text="#666666" onload="loadnext()"> 
+  <font face="Arial,Helvetica">
+    <div id="header_str" STYLE="position:absolute;left:20px;top:50px;">
+    </div>
+    <div ID="alltext" STYLE="position:absolute;left:50px;top:200px;">
+    <h4><%986%></h4>
+    <p><%987%>
+    <P><%988%>
+    <P><%989%></p>
+    </div>
+  </font>
+</body>
+</html>
+

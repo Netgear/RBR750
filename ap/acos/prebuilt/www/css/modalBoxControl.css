@@ -59,7 +59,10 @@
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 2px 16px;
+    height: 370px;
+}
 
 .modal-footer {
     padding: 2px 16px;
@@ -136,4 +139,81 @@
     margin-left: 112px;
     margin-top: 20px;
     margin-bottom: 5px;
+}
+.modalButton-armor-QR{
+    font-family:Avenir-Medium;
+    font-size:12px;
+    color:#fff;
+    letter-spacing:-0.4px;
+    text-align:center;
+}
+
+.modalButton-armor{
+    width:60%;
+    border-radius:5px;
+    height:50px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:51px;
+    margin-top:10px;
+    margin-bottom:40px;
+    cursor:pointer;
+    font-family:Avenir-Book;
+    font-size:14px;
+    color:#94c2d9;
+    letter-spacing:-0.47px;
+}
+.modalButton-armor-done{
+    width:60%;
+    border-radius:5px;
+    height:50px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:51px;
+    margin-top:10px;
+    margin-bottom:40px;
+    font-family:Avenir-Book;
+    font-size:14px;
+    color:#fff;
+    letter-spacing:-0.47px;
+    text-align:center
+}
+.modalButton-armor:hover,
+.modalButton-armor:focus{
+    background:rgba(255,255,255,0.09) none repeat scroll !important;
+    background:#fff;filter:Alpha(opacity=9);
+    color:#81b5d0;
+    border-radius:2px;
+    font-family:Avenir-Book;
+    font-size:14px;
+    letter-spacing:-0.47px
+}
+.modal-content-armor{
+    min-height:524px;
+    min-width:576px;
+    background:url(../img/armor_Background.png) no-repeat;
+    background-size:cover;
+    margin: auto;
+    width: 40%;
+}
+.armor-close{
+    width:25px;
+    height:25px;
+    border:1px;
+    float:right
+}
+.armor-close:hover,
+.armor-close:focus{
+    background:rgba(255,255,255,0.09) none repeat scroll !important;
+    background:#fff;filter:Alpha(opacity=9);
+    border-radius:2px;width:25px;
+    height:25px
+}
+.modalBox-title_armor{
+    color:#fff;
+    font-size:21px;
+    text-align:center;
+    font-family:Avenir-Book;
+    margin-top:45px
 }

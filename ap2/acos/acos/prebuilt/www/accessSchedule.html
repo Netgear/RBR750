@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<%0%>
+		<title><%683%></title>
+		<link rel="stylesheet" href="styles/main.css">
+		<%2%>
+	</head>
+  <body class="accessSchedule postSetup twoColumns">
+
+		<%410%>
+		
+	  <div class="container sliderWrap">
+	    
+	    <%706%>
+	    
+	    <div id="slider">
+	      <div class="main clearfix">
+	      
+	      
+	      <h1><%683%></h1>
+	      
+	      <p><%707%> <b><%708%></b> <a class='tipLink' id="learnMore"><%5%></a></p>
+	      
+        <form id="accessScheduleForm" name="accessScheduleForm" action="access_sche.cgi" method="post" target="" autocomplete="off">
+            
+          <ul class="formElements">
+            <li><hr /></li>
+            <li class="elementsInline">
+              <label><input type="radio" id="asOn" name="onoff" value="asOn" checked><%709%></label>
+              <label><input type="radio" id="asOff" name="onoff" value="asOff"><%710%></label>
+            </li>
+            <li><hr /></li>
+          </ul>
+            
+        <div id="scheduleWrap">
+            <ul class="formElements daysAndTime">
+              <li>
+                <label for="scheduledDays"><%711%></label>
+                <select id="scheduledDays" name="scheduled_days">
+                	<option value="everyday"><%712%></option>
+                	<option value="selectdays"><%713%></option>
+                	<option value="weekdays"><%714%></option>
+                	<option value="weekend"><%715%></option>
+                </select>
+              </li>
+              <li>
+                <label for="scheduledTimes"><%716%></label>
+                <select id="scheduledTimes" name="scheduled_times">
+                	<option value="sameTime"><%717%></option>
+                	<option value="selectTimes"><%718%></option>
+                </select>
+              </li>
+            </ul>
+            <hr />
+            
+	          <ul class="formElements selectDays">
+              <li class="alldays">
+                <div class="timeSelection">
+                  <div> 
+	                  <label><input type="radio" class="allDay" id="allDays" name="all_days" value="allDays" tabindex="" checked><%719%></label>
+	                  <label><input type="radio" class="selectTimesForDay" id="allFrom" name="all_days" value="allFrom" tabindex="" ><%720%></label>
+	                  <input class="timePicker" type="text" value="" id="allFromTime" name="all_from_time" disabled /> <strong><%721%></strong> 
+	                  <input class="timePicker" type="text" value="" id="allToTime" name="all_to_time" disabled />
+	                </div>
+                </div>  
+              </li>
+              <li class="weekday">
+                <div class="daySelection">  
+                  <label><input type="checkbox" id="mon" name="mon" value="mon" tabindex="" ><%722%></label>
+                </div>
+                <div class="timeSelection"> 
+                  <label><input type="radio" class="allDay" id="monAllDay" name="monTimes" value="monAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="monFrom" name="monTimes" value="monFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="monFromTime" name="monFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="monToTime" name="monToTime" disabled />  
+                </div>  
+              </li>
+              <li class="weekday">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="tue" name="tue" value="tue" tabindex="" ><%723%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="tueAllDay" name="tueTimes" value="tueAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="tueFrom" name="tueTimes" value="tueFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="tueFromTime" name="tueFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="tueToTime" name="tueToTime" disabled />
+                </div>  
+              </li>
+              <li class="weekday">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="wed" name="wed" value="wed" tabindex="" ><%724%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="wedAllDay" name="wedTimes" value="wedAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="wedFrom" name="wedTimes" value="wedFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="wedFromTime" name="wedFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="wedToTime" name="wedToTime" disabled />
+                </div>
+              </li>
+              <li class="weekday">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="thu" name="thu" value="thu" tabindex="" ><%725%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="thuAllDay" name="thuTimes" value="thuAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="thuFrom" name="thuTimes" value="thuFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="thuFromTime" name="thuFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="thuToTime" name="thuToTime" disabled />
+                </div>
+              </li>
+              <li class="weekday">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="fri" name="fri" value="fri" tabindex="" ><%726%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="friAllDay" name="friTimes" value="friAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="friFrom" name="friTimes" value="friFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="friFromTime" name="friFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="friToTime" name="friToTime" disabled />
+                </div>
+              </li>
+              <li class="weekend">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="sat" name="sat" value="sat" tabindex="" ><%727%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="satAllDay" name="satTimes" value="satAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="satFrom" name="satTimes" value="satFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="satFromTime" name="satFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="satToTime" name="satToTime" disabled />
+                </div> 
+              </li>
+              <li class="weekend">
+                <div class="daySelection">
+                  <label><input type="checkbox" id="sun" name="sun" value="sun" tabindex="" ><%728%></label>
+                </div>
+                <div class="timeSelection">
+                  <label><input type="radio" class="allDay" id="sunAllDay" name="sunTimes" value="sunAllDay" tabindex="" checked><%719%></label>
+                  <label><input type="radio" class="selectTimesForDay" id="sunFrom" name="sunTimes" value="sunFrom" tabindex="" ><%720%></label>
+                  <input class="timePicker" type="text" value="" id="sunFromTime" name="sunFromTime" disabled /> <strong><%721%></strong> 
+                  <input class="timePicker" type="text" value="" id="sunToTime" name="sunToTime" disabled />
+                </div>  
+              </li>
+            </ul>
+          
+          <div class="tableControl">
+            <a id="addBt" class="btn roundCorners controlBtn"><span><%729%></span></a>
+          </div>
+          
+          <div>
+            <ul class="formElements">
+              <h3><label><%730%></label></h3>
+              <hr />
+              <p><%731%></p>
+            </ul>
+            <table id="schTimeTb" name="sch_time_tb" class="devicesList roundCorners">
+              <thead>
+                <tr>
+                  <th><%720%></th>
+                  <th><%732%></th>
+                  <th><%711%></th>
+                  <th><%733%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%734%>
+              </tbody>
+            </table>
+          </div>
+          
+          <div id="scheduleTime">
+            <ul class="formElements" style="display:block">
+              <h3><label><%735%></label></h3>
+              <hr />
+              <p><%736%> <%737%></p>
+              <li class="elementsInline">
+              <label><input type="radio" id="autoClock" name="sys_clock" value="auto" checked><%738%></label>
+              <label><input type="radio" id="manualClock" name="sys_clock" value="manual"><%739%></label>
+              </li>
+            </ul>
+            <ul id="sysClockAuto" class="formElements" style="display:none">
+              <label for="ntpTime"><%740%>:</label><span id="ntp_time"><%741%></span>
+            </ul>
+            <ul id="sysClockManual" class="formElements" style="display:none">
+              <label for="synchDate"><%742%>:</label> <input class="synchDateTime datePicker" type="text" value="" id="synchDate" name="synch_date" readonly /> 
+              <label for="synchTime"><%716%>:</label> <input class="synchDateTime timePicker" type="text" value="" id="synchTime" name="synch_time" />
+              <a id="sync_clock"><%743%></a>
+            </ul>
+          </div>
+        </div>
+          <div id="scheduleTimeZone">
+            <h3><%744%></h3>
+            <hr />
+            <ul class="formElements">
+              <li>
+                <select id="timeZone" name=time_zone size=1>
+                  <OPTION value=-12><%745%></OPTION>
+                  <OPTION value=-11><%746%></OPTION>
+                  <OPTION value=-10><%747%></OPTION>
+                  <OPTION value=-9><%748%></OPTION>
+                  <OPTION value=-8><%749%></OPTION>
+                  <OPTION value=-7><%750%></OPTION>
+                  <OPTION value=-6><%751%></OPTION>
+                  <OPTION value=-5><%752%></OPTION>
+                  <OPTION value=-4><%753%></OPTION>
+                  <OPTION value=-35><%754%></OPTION>
+                  <OPTION value=-3><%755%></OPTION>
+                  <OPTION value=-2><%756%></OPTION>
+                  <OPTION value=-1><%757%></OPTION>
+                  <OPTION value=0><%758%></OPTION>
+                  <OPTION value=1><%759%></OPTION>
+                  <OPTION value=2><%760%></OPTION>
+                  <OPTION value=3><%761%></OPTION>
+                  <OPTION value=4><%762%></OPTION>
+                  <OPTION value=5><%763%></OPTION>
+                  <OPTION value=55><%764%></OPTION>
+                  <OPTION value=6><%765%></OPTION>
+                  <OPTION value=7><%766%></OPTION>
+                  <OPTION value=8><%767%></OPTION>
+                  <OPTION value=9><%768%></OPTION>
+                  <OPTION value=10><%769%></OPTION>
+                  <OPTION value=11><%770%></OPTION>
+                  <OPTION value=12><%771%></OPTION>
+                  <OPTION value=13><%772%></OPTION>
+                </SELECT>
+              </li>
+              <li>
+                <label><input type="checkbox" id="adjust" name="adjust" value="adjust"><%773%></label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="formButtons bottom">
+            <div class="mobileFooter">
+              <div class="mobileCenterButtons">
+                <div>
+                    <input class="btn primary" name="save_bt" id="saveBt" type="button" value="<%528%>">
+                    <input class="btn secondary" name="reset_bt" id="resetBt" type="button" value="<%529%>">
+              	</div>
+            	</div>
+          	</div>
+          </div>
+	    	      
+	      </form>
+	    					
+	    </div> <!-- end main -->
+	      <%440%>
+	      <%441%>
+	    </div> 
+	    
+	  </div> <!-- end container -->
+	
+	  <script src="scripts/jquery.min.js"></script>
+	  <script src="scripts/jquery.timepicker.min.js"></script>
+	  <script src="scripts/date.js"></script>
+	  <script src="scripts/datepicker.js"></script>
+	  <script src="scripts/main.js"></script>
+          <script type="text/javascript">
+      $.noConflict();
+      jQuery(document).ready(function($) {
+        var msgStr = "<%774%>";
+        $('.tipLink').data('msg', msgStr);
+        
+        //need consider DST case
+        function getRealTimezoneOffset() {
+          var tmpDate = new Date();
+          var midSummer;
+          var midWinner;
+          var curYear = tmpDate.getUTCFullYear();
+          midWinner = new Date(curYear,11,22);
+          midSummer = new Date(curYear,5,22);
+        
+          //return the bigger one, it's real timezone
+          if (midWinner.getTimezoneOffset() > midSummer.getTimezoneOffset())
+            return midWinner.getTimezoneOffset();
+          else
+            return midSummer.getTimezoneOffset();
+        }
+        //Check if the DST is on
+        function isDSTon() {
+          var tmpDate = new Date();
+          var midSummer;
+          var midWinner;
+          var curYear = tmpDate.getUTCFullYear();
+          midWinner = new Date(curYear,11,22);
+          midSummer = new Date(curYear,5,22);
+        
+          //return the bigger one, it's real timezone
+          if (midWinner.getTimezoneOffset() == midSummer.getTimezoneOffset())
+            return false;
+          else
+            return true;
+        }
+        //DST will bigger than non-DST time
+        function compareDST(minute1, minute2, ascending){
+          var tmpDate1 = new Date();
+          var tmpDate2 = new Date();
+          tmpDate1.setTime(minute1*60000);
+          tmpDate2.setTime(minute2*60000);
+          var ret;
+          
+          if (ascending == 1)
+            ret = -(tmpDate1.getTimezoneOffset() - tmpDate2.getTimezoneOffset());
+          else
+            ret = (tmpDate1.getTimezoneOffset() - tmpDate2.getTimezoneOffset());
+          return ret;
+        }
+        //Detect DST start and end time, will use it later
+        function DetDST(start, year_offset){
+          var tmpDate = new Date();     
+          var midSummer;
+          var midWinner;
+          var curYear = tmpDate.getUTCFullYear();
+          var tmpMinute;
+          var targetMinute;
+          var tmpMinuteStart;
+          var tmpMinuteEnd;
+          var tmpMilliSecond;
+          var tmpMilliSecond2;
+          var i_loop;
+          var isAscending = 1;
+          var ret;
+          var ret2;
+          
+          midWinner = new Date(curYear-1+year_offset,11,22);
+          midSummer = new Date(curYear+year_offset,5,22);
+          midWinner2 = new Date(curYear+year_offset,11,22);
+          
+          tmpMilliSecond = tmpDate.getTime();
+          
+          tmpMinuteStart = midWinner.getTime()/60000;
+          tmpMinuteEnd = midSummer.getTime()/60000;
+          
+          ret = compareDST(tmpMinuteEnd, tmpMinuteStart, 1);
+          
+          //alert(ret);
+        
+          if (ret > 0)
+          {
+            isAscending = 1;
+          }
+          else if (ret < 0)
+          {
+            isAscending = 0;
+          }
+          else
+            return;
+            
+          if (start != isAscending)
+          {
+            tmpMinuteStart = midSummer.getTime()/60000;
+            tmpMinuteEnd = midWinner2.getTime()/60000;
+            
+            ret = compareDST(tmpMinuteEnd, tmpMinuteStart, 1);
+          
+            if (ret > 0)
+            {
+              isAscending = 1;
+            }
+            else if (ret < 0)
+            {
+              isAscending = 0;
+            }
+            else
+              return;
+          }
+            
+          targetMinute = tmpMinuteEnd;
+          //alert(isAscending);
+        
+          for (i_loop=0; i_loop<30; i_loop++)
+          {
+            tmpMinute = parseInt((tmpMinuteStart+tmpMinuteEnd)/2);
+            ret = compareDST(tmpMinute, targetMinute, isAscending);
+            if (ret > 0)
+            {
+              tmpMinuteEnd = tmpMinute-1;
+            }
+            else if (ret < 0)
+            {
+              tmpMinuteStart = tmpMinute+1;
+            }
+            else //==
+            {
+              tmpMinuteEnd = tmpMinute-1;
+            }
+            
+            if (tmpMinuteStart == tmpMinuteEnd)
+            {
+              ret2 = compareDST(tmpMinuteStart, targetMinute, isAscending);
+              if (ret2==0)
+              {
+                //find use tmpMinuteStart;
+                tmpDate.setTime(tmpMinuteStart*60000);
+                break;//return tmpMinuteStart; 
+              }
+              else if (ret == 0)
+              {
+                //find use tmpMinute;
+                tmpDate.setTime(tmpMinute*60000);
+                break;//return tmpMinute; 
+              }
+              else if (ret2 > 0)
+              {
+                //fail;
+                tmpMinuteStart = tmpMinuteStart-1;
+                tmpDate.setTime(tmpMinuteStart*60000);
+                if (compareDST(tmpMinuteStart, targetMinute, isAscending) != 0)
+                  alert("fail");
+                break;//return tmpMinute;
+              }
+              else //ret2 < 0
+              {
+                //fail;
+                tmpMinuteStart = tmpMinuteStart+1;
+                tmpDate.setTime(tmpMinuteStart*60000);
+                //alert("fail");
+                if (compareDST(tmpMinuteStart, targetMinute, isAscending) != 0)
+                  alert("fail");
+                break;//return tmpMinute;
+              }
+            }
+            //tmpDate.setTime(tmpMinuteStart*60000);
+          }
+          //alert (i_loop);
+          alert (tmpDate.toString());
+          
+          return tmpMilliSecond; 
+        }
+
+        function show_page() {
+          var selectDays     = $('.selectDays'),
+          allDays        = selectDays.find('li'),
+          weekDays       = selectDays.find('.weekday'),
+          weekEnd        = selectDays.find('.weekend'),
+          selectTimes    = $('.timeSelection'),
+          scheduledTimes = $('#scheduledTimes'),
+          timesPerDay    = $('.timesPerDay');
+          var def_ntpsynced = "<%775%>";
+          
+          if (($("#autoClock").prop('checked')) ||
+              ($("#manualClock").prop('checked') && $('#synchTime').val() != "" && $('#synchDate').val() != ""))
+          {
+            //$(".daysAndTime").find("select").prop('disabled', false);
+            //$(".selectDays").find(":checkbox").prop('disabled', false);
+            //$(".selectDays").find(":radio").prop('disabled', false);
+            //$(".selectDays").find(":input").prop('disabled', false);
+            //$('#asOn').prop('disabled', false);
+            //$('#asOff').prop('disabled', false);
+            $('.primary').prop('disabled', false);
+          }
+          
+          /* show/hide/disable/enable objects */
+          $(".allDay").each(function() {
+            if($(this).prop('checked'))
+                $(this).parents('li').find(':text').val("").prop('disabled', true);
+            else
+                $(this).parents('li').find(':text').prop('disabled', false);
+          });
+          
+          $(".daySelection").each(function(){
+            if($(this).find(':checkbox').prop('checked'))
+                $(this).siblings(".timeSelection").css('visibility', 'visible');
+            else
+                $(this).siblings(".timeSelection").css('visibility', 'hidden');
+          });
+          
+          // days selections
+          var selectIndex = $('#scheduledDays').val();
+          switch (selectIndex) {
+            
+          case 'everyday':
+            // disable days select
+            scheduledTimes.prop('disabled', true);
+            scheduledTimes.val('sameTime');
+            
+            weekDays.hide();
+            weekEnd.hide();
+            break;
+          
+          case 'selectdays':
+            scheduledTimes.prop('disabled', false);
+            weekDays.show();
+            weekEnd.show();
+            break;
+            
+          case 'weekdays':
+            // enable the days select
+            scheduledTimes.prop('disabled', false);
+            weekDays.show();
+            weekEnd.hide();
+            break;
+            
+          case 'weekend':
+            // enable the days select
+            scheduledTimes.prop('disabled', false);
+            weekEnd.show();
+            weekDays.hide();
+            break;
+          }
+          
+          // time selections
+          if (scheduledTimes.val() === 'selectTimes') {
+            selectDays.find('.alldays').hide();
+          }
+          else {
+            selectDays.find('.alldays').show();
+            weekDays.find('.timeSelection').css('visibility', 'hidden');
+            weekEnd.find('.timeSelection').css('visibility', 'hidden');
+          }
+          
+          if ($("#asOff").prop('checked')) {
+            $('#scheduleWrap').slideUp();
+            $('.primary').prop('disabled', false);
+          } else {
+            $('#scheduleWrap').slideDown();
+            
+            if (($("#manualClock").prop('checked') && ($('#synchTime').val() == "" || $('#synchDate').val() == "")))
+            {
+              //$(".daysAndTime").find("select").prop('disabled', true);
+              //$(".selectDays").find(":checkbox").prop('disabled', true);
+              //$(".selectDays").find(":radio").prop('disabled', true);
+              //$(".selectDays").find(":input").prop('disabled', true);
+              //$('#asOn').prop('disabled', true);
+              //$('#asOff').prop('disabled', true);
+              $('.primary').prop('disabled', true);
+            }
+            else
+              $('.primary').prop('disabled', false);
+          }
+          
+          if ($("#manualClock").prop('checked'))
+          {
+            //$('.datePicker').dpSetDisabled(false);
+            //$('#synchTime').prop('disabled', false);
+            //$('#synchDate').prop('disabled', false);
+            //$("#sync_clock").css('visibility', 'visible');
+            
+            $('#sysClockAuto').hide();
+            $('#sysClockManual').show();
+          }
+          else
+          {
+            //$('.datePicker').dpSetDisabled(true);
+            //$('#synchTime').prop('disabled', true);
+            //$('#synchDate').prop('disabled', true);
+            //$("#sync_clock").css('visibility', 'hidden');
+            
+            $('#sysClockManual').hide();
+            $('#sysClockAuto').show();
+          }
+        }
+        
+        function init_page() {
+          /* load old settings */
+          var def_onoff = "<%776%>";
+          var def_scheduledDays = "<%777%>";
+          var def_scheduledTimes = "<%778%>";
+          var def_timezone = "<%779%>";
+          var def_daylightsaving = "<%780%>";
+          var def_ntpsynced = "<%775%>";
+          var tmp;
+            
+          /* set value */
+          if (def_onoff === "Enable")
+            $("#asOn").prop('checked', true);
+          else
+            $("#asOff").prop('checked', true);
+          
+          //tmp = "#scheduledDays option[value='"+def_scheduledDays+"']";
+          //if ($(tmp).length>0)
+          //    $("#scheduledDays").val(def_scheduledDays);
+          
+          //tmp = "#scheduledTimes option[value='"+def_scheduledTimes+"']";
+          //if ($(tmp).length>0)
+          //    $("#scheduledTimes").val(def_scheduledTimes);
+          
+          tmp = "#timeZone option[value='"+def_timezone+"']";
+          if ($(tmp).length>0)
+            $("#timeZone").val(def_timezone);
+          
+          if (def_daylightsaving === "1")
+            $("#adjust").prop('checked', true);
+          else
+            $("#adjust").prop('checked', false);
+          
+          //set default value
+          $(".allDay").prop('checked', true);          
+          $(".selectDays").find(':text').val("").prop('disabled', true);
+          
+          if (0) //($("#scheduledTimes").val() === 'sameTime')
+          {
+            $("#allFrom")[0].checked = <%781%>;
+            $("#allFromTime")[0].value = "<%782%>";
+            $("#allToTime")[0].value = "<%783%>";
+          }
+          //else
+          if (0)
+          {
+          $("#mon")[0].checked = <%784%>;
+          $("#monFrom")[0].checked = <%785%>;
+          $("#monFromTime")[0].value = "<%786%>";
+          $("#monToTime")[0].value = "<%787%>";
+          
+          $("#tue")[0].checked = <%788%>;
+          $("#tueFrom")[0].checked = <%789%>;
+          $("#tueFromTime")[0].value = "<%790%>";
+          $("#tueToTime")[0].value = "<%791%>";
+          
+          $("#wed")[0].checked = <%792%>;
+          $("#wedFrom")[0].checked = <%793%>;
+          $("#wedFromTime")[0].value = "<%794%>";
+          $("#wedToTime")[0].value = "<%795%>";
+          
+          $("#thu")[0].checked = <%796%>;
+          $("#thuFrom")[0].checked = <%797%>;
+          $("#thuFromTime")[0].value = "<%798%>";
+          $("#thuToTime")[0].value = "<%799%>";
+          
+          $("#fri")[0].checked = <%800%>;
+          $("#friFrom")[0].checked = <%801%>;
+          $("#friFromTime")[0].value = "<%802%>";
+          $("#friToTime")[0].value = "<%803%>";
+          
+          $("#sat")[0].checked = <%804%>;
+          $("#satFrom")[0].checked = <%805%>;
+          $("#satFromTime")[0].value = "<%806%>";
+          $("#satToTime")[0].value = "<%807%>";
+          
+          $("#sun")[0].checked = <%808%>;
+          $("#sunFrom")[0].checked = <%809%>;
+          $("#sunFromTime")[0].value = "<%810%>";
+          $("#sunToTime")[0].value = "<%811%>";
+          }
+          
+          if (def_ntpsynced === "1")
+          {
+            //$("#sys_clock").prop('disabled', true);
+            //$('.datePicker').dpSetDisabled(true);
+            //$('#synchTime').prop('disabled', true);
+            //$('#synchDate').prop('disabled', true);
+            //$("#sync_clock").css('visibility', 'hidden');
+          }
+          else
+          {
+            //$("#sys_clock").prop('disabled', false);
+            //$('.datePicker').dpSetDisabled(false);
+            //$('#synchTime').prop('disabled', false);
+            //$('#synchDate').prop('disabled', false);
+            //$("#sync_clock").css('visibility', 'visible');
+            $("#ntp_time").html("");
+          }
+          
+          $("#manualClock").prop('checked', <%812%>);
+          $('#synchTime').val("<%813%>");
+          $('#synchDate').val("<%814%>");
+          
+          show_page();
+        }
+        if ($('.accessSchedule').length) {
+          var synchChanged = 0;
+          
+          // show/hide the access schedule settings
+          $("#asOn").on('change', function () {
+            $('#scheduleWrap').slideDown();
+          });       
+          $("#asOff").on('change', function () {
+            $('#scheduleWrap').slideUp();
+          });
+          
+          // days selections
+          $('#scheduledDays').on('change', function () {
+            var selectIndex = $('#scheduledDays').val();
+
+            switch (selectIndex) {
+            case 'everyday':
+              break;
+            case 'selectdays':
+              $('.selectDays').find(':checkbox').prop('checked', false);
+              break;
+            case 'weekdays':
+              $('.selectDays').find('.weekday').find(':checkbox').prop('checked', true);
+              $('.selectDays').find('.weekend').find(':checkbox').prop('checked', false); 
+              break;
+            case 'weekend':
+              $('.selectDays').find('.weekday').find(':checkbox').prop('checked', false);
+              $('.selectDays').find('.weekend').find(':checkbox').prop('checked', true); 
+              break;
+            }
+            show_page();
+          });
+          
+          // enable the times select for selected days
+          // this will be only active if select times for selected days is active
+          $('.selectDays').find(':checkbox').each( function (i) {
+            //In iPad Safari touchstart events from checkboxes, the checkbox state has 
+            // not yet been updated when the event fires. Ergo we use click here
+            $(this).on('change', function () {
+              show_page();
+            });
+          });
+          
+          $('#scheduledTimes').on('change', function () {
+            show_page();
+          });               
+          
+          $('.selectTimesForDay').on('change', function () {
+            show_page();
+          });
+          $('.allDay').on('change', function () {
+            show_page();
+          });
+          
+          $("#schTimeTb").tableResize(10);
+          
+          $("#addBt").click(function(){
+            var objTable = $("#schTimeTb");
+            var urlStr = "ajax/add_sche_time";
+            var postStr;
+
+            if (objTable.is('table')) {
+              postStr = $('#accessScheduleForm').serialize();
+              postStr = postStr + "&action=addTime";
+            }
+
+            $.ajax({
+              type: "POST",
+              url: urlStr,
+              data: postStr,
+              dataType: "html",
+              success: function(data) {
+                var retStr = data.split("@");
+                objTable.find('tbody').html(retStr[0]);
+                objTable.tableResize(10);
+
+                var scheErrorCode = parseInt(retStr[1], 10);
+                if (scheErrorCode == 1) {
+                  alert("<%815%>");
+                } else if (scheErrorCode == 2) {
+                  alert("<%816%>")
+                }
+              },
+              error: function(responseText, textStatus, XMLHttpRequest) {
+                if (window.console && console.log) {
+                  console.log("responseText:", responseText);
+                  console.log("textStatus:", textStatus);
+                  console.log("XMLHttpRequest:", XMLHttpRequest);
+                }
+              }
+            });
+          });
+          
+          $('.devicesList').on('touchclick', '.delSche', function (){
+            var idx = $(this).parents('tr').index();
+            var objTable = $("#schTimeTb");
+            var urlStr = "ajax/del_sche_time";
+            var postStr;
+
+            if (objTable.is('table')) {
+              postStr = "action=delTime&idx=" + idx;
+            }
+
+            $.ajax({
+              type: "POST",
+              url: urlStr,
+              data: postStr,
+              dataType: "html",
+              success: function(data) {
+                  objTable.find('tbody').html(data);
+                  objTable.tableResize(10);
+              },
+              error: function(responseText, textStatus, XMLHttpRequest) {
+                  if (window.console && console.log) {
+                      console.log("responseText:", responseText);
+                      console.log("textStatus:", textStatus);
+                      console.log("XMLHttpRequest:", XMLHttpRequest);
+                  }
+              }
+            });
+          });
+          
+          $("#resetBt").on('click',function () {
+            location.href='accessSchedule.html';
+          });
+          
+          $("#sync_clock").on('click',function () {
+            var timezoneOffset = -getRealTimezoneOffset()/60;
+            var tmp;
+            if (parseInt(timezoneOffset) != timezoneOffset)
+              timezoneOffset = timezoneOffset*10;
+            tmp = "#timeZone option[value='"+timezoneOffset+"']";
+            if ($(tmp).length>0)
+              $("#timeZone").val(timezoneOffset);
+            $('.datePicker').datePicker().val(new Date().asString()).trigger('change');
+            $('#synchTime').timepicker('setTime', new Date()).trigger('change');
+            synchChanged = 1;
+            
+            if (isDSTon())
+              $("#adjust").prop('checked', true).trigger('change');
+            else
+              $("#adjust").prop('checked', false).trigger('change');
+          });
+          
+          $('#synchTime').on('change', function () {
+            synchChanged = 1;
+            show_page();
+          });
+          $('#synchDate').on('change', function () {
+            synchChanged = 1;
+            show_page();
+          });
+          $('#autoClock').on('change', function () {
+            show_page();
+          });
+          $('#manualClock').on('change', function () {
+            show_page();
+          });
+          //if format of input is wrong, reset it
+          $('.timePicker').on('timeFormatError', function() {
+            $(this).val("");
+          });
+          
+          $("#saveBt").on('click', function() {
+            if ($("#manualClock").prop('checked') && synchChanged) {
+              var time = new Date();
+              var msg = "<%817%> " + time.toLocaleString() + "?";
+              
+              if (confirm(msg)) {
+                $('.datePicker').datePicker().val(time.asString());
+                $('#synchTime').timepicker('setTime', time);
+              }
+            }
+            document.forms["accessScheduleForm"].submit();
+            return true;
+          });
+          
+          init_page();
+          
+          if ($('#synchTime').length) {
+            if ("<%818%>" == "1") {
+              $('#synchTime').timepicker ({
+                disableTouchKeyboard: true,
+                disableTextInput: true,
+                timeFormat: 'H:i',
+                forceRoundTime: true,
+                step: 1
+              });
+            } else {
+              $('#synchTime').timepicker ({
+                disableTouchKeyboard: true,
+                disableTextInput: true,
+                timeFormat: 'h:ia',
+                forceRoundTime: true,
+                step: 1
+              });
+            }
+          }
+          
+          function get_time_str(tz, dst) {
+            var urlStr = "ajax/get_time_str";
+            var postStr ="timezone=" + tz + "&daylightsaving=" + dst;
+            var ret = "";
+            
+            $.ajax({
+              type: "POST",
+              url: urlStr,
+              data: postStr,
+              dataType: "html",
+              async: false,
+              success: function(data) {
+                ret = data;
+              },
+              error: function(responseText, textStatus, XMLHttpRequest) {
+                if (window.console && console.log) {
+                  console.log("responseText:", responseText);
+                  console.log("textStatus:", textStatus);
+                  console.log("XMLHttpRequest:", XMLHttpRequest);
+                }
+              }
+            });
+            
+            return ret;
+          }
+          
+          // timeZone selections
+          $('#timeZone').on('change', function () {
+            var tz = $(this).val();
+            var dst = $('#adjust').prop('checked')? "1" : "0";
+            var time_str = get_time_str(tz, dst);
+            if ($.trim(time_str).length > 0)
+              $('#ntp_time').html(time_str);
+          });
+          
+          $('#adjust').on('change', function () {
+            var tz = $('#timeZone').val();
+            var dst = $('#adjust').prop('checked')? "1" : "0";
+            var time_str = get_time_str(tz, dst);
+            if ($.trim(time_str).length > 0)
+              $('#ntp_time').html(time_str);
+          });
+        } // end page accessSchedule
+        
+      });
+    </script>
+
+  </body>
+</html>

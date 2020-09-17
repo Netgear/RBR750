@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<%0%>
+		<title><%13%></title>
+		<link rel="stylesheet" href="styles/main.css">
+		<script type="text/javascript">
+			if ("<%1038%>" == "1") {
+				top.location.href = "IA_select_mode.htm";
+			}
+		</script>
+		<%2%>
+	</head>
+  <body class="setup switch">
+
+		<%3%>
+	
+	  <form id="mainForm" action="ia_manual_setting.cgi" method="POST" target="" >
+	  <div>
+	    <div class="container">
+	      <div class="main clearfix">
+				<div id="switchWiFi" style="display:none">
+				<h1><%1039%> <a id="learnMoreExtender" class="tipLink"><%5%></a></h1>
+				<p><div class="wifi switchDiv"></div>
+				</div>
+				<div id="switchWired" style="display:none">
+				<h1><%1040%> <a id="learnMoreAP" class="tipLink"><%5%></a></h1>
+				<p><div class="wired switchDiv"></div>
+				</div>
+	    </div> <!-- end main -->
+	    </div> <!-- end container -->
+	  </div>
+	  
+	  <div id="fixedFooter">
+	    <div class="container">
+	    	<footer>
+	      	<div class="centerButtons">
+	  	    	<div class="processButtons">
+	  	    		<a class="btn secondary" style="text-transform:uppercase" id="setupLaterBt"><%8%></a>
+	  	    		<a class="btn primary" style="text-transform:uppercase" id="continueBt"><%1037%></a>
+	  	    	</div>
+	  	    </div>			    
+	      </footer>
+	    </div>
+	  </div><!-- end fixed footer -->
+	  <input name="skip" type="hidden" value="">
+	  </form>
+	  
+	  <script src="scripts/jquery.min.js"></script>
+	  <script src="scripts/main.js"></script>
+    <script type="text/javascript">
+    <!-- hide script from old browsers
+
+    $.noConflict();
+    jQuery(document).ready(function($) {
+        <%1041%>
+        <%1042%>;
+
+        var msgStr = "<p><%9%></p>"
+          + "<p><%10%></p>"
+          + "<p><%11%></p>";
+        $('.tipLink').data('msg', msgStr);
+
+        var next_page;
+        var wire_mode = "<%1043%>";
+        var without_hw_switch_ap = "<%1038%>";
+        if (without_hw_switch_ap != "1") {
+            if (wire_mode == "1") {
+                $('#switchWired').css('display', 'block');
+                next_page = "genie_start.htm";
+            } else {
+                $('#switchWiFi').css('display', 'block');
+                next_page = "IA_to_welcome.html";
+            }
+        }
+        
+        $("#setupLaterBt").on('click',function () {
+          var cf = document.forms["mainForm"];
+          cf.skip.value = "1";
+          cf.submit();
+        });
+        
+        $("#continueBt").on('click',function () {
+            top.location.href = next_page;
+        });
+    });
+    //-->
+    </script>
+  </body>
+</html>

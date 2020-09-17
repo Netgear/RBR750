@@ -13457,9 +13457,12 @@ char lan_ifname[16]={0};
   //iptables("-A INPUT -m limit --limit 1/s -j LOG --log-prefix \"AIF:Dropped INPUT packet: \" --log-level %s", LOGLEVEL);
   //iptables -A INPUT -j DROP
   //if  (  (strcmp(DEFAULT_POLICY_DROP,"0")==0)  )
-      iptables("-A INPUT -j ACCEPT");
+      //iptables("-A INPUT -j ACCEPT");
   //else
-      //iptables("-A INPUT -j DROP");
+  ip4tables("-A INPUT -j DROP");
+
+  ip6tables("-A INPUT -j ACCEPT");
+
 
   //# Drop all packets at the end of the POST_INPUT_DROP_CHAIN
   //iptables -A POST_INPUT_DROP_CHAIN -j DROP

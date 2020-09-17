@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<%0%>
+		<title><%1035%></title>
+		<link rel="stylesheet" href="styles/main.css">
+		<%2%>
+	</head>
+  <body class="regionSelection setup">
+
+		<%3%>
+
+	<form id="regionSelection" name="regionSelection" action="ia_change_region.cgi" method="POST" target="" autocomplete="off">
+	  <div id="content">
+		<div class="container">
+		<div class="main">
+				<h1><%1036%></h1>
+				
+				 <div>
+					<select id="wRegion" name="w_region">
+						<%531%>
+					</select>
+				 </div>
+	    </div> <!-- end main -->
+	  </div> <!-- end container -->
+	  </div>
+
+	  <div id="fixedFooter">
+		<div class="container">
+		  <footer>
+			<div class="centerButtons">
+			  <div class="processButtons">
+			  <input name="next" id="nextStep" class="btn primary" type="button" value="<%1037%>" onclick="this.form.submit();">
+			</div>
+			</div>
+		  </footer>
+		</div>
+	  </div>
+	  <!-- end fixed footer -->
+	</form>
+
+	  <script src="scripts/jquery.min.js"></script>
+	  <script src="scripts/main.js"></script>
+  </body>
+</html>

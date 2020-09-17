@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%20%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="setup" onLoad="loadSettings(); Waiting_scan();">
+
+      <%3%>
+
+      <form id="selectNetwork" name="selectNetwork" action="screen4-extender.html" method="" target="">
+      
+      <div id="content">
+        <div class="container">
+            
+            <p class="instruction"><%21%> <span class="largeScreenOnly"><%22%> <a class='tipLink'><%5%></a></span></p>
+                
+            <div class="main">
+                <div class="column first" id="scan_24" style="display:none">
+                    <div class="tableControl">
+                    <label><input type="checkbox" name="2GHz" value="2" checked disabled /><%23%></label>
+                    <a href="#" class="btn roundCorners refreshBtn" disabled><i class="icon-refresh"></i><span><%24%></span></a>
+                    </div>
+                    <div class="activWrap">
+                        <table class="availableNetworks">
+                            <tr>
+                                <th><%25%></th>
+                                <th><%26%></th>
+                                <th><%27%></th>
+                            </tr>
+                        </table>
+                        
+                    <div class="loadingMessage roundCorners"><%20%></div>
+                    </div>
+                </div>
+                <div class="column" id="scan_5" style="display:none">
+                    <div class="tableControl">
+                        <label><input type="checkbox" name="5GHz" value="5" checked disabled /><%28%></label>
+                        <a href="#" class="btn roundCorners refreshBtn" disabled><i class="icon-refresh"></i><span><%24%></span></a>	
+                    </div>
+                    <div class="activWrap">
+                        <table class="availableNetworks">
+                                <tr>
+                                    <th><%25%></th>
+                                    <th><%26%></th>
+                                    <th><%29%></th>
+                                </tr>
+                        </table>
+                        <div class="loadingMessage roundCorners"><%20%></div>
+                    </div>
+                </div>
+                    
+            </div> <!-- end main -->
+          </div> <!-- end container -->
+        </div>
+            
+        </form>
+        
+            
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/pwdStrength.js"></script>
+        <script src="scripts/main.js"></script>
+        <script language="javascript" type="text/javascript">
+        var maxchars = 10;
+        var delay_time = 1000; // msecs
+        var charcount = 0;
+
+        function loadSettings()
+        {
+            var msgStr = "<%30%>";
+            $('.tipLink').data('msg', msgStr);
+
+            var ap_support_mode = "<%31%>";
+            var setband  = "<%32%>";
+            var get_refresh_button = "<%33%>";
+            <%34%>;
+            <%35%>;
+            if (ap_support_mode == "1")
+            {
+                if (setband == "5G")
+                {
+                    document.getElementById("scan_5").style.display="block";
+                    document.getElementById("scan_24").style.display="none";
+                    $('#scan_5').removeClass('column');
+                    $('#scan_5').addClass('columnWidth');
+                }
+                else
+                {
+                    document.getElementById("scan_5").style.display="none";
+                    document.getElementById("scan_24").style.display="block";
+                    $('#scan_24').removeClass('column first');
+                    $('#scan_24').addClass('columnWidth');
+                }
+            }
+            else
+            {
+                if (get_refresh_button == "5G")
+                {
+                    document.getElementById("scan_5").style.display="block";
+                    document.getElementById("scan_24").style.display="none";
+                    $('#scan_5').removeClass('column');
+                    $('#scan_5').addClass('columnWidth');
+                }
+                else if(get_refresh_button == "24G")
+                {
+                    document.getElementById("scan_5").style.display="none";
+                    document.getElementById("scan_24").style.display="block";
+                    $('#scan_24').removeClass('column first');
+                    $('#scan_24').addClass('columnWidth');
+                }
+                else
+                {
+                    document.getElementById("scan_5").style.display="block";
+                    document.getElementById("scan_24").style.display="block";
+                }
+            }
+            return true;
+        }
+        function Waiting_scan()
+        {
+            var cf = document.forms["selectNetwork"];
+            if (charcount < maxchars)
+            {
+                charcount=charcount+1;
+                setTimeout("Waiting_scan()",delay_time);
+            }
+            else
+            {
+                window.location.href="screen3-extender.html";
+            }
+        }
+        </script> 
+  </body>
+</html>

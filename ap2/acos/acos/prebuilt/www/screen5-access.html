@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%82%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class='accesspoint setup'>
+  
+    <%3%>
+  
+    <form id="mainForm" action="ia_set_nat.cgi" method="POST" target="" >
+    <div id="content">
+      <div class="container">
+        <div class="main simpleChoiceWrapper clearfix">
+  
+        <h1><%83%> <a id="learnMore" class="tipLink"><%5%></a></h1>
+        <div class="column simpleChoice first">
+          <p><%84%></p><br/>
+          <a class="btn wide primary" id="privateBtn"><%85%></a>
+        </div>
+        <div class="column simpleChoice">
+          <p><%86%></p>
+          <a class="btn wide primary" id="publicBtn"><%87%></a>
+        </div>
+        
+      </div> <!-- end main -->
+      </div> <!-- end container -->
+    </div>
+    
+    <input type="hidden" name="wire_mode" value="<%88%>">
+    <input type="hidden" name="nat_mode" value="<%89%>">
+    <input type="hidden" name="wan_proto" value="<%90%>">
+    <input type="hidden" name="current_flow" value="">
+    <input type="hidden" name="NetworkType" value="">
+    </form>
+  
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script type="text/javascript">
+    $.noConflict();
+    jQuery(document).ready(function($) {
+      var msgStr = "<%91%>";
+      $('.tipLink').data('msg', msgStr);
+      
+      $("#privateBtn").on('click',function () {
+        var cf = document.forms["mainForm"];
+        if (cf.wan_proto.value == "static") {
+          if (!confirm("<%92%>"))
+            return false;
+        }
+        
+        cf.NetworkType.value = "private";
+        cf.submit();
+      });
+      $("#publicBtn").on('click',function () {
+        var cf = document.forms["mainForm"];
+        cf.NetworkType.value = "public";
+        cf.submit();
+      });
+    });
+  </script>
+  </body>
+</html>

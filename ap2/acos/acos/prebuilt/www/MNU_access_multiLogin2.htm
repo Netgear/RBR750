@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%13%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body>
+
+    <%3%>
+  
+    <div class="main clearfix"> 
+ 
+      <form id="mainForm" method="POST" action="multi_login.cgi"> 
+        <div class="main simpleChoiceWrapper"> 
+        <h1><%1240%></h1> 
+        
+           <div class="column simpleChoice first">
+              <a class="btn wide primary" id="btn_yes"><i class="icon-range-extender" aria-hidden="true"><span></span></i><%60%></a>
+            </div>
+            <div class="column simpleChoice">
+              <a class="btn wide secondary" id="btn_no"><i class="icon-range-extender" aria-hidden="true"><span></span></i><%61%></a>
+            </div>
+        <input type="hidden" name="act" value="yes">
+        </div>
+      </form> 
+    </div> <!-- end main --> 
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script type="text/javascript">
+      $.noConflict();
+      jQuery(document).ready(function($) {
+
+        $("#btn_yes").on('click',function () {
+          var cf = document.forms["mainForm"];
+          cf.act.value = "yes";
+          cf.submit();
+        });
+        $("#btn_no").on('click',function () {
+          var cf = document.forms["mainForm"];
+          cf.act.value = "no";
+          cf.submit();
+        });
+        if("<%12%>" != "3"){
+          document.getElementById("wallPlug_mode_repeater_wp").style.display="none";
+        } else {
+          document.getElementById("wallPlug_mode_repeater").style.display="none";
+        }
+      });
+    </script>
+
+  </body>
+</html>

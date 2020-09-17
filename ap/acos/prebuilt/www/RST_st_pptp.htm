@@ -39,7 +39,7 @@ function disableConButton()
     if(document.forms[0].pptp_ip.value != "" && document.forms[0].pptp_ip.value != "0.0.0.0"
 	   && document.forms[0].pptp_ip.value != "--")
     {
-        alert("<%1640%>");
+        alert("<%1647%>");
 		return false;
     }	
     delay_time = 10000;
@@ -63,7 +63,7 @@ function disableDisConButton()
 
 function refreshparentpage()
 {
-    parent.window.opener.location.href="<%1463%>";
+    parent.window.opener.location.href="<%1470%>";
     return true;
 }
 //-->
@@ -78,7 +78,7 @@ function refreshparentpage()
 
  
  <TR>
- <TD colspan="2" align="left" nowrap><h1><%1116%> </h1></TD>
+ <TD colspan="2" align="left" nowrap><h1><%1124%> </h1></TD>
  </TR>
  
 </TABLE>
@@ -93,35 +93,35 @@ function refreshparentpage()
 
 <table width="100%" border=1 cellspacing=1 cellpadding=4>
 <tr>
-	<TD NOWRAP width="50%"><B><%1116%></B></td>
-	<TD NOWRAP width="50%"><%1668%></td>
+	<TD NOWRAP width="50%"><B><%1124%></B></td>
+	<TD NOWRAP width="50%"><%1675%></td>
 </tr>
 <tr>
-	<TD NOWRAP><B><%806%></B></td>
-	<TD NOWRAP><%1669%></td>
+	<TD NOWRAP><B><%814%></B></td>
+	<TD NOWRAP><%1676%></td>
 </tr>
 <tr>
 	<TD NOWRAP><B><%433%></B></td>
-	<TD NOWRAP><%1670%></td>
+	<TD NOWRAP><%1677%></td>
 </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="3" width="100%">
 <TR><TD NOWRAP align="center"><BR>
 &nbsp;&nbsp;&nbsp;
-<%1282%>
-<button type="submit" value="<%1649%>" name="connect" id="Connect" class="<%1650%>" onClick="buttonClick(this,'<%1649%>');return disableConButton()" <%1639%>><span class="<%1651%>">&nbsp;&nbsp; <%1649%></span><span class="<%1652%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-<%1283%>
-<%1284%>
-<button type="submit" value="<%1649%>" name="connect" id="Connect" class="button-rule" onClick="buttonClick(this,'<%1649%>');return disableConButton()" disabled ><span class="roundleft_grey">&nbsp;&nbsp; <%1649%></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-<%1285%>
-&nbsp;&nbsp;&nbsp;<button type="submit" value="<%1653%>" name="disconnect" class="button-rule" onClick="buttonClick(this,'<%1653%>');alert('<%1654%>') ; return disableDisConButton()"><span class="<%1671%>">&nbsp;&nbsp; <%1653%></span><span class="<%1672%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD>
+<%1289%>
+<button type="submit" value="<%1656%>" name="connect" id="Connect" class="<%1657%>" onClick="buttonClick(this,'<%1656%>');return disableConButton()" <%1646%>><span class="<%1658%>">&nbsp;&nbsp; <%1656%></span><span class="<%1659%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<%1290%>
+<%1291%>
+<button type="submit" value="<%1656%>" name="connect" id="Connect" class="button-rule" onClick="buttonClick(this,'<%1656%>');return disableConButton()" disabled ><span class="roundleft_grey">&nbsp;&nbsp; <%1656%></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<%1292%>
+&nbsp;&nbsp;&nbsp;<button type="submit" value="<%1660%>" name="disconnect" class="button-rule" onClick="buttonClick(this,'<%1660%>');alert('<%1661%>') ; return disableDisConButton()"><span class="<%1678%>">&nbsp;&nbsp; <%1660%></span><span class="<%1679%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD>
 </TR>
 
 <tr><TD height="12"> <hr class='blueBar'></td></tr>
-<TR><TD NOWRAP align="center">&nbsp;&nbsp;&nbsp;<button type=button value="<%774%>" name="close" class="button-rule" onclick="buttonClick(this,'<%774%>');refreshparentpage(); self.close()"><span class="roundleft_button">&nbsp;&nbsp; <%774%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD></TR>
+<TR><TD NOWRAP align="center">&nbsp;&nbsp;&nbsp;<button type=button value="<%782%>" name="close" class="button-rule" onclick="buttonClick(this,'<%782%>');refreshparentpage(); self.close()"><span class="roundleft_button">&nbsp;&nbsp; <%782%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></TD></TR>
 </TABLE>
 <input type="hidden" name="ConMethod" value="Disconnect">
-<input type="hidden" name="pptp_ip" value="<%1669%>">
+<input type="hidden" name="pptp_ip" value="<%1676%>">
 </form>
 </body>
 </html>

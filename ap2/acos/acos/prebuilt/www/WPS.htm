@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%694%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="wpsWizard postSetup twoColumns">
+
+        <%410%>
+        
+      <div class="container sliderWrap">
+        
+        <%1166%>
+        
+        <div id="slider">
+          <div class="main clearfix">
+          
+          <h1><%694%></h1>
+          <p><%1167%> <a id="learnMore" class='tipLink'><%5%></a></p>
+          
+            <form name="mainForm" action="wps_method.cgi" method="POST" target="">
+
+            <ul class="formElements wpsMethod">
+                <li><hr /></li>
+                <li class="elementsInline">
+                  <label><input type="radio" id="pbc" name="wps_type" value="Push Button" checked><%1168%></label>
+                  <label><input type="radio" id="pin" name="wps_type" value="PIN Number"><%1169%></label>
+                </li>
+                <li><hr /></li>
+            </ul>
+
+            <ul class="formElements pbcSection">
+              <p><%1170%></p>
+              <center class="simpleChoice">
+                <a class="btn primary" id="wpsBt"><%18%></a>
+              </center>
+            </ul>
+
+            <ul class="formElements pinSection" style="display:none;">
+              <p><%1171%></p>
+              <input type="text" id="pinNum" name="pin_num" maxlength="9" value="">
+
+              <div class="formButtons bottom">
+                <div class="mobileFooter">
+                  <div class="mobileCenterButtons">
+                    <div>
+                      <input name="next" id="nextStep" class="btn primary" type="button" value="<%70%>" onclick="return check_pin();">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+
+              <input name="wps_method" type=hidden value="">
+
+            </form>
+            
+        </div> <!-- end main -->
+        
+        <%440%>
+        
+        <%441%>
+      
+      </div> <!-- end slider -->
+
+      </div> <!-- end container -->
+    
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+
+	  if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_add_wps_client_p").style.display="none";
+		 document.getElementById("wallPlug_wps_push_button_text_new").style.display="none";
+	 }
+      <!--
+      $.noConflict();
+
+      jQuery(document).ready(function($) {
+        var msgStr = "<p><%1172%></p>"
+          + "<p><%1173%></p>"
+          + "<p><%1174%></p>";
+        $('.tipLink').data('msg', msgStr);
+
+        $("#wpsBt").on('click',function () {
+          var cf = document.forms["mainForm"];
+          cf.wps_method.value = "PBC";
+          cf.submit();
+        });
+
+        if("<%1175%>" == "Enabled")
+          $('#pin').prop('disabled', true);
+        else
+          $('#pin').prop('disabled', false);
+      });
+
+      function check_pin()
+      {
+        var cf = document.forms["mainForm"];
+        var lpin = cf.pin_num.value;
+        var accum = 0;
+        var wps_version = "<%917%>";
+        var tmplpin;
+
+        if ((wps_version == "2.0") && (lpin.length == 9))
+        {
+          if (lpin.charAt(4) == '-')
+          {
+            //WPS v2.0 Format: (nnnn-nnnn)
+            tmplpin = cf.pin_num.value.split('-');
+            cf.pin_num.value = tmplpin[0] + tmplpin[1];
+            lpin = cf.pin_num.value;
+          }
+          else
+          if (lpin.charAt(4) == ' ')
+          {
+            //WPS v2.0 Format: (nnnn nnnn)
+            tmplpin = cf.pin_num.value.split(' ');
+            cf.pin_num.value = tmplpin[0] + tmplpin[1];
+            lpin = cf.pin_num.value;
+          }
+          else
+          {
+            alert("<%1176%>");
+            return false;
+          }
+        }
+        else
+        if (lpin.length != 4 && lpin.length != 8) {
+          alert("<%1176%>");
+          return false;
+        }
+        
+        if (parseInt(cf.pin_num.value, 10) != cf.pin_num.value) {
+          alert("<%1176%>");
+          return false;
+        }
+        
+        if (lpin.length == 8) {
+          lpin = parseFloat(cf.pin_num.value);
+          accum += 3 * (parseInt(lpin / 10000000) % 10);
+          accum += 1 * (parseInt(lpin / 1000000) % 10);
+          accum += 3 * (parseInt(lpin / 100000) % 10);
+          accum += 1 * (parseInt(lpin / 10000) % 10);
+          accum += 3 * (parseInt(lpin / 1000) % 10);
+          accum += 1 * (parseInt(lpin / 100) % 10);
+          accum += 3 * (parseInt(lpin / 10) % 10);
+          accum += 1 * (parseInt(lpin / 1) % 10);
+
+          if (0 != (accum % 10)) {
+            alert("<%1177%>");
+            return false;
+          }
+        }
+
+        cf.wps_type[0].disabled = true;
+        cf.wps_type[1].disabled = true;
+
+        cf.wps_method.value = "PIN";
+        cf.submit();
+        return true;
+      }
+      //-->
+      </script>
+  </body>
+</html>

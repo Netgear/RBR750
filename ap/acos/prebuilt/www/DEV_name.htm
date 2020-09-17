@@ -78,11 +78,11 @@ function checkData(){
 	var cf = document.forms[0];
 	var msg = "";
 	
-	if (cf.device_name.value == "")
-	msg+= "Device name can not be null.\n";
+    if (cf.device_name.value == "")
+        msg+= "Device name can not be null.\n";
 
 	
-	if (cf.device_name.value.match( /[^\x20-\x7E]/ ))
+	if (cf.device_name.value.match( /[^a-zA-Z0-9\-]/ ))
 	{
 		cf.device_name.focus();
 		msg+= "Invalid device name.\n";
@@ -120,13 +120,13 @@ function nospaces(evt)
 <form id="target"  method="POST" action="device_name.cgi" NAME=general>
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
   <img class="subtop-image" src="img/subhead2-top_noh.gif">
-<div class="subhead2"> <%969%></div>
+<div class="subhead2"> <%978%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="top">
 <td   align="center" colspan="2" class="table-seperate-border2">
 <button class="button-cancel" type="reset" name="Cancel" id="cancel" value="<%83%>" onClick="location.href='DEV_name.htm';"><%83%></button>
-<button class=<%79%> <%1722%> type="submit" name="Apply" id="apply" value="<%78%>" onClick="return checkData();"><%78%></button>
+<button class=<%79%> <%1729%> type="submit" name="Apply" id="apply" value="<%78%>" onClick="return checkData();"><%78%></button>
 
 </td>
 </tr>
@@ -140,20 +140,20 @@ function nospaces(evt)
 
 	<table border=0 cellpadding=2 cellspacing=0 width=80%>
         <!--
-	<tr><td colspan=3><%3336%></td></tr>
+	<tr><td colspan=3><%3380%></td></tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
-	<tr><td colspan=3><%3337%></td></tr>
+	<tr><td colspan=3><%3381%></td></tr>
         -->
-        <tr><td colspan=3><%3336%></td></tr>
+        <tr><td colspan=3><%3380%></td></tr>
         <tr><td colspan=3>&nbsp;<td></tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
 	<tr>
-		<td colspan=2><%969%>:</td>
-		<td><input type="text" id="new_devname" name="device_name" MAXLENGTH="15" SIZE="24" value="<%801%>" onkeypress="return nospaces(event)"></td>
+		<td colspan=2><%978%>:</td>
+		<td><input type="text" id="new_devname" name="device_name" MAXLENGTH="15" SIZE="24" value="<%809%>" onkeypress="return nospaces(event)"></td>
 	</tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
-	<tr><td colspan=3><%3338%></td></tr>
+	<tr><td colspan=3><%3382%></td></tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
 	<tr><td colspan=3><h1 style="FONT-SIZE: 16px"></h1></td></tr>
 	<!--
@@ -188,7 +188,7 @@ function nospaces(evt)
 
 <input name="help-frame-div_magic_top" value="2" type="hidden">
 <input type="hidden" name="dev_name_nv" value="" >
-<input type="hidden" name="devname2readyshare" value="<%3339%>" >
+<input type="hidden" name="devname2readyshare" value="<%3383%>" >
 <input type="hidden" name="change_readyshare" value="" >
 
 <a name="helpframe-anchor"></a>

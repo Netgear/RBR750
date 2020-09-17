@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%668%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class="connectedDevices postSetup twoColumns">
+
+    <%410%>
+
+    <div class="container sliderWrap">
+
+      <%1118%>
+
+      <div id="slider">
+        <div class="main clearfix" style="padding-bottom:100px;">
+
+          <h1 id="connectedDevice"><%668%></h1>
+
+          <form id="connectedDevicesForm" name="connectedDevicesForm" action="devices.cgi" method="POST" autocomplete="off">        
+
+            <div class="connectedDevices">
+              <div id="wifi_extender" style="display:none">
+                <div class="tableControl">
+                  <h3>Backhaul Info</h3> 
+                </div>
+                <table class="devicesList roundCorners">
+                  <thead>
+                    <tr>
+                      <th><%1119%></th>
+                      <th><%539%></th>
+                      <th><%582%></th>
+                      <th><%1120%></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="extender_24g">
+                      <td>2.4G</td>
+                      <td><%540%></td>
+                      <td><%1121%></td>
+                      <td><%1122%></td>
+                    </tr>
+                    <tr id="extender_5g">
+                      <td>5G</td>
+                      <td><%435%></td>
+                      <td><%1123%></td>
+                      <td><%1124%></td>                      
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div id="wired_devices" >
+                <div class="tableControl">
+                  <h3>&nbsp;</h3>
+                  <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt1"><%24%></span></a> 
+                </div>
+                <table class="devicesList roundCorners">
+                  <thead>
+                    <tr>
+                      <th><%582%></th>
+                      <th><%583%></th>
+                      <th><%1120%></th>
+                      <th><%419%></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%1125%>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tableControl" style="display:none">
+                <h3><%1126%></h3>
+                <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span id="refreshBt2"><%24%></span></a>
+              </div>
+              <div class="aclSwitch" style="display:none">
+                <input type="checkbox" id="accessControl" name="access_control"><label for="accessControl"><%855%></label>
+              </div>
+              <table class="devicesList wifiDevices roundCorners" style="display:none">
+                <thead>
+                  <tr>
+                    <th><%582%></th>
+                    <th><%1127%></th>
+                    <th><%1120%></th>
+                    <th><%857%></th>
+                    <th><%858%></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- %devices_cgi_get_device_table_wireless();% -->
+                </tbody>
+              </table>
+            </div>             
+
+          <input type="hidden" name="show_wps_alert" value="<%620%>">
+          <input type="hidden" name="accessLimit" value="<%1128%>">
+          <input type="hidden" name="accessRules" value="">
+        </form>
+                
+        </div> <!-- end main -->
+        <%440%>
+        
+      </div> 
+      
+    </div> <!-- end container -->
+    <%441%>
+  
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script language="javascript" type="text/javascript">
+
+    $.noConflict();
+    jQuery(document).ready(function($) {
+      var cf = document.forms["connectedDevicesForm"];
+      var acl_mac_num = <%1129%>;
+      var g_accessLimit = cf.accessLimit.value;
+      var g_accessRules = cf.accessRules.value;
+
+      function setACLSwitch()
+      {
+        if (g_accessLimit == "1") {
+          $('#accessControl').prop('checked', true);
+          $('.wifiDevices').find('thead').find('tr th:last').css('display', 'table-cell');
+          $('.wifiDevices').find('tbody').find('tr').find('td:last').css('display', 'table-cell');
+        } else {
+          $('#accessControl').prop('checked', false);
+          $('.wifiDevices').find('thead').find('tr th:last').css('display', 'none');
+          $('.wifiDevices').find('tbody').find('tr').find('td:last').css('display', 'none');
+        }
+      }
+
+      if("<%12%>" != "3"){
+          document.getElementById("wallPlug_mode_repeater_wp").style.display="none";
+      } else {
+          document.getElementById("wallPlug_mode_repeater").style.display="none";
+      }
+
+      if ("<%88%>" != "1") {
+        //$('#wifi_extender').css('display', 'none');	/* ORBI_WP set to none*/
+        //$('#wired_devices').css('display', 'none');		/* ORBI_WP set to none*/
+        if ("<%508%>" == "1") {
+          if ("<%509%>" == "2.4G")
+            $('#extender_5g').css('display', 'none');
+          else
+            $('#extender_24g').css('display', 'none');
+        }
+      } else {
+        $('.wifiDevices').find('thead').find('tr th:eq(3)').css('display', 'none');
+        $('.wifiDevices').find('tbody').find('tr').find('td:eq(3)').css('display', 'none');
+      }
+
+      setACLSwitch();
+      $('.wifiDevices').tableResize(10);
+
+      /**
+       *  init data of each rule
+       *  status-->value  not changed-->false  changed-->true
+       *  action-->value  
+       *    checked -> unchecked -->0 (remove from blacklist)  
+       *    unchecked -> checked -->1 (add to blacklist)
+       */
+      $('.wifiDevices').find('tbody tr').each(function () {
+        $(this).data('status', false);
+        $(this).data('action', 0);
+        $(this).data('mac', $.trim($(this).find('td:eq(2) .macAddr').text()));
+      });
+
+      // ACL on/off
+      $('#accessControl').on('change', function () {
+        if (g_accessLimit == "1")
+          g_accessLimit = "0";
+        else
+          g_accessLimit = "1";
+
+        setACLSwitch();
+      });
+
+      $('.wifiDevices').on('change', ':checkbox', function () {
+        var thisTr = $(this).parents('tr');
+
+        if ($(this).is(':checked')) {
+          if (acl_mac_num >= <%884%>){
+            alert("<%885%>");
+            $(this).prop("checked", false);
+            return false;
+          }
+          thisTr.data('action', 1);
+          acl_mac_num++;
+        } else {
+          thisTr.data('action', 0);
+          acl_mac_num--;
+        }
+
+        if (typeof(thisTr.data('status')) == "undefined"
+          || thisTr.data('status') === false)
+          thisTr.data('status', true);
+        else
+          thisTr.data('status', false);
+      });
+
+      $("#saveBt").on('click', function() {
+        $('.wifiDevices').find('tbody tr').each(function () {
+          if (typeof($(this).data('status')) == "undefined"
+            || $(this).data('status') === true)
+            g_accessRules = g_accessRules + $(this).data('action') + ","
+                                          + $(this).data('mac') + ";";
+        });
+        cf.accessLimit.value = g_accessLimit;
+        cf.accessRules.value = g_accessRules;
+        cf.submit();
+        return true;
+      });
+
+      $('body').on('click', '.refreshBtn, #reset', function (){
+        location.href='DEV_device.htm';
+      });
+
+      if (cf.show_wps_alert.value == "1")
+        alert("<%852%>");
+
+    });
+
+    </script>
+
+  </body>
+</html>

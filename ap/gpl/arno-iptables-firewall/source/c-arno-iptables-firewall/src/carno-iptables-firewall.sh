@@ -587,6 +587,35 @@ main_restart()
   main_restart_c;
 }
 
+bd_addchain()
+{
+    echo "bd_addchain start" >&2
+    iptables -N BD_FILTER
+    iptables -I FORWARD -j BD_FILTER
+    ip6tables -N BD_FILTER
+    ip6tables -I FORWARD -j BD_FILTER
+    echo "bd_addchain done" >&2 
+}
+
+bd_restart()
+{
+    # To check support
+    if [ ! -e "/opt/bitdefender/bin/bd" ];then
+        return
+    fi
+
+    if [ -e "/tmp/is_pr_sku" ]; then
+        return
+    fi
+
+    if [ -e "/tmp/bootup_armor_done" ]; then
+        echo " " >&2
+        bd_addchain
+        echo "!!!! run bd_init_fw !!!!!" >&2 
+        /opt/bitdefender/share/scripts/bd_init_fw.sh 
+        echo "!!!! run bd_init_fw done !!!!!" >&2 
+    fi
+}
 
 # int main (char *argv)
 #######################
@@ -602,7 +631,8 @@ case "$1" in
                           yes)   main_restart;;
                           other) main_stop; main_start;;
                         esac
-                        show_applied;;
+                        show_applied;
+                        bd_restart;;
   'restart' )           sanity_check;
                         show_restart;
                         config_check;
@@ -612,7 +642,8 @@ case "$1" in
                           yes)   main_restart;;
                           other) main_stop; main_start;;
                         esac
-                        show_applied;;
+                        show_applied;
+                        bd_restart;;
   'force-reload' )      sanity_check;
                         config_check;
                         setup_hostblock_chain;

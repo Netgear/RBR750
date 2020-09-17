@@ -40,10 +40,10 @@ function check_restore()
 {
 	if(document.forms[0].mtenRestoreCfg.value.length == 0)
 	{
-		alert("<%750%>");
+		alert("<%758%>");
 		return false;
 	}
-	if(confirm("<%751%>"))
+	if(confirm("<%759%>"))
 		return true;
 	else
 		return false;
@@ -59,7 +59,7 @@ function check_restore()
 <form id="target"  method="POST" action="backup.cgi" ENCTYPE="multipart/form-data">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%657%></div>
+<div class="subhead2"> <%656%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 
@@ -67,38 +67,38 @@ function check_restore()
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-	<td colspan="2"><a href="javascript:loadhelp('BAK_backup','save')" tabindex="-1"><b><%752%></b></a></td>
+	<td colspan="2"><a href="javascript:loadhelp('BAK_backup','save')" tabindex="-1"><b><%760%></b></a></td>
 </tr>
 <tr>
 
 	<td colspan="2" align="center">
-	&nbsp;&nbsp;&nbsp;<button type="BUTTON" value="<%753%>" name="Backup" id="backup" class="button-common" onclick="buttonClick(this,'<%753%>');window.location.href = 'NETGEAR_<%12%>.cfg';"><%753%></button> 
+	&nbsp;&nbsp;&nbsp;<button type="BUTTON" value="<%761%>" name="Backup" id="backup" class="button-common" onclick="buttonClick(this,'<%761%>');window.location.href = 'NETGEAR_<%12%>.cfg';"><%761%></button> 
 	</td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-	<td colspan="2"><a href="javascript:loadhelp('BAK_backup','restore')" tabindex="-1"><b><%754%></b></a></td>
+	<td colspan="2"><a href="javascript:loadhelp('BAK_backup','restore')" tabindex="-1"><b><%762%></b></a></td>
 </tr>
 <tr>
 	<td colspan="2" align="left">
 
 	<input type="file" name="mtenRestoreCfg" id="restore_cfg" size="20" maxlength="1024" style="position:absolute;opacity:0;filter:alpha(opacity=0);" onchange="this.form.upfile.value=this.value.substr(this.value.lastIndexOf('\\')+1);" contentEditable=false onkeydown="return false;" onbeforeeditfocus="return false;" onpaste="return false;">
 	<input type="text" name="upfile" size="20" maxlength="1024" readonly >
-	&nbsp;&nbsp;&nbsp;<button type="button" value="browse" name="browse" id="browse" class="button-apply2" onclick="buttonClick(this,'browse');"><%755%></button>	
+	&nbsp;&nbsp;&nbsp;<button type="button" value="browse" name="browse" id="browse" class="button-apply2" onclick="buttonClick(this,'browse');"><%763%></button>	
 	</td>
 </tr>
 <tr>
-	<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;<button TYPE="submit" value="<%756%>" name="mtenRestore" id="restore" class="button-common" onClick="buttonClick(this,'<%756%>');if(!check_restore()) return false;"><%756%></button></td>
+	<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;<button TYPE="submit" value="<%764%>" name="mtenRestore" id="restore" class="button-common" onClick="buttonClick(this,'<%764%>');if(!check_restore()) return false;"><%764%></button></td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 
 <tr>
-	<td nowrap colspan="2"><a href="javascript:loadhelp('BAK_backup','revert')" tabindex="-1"><b><%757%></b></a></td>
+	<td nowrap colspan="2"><a href="javascript:loadhelp('BAK_backup','revert')" tabindex="-1"><b><%765%></b></a></td>
 
 </tr>
 <tr>
-	<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;<button type="button" value="<%758%>" name="defaults" id="erase" class="button-common" onClick="buttonClick(this,'<%758%>');location.href='BAK_cfm.htm'"><%758%></button></td>
+	<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;<button type="button" value="<%766%>" name="defaults" id="erase" class="button-common" onClick="buttonClick(this,'<%766%>');location.href='BAK_cfm.htm'"><%766%></button></td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 </table></td></tr>

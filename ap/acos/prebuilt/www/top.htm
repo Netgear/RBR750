@@ -45,6 +45,14 @@
     -webkit-transition: all .3s ease-in-out;
 	white-space:nowrap;
 }
+
+.none_button{
+    display:none;
+}
+.block_button{
+   display:block;
+}
+
 .download-btn-orbi:hover {
     opacity: .8;
     transition: all .3s ease-in-out;
@@ -70,29 +78,29 @@ function LangInit() {
     var form=document.forms[0];
     var lang = form.curlang.value;
     //notification of R7000 full feature
-    //<%588%>       
+    //<%587%>       
 
-    <%589%>    
+    <%588%>    
     //When the multilanguage droplsit switched to Japanese and Hungarian disappear. 
     if((isIE && isIE8 && lang == "Japanese") || (isIE && isIE8 && lang == "Hungarian"))
     {
         //alert("no change");
     }else
     {
-    <%590%>    
-    <%731%>
+    <%589%>    
+    <%739%>
         //alert("change");
         $('#lang_menu_li').css("float", "right");
         $('#lang_menu_li').css("padding-right", "25px");
         $('#lang_menu_li').css("margin-bottom", "10px");
-    <%732%>
-    <%733%>
+    <%740%>
+    <%741%>
         $("#lang_menu_li").hide();
         $("#language").attr('disabled', true);
-    <%734%>
-    <%589%>    
+    <%742%>
+    <%588%>    
     }
-    <%590%> 
+    <%589%> 
     
     if("<%508%>"=="1" & 0)
     {
@@ -129,8 +137,8 @@ function LangInit() {
     
      if (!chgBrsLang()) /* no page is loadded */
      {
-        if(<%594%>)
-            top.loadPage("<%595%>");
+        if(<%593%>)
+            top.loadPage("<%594%>");
         else
             top.loadPage("DashBoard.htm");
      }
@@ -178,10 +186,10 @@ $(document).ready(function(){
     $("#basic_label").click();
     LangInit();
       
-    <%596%>;
+    <%595%>;
 
     $('.subHeader').hide();
-    var pnpx = "<%597%>"
+    var pnpx = "<%596%>"
     if(pnpx == 1){        
         $("#advanced_label").click();       
         pnpx = 0;
@@ -262,7 +270,7 @@ function chgLang()
  
     if (choice != gui_region){      
         setTimeout(function(){
-            ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ choice + "?");
+            ret = confirm("<%600%> "+ gui_lang_local + ""+"<%601%> "+""+ choice + "?");
             if(ret==1){
                 if($("#basic_label").closest("li").hasClass('current')){
                     top.loadPage("LANG_check_redirect.htm");
@@ -297,9 +305,9 @@ function chgBrsLang()
                 if(gui_lang != brslang)
                   {
                     if(brslang =="TChinese")
-                        ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+" Traditional Chinese?");
+                        ret = confirm("<%600%> "+ gui_lang_local + ""+"<%601%> "+" Traditional Chinese?");
                     else
-                        ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ brslang + "?");
+                        ret = confirm("<%600%> "+ gui_lang_local + ""+"<%601%> "+""+ brslang + "?");
                     if(ret==1){
                         if($("#basic_label").closest("li").hasClass('current')){
                            top.loadPage("LANG_check_redirect2.htm");
@@ -342,8 +350,22 @@ function change_size()
 
 function adsFunction() 
 {						
-	document.getElementById("orbi-alert").style.display="none";
-	document.adctrl.submit();	
+	document.forms[0].enable_ad_show.value = "0";
+	
+	$.ajax({
+	    url:"ajax/adctrl.cgi",
+		dateType : 'json',
+		type: "POST",
+		data:{enable_ad_show : $("#enable_ad_show").val()},
+		success: function(msg){
+		    $("#orbi-alert").hide();
+		}
+	
+	
+	});
+	
+	//document.getElementById("orbi-alert").style.display="none";
+	//document.adctrl.submit();	
 }
 
 function load_settings()
@@ -357,10 +379,45 @@ function load_settings()
 	
 	return 0;
 }
+
+function get_browser()
+{
+    //var isApple = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+    if(navigator.userAgent.indexOf("Navigator") != -1)
+       return "Netscape";
+    else if (!(false || !!document.documentMode) && !!window.StyleMedia)
+       return "Edge";
+    //else if(navigator.userAgent.indexOf("MSIE") != -1)
+    else if(false || !!document.documentMode)
+      return "IE";
+    //else if(navigator.userAgent.indexOf("Chrome") != -1)
+    else if(!!window.chrome && !!window.chrome.loadTimes)
+        return "Chrome";//bug 21975:spec1.9-p228,[usb] the real links are different for different browsers
+    //else if(navigator.userAgent.indexOf("Firefox") != -1)
+   else if(typeof InstallTrigger !== 'undefined')
+        return "Firefox";
+   else if((navigator.userAgent.indexOf("iPad") != -1) ||
+            (navigator.userAgent.indexOf("iPhone") != -1) ||
+           (navigator.userAgent.indexOf("iPod") != -1))
+       return "iOS";
+   //else if((navigator.userAgent.indexOf("Safari") != -1 ))
+   else if(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor))
+        return "Safari";
+   else if(navigator.userAgent.indexOf("Camino") != -1)
+       return "Camino";
+   else if(navigator.userAgent.indexOf("Gecko/") != -1)
+       return "Gecko";
+   else if(navigator.userAgent.indexOf("Opera") != -1)
+       return "Opera";
+   else if(navigator.userAgent.indexOf("Android") != -1)
+       return "Android";
+    else
+       return "";
+}
 	
 </script>
 </head>
-<body style="padding:8px 0 0 0;margin:0;background-color:#FFFFFF;" onload="load_settings();change_size();" onResize="change_size()">
+<body style="padding:8px 0 0 0;margin:0;background-color:#FFFFFF;" onload="load_settings();change_size();get_browser(); " onResize="change_size()">
 
 <table style="height:76px;width:100%;padding:0" CELLPADDING=0 CELLSPACING=0 class="newtopframe">
 <tr>
@@ -369,17 +426,43 @@ function load_settings()
     </td>
     <!--Add Banner-->
     <td>
-    <div class="download-orbi-banner" id="orbi-alert"><%735%>
-    	<div><a href="http://orbi-app.com/" class="download-btn-orbi" target="_blank"><%736%></a></div>
+    <div class="download-orbi-banner" id="orbi-alert"><%743%>
+        <div id="learn_button" class="block_button" ><a href="http://orbi-app.com/" class="download-btn-orbi" target="_blank"><%744%></a></div>
+        <div id="ios_button" class="none_button"><a href="http://orbi-app.com/" class="download-btn-orbi" target="_blank">GET</a></div>
+            <script>
+                     if(get_browser()=="Safari"){
+
+                          $("#learn_button").removeClass("block_button");
+                          $("#learn_button").addClass("none_button");
+                          $("#ios_button").removeClass("none_button");
+                          $("#ios_button").addClass("block_button");
+                     }
+
+                     if(get_browser()=="iOS"){
+
+                          $("#learn_button").removeClass("block_button");
+                          $("#learn_button").addClass("none_button");
+                          $("#ios_button").removeClass("none_button");
+                          $("#ios_button").addClass("block_button");
+                     }
+
+                     if(get_browser()=="Android"){
+
+                          $("#learn_button").removeClass("block_button");
+                          $("#learn_button").addClass("none_button");
+                          $("#ios_button").removeClass("none_button");
+                          $("#ios_button").addClass("block_button");
+                     }
+            </script>
 		<div><span onclick="adsFunction()" class="cross" id="app_cross" name="app_cross"><img src="img/cross.png" class="cross" alt=""/></span></div>
 	</div>
     </td>
     <td style="text-align:right;padding-right:25px">
-        <button type="button" value="BUTTON"  onClick="gui_logout();" name="logout" id="logout" class="button-logout"><%603%></button>
+        <button type="button" value="BUTTON"  onClick="gui_logout();" name="logout" id="logout" class="button-logout"><%602%></button>
         <div class="firm_version" id="firm_version">
-        <%604%>
+        <%603%>
         <br>
-          <%605%>
+          <%604%>
         </div>
         </td>
 </tr>
@@ -387,45 +470,45 @@ function load_settings()
 
 
 <form name="frmLanguage">
+<%605%>
 <%606%>
-<%607%>
     <input type="hidden" name="curlang" id="curlang" value="Auto"> 
+<%607%>
 <%608%>
-<%609%>
     <input type="hidden" name="curlang" id="curlang" value="<%9%>"> 
+<%609%>
 <%610%>
 <%611%>
-<%612%>
     <input type="hidden" name="curlang" id="curlang" value="<%9%>">
-<%613%>
-    <input type="hidden" name="local_srptlang" value="<%614%>">
-    <input type="hidden" name="srptlang" value="<%615%>">
+<%612%>
+    <input type="hidden" name="local_srptlang" value="<%613%>">
+    <input type="hidden" name="srptlang" value="<%614%>">
     <input type="hidden" name="select_region" value="">
-    <input type="hidden" name="first_brs_lang" value="<%616%>"> 
-    <input type="hidden" name="auto_block" value="<%617%>">
+    <input type="hidden" name="first_brs_lang" value="<%615%>"> 
+    <input type="hidden" name="auto_block" value="<%616%>">
     <input type="hidden" name= "gui_lang" value="<%9%>">
-    <input type="hidden" name= "gui_lang_local" value="<%616%>">
-	<input type="hidden" name= "enable_ad_show" value="<%737%>">
+    <input type="hidden" name= "gui_lang_local" value="<%615%>">
+	<input type="hidden" id= "enable_ad_show" name= "enable_ad_show" value="<%745%>">
 </form> 
-<form name="adctrl"  method="POST" action="adctrl.cgi">   
+<!--<form name="adctrl"  method="POST" action="adctrl.cgi">   
    <input type="hidden" name= "enable_ad_show" value="0">
-</form>     
+</form>-->     
 <!-- tabs -->
 <div class="topmenubar">
     <div class="topmenu">
         <ul class="tabs" >
-            <li><div id="basic_label" class="tab" onFocus="this.blur()" href="#"><span><%618%></span></div></li>
-            <li><div id="advanced_label" class="tab" onFocus="this.blur()" href="#"><span><%619%></span></div></li>  
+            <li><div id="basic_label" class="tab" onFocus="this.blur()" href="#"><span><%617%></span></div></li>
+            <li><div id="advanced_label" class="tab" onFocus="this.blur()" href="#"><span><%618%></span></div></li>  
         </ul>
     </div>
 
-    <%738%>
+    <%746%>
     <div id="firmware_update" class="button-info" onClick="fw_upgrade_hint();"  style="display:inline;">
-    <span class=roundleft_update>&nbsp;&nbsp;<%739%> <%740%> <%741%></span><span class=roundright_update>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span class=roundleft_update>&nbsp;&nbsp;<%747%> <%748%> <%749%></span><span class=roundright_update>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
-    <%742%>
+    <%750%>
     <div id="lang_menu_li" class="top_lang">
-       <select name="choicelang" size="1" id="language" <%620%> onchange="chgLang();this.blur();">
+       <select name="choicelang" size="1" id="language" <%619%> onchange="chgLang();this.blur();">
        <script>ShowLanguageList();</script>
        </select>
     </div>

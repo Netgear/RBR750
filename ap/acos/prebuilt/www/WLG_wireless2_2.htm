@@ -17,6 +17,40 @@
     classes.num.all.fontFamily = "Courier";
     classes.num.all.fontSize = "10pt" ;
 </style>
+<style>
+    #pwd_show
+	{
+	    width: 15px;
+	    margin-left: -23px;
+	    padding-right: 5px;
+	    position: relative;
+	    top: 5px;
+	}
+    #pwd_show1
+	{
+	    width: 15px;
+	    margin-left: -23px;
+	    padding-right: 5px;
+	    position: relative;
+	    top: 5px;
+	}
+    #pwd_show2
+	{
+	    width: 15px;
+	    margin-left: -23px;
+	    padding-right: 5px;
+	    position: relative;
+	    top: 5px;
+	}
+    #pwd_show3
+	{
+	    width: 15px;
+	    margin-left: -23px;
+	    padding-right: 5px;
+	    position: relative;
+	    top: 5px;
+	}
+</style>
 <%14%>
 <script language="javascript" type="text/javascript">
 <!-- hide script from old browsers
@@ -54,7 +88,7 @@ function secure_submit()
 function displayWepWpaRadio()
 {
     var cf = document.forms[0];
-    var wlan_mode = "<%2423%>";
+    var wlan_mode = "<%2403%>";
     
     if (wlan_mode == "g&#32;and&#32;b")//Up to 54Mbps
     {
@@ -75,7 +109,7 @@ function initScrn()
     var fm=document.forms[0];
     var i;
 
-    var profile_idx = <%2424%>;
+    var profile_idx = <%2404%>;
     if (!profile_idx || profile_idx < 1 || profile_idx > 3)
         profile_idx = 1;
     var sel_index = profile_idx - 1;
@@ -133,6 +167,34 @@ function changSec(VAL)
 			}
 		}
 	}
+	
+	if( "<%2422%>" == "" || document.forms[0].wpa2_passphrase.value == "")
+	{
+	    document.getElementById("passphrase").value = "";
+		document.getElementById("passphrase").type = "text";
+		document.getElementById("pwd_show").src = "img/pwd_close_eye.png";		
+	}
+	
+	if( "<%2423%>" == "" || document.forms[0].wpa_auto_passphrase.value == "")
+	{
+	    document.getElementById("passphrase_auto").value = "";
+		document.getElementById("passphrase_auto").type = "text";
+		document.getElementById("pwd_show1").src = "img/pwd_close_eye.png";		
+	}
+	
+	if( "<%2424%>" == "" || document.forms[0].wpa3_personal_passphrase.value == "")
+	{
+	    document.getElementById("wpa3_personal_passphrase").value = "";
+		document.getElementById("wpa3_personal_passphrase").type = "text";
+		document.getElementById("pwd_show2").src = "img/pwd_close_eye.png";		
+	}
+	
+	if( "<%2425%>" == "" || document.forms[0].wpa3_auto_passphrase.value == "")
+	{
+	    document.getElementById("wpa3_auto_passphrase").value = "";
+		document.getElementById("wpa3_auto_passphrase").type = "text";
+		document.getElementById("pwd_show3").src = "img/pwd_close_eye.png";		
+	}
 }
 
 
@@ -178,6 +240,9 @@ function securityGUI(VAL)
 			if (document.getElementById("wpa_type").innerHTML)
 				document.getElementById("wpa_type").innerHTML = "";
 			document.getElementById("wpa_type").innerHTML = "<%175%>";
+			if (document.getElementById("wpa_input_limit").innerHTML)
+				document.getElementById("wpa_input_limit").innerHTML = "";
+			document.getElementById("wpa_input_limit").innerHTML = "<%199%>";
 			document.getElementById("wpa_help").href = document.getElementById("wpa_help").href.replace(document.getElementById("wpa_help").href.split(',')[document.getElementById("wpa_help").href.split(',').length-1], "'wpa2-psk')");
 			break;
 		case 4:	//WPA-AUTO-PSK
@@ -195,7 +260,7 @@ function securityGUI(VAL)
             document.getElementById("wpa_type").innerHTML = "<%176%>";
             if (document.getElementById("wpa_input_limit").innerHTML)
 				document.getElementById("wpa_input_limit").innerHTML = "";
-			document.getElementById("wpa_input_limit").innerHTML = "<%199%>";
+			document.getElementById("wpa_input_limit_auto").innerHTML = "<%199%>";
 			document.getElementById("wpa_help").href = document.getElementById("wpa_help").href.replace(document.getElementById("wpa_help").href.split(',')[document.getElementById("wpa_help").href.split(',').length-1], "'wpa-psk+wpa2-psk')");
             break;
         case 5:	//WPA3-Personal
@@ -210,11 +275,11 @@ function securityGUI(VAL)
 			document.getElementById("wpa_key_line").style.display = "";
 			if (document.getElementById("wpa_type").innerHTML)
 				document.getElementById("wpa_type").innerHTML = "";
-            document.getElementById("wpa_type").innerHTML = "<%1858%>";
+            document.getElementById("wpa_type").innerHTML = "<%1836%>";
 
             if (document.getElementById("wpa3_input_limit").innerHTML)
 				document.getElementById("wpa3_input_limit").innerHTML = "";
-			document.getElementById("wpa3_input_limit").innerHTML = "<%1859%>";
+			document.getElementById("wpa3_input_limit").innerHTML = "<%1837%>";
 			document.getElementById("wpa_help").href = document.getElementById("wpa_help").href.replace(document.getElementById("wpa_help").href.split(',')[document.getElementById("wpa_help").href.split(',').length-1], "'wpa-psk+wpa2-psk')");
             break;
         case 6:	//WPA2-WPA3-MIXED
@@ -229,15 +294,167 @@ function securityGUI(VAL)
 			document.getElementById("wpa_key_line").style.display = "";
 			if (document.getElementById("wpa_type").innerHTML)
 				document.getElementById("wpa_type").innerHTML = "";
-            document.getElementById("wpa_type").innerHTML = "<%1860%>";
+            document.getElementById("wpa_type").innerHTML = "<%1838%>";
 
             if (document.getElementById("wpa3_input_limit").innerHTML)
 				document.getElementById("wpa3_input_limit").innerHTML = "";
-			document.getElementById("wpa3_input_limit").innerHTML = "<%1859%>";
+			document.getElementById("wpa3_input_limit").innerHTML = "<%1837%>";
 			document.getElementById("wpa_help").href = document.getElementById("wpa_help").href.replace(document.getElementById("wpa_help").href.split(',')[document.getElementById("wpa_help").href.split(',').length-1], "'wpa-psk+wpa2-psk')");
 			break;
 	}
 }
+
+function password_display(flag)
+   {
+      var cf = document.forms[0];
+	  
+      var inp = document.getElementById("passphrase").name;
+      var e_value = "";
+	  var pwd_input = document.getElementById("passphrase");
+	  
+	  var inp1 = document.getElementById("passphrase_auto").name;
+      var e_value1 = "";
+	  var pwd_input1 = document.getElementById("passphrase_auto");
+	  
+	  var inp2 = document.getElementById("wpa3_personal_passphrase").name;
+      var e_value2 = "";
+	  var pwd_input2 = document.getElementById("wpa3_personal_passphrase");
+	  
+	  var inp3 = document.getElementById("wpa3_auto_passphrase").name;
+      var e_value3 = "";
+	  var pwd_input3 = document.getElementById("wpa3_auto_passphrase");
+	  
+	if(flag == 1){
+		var flag1_passphrase = "<%2422%>";
+		if(document.getElementById("passphrase").value != "" ){
+			 
+			e_value = document.getElementById("passphrase").value;
+			if(pwd_input.type=="password"){
+			    if(cf.password_changed.value == "0"){
+			        
+				    e_value = flag1_passphrase;
+					
+			        $('#passphrase').replaceWith('<input type="text" onfocus="change_password()" name="'+inp+'" id="passphrase" size=20 maxLength=64 value="'+e_value+'">');
+			        document.getElementById("pwd_show").src = "img/pwd_close_eye.png";
+			    }else{
+				    $('#passphrase').replaceWith('<input type="text" name="'+inp+'" id="passphrase" size=20 maxLength=64 value="'+e_value+'">');
+			        document.getElementById("pwd_show").src = "img/pwd_close_eye.png";
+				}
+			  
+			}else{
+			    if(cf.password_changed.value == "0"){
+				    $('#passphrase').replaceWith('<input type="password" onfocus="change_password()" name="'+inp+'" id="passphrase" size=20 maxLength=64 value="****************">');
+				    document.getElementById("pwd_show").src = "img/pwd_display_eye.png";
+                }else{
+				    $('#passphrase').replaceWith('<input type="password" name="'+inp+'" id="passphrase" size=20 maxLength=64 value="'+e_value+'">');
+				    document.getElementById("pwd_show").src = "img/pwd_display_eye.png";
+				}				  
+			}	
+		}else{
+				return false;
+		    }
+    }
+	
+	if(flag == 2){
+	    var flag2_passphrase = "<%2423%>";
+		if(document.getElementById("passphrase_auto").value != "" ){
+		  
+		    e_value1 = document.getElementById("passphrase_auto").value;
+	        if(pwd_input1.type=="password"){
+			    if(cf.password_changed.value == "0"){
+				
+				    e_value1 = flag2_passphrase;
+				  
+	                $('#passphrase_auto').replaceWith('<input type="text" onfocus="change_password()" name="'+inp1+'" id="passphrase_auto" size=20 maxLength=64 value="'+e_value1+'">');
+		            document.getElementById("pwd_show1").src = "img/pwd_close_eye.png";
+			    }else{
+				    $('#passphrase_auto').replaceWith('<input type="text" name="'+inp1+'" id="passphrase_auto" size=20 maxLength=64 value="'+e_value1+'">');
+		            document.getElementById("pwd_show1").src = "img/pwd_close_eye.png";
+				}
+	        }else{
+			    if(cf.password_changed.value == "0"){
+	                $('#passphrase_auto').replaceWith('<input type="password" onfocus="change_password()" name="'+inp1+'" id="passphrase_auto" size=20 maxLength=64 value="****************">');
+		            document.getElementById("pwd_show1").src = "img/pwd_display_eye.png";
+		        }else{
+				    $('#passphrase_auto').replaceWith('<input type="password" name="'+inp1+'" id="passphrase_auto" size=20 maxLength=64 value="'+e_value1+'">');
+		            document.getElementById("pwd_show1").src = "img/pwd_display_eye.png";
+				}  
+	        }
+	    }else{
+	        return false;
+		}
+    }
+	  
+	if(flag == 3){
+	    var flag3_passphrase = "<%2424%>";
+		if(document.getElementById("wpa3_personal_passphrase").value != "" ){
+		
+		    e_value2 = document.getElementById("wpa3_personal_passphrase").value;
+	        if(pwd_input2.type=="password"){
+			    if(cf.password_changed.value == "0"){
+				
+				    e_value2 = flag3_passphrase;
+				  
+	                $('#wpa3_personal_passphrase').replaceWith('<input type="text" onfocus="change_password()" name="'+inp2+'" id="wpa3_personal_passphrase" size=20 maxLength=128 value="'+e_value2+'">');
+		            document.getElementById("pwd_show2").src = "img/pwd_close_eye.png";
+		        }else{
+				    $('#wpa3_personal_passphrase').replaceWith('<input type="text" name="'+inp2+'" id="wpa3_personal_passphrase" size=20 maxLength=128 value="'+e_value2+'">');
+		            document.getElementById("pwd_show2").src = "img/pwd_close_eye.png";
+				}
+	        }else{
+		        if(cf.password_changed.value == "0"){
+	                $('#wpa3_personal_passphrase').replaceWith('<input type="password" onfocus="change_password()" name="'+inp2+'" id="wpa3_personal_passphrase" size=20 maxLength=128 value="****************">');
+		            document.getElementById("pwd_show2").src = "img/pwd_display_eye.png";
+			    }else{
+			        $('#wpa3_personal_passphrase').replaceWith('<input type="password" name="'+inp2+'" id="wpa3_personal_passphrase" size=20 maxLength=128 value="'+e_value2+'">');
+		            document.getElementById("pwd_show2").src = "img/pwd_display_eye.png";
+			    }	
+	        }
+	    }else{
+		    return false;
+		}
+    }
+	  
+	if(flag == 4){
+	    var flag4_passphrase = "<%2425%>";
+		if(document.getElementById("wpa3_auto_passphrase").value != "" ){
+		
+		    e_value3 = document.getElementById("wpa3_auto_passphrase").value;
+	        if(pwd_input3.type=="password"){
+			    if(cf.password_changed.value == "0"){
+				
+				    e_value3 = flag4_passphrase;
+				
+	            $('#wpa3_auto_passphrase').replaceWith('<input type="text" onfocus="change_password()" name="'+inp3+'" id="wpa3_auto_passphrase" size=20 maxLength=128 value="'+e_value3+'">');
+		        document.getElementById("pwd_show3").src = "img/pwd_close_eye.png";
+				}else{
+				    $('#wpa3_auto_passphrase').replaceWith('<input type="text" name="'+inp3+'" id="wpa3_auto_passphrase" size=20 maxLength=128 value="'+e_value3+'">');
+		            document.getElementById("pwd_show3").src = "img/pwd_close_eye.png";
+				}
+	        }else{
+			    if(cf.password_changed.value == "0"){
+	                $('#wpa3_auto_passphrase').replaceWith('<input type="password" onfocus="change_password()" name="'+inp3+'" id="wpa3_auto_passphrase" size=20 maxLength=128 value="****************">');
+		            document.getElementById("pwd_show3").src = "img/pwd_display_eye.png";
+				}else{
+				    $('#wpa3_auto_passphrase').replaceWith('<input type="password" name="'+inp3+'" id="wpa3_auto_passphrase" size=20 maxLength=128 value="'+e_value3+'">');
+		            document.getElementById("pwd_show3").src = "img/pwd_display_eye.png";
+				}
+	        }
+	    }else{
+	        return false; 
+	    }
+    }
+	
+   }
+
+function change_password()
+  {
+        document.forms[0].password_changed.value = "1";
+		document.forms[0].wpa2_passphrase.value = "";
+		document.forms[0].wpa_auto_passphrase.value = "";
+		document.forms[0].wpa3_personal_passphrase.value = "";
+		document.forms[0].wpa3_auto_passphrase.value = "";		
+  }  
 
 function wpapskCheck()
 {
@@ -286,7 +503,7 @@ function checkData()
     }
     if (cf.ssid.value == cf.wlssid.value)
     {
-        alert("<%1861%>");
+        alert("<%1843%>");
         cf.ssid.focus();
         return false;
     }
@@ -296,16 +513,32 @@ function checkData()
 	else if (curSecIndex >= 2)
 	{ 
 		var key = "";
-		if (curSecIndex == 3)
+		if (curSecIndex == 3){
+		    if(cf.password_changed.value == "0")
+			{
+			    cf.wpa2_passphrase.value = "<%2422%>";
+			}
 			key = cf.wpa2_passphrase;
-		else if (curSecIndex == 4)
-            key = cf.wpa_auto_passphrase;
-        else if (curSecIndex == 5)
+		}else if (curSecIndex == 4){
+            if(cf.password_changed.value == "0")
+			{
+			    cf.wpa_auto_passphrase.value = "<%2423%>";
+			}
+			key = cf.wpa_auto_passphrase;
+        }else if (curSecIndex == 5)
 		{
+			if(cf.password_changed.value == "0")
+			{
+			    cf.wpa3_personal_passphrase.value = "<%2424%>";
+			}
 			key = cf.wpa3_personal_passphrase;
         }
         else if (curSecIndex == 6)
 		{
+			if(cf.password_changed.value == "0")
+			{
+			    cf.wpa3_auto_passphrase.value = "<%2425%>";
+			}
 			key = cf.wpa3_auto_passphrase;
 		}
 
@@ -404,7 +637,7 @@ function checkData_wpa(KEY, secoption)
     } else {
         if(KEY.value.length > 127)
         {
-            alert("<%1862%>");
+            alert("<%1844%>");
             KEY.value = "";
             return false;
         }
@@ -455,7 +688,7 @@ function checkKey(evt)
     if ((lastkeypressed != 13) && (lastkeypressed != 8) && ( keyTooBig ))
     {
         keyTooBig = false;
-        alert("<%1847%> " + keysize + " <%1848%>");
+        alert("<%1825%> " + keysize + " <%1826%>");
         chkSize(lastObj); // for NS 6/7
         return false;
     }
@@ -576,7 +809,7 @@ function showWpsAlert()
 <form id="target"  method="POST" action="wireless_guest.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%2425%></div>
+<div class="subhead2"> <%2405%></div>
 <table border="0" style="height:370px;white-space:nowrap;"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -594,10 +827,10 @@ function showWpsAlert()
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','wireless')" tabindex="-1"><b><%662%></b></a></td>
+		<td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','wireless')" tabindex="-1"><b><%661%></b></a></td>
 	</tr>
         <tr>
-            <td align="left" colspan="2" ><input type="checkbox" name="enable_bssid" id="enable_bssid" value="1" ><a href="javascript:loadhelp('WLG_wireless_2','enable_guest')" tabindex="-1"><%2427%></a></td>
+            <td align="left" colspan="2" ><input type="checkbox" name="enable_bssid" id="enable_bssid" value="1" ><a href="javascript:loadhelp('WLG_wireless_2','enable_guest')" tabindex="-1"><%2407%></a></td>
         </tr>
 
 <!-- Following the Netgear spec, removing the guest broadcast and guest isolation options -->
@@ -605,12 +838,12 @@ function showWpsAlert()
             <td align="left" colspan="2" ><input type="checkbox" name="enable_broadcast" id="enable_ssid_bc" value="1" ><a href="javascript:loadhelp('WLG_wireless_2','enable_ssid')" tabindex="-1"><%157%></a></td>
         </tr>
         <tr style="display: none;">
-            <td align="left" colspan="2" ><input type="checkbox" name="allow_access" id="allow_access" value="1" ><a href="javascript:loadhelp('WLG_wireless_2','allow_guest')" tabindex="-1"><%2442%></a></td>
+            <td align="left" colspan="2" ><input type="checkbox" name="allow_access" id="allow_access" value="1" ><a href="javascript:loadhelp('WLG_wireless_2','allow_guest')" tabindex="-1"><%2426%></a></td>
         </tr>
 <!-- Following the Netgear spec, removing the guest broadcast and guest isolation options -->
         <tr>
-            <td width="50%" align="left"><a href="javascript:loadhelp('WLG_wireless_2','guest_ssid')" tabindex="-1"><%2429%>:</a></td>
-            <td width="50%"><input type="text" name="ssid" id="ssid" size="20" maxlength="32" value="<%1873%>"></td>
+            <td width="50%" align="left"><a href="javascript:loadhelp('WLG_wireless_2','guest_ssid')" tabindex="-1"><%2409%>:</a></td>
+            <td width="50%"><input type="text" name="ssid" id="ssid" size="20" maxlength="32" value="<%1851%>"></td>
         </tr>
 	<tr>
 		<td colspan="2" height="12" ><hr class='blueBar'></td>
@@ -649,12 +882,12 @@ function showWpsAlert()
         </tr>
         <tr id="wpa3_radio_2G" style="display: block;">
             <td colspan="2">
-		    <input type="radio" name="security_type" id="security_wpa3" value="WPA3-Personal" onclick="changSec(this.value);"><%1858%>
+		    <input type="radio" name="security_type" id="security_wpa3" value="WPA3-Personal" onclick="changSec(this.value);"><%1836%>
 		    </td>
         </tr>
         <tr id="wpa3a_radio_2G" style="display: none;">
             <td colspan="2">
-		    <input type="radio" name="security_type" id="security_wpa3_auto" value="WPA2-WPA3-MIXED" onclick="changSec(this.value);"><%1860%>
+		    <input type="radio" name="security_type" id="security_wpa3_auto" value="WPA2-WPA3-MIXED" onclick="changSec(this.value);"><%1838%>
 		    </td>
 	    </tr>
 	</table>
@@ -677,7 +910,7 @@ function showWpsAlert()
 			<tr>
 			<td nowrap colspan="2">
 			<%197%> <input type="text" name="passphraseStr" size="14" maxlength="32" value=""> &nbsp;
-			&nbsp;&nbsp;&nbsp;<button type="button" value="<%1852%>" name="keygen" class="button-rule" onClick="buttonClick(this,'<%1852%>');calcPassphrase(this.form)"><span class="roundleft_button">&nbsp;&nbsp; <%1852%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td></tr>		
+			&nbsp;&nbsp;&nbsp;<button type="button" value="<%1830%>" name="keygen" class="button-rule" onClick="buttonClick(this,'<%1830%>');calcPassphrase(this.form)"><span class="roundleft_button">&nbsp;&nbsp; <%1830%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td></tr>		
 			<tr>
 			<td><%188%> <input type="radio"  checked name="wep_key_no" value="1"></td>
 			<td align=left><input type="text" name="KEY1" maxLength=32 size=34 value="<%189%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[0].checked=true;"></td>
@@ -705,20 +938,28 @@ function showWpsAlert()
 			</tr>
 			<tr id="wpa2_input_key" style="display: none;">
 				<td width="30%" align="left"><%197%></td>
-				<td width="70%"><input type="text" name="wpa2_passphrase" id="passphrase" size=20 maxLength=64 value="<%2443%>">&nbsp;&nbsp;<%199%></td>
+				<td width="70%"><input type="password" onfocus="change_password()" name="wpa2_passphrase" id="passphrase" size=20 maxLength=64 value="****************">
+				<img id="pwd_show" src="img/pwd_display_eye.png" onclick="password_display(1)">&nbsp;&nbsp;
+				<span id="wpa_input_limit"></span></td>
 			</tr>
 			<tr id="autowpa_input_key" style="display: none;">
 				<td width="30%" align="left"><%197%></td>
-				<td width="70%"><input type="text" name="wpa_auto_passphrase" id="passphrase_auto" size=20 maxLength=64 value="<%2444%>">&nbsp;&nbsp;<span id="wpa_input_limit"></span></td>
+				<td width="70%"><input type="password" onfocus="change_password()" name="wpa_auto_passphrase" id="passphrase_auto" size=20 maxLength=64 value="****************">
+				<img id="pwd_show1" src="img/pwd_display_eye.png" onclick="password_display(2)">&nbsp;&nbsp;
+				<span id="wpa_input_limit_auto"></span></td>
             </tr>
 
             <tr id="wpa3_personal_input_key" style="display: none;">
 			    <td width="30%" align="left"><%197%></td>
-                <td width="70%"><input type="text" name="wpa3_personal_passphrase" id="passphrase_auto" size=20 maxLength=128 value="<%2445%>">&nbsp;&nbsp;<span id="wpa3_input_limit"></span></td>
+                <td width="70%"><input type="password" onfocus="change_password()" name="wpa3_personal_passphrase" id="wpa3_personal_passphrase" size=20 maxLength=128 value="****************">
+				<img id="pwd_show2" src="img/pwd_display_eye.png" onclick="password_display(3)">&nbsp;&nbsp;
+				<span id="wpa3_input_limit"></span></td>
 		    </tr>
             <tr id="wpa3_auto_input_key" style="display: none;">
 			    <td width="30%" align="left"><%197%></td>
-                <td width="70%"><input type="text" name="wpa3_auto_passphrase" id="passphrase_auto" size=20 maxLength=128 value="<%2446%>">&nbsp;&nbsp;<span id="wpa3_input_limit"></span></td>
+                <td width="70%"><input type="password" onfocus="change_password()" name="wpa3_auto_passphrase" id="wpa3_auto_passphrase" size=20 maxLength=128 value="****************">
+				<img id="pwd_show3" src="img/pwd_display_eye.png" onclick="password_display(4)">&nbsp;&nbsp;
+				<span id="wpa3_input_limit"></span></td>
 		    </tr>
 		</table>
 	</td>
@@ -741,15 +982,16 @@ function showWpsAlert()
 
   <input type="hidden" name="pfChanged" value="0">
   <input type="hidden" name="only_mode" value="0">
-  <input type="hidden" name="bssid_enable" value="<%2438%>">
-  <input type="hidden" name="ssid_bc_enable" value="<%2439%>">
-  <input type="hidden" name="enable_allow_access" value="<%2447%>">
+  <input type="hidden" name="bssid_enable" value="<%2418%>">
+  <input type="hidden" name="ssid_bc_enable" value="<%2419%>">
+  <input type="hidden" name="enable_allow_access" value="<%2427%>">
   <input type="hidden" name="ssid_sel_submit" value="0">
   <input type="hidden" name="secure_sel_submit" value="0">
   <input type="hidden" name="show_wps_alert" value="<%272%>">
-  <input type="hidden" name="enable_apmode" value="<%697%>">
-  <input type="hidden" name="security_type_guest" value="<%2422%>">
+  <input type="hidden" name="enable_apmode" value="<%696%>">
+  <input type="hidden" name="security_type_guest" value="<%2402%>">
   <input type="hidden" name="wlssid" value="<%375%>">
+  <input type="hidden" name="password_changed" value="0">
 <a name="helpframe-anchor"></a>
 </form>
 

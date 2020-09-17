@@ -55,7 +55,7 @@ function secure_submit()
 function displayWepWpaRadio()
 {
     var cf = document.forms[0];
-    var wlan_mode = "<%2423%>";
+    var wlan_mode = "<%2403%>";
     
     if (wlan_mode == "g&#32;and&#32;b")//Up to 54Mbps
     {
@@ -77,7 +77,7 @@ function initScrn()
     var i;
     var srvip = fm.radius_ip.value.split(".");
 
-    var profile_idx = <%2424%>;
+    var profile_idx = <%2404%>;
     if (!profile_idx || profile_idx < 1 || profile_idx > 3)
         profile_idx = 1;
     var sel_index = profile_idx - 1;
@@ -147,14 +147,14 @@ function checkData()
               (parseInt(cf.srv_ip4.value) == 0) ||
               (parseInt(cf.srv_ip1.value) > 224))
     {
-        alert("<%2448%>");
+        alert("<%2428%>");
         return false;
     }
 
     var port = parseInt(cf.srv_port.value);
     if (port < 1 || port > 65535) 
     {
-        alert("<%2449%>");
+        alert("<%2429%>");
         return false;
     }
 
@@ -183,7 +183,7 @@ function showWpsAlert()
 <form id="target"  method="POST" action="wlg_sec_profile_main.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%2425%></div>
+<div class="subhead2"> <%2405%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -204,11 +204,11 @@ function showWpsAlert()
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
-<td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','wireless')" tabindex="-1"><b><%662%> - <%2426%> <%2424%></b></a></td>
+<td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','wireless')" tabindex="-1"><b><%661%> - <%2406%> <%2404%></b></a></td>
 </tr>
 
 <tr>
-<td align="left" colspan="2" ><input type="checkbox" name="enable_bssid" value="1"><%2427%></td>
+<td align="left" colspan="2" ><input type="checkbox" name="enable_bssid" value="1"><%2407%></td>
 </tr>
 
 <tr>
@@ -216,7 +216,7 @@ function showWpsAlert()
 </tr>
 
 <tr>
-<td align="left" colspan="2" ><input type="checkbox" name="allow_access" value="1"><%2428%></td>
+<td align="left" colspan="2" ><input type="checkbox" name="allow_access" value="1"><%2408%></td>
 </tr>
 
 <%152%>
@@ -226,12 +226,12 @@ function showWpsAlert()
 <%155%>
 
 <tr>
-<td align="left" colspan="2" ><%2429%><input type="text" name="ssid" value="<%1873%>" size="20" maxlength="32"></td>
+<td align="left" colspan="2" ><%2409%><input type="text" name="ssid" value="<%1851%>" size="20" maxlength="32"></td>
 </tr>
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','security')" tabindex="-1"><b><%170%> - <%2426%> <%2424%></b></a></td></tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless_2','security')" tabindex="-1"><b><%170%> - <%2406%> <%2404%></b></a></td></tr>
 
 <tr><td colspan="2">
 <table cellpadding="0" cellspacing="3" width="100%">
@@ -252,18 +252,18 @@ function showWpsAlert()
     </td>
 </tr>
 <tr>
-	<td colspan="2"><input type="radio" name="security_type" value="WPA2-PSK" <%173%> <%2450%> onClick="buttonFilter();return secure_submit();" ><%175%></td></tr>
+	<td colspan="2"><input type="radio" name="security_type" value="WPA2-PSK" <%173%> <%2430%> onClick="buttonFilter();return secure_submit();" ><%175%></td></tr>
 <tr>
-	<td colspan="2"><input type="radio" name="security_type" value="AUTO-PSK" <%173%> <%2451%> onClick="buttonFilter();return secure_submit();" ><%176%></td></tr>
+	<td colspan="2"><input type="radio" name="security_type" value="AUTO-PSK" <%173%> <%2431%> onClick="buttonFilter();return secure_submit();" ><%176%></td></tr>
 
 </table>
 </td></tr>
 
     <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
     <tr>
-    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%1834%></b></a></td></tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%2432%></b></a></td></tr>
     <tr>
-	<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%806%></td>
+	<td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%814%></td>
 	<td width="50%" align="left">
         <input type="text" name="srv_ip1" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
         <input type="text" name="srv_ip2" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
@@ -272,22 +272,22 @@ function showWpsAlert()
     </td>
 </tr>
 <tr>
-    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%1355%></td>
+    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%1362%></td>
 	<td width="50%" align="left"><input type="text" name="srv_port" class="num" size="6" maxlength="5"></td>
 </tr>
 <tr>
-    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%2452%></td>
+    <td nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%2433%></td>
 	<td width="50%" align="left"><input type="text" name="srv_secret" size="22" maxlength="20">
 	</td>
 </tr>
 
 <tr>
-    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%2453%></b></a></td></tr>
+    <td colspan="2"><a href="javascript:loadhelp('WLG_wireless','security')" tabindex="-1"><b><%2434%></b></a></td></tr>
 
 <TR>
     <TD nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type=checkbox NAME=rekey_ena value="1">&nbsp;<%2454%></td>
-    <td width="50%" align="left"><input type="text" name="gtk_rekey" class="num" size="7" maxlength="5"> <%1611%></td>
+        <input type=checkbox NAME=rekey_ena value="1">&nbsp;<%2435%></td>
+    <td width="50%" align="left"><input type="text" name="gtk_rekey" class="num" size="7" maxlength="5"> <%1618%></td>
 </tr>
 
     <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
@@ -307,20 +307,20 @@ function showWpsAlert()
 
 
 
-  <input type="hidden" name="radius_ip" value="<%2455%>">
-  <input type="hidden" name="radius_port" value="<%2456%>">
-  <input type="hidden" name="radius_secret" value="<%2457%>">
-  <input type="hidden" name="wpa_rekey_ena" value="<%2458%>">
-  <input type="hidden" name="wpa_gtk_rekey" value="<%2459%>">
+  <input type="hidden" name="radius_ip" value="<%2436%>">
+  <input type="hidden" name="radius_port" value="<%2437%>">
+  <input type="hidden" name="radius_secret" value="<%2438%>">
+  <input type="hidden" name="wpa_rekey_ena" value="<%2439%>">
+  <input type="hidden" name="wpa_gtk_rekey" value="<%2440%>">
   <input type="hidden" name="only_mode" value="0">
-  <input type="hidden" name="bssid_enable" value="<%2438%>">
-  <input type="hidden" name="ssid_bc_enable" value="<%2439%>">
-  <input type="hidden" name="enable_allow_access" value="<%2440%>">
-  <input type="hidden" name="enable_isolation" value="<%2441%>">
+  <input type="hidden" name="bssid_enable" value="<%2418%>">
+  <input type="hidden" name="ssid_bc_enable" value="<%2419%>">
+  <input type="hidden" name="enable_allow_access" value="<%2420%>">
+  <input type="hidden" name="enable_isolation" value="<%2421%>">
   <input type="hidden" name="ssid_sel_submit" value="0">
   <input type="hidden" name="secure_sel_submit" value="0">
   <input type="hidden" name="show_wps_alert" value="<%272%>">
-  <input type="hidden" name="enable_apmode" value="<%697%>">
+  <input type="hidden" name="enable_apmode" value="<%696%>">
 <a name="helpframe-anchor"></a>
 </form>
 

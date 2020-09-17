@@ -3,7 +3,7 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=qca-wifi-hk-fw
-PKG_VERSION:=WLAN.HK.2.0-01792-QCAHKSWPL_SILICONZ-1.239995.1
+PKG_VERSION:=WLAN.HK.2.0-01792-QCAHKSWPL_SILICONZ-1.253912.1.269447.1
 PKG_RELEASE:=1
 PKG_LABEL:=$(shell echo $(PKG_VERSION) | cut -d'-' -f2)
 PKG_SPIN:=$(shell echo $(PKG_VERSION) | cut -d'-' -f4)

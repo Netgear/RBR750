@@ -41,7 +41,7 @@ function valid_add()
 {
  if(document.forms[0].MacSelect && parseInt(document.forms[0].MacSelect.length)==64)
  {
-   alert("<%1920%>");
+   alert("<%1898%>");
    return false;
  }
  return true;
@@ -53,9 +53,9 @@ function valid_edit(type)
  if(cf.macaddr.value.length == 0)//not select
  {
  if(type == 0)
- alert("<%1921%>");
+ alert("<%1899%>");
  else if(type == 1)
- alert("<%1922%>"); 
+ alert("<%1900%>"); 
  return false;
  }
  return true;
@@ -79,13 +79,13 @@ function showWpsAlert()
 function checkData()
 {
     var cf = document.forms[0];
-    var acl_mac_num = "<%1923%>";
+    var acl_mac_num = "<%1901%>";
     var needGrayOutWPS = 0;
 
     if (cf.accessLimit.checked) {
         if (acl_mac_num == "0")
         {
-            //if (!confirm("<%1924%>")){
+            //if (!confirm("<%1902%>")){
               //  return false;
             //}
             needGrayOutWPS = 1;
@@ -116,13 +116,13 @@ function checkData()
 <form id="target"  action="wlan_acl.cgi" method="post" name="formname">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
   <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1925%></div>
+<div class="subhead2"> <%1903%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
 &nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>'); return checkData();"  type="submit" name="apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
-&nbsp;&nbsp;&nbsp;<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='<%661%>'" type="button" name="cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='<%660%>'" type="button" name="cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 </td>
 </tr>
 
@@ -130,7 +130,7 @@ function checkData()
     
     <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
     <TR>
-      <TD align="left" nowrap colspan="2" ><input type="checkbox" name="accessLimit" value="1" <%1926%> ><a href="javascript:loadhelp('WLG_acl','control')" tabindex="-1"><b><%1927%></b></a></td></tr>
+      <TD align="left" nowrap colspan="2" ><input type="checkbox" name="accessLimit" value="1" <%1904%> ><a href="javascript:loadhelp('WLG_acl','control')" tabindex="-1"><b><%1905%></b></a></td></tr>
     <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
     <tr>
       <td align="center" colspan="2" >
@@ -138,15 +138,15 @@ function checkData()
         <table border="1" cellpadding="0" cellspacing="0" width="100%">
           <tr>
             <td nowrap width="10%" align="center"><span class="thead">&nbsp;</span></td>
-            <td nowrap width="45%" align="center"><span class="thead"><%969%></span></td>
-            <td nowrap width="45%" align="center"><span class="thead"><%970%></span></td></tr>
-          <%1928%></table>
+            <td nowrap width="45%" align="center"><span class="thead"><%978%></span></td>
+            <td nowrap width="45%" align="center"><span class="thead"><%979%></span></td></tr>
+          <%1906%></table>
         </td></tr>
     <TR>
       <TD nowrap align=center colspan="2" >
-        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%913%>" name="add" class="button-rule" onclick="buttonClick(this,'<%913%>');return(valid_add());"><span class="roundleft_button"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%913%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button> 
-        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%803%>" name="edit" class="button-rule" onclick="buttonClick(this,'<%803%>');return(valid_edit(0));"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%803%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button> 
-        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="delete" class="button-rule" onclick="buttonClick(this,'<%914%>');return(valid_edit(1));"><span class="roundleft_button"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%914%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td></tr> 
+        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%922%>" name="add" class="button-rule" onclick="buttonClick(this,'<%922%>');return(valid_add());"><span class="roundleft_button"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%922%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button> 
+        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%811%>" name="edit" class="button-rule" onclick="buttonClick(this,'<%811%>');return(valid_edit(0));"><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%811%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button> 
+        &nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="delete" class="button-rule" onclick="buttonClick(this,'<%923%>');return(valid_edit(1));"><span class="roundleft_button"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%923%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button></td></tr> 
     <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
     </table></div></td></tr>
 <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_acl_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>

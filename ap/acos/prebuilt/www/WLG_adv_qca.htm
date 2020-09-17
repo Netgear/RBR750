@@ -128,7 +128,7 @@ function checkData()
 	var frag = parseInt(cf.frag.value,10);
         
 	if ((!_isNumeric(cf.frag.value)) || isNaN(frag) || frag > 2346 || frag < 256) {
-		alert("<%3340%>");
+		alert("<%3384%>");
 		return false;
 	}
 	else
@@ -138,14 +138,14 @@ function checkData()
     var rts_5g = parseInt($("input[name=set_rts_5g]").val(),10);
         
 	if ((!_isNumeric($("input[name=set_rts_2g]").val())) || isNaN(rts_2g) || rts_2g > 2347 || rts_2g < 1) {
-		alert("<%3341%>");
+		alert("<%3385%>");
 		return false;
 	}
 	else
 		$("input[name=set_rts_2g]").val(rts_2g);
         
     if ((!_isNumeric($("input[name=set_rts_5g]").val())) || isNaN(rts_5g) || rts_5g > 2347 || rts_5g < 1) {
-		alert("<%3341%>");
+		alert("<%3385%>");
 		return false;
 	}
 	else
@@ -164,12 +164,12 @@ function checkData()
 
         /*
         if (cf.device_name.value == "")
-		msg+= "<%1031%>\n";
+		msg+= "<%1040%>\n";
 
     	if (cf.device_name.value.match( /[^\x20-\x7E]/ ))
     	{
     		cf.device_name.focus();
-    		msg+= "<%1032%>\n";
+    		msg+= "<%1041%>\n";
     	}
         */
 
@@ -247,15 +247,15 @@ function checkData()
     	cf.apmode_dns1_pri.value = cf.DAddr1.value+'.'+cf.DAddr2.value+'.'+cf.DAddr3.value+'.'+cf.DAddr4.value;
     	cf.apmode_dns1_sec.value = cf.PDAddr1.value+'.'+cf.PDAddr2.value+'.'+cf.PDAddr3.value+'.'+cf.PDAddr4.value;
         
-        if(<%697%>=="0")
-            alert("<%1384%>");
+        if(<%696%>=="0")
+            alert("<%1391%>");
 	}
 	else
 	{
         ap_mode_ungrayout(); 
         
-        if(<%697%>=="1")
-            alert("<%1384%>");        
+        if(<%696%>=="1")
+            alert("<%1391%>");        
 	}
 	if (msg.length > 1)
 	{
@@ -263,6 +263,109 @@ function checkData()
 		return false;
 	}
     */
+
+
+	var cf = document.forms[0];
+    var index = cf.WRegion.selectedIndex;
+
+    if(cf.WRegion[index].value == "Africa")
+    {
+        cf.WRegion[index].value = "1";
+
+    }
+    else if(cf.WRegion[index].value == "Asia")
+    {
+        cf.WRegion[index].value = "2";
+    }
+    else if(cf.WRegion[index].value == "Australia")
+    {
+        cf.WRegion[index].value = "3";
+    }
+    else if(cf.WRegion[index].value == "Canada")
+    {
+        cf.WRegion[index].value = "4";
+    }
+    else if(cf.WRegion[index].value == "China")
+    {
+        cf.WRegion[index].value = "16";
+    }
+    else if(cf.WRegion[index].value == "Europe")
+    {
+        cf.WRegion[index].value = "5";
+    }
+    else if(cf.WRegion[index].value == "India")
+    {
+        cf.WRegion[index].value = "17";
+    }
+    else if(cf.WRegion[index].value == "Israel")
+    {
+        cf.WRegion[index].value = "6";
+    }
+    else if(cf.WRegion[index].value == "Japan")
+    {
+        cf.WRegion[index].value = "7";
+    }
+    else if(cf.WRegion[index].value == "Korea")
+    {
+        cf.WRegion[index].value = "8";
+    }
+    else if(cf.WRegion[index].value == "Malaysia")
+    {
+        cf.WRegion[index].value = "18";
+    }
+    else if(cf.WRegion[index].value == "Mexico")
+    {
+        cf.WRegion[index].value = "9";
+    }
+    else if(cf.WRegion[index].value == "Algeria")
+    {
+        cf.WRegion[index].value = "12";
+    }
+    else if(cf.WRegion[index].value == "Iran")
+    {
+        cf.WRegion[index].value = "19";
+    }
+    else if(cf.WRegion[index].value == "Egypt")
+    {
+        cf.WRegion[index].value = "20";
+    }
+    else if(cf.WRegion[index].value == "Turkey")
+    {
+        cf.WRegion[index].value = "21";
+    }
+    else if(cf.WRegion[index].value == "Saudi")
+    {
+        cf.WRegion[index].value = "22";
+    }
+    else if(cf.WRegion[index].value == "Russia")
+    {
+        cf.WRegion[index].value = "14";
+    }
+    else if(cf.WRegion[index].value == "Singapore")
+    {
+        cf.WRegion[index].value = "23";
+    }
+    else if(cf.WRegion[index].value == "South America")
+    {
+        cf.WRegion[index].value = "10";
+    }
+    else if(cf.WRegion[index].value == "Taiwan")
+    {
+        cf.WRegion[index].value = "24";
+    }
+    else if(cf.WRegion[index].value == "Hong Kong")
+    {
+        cf.WRegion[index].value = "25";
+    }
+    else if(cf.WRegion[index].value == "Vietnam")
+    {
+        cf.WRegion[index].value = "26";
+    }
+    else if(cf.WRegion[index].value == "United States")
+    {
+        cf.WRegion[index].value = "11";
+    }
+
 	return true;
 }
 /*
@@ -280,105 +383,99 @@ function chgSel_5g(index)
 */
 function loadSettings()
 {
-	var cf = document.forms[0];
-    	var preamble = "<%3342%>";
-       var tpc = "<%294%>";
-	var daisy = "<%3343%>";
+    var cf = document.forms[0];
+    var preamble = "<%3386%>";
+    var tpc = "<%294%>";
+    var daisy = "<%3387%>";
 
-        if (preamble == "auto")
-            cf.set_preamble_2g.selectedIndex = 0;
-        else if (preamble == "long")
-            cf.set_preamble_2g.selectedIndex = 1;
-        else if (preamble == "short")
-            cf.set_preamble_2g.selectedIndex = 2;
+    if (preamble == "auto")
+        cf.set_preamble_2g.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_2g.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_2g.selectedIndex = 2;
 
-        if (tpc == "100")
-            cf.set_tpc_2g.selectedIndex = 0;
-        else if (tpc == "75")
-            cf.set_tpc_2g.selectedIndex = 1;
-        else if (tpc == "50")
-            cf.set_tpc_2g.selectedIndex = 2;
-        else if (tpc == "25")
-            cf.set_tpc_2g.selectedIndex = 3;
+    if (tpc == "100")
+        cf.set_tpc_2g.selectedIndex = 0;
+    else if (tpc == "50")
+        cf.set_tpc_2g.selectedIndex = 1;
+    else if (tpc == "25")
+        cf.set_tpc_2g.selectedIndex = 2;
 
+    preamble = "<%3388%>";
+    tpc = "<%3389%>";
 
-        preamble = "<%3344%>";
-        tpc = "<%3345%>";
+    if (preamble == "auto")
+        cf.set_preamble_5g.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_5g.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_5g.selectedIndex = 2;
 
-        if (preamble == "auto")
-            cf.set_preamble_5g.selectedIndex = 0;
-        else if (preamble == "long")
-            cf.set_preamble_5g.selectedIndex = 1;
-        else if (preamble == "short")
-            cf.set_preamble_5g.selectedIndex = 2;
+    if (tpc == "100")
+        cf.set_tpc_5g.selectedIndex = 0;
+    else if (tpc == "50")
+        cf.set_tpc_5g.selectedIndex = 1;
+    else if (tpc == "25")
+        cf.set_tpc_5g.selectedIndex = 2;
 
-        if (tpc == "100")
-            cf.set_tpc_5g.selectedIndex = 0;
-        else if (tpc == "75")
-            cf.set_tpc_5g.selectedIndex = 1;
-        else if (tpc == "50")
-            cf.set_tpc_5g.selectedIndex = 2;
-        else if (tpc == "25")
-            cf.set_tpc_5g.selectedIndex = 3;
+    if(daisy=="1")
+        cf.daisy_chain.checked = true;
+    else
+        cf.daisy_chain.checked = false;                                                                                                                 
 
-	if(daisy=="1")                                                                                                                                                                                                                                                                                                           
-		cf.daisy_chain.checked = true;                                                                                                                                                                                                                                                                                       
-	else                                                                                                                                                                                                                                                                                                                   
-		cf.daisy_chain.checked = false;                                                                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                           
-        
-        <%3346%>
-        preamble = "<%3347%>";
-        if (preamble == "auto")
-            cf.set_preamble_5g_fh.selectedIndex = 0;
-        else if (preamble == "long")
-            cf.set_preamble_5g_fh.selectedIndex = 1;
-        else if (preamble == "short")
-            cf.set_preamble_5g_fh.selectedIndex = 2;
-        <%3348%>
+    <%3390%>
+        preamble = "<%3391%>";
+    if (preamble == "auto")
+        cf.set_preamble_5g_fh.selectedIndex = 0;
+    else if (preamble == "long")
+        cf.set_preamble_5g_fh.selectedIndex = 1;
+    else if (preamble == "short")
+        cf.set_preamble_5g_fh.selectedIndex = 2;
+    <%3392%>
         /*
-	if (cf.wps_enable.value == "disabled")
-	{
-		cf.pin_disable.disabled = true;
-		cf.wsc_config.disabled = true;
-	}
-	var apmode_ipaddr = cf.apmode_ipaddr.value.split(".");
-	var apmode_netmask = cf.apmode_netmask.value.split(".");
-	var apmode_gateway = cf.apmode_gateway.value.split(".");
-	var apmode_dns1_pri = cf.apmode_dns1_pri.value.split(".");
-	var apmode_dns1_sec = cf.apmode_dns1_sec.value.split(".");
+           if (cf.wps_enable.value == "disabled")
+           {
+           cf.pin_disable.disabled = true;
+           cf.wsc_config.disabled = true;
+           }
+           var apmode_ipaddr = cf.apmode_ipaddr.value.split(".");
+           var apmode_netmask = cf.apmode_netmask.value.split(".");
+           var apmode_gateway = cf.apmode_gateway.value.split(".");
+           var apmode_dns1_pri = cf.apmode_dns1_pri.value.split(".");
+           var apmode_dns1_sec = cf.apmode_dns1_sec.value.split(".");
 
-	display_apmode();	
-	setIP();
-	cf.WPethr1.value = apmode_ipaddr[0];
-	cf.WPethr2.value = apmode_ipaddr[1];
-	cf.WPethr3.value = apmode_ipaddr[2];
-	cf.WPethr4.value = apmode_ipaddr[3];
-	cf.WMask1.value = apmode_netmask[0];
-	cf.WMask2.value = apmode_netmask[1];
-	cf.WMask3.value = apmode_netmask[2];
-	cf.WMask4.value = apmode_netmask[3];
-	cf.WGateway1.value = apmode_gateway[0];
-	cf.WGateway2.value = apmode_gateway[1];
-	cf.WGateway3.value = apmode_gateway[2];
-	cf.WGateway4.value = apmode_gateway[3];
-	
-	setDNS();
-	if (cf.apmode_dns1_pri.value != "")
-	{
-		cf.DAddr1.value = apmode_dns1_pri[0];
-		cf.DAddr2.value = apmode_dns1_pri[1];
-		cf.DAddr3.value = apmode_dns1_pri[2];
-		cf.DAddr4.value = apmode_dns1_pri[3];
-	}
-	if (cf.apmode_dns1_sec.value != "")
-	{
-		cf.PDAddr1.value = apmode_dns1_sec[0];
-		cf.PDAddr2.value = apmode_dns1_sec[1];
-		cf.PDAddr3.value = apmode_dns1_sec[2];
-		cf.PDAddr4.value = apmode_dns1_sec[3];
-	}
-	*/
+           display_apmode();	
+           setIP();
+           cf.WPethr1.value = apmode_ipaddr[0];
+           cf.WPethr2.value = apmode_ipaddr[1];
+           cf.WPethr3.value = apmode_ipaddr[2];
+           cf.WPethr4.value = apmode_ipaddr[3];
+           cf.WMask1.value = apmode_netmask[0];
+           cf.WMask2.value = apmode_netmask[1];
+           cf.WMask3.value = apmode_netmask[2];
+           cf.WMask4.value = apmode_netmask[3];
+           cf.WGateway1.value = apmode_gateway[0];
+           cf.WGateway2.value = apmode_gateway[1];
+           cf.WGateway3.value = apmode_gateway[2];
+           cf.WGateway4.value = apmode_gateway[3];
+
+           setDNS();
+           if (cf.apmode_dns1_pri.value != "")
+           {
+           cf.DAddr1.value = apmode_dns1_pri[0];
+           cf.DAddr2.value = apmode_dns1_pri[1];
+           cf.DAddr3.value = apmode_dns1_pri[2];
+           cf.DAddr4.value = apmode_dns1_pri[3];
+           }
+           if (cf.apmode_dns1_sec.value != "")
+           {
+           cf.PDAddr1.value = apmode_dns1_sec[0];
+           cf.PDAddr2.value = apmode_dns1_sec[1];
+           cf.PDAddr3.value = apmode_dns1_sec[2];
+           cf.PDAddr4.value = apmode_dns1_sec[3];
+           }
+         */
 }
 
 
@@ -407,9 +504,9 @@ function check_wifi_sche()
         enableButton2=document.getElementsByName("edit_sche");
         enableButton3=document.getElementsByName("del_sche");
         
-        enableButton1[0].outerHTML='<button type="submit" value="<%1068%>" name="add_sche" class="button-rule" onclick="buttonClick(this,\'<%1068%>\');" ><span class="roundleft_button"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1068%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
-        enableButton2[0].outerHTML='<button type="submit" value="<%803%>" name="edit_sche" class="button-rule" onclick="buttonClick(this,\'<%803%>\');" ><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%803%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
-        enableButton3[0].outerHTML='<button type="submit" value="<%914%>" name="del_sche" class="button-rule" onclick="buttonClick(this,\'<%914%>\');" ><span class="roundleft_button"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%914%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        enableButton1[0].outerHTML='<button type="submit" value="<%1077%>" name="add_sche" class="button-rule" onclick="buttonClick(this,\'<%1077%>\');" ><span class="roundleft_button"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1077%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        enableButton2[0].outerHTML='<button type="submit" value="<%811%>" name="edit_sche" class="button-rule" onclick="buttonClick(this,\'<%811%>\');" ><span class="roundleft_button"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%811%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        enableButton3[0].outerHTML='<button type="submit" value="<%923%>" name="del_sche" class="button-rule" onclick="buttonClick(this,\'<%923%>\');" ><span class="roundleft_button"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%923%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
                  
         enableButton1[0].style.cursor='default';        
         enableButton2[0].style.cursor='default';         
@@ -430,9 +527,9 @@ function check_wifi_sche()
         diableButton2=document.getElementsByName("edit_sche");
         diableButton3=document.getElementsByName("del_sche");
         
-        diableButton1[0].outerHTML='<button type="submit" value="<%1068%>" name="add_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1068%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
-        diableButton2[0].outerHTML='<button type="submit" value="<%803%>" name="edit_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%803%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
-        diableButton3[0].outerHTML='<button type="submit" value="<%914%>" name="del_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%914%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        diableButton1[0].outerHTML='<button type="submit" value="<%1077%>" name="add_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="add-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%1077%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        diableButton2[0].outerHTML='<button type="submit" value="<%811%>" name="edit_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="edit-icon">&nbsp;&nbsp;&nbsp;&nbsp; <%811%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
+        diableButton3[0].outerHTML='<button type="submit" value="<%923%>" name="del_sche" class="button-grey" onclick="" ><span class="roundleft_grey"><span class="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;  <%923%></span></span><span class="roundright_grey">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>';
                  
         diableButton1[0].style.cursor='default';        
         diableButton2[0].style.cursor='default';         
@@ -490,28 +587,29 @@ function showWpsAlert()
         alert("<%66%>");
 }
 
-function check_daisy_chain()                                                                                                                                                                                                                                                                                               
-{                                                                                                                                                                                                                                                                                                                          
-	var cf = document.forms[0];          
-	var daisy = "<%3343%>";
-	if(!confirm("Enabling or disabling this feature causes all your Orbi to reboot."))                                                                                                                                                                                                                                       
-	{                                                                                                                                                                                                                                                                                                                        
-		if(daisy=="1")                                                                                                                                                                                                                                                                                                           
-			cf.daisy_chain.checked = true;                                                                                                                                                                                                                                                                                       
-		else                                                                                                                                                                                                                                                                                                                   
-			cf.daisy_chain.checked = false;                                                                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                           
-		return false;                                                                                                                                                                                                                                                                                                          
-	}                                                                                                                                                                                                                                                                                                                        
-	else                                                                                                                                                                                                                                                                                                                     
-	{                                                                                                                                                                                                                                                                                                                        
-		if(cf.daisy_chain.checked == true)                                                                                                                                                                                                                                                                                     
-			cf.hid_daisy_chain.value = "1";                                                                                                                                                                                                                                                                                      
-		else                                                                                                                                                                                                                                                                                                                   
-			cf.hid_daisy_chain.value = "0";                                                                                                                                                                                                                                                                                      
-		cf.buttonHit.value="daisy_chain";                                                                                                                                                                                                                                                                            
-		cf.submit();                                                                                                                                                                                                                                                                                                           
-	}                                                                                                                                                                                                                                                                                                                        
+function check_daisy_chain()
+{   
+    var cf = document.forms[0];          
+    var daisy = "<%3387%>";
+    if(!confirm("Enabling or disabling this feature causes all your Orbi to reboot."))
+    {
+        if(daisy=="1")
+            cf.daisy_chain.checked = true;
+        else
+            cf.daisy_chain.checked = false;
+
+        return false;
+    }
+    else
+    {
+        if(cf.daisy_chain.checked == true)
+            cf.hid_daisy_chain.value = "1";
+        else
+            cf.hid_daisy_chain.value = "0";
+
+        cf.buttonHit.value="daisy_chain";
+        cf.submit();
+    }
 }                                                     
 
 </script>
@@ -524,7 +622,7 @@ function check_daisy_chain()
 <input type="hidden" name="buttonHit">
 <input type="hidden" name="hid_daisy_chain">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"><%1879%></div>
+<div class="subhead2"><%1857%></div>
 <table border="0" style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -552,30 +650,30 @@ function check_daisy_chain()
 	<td>
 	<select id="region_select" nowrap="nowrap" name="WRegion" size="1">
 		<option <%91%> value="0">--- <%92%> ---</option>
-		<option <%93%> value="1"><%94%></option>
-		<option <%95%> value="2"><%96%></option>
-		<option <%97%> value="3"><%98%></option>
-		<option <%99%> value="4"><%100%></option>
-		<option <%101%> value="16"><%102%></option>
-		<option <%103%> value="5"><%104%></option>
-		<option <%105%> value="17"><%106%></option>		
-		<option <%107%> value="6"><%108%></option>
-		<option <%109%> value="7"><%110%></option>
-		<option <%111%> value="8"><%112%></option>
-		<option <%113%> value="18"><%114%></option>		
-		<option <%115%> value="9"><%116%></option>
-		<option <%117%> value="12"><%118%></option>
-		<option <%119%> value="19"><%120%></option>
-		<option <%121%> value="20"><%122%></option>
-		<option <%123%> value="21"><%124%></option>
-		<option <%125%> value="22"><%126%></option>
-		<option id="ru_ww" <%127%> value="14"><%128%></option>
-		<option <%129%> value="23"><%130%></option>
-		<option <%131%> value="10"><%132%></option>
-		<option <%133%> value="24"><%134%></option>
-		<option <%3349%> value="25"><%3350%></option>
-		<option <%3351%> value="26"><%3352%></option>
-		<option <%135%> value="11"><%136%></option>
+		<option <%93%> value="Africa"><%94%></option>
+		<option <%95%> value="Asia"><%96%></option>
+		<option <%97%> value="Australia"><%98%></option>
+		<option <%99%> value="Canada"><%100%></option>
+		<option <%101%> value="China"><%102%></option>
+		<option <%103%> value="Europe"><%104%></option>
+		<option <%105%> value="India"><%106%></option>
+		<option <%107%> value="Israel"><%108%></option>
+		<option <%109%> value="Japan"><%110%></option>
+		<option <%111%> value="Korea"><%112%></option>
+		<option <%113%> value="Malaysia"><%114%></option>
+		<option <%115%> value="Mexico"><%116%></option>
+		<option <%117%> value="Algeria"><%118%></option>
+		<option <%119%> value="Iran"><%120%></option>
+		<option <%121%> value="Egypt"><%122%></option>
+		<option <%123%> value="Turkey"><%124%></option>
+		<option <%125%> value="Saudi"><%126%></option>
+		<option id="ru_ww" <%127%> value="Russia"><%128%></option>
+		<option <%129%> value="Singapore"><%130%></option>
+		<option <%131%> value="South America"><%132%></option>
+		<option <%133%> value="Taiwan"><%134%></option>
+		<option <%135%> value="United States"><%136%></option>
+		<option <%3393%> value="Hong Kong"><%3394%></option>
+		<option <%3395%> value="Vietnam"><%3396%></option>
 	</select></td>
     <%137%>
 
@@ -599,7 +697,7 @@ function check_daisy_chain()
     <input type="hidden" name="WRegion" value="7" />
     <%88%>
 
-	<%3353%>
+	<%3397%>
     <td>
 
 	<select id="region_select" name="WRegion" size="1" disabled >
@@ -620,55 +718,55 @@ function check_daisy_chain()
 		<option <%101%> value="16"><%102%></option>
     </select></td>
     <input type="hidden" name="WRegion" value= "<%20%>">
-    <%3354%>
+    <%3398%>
 	</tr>
 
 <tr>
-  <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1879%> (2.4GHz b/g/n/ax)</b></a></td>
+  <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1857%> (2.4GHz b/g/n/ax)</b></a></td>
 </tr>
 <!-- Following the Netgear Spec remove the ssid broadcast option -->
 <tr style="display: none;">
   <td colspan="2">
-    <input type="checkbox" name="enable_bc_2g" id="enable_ssid_bc" value="ssid_24G_bc" <%3355%>><%157%>
+    <input type="checkbox" name="enable_bc_2g" id="enable_ssid_bc" value="ssid_24G_bc" <%3399%>><%157%>
   </td>
 </tr>
 <!-- Following the Netgear Spec remove the ssid broadcast option -->
 <!--
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="enable_radio_2g" id="enable_ap" value="Enable"<%3356%>><%3357%>
+    <input type="checkbox" name="enable_radio_2g" id="enable_ap" value="Enable"<%3400%>><%3401%>
   </td>
 </tr>
 -->
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="enable_coexist_2g" id="enable_coexistence" value="1" <%3358%>><%159%>
+    <input type="checkbox" name="enable_coexist_2g" id="enable_coexistence" value="1" <%3402%>><%159%>
   </td>
 </tr>
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="wmm_enable_2g" id="wmm_enable" value="1" <%3359%>><%2206%>
+    <input type="checkbox" name="wmm_enable_2g" id="wmm_enable" value="1" <%3403%>><%2186%>
   </td>
 </tr>
 <tr>
-  <td align="left"><%3360%>:&nbsp;&nbsp;</td>
+  <td align="left"><%3404%>:&nbsp;&nbsp;</td>
   <td align="left">
-    <input TYPE="text" NAME="set_rts_2g" id="rts" size=5 maxlength=4 value="<%3361%>">
+    <input TYPE="text" NAME="set_rts_2g" id="rts" size=5 maxlength=4 value="<%3405%>">
   </td>
 </tr>
 
 <tr>
-  <td align="left"><%3362%></td>
+  <td align="left"><%3406%></td>
   <td align="left">
     <select name="set_preamble_2g" id="enable_short_preamble">
       <!--
       <option value="auto"><%180%></option>
-      <option value="long"><%3363%></option>
-      <option value="short"><%3364%></option>
+      <option value="long"><%3407%></option>
+      <option value="short"><%3408%></option>
       -->
       <option value="automatic"><%180%></option>
-      <option value="Long Preamble"><%3363%></option>
-      <option value="Short Preamble"><%3364%></option>
+      <option value="Long Preamble"><%3407%></option>
+      <option value="Short Preamble"><%3408%></option>
     </select>
   </td>
 </tr>
@@ -678,7 +776,6 @@ function check_daisy_chain()
   <td align="left">
       <select name="set_tpc_2g" id="tx_power_ctrl">
         <option value="100">100%</option>
-        <option value="75">75%</option>
         <option value="50">50%</option>
         <option value="25">25%</option>
       </select>
@@ -688,7 +785,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2">
     <div id="wifi_2g_sche_div1">
-      <input type="checkbox" name="wifi_off_2g" id="wifi_sche_div1" value="wifi_onoff" <%3365%>><%1336%>
+      <input type="checkbox" name="wifi_off_2g" id="wifi_sche_div1" value="wifi_onoff" <%3409%>><%1343%>
     </div>
   </td>
 </tr>
@@ -696,7 +793,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" >
     <div id="wifi_2g_sche_div2">
-      <b><%3366%></b>
+      <b><%3410%></b>
     </div>
   </td>
 </tr>
@@ -706,12 +803,12 @@ function check_daisy_chain()
     <div id="wifi_2g_sche_div3">
       <table id="schedule_bgn_table" border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr>
-          <th width="10%" align="left"><span class="thead"><b><%1067%></b></th>
+          <th width="10%" align="left"><span class="thead"><b><%1076%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%565%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%566%></b></th>
           <th width="50%" align="left"><span class="thead"><b><%569%></b></th>
         </tr>
-        <%3367%>
+        <%3411%>
       </table>
     </div>
   </td>
@@ -720,9 +817,9 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" align="center">
     <div id="wifi_2g_sche_div4">
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g" id="add_sche" class="button-common" onclick="buttonClick(this,'<%913%>');" ><%913%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%803%>" name="edit_sche_2g" id="edit_sche" class="button-common" onclick="buttonClick(this,'<%803%>');" ><%803%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="del_sche_2g" id="del_sche" class="button-common" onclick="buttonClick(this,'<%914%>');" ><%914%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g" id="add_sche" class="button-common" onclick="buttonClick(this,'<%922%>');" ><%922%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%811%>" name="edit_sche_2g" id="edit_sche" class="button-common" onclick="buttonClick(this,'<%811%>');" ><%811%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="del_sche_2g" id="del_sche" class="button-common" onclick="buttonClick(this,'<%923%>');" ><%923%></button>
     </div>
   </td>
 </tr>
@@ -730,7 +827,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2">
     <div id="wifi_2g_sche_div1_2">
-      <input type="checkbox" name="wifi_off_2g_2" value="wifi_onoff" <%3368%>><%3369%>
+      <input type="checkbox" name="wifi_off_2g_2" value="wifi_onoff" <%3412%>><%3413%>
     </div>
   </td>
 </tr>
@@ -738,7 +835,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" >
     <div id="wifi_2g_sche_div2_2">
-      <b><%3370%></b>
+      <b><%3414%></b>
     </div>
   </td>
 </tr>
@@ -748,12 +845,12 @@ function check_daisy_chain()
     <div id="wifi_2g_sche_div3_2">
       <table border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr>
-          <th width="10%" align="left"><span class="thead"><b><%1067%></b></th>
+          <th width="10%" align="left"><span class="thead"><b><%1076%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%565%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%566%></b></th>
           <th width="50%" align="left"><span class="thead"><b><%569%></b></th>
         </tr>
-        <%3371%>
+        <%3415%>
       </table>
     </div>
   </td>
@@ -762,9 +859,9 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" align="center">
     <div id="wifi_2g_sche_div4_2">
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%913%>');" ><%913%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%803%>" name="edit_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%803%>');" ><%803%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="del_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%914%>');" ><%914%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%922%>');" ><%922%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%811%>" name="edit_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%811%>');" ><%811%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="del_sche_2g_2" class="button-common" onclick="buttonClick(this,'<%923%>');" ><%923%></button>
     </div>
   </td>
 </tr>
@@ -775,40 +872,40 @@ function check_daisy_chain()
 </tr>
 
 <tr>
-    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1879%> (5GHz 802.11a/n/ac/ax)</b></a></td>
+    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1857%> (5GHz 802.11a/n/ac/ax)</b></a></td>
 </tr>
 
 <!-- Following the Netgear Spec remove the ssid broadcast option -->
 <tr style="display: none;">
   <td colspan="2">
-    <input type="checkbox" name="enable_bc_5g" id="ssid_bc_an" value="ssid_5G_bc" <%3372%>><%157%>
+    <input type="checkbox" name="enable_bc_5g" id="ssid_bc_an" value="ssid_5G_bc" <%3416%>><%157%>
   </td>
 </tr>
 <!-- Following the Netgear Spec remove the ssid broadcast option -->
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="wmm_enable_5g" id="wmm_enable_a" value="1" <%3373%>><%2207%>
+    <input type="checkbox" name="wmm_enable_5g" id="wmm_enable_a" value="1" <%3417%>><%2187%>
   </td>
 </tr>
 <tr>
-  <td align="left"><%3360%>:&nbsp;&nbsp;</td>
+  <td align="left"><%3404%>:&nbsp;&nbsp;</td>
   <td align="left">
-    <input TYPE="text" NAME="set_rts_5g" id="rts_an" size=5 maxlength=4 value="<%3374%>">
+    <input TYPE="text" NAME="set_rts_5g" id="rts_an" size=5 maxlength=4 value="<%3418%>">
   </td>
 </tr>
 
 <tr>
-  <td align="left"><%3362%></td>
+  <td align="left"><%3406%></td>
   <td align="left">
     <select name="set_preamble_5g" id="enable_shortpreamble_an">
       <!--
       <option value="auto"><%180%></option>
-      <option value="long"><%3363%></option>
-      <option value="short"><%3364%></option>
+      <option value="long"><%3407%></option>
+      <option value="short"><%3408%></option>
       -->
       <option value="automatic"><%180%></option>
-      <option value="Long Preamble"><%3363%></option>
-      <option value="Short Preamble"><%3364%></option>
+      <option value="Long Preamble"><%3407%></option>
+      <option value="Short Preamble"><%3408%></option>
     </select>
   </td>
 </tr>
@@ -818,7 +915,6 @@ function check_daisy_chain()
   <td align="left">
       <select name="set_tpc_5g" id="tx_power_ctrl_an">
         <option value="100">100%</option>
-        <option value="75">75%</option>
         <option value="50">50%</option>
         <option value="25">25%</option>
       </select>
@@ -828,7 +924,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2">
     <div id="wifi_5g_sche_div1">
-      <input type="checkbox" name="wifi_off_5g" value="wifi_onoff" <%3375%>><%1336%>
+      <input type="checkbox" name="wifi_off_5g" value="wifi_onoff" <%3419%>><%1343%>
     </div>
   </td>
 </tr>
@@ -836,7 +932,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" >
     <div id="wifi_5g_sche_div2">
-      <b><%3366%></b>
+      <b><%3410%></b>
     </div>
   </td>
 </tr>
@@ -846,12 +942,12 @@ function check_daisy_chain()
     <div id="wifi_5g_sche_div3">
       <table id="schedule_an_table" border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr>
-          <th width="10%" align="left"><span class="thead"><b><%1067%></b></th>
+          <th width="10%" align="left"><span class="thead"><b><%1076%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%565%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%566%></b></th>
           <th width="50%" align="left"><span class="thead"><b><%569%></b></th>
         </tr>
-        <%3376%>
+        <%3420%>
       </table>
     </div>
   </td>
@@ -860,9 +956,9 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" align="center">
     <div id="wifi_5g_sche_div4">
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g" id="add_sche_an" class="button-common" onclick="buttonClick(this,'<%913%>');" ><%913%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%803%>" name="edit_sche_5g" id="edit_sche_an" class="button-common" onclick="buttonClick(this,'<%803%>');" ><%803%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="del_sche_5g" id="del_sche_an" class="button-common" onclick="buttonClick(this,'<%914%>');" ><%914%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g" id="add_sche_an" class="button-common" onclick="buttonClick(this,'<%922%>');" ><%922%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%811%>" name="edit_sche_5g" id="edit_sche_an" class="button-common" onclick="buttonClick(this,'<%811%>');" ><%811%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="del_sche_5g" id="del_sche_an" class="button-common" onclick="buttonClick(this,'<%923%>');" ><%923%></button>
     </div>
   </td>
 </tr>
@@ -870,7 +966,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2">
     <div id="wifi_5g_sche_div1_2">
-      <input type="checkbox" name="wifi_off_5g_2" value="wifi_onoff" <%3377%>><%3369%>
+      <input type="checkbox" name="wifi_off_5g_2" value="wifi_onoff" <%3421%>><%3413%>
     </div>
   </td>
 </tr>
@@ -878,7 +974,7 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" >
     <div id="wifi_5g_sche_div2_2">
-      <b><%3370%></b>
+      <b><%3414%></b>
     </div>
   </td>
 </tr>
@@ -888,12 +984,12 @@ function check_daisy_chain()
     <div id="wifi_5g_sche_div3_2">
       <table border="1" cellpadding="2" cellspacing="0" width="100%">
         <tr>
-          <th width="10%" align="left"><span class="thead"><b><%1067%></b></th>
+          <th width="10%" align="left"><span class="thead"><b><%1076%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%565%></b></th>
           <th width="20%" align="left"><span class="thead"><b><%566%></b></th>
           <th width="50%" align="left"><span class="thead"><b><%569%></b></th>
         </tr>
-        <%3378%>
+        <%3422%>
       </table>
     </div>
   </td>
@@ -902,51 +998,51 @@ function check_daisy_chain()
 <tr>
   <td colspan="2" align="center">
     <div id="wifi_5g_sche_div4_2">
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%913%>');" ><%913%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%803%>" name="edit_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%803%>');" ><%803%></button>
-      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%914%>" name="del_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%914%>');" ><%914%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="1" name="add_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%922%>');" ><%922%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%811%>" name="edit_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%811%>');" ><%811%></button>
+      &nbsp;&nbsp;&nbsp;<button type="submit" value="<%923%>" name="del_sche_5g_2" class="button-common" onclick="buttonClick(this,'<%923%>');" ><%923%></button>
     </div>
   </td>
 </tr>
 
 <!-- 5GHz-2 -->
-<%1864%>
+<%1846%>
 <tr>
   <td colspan="2" height="12" ><hr class='blueBar'></td>
 </tr>
 
 <tr>
-    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1879%> (5GHz-2 802.11a/n/ac/ax)</b></a></td>
+    <td nowrap colspan="2"><a href="javascript:loadhelp('WLG_adv', 'settings')"><b><%1857%> (5GHz-2 802.11a/n/ac/ax)</b></a></td>
 </tr>
 
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="enable_bc_5g_fh" id="ssid_bc_an_fh" value="ssid_5G_bc" <%3379%>><%157%>
+    <input type="checkbox" name="enable_bc_5g_fh" id="ssid_bc_an_fh" value="ssid_5G_bc" <%3423%>><%157%>
   </td>
 </tr>
 <tr>
   <td colspan="2">
-    <input type="checkbox" name="wmm_enable_5g_fh" id="wmm_enable_a_fh" value="1" <%3380%>><%2207%>
+    <input type="checkbox" name="wmm_enable_5g_fh" id="wmm_enable_a_fh" value="1" <%3424%>><%2187%>
   </td>
 </tr>
 <tr>
-  <td align="left"><%3360%>:&nbsp;&nbsp;</td>
+  <td align="left"><%3404%>:&nbsp;&nbsp;</td>
   <td align="left">
-    <input TYPE="text" NAME="set_rts_5g_fh" id="rts_an_fh" size=5 maxlength=4 value="<%3381%>">
+    <input TYPE="text" NAME="set_rts_5g_fh" id="rts_an_fh" size=5 maxlength=4 value="<%3425%>">
   </td>
 </tr>
 
 <tr>
-  <td align="left"><%3362%></td>
+  <td align="left"><%3406%></td>
   <td align="left">
     <select name="set_preamble_5g_fh" id="enable_shortpreamble_an_fh">
       <option value="automatic"><%180%></option>
-      <option value="Long Preamble"><%3363%></option>
-      <option value="Short Preamble"><%3364%></option>
+      <option value="Long Preamble"><%3407%></option>
+      <option value="Short Preamble"><%3408%></option>
     </select>
   </td>
 </tr>
-<%1865%>
+<%1847%>
 
                                                                                                                                                                                                                                                                                                                   
 <tr>
@@ -957,29 +1053,29 @@ function check_daisy_chain()
 
 <!-- Following the Netgear Spec remove the Backhaul Topology option -->
 <tr style="display: none;">
-    <td colspan="2" nowrap="nowrap"><b><%3382%></b>
+    <td colspan="2" nowrap="nowrap"><b><%3426%></b>
     </td>
 </tr>
 <tr style="display: none;"> 
 	<td nowrap colspan="2">                                             
-	<input type="checkbox" name="daisy_chain" id="daisy_chain" value="1" onclick="return check_daisy_chain();"><b><%3383%></b></td>
+	<input type="checkbox" name="daisy_chain" id="daisy_chain" value="1" onclick="return check_daisy_chain();"><b><%3427%></b></td>
 	</td> 
 </tr>   
 
 <tr style="display: none;"><td>&nbsp;</td></tr>
 <!-- Following the Netgear Spec remove the Backhaul Topology option -->
 <tr>
-  <td width="60%" colspan="2" ><a href="javascript:loadhelp('WLG_adv', 'backhaulpassword')"><b><%3384%></b></a></td>
+  <td width="60%" colspan="2" ><a href="javascript:loadhelp('WLG_adv', 'backhaulpassword')"><b><%3428%></b></a></td>
 </tr>          
 
 <tr>
-  <td nowrap><%3385%></td>
+  <td nowrap><%3429%></td>
 </tr>
 
 <tr>
-  <td nowrap><%3386%></td>
+  <td nowrap><%3430%></td>
   <td align="left">
-    <button type="submit" id="gen_backhaul_pwd" name="gen_backhaul_pwd" value="1" class="button-common" onClick="buttonClick(this,'setup_acl');"><%1852%></span>
+    <button type="submit" id="gen_backhaul_pwd" name="gen_backhaul_pwd" value="1" class="button-common" onClick="buttonClick(this,'setup_acl');"><%1830%></span>
     </button>
   </td>
 </tr>
@@ -993,18 +1089,18 @@ function check_daisy_chain()
 
 <tr style="display: none;">
   <td colspan="2">
-    <input type="checkbox" name="enable_bf" id="enable_implicit_beamforming" value="1" <%3387%>><b><%3388%></b></td>
+    <input type="checkbox" name="enable_bf" id="enable_implicit_beamforming" value="1" <%3431%>><b><%3432%></b></td>
 </tr>
 
 <tr style="display: none;">
   <td colspan="2">
-    <input type="checkbox" name="enable_mimo" id="enable_mu" value="1" <%3389%>><b><%3390%></b></td>
+    <input type="checkbox" name="enable_mimo" id="enable_mu" value="1" <%3433%>><b><%3434%></b></td>
 </tr>
 
 
 <tr style="display: none;">
   <td colspan="2">
-    <input type="checkbox" name="enable_fast_roaming" id="enable_fr" value="1" <%3391%>><b><%3392%></b></td>
+    <input type="checkbox" name="enable_fast_roaming" id="enable_fr" value="1" <%3435%>><b><%3436%></b></td>
 </tr>
 <!-- Following the Netgear spec, removing the beamforming, mu-mimo and fast roaming option -->
 
@@ -1021,26 +1117,26 @@ function check_daisy_chain()
       </div>
 
 
-<input type="hidden" name="ntp_synced_flag" value="<%1139%>">
-<input type="hidden" name="select_2g_sche" value="<%3393%>">
-<input type="hidden" name="select_5g_sche" value="<%3394%>">
-<input type="hidden" name="select_2g_sche_2" value="<%3395%>">
-<input type="hidden" name="select_5g_sche_2" value="<%3396%>">
+<input type="hidden" name="ntp_synced_flag" value="<%1147%>">
+<input type="hidden" name="select_2g_sche" value="<%3437%>">
+<input type="hidden" name="select_5g_sche" value="<%3438%>">
+<input type="hidden" name="select_2g_sche_2" value="<%3439%>">
+<input type="hidden" name="select_5g_sche_2" value="<%3440%>">
 <input type="hidden" name="show_wps_alert" value="<%272%>">
 <!--
-<input type="hidden" name="wps_enable" value="<%3397%>">
+<input type="hidden" name="wps_enable" value="<%3441%>">
 <input type="hidden" name="wifi_2g_state" value="<%68%>">
 
 <input type="hidden" name="wifi_2g_sche_onoff" value="">
-<input type="hidden" name="wifi_2g_sche_num" value="<%3398%>">
+<input type="hidden" name="wifi_2g_sche_num" value="<%3442%>">
 
 <input type="hidden" name="select_2g_sche" value="-1">
-<INPUT name=apmode_ipaddr type=hidden value= "<%1623%>">
-<INPUT name=apmode_netmask type=hidden value= "<%1624%>">
-<INPUT name=apmode_gateway type=hidden value= "<%1626%>">
-<INPUT name=apmode_dns_sel type=hidden value= "<%1918%>">
-<INPUT name=apmode_dns1_pri type=hidden value= "<%1631%>">
-<INPUT name=apmode_dns1_sec type=hidden value= "<%1632%>">
+<INPUT name=apmode_ipaddr type=hidden value= "<%1630%>">
+<INPUT name=apmode_netmask type=hidden value= "<%1631%>">
+<INPUT name=apmode_gateway type=hidden value= "<%1633%>">
+<INPUT name=apmode_dns_sel type=hidden value= "<%1896%>">
+<INPUT name=apmode_dns1_pri type=hidden value= "<%1638%>">
+<INPUT name=apmode_dns1_sec type=hidden value= "<%1639%>">
 -->
 <a name="helpframe-anchor"></a>
 </form>

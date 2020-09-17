@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%643%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class="bupSettings postSetup twoColumns">
+
+    <%410%>
+    
+    <div class="container sliderWrap">
+      
+      <%644%>
+      
+      <div id="slider">
+        <div class="main clearfix">
+          <h1><%643%></h1>
+          
+          <ul class="formElements backupSettingsOptions">
+            <li class="backup roundCorners">
+              <p><strong><%645%></strong></p>
+              <p><%646%></p>
+              <div class="ftr">
+                <div class="centerButtons">
+                  <div><a id="backupBt" class="btn primary" href="NETGEAR_<%647%>.cfg"><%648%></a></div>
+                </div>
+              </div>          
+            </li>
+            <li class="restore roundCorners">
+              <form id="restoreForm" name="restoreForm" action="backup.cgi" method="POST" ENCTYPE="multipart/form-data" target="" autocomplete="off">
+                <p><strong><%649%></strong></p>
+                <p><%650%></p>
+                <div class="fileInputWidget">
+                  <input type="text" class="fakeInputField" /><a class="btn secondary fileInput"><%651%></a>
+                  <input type="file" name="restore_file" id="restoreFile" />
+                </div>
+                <div class="ftr">
+                  <div class="centerButtons">
+                    <div><input name="restore_bt" id="restoreBt" type="button" class="btn primary" value="<%652%>" disabled / onclick="this.form.submit();"></div>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <li class="reset roundCorners">
+              <p><strong><%653%></strong></p>
+              <p><%654%></p>
+              <div class="ftr">
+                <div class="centerButtons">
+                  <div><a id="resetBt" class="btn primary" href="BAK_cfm.htm"><%655%></a></div>
+                </div>
+              </div>      
+            </li>
+            <li class="restart roundCorners">
+              <p><strong><%656%></strong></p>
+              <p><%657%></p>
+              <div class="ftr">
+                <div class="centerButtons">
+                  <div><a id="restartBt" class="btn primary" style="text-transform:uppercase" href="BAK_restart.htm"><%656%></a></div>
+                </div>
+              </div>
+            </li>
+            <li class="ledonoff roundCorners" style="display:none">
+              <form id="ledlogoForm" name="ledlogoForm" action="backup.cgi" method="POST" target="">
+                <p><strong><%658%></strong></p>
+                <p><%659%></p>
+                <div class="ftr">
+                  <div class="centerButtons">
+                    <div>
+                    <a class="btn primary" id="ledOnOffBt"></a>
+                    </div>
+                  </div>
+                </div>
+               
+                <input name="logoled_change" type=hidden value="">
+              </form>
+            </li>
+          </ul>
+        </div> <!-- end main -->
+        <%440%>
+        <%441%>
+      </div> 
+      
+    </div> <!-- end container -->
+    
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/pwdStrength.js"></script>
+    <script src="scripts/main.js"></script>
+    <script language="javascript" type="text/javascript">
+
+	  if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_create_backup_file").style.display="none";
+		 document.getElementById("wallPlug_restart_extender").style.display="none";
+	 }		
+      $.noConflict();
+      jQuery(document).ready(function($) {
+        if ("<%660%>" == "1") {
+          $(".ledonoff").show();
+          
+          var cf = document.forms["ledlogoForm"];
+          $("#ledOnOffBt").attr({style:"text-transform:uppercase"});
+          if ("<%661%>" == "1")
+            $("#ledOnOffBt").html("<%662%>");
+          else
+            $("#ledOnOffBt").html("<%663%>");
+          
+          $("#ledOnOffBt").on('click',function () {
+            var cf = document.forms["ledlogoForm"];
+            cf.logoled_change.value = "YES";
+            cf.submit();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

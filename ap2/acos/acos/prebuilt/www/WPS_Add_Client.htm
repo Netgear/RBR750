@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%694%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="wpsWizard setup">
+
+        <%3%>
+        
+      <div id="content">
+        <div class="container">
+          <div class="main simpleChoiceWrapper clearfix">
+
+          <form id="target" method="post" name="mainForm" action="wps_status.cgi">
+            <center>
+                <div id="clientPIN" style="display:none">
+                  <p><%1178%> <%1179%>
+                  </p>
+                </div>
+                  <p id="wpsStatus"><%1180%></p>
+                <div>
+                  <input type="text" name="countDown" readonly>
+                </div>
+            </center>
+
+          <input type="hidden" name="stop" value="">
+          </form>
+
+        </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+
+      <div id="fixedFooter">
+        <div class="container">
+          <footer>
+            <div class="centerButtons">
+              <div class="processButtons">
+                    <input class="btn secondary" name="back_bt" id="backBt" type="button" value="<%19%>" onClick="return stop();">
+              </div>
+            </div>          
+          </footer>
+        </div>
+      </div><!-- end fixed footer -->
+
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+      <!--
+
+      var delay_time = 1000, interval = 2;
+      var time_elapsed = <%1181%>; 
+      var timeout = <%1182%>;  //secs
+
+      $.noConflict();
+      jQuery(document).ready(function($) {
+          //$('#clientPIN').css('display', 'block');
+          updateProgress();
+      });
+
+      function updateStatus()
+      {
+        jQuery.ajax({
+           type: "POST",
+           url: "ajax/update_wps_status",
+           dataType: "html",
+           success: function(data){
+              var reg = /.*\.htm(l)?$/;
+              if (reg.test(data)) {
+                clearTimeout(timeID);
+                top.location.href = data;
+              } else {
+                var retStr = data.split("@");
+                time_elapsed = parseInt(retStr[0], 10);
+                jQuery('#wpsStatus').html(retStr[1]);
+              }
+           },
+           error: function (responseText, textStatus, XMLHttpRequest){
+              if (window.console && console.log) {
+                  console.log("responseText:", responseText);
+                  console.log("textStatus:", textStatus);
+                  console.log("XMLHttpRequest:", XMLHttpRequest);
+              }
+           }
+        });
+      }
+
+      function updateProgress()
+      {
+          var cf = document.forms["mainForm"];
+          var time_rest = timeout - time_elapsed;
+
+          time_elapsed++;
+          if (time_rest > 0) {
+              var minute = Math.floor(time_rest / 60);
+              var second = Math.floor(time_rest % 60);
+              var min_str = minute < 10 ? "0" + minute : minute;
+              var sec_str = second < 10 ? "0" + second : second;
+              cf.countDown.value = min_str + ":" + sec_str;
+          }
+          timeID = setTimeout("updateProgress()", delay_time);
+
+          if (time_elapsed % interval == 0)
+              updateStatus();
+      }
+
+      function stop()
+      {
+          var cf = document.forms["mainForm"];
+          cf.stop.value = "yes";
+          cf.submit();
+          return true;
+      }
+      //-->
+      </script>
+
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%45%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body onload="" class='accesspoint setup' >
+
+    <%3%>
+
+    <form id="mainForm" action="genie_fix2.cgi" method="POST" target="" >
+      <div id='content'>
+        <div class="container">
+          <div class="main">
+            
+            <h1 class="error"><%56%></h1>
+            
+            <ul class="reasons">
+                <li class="hdr"><%57%></li>
+                <li class="hdr"><%58%></li>
+            </ul>
+            
+            <ul class="reasons">
+                <li class="hdr"><%59%></li>
+            </ul>
+            
+            <ul style="padding-left:15px;" class="formElements">
+                <li><label><input type="radio" checked name="try_again" id="retry" value="Retry" onclick=""/><%60%></label></li>
+                <li><label><input type="radio" name="try_again" id="notRetry" value="Configself" onclick=""/><%61%></label></li>
+            </ul>
+                
+            <div style="padding-left:30px;display:none;" class="ipAddress">
+              <ul class="formElements">
+                <li><label><input type="radio" checked name="configure" id="configSelf" value="ConfigureMenu" onclick=""/><%62%></label></li>
+                <li><label><input type="radio" name="configure" id="configStaticIP" value="ConfigIP" onclick=""/><%63%></label></li>
+                <li class="ipAddressInput">
+                  <label><%64%></label>
+                    <input type="text" name="ethr1" id="ethr1" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="ethr2" id="ethr2" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="ethr3" id="ethr3" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="ethr4" id="ethr4" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,1)">
+                </li>
+                <li class="ipAddressInput">
+                  <label><%65%></label>
+                    <input type="text" name="mask1" id="mask1" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="mask2" id="mask2" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="mask3" id="mask3" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="mask4" id="mask4" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,1)">
+                </li>
+                <li class="ipAddressInput">
+                  <label><%66%></label>
+                    <input type="text" name="gateway1" id="gateway1" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="gateway2" id="gateway2" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="gateway3" id="gateway3" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="gateway4" id="gateway4" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,1)">
+                </li>
+                <li class="ipAddressInput">
+                  <label><%67%></label>
+                    <input type="text" name="pri_addr1" id="priAddr1" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="pri_addr2" id="priAddr2" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="pri_addr3" id="priAddr3" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="pri_addr4" id="priAddr4" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,1)">
+                </li>
+                <li class="ipAddressInput">
+                  <label><%68%></label>
+                    <input type="text" name="sec_addr1" id="secAddr1" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="sec_addr2" id="secAddr2" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="sec_addr3" id="secAddr3" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)"> .
+                    <input type="text" name="sec_addr4" id="secAddr4" value="" class="num" size="4" maxlength="3" onFocus="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,1)">
+                </li>
+              </ul>
+            </div>
+                
+            <ul id="fixed_ip_note" class="formElements">
+              <li><%69%></li>
+            </ul>                                 
+          </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+    
+      <div id="fixedFooter">
+        <div class="container">
+          <footer>
+            <div class='centerButtons'>
+                <div class="processButtons">
+                  <a id="backStep" class="btn secondary" href="IA_index.htm"><%19%></a>
+                  <input id="nextStep" name="next" class="btn primary" type="button" onclick="return CheckData();" value="<%70%>">
+                </div>
+              </div>
+          </footer>
+        </div>
+      </div><!-- end fixed footer -->
+        
+      <INPUT name=wan_ipaddr type=hidden value= "<%71%>">
+      <INPUT name=wan_netmask type=hidden value= "<%72%>">
+      <INPUT name=wan_gateway type=hidden value= "<%73%>">
+      <INPUT name=DNSAssign type=hidden value= "1">
+      <INPUT name=wan_dns1_pri type=hidden value= "<%74%>">
+      <INPUT name=wan_dns1_sec type=hidden value= "<%75%>">
+      
+      <input name="skip" type="hidden" value="">
+    </form>
+    
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="utility.js"></script>
+    <script src="func.js"></script>
+    
+    <script type="text/javascript">
+      $.noConflict();
+      jQuery(document).ready(function($) {
+        function show_page() {  
+          if ($("#notRetry").prop('checked')) 
+          {
+            $(".ipAddress").css("display","block");
+            if ($("#configStaticIP").prop('checked')) 
+            {
+              $(".ipAddressInput").css("display","block");
+            }
+            else
+            {
+              $(".ipAddressInput").css("display","none");
+            }
+
+            if ("<%76%>" == "1")
+              $("#fixed_ip_note").css("display","none");
+            else
+              $("#fixed_ip_note").css("display","block");
+          }
+          else
+          {
+            $(".ipAddress").css("display","none");
+            $("#fixed_ip_note").css("display","none");
+          }
+        }
+        
+        $(":radio").on('change', function () {
+          show_page();
+        });
+        
+        show_page();
+      });
+      function CheckData()
+      {
+        var cf = document.forms["mainForm"];
+        var msg = "";
+
+        var ap_ipaddr = (cf.ethr1.value << 24) | (cf.ethr2.value << 16) | (cf.ethr3.value << 8)| (cf.ethr4.value);
+        var ap_netmask = (cf.mask1.value<< 24) | (cf.mask2.value<< 16) | (cf.mask3.value<< 8)| (cf.mask4.value);    
+
+        if(cf.try_again[1].checked == true)
+        {
+          if(cf.configure[1].checked == true)
+          {
+            if(checkIP(cf.ethr1,cf.ethr2,cf.ethr3,cf.ethr4,254)||(parseInt(cf.ethr4.value,10)==0))
+              msg+= "<%77%>";
+            else
+            {
+              cf.ethr1.value = parseInt(cf.ethr1.value,10);
+              cf.ethr2.value = parseInt(cf.ethr2.value,10);
+              cf.ethr3.value = parseInt(cf.ethr3.value,10);
+              cf.ethr4.value = parseInt(cf.ethr4.value,10);
+            }
+            if(checkIP(cf.mask1,cf.mask2,cf.mask3,cf.mask4,255))
+              msg+= "<%78%>";
+            else
+            {
+              cf.mask1.value = parseInt(cf.mask1.value,10);
+              cf.mask2.value = parseInt(cf.mask2.value,10);
+              cf.mask3.value = parseInt(cf.mask3.value,10);
+              cf.mask4.value = parseInt(cf.mask4.value,10);
+            }
+            if(checkIP(cf.gateway1,cf.gateway2,cf.gateway3,cf.gateway4,254)||(parseInt(cf.gateway4.value,10)==0))
+                msg+= "<%79%>";
+            else
+            {
+              cf.gateway1.value = parseInt(cf.gateway1.value,10);
+              cf.gateway2.value = parseInt(cf.gateway2.value,10);
+              cf.gateway3.value = parseInt(cf.gateway3.value,10);
+              cf.gateway4.value = parseInt(cf.gateway4.value,10);
+            }
+            if(checkIP(cf.pri_addr1,cf.pri_addr2,cf.pri_addr3,cf.pri_addr4,254)||(parseInt(cf.pri_addr4.value,10)==0))
+                msg+= "<%80%>";
+            else
+            {
+              cf.pri_addr1.value = parseInt(cf.pri_addr1.value,10);
+              cf.pri_addr2.value = parseInt(cf.pri_addr2.value,10);
+              cf.pri_addr3.value = parseInt(cf.pri_addr3.value,10);
+              cf.pri_addr4.value = parseInt(cf.pri_addr4.value,10);
+            }
+            if(cf.sec_addr1.value.length>0 || cf.sec_addr2.value.length>0 || cf.sec_addr3.value.length>0 || cf.sec_addr4.value.length>0)
+            {
+                if(checkIP(cf.sec_addr1,cf.sec_addr2,cf.sec_addr3,cf.sec_addr4,254)||(parseInt(cf.sec_addr4.value,10)==0))
+                  msg+= "<%81%>";
+                else
+                {
+                  cf.sec_addr1.value = parseInt(cf.sec_addr1.value,10);
+                  cf.sec_addr2.value = parseInt(cf.sec_addr2.value,10);
+                  cf.sec_addr3.value = parseInt(cf.sec_addr3.value,10);
+                  cf.sec_addr4.value = parseInt(cf.sec_addr4.value,10);
+                }
+            }
+                        
+            if (msg.length > 1)
+            {
+              alert(msg);
+              return false;
+            }
+            
+            cf.wan_ipaddr.value = cf.ethr1.value+'.'+cf.ethr2.value+'.'+cf.ethr3.value+'.'+cf.ethr4.value;
+            cf.wan_netmask.value = cf.mask1.value+'.'+cf.mask2.value+'.'+cf.mask3.value+'.'+cf.mask4.value;
+            cf.wan_gateway.value = cf.gateway1.value+'.'+cf.gateway2.value+'.'+cf.gateway3.value+'.'+cf.gateway4.value;
+            cf.wan_dns1_pri.value = cf.pri_addr1.value+'.'+cf.pri_addr2.value+'.'+cf.pri_addr3.value+'.'+cf.pri_addr4.value;
+            cf.wan_dns1_sec.value = cf.sec_addr1.value+'.'+cf.sec_addr2.value+'.'+cf.sec_addr3.value+'.'+cf.sec_addr4.value;
+            cf.submit();
+            return true;
+          }
+          else
+          {
+            cf.skip.value = "1";
+            cf.submit();
+            return true;
+          }
+        }
+        else
+        {
+          window.location.href = "genie_detwan.htm";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%443%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class="setup">
+    <%3%>
+    
+    <form id="connectNetwork" name="mainForm" action="ia_connect_ap.cgi" method="POST" target="">
+      <div id="content">
+        <div class="container">
+          <div class="main">
+            <div class="loadingMessage roundCorners"><%1044%></div>
+          </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+      <input type="hidden" name="dummy" value="fix_ie11_bug">
+    </form>
+    
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/pwdStrength.js"></script>
+    <script src="scripts/main.js"></script>
+    <script language="javascript" type="text/javascript">
+    
+     if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_wait_for_connect").style.display="none";
+	 	}
+      $.noConflict();
+      function do_submit()
+      {
+        var cf  = document.forms["mainForm"];
+        cf.submit();
+      }
+      jQuery(document).ready(function($) {
+        setTimeout("do_submit()",10000);
+      });
+    </script>
+  </body>
+</html>

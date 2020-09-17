@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%824%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class="fastLane postSetup twoColumns">
+
+    <%410%>
+    
+    <div class="container sliderWrap">
+      
+      <%825%>
+      
+      <div id="slider">
+        <div class="main clearfix">
+        
+          <h1><%824%></h1>
+          
+          <p><%826%></p>
+          
+          <form id="fastLaneForm" name="fastLaneForm" action="operating_mode.cgi" method="POST" target="" autocomplete="off">       
+              
+            <ul class="formElements fastLaneOptions">
+              <li class="withBottomShadow">
+                <input type="radio" checked id="flBasic" name="select_ap_cl" value="dualAP" onclick="check_mode();" tabindex="" />
+                <label><%827%>
+                </label>
+                <div class="fastLaneDivParent">
+  
+                <div class="fastLaneMode locationSide12 bestfs1"></div>
+                <div class="fastLaneMode locationSide34 bestfs4"></div>
+                <div class="fastLaneMode locationSide12 bestfs2"></div>
+                <div class="fastLaneMode locationSide34 bestfs3"></div>
+                <div class="fastLaneMode longLineInfastLane"></div>
+                <div class="fastLaneMode fsRouter"></div>
+                <div class="productSideFastLane"></div>
+                <div class="fastLaneMode fsDevice"></div>
+                <div class="fastLane_router_string"><%516%></div>
+                <div class="fastLane_extender_string"><%828%></div>
+                <div class="fastLane_device_string"><%829%></div>
+                </div>
+              </li>
+              <li>
+                <input type="radio" id="fl" name="select_ap_cl" value="singleAP" onclick="check_mode();" tabindex="" />
+                <label><%830%>
+                </label>
+              </li>
+              <li class="secondary">
+                <input type="radio" class="fastLaneOptions" id="fl2G" name="select_ap_band" value="5ghz" onclick="check_mode();" tabindex="" disabled />
+                <label><%831%>
+                </label>
+                <div class="fastLaneDivParent">
+                <div class="fastLaneMode locationFront best24g"></div>
+                <div class="fastLaneMode locationBack best5g"></div>
+                <div class="fastLaneMode fsRouter"></div>
+                <div class="productSideFastLane"></div>
+                <div class="fastLaneMode fsDevice"></div>
+                <div class="fastLane_router_string"><%516%></div>
+                <div class="fastLane_extender_string"><%828%></div>
+                <div class="fastLane_device_string"><%829%></div>
+                </div>
+                <hr />
+              </li>
+              
+              <li class="secondary">
+                <input type="radio" class="fastLaneOptions" id="fl5G" name="select_ap_band" value="2.4ghz" onclick="check_mode();" tabindex="" disabled />
+                <label><%832%>
+                </label>
+                <div class="fastLaneDivParent">
+                <div class="fastLaneMode locationFront best5g"></div>
+                <div class="fastLaneMode locationBack best24g"></div>
+                <div class="fastLaneMode fsRouter"></div>
+                <div class="productSideFastLane"></div>
+                <div class="fastLaneMode fsDevice"></div>
+                <div class="fastLane_router_string"><%516%></div>
+                <div class="fastLane_extender_string"><%828%></div>
+                <div class="fastLane_device_string"><%829%></div>
+                </div>
+              </li>             
+            </ul>
+                        
+            <div class="formButtons bottom">
+              <div class="mobileFooter">
+                <div class="mobileCenterButtons">
+                  <div>
+                    <input class="btn primary" id="saveBt" name="save_bt" type="button" onclick="CheckData();" value="<%528%>" disabled>
+                    <input class="btn secondary" id="resetBt" name="reset_bt" type="button" onclick="loadSettings();" value="<%529%>">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="ap_mode" value="<%508%>">
+            <input type="hidden" name="ap_band" value="<%509%>">
+            <input type="hidden" name="save_status">
+            <input type="hidden" name="ap_mode_flag" id="ap_mode_flag" value="<%507%>">
+          </form>
+                  
+        </div> <!-- end main -->
+        <%440%>
+        <%441%>
+      </div> 
+      
+    </div> <!-- end container -->
+  
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/pwdStrength.js"></script>
+    <script src="scripts/main.js"></script>
+    <script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+$(document).ready(function()
+{
+    loadSettings();
+});
+
+function loadSettings()
+{
+    var cf=document.forms["fastLaneForm"];
+    
+    if (cf.ap_mode_flag.value == "1") //Access Point
+    {
+        cf.select_ap_cl[0].checked = false;
+        cf.select_ap_cl[1].checked = false;
+    }
+    else 
+    {
+        if (cf.ap_mode.value == "1") //FastLane
+            cf.select_ap_cl[1].checked = true;
+        else //Surfing
+            cf.select_ap_cl[0].checked = true;
+    
+        if ("2.4G" == cf.ap_band.value)
+            cf.select_ap_band[1].checked = true;
+        else
+            cf.select_ap_band[0].checked = true;
+    }
+  
+    if (cf.select_ap_cl[1].checked)
+    {
+        $('#fl').parents('ul').find('.secondary').show();
+        if(cf.select_ap_band[1].checked)
+            cf.save_status.value=1;
+        else
+            cf.save_status.value=2;
+    }else if (cf.select_ap_cl[0].checked)
+    {
+        $('#fl').parents('ul').find('.secondary').hide();
+        cf.save_status.value=0;
+    }
+    else
+    {
+        $('#fl').parents('ul').find('.secondary').hide();
+        cf.save_status.value=3;
+    }
+    
+    check_mode();
+}
+
+function check_mode()
+{
+    var cf=document.forms["fastLaneForm"];
+    var current_value;
+
+    if (cf.select_ap_cl[1].checked)
+    {
+        cf.select_ap_band[0].disabled = false;
+        cf.select_ap_band[1].disabled = false;
+    
+        if(cf.select_ap_band[1].checked)
+            current_value=1;
+        else
+            current_value=2;
+    
+    }
+    else if (cf.select_ap_cl[0].checked)
+    {
+        current_value=0;
+        cf.select_ap_band[0].disabled = true;
+        cf.select_ap_band[1].disabled = true;
+    }
+    else
+    {
+        current_value=3;
+    }
+
+    if(current_value == cf.save_status.value)
+    {
+        $('#saveBt').attr('disabled', true);
+    }
+    else
+    {
+        $('#saveBt').removeAttr('disabled');
+    }
+
+    return true;
+}
+
+function CheckData()
+{
+    var cf = document.forms["fastLaneForm"];
+    var change_to_mode = cf.ap_mode.value;
+    var change_to_band = cf.ap_band.value;
+    
+    if (cf.select_ap_cl[1].checked)
+    {
+        change_to_mode=1;
+        if (cf.select_ap_band[0].checked)
+        {
+             change_to_band="5G";
+        }else
+        {
+             change_to_band="2.4G";
+        }
+    }
+    else //(cf.select_ap_cl[0].checked)
+    {
+        change_to_mode=2;
+    }
+    
+    //if( (cf.ap_mode.value == 2 && change_to_mode == 2) || 
+    //        (cf.ap_mode.value == 1 && change_to_mode == 1 && change_to_band == cf.ap_band.value) )
+    //{
+    //    return false;
+    //}
+    //else
+    //{
+        cf.ap_mode.value = change_to_mode;
+        cf.ap_band.value = change_to_band;
+        //cf.submit();
+    //    return true;
+    //}
+
+    cf.submit();
+    return true;
+}
+//-->
+</script>
+
+  </body>
+</html>

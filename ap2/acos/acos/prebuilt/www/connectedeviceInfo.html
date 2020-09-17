@@ -1,0 +1,36 @@
+<form id="connectedDevicesForm" name="connectedDevicesForm" action="guest_device.cgi" method="POST" autocomplete="off">
+
+  <div class="tableControl">
+    <h3><span><%853%></span> <%854%></h3>
+    <a class="btn roundCorners refreshBtn" type="button" name="refresh"><i class="icon-refresh"></i><span><%24%></span></a>
+  </div>
+  <div class="aclSwitch">
+    <input type="checkbox" id="aclSwitch" name="aclSwitch"><label for="aclSwitch"><%855%></label>
+  </div>
+  <table class="devicesList wifiDevices roundCorners">
+    <thead>
+      <tr>
+        <th><%582%></th>
+        <th><%583%></th>
+        <th><%856%></th>
+        <th><%857%></th>
+        <th><%858%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <%859%>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="formButtons">
+    <input class="btn primary" type="submit" value="<%528%>">
+    <input class="btn secondary close" type="button" value="<%529%>">
+  </div>
+
+  <input type="hidden" name="show_wps_alert" value="<%620%>">
+  <input type="hidden" name="accessLimit" value="<%860%>">
+  <input type="hidden" name="aclMacNum" value="<%861%>">
+  <input type="hidden" name="accessRules" value="">
+</form>

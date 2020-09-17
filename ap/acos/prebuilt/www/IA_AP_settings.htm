@@ -19,7 +19,7 @@ h1
 <script language="javascript" type="text/javascript">
 <!-- 
 var have_alert=0;
-var keep_ssid_warning="<%2610%>";
+var keep_ssid_warning="<%2593%>";
 
 function loadSettings()
 {
@@ -41,7 +41,7 @@ function loadSettings()
     if("1" == cf.enable_ap_mode.value)
     {
         have_alert = 1;
-        $("#header_str").text("<%2611%>");
+        $("#header_str").text("<%2594%>");
         document.getElementById("ssid_24g_row").style.display = block_str;
         document.getElementById("ssid_5g_row").style.display = "none";
         document.getElementById("ssid_5g_row_ap_mode").style.display = block_str;
@@ -301,7 +301,7 @@ function CheckData()
     {
         if(cf.ssid.value==cf.ssid_5g.value)
         {
-            alert("<%2612%>");
+            alert("<%2595%>");
             return false;
         }
         if (cf.ssid.value == "")
@@ -491,7 +491,7 @@ function next_url()
 <table border="0" cellpadding="0" cellspacing="3" width="100%">
 <tr>
     <td colspan="2">
-        <h1 id="header_str"><%2613%></h1>
+        <h1 id="header_str"><%2596%></h1>
     </td>
 </tr>
 <tr>
@@ -499,43 +499,43 @@ function next_url()
 </tr>
 <tr>
     <!--<td><input type="button" name="back" value=" <Back" align="right" onclick="location.href='BSW_scan_result.htm'" ></td>
-    <td colspan="2" align="right"><input class="short_common_bt" type="button" name="Next" value="<%2614%>" onclick="return CheckData();" ></td>-->
+    <td colspan="2" align="right"><input class="short_common_bt" type="button" name="Next" value="<%2597%>" onclick="return CheckData();" ></td>-->
 </tr>
 <!--<tr> 
     <td colspan="2" background="img/litepurple.gif" height="12">&nbsp; </td>
 </tr>-->
 <tr><td colspan="2"><div style="height:12px;overflow:hidden;"><table><div class="curve"></div></table></div></td></tr>
 <tr id="ssid_24g_row">
- <td width="30%" align="left"><%2615%></td>
- <td width="70%" align="left"><input type="text" name="ssid" <%2616%> value="<%2617%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"></td>
+ <td width="30%" align="left"><%2598%></td>
+ <td width="70%" align="left"><input type="text" name="ssid" <%2599%> value="<%2600%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"></td>
 </tr>
 <tr id="ssid_5g_row">
- <td width="30%" align="left"><%2618%></td>
- <td width="70%" align="left"><input type="text" name="ssid_5g" <%2619%> value="<%2620%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"></td>
+ <td width="30%" align="left"><%2601%></td>
+ <td width="70%" align="left"><input type="text" name="ssid_5g" <%2602%> value="<%2603%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"></td>
 </tr>
 <tr id="ether_port_row" style="display:none">
-    <td colspan=2><%2621%> 
-        <input type="radio" name="ether_port" value="2.4g" onclick="select_ether_band()"><%2622%>
-        <input type="radio" name="ether_port" value="5g" onclick="select_ether_band()"><%2623%>
+    <td colspan=2><%2604%> 
+        <input type="radio" name="ether_port" value="2.4g" onclick="select_ether_band()"><%2605%>
+        <input type="radio" name="ether_port" value="5g" onclick="select_ether_band()"><%2606%>
     </td>
 </tr>
 <tr id="cb_same_sec">
-    <td colspan="2"><input type="checkbox" name="use_same_sec" onClick="use_ornot_same_sec();"><%2624%></td>
+    <td colspan="2"><input type="checkbox" name="use_same_sec" onClick="use_ornot_same_sec();"><%2607%></td>
 </tr>
 </table>
 <!------ 2.4G DIV Start ------>
 <div id="24g_div" style="position: relative; top: 0pt; left: 0pt; display: none;" align="center">
 <div id="24g_sec_opt">
 <table border="0" cellpadding="0" cellspacing="5" width="100%">
-    <tr><td colspan="2"><b><%170%> (<%2622%>)</b></td></tr>
+    <tr><td colspan="2"><b><%170%> (<%2605%>)</b></td></tr>
     <tr><td colspan="2">
-        <input name="security_type" value="None" <%2625%> onClick="change_sec(this.name, this.value);" type="radio"><%171%></td></tr>
+        <input name="security_type" value="None" <%2608%> onClick="change_sec(this.name, this.value);" type="radio"><%171%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type" value="WEP" <%2626%> onClick="change_sec(this.name, this.value);" type="radio"><%172%></td></tr>
+        <input name="security_type" value="WEP" <%2609%> onClick="change_sec(this.name, this.value);" type="radio"><%172%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type" value="WPA2-PSK" <%2627%> onClick="change_sec(this.name, this.value);" type="radio"><%175%></td></tr>
+        <input name="security_type" value="WPA2-PSK" <%2610%> onClick="change_sec(this.name, this.value);" type="radio"><%175%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type" value="WPA-AUTO-PSK" <%2628%> onClick="change_sec(this.name, this.value);" type="radio"><%176%></td></tr>
+        <input name="security_type" value="WPA-AUTO-PSK" <%2611%> onClick="change_sec(this.name, this.value);" type="radio"><%176%></td></tr>
 </table>
 </div>
 
@@ -548,8 +548,8 @@ function next_url()
   <td width="30%" align="left"><%182%>:</td>
   <td width="70%" align="left">
       <select name="wepenc" size=1 onchange="setKeys(wepenc, KEY1, KEY2, KEY3, KEY4);">
-        <option <%2629%> value="1"><%184%></option>
-        <option <%2630%> value="2"><%186%></option>
+        <option <%2612%> value="1"><%184%></option>
+        <option <%2613%> value="2"><%186%></option>
       </select></td></tr>
 <tr>
   <td colspan="2"><b><%187%></b></a></td></tr>
@@ -557,17 +557,17 @@ function next_url()
   <td colspan="2">
     <table>
       <tr>
-        <td><%188%><input type="radio" <%2631%> name="wep_key_no" value="1"></td>
-        <td align=left><input type="text" <%2616%> autocomplete="off" name="KEY1" maxLength=32 size=34 value="<%2632%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[0].checked=true;"></td></tr>
+        <td><%188%><input type="radio" <%2614%> name="wep_key_no" value="1"></td>
+        <td align=left><input type="text" <%2599%> autocomplete="off" name="KEY1" maxLength=32 size=34 value="<%2615%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[0].checked=true;"></td></tr>
       <tr>
-        <td><%190%><input type="radio" <%2633%> name="wep_key_no" value="2"></td>
-        <td align=left><input type="text" <%2616%> autocomplete="off" name="KEY2" maxLength=32 size=34 value="<%2634%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[1].checked=true;"></td></tr>
+        <td><%190%><input type="radio" <%2616%> name="wep_key_no" value="2"></td>
+        <td align=left><input type="text" <%2599%> autocomplete="off" name="KEY2" maxLength=32 size=34 value="<%2617%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[1].checked=true;"></td></tr>
       <tr>
-        <td><%192%><input type="radio" <%2635%> name="wep_key_no" value="3"></td>
-        <td align=left><input type="text" <%2616%> autocomplete="off" name="KEY3" maxLength=32 size=34 value="<%2636%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[2].checked=true;"></td></tr>
+        <td><%192%><input type="radio" <%2618%> name="wep_key_no" value="3"></td>
+        <td align=left><input type="text" <%2599%> autocomplete="off" name="KEY3" maxLength=32 size=34 value="<%2619%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[2].checked=true;"></td></tr>
       <tr>
-        <td><%194%><input type="radio" <%2637%> name="wep_key_no" value="4"></td>
-        <td align=left><input type="text" <%2616%> autocomplete="off" name="KEY4" maxLength=32 size=34 value="<%2638%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[3].checked=true;"></td></tr>
+        <td><%194%><input type="radio" <%2620%> name="wep_key_no" value="4"></td>
+        <td align=left><input type="text" <%2599%> autocomplete="off" name="KEY4" maxLength=32 size=34 value="<%2621%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[3].checked=true;"></td></tr>
     </table>
   </td>
 </tr>
@@ -584,7 +584,7 @@ function next_url()
 <b><%170%> <span id="24g_wpa_str"></span></b></td></tr> 
   
 <tr>
-  <td colspan="2"><%2639%> <input type="text" autocomplete="off" name="passphrase" <%2616%> size=20 maxLength=64 value="<%2640%>">&nbsp;&nbsp;<%199%></td>
+  <td colspan="2"><%2622%> <input type="text" autocomplete="off" name="passphrase" <%2599%> size=20 maxLength=64 value="<%2623%>">&nbsp;&nbsp;<%199%></td>
 </tr>
 </table>
 </div>
@@ -600,20 +600,20 @@ function next_url()
 <div id="5g_sec_opt">
 <table border="0" cellpadding="0" cellspacing="3" width="100%">
 <tr id="ssid_5g_row_ap_mode">
- <td width="30%" align="left"><%2618%></td>
- <td width="70%" align="left"><input type="text" name="ssid_5g_ap_mode" value="<%2620%>" size="33" maxlength="32" onClick=""></td>
+ <td width="30%" align="left"><%2601%></td>
+ <td width="70%" align="left"><input type="text" name="ssid_5g_ap_mode" value="<%2603%>" size="33" maxlength="32" onClick=""></td>
 </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="5" width="100%">
-    <tr><td colspan="2"><b><%170%> (<%2623%>)</b></td></tr>
+    <tr><td colspan="2"><b><%170%> (<%2606%>)</b></td></tr>
     <tr><td colspan="2">
-        <input name="security_type_5g" value="None" <%2641%> onClick="change_sec(this.name, this.value);" type="radio"><%171%></td></tr>
+        <input name="security_type_5g" value="None" <%2624%> onClick="change_sec(this.name, this.value);" type="radio"><%171%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type_5g" value="WEP" <%2642%> onClick="change_sec(this.name, this.value);" type="radio"><%172%></td></tr>
+        <input name="security_type_5g" value="WEP" <%2625%> onClick="change_sec(this.name, this.value);" type="radio"><%172%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type_5g" value="WPA2-PSK" <%2643%> onClick="change_sec(this.name, this.value);" type="radio"><%175%></td></tr>
+        <input name="security_type_5g" value="WPA2-PSK" <%2626%> onClick="change_sec(this.name, this.value);" type="radio"><%175%></td></tr>
     <tr><td colspan="2">
-        <input name="security_type_5g" value="WPA-AUTO-PSK" <%2644%> onClick="change_sec(this.name, this.value);" type="radio"><%176%></td></tr>
+        <input name="security_type_5g" value="WPA-AUTO-PSK" <%2627%> onClick="change_sec(this.name, this.value);" type="radio"><%176%></td></tr>
 </table>
 </div>
 
@@ -626,8 +626,8 @@ function next_url()
   <td width="30%" align="left"><%182%>:</td>
   <td width="70%" align="left">
       <select name="wepenc_5g" size=1 onchange="setKeys(wepenc_5g, KEY_5g1, KEY_5g2, KEY_5g3, KEY_5g4);">
-        <option <%2645%> value="1"><%184%></option>
-        <option <%2646%> value="2"><%186%></option>
+        <option <%2628%> value="1"><%184%></option>
+        <option <%2629%> value="2"><%186%></option>
       </select></td></tr>
 <tr>
   <td colspan="2"><b><%187%></b></a></td></tr>
@@ -635,17 +635,17 @@ function next_url()
   <td colspan="2">
     <table>
       <tr>
-        <td><%188%><input type="radio"  <%2647%> name="wep_key_no_5g" value="1"></td>
-        <td align=left><input type="text" <%2619%> autocomplete="off" name="KEY_5g1" maxLength=32 size=34 value="<%2648%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[0].checked=true;"></td></tr>
+        <td><%188%><input type="radio"  <%2630%> name="wep_key_no_5g" value="1"></td>
+        <td align=left><input type="text" <%2602%> autocomplete="off" name="KEY_5g1" maxLength=32 size=34 value="<%2631%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[0].checked=true;"></td></tr>
       <tr>
-        <td><%190%><input type="radio" <%2649%> name="wep_key_no_5g" value="2"></td>
-        <td align=left><input type="text" <%2619%> autocomplete="off" name="KEY_5g2" maxLength=32 size=34 value="<%2650%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[1].checked=true;"></td></tr>
+        <td><%190%><input type="radio" <%2632%> name="wep_key_no_5g" value="2"></td>
+        <td align=left><input type="text" <%2602%> autocomplete="off" name="KEY_5g2" maxLength=32 size=34 value="<%2633%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[1].checked=true;"></td></tr>
       <tr>
-        <td><%192%><input type="radio" <%2651%> name="wep_key_no_5g" value="3"></td>
-        <td align=left><input type="text" <%2619%> autocomplete="off" name="KEY_5g3" maxLength=32 size=34 value="<%2652%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[2].checked=true;"></td></tr>
+        <td><%192%><input type="radio" <%2634%> name="wep_key_no_5g" value="3"></td>
+        <td align=left><input type="text" <%2602%> autocomplete="off" name="KEY_5g3" maxLength=32 size=34 value="<%2635%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[2].checked=true;"></td></tr>
       <tr>
-        <td><%194%><input type="radio" <%2653%> name="wep_key_no_5g" value="4"></td>
-        <td align=left><input type="text" <%2619%> autocomplete="off" name="KEY_5g4" maxLength=32 size=34 value="<%2654%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[3].checked=true;"></td></tr>
+        <td><%194%><input type="radio" <%2636%> name="wep_key_no_5g" value="4"></td>
+        <td align=left><input type="text" <%2602%> autocomplete="off" name="KEY_5g4" maxLength=32 size=34 value="<%2637%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no_5g[3].checked=true;"></td></tr>
     </table>
   </td>
 </tr>
@@ -662,7 +662,7 @@ function next_url()
 <b><%170%> <span id="5g_wpa_str"></span></b></td></tr>    
   
 <tr>
-  <td colspan="2"><%2639%> <input type="text" autocomplete="off" name="passphrase_5g" <%2619%> size=20 maxLength=64 value="<%2655%>">&nbsp;&nbsp;<%199%></td>
+  <td colspan="2"><%2622%> <input type="text" autocomplete="off" name="passphrase_5g" <%2602%> size=20 maxLength=64 value="<%2638%>">&nbsp;&nbsp;<%199%></td>
 </tr>
 </table>
 </div>
@@ -678,21 +678,21 @@ function next_url()
 <tr>
     <td colspan="2" align="left">
     <input class="short_common_bt" type="button" name="back" value="<%496%>" align="right" onclick="next_url()">
-    <input class="short_common_bt" type="button" name="Next" value="<%2614%>" align="right" onclick="return CheckData();" >
+    <input class="short_common_bt" type="button" name="Next" value="<%2597%>" align="right" onclick="return CheckData();" >
     </td>    
 </tr>
 
 </table>
-<input type="hidden" name="enable_ap_mode" value="<%2656%>">
+<input type="hidden" name="enable_ap_mode" value="<%2639%>">
 <input type="hidden" name="wl_same_sec" value="1">
 <input type="hidden" name="current_flow" value="IA">
 <input type="hidden" name="pc_or_mobile" value="PC">
-<input type="hidden" name="ap_24g_sec" value="<%2657%>">
-<input type="hidden" name="ap_5g_sec" value="<%2658%>">
-<input type="hidden" name="mode" value="<%2659%>">
-<input type="hidden" name="ap_band" value="<%2660%>">
-<input type="hidden" name="eth_bind_band" value="<%2661%>">
-<input type="hidden" name="sta_band" value="<%2662%>">
+<input type="hidden" name="ap_24g_sec" value="<%2640%>">
+<input type="hidden" name="ap_5g_sec" value="<%2641%>">
+<input type="hidden" name="mode" value="<%2642%>">
+<input type="hidden" name="ap_band" value="<%2643%>">
+<input type="hidden" name="eth_bind_band" value="<%2644%>">
+<input type="hidden" name="sta_band" value="<%2645%>">
 
 </form>
 

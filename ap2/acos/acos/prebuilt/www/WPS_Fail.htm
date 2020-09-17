@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%694%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="wpsWizard setup">
+
+        <%3%>
+        
+      <div id="content">
+        <div class="container">
+          <div class="main simpleChoiceWrapper clearfix">
+
+            <center>
+                <p><%1185%></p>
+                <div class="responsiveDevices"></div>
+            </center>
+
+        </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+
+    <div id="fixedFooter">
+      <div class="container">
+        <footer>
+          <div class="centerButtons">
+            <div class="processButtons">
+              <form name="mainForm" action="wps_retry.cgi" method="POST" target="">
+                  <input type="button" class="btn secondary" name="back_wps_bt" id="backWpsBt" onclick="window.location.href='WPS.htm'" value="<%19%>">
+                  <input type="button" name="retry_bt" id="retryBt" class="btn primary" style="text-transform:uppercase" value="<%139%>">
+
+
+                <input name="pin_num" type="hidden" value="<%1184%>">
+              </form>
+            </div>
+          </div>          
+        </footer>
+      </div>
+    </div><!-- end fixed footer -->
+
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+      if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_wps_fail_new").style.display="none";
+		 
+	 }	
+      
+      <!--
+      $.noConflict();
+
+      jQuery(document).ready(function($) {
+        $("#retryBt").on('click',function () {
+          var cf = document.forms["mainForm"];
+          cf.submit();
+        });
+      });
+      //-->
+      </script>
+  </body>
+</html>

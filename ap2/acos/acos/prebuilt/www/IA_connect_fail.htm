@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%443%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="setup" onload="loadSettings();">
+
+        <%3%>
+    
+      <form id="selectNetwork" name="mainForm" action="ia_connect_fail.cgi" method="POST" target="">
+      
+      <div id="content">
+          <div class="container">
+                <div class="main">
+                    <tr>
+                        <td colspan="2"><h1><%1045%></h1></td>
+                    </tr>
+                    <tr><td><div id = "msg_div" style = "display:none;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                        <td colspan="2"><%1046%></td>
+                    </tr>
+                    </table>
+                    </div></td></tr>
+                    <!-----------2.4G WPA DIV Start---------->
+                    <tr><td><div id = "wpa_div" style = "display:none;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                     <li class="hdr"><%451%> <%452%></li>
+                    </tr>
+                    <tr>
+                     <li class="hdr"><%453%> <%454%></li>
+                    </tr>
+                    <tr>
+                     <td width="25%" align="left"><%130%></td>
+                     <td width="75%" align="left"><input type="text" autocomplete="off" value="<%1047%>" name="passphrase" id="passphrase" size="18" maxlength="64"></td>
+                    </tr>
+                    </table>
+                    </div></td></tr>
+                    <!-----------2.4G WPA DIV End---------->
+
+                    <!-----------2.4G WEP DIV Start---------->
+                    <tr><td><div id = "wep_div"  style = "display:none;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                     <li class="hdr"><%451%> <%452%></li>
+                    </tr>
+                    <tr>
+                     <li class="hdr"><%453%> <%454%></li>
+                    </tr>
+
+                    <tr>
+                          <td colspan="2"><b><%554%></b></td></tr>
+                        <tr>
+                          <td><%106%>:</td>
+                          <td><select name="wep_enc" id="wepEnc" size=1 onchange="setKeys(wep_enc, key1, key2, key3, key4,2);">
+                            <option <%1048%> value="1"><%107%></option>
+                            <option <%1049%> value="2"><%108%></option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                          <!-- RULE -->
+                          <td colspan="2" background="img/litepurple.gif" height="12">&nbsp; </td></tr>
+                        <tr>
+                          <td colspan="2"><b><%109%></b></td></tr>
+                        <tr style="display:none">
+                          <td colspan="2">
+                            <%130%> <input type="text" autocomplete="off" name="passphraseStr" size="14" maxlength="32" value="<%1047%>"> &nbsp;
+                            <input class="short_common_bt" type="button" name="keygen" value="<%557%>" onClick="calcPassphrase(wep_enc, passphraseStr, wep_key_no, key1, key2, key3, key4)"></td></tr>
+                        <tr>
+                          <td colspan="2">
+                            <table>
+                              <tr>
+                                <td><%110%><input type="radio" <%1050%> name="wep_key_no" id="wepKeyNo" value="1"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key1" id="key1" maxLength=32 size=34 value="<%1051%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[0].checked=true;"></td></tr>
+                              <tr>
+                                <td><%111%><input type="radio" <%1052%> name="wep_key_no" id="wepKeyNo" value="2"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key2" id="key2" maxLength=32 size=34 value="<%1053%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[1].checked=true;"></td></tr>
+                              <tr>
+                                <td><%112%><input type="radio" <%1054%> name="wep_key_no" id="wepKeyNo" value="3"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key3" id="key3" maxLength=32 size=34 value="<%1055%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[2].checked=true;"></td></tr>
+                              <tr>
+                                <td><%113%><input type="radio" <%1056%> name="wep_key_no" id="wepKeyNo" value="4"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key4" id="key4" maxLength=32 size=34 value="<%1057%>" onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[3].checked=true;"></td></tr>
+                            </table></td></TR>
+                    </table>
+                    </div></td></tr>
+                    <!-----------2.4G WEP DIV End---------->
+
+                    <!-----------5G WPA DIV Start---------->
+                    <tr><td><div id = "wpa_div_5g" style = "display:none;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                     <li class="hdr"><%451%> <%457%></li>
+                    </tr>
+                    <tr>
+                     <li class="hdr"><%453%> <%458%></li>
+                    </tr>
+                    <tr>
+                     <td width="25%" align="left"><%130%></td>
+                     <td width="75%" align="left"><input type="text" autocomplete="off" value="<%1058%>" name="passphrase_5g" size="18" maxlength="64"></td>
+                    </tr>
+                    </table>
+                    </div></td></tr>
+                    <!-----------5G WPA DIV End---------->
+
+                    <!-----------5G WEP DIV Start---------->
+                    <tr><td><div id = "wep_div_5g"  style = "display:none;">
+                    <table border="0" cellpadding="0" cellspacing="3" width="100%">
+                    <tr>
+                     <li class="hdr"><%451%> <%457%></li>
+                    </tr>
+                    <tr>
+                     <li class="hdr"><%453%> <%458%></li>
+                    </tr>
+
+                    <tr>
+                          <td colspan="2"><b><%554%></b></td></tr>
+                        <tr>
+                          <td><%106%>:</td>
+                          <td><select name="wep_enc_5g" id=wepEnc5g" size=1 onchange="setKeys(wep_enc_5g, key5g1, key5g2, key5g3, key5g4,5);">
+                            <option <%1059%> value="1"><%107%></option>
+                            <option <%1060%> value="2"><%108%></option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                          <!-- RULE -->
+                          <td colspan="2" background="img/litepurple.gif" height="12">&nbsp; </td></tr>
+                        <tr>
+                          <td colspan="2"><b><%109%></b></td></tr>
+                        <tr style="display:none">
+                          <td colspan="2">
+                            <%130%> <input type="text" autocomplete="off" name="passphraseStr_5g" size="14" maxlength="32" value="<%1058%>"> &nbsp;
+                            <input class="short_common_bt" type="button" name="keygen_5g" value="<%557%>" onClick="calcPassphrase(wep_enc_5g, passphraseStr_5g, wep_key_no_5g, key5g1, key5g2, key5g3, key5g4)"></td></tr>
+                        <tr>
+                          <td colspan="2">
+                            <table>
+                              <tr>
+                                <td><%110%><input type="radio" <%1061%>  name="wep_key_no_5g" id="wepKeyNo5g" value="1"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key5g1" id="key5g1" maxLength=32 size=34 value="<%1062%>" onkeydown="keyCheck_5g(this)" onfocus="this.form.wep_key_no_5g[0].checked=true;"></td></tr>
+                              <tr>
+                                <td><%111%><input type="radio" <%1063%> name="wep_key_no_5g" id="wepKeyNo5g" value="2"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key5g2" id="key5g2" maxLength=32 size=34 value="<%1064%>" onkeydown="keyCheck_5g(this)" onfocus="this.form.wep_key_no_5g[1].checked=true;"></td></tr>
+                              <tr>
+                                <td><%112%><input type="radio" <%1065%> name="wep_key_no_5g" id="wepKeyNo5g" value="3"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key5g3" id="key5g3" maxLength=32 size=34 value="<%1066%>" onkeydown="keyCheck_5g(this)" onfocus="this.form.wep_key_no_5g[2].checked=true;"></td></tr>
+                              <tr>
+                                <td><%113%><input type="radio" <%1067%> name="wep_key_no_5g" id="wepKeyNo5g" value="4"></td>
+                                <td align="left"><input type="text" autocomplete="off" name="key5g4" id="key5g4" maxLength=32 size=34 value="<%1068%>" onkeydown="keyCheck_5g(this)" onfocus="this.form.wep_key_no_5g[3].checked=true;"></td></tr>
+                            </table></td></TR>
+                    </table>
+                    </div></td></tr>
+                    <!-----------5G WEP DIV End---------->
+                    <ul class="formElements">
+                    <tr>
+                        <td colspan="2"><li><%1069%></li></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><li><%1070%></li></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><%1071%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <%1072%> <%1073%> <%1074%> <%1075%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><%1076%> <%1077%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><%1078%></td>
+                    </tr>
+                    </ul>
+                </div> <!-- end main -->
+          </div> <!-- end container -->
+      </div>
+      <div id="fixedFooter">
+        <div class="container">
+          <footer>
+            <div class="centerButtons">
+              <div class="processButtons">
+              <a id="cancelBt" class="btn secondary" href="IA_index.htm"><%488%></a>
+              <input name="continue" id="continueBt" class="btn primary" type="button" value="<%1079%>" onClick="CheckData()">
+              <input id="skipBt" name="skipBt" class="btn secondary" type="button" value="<%1080%>" onClick="CheckSkip();">
+            </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <INPUT type="hidden" name="fail_band" value="<%1081%>">
+      <input type="hidden" name="ap_24g_client_sec" value="<%460%>">
+      <input type="hidden" name="ap_5g_client_sec" value="<%462%>">
+      </form>
+        
+            
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/pwdStrength.js"></script>
+        <script src="scripts/main.js"></script>
+        <script language="javascript" type="text/javascript" src="IA_connect_fail.js"></script>
+        <script language="javascript" type="text/javascript" src="CheckData.js"></script> 
+        <script language="javascript" type="text/javascript" src="utility.js"></script> 
+  </body>
+</html>

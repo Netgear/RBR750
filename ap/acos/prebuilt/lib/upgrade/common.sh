@@ -56,7 +56,7 @@ run_ramfs() { # <command> [...]
 		/bin/dd /bin/vi /bin/ls /bin/cat /usr/bin/awk /usr/bin/hexdump	\
 		/bin/sleep /bin/zcat /usr/bin/bzcat /usr/bin/printf /usr/bin/wc \
 		/bin/cut /usr/bin/printf /bin/sync /bin/mkdir /bin/rmdir	\
-		/bin/rm /usr/bin/basename /bin/kill /bin/chmod
+		/bin/rm /usr/bin/basename /bin/kill /bin/chmod /usr/bin/tail /usr/bin/tee
 
 	install_bin /sbin/mtd
 	install_bin /sbin/mount_root
