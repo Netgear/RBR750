@@ -1,0 +1,18 @@
+Source-Makefile: feeds/ssdk/qca-ssdk-shell/Makefile
+Package: qca-ssdk-shell
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: Utilities
+Title: Shell application for QCA SSDK
+Maintainer: 
+Source: qca-ssdk-shell-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Shell application for QCA SSDK
+
+@@
+
+

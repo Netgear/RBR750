@@ -1,0 +1,488 @@
+Source-Makefile: feeds/bootloader/qca-legacy-uboot/Makefile
+Package: qca-legacy-uboot-ap135
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap135
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap135
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap135
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap135-nand
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx +qca-romboot-qca955x
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap135-nand
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap135-nand
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap135-nand
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap137-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap137-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap137-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap137-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap143-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap143-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap143-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap143-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap143-32M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap143-32M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap143-32M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap143-32M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap147-8M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap147-8M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap147-8M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap147-8M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap147-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap147-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap147-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap147-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap151-8M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap151-8M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap151-8M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap151-8M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap151-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap151-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap151-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap151-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap152-8M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap152-8M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap152-8M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap152-8M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap152-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap152-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap152-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap152-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-ap152-dual
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ap152-dual
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ap152-dual
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for ap152-dual
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-apjet01
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: apjet01
+Section: boot
+Category: Boot Loaders
+Title: U-boot for apjet01
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for apjet01
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-apjet01-32M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: apjet01-32M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for apjet01-32M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for apjet01-32M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-apjet01-dual
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: apjet01-dual
+Section: boot
+Category: Boot Loaders
+Title: U-boot for apjet01-dual
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for apjet01-dual
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-apjet01-dual-nor
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: apjet01-dual-nor
+Section: boot
+Category: Boot Loaders
+Title: U-boot for apjet01-dual-nor
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for apjet01-dual-nor
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531-32M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531-32M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531-32M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531-32M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531-dual
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531-dual
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531-dual
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531-dual
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531-nand
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531-nand
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531-nand
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531-nand
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531mp3-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531mp3-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531mp3-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531mp3-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531mp3-32M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531mp3-32M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531mp3-32M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531mp3-32M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531mp3-dual
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531mp3-dual
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531mp3-dual
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531mp3-dual
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus531mp3-nand
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus531mp3-nand
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus531mp3-nand
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus531mp3-nand
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-cus532k
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx +qca-romboot-ar934x
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: cus532k
+Section: boot
+Category: Boot Loaders
+Title: U-boot for cus532k
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for cus532k
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-db12x-16M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: db12x-16M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for db12x-16M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for db12x-16M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: qca-legacy-uboot-db120-8M
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: db120-8M
+Section: boot
+Category: Boot Loaders
+Title: U-boot for db120-8M
+Maintainer: 
+Source: qca-legacy-uboot-g24328de-dirty.tar.gz
+Type: ipkg
+Description: U-boot for db120-8M
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+

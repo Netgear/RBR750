@@ -1,0 +1,572 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META name="description" content="R7000">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META http-equiv="Pragma" content="no-cache">
+<META HTTP-equiv="Cache-Control" content="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT">
+
+<title>NETGEAR Router</title> 
+<link rel="stylesheet" href="css/table_noh.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/form2.css">
+<style type="text/css">
+.boxline{width: 700px; height: 180px; }
+.box_select {width: 160px; height: 150px; float: left;  margin-left: 20px; margin-top: 20px;}
+.box_select .radio_box{width: 90%; height: 30px; font-size: 13px; font-weight: bold; color: black;  top: 10px; padding-left: 10%;}
+.box_select .icon, .box_select .icon_select{width:100px; height: 100px;  bottom: 10px; left: 20px; cursor: pointer;}
+.box_select .icon img, .box_select .icon_select img{width:100px; height:100px}
+.box {width: 130px; height: 110px; float: left;  margin-left: 20px; margin-top: 30px; }
+.box .radio_box{width: 90%; height: 30px; font-size: 11px; font-weight: bold; color: black;  top: 3px; padding-left: 10%;}
+.box .icon, .box .icon_select{width:60px; height: 60px;  bottom: 10px; left: 20px; cursor: pointer;}
+.box .icon img, .box .icon_select img{width:60px; height:60px}
+.icon { background-color: #5db5e5;}
+.icon_select { background-color: #6abd49;}
+</style>
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<script language="javascript" type="text/javascript" src="func.js"></script>
+<script language="javascript" type="text/javascript" src="msg.js"></script>
+<script language="javascript" type="text/javascript" src="utility.js"></script>
+<script language="javascript" type="text/javascript" src="browser.js"></script>
+<script language="javascript" type="text/javascript" src="md5.js"></script>
+<script language="javascript" type="text/javascript" src="wep.js"></script>
+
+<script language="javascript" type="text/javascript" src="script/opmode.js"></script>
+<script language="javascript" type="text/javascript" src="script/showHelp.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function getkey1()
+{
+
+	var keycode, event;
+
+	if (window.event) 
+	{
+		event = window.event;
+		keycode = window.event.keyCode;
+	}	
+	else if (e)
+	{
+		event = e;
+		keycode = e.which;
+	}	
+	else 
+		return true;
+	if	(((keycode>47) && (keycode<58)) || (keycode==8)||(keycode==0) || (keycode==46))
+			return true;		
+		else 
+			return false;
+}
+
+
+
+function split_value()
+{
+	var cf = document.forms[0];
+	var apmode_ipaddr = cf.WPethr.value.split(".");
+	var apmode_netmask = cf.WMask.value.split(".");
+	var apmode_gateway = cf.WGateway.value.split(".");
+	var apmode_dns1_pri = cf.DAddr.value.split(".");
+	var apmode_dns1_sec = cf.PDAddr.value.split(".");
+
+	cf.WPethr1.value = apmode_ipaddr[0];
+	cf.WPethr2.value = apmode_ipaddr[1];
+	cf.WPethr3.value = apmode_ipaddr[2];
+	cf.WPethr4.value = apmode_ipaddr[3];
+	
+	cf.WMask1.value = apmode_netmask[0];
+	cf.WMask2.value = apmode_netmask[1];
+	cf.WMask3.value = apmode_netmask[2];
+	cf.WMask4.value = apmode_netmask[3];
+	
+	cf.WGateway1.value = apmode_gateway[0];
+	cf.WGateway2.value = apmode_gateway[1];
+	cf.WGateway3.value = apmode_gateway[2];
+	cf.WGateway4.value = apmode_gateway[3];
+	
+	cf.DAddr1.value = apmode_dns1_pri[0];
+	cf.DAddr2.value = apmode_dns1_pri[1];
+	cf.DAddr3.value = apmode_dns1_pri[2];
+	cf.DAddr4.value = apmode_dns1_pri[3];
+	
+	cf.PDAddr1.value = apmode_dns1_sec[0];
+	cf.PDAddr2.value = apmode_dns1_sec[1];
+	cf.PDAddr3.value = apmode_dns1_sec[2];
+	cf.PDAddr4.value = apmode_dns1_sec[3];
+	
+	return true;
+}
+
+
+
+function checkData()
+{
+	var cf = document.forms[0];
+	var msg = "";
+
+	split_value();
+	
+	/* last GUI design does not have enable checkbox */
+    //if (cf.enable_ap_mode.checked == true)
+	if (1)
+    {
+        var ap_ipaddr = (cf.WPethr1.value << 24) | (cf.WPethr2.value << 16) | (cf.WPethr3.value << 8)| (cf.WPethr4.value);
+        var ap_netmask = (cf.WMask1.value<< 24) | (cf.WMask2.value<< 16) | (cf.WMask3.value<< 8)| (cf.WMask4.value);    
+    
+    	if(cf.enable_fixed_ip_setting[1].checked == true)
+    	{
+    		if(checkIP(cf.WPethr1,cf.WPethr2,cf.WPethr3,cf.WPethr4,255)
+    		    ||checkIPMatchWithNetmask(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,cf.WPethr1,cf.WPethr2,cf.WPethr3,cf.WPethr4))
+    			msg+= "Invalid IP address. Please enter it again.";
+    		else
+    		{
+    			cf.WPethr1.value = parseInt(cf.WPethr1.value,10);
+    			cf.WPethr2.value = parseInt(cf.WPethr2.value,10);
+    			cf.WPethr3.value = parseInt(cf.WPethr3.value,10);
+    			cf.WPethr4.value = parseInt(cf.WPethr4.value,10);
+    		}
+    		if(checkIP(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,255))
+    			msg+= "Invalid subnet mask. Please enter it again.\n";
+    		else
+    		{
+    			cf.WMask1.value = parseInt(cf.WMask1.value,10);
+    			cf.WMask2.value = parseInt(cf.WMask2.value,10);
+    			cf.WMask3.value = parseInt(cf.WMask3.value,10);
+    			cf.WMask4.value = parseInt(cf.WMask4.value,10);
+    		}
+    		if(checkIP(cf.WGateway1,cf.WGateway2,cf.WGateway3,cf.WGateway4,255)
+    		    ||checkIPMatchWithNetmask(cf.WMask1,cf.WMask2,cf.WMask3,cf.WMask4,cf.WGateway1,cf.WGateway2,cf.WGateway3,cf.WGateway4))
+    			msg+= "Invalid gateway IP address. Please enter it again.";
+    		else
+    		{
+    			cf.WGateway1.value = parseInt(cf.WGateway1.value,10);
+    			cf.WGateway2.value = parseInt(cf.WGateway2.value,10);
+    			cf.WGateway3.value = parseInt(cf.WGateway3.value,10);
+    			cf.WGateway4.value = parseInt(cf.WGateway4.value,10);
+    		}
+    
+    		var ap_gateway = (cf.WGateway1.value<< 24) | (cf.WGateway2.value<< 16) | (cf.WGateway3.value<< 8)| (cf.WGateway4.value);
+    		var tmpip = cf.WPethr1.value+'.'+cf.WPethr2.value+'.'+cf.WPethr3.value+'.'+cf.WPethr4.value;
+    		var tmpgwip = cf.WGateway1.value+'.'+cf.WGateway2.value+'.'+cf.WGateway3.value+'.'+cf.WGateway4.value;
+    		if((ap_ipaddr&ap_netmask) != (ap_gateway&ap_netmask))
+    		{
+    			alert("Error: IP Address" + tmpip + "is in a different subnet as the gateway address" + tmpgwip);
+    			return false;
+    		}
+
+    		if(checkIP(cf.DAddr1,cf.DAddr2,cf.DAddr3,cf.DAddr4,254)||(parseInt(cf.DAddr4.value,10)==0))
+    			msg+= "Invalid primary DNS address. Please enter it again.\n";
+    		else
+    		{
+    			cf.DAddr1.value = parseInt(cf.DAddr1.value,10);
+    			cf.DAddr2.value = parseInt(cf.DAddr2.value,10);
+    			cf.DAddr3.value = parseInt(cf.DAddr3.value,10);
+    			cf.DAddr4.value = parseInt(cf.DAddr4.value,10);
+    		}
+    		if(cf.PDAddr1.value.length>0 && cf.PDAddr2.value.length>0 && cf.PDAddr3.value.length>0 && cf.PDAddr4.value.length>0 )
+    		{
+    			if(checkIP(cf.PDAddr1,cf.PDAddr2,cf.PDAddr3,cf.PDAddr4,254)||(parseInt(cf.PDAddr4.value,10)==0))
+    				msg+= "Invalid secondary DNS address. Please enter it again.\n";
+    			else
+    			{
+    				cf.PDAddr1.value = parseInt(cf.PDAddr1.value,10);
+    				cf.PDAddr2.value = parseInt(cf.PDAddr2.value,10);
+    				cf.PDAddr3.value = parseInt(cf.PDAddr3.value,10);
+    				cf.PDAddr4.value = parseInt(cf.PDAddr4.value,10);
+    			}
+    		}
+    	}
+    	ap_mode_grayout();
+    	
+    	cf.apmode_ipaddr.value = cf.WPethr1.value+'.'+cf.WPethr2.value+'.'+cf.WPethr3.value+'.'+cf.WPethr4.value;
+    	cf.apmode_netmask.value = cf.WMask1.value+'.'+cf.WMask2.value+'.'+cf.WMask3.value+'.'+cf.WMask4.value;
+    	cf.apmode_gateway.value = cf.WGateway1.value+'.'+cf.WGateway2.value+'.'+cf.WGateway3.value+'.'+cf.WGateway4.value;
+    	cf.apmode_dns1_pri.value = cf.DAddr1.value+'.'+cf.DAddr2.value+'.'+cf.DAddr3.value+'.'+cf.DAddr4.value;
+    	cf.apmode_dns1_sec.value = cf.PDAddr1.value+'.'+cf.PDAddr2.value+'.'+cf.PDAddr3.value+'.'+cf.PDAddr4.value;
+        
+       if(0=="0")
+           sAlert('Note:After you click Apply,this device will change to a new IP assigned by your existing router,therefore this web page might not be available. Please close and restart web browser to http://orbilogin.com/ again.', function(){document.forms[0].submit();}, function(){return false;});
+	}
+	else
+	{
+        ap_mode_ungrayout();
+        
+       if(0=="1")
+           sAlert('Note:After you click Apply,this device will change to a new IP assigned by your existing router,therefore this web page might not be available. Please close and restart web browser to http://orbilogin.com/ again.', function(){document.forms[0].submit();}, function(){return false;});
+	}
+	if (msg.length > 1)
+	{
+		alert(msg);
+		return false;
+	}
+	
+	return false;
+}
+
+function goto_wireless()
+{
+	parent.loadPage2("WLG_wireless2.htm");
+}
+
+
+function display_fixed_ip_setting(display)
+{
+    var cf = document.forms[0];
+    if (display == 1)
+    {
+        document.getElementById("fixed_ip_setting_display").style.display="";
+	    document.getElementById("ap_addr").style.display="";
+	    document.getElementById("ap_mask").style.display="";
+	    document.getElementById("ap_daddr").style.display="";
+	    document.getElementById("ap_pdaddr").style.display="";
+	    document.getElementById("ap_gateway").style.display="";
+    }
+    else
+    {
+        document.getElementById("fixed_ip_setting_display").style.display="none";
+    }
+}
+
+function handle_fixip_ok()
+{
+	display_fixed_ip_setting(0);
+}
+
+
+function handle_fixip_cancel()
+{
+	display_fixed_ip_setting(0);
+	loadFixIPSettings();
+}
+
+function loadFixIPSettings()
+{
+	var cf = document.forms[0];
+
+	var apmode_ipaddr = cf.apmode_ipaddr.value;
+	var apmode_netmask = cf.apmode_netmask.value;
+	var apmode_gateway = cf.apmode_gateway.value;
+	var apmode_dns1_pri = cf.apmode_dns1_pri.value;
+	var apmode_dns1_sec = cf.apmode_dns1_sec.value;
+
+	cf.WPethr.value = apmode_ipaddr;
+	cf.WMask.value = apmode_netmask;
+	cf.WGateway.value = apmode_gateway;
+	
+	if (cf.apmode_dns1_pri.value != "")
+	{
+		cf.DAddr.value = apmode_dns1_pri;
+	}
+	if (cf.apmode_dns1_sec.value != "")
+	{
+		cf.PDAddr.value = apmode_dns1_sec;
+	}		
+}
+
+function loadSettings()
+{	
+	var cf = document.forms[0];
+	var i;
+    
+	var operation_mode = cf.pre_mode.value;
+	if( operation_mode == "ap" )
+	{
+		$("#ap").removeClass("icon").addClass("icon_select");
+	}
+	else if(operation_mode == "bridge")
+	{
+		$("#bridge").removeClass("icon").addClass("icon_select");
+	}
+	else if(operation_mode == "repeating")
+	{
+		$("#repeating").removeClass("icon").addClass("icon_select");
+	}
+	else
+	{
+		$("#router").removeClass("icon").addClass("icon_select");
+	}
+	//display_apmode();
+    display_fixed_ip_setting(0);
+	//setIP_DNS();
+	loadFixIPSettings();
+}
+
+
+//-->
+</script>
+</head>
+<body  onLoad="change_size();loadSettings();" class="page-body"  onload="change_size();"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+  <form id="target"  method="POST" action="operation_mode.cgi" NAME="general">
+    <input type="hidden" id="buttonHit" name="buttonHit"><input type="hidden" id="buttonValue" name="buttonValue">
+    <img class="subtop-image" src="<%76%>">
+    <div class="subhead2"><%716%></div>
+        <table border="0"    style="height:370px"  class="subhead2-table">
+
+          <tr align="left" valign="top">
+            <td align="center" colspan="2" class="table-seperate-border2">
+              <button class="button-cancel" type="reset" name="Cancel" value="<%83%>" onClick="location.href='WLG_opmode_main.htm';"><%83%></button>
+              <button class="<%3194%>" type="submit" name="Apply" value="<%78%>" onClick="return checkData();" ><%78%></button>
+
+              </td>
+          </tr>
+          <tr><td class="scrollpane-table-seperate-border" colspan="2">
+            <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+              <table style="width:99%;height:200px;">
+                <tr>
+				<td style='width:800px'>
+            	      <table border="0" cellpadding="0" cellspacing="3" align="right">
+		                  <tr><td>
+									 <div class="box ui-corner-all router">
+						                <div class="radio_box"><input type="radio" id="operation_type_router_mode" name="operation_type" value=0 onclick="select_type(0)"> <%3195%></div>
+						                <div class="<%3198%>" style="margin-left:20px" onclick="select_type(0)"><img src="img/opmode_router.gif"></div>
+					                </div>
+		                  		</td>
+		                  </tr>
+  	                  	  <TR><TD height="20px"></TD></TR>
+                      
+                    	</TABLE>
+                 	 </td>
+
+
+					<td align="left">
+	                  <TABLE border=0 cellpadding=0 cellspacing=2 >			
+	                    <tr><td >
+								<div class="box_select ui-corner-all ap">
+		             			    <div class="radio_box"><input type="radio" id="operation_type_ap_mode" name="operation_type" value=1 checked> <%3196%></div>
+				  	              <div class="<%3199%>" style="margin-left:20px" onclick="select_type(1)"><img src="img/opmode_bridge.gif"></div>
+		                		</div>
+			               
+	                    </td></tr>
+			                
+                 			<tr style="height:20px"><td></td></tr>
+			               
+                	  </TABLE>
+                  </td></tr>
+
+				</table>
+
+
+				<table style="border-collapse:collapse;width:99%">
+                
+                <tr><td style="width:60%">
+	                <TABLE  border=0 cellpadding=0 cellspacing=2>
+	                  <tr><td align="left"><b><%3196%>:</b><%1891%></td></tr>
+	  	              <TR><TD height="20px"></TD></TR>
+		                <TR>
+			                <td nowrap colspan=3><%1910%></td>
+		                </TR>
+		                <TR id="ap_radio_1">
+			                <TD nowrap colspan=3>
+			                  <input type="radio" id="enable_dynamic_ip_setting" name="enable_fixed_ip_setting" value="enable_dynamic_ip_setting" <%1911%> onclick="display_fixed_ip_setting(0)"><%1912%>
+			                </TD>
+		                </TR>
+		                <TR id="ap_radio_2">
+			                <TD nowrap colspan=3>
+			                  <input type="radio" id="enable_fixed_ip_setting" name="enable_fixed_ip_setting" value="enable_fixed_ip_setting" <%1913%> onclick="display_fixed_ip_setting(1)"><%1914%>
+			                </TD>
+		                </TR>
+		                <TR><TD height="25px"></TD></TR>
+		                <TR><TD nowrap colspan=3>&nbsp; <%969%>: 
+		                  <%1386%>
+                      &nbsp;&nbsp;&nbsp; <input class="new_edit_bt ui-corner-all" type="button" id="Apply_new_edit_bt" name="Apply" value="<%803%>" onClick="location.href='DEV_name.htm';">
+                      </TD><TD></td>
+                    </TR>
+                    <TR><TD height="10px"></TD></TR>
+                    
+		                <TR id="learn">
+			                <TD nowrap colspan=3>
+	                      <input class="new_apply_bt ui-corner-all" type="button" id="learn_router" name="learn_router" value="<%548%>" onclick="window.open('WLG_opmode_learn_more.htm','newwindow','resizable=no,scrollbars=yes,toolbar=no,menubar=no,status=no,location=no,alwaysRaised=yes,z-look=yes,width=800,height=600,left=200,top=100').focus();" >
+			                </TD>
+		                </TR>
+		                
+	                </TABLE>
+	                </td>
+	                <td style="width:40%;border-left-style: dotted; border-width: 2px;" align="left">
+						
+	                  <table border=0 cellpadding=2 cellspacing=0 width=100%>
+						<TR><TD colspan="2" style="FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #000000;"><%3210%></TD></TR>
+						<TR><TD colspan="2"><%3211%></TD></TR>
+						<tr><td colspan="2"><h1 style="FONT-SIZE: 16px"></h1></td></tr>
+						<TR>
+							<TD nowrap style="color: #702b86;FONT-WEIGHT: bold;">2.4G SSID</TD>
+						</TR>
+						<TR style="color: black" >
+							<TD nowrap><%375%></TD>	
+						</tr>
+						<TR style="color: black" >
+							<TD nowrap><%1866%></TD>	
+						</tr>
+						<TR style="color: black" >
+							<TD nowrap></TD>	
+						</tr>
+
+						<TR>
+							<TD nowrap style="color: #702b86;FONT-WEIGHT: bold;">5G SSID</TD>	
+						</TR>
+						<tr style="color: black">
+							<TD nowrap><%375%></TD>
+						</tr>
+						<tr style="color: black">
+							<TD nowrap><%1866%></TD>
+						</tr>
+						<TR><TD height="15px"></TD></TR>
+						<TR>
+							<td nowrap colspan><%3212%>:</td> 
+						</TR>
+						<TR>
+							<td nowrap><input class="wireless_bt ui-corner-all" type="button" id="Apply_wireless_bt" name="Apply" value="<%77%>" onClick="goto_wireless();"></td>
+						</TR>
+						</table>                 
+
+
+
+
+
+	                
+
+                </td></tr>
+                <tr><td colspan=2>
+
+		              <div class="ipaddres_ap" style="display:none" id="fixed_ip_setting_display">
+		                <table width=420px height=270px cellpadding=0 cellspacing=2  border=0 class="iptable">
+			                <tr height="15px"></tr>
+                      <TR id="ap_addr" style="display:none">
+				                <TD width="10px"></TD>
+				                <TD>&nbsp;&nbsp;&nbsp;</TD>
+				                <TD nowrap><%806%></TD>
+				                <TD nowrap align="right">
+					                <input type="text" id="WPethr" name="WPethr"  size="20" autocomplete="off" maxlength="20" onFocus="this.select();"  onKeyPress="return getkey1();" >
+				                </TD>
+				                <td width="20px"></td>
+			                </TR>
+                      <TR id="ap_mask" style="display:none">
+				                <TD width="10px"></TD>
+				                <TD>&nbsp;&nbsp;&nbsp;</TD>
+				                <TD nowrap><%807%></TD>		
+				                <TD nowrap align="right">
+					                <input type="text" id="WMask" name="WMask"  size="20" autocomplete="off" maxlength="20" onFocus="this.select();" onKeyPress="return getkey1();" >
+				                </TD> 
+				                <td width="20px"></td>
+			                </TR>
+                      <TR id="ap_gateway" style="display:none">
+				                <TD width="10px"></TD>
+				                <TD>&nbsp;&nbsp;&nbsp;</TD>
+				                <TD nowrap><%808%></TD>		
+				                <TD nowrap align="right">
+					                <input type="text" id="WGateway" name="WGateway"  size="20" autocomplete="off" maxlength="20" onFocus="this.select();"  onKeyPress="return getkey1();" >
+				                </TD>
+				                <td width="20px"></td>
+			                </TR>
+                      <TR id="ap_daddr" style="display:none">
+				                <TD width="10px"></TD>
+				                <TD>&nbsp;&nbsp;&nbsp;</TD>
+				                <TD nowrap><%404%></TD>
+				                <TD nowrap align="right">
+					                <input type="text" id="DAddr" name="DAddr"  size="20" autocomplete="off" maxlength="20" onFocus="this.select();" onKeyPress="return getkey1();">
+				                </TD>
+				                <td width="20px"></td>
+			                </TR>
+                      <TR id="ap_pdaddr" style="display:none">
+				                <TD width="10px"></TD>
+				                <TD>&nbsp;&nbsp;&nbsp;</TD>
+				                <TD nowrap><%405%></TD>
+				                <TD nowrap align="right">
+					                <input type="text" id="PDAddr" name="PDAddr"  size="20" autocomplete="off" maxlength="20" onFocus="this.select();" onKeyPress="return getkey1();">
+				                </TD>
+				                <td width="20px"></td>
+			                </TR>
+			                <tr height="15px"></tr>
+			                <tr><td colspan="5">
+				                <div>
+					                <input type="button" id="fixip_ok_bt" value="OK" class="fixip_ok" onclick="handle_fixip_ok();">
+					                <input type="button" id="fixip_cancel_bt" value="Cancel" class="fixip_cancel" onclick="handle_fixip_cancel();">
+				                </div>
+			                </td></tr>
+			                <tr height="15px"></tr>
+		                </table>
+	                </div>
+	              </td><tr>
+                <tr><td colspan=2>
+		                <img src="img/opmode_ap-4.gif">
+                </td></tr>
+              </table>
+            </div>
+          </td></tr>
+          <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_opmode_ap_dual_band_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+        </table>
+     <img class="subfooter-image" src="img/subhead2-bottom.gif">
+     <div class="subhead2-bottom" >
+       <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+       <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+       <span class="button-help-arrow">
+       <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+       <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+     </div>
+
+
+<INPUT type="hidden" id="pre_mode" name="pre_mode" value="<%3197%>" >
+<INPUT id="enable_operation_mode" name="enable_operation_mode" type="hidden" value="ap">
+<INPUT id="enable_ap_mode" name="enable_ap_mode" type="hidden" value= "1">
+<INPUT id="apmode_ipaddr" name="apmode_ipaddr" type="hidden" value= "<%1623%>">
+<INPUT id="apmode_netmask" name="apmode_netmask" type="hidden" value= "<%1624%>">
+<INPUT id="apmode_gateway" name="apmode_gateway" type="hidden" value= "<%1626%>">
+<INPUT id="apmode_dns_sel" name="apmode_dns_sel" type="hidden" value= "<%1918%>">
+<INPUT id="apmode_dns1_pri" name="apmode_dns1_pri" type="hidden" value= "<%1631%>">
+<INPUT id="apmode_dns1_sec" name="apmode_dns1_sec" type="hidden" value= "<%1632%>">
+<INPUT type="hidden" id="enable_smart_mesh" name="enable_smart_mesh" value="<%3202%>" >
+<INPUT type="hidden" id="enable_band_steering" name="enable_band_steering" value="<%285%>" >
+<INPUT id="WPethr1" name="WPethr1" type="hidden" value= "">
+<INPUT id="WPethr2" name="WPethr2" type="hidden" value= "">
+<INPUT id="WPethr3" name="WPethr3" type="hidden" value= "">
+<INPUT id="WPethr4" name="WPethr4" type="hidden" value= "">
+<INPUT id="WMask1" name="WMask1" type="hidden" value= "">
+<INPUT id="WMask2" name="WMask2" type="hidden" value= "">
+<INPUT id="WMask3" name="WMask3" type="hidden" value= "">
+<INPUT id="WMask4" name="WMask4" type="hidden" value= "">
+<INPUT id="WGateway1" name="WGateway1" type="hidden" value= "">
+<INPUT id="WGateway2" name="WGateway2" type="hidden" value= "">
+<INPUT id="WGateway3" name="WGateway3" type="hidden" value= "">
+<INPUT id="WGateway4" name="WGateway4" type="hidden" value= "">
+<INPUT id="DAddr1" name="DAddr1" type="hidden" value= "">
+<INPUT id="DAddr2" name="DAddr2" type="hidden" value= "">
+<INPUT id="DAddr3" name="DAddr3" type="hidden" value= "">
+<INPUT id="DAddr4" name="DAddr4" type="hidden" value= "">
+<INPUT id="PDAddr1" name="PDAddr1" type="hidden" value= "">
+<INPUT id="PDAddr2" name="PDAddr2" type="hidden" value= "">
+<INPUT id="PDAddr3" name="PDAddr3" type="hidden" value= "">
+<INPUT id="PDAddr4" name="PDAddr4" type="hidden" value= "">
+<INPUT id="apmode_page" name="apmode_page" type="hidden" value= "1">
+
+<a name="helpframe-anchor"></a>
+    </form>
+
+  </div>
+</body>
+</html>

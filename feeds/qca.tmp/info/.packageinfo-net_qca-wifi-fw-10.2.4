@@ -1,0 +1,46 @@
+Source-Makefile: feeds/qca/net/qca-wifi-fw-10.2.4/Makefile
+Package: qca-wifi-fw-hw3-10.4-asic
+Version: CNSS.PS.3.10-00027-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR9887_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw3-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-CNSS.PS.3.10-00027-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware(-hw3-10.4-asic) used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw6-10.4-asic
+Version: CNSS.PS.3.10-00027-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR9888_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw6-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-CNSS.PS.3.10-00027-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware(-hw6-10.4-asic) used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+

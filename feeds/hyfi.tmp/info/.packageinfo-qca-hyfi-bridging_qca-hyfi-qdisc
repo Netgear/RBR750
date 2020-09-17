@@ -1,0 +1,21 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-bridging/qca-hyfi-qdisc/Makefile
+Package: kmod-qca-hyfi-qdisc
+Submenu: Hy-Fi features
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Queue Discipline Module
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NET_SCHED=y
+Description:   This package installs the QCA Hy-Fi QDISC for raising priority of IEEE 1905.1 and HomePlugAV MME packets
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

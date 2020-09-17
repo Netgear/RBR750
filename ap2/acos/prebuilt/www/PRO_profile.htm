@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%0%>
+<title>NETGEAR <%647%></title> 
+<%478%>
+<script src="scripts/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+var block_str = "block";
+
+function loadSettings()
+{
+    $('input:radio[name="profile_idx"]:checked').click();
+}
+
+function selIdx(v)
+{
+    document.forms["mainForm"].sel_idx.value = v;
+}
+
+function selName(v)
+{
+    document.forms["mainForm"].sel_name.value = v;
+    document.getElementsByName("profile_name")[0].value = v;
+}
+
+function editName()
+{
+    if(!$.browser.msie)
+        block_str = "table-row";
+
+    var cf = document.forms["mainForm"];
+    if(cf.sel_name.value.length == 0)//not select
+        alert("<%1110%>");
+    else
+    {
+        document.getElementById("pro_name_edit").style.display = block_str;
+        document.getElementsByName("profile_name")[0].focus();
+    }
+}
+function checkData()
+{
+    var cf=document.forms["mainForm"];
+    if(cf.sel_name.value.length == 0)//not select
+    {
+        alert("<%1111%>"); 
+        return false;
+    }
+    return true;
+}
+//-->
+</script> 
+</head>
+<body onload="loadSettings();" class="page-body">
+<form id="target" name="mainForm" method="POST" action="profile.cgi">
+<div class="subhead2"> <%1112%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td style="padding-top:10px;padding-bottom:10px" align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%488%>" type="reset" name="Cancel" class="button-rule" ><%488%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1113%>"  onclick="return checkData();" type="submit" name="Apply" class="button-apply" ><%1113%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2">
+<div class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<table style="border-collapse:collapse;width:97%">
+
+<tr>
+ <td nowrap colspan="2"><b><%1114%></b></td>
+</tr>
+<tr>
+<td colspan="2">
+<table border="1" cellpadding="2" cellspacing="0" width="100%" style="border-collapse:separate;word-break:break-all;word-wrap:break-word">
+<%1115%>
+</table>
+</td>
+</tr>
+<tr>
+ <td nowrap colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td nowrap align="center" colspan="2">
+&nbsp;&nbsp;&nbsp;<button value="<%1116%>"  onclick="return editName();" type="button" name="Edit" class="button-rule" ><%1116%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1117%>" onclick="return checkData();" type="submit" name="Delete" class="button-rule" ><%1117%></button>
+</td>
+</tr>
+
+<tr id="pro_name_edit" style="display: none;">
+<td colspan="2">
+<b><%1118%>:</b>
+&nbsp;&nbsp;&nbsp;<input type="text" name="profile_name" value="" size="20" maxlength="20">
+&nbsp;&nbsp;&nbsp;<button value="<%1119%>"  onclick="return checkData();" type="submit" name="Save" class="button-apply" ><%1119%></button>
+</td>
+</tr>
+</table></div></td></tr>
+
+</table>
+
+    <input type="hidden" name="sel_idx" value="">
+    <input type="hidden" name="sel_name" value="">
+</form>
+</body>
+</html>

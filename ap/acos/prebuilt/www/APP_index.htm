@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-livestyle-extension="available" class="h-100 full">
+<head>
+<%11%>
+<%14%>
+<link rel="stylesheet" type="text/css" href="<%296%>">
+<script type="text/javascript">
+	<%343%>;
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+<meta name="description" content="Orbi App" />
+<title>Orbi App</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/animate.css" />
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="assets/css/custom.css" />
+
+<!-- Font Awesome v5 CSS -->
+<link rel="stylesheet" href="assets/fonts/fontawesome/css/all.css" />
+</head>
+
+<body class="text-center d-flex">
+    <div class="cover-container d-flex w-100 h-100  mx-auto flex-column">
+
+
+  <main role="main" class="inner cover my-auto">
+  <div class="text-center logo-main pl-3 pr-3 p-md-0"><img class="mobile img-fluid" src="assets/images/netgear-log.svg" alt=""></div>
+     <div class=" text-center pl-3 pr-3 p-md-0"><img class="mobile img-fluid" src="assets/images/orbi-mobile.png"></div>
+        <div class="pl-3 pr-3 p-md-0 cmn-body">  <div class="heading2 text-center"><%747%> <u>Orbi-App.com</u>
+            
+            <!--<a href="http://orbi-app.com" target="_blank">Orbi-App.com</a>-->
+            </div>
+      <div class="sub-heading"><%748%></div>
+       </div>
+  </main>
+
+   <footer class=" d-flex justify-content-center align-items-center w-100">
+	<a href="start.htm" target="_self" class=""><%749%><img class="img-fluid pl-2" src="assets/images/arrow-right.png" alt="icon right" /></a>
+</footer>
+</div>
+
+
+</body>
+
+
+
+
+
+
+<!-- Optional JavaScript --> 
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<script src="assets/js/jquery-1.12.4.js"></script> 
+<script  type="text/javascript" src="assets/js/wow.js"></script> 
+  <script type="text/javascript" src="assets/js/mdetect.js"></script>  
+ 
+ 
+<script src="assets/js/bootstrap.min.js"></script> 
+
+<script>
+    
+  function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
+    
+var isMobile  =   getMobileOperatingSystem()
+    
+ 
+    
+    if(isMobile== "Android") { 
+     $(".google-store").show();
+        $(".app-store").hide();
+		$(".hide-content").hide();
+		
+        
+}
+    if(isMobile== "iOS") { 
+      $(".google-store").hide();
+        $(".app-store").show();
+		$(".hide-content").hide();
+}
+    
+    
+$('a[href*=#]').click(function(event){
+	alert(0);
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    event.preventDefault();
+});
+</script>
+
+<script src="assets/js/custom.js"></script> 
+
+
+</body>
+</html>

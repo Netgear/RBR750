@@ -1,0 +1,23 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+test_mode="$(nvram get te_test_mode)"
+test_mode_sta="$(nvram get te_test_sta)"
+
+start() {
+	echo 1 > /tmp/S99te_test_done
+	[ "$test_mode" != "1" ] && {
+		return 1
+	}
+
+	if [ "$test_mode_sta" != "1" ]; then
+		echo '=== S99te Start DHCP Server Daemon ===' > /dev/console
+		/sbin/acos_service restart_dhcpd
+	else
+		echo '=== S99te Start DHCP Client Daemon ===' > /dev/console
+		/sbin/acos_service restart_dhcpc
+	fi
+	echo '=== S99te_test init. done ===' > /dev/console
+}
+

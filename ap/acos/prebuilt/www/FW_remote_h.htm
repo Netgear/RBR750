@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head><link rel="stylesheet" type="text/css" media="all" href="css/jScrollPane.css" />
+<link rel="stylesheet" href="css/help.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jScrollPane.js"></script>
+
+<script src="script/script.js"></script>
+
+<!-- Foxconn Zhongsheng 2017/07/07 add start-->
+<script>
+	function reSetPage()
+	{
+		var mContent = document.getElementById("content");
+		var str = mContent.innerHTML;
+		var ipstr = "<%1349%>";
+		ipstr = ipstr.substring(6)
+		var s = ipstr.indexOf("//");
+		var e = ipstr.indexOf(":");
+		var ip = ipstr.substring(s+2,e);
+		str = str.replace(/10.0.0.123/,ip);
+		var port = ipstr.substring(e+1);
+		var s = ipstr.indexOf(":");
+		str = str.replace(/8080/,port);
+		str = str.replace(/http:\/\/10.0.0.123:8080/ , "http://"+ip+":"+port);
+		mContent.innerHTML = str;
+	}
+</script>
+<!-- Foxconn Zhongsheng 2017/07/07 add end-->
+
+
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<script type="text/javascript" id="sourcecode">
+<!--
+// $(document).ready(function() {
+//        $('#content').jScrollPane('scrollbarMargin:5px');
+
+		// Workaround for known Opera issue which breaks demo (see
+	// http://jscrollpane.kelvinluck.com/known_issues.html#opera-scrollbar )
+		// IE calculates the width incorrectly first time round (it
+		// doesn't count the space used by the native scrollbar) so
+		// we re-trigger if necessary.
+//	});
+//-->
+</script>
+
+</head>
+<%1362%>
+<!-- Foxconn Zhongsheng 2017/07/07 add start-->
+ <script type="text/javascript">
+	 window.onload = function(){
+	  reSetPage();
+	 }
+  </script>	
+<!-- Foxconn Zhongsheng 2017/07/07 add end-->
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function chgSel(index)
+{
+ document.forms[0].select.value = index;
+ return true;
+}
+
+<%875%>
+function chSession(newsession)
+{
+    if(newsession == 2)
+        location.href = "BKS_service_ppp2.htm";		
+    else if(newsession == 1)
+        location.href = "BKS_service.htm";		
+}
+<%876%>
+
+
+//-->
+</script> 
+</head>
+<body  onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="frmService" method="POST" action="fw_serv.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+	<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%649%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onclick="buttonClick(this,'<%83%>');"  type="reset" id="cancel" name="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');"  type="submit" id="apply" name="apply" class=<%79%> ><%81%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+        <tr> <td colspan="2">
+<%877%>			
+    			<input checked type="radio" name="pppoesession" value=session1 onClick="chSession(1);"><%878%>
+    			<input type="radio" name="pppoesession" value=session2 onClick="chSession(2);"><%879%><br>
+<%880%>			
+            </td>
+        </tr>	
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+ <TR>
+ <TD align="left" colspan="2"><a href="javascript:loadhelp('BKS_service','block')" tabindex="-1"><b><%904%></b></a><br>
+ <input type="radio" <%905%> name="skeyword" id="skeyword_never" value="never"><%884%><br> 
+ <input type="radio" <%906%> name="skeyword" id="skeyword_sched" value="perschedule"><%886%><br>
+ <input type="radio" <%907%> name="skeyword" id="skeyword_always" value="always"><%888%>
+ </TD>
+ </TR>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+	<td colspan="2">
+		<a href="javascript:loadhelp('BKS_service','table')" tabindex="-1"><b><%908%></b></a></td>
+</tr>
+	<tr>
+	<td colspan="2">
+		<table id="services_table" class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+		<tr>
+			<th nowrap align="center" width="6%">&nbsp;	 	</th>
+			<th nowrap align="center" width="6%">#</th>
+			<th nowrap align="center"><%909%></th>
+			<th nowrap align="center"><%910%></th>
+			<th nowrap align="center"><%911%></th>
+		</tr>
+    </thead>
+    <tbody>
+		<%912%>
+    </tbody>
+        </table>
+	</td>
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+<td colspan="2" align="center">
+	&nbsp;&nbsp;&nbsp;<button type="Submit" value="<%913%>" name="Add" id="add" class="button-common" onclick="buttonClick(this,'<%913%>');" ><%913%></button>
+	&nbsp;&nbsp;&nbsp;<button type="Submit" value="<%803%>" name="Edit" id="edit" class="button-common" onclick="buttonClick(this,'<%803%>');" ><%803%></button>
+	&nbsp;&nbsp;&nbsp;<button type="Submit" value="<%914%>" name="Delete" id="delete" class=<%892%> onclick="buttonClick(this,'<%914%>');" ><%914%></button></td>
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="BKS_service_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+
+
+	<input type="hidden" name="select" value="-1">
+
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+ <head>
+  <%11%>
+</head>
+</html>
+

@@ -1,0 +1,38 @@
+Source-Makefile: feeds/athtestcmd/athtestcmd/Makefile
+Package: athtestcmd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +librt +libnl-tiny
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ath10k
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA TLVCMD(athtestcmd) Driver & tools
+Maintainer: 
+Source: athtestcmd-g24328de-dirty.tar.xz
+Type: ipkg
+Description:   athtestcmd command support for ath10k
+http://www.qca.qualcomm.com
+
+@@
+
+Package: athtestcmd-lith
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: lithium
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA TLVCMD(athtestcmd) Driver & tools
+Maintainer: 
+Source: athtestcmd-g24328de-dirty.tar.xz
+Type: ipkg
+Description:   athtestcmd command support for lithium
+http://www.qca.qualcomm.com
+
+@@
+
+

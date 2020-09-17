@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%1135%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="langSettings postSetup twoColumns">
+        <%410%>
+        
+      <div class="container sliderWrap">
+        <%1136%>
+
+        
+        <div id="slider">
+          <div class="main clearfix">
+            <h1><%1135%></h1>
+            <form name="mainForm" method="POST" action="lang_result.cgi">
+              <ul class="formElements">
+              <li><hr /></li>
+              <li>
+                <b><%1144%></b>
+              </li>
+              <li class="elementsInline">
+                <label><%1145%></label>
+                <label><%1146%></label>
+              </li>
+              <li class="elementsInline">
+                <label><%1147%></label>
+                <label><%1148%></label>
+              </li>
+              <li>
+                <b><%1149%></b>
+              </li>
+              <li><hr /></li>
+              </ul>
+            
+            <div class="formButtons bottom">
+              <div class="mobileFooter">
+                <div class="mobileCenterButtons">
+                  <div>
+                    <input class="btn primary" type="submit" name="Yes" value="<%60%>">
+                    <input class="btn secondary" type="reset" name="No" value="<%61%>" onClick="goHome();">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="enable_ap_mode" value="<%1150%>">
+            <input type="hidden" name="enable_sta_mode" value="<%1151%>">
+            </form>
+          </div> <!-- end main -->
+          <%440%>
+          <%441%>
+        </div> 
+        
+      </div> <!-- end container -->
+    
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/pwdStrength.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+        function goHome()
+        {
+            if ("<%1152%>" == "1")
+                location.href="start.htm";
+            else if (document.forms["mainForm"].enable_ap_mode.value == 1 || document.forms["mainForm"].enable_sta_mode.value == 1)
+                location.href="RST_status.htm";
+            else
+                location.href="BAS_basic.htm";
+                
+            return true;
+        }
+
+      </script> 
+  </body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META name="description" content="R7000">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META http-equiv="Pragma" content="no-cache">
+<META HTTP-equiv="Cache-Control" content="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT">
+
+<title>NETGEAR Router</title> 
+<link rel="stylesheet" href="css/table_noh.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/form2.css">
+<style type="text/css">
+.div_content {padding-left: 5%; padding-top:40px; margin-bottom: 1px; vertical-align:top;}
+.link_a{background-color: #702b86; margin-left: 0px; color: #f2f2f2;  font: -webkit-small-control; padding-left:20px; padding-right:20px; border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px;}
+.blue_a{COLOR: blue; TEXT-DECORATION: underline}
+.div_content img{ height: 200px}
+
+.boxline{width: 700px; height: 180px; }
+.box_select {width: 160px; height: 150px; float: left;  margin-left: 20px; margin-top: 20px;}
+.box_select .radio_box{width: 90%; height: 30px; font-size: 13px; font-weight: bold; color: black;  top: 10px; padding-left: 10%;}
+.box_select .icon, .box_select .icon_select{width:100px; height: 100px;  bottom: 10px; left: 20px; cursor: pointer;}
+.box_select .icon img, .box_select .icon_select img{width:100px; height:100px}
+.box {width: 130px; height: 110px; float: left;  margin-left: 20px; margin-top: 30px; }
+.box .radio_box{width: 90%; height: 30px; font-size: 11px; font-weight: bold; color: black;  top: 3px; padding-left: 10%;}
+.box .icon, .box .icon_select{width:60px; height: 60px;  bottom: 10px; left: 20px; cursor: pointer;}
+.box .icon img, .box .icon_select img{width:60px; height:60px}
+.icon { background-color: #5db5e5;}
+.icon_select { background-color: #6abd49;}
+</style>
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<script language="javascript" type="text/javascript" src="func.js"></script>
+<script language="javascript" type="text/javascript" src="msg.js"></script>
+<script language="javascript" type="text/javascript" src="utility.js"></script>
+<script language="javascript" type="text/javascript" src="browser.js"></script>
+<script language="javascript" type="text/javascript" src="md5.js"></script>
+<script language="javascript" type="text/javascript" src="wep.js"></script>
+
+<script language="javascript" type="text/javascript" src="script/opmode.js"></script>
+
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function openBridgeWindow()
+{
+    var winoptions;
+    winoptions = "width=640,height=480,status=yes,resizable=yes";
+    openDataSubWin('WLG_bridge_wireless_settings.htm',winoptions);
+}
+	
+function setIP_sta()
+{
+	var cf = document.forms[0];
+	var dflag = cf.StaIpAssign.checked;
+	setDisabled(dflag,cf.SPethr1,cf.SPethr2,cf.SPethr3,cf.SPethr4,cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,cf.SGateway1,cf.SGateway2,cf.SGateway3,cf.SGateway4);
+	if (!cf.StaIpAssign.checked)
+	{
+	    cf.StaDnsAssign.checked = false;
+	    setDNS_sta();
+	}
+	DisableFixedIPSta = dflag;
+}
+
+function setDNS_sta()
+{
+	var cf = document.forms[0];
+	var dflag = cf.StaDnsAssign.checked;
+	if (!cf.StaIpAssign.checked && cf.StaDnsAssign.checked)
+	{
+		cf.StaDnsAssign.checked = false;
+		dflag = false;
+	}
+	setDisabled(dflag,cf.SDAddr1,cf.SDAddr2,cf.SDAddr3,cf.SDAddr4,cf.SPDAddr1,cf.SPDAddr2,cf.SPDAddr3,cf.SPDAddr4);
+	DisableFixedDNSSta = dflag;
+}
+   
+function loadSettings()
+{
+    var cf = document.forms[0];
+    var operation_mode = cf.pre_mode.value;
+    var stamode_ipaddr = cf.stamode_ipaddr.value.split(".");
+    var stamode_netmask = cf.stamode_netmask.value.split(".");
+    var stamode_gateway = cf.stamode_gateway.value.split(".");
+    var stamode_dns1_pri = cf.stamode_dns1_pri.value.split(".");
+    var stamode_dns1_sec = cf.stamode_dns1_sec.value.split(".");
+
+    if( operation_mode == "ap" )
+    {
+		    $("#ap").removeClass("icon").addClass("icon_select");
+    }
+    else if(operation_mode == "router")
+    {
+        $("#router").removeClass("icon").addClass("icon_select");
+    }
+    else if(operation_mode == "repeating")
+    {
+        $("#repeating").removeClass("icon").addClass("icon_select");
+    }
+    else
+    {
+        $("#bridge").removeClass("icon").addClass("icon_select");
+    }	
+	
+	return;
+}
+
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var msg = "";
+
+    var sta_ipaddr = (cf.SPethr1.value << 24) | (cf.SPethr2.value << 16) | (cf.SPethr3.value << 8)| (cf.SPethr4.value);
+    var sta_netmask = (cf.SMask1.value<< 24) | (cf.SMask2.value<< 16) | (cf.SMask3.value<< 8)| (cf.SMask4.value);
+        
+    if (cf.device_name2.value == "")
+    {
+        alert("<%1031%>");
+        return false;
+    }
+
+    if (cf.device_name2.value.match( /[^\x20-\x7E]/ ))
+    {
+        cf.device_name2.focus();
+        alert("<%1032%>");
+        return false;
+    }
+    
+    if(!cf.StaIpAssign.checked)
+    {
+        if(checkIP(cf.SPethr1,cf.SPethr2,cf.SPethr3,cf.SPethr4,255)
+                ||checkIPMatchWithNetmask(cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,cf.SPethr1,cf.SPethr2,cf.SPethr3,cf.SPethr4))
+        {
+            alert("<%10%>");
+            return false;
+        }
+        else
+        {
+            cf.SPethr1.value = parseInt(cf.SPethr1.value,10);
+            cf.SPethr2.value = parseInt(cf.SPethr2.value,10);
+            cf.SPethr3.value = parseInt(cf.SPethr3.value,10);
+            cf.SPethr4.value = parseInt(cf.SPethr4.value,10);
+        }
+            
+        if(checkIP(cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,255))
+        {
+            alert("<%421%>");
+            return false;
+        }
+        else
+        {
+            cf.SMask1.value = parseInt(cf.SMask1.value,10);
+            cf.SMask2.value = parseInt(cf.SMask2.value,10);
+            cf.SMask3.value = parseInt(cf.SMask3.value,10);
+            cf.SMask4.value = parseInt(cf.SMask4.value,10);
+        }
+            
+        if(checkIP(cf.SGateway1,cf.SGateway2,cf.SGateway3,cf.SGateway4,255)
+                ||checkIPMatchWithNetmask(cf.SMask1,cf.SMask2,cf.SMask3,cf.SMask4,cf.SGateway1,cf.SGateway2,cf.SGateway3,cf.SGateway4))
+        {
+            alert("<%423%>");
+            return false;
+        }
+        else
+        {
+            cf.SGateway1.value = parseInt(cf.SGateway1.value,10);
+            cf.SGateway2.value = parseInt(cf.SGateway2.value,10);
+            cf.SGateway3.value = parseInt(cf.SGateway3.value,10);
+            cf.SGateway4.value = parseInt(cf.SGateway4.value,10);
+        }
+            
+        var sta_gateway = (cf.SGateway1.value<< 24) | (cf.SGateway2.value<< 16) | (cf.SGateway3.value<< 8)| (cf.SGateway4.value);
+        var tmpip = cf.SPethr1.value+'.'+cf.SPethr2.value+'.'+cf.SPethr3.value+'.'+cf.SPethr4.value;
+        var tmpgwip = cf.SGateway1.value+'.'+cf.SGateway2.value+'.'+cf.SGateway3.value+'.'+cf.SGateway4.value;
+            
+        if((sta_ipaddr&sta_netmask) != (sta_gateway&sta_netmask))
+        {
+            alert("<%424%>" + tmpip + "<%425%>" + tmpgwip);
+            return false;
+        }
+        
+        if(!cf.StaDnsAssign.checked)
+        {
+            if(checkIP(cf.SDAddr1,cf.SDAddr2,cf.SDAddr3,cf.SDAddr4,254)||(parseInt(cf.SDAddr4.value,10)==0))
+            {
+                alert("<%387%>");
+                return false;
+            }
+            else
+            {
+                cf.SDAddr1.value = parseInt(cf.SDAddr1.value,10);
+                cf.SDAddr2.value = parseInt(cf.SDAddr2.value,10);
+                cf.SDAddr3.value = parseInt(cf.SDAddr3.value,10);
+                cf.SDAddr4.value = parseInt(cf.SDAddr4.value,10);
+            }
+            
+            if(cf.SPDAddr1.value.length>0 || cf.SPDAddr2.value.length>0 || cf.SPDAddr3.value.length>0 || cf.SPDAddr4.value.length>0)
+            {
+                if(checkIP(cf.SPDAddr1,cf.SPDAddr2,cf.SPDAddr3,cf.SPDAddr4,254)||(parseInt(cf.SPDAddr4.value,10)==0))
+                {
+                    alert("<%388%>");
+                    return false;
+                }
+                else
+                {
+                    cf.SPDAddr1.value = parseInt(cf.SPDAddr1.value,10);
+                    cf.SPDAddr2.value = parseInt(cf.SPDAddr2.value,10);
+                    cf.SPDAddr3.value = parseInt(cf.SPDAddr3.value,10);
+                    cf.SPDAddr4.value = parseInt(cf.SPDAddr4.value,10);
+                }
+            }
+        }
+        sta_mode_grayout();
+        
+        cf.stamode_ipaddr.value = cf.SPethr1.value+'.'+cf.SPethr2.value+'.'+cf.SPethr3.value+'.'+cf.SPethr4.value;
+        cf.stamode_netmask.value = cf.SMask1.value+'.'+cf.SMask2.value+'.'+cf.SMask3.value+'.'+cf.SMask4.value;
+        cf.stamode_gateway.value = cf.SGateway1.value+'.'+cf.SGateway2.value+'.'+cf.SGateway3.value+'.'+cf.SGateway4.value;
+        cf.stamode_dns1_pri.value = cf.SDAddr1.value+'.'+cf.SDAddr2.value+'.'+cf.SDAddr3.value+'.'+cf.SDAddr4.value;
+        cf.stamode_dns1_sec.value = cf.SPDAddr1.value+'.'+cf.SPDAddr2.value+'.'+cf.SPDAddr3.value+'.'+cf.SPDAddr4.value;
+    }
+
+    alert("<%1384%>");
+
+    
+    if (msg.length > 1)
+    {
+         alert(msg);
+         return false;
+    }
+    return true;
+}
+
+
+//-->
+</script>
+</head>
+<body  onLoad="change_size();loadSettings();" class="page-body"  onload="change_size();"  onResize="change_size();" >
+  <img class="cover-image" src="img/cover-image_noh.gif">
+  <img class="body-image" src="img/subhead2-background_noh.jpg">
+  <div id="full-page-container">
+
+  <form id="target"  method="POST" action="operation_mode.cgi" NAME=general>
+    <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+    <img class="subtop-image" src="img/subhead2-top_noh.gif">
+    <div class="subhead2"> <%664%></div>
+      <table border="0"    style="height:370px"  class="subhead2-table">
+        <tr align="left" valign="top">
+          <td align="center" colspan="2" class="table-seperate-border2">
+            <button class="button-cancel" type="reset" name="Cancel" value="<%83%>" onClick="location.href='WLG_opmode_main.htm';"><%83%></button>
+            <button class="<%3194%>" type="submit" name="Apply" value="<%78%>" onClick="return checkData();" ><%78%></button>
+          </td>
+        </tr>
+        <tr>
+          <td class="scrollpane-table-seperate-border" colspan="2">
+            <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+              <table style="border-collapse:collapse;width:99%">
+                <tr >
+                  <td>    
+		                  <div class="box ui-corner-all router">
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=0 onclick="select_type(0)"> <%3195%></div>
+			                  <div class="<%3198%>" style="margin-left:20px" onclick="select_type(0)"><img src="img/opmode_router.gif"></div>
+		                  </div>
+		                  <div class="box ui-corner-all ap">
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=1 onclick="select_type(1)"> <%3196%></div>
+			                  <div class="<%3199%>" style="margin-left:20px" onclick="select_type(1)"><img src="img/opmode_ap.gif"></div>
+		                  </div>
+		                  <div class="box_select ui-corner-all bridge">
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=2 checked> <%3262%> </div>
+			                  <div class="<%3263%>" style="margin-left:20px" onclick="select_type(2);"><img src="img/opmode_bridge.gif"></div>
+		                  </div>
+		                  <div class="box ui-corner-all repeating">
+			                  <div class="radio_box"><input type="radio" name="operation_type" value=3 onclick="select_type(3);"> <%3264%> </div>
+			                  <div class="<%3265%>" style="margin-left:20px" onclick="select_type(3);"><img src="img/opmode_extender.gif"></div>
+		                  </div>
+                  </td>
+                </tr>
+                <tr>
+                	<td style='width:500px' style="padding-left:50px">
+            	      <table border="0" cellpadding="0" cellspacing="3" >
+	                    <tr>
+		                    <button value="bridge_page" onClick="openBridgeWindow();" type="button" name="bridge_page" class="button-rule" ><span class="roundleft_button"><span class ="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%3266%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><%969%></td>
+                        <td width="60%" align="right"><INPUT TYPE="text" MAXLENGTH="12" SIZE="24" NAME="device_name2" value="<%1386%>"></td>
+                      </tr>
+                      <tr>
+                        <td colspan=2>
+                          <INPUT TYPE="checkbox" NAME="StaIpAssign" value="dyn_ip" <%1911%> onclick="setIP_sta();">
+                          <%3267%>
+                        </td>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%806%></td>
+    	                  <td nowrap align="right"><input type="text" name="SPethr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPethr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)" >.<input type="text" name="SPethr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPethr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%807%></td>
+    	                  <td align="right"><input type="text" name="SMask1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SMask4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%808%></td>
+    	                  <td align="right"><input type="text" name="SGateway1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SGateway4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedIPSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
+                      </tr>
+                      <tr>
+                        <td colspan=2>
+                          <INPUT TYPE="checkbox" NAME="StaDnsAssign" value="dyn_dns" <%3268%> onclick="setDNS_sta();">
+                          <%3269%>
+                        </td>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%404%></td>
+    	                  <td nowrap align="right"><input type="text" name="SDAddr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SDAddr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
+                      </tr>
+                      <tr>
+    	                  <td nowrap><img src="spacer.gif" width="20" height="12" border="0"><%405%></td>
+    	                  <td nowrap align="right"><input type="text" name="SPDAddr1" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr2" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr3" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.<input type="text" name="SPDAddr4" class="num" size="4" maxlength="3" onFocus="if(DisableFixedDNSSta) this.blur()" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
+                      </tr>
+                    </TABLE>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_opmode_bridge_dual_band_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+      </table>
+      <img class="subfooter-image" src="img/subhead2-bottom.gif">
+      <div class="subhead2-bottom" >
+        <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+        <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+        <span class="button-help-arrow">
+        <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+        <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+    </div>
+
+<input type="hidden" name="pre_mode" value="<%3197%>" >
+<input type="hidden" name="enable_operation_mode" value="bridge" >
+<INPUT name="stamode_ipaddr" type="hidden" value= "<%1623%>">
+<INPUT name="stamode_netmask" type="hidden" value= "<%1624%>">
+<INPUT name="stamode_gateway" type="hidden" value= "<%1626%>">
+<INPUT name="stamode_dns1_pri" type="hidden" value= "<%1631%>">
+<INPUT name="stamode_dns1_sec" type="hidden" value= "<%1632%>">
+<a name="helpframe-anchor"></a>
+
+  </form>
+
+  </div>
+</body>
+</html>

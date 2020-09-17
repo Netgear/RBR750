@@ -1,0 +1,19 @@
+Source-Makefile: feeds/packages/libs/opencore-amr/Makefile
+Package: opencore-amr
+Version: 0.1.3-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +USE_UCLIBCXX:uclibcxx +USE_LIBSTDCXX:libstdcpp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: libtool libintl libiconv
+Section: libs
+Category: Libraries
+Title: Audio codecs extracted from Android Open Source Project
+Maintainer: Matthew McClintock <mmcclint@qca.qualcomm.com>
+Source: opencore-amr-0.1.3.tar.gz
+Type: ipkg
+Description:   Audio codecs extracted from Android Open Source Project
+Matthew McClintock <mmcclint@qca.qualcomm.com>
+@@
+
+

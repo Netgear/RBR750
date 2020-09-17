@@ -1,0 +1,19 @@
+Source-Makefile: feeds/nss_host/qca-nss-gmac/Makefile
+Package: kmod-qca-nss-gmac
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq806x||TARGET_ipq_ipq806x @!LINUX_3_18
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for NSS gmac
+Maintainer: 
+Source: qca-nss-gmac-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Kernel driver for NSS gmac
+
+@@
+
+

@@ -1,0 +1,21 @@
+Source-Makefile: feeds/whc/qca-whc-repacd/Makefile
+Package: qca-whc-repacd
+Submenu: Whole Home Coverage features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +qca-whc-init +qca-ieee1905-init +qca-wsplcd +openssl-util
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Whole Home Coverage RE Placement and Auto-Configuration Daemon
+Maintainer: Qualcomm Atheros, Inc.
+Source: qca-whc-repacd-g24328de-dirty.tar.gz
+Type: ipkg
+Description:   This package installs the Whole Home Coverage Range Extender Placement and
+  Auto-configuration scripts
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%443%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  <body class="setup" onLoad="">
+
+    <%3%>
+  
+    <form id="selectNetwork" name="selectNetwork" action="ia_select_network.cgi" method="POST" target="">
+    
+      <div id="content">
+        <div class="container">
+          
+          <p class="instruction" id="header_str"><%21%> </p>
+            
+          <div class="main">
+            <div class="column first" id="scan_24" style="display:none">
+              <div class="tableControl">
+                <span id="smesh_2g_checkbox" style="display:none"><input type="checkbox" name="smesh_ap" id="smesh_ap" value="24G" class="show_smesh" /><label id="lable_2g_smesh" for="smesh_ap">Show SmartZone AP only</label></span>
+                <span id="input_2g_checkbox"><input type="checkbox" name="ap" id="ap" value="24G" class="enable_network" /></span><label id="lable_2g_check"><%23%></label>
+                <button name="Refresh" value="Refresh" type="submit" class="btn roundCorners refreshBtn"><i class="icon-refresh"></i><span id="refreshBt"><%24%></span></button>
+              </div>
+              <div class="activWrap" id="tableShow">
+                <table class="availableNetworks">
+                  <thead>
+                    <tr>
+                      <th><%25%></th>
+                      <th><%26%></th>
+                      <th><%27%></th>
+                    </tr>
+                  </thead>
+                  <%444%>
+                </table>
+                <div class="manualSelect">
+                    <label><input name="sel_network" id="manualNetwork" value="manual_set" onClick="reset_ap('manual', '2')" type="radio">
+                    <%445%></label>
+                </div>
+                <div class="loadingMessage roundCorners" style="display:none"><%20%></div>
+              </div>
+            </div>
+            <div class="column" id="scan_5" style="display:none">
+              <div class="tableControl">
+                <span id="smesh_5g_checkbox" style="display:none"><input type="checkbox" name="smesh_ap_5g" id="smesh_ap5g" value="5G" class="show_smesh" /><label id="lable_5g_smesh" for="smesh_ap5g">Show SmartZone AP only</label></span>
+                <span id="input_5g_checkbox"><input type="checkbox" name="ap_5g" id="ap5g" value="5G" class="enable_network" /></span><label id="lable_5g_check"><%28%></label>
+  	        <button name="Refresh2" value="Refresh2" type="submit" class="btn roundCorners refreshBtn"><i class="icon-refresh"></i><span id="refreshBt5g"><%24%></span></button>
+              </div>
+              <div class="activWrap" id="tableShow5g">
+                <table class="availableNetworks">
+                  <thead>
+                    <tr>
+                      <th><%25%></th>
+                      <th><%26%></th>
+                      <th><%27%></th>
+                    </tr>
+                  </thead>
+                  <%446%>
+
+                </table>
+                  <div class="manualSelect">
+                    <label><input name="sel_network_5g" id="manualNetwork5g" value="manual_set" onClick="reset_ap('manual', '5')" type="radio">
+                    <%445%></label>
+                  </div>
+                <div class="loadingMessage roundCorners" style="display:none"><%20%></div>
+              </div>
+            </div>
+            
+          </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+    
+      <div id="fixedFooter">
+        <div class="container">
+          <footer>
+            <div class="centerButtons">
+              <div class="processButtons">
+	      <a id="backStep" class="btn secondary" href="IA_index.htm"><%19%></a>
+	      <input name="next" id="nextStep" class="btn primary" disabled type="button" value="<%70%>" onclick="this.form.submit();">
+            </div>  
+            </div>        
+          </footer>
+        </div>
+      </div><!-- end fixed footer -->
+      
+      <input type="hidden" value="" name="ap_list_reset">
+      <input type="hidden" value="" name="ap_5g_list_reset">
+      <input type="hidden" name="current_flow" value="IA">
+    </form>
+    
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/pwdStrength.js"></script>
+    <script language="javascript" type="text/javascript">
+      function Loadsettings()
+      {
+        var cf = document.forms["selectNetwork"];
+        var ap_support_mode = "<%31%>";
+        var setband  = "<%32%>";
+        $("#header_str").append("<span class='largeScreenOnly'>");
+        if (ap_support_mode == "1")
+        {
+            if (setband == "5G")
+            {
+                $('#scan_5').css('display', 'block');
+                $('#scan_24').css('display', 'none');
+                $('#scan_5').removeClass('column');
+                $('#scan_5').addClass('columnWidth');
+                //cf.ap_5g.checked = true;
+                $('#tableShow').removeClass('activWrap');
+                $('#input_5g_checkbox').css("display","none");
+            }
+            else
+            {
+                $('#scan_5').css('display', 'none');
+                $('#scan_24').css('display', 'block');
+                $('#scan_24').removeClass('column first');
+                $('#scan_24').addClass('columnWidth');
+                //cf.ap.checked = true;
+                $('#tableShow5g').removeClass('activWrap');
+                $('#input_2g_checkbox').css("display","none");
+            }
+        }
+        else
+        {
+            $("#header_str").append("<%22%> ");
+            $('#lable_2g_check').attr("for","ap");
+            $('#lable_5g_check').attr("for","ap5g");
+            
+            $('#scan_5').css('display', 'block');
+            $('#scan_24').css('display', 'block');
+            $('#ap').prop('checked', true);
+            $('#ap5g').prop('checked', true);
+        }
+        
+        var smesh_support = "<%447%>";
+        if (smesh_support == "1")
+        {
+            $('#smesh_2g_checkbox').css('display', 'block');
+            $('#smesh_5g_checkbox').css('display', 'block');
+            $('#smesh_ap').prop('checked', false);
+            $('#smesh_ap5g').prop('checked', false);
+        }
+        
+        $("#header_str").append("<a id='learnMore' class='tipLink'><%5%></a></span>");
+        var msgStr = "<%30%>";
+        $('.tipLink').data('msg', msgStr);
+
+        $('.availableNetworks').find('tr').find('td:eq(0)').find('span:eq(1)').tip();
+        return true;
+      }
+      function reset_ap(num,band)
+      {
+          var cf=document.forms["selectNetwork"];
+          if (2 == band) //means 2.4GHz 
+          {
+              cf.ap_list_reset.value=num;
+          }
+          else if (5 == band) //means 5GHz
+          {
+              cf.ap_5g_list_reset.value=num;
+          }
+      }
+      jQuery(document).ready(function($) {
+        Loadsettings();
+      });
+    </script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

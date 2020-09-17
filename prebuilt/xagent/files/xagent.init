@@ -1,0 +1,60 @@
+#!/bin/sh /etc/rc.common
+START=90
+
+# Add $2 to value of symbol $1 as csv 
+csv_add() {
+ local SEP=""
+ local VAL=$(d2 -s "${1}")
+ for item in ${VAL//,/ }; do
+    [ "${item}" = "${2}" ] && return 0
+    SEP="," 
+ done
+ d2 -c "${1}" "${VAL}${SEP}${2}"
+}
+
+upgrade_cfg() {
+
+    XAGENT_ID=$(d2 -s xagentcfg[0].x_agent_id)
+    if [ "${XAGENT_ID}empty" == "empty" ]; then
+
+        d2 -c xagentcfg[0].x_agent_id         "$(nvram get x_agent_id)"
+        d2 -c xagentcfg[0].x_agent_claim_code "$(nvram get x_agent_claim_code)"
+        d2 -c xagentcfg[0].x_agent_registered "$(nvram get x_agent_registered)"
+        d2 -c xagentcfg[0].x_agent_claimed    "$(nvram get x_agent_claimed)"
+
+        nvram unset x_agent_id
+        nvram unset x_agent_claim_code
+        nvram unset x_agent_registered
+        nvram unset x_agent_claimed
+        nvram commit
+    fi
+}
+
+start() {
+    # add status handler, if needed
+    csv_add xagentcfg[0].x_handler_event_sink /usr/bin/evsinkd2
+
+    SN=`d2 -s general.FSN`
+    MODEL=`d2 -s general.DeviceModel`
+    xagent -w -d --ca_file /usr/share/ntgr/certs/ca-bundle-mega.crt \
+            --hardware_id ${SN} --model_id ${MODEL} --agent_keepalive 20,3,20
+    
+    pidof xcenvsw.sh || (cd /etc/xagent; ./xcenvsw.sh) &  
+}
+
+stop() {
+    killall xagent
+    d2 -c xagentstatus.connected 0
+    d2 -c xagentstatus.pid 0
+}
+
+boot() {
+    [ "`cat /tmp/orbi_type`" = "Satellite" ] && return
+    upgrade_cfg
+    start
+}
+
+restart() {
+    stop
+    start
+}

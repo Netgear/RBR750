@@ -1,0 +1,47 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+SetD2Values() {
+        d2 -c XagentCfg.x_handler_1003 "/usr/bin/genie_handler"
+        d2 -c RGenieCfg[0].genie_remote_certificate "/usr/share/ntgr/certs/ca-bundle-mega.crt"
+}
+
+start() {
+ 
+# checking for the ORBI devices. If its matched then we used the old path i.e /usr
+# else we are forcefully providing the new path i.e /opt 	
+    DevicedModel=`d2 -s general[0].DeviceModel`
+    case $DevicedModel in
+          [Rr][Bb][Rr][5][0])
+                SetD2Values
+                ;;
+          [Rr][Bb][Rr][4][0])
+                SetD2Values
+                ;;
+          [Rr][Br][Rr][2][0])
+                SetD2Values
+                ;;
+          [Rr][Br][Rr][1][0])
+                SetD2Values
+                ;;
+          [Cc][Bb][Rr][4][0])
+                SetD2Values
+                ;;
+
+
+          *)
+                 d2 -c XagentCfg.x_handler_1003 "/opt/xagent/genie_handler"
+                 d2 -c RGenieCfg[0].genie_remote_certificate "/opt/xagent/certs/ca-bundle-mega.crt"
+        esac
+
+}
+
+stop() {
+    d2 -c XagentCfg.x_handler_1003 ""
+    d2 -c RGenieCfg[0].genie_remote_certificate "" 
+}
+
+boot() {
+    start
+}
+

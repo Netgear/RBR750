@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+start() {
+    /usr/bin/fing_dil --log_debug --log_file /tmp/dil.log &
+    /etc/init.d/dil_boot.sh &
+}
+
+stop() {
+    killall fing_dil
+    kill -17 1
+    rm /tmp/dil.log
+}
+
+boot() {
+    start
+}
+
+restart() {
+    stop
+    start
+}

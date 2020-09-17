@@ -1,0 +1,77 @@
+src/lzo1b_6.lo: src/lzo1b_6.c \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdc-predef.h \
+ src/compr1b.h src/config1b.h src/lzo_conf.h include/lzo/lzoconf.h \
+ config.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/limits.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/features.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/glibc-types.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/cdefs.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/limits.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stddef.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/alltypes.h \
+ include/lzo/lzodefs.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/string.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/strings.h \
+ src/miniacc.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/assert.h \
+ src/lzo_ptr.h include/lzo/lzo1b.h src/lzo1b_de.h src/lzo_dict.h \
+ src/stats1b.h src/lzo1b_cc.h src/lzo1b_c.ch src/lzo1b_sm.ch \
+ src/lzo1b_tm.ch src/lzo1b_cr.ch src/lzo1b_cm.ch
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdc-predef.h:
+
+src/compr1b.h:
+
+src/config1b.h:
+
+src/lzo_conf.h:
+
+include/lzo/lzoconf.h:
+
+config.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/limits.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/features.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/glibc-types.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/cdefs.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/limits.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stddef.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/alltypes.h:
+
+include/lzo/lzodefs.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/string.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/strings.h:
+
+src/miniacc.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/assert.h:
+
+src/lzo_ptr.h:
+
+include/lzo/lzo1b.h:
+
+src/lzo1b_de.h:
+
+src/lzo_dict.h:
+
+src/stats1b.h:
+
+src/lzo1b_cc.h:
+
+src/lzo1b_c.ch:
+
+src/lzo1b_sm.ch:
+
+src/lzo1b_tm.ch:
+
+src/lzo1b_cr.ch:
+
+src/lzo1b_cm.ch:

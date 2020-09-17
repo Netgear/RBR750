@@ -1,0 +1,19 @@
+Source-Makefile: feeds/nss_host/qca-edma/Makefile
+Package: kmod-qca-edma
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq806x||TARGET_ipq_ipq40xx||TARGET_ipq40xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: QCA IPQ40xx ethernet driver
+Maintainer: 
+Source: qca-edma-g24328de-dirty.tar.gz
+Type: ipkg
+Description:      Kernel modules for IPQ40xx integrated ethernet adapater.
+
+@@
+
+

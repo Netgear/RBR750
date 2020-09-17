@@ -1,0 +1,41 @@
+Source-Makefile: feeds/qca_mcs/qca-mcs-apps/Makefile
+Package: qca-mcs-apps
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @PACKAGE_kmod-qca-wifi-unified-profile||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-dakota-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-lowmem-profile +kmod-qca-mcs +libhyficommon +libpthread @PACKAGE_kmod-qca-ssdk-nohnat||PACKAGE_kmod-qca-ssdk-hnat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-wifi qca-ssdk
+Section: QCA
+Category: QCA Proprietary software
+Title: IGMP/MLD snooping daemon and tools
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   This package installs the IGMP/MLD snooping daemon and tools
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca_mcs/qca-mcs-lkm/Makefile
+Package: kmod-qca-mcs
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: QCA Multicast Snooping Support
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NETFILTER=y CONFIG_BRIDGE_NETFILTER=y
+Description:   This package installs the IGMP/MLD Snooping Module
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

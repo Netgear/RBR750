@@ -1,0 +1,20 @@
+Source-Makefile: feeds/qca_lib/qca-wifison-ext-lib/Makefile
+Package: qca-wifison-ext-lib
+Submenu: Hy-Fi features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Wifison Event Functionality Library
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This Package contains the Wifison Event Functionality Library
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

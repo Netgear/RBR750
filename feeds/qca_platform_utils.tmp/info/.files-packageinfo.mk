@@ -1,0 +1,6 @@
+$(eval $(call PackageDir,clk-debug,clk-debug,))
+$(eval $(call PackageDir,gpio-debug,gpio-debug,))
+$(eval $(call PackageDir,qca-diag,qca-diag,))
+$(eval $(call PackageDir,qca-qmi-framework,qca-qmi-framework,))
+$(eval $(call PackageDir,qca-time-services,qca-time-services,))
+$(eval $(call PackageDir,qca-wlanfw-upgrade,qca-wlanfw-upgrade,))

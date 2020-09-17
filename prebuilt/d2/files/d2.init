@@ -1,0 +1,66 @@
+#!/bin/sh /etc/rc.common
+START=19
+
+set_if_empty() {
+    SYM="$1"
+    
+    # read value, make sure d2d is up.
+    until VAL=$(d2 -s ${SYM}); do sleep .1; done
+    if [ "${VAL}empty" == "empty" ]; 
+    then
+        d2 -c ${SYM} -- "$2"; 
+    fi
+}
+
+start() {
+      # Start d2
+
+      # We may need to chmod following in future.
+      mkdir -p /tmp/d2
+
+      # TODO:
+      # We should source a config file that defines where R/W
+      # filesystem is mounted.
+      # Hard-coded for now
+      PERSISTDIR=/tmp/dal/d2d
+
+      mkdir -p ${PERSISTDIR}
+      
+      #BETA_XTRA="-d /etc/d2" //will be use in future if required for qa env
+
+      #d2d ${BETA_XTRA} ${PERSISTDIR} &
+
+      d2d ${PERSISTDIR} &
+
+        
+        #set some default value 
+        d2 -c general.devicemodel RBR50
+        d2 -c general.devicename RBR50
+        d2 -c general.fwrevision "`cat /firmware_version`"
+        d2 -c general.fsn "`artmtd -r sn|head -1 |cut -d ':' -f 2-`"
+        d2 -c general.region "`artmtd -r region|head -1 |cut -d 'x' -f 2-`"
+        d2 -c general.defaultmac "`ifconfig br0|head -1|awk -F ' ' '{print $5}'`"
+        d2 -c general.wan_ifname         "$(nvram get wan_ifname)"
+        d2 -c general.lan_ifname         "$(nvram get lan_ifname)"
+        
+        
+      # ODMSTOP ORBI  
+       /etc/init.d/d2_countryname.sh &      
+}
+
+stop() {
+        killall d2d
+}
+
+boot() {
+    # ODMSTART ORBI
+    [ "`cat /tmp/orbi_type`" = "Satellite" ] && return
+    # ODMSTOP ORBI        
+    start
+}
+
+restart() {
+        stop
+        start
+}
+

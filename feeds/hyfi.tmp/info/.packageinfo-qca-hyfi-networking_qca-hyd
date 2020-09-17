@@ -1,0 +1,45 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-networking/qca-hyd/Makefile
+Package: qca-hyd
+Submenu: Hy-Fi features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @PACKAGE_kmod-qca-wifi-unified-profile||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-dakota-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-unified-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-lowmem-profile +qca-ieee1905-init +kmod-qca-hyfi-bridge +qca-libhyfi-bridge +libieee1905 +qca-hyctl +libhyficommon +qca-wifison-ext-lib +libwifisoncfg +libpthread +@BUSYBOX_CONFIG_STAT +@BUSYBOX_CONFIG_FEATURE_STAT_FORMAT +HYD_WIFI_LOAD_BALANCING:qca-whc-lbd +jansson
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: PACKAGE_kmod-qca-wifi-unified-profile:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-dakota-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-lowmem-profile:qca-wifi PACKAGE_kmod-qca-wifi-unified-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi +qca-ssdk PACKAGE_qca-plc-serv:qca-plc-serv
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Path-Selection daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   This package installs the Hy-Fi Path-Selection daemon
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  source "qca/feeds/hyfi/qca-hyfi-networking/qca-hyd/Config.in"
+@@
+
+Package: qca-hyd-plc
+Submenu: Hy-Fi features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @PACKAGE_kmod-qca-wifi-unified-profile||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-dakota-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-unified-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-lowmem-profile +qca-ieee1905-init +kmod-qca-hyfi-bridge +qca-libhyfi-bridge +libieee1905 +qca-hyctl +libhyficommon +qca-wifison-ext-lib +libwifisoncfg +libpthread +@BUSYBOX_CONFIG_STAT +@BUSYBOX_CONFIG_FEATURE_STAT_FORMAT +HYD_WIFI_LOAD_BALANCING:qca-whc-lbd +jansson +qca-plc-serv
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: plc
+Build-Depends: PACKAGE_kmod-qca-wifi-unified-profile:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-dakota-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-lowmem-profile:qca-wifi PACKAGE_kmod-qca-wifi-unified-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi +qca-ssdk PACKAGE_qca-plc-serv:qca-plc-serv
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Path-Selection daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   This package installs the Hy-Fi Path-Selection daemon build with PLC
+  support.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

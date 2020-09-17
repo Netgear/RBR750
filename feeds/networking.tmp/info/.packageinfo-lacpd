@@ -1,0 +1,18 @@
+Source-Makefile: feeds/networking/lacpd/Makefile
+Package: lacpd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libubox +libuci +libubus +ubus +ubusd +!PACKAGE_kmod-qca-ssdk-nohnat:kmod-qca-ssdk-hnat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Link aggregation control protocol Daemon
+Maintainer: Xiaoping Fan <xfan@codeaurora.org>
+Source: lacpd-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Link aggregation control protocol Daemon
+Xiaoping Fan <xfan@codeaurora.org>
+@@
+
+

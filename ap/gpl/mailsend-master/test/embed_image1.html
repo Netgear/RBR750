@@ -1,0 +1,51 @@
+<html>
+    <title>testing embedded image in mail</title>
+    <body>
+        This is a test of embedding an image in HTML and relate the img
+        tag in the HTML document with the image by mailsend while sending
+        mail. We will create an img tag in the HTML document with:
+        <pre>
+            &lt;img src="cid:xx_deadbeefcafe" alt="inline imge"&gt;
+        </pre>
+        <p>
+            <img src="cid:xx_deadbeefcafe" alt="inline imge">
+<p>            
+The real HTML file is test/embed_image1.html, available with the source distribution.
+        <p>
+Notice: only content id is specified with cid, no path of image is specified.
+<p>
+        While sending mail with mailsend, we will specify the content id
+        xx_deadbeefcafe with flag -content-id for the image.
+        <p>
+<b>Example:</b>
+<p>
+Note: Requires mailsend v1.17b15+. The following command was used to
+send this mail:
+        <pre>
+    mailsend -v -sub "Testing embedding image in HTML" 
+    -from example@gmail.com -to example@gmail.com 
+    -smtp smtp.gmail.com -port 587 -starttls -auth 
+    -user mailsend.test@gmail.com 
+    -cs ISO-8859-1 
+    -content-type "multipart/related" 
+    -mime-type text/html 
+    -disposition inline 
+    -enc-type "none" 
+    -attach "test/embedded_image1.html" 
+    -mime-type image/png 
+    -enc-type "base64" 
+    -disposition inline 
+    -content-id "xx_deadbeefcafe" 
+    -cs "none" 
+    -attach "test/blue.png"
+        </pre>
+<p>
+       <p>
+       Any mail reader that understands multipart-related Content-type will
+       display the html and the image together. Without the content id, the HTML
+       and the image will show up as 2 separate attachments.
+       <p>
+       Tested with gmail, outlook and yahoo mail which can display HTML 
+       file with embedded image.
+    </body>
+</html>

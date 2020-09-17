@@ -1,0 +1,14 @@
+
+package wireless
+
+config qcawifi 'qcawifi'
+
+config wifi-device 'wifi0'
+	option type 'qcawificfg80211'
+
+config wifi-device 'wifi1'
+	option type 'qcawificfg80211'
+
+config wifi-device 'wifi2'
+	option type 'qcawificfg80211'
+

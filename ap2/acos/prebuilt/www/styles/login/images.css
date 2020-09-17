@@ -1,0 +1,506 @@
+/*
+* images.css
+*
+* Copyright (c) 2014, NETGEAR, Inc.
+* 350 East Plumeria, San Jose California, 95134, U.S.A.
+* All rights reserved.
+*
+*
+* This software is the confidential and proprietary information of
+* NETGEAR, Inc. ("Confidential Information"). You shall not
+* disclose such Confidential Information and shall use it only in
+* accordance with the terms of the license agreement you entered into
+* with NETGEAR.
+*
+* sergey.yakubovsky@netgear.com
+*
+*/
+
+.vuezone
+{
+    height: 60px;
+    background: #ffffff url("../img2/vuesone_0@2x.png") no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 0px 6px #333;
+}
+
+.login-logo
+{
+    height: 40px;
+    background: transparent url('../../img/login/netgearLogo.png') no-repeat center 0;
+}
+
+.login-vuezone
+{
+    height: 40px;
+    background: transparent url('../img2/vuesone_1.png') no-repeat center 0;
+}
+
+.camera-play
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img2/play_button.png') no-repeat center center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.cameras-battery-0
+{
+    background: url('../img2/battery_0.png') no-repeat center;
+}
+
+.cameras-battery-1
+{
+    background: url('../img2/battery_1.png') no-repeat center;
+}
+
+.cameras-battery-2
+{
+    background: url('../img2/battery_2.png') no-repeat center;
+}
+
+.cameras-battery-3
+{
+    background: url('../img2/battery_3.png') no-repeat center;
+}
+
+.cameras-signal-1
+{
+    background: url('../img2/signal_strength_1.png') no-repeat center;
+}
+
+.cameras-signal-2
+{
+    background: url('../img2/signal_strength_2.png') no-repeat center;
+}
+
+.cameras-signal-3
+{
+    background: url('../img2/signal_strength_3.png') no-repeat center;
+}
+
+.cameras-signal-4
+{
+    background: url('../img2/signal_strength_4.png') no-repeat center;
+}
+
+.cameras-motion-0
+{
+    background: url('../img2/motion_0.png') no-repeat center;
+}
+
+.cameras-motion-1
+{
+    background: url('../img2/motion_1.png') no-repeat center;
+}
+
+.cameras-motion-2
+{
+    background: url('../img2/motion_2.png') no-repeat center;
+}
+
+.cameras-pause
+{
+    background: url('../img2/icon_pause.png') no-repeat center;
+}
+
+.cameras-record
+{
+    background: url('../img2/icon_record.png') no-repeat center;
+}
+
+.cameras-record[disabled=disabled]
+{
+    background: url('../img2/icon_record_0.png') no-repeat center;
+    cursor: default;
+}
+
+.cameras-record-stop
+{
+    background: url('../img2/icon_stop.png') no-repeat 0 0;
+}
+
+.cameras-record-circle
+{
+    border: solid 3px #5e514f;
+    border-radius: 12px;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    padding: 4px;
+    margin: 0 auto;
+}
+
+.cameras-record-square
+{
+    width: 8px;
+    height: 8px;
+    background-color: #dc0451;
+}
+
+@keyframes record-blink
+{
+    0%
+    {
+        visibility: visible;
+    }
+    49%
+    {
+        visibility: visible;
+    }
+    50%
+    {
+        visibility: hidden;
+    }
+    100%
+    {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes record-blink
+{
+    0%
+    {
+        visibility: visible;
+    }
+    49%
+    {
+        visibility: visible;
+    }
+    50%
+    {
+        visibility: hidden;
+    }
+    100%
+    {
+        visibility: hidden;
+    }
+}
+
+.cameras-record-square
+{
+    animation: record-blink 1s infinite;
+    -webkit-animation: record-blink 1s infinite;
+}
+
+.cameras-record-stop[disabled=disabled]
+{
+    background: url('../img2/icon_record_0.png') no-repeat center;
+    cursor: default;
+    -webkit-animation: none;
+    animation: none;
+}
+
+.cameras-volume
+{
+    background: url('../img2/mic_0.png') no-repeat center;
+}
+
+.cameras-snapshot
+{
+    background: url('../img2/snapshot_1.png') no-repeat center;
+}
+
+.cameras-snapshot[disabled=disabled]
+{
+    background: url('../img2/snapshot_0.png') no-repeat center;
+    cursor: default;
+}
+
+.cameras-bright-0
+{
+    background: #fff url('../img2/brightness_2.png') no-repeat center;
+}
+
+.cameras-bright-1
+{
+    background: #fff url('../img2/brightness_0.png') no-repeat center;
+}
+
+.cameras-bright-2
+{
+    background: #fff url('../img2/brightness_1.png') no-repeat center;
+}
+
+.cameras-states
+{
+    background: url('../img2/camera_states.png') no-repeat center;
+}
+
+.modeIcon
+{
+    background: url("../img2/mode_1.png") no-repeat center 6px;
+}
+
+.footer-button-active .modeIcon
+{
+    background-image: url("../img2/mode_0.png");
+}
+
+.camerasIcon
+{
+    background: url("../img2/camera_0.png") no-repeat center 6px;
+}
+
+.footer-button-active .camerasIcon
+{
+    background-image: url("../img2/live_camera.png");
+}
+
+.libraryIcon
+{
+    background: url("../img2/library-0.png") no-repeat center 6px;
+}
+
+.footer-button-active .libraryIcon
+{
+    background-image: url("../img2/library-1.png");
+}
+
+.settingsIcon
+{
+    background: url("../img2/settings_0.png") no-repeat center 6px;
+}
+
+.footer-button-active .settingsIcon
+{
+    background-image: url("../img2/settings_1.png");
+}
+
+/* Calendar */
+.calendar-prev
+{
+    background: url("../img2/calendar_back_0.png") no-repeat center center;
+}
+
+.calendar-prev-disable
+{
+    background: url("../img2/calendar_back_1.png") no-repeat center center;
+}
+
+.calendar-next
+{
+    background: url("../img2/calendar_next_0.png") no-repeat center center;
+}
+
+.calendar-next-disable
+{
+    background: url("../img2/calendar_next_1.png") no-repeat center center;
+}
+
+/* Recording */
+.recording-prev
+{
+    background: url("../img2/button_previous_1.png") no-repeat center center;
+}
+
+.recording-rewind
+{
+    background: url("../img2/button_rewind_1.png") no-repeat center center;
+}
+
+.recording-rewind-slow
+{
+    background: url("../img2/button_rewind_slow_1.png") no-repeat center center;
+}
+
+.recording-pause
+{
+    background: url("../img2/icon_pause.png") no-repeat center center;
+}
+
+.recording-play
+{
+    background: url("../img2/icon_play.png") no-repeat center center;
+}
+
+.recording-forward-slow
+{
+    background: url("../img2/button_forward_slow_1.png") no-repeat center center;
+}
+
+.recording-forward
+{
+    background: url("../img2/button_forward_1.png") no-repeat center center;
+}
+
+.recording-next
+{
+    background: url("../img2/button_next_1.png") no-repeat center center;
+}
+
+.recording-volume
+{
+    /*float: right;*/
+    position: absolute;
+    right: 0;
+    background: url("../img2/mic_2.png") no-repeat center center;
+}
+
+.recording-prev-slide
+{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../img2/recording_prev.png") no-repeat right center;
+}
+
+.recording-next-slide
+{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../img2/recording_next.png") no-repeat 0 center;
+}
+
+.recording-back
+{
+    float: left;
+    cursor: pointer;
+    padding-left: 20px;
+    text-transform: none;
+    font-weight: normal;
+    background: url("../img2/title-back.png") no-repeat 0 center;
+}
+
+.calendar-filter-back
+{
+    position: absolute;
+    left: 15px;
+    top: 0;
+    height: 60px;
+    line-height: 60px;
+    color: #00a1de;
+    background-color: #fff;
+    z-index: 1010;
+    cursor: pointer;
+    padding-left: 20px;
+    text-transform: none;
+    font-weight: normal;
+    background: url("../img2/title_back_1.png") no-repeat 0 center;
+}
+
+.setup-back
+{
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    color: #00a1de;
+    background-color: #fff;
+    z-index: 1010;
+    cursor: pointer;
+    padding-left: 20px;
+    background: url("../img2/title_back_1.png") no-repeat 0 center;
+}
+
+.fav-icon
+{
+    color: #6e2585;
+    background: url("../img2/favorite_1.png") no-repeat center 6px;
+}
+
+.fav-icon-a
+{
+    color: #6e2585;
+    background: url("../img2/favorite_2.png") no-repeat center 6px;
+}
+
+.share-icon
+{
+    color: #6e2585;
+    background: url("../img2/share_1.png") no-repeat center 6px;
+}
+
+.download-icon
+{
+    color: #6e2585;
+    background: url("../img2/download_1.png") no-repeat center 6px;
+}
+
+.delete-icon
+{
+    color: #6e2585;
+    background: url("../img2/delete_1.png") no-repeat center 6px;
+}
+
+.footer-button-disable .delete-icon
+{
+    color: #5e514f;
+    background: url("../img2/delete_0.png") no-repeat center 6px;
+}
+
+.record-favorite
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 32px;
+    background: url("../img2/favorite_2.png") no-repeat center center;
+}
+
+.record-video
+{
+    position: absolute;
+    left: 40%;
+    top: 45%;
+    width: 32px;
+    height: 32px;
+    background: url("../img2/play_button_0.png") no-repeat center center;
+}
+
+.calendar-filter-remove
+{
+    float: right;
+    margin-right: 15px;
+    padding-right: 28px;
+    background: url("../img2/remove.png") no-repeat right center;
+}
+
+.subscription-camera-on,
+.subscription-camera-off
+{
+    width: 40px;
+    height: 44px;
+    float: right;
+    background: url("../img2/camera_1.png") no-repeat center;
+}
+
+.subscription-camera-off
+{
+    background-image: url("../img2/camera_0.png");
+}
+
+.subscription-bs-on,
+.subscription-bs-off
+{
+    width: 40px;
+    height: 44px;
+    float: right;
+    background: url("../img2/base_station_1.png") no-repeat center;
+}
+
+.subscription-bs-off
+{
+    background-image: url("../img2/base_station_0.png");
+}
+
+.camera-order-item
+{
+    background: url("../img2/drag_header.png") no-repeat right center;
+}

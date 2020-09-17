@@ -1,0 +1,20 @@
+Source-Makefile: feeds/ieee1905_security/qca-ieee1905-security-config/qca-ieee1905-init/Makefile
+Package: qca-ieee1905-init
+Submenu: IEEE1905.1 features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: IEEE1905.1 Init Script Helpers
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   This Package contains the script helper files for the IEEE1905.1 init scripts
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

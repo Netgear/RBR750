@@ -1,0 +1,24 @@
+Source-Makefile: feeds/weave/googletest/Makefile
+Package: googletest
+Version: 1.7.0-71a26ac68b28c61686b8941730a6b2577912e239
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libstdcpp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: Google's C++ test framework
+Maintainer: 
+Source: googletest-1.7.0-71a26ac68b28c61686b8941730a6b2577912e239.tar.gz
+Type: ipkg
+Description: 	**Google Mock** is an extension to Google Test for writing and using
+	C++ mock classes. See the separate [Google Mock documentation]
+	(googlemock/README.md).
+
+	More detailed documentation for googletest (including build instructions)
+	are in its interior [googletest/README.md] (googletest/README.md) file.
+https://github.com/google/googletest.git
+
+@@
+
+

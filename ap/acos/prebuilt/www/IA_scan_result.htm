@@ -1,0 +1,102 @@
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript" src="repeater.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- 
+
+function Loadsettings()
+{
+    //update_next_button(0);
+    load_default(1);
+}
+
+function update_next_button(index)
+{
+    var cf = document.forms[0];
+    
+    if (index == 0)
+    {
+        cf.check_bw.disabled = true;
+    }
+    else
+    {
+        cf.check_bw.disabled = false;
+    }
+    
+    return true;
+}
+
+function reset_ap(num)
+{
+    var cf = document.forms[0];    
+
+	cf.ap_list_reset.value=num;
+    //alert(num);
+	cf.Next.disabled=false;
+}
+
+function CheckData()
+{
+    var cf = document.forms[0];
+    
+    cf.submit();
+}
+
+//-->
+</script> 
+</head>
+<body bgcolor="#ffffff" onload="Loadsettings();document.forms[0].elements[0].focus()">
+<form method="POST" action="select_network.cgi">
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+
+<tr>
+	<td colspan="2"><h1>Use the same security and passphrase as in the existing network</h1></td>
+</tr>
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+      <td align="center">
+        <!--available table //-->
+        <table border="1" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td align="center" nowrap="nowrap"><span class="subhead_two" bgcolor="#808080">&nbsp;&nbsp;</span></td>
+			<td align="center" nowrap="nowrap"><span class="subhead_two" bgcolor="#808080">SSID</span></td>
+  			<td align="center" nowrap="nowrap"><span class="subhead_two" bgcolor="#808080">Channel</span></td>
+  			<td align="center" nowrap="nowrap"><span class="subhead_two" bgcolor="#808080">Signal</span></td>
+   			<td align="center" nowrap="nowrap"><span class="subhead_two" bgcolor="#808080">Security</span></td>            
+          </tr>
+            <%2687%>
+          <tr>
+            <td align="center" nowrap="nowrap"><input name="select_ap_cl" value="manual_set" onclick="reset_ap('manual')" type="radio"></td>
+            <td colspan="4">Manually input my wireless SSID</td>
+          </tr>
+        </table>
+        <!--available table //-->
+      </td>
+</tr>
+
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td align="right"><input type="button" name="Refresh" value=" Refresh" onclick="window.location.href='IA_scan_result.htm'" ></td>
+</tr>
+<tr>
+    <td align="right"><input type="submit" name="Next" value="Continue" disabled="disabled" onclick="CheckData();" ></td>
+</tr>
+</table>
+<INPUT type=hidden value="" name="ap_list_reset">
+</form>
+<p>
+</p>
+</body>
+</html>
+

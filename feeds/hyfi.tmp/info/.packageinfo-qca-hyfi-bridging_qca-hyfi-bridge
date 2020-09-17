@@ -1,0 +1,22 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-bridging/qca-hyfi-bridge/Makefile
+Package: kmod-qca-hyfi-bridge
+Submenu: Hy-Fi features
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-ssdk
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Bridging Netfilter Module
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NETFILTER=y CONFIG_BRIDGE_NETFILTER=y
+Description:   This package installs the Hy-Fi bridging Netfilter Module
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

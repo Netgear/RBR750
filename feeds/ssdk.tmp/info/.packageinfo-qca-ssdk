@@ -1,0 +1,38 @@
+Source-Makefile: feeds/ssdk/qca-ssdk/Makefile
+Package: kmod-qca-ssdk-nohnat
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @!(TARGET_ipq_ipq40xx||TARGET_ipq40xx)||TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: qca-ssdk
+Build-Variant: nohnat
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for QCA SSDK
+Maintainer: 
+Source: qca-ssdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Kernel driver for QCA SSDK
+
+@@
+
+Package: kmod-qca-ssdk-hnat
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq40xx||TARGET_ipq40xx||TARGET_ar71xx||TARGET_ipq806x +kmod-ipt-extra +kmod-ipt-filter +(TARGET_ipq806x||TARGET_ipq):kmod-qca-rfs +kmod-ppp
+Conflicts: 
+Menu-Depends: 
+Provides: qca-ssdk
+Build-Variant: hnat
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for QCA SSDK (hnat)
+Maintainer: 
+Source: qca-ssdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Kernel driver for QCA SSDK (hnat)
+
+@@
+
+

@@ -1,0 +1,53 @@
+Source-Makefile: feeds/hyfi/hyfi/Makefile
+Package: hyfi
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-qca-hyfi-bridge +kmod-qca-hyfi-iptv-helper +qca-libhyfi-bridge +qca-hyctl +kmod-qca-hyfi-qdisc +qca-wsplcd +libwpa2 +libhyficommon +libstorage +libieee1905 +qca-acd +qca-wifison-ext-lib +qca-hyd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi - selects all Hy-Fi components for build
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Meta package which selects all Hy-Fi components require for build
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: hyfi-plc
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-qca-hyfi-bridge +kmod-qca-hyfi-iptv-helper +qca-libhyfi-bridge +qca-hyctl +kmod-qca-hyfi-qdisc +qca-wsplcd +libwpa2 +libhyficommon +libstorage +libieee1905 +qca-acd +qca-wifison-ext-lib +qca-hyd-plc +qca-vhyfid +qca-plc-serv
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi - selects all Hy-Fi and PLC components for build
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Meta package which selects all Hy-Fi and PLC components require for build
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: hyfi-ui
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-hyfi +luci-hyfi-advanced +luci-wsplc +luci-wsplc-advanced
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi - selects all Hy-Fi web interfaces
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Meta package which selects all Hy-Fi web interfaces
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

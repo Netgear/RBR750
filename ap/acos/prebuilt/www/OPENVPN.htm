@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function apply_check()
+{
+	var pingEnable = "<%1138%>";
+	var ntp_sync = "<%1139%>";
+	var ddns_enable_check = "<%1100%>";
+	var old_protocol = "<%1140%>";
+	var new_protocol;
+	var service_port = "<%1141%>";
+	var old_protocol_tun = "<%1142%>";
+	var new_protocol_tun;
+	var service_port_tun = "<%1143%>";
+	var redirectGW = "<%1144%>";
+	var ipv6_protocol = "<%819%>";
+	var new_redirectGW;
+	var cf = document.forms[0];
+/*	
+	if(pingEnable == 0)
+	{
+		alert("<%1145%>");
+	}else{
+	//do noting
+	}
+
+	if(ntp_sync == 0){
+		alert("<%1146%>");
+	}
+*/
+
+  if(cf.wan_protocol.value=="pppoe")
+  {
+      if(cf.openvpnActive.checked)
+      {
+          if(cf.pppoe_dod.value==1)
+          {
+              if(!confirm("<%1147%>"))
+              {
+                  return false;
+              }
+              else
+                  cf.dod_type_change.value="1";
+          }
+          else if(cf.pppoe_dod.value==2)
+          {
+              alert("<%1148%>");
+          }
+      }
+
+  }
+  else if(cf.wan_protocol.value=="l2tp")
+  {
+      if(cf.openvpnActive.checked)
+      {
+          if(cf.l2tp_dod.value==1)
+          {
+              if(!confirm("<%1147%>"))
+              {
+                  return false;
+              }
+              else
+                  cf.dod_type_change.value="1";
+          }
+          else if(cf.l2tp_dod.value==2)
+          {
+              alert("<%1148%>");
+          }
+      }
+
+  }
+  else if(cf.wan_protocol.value=="pptp")
+  {
+      if(cf.openvpnActive.checked)
+      {
+          if(cf.pptp_dod.value==1)
+          {
+              if(!confirm("<%1147%>"))
+              {
+                  return false;
+              }
+              else
+                  cf.dod_type_change.value="1";
+          }
+          else if(cf.pptp_dod.value==2)
+          {
+              alert("<%1148%>");
+          }
+      }
+
+  }
+
+	if (isNumeric(cf.openvpn_service_port, 65535) || (cf.openvpn_service_port.value < 1) || (cf.openvpn_service_port.value >= 65535)){
+		alert("<%1149%>");
+		cf.openvpn_service_port.focus();
+		return false;
+	}
+
+	if(isNumeric(cf.openvpn_service_port_tun, 65535) || (cf.openvpn_service_port_tun.value < 1) || (cf.openvpn_service_port_tun.value >= 65535)){
+		alert("<%1149%>");
+		cf.openvpn_service_port_tun.focus();
+		return false;
+	}
+
+	if(cf.openvpn_protocol[0].checked)
+		new_protocol = 'udp';
+	else
+		new_protocol = 'tcp';
+	if(cf.openvpn_protocol_tun[0].checked)
+		new_protocol_tun = 'udp';
+	else
+		new_protocol_tun = 'tcp';
+		
+	if ((new_protocol == new_protocol_tun) && (cf.openvpn_service_port.value == cf.openvpn_service_port_tun.value)){
+		alert("<%1150%>");
+		cf.openvpn_service_port_tun.focus();
+		return false;
+	}
+	
+	if(!cf.openvpnActive.checked)
+		return true;
+	
+    /*
+	if(ipv6_protocol != "disable"){
+		alert("<%1151%>");
+		cf.openvpnActive.focus();
+		return false;
+	}
+	*/
+
+	if(cf.openvpn_redirectGW[0].checked)
+		new_redirectGW = 'all';
+	else if(cf.openvpn_redirectGW[1].checked)
+		new_redirectGW = 'onlylan';
+	else
+		new_redirectGW = 'auto';
+
+	if(ddns_enable_check == 0){
+		alert("<%1152%>");
+	}
+
+	if((new_protocol != old_protocol) || (new_protocol_tun != old_protocol_tun) 
+	    || (cf.openvpn_service_port.value != service_port) || (cf.openvpn_service_port_tun.value != service_port_tun) 
+	    || (new_redirectGW != redirectGW)){
+		alert("<%1153%>");
+	}
+	return true;
+}
+
+function ddns_check()
+{
+	var ddns_enable_check = "<%1100%>";
+	var openvpnEnable = "<%791%>";
+	
+	var cf = document.forms[0];
+
+	if(openvpnEnable == "disable"){
+		alert("<%1154%>");
+		cf.openvpnActive.focus();
+		return false;
+	}
+
+	if(ddns_enable_check == 0){
+		alert("<%1155%>");
+	}
+
+	return true;
+}
+
+function change_location(new_location)
+{
+	window.location.href = new_location;
+	return true;
+}
+//-->
+</script> 
+</head>
+<body  onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="openvpn.cgi">
+<input type="hidden" id="buttonHit" name="buttonHit"><input type="hidden" id="buttonValue" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%684%></div>
+
+<%1156%>
+
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='OPENVPN.htm'" type="BUTTOn" name="Cancel" id="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');if(!apply_check()) return false;" type="SUBMIT" name="cfAlert_Apply" id="apply" class=<%79%> > <%81%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<table style="border-collapse:collapse;width:99%">
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+    <td colspan="2">
+    <input type="checkbox" id="openvpnActive" name="openvpnActive" value="openvpnEnable" <%1157%>> <b><%1158%></b>
+    </td>
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+
+	<td align="left"><b><%1159%></b></td>
+</tr>
+
+<tr>
+	<td colspan="4" align="left" style="padding-left:10px;">
+	<a target="_blank" id="vpn_instruction_windows" href="vpn_instruction_windows.htm"><u>Windows</u></a>
+	&nbsp;&nbsp;<a target="_blank" id="vpn_instruction_mac" href="vpn_instruction_mac.htm"><u>Mac OSX</u></a>
+	&nbsp;&nbsp;<a target="_blank" id="vpn_instruction_iphone" href="vpn_instruction_iphone.htm"><u>iPhone/iPad</u></a>
+	&nbsp;&nbsp;<a target="_blank" id="vpn_instruction_android" href="vpn_instruction_android.htm"><u>Android</u></a>
+	</td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+	<td align="left"><b><%1160%></b></td>
+</tr>
+<tr>
+	<td colspan="4" align="left" style="padding-left:10px;">
+	<button type="BUTTON" value="windows_zip" name="windows" id="window" class="button-common" onclick="buttonClick(this,'windows_zip'); if(!ddns_check()) return false; change_location('windows.zip');"><%1161%></button>
+	&nbsp;&nbsp;<button type="BUTTON" value="nonwindows_zip" name="non-windows" id="non_window" class="button-common" onclick="buttonClick(this,'nonwindows_zip'); if(!ddns_check()) return; change_location('nonwindows.zip');"><%1162%></button>
+	&nbsp;&nbsp;<button type="BUTTON" value="smartphone_zip" name="smartphone" id="smart_phone" class="button-common" onclick="buttonClick(this,'smartphone_zip'); if(!ddns_check()) return; change_location('smartphone.zip');"><%1163%></button>
+	</td>
+	
+</tr>
+    
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+	<td align="left"><b><%1164%></b></td>
+</tr>
+
+<TR>
+    <TD nowrap style="padding-left:10px;"><%1165%>
+    <input type="radio" name="openvpn_protocol_tun" id="tun_vpn_type_udp" value="udp" <%1166%> > <%932%> 
+    <input type="radio" name="openvpn_protocol_tun" id="tun_vpn_type_tcp" value="tcp" <%1167%> > <%931%> </TD>
+</TR>
+
+<tr>
+    <td width="50%" align="left" nowrap style="padding-left:10px;"><%1168%> &nbsp; <input type="text" name="openvpn_service_port_tun" id="tun_vpn_port" value = "<%1143%>" size="6" height="12" maxlength="8"></td>
+</tr>
+
+<TR>
+    <TD nowrap style="padding-left:10px;"><%1169%>
+<input type="radio" name="openvpn_protocol" id="vpn_type_udp" value="udp" <%1170%> > <%932%> 
+<input type="radio" name="openvpn_protocol" id="vpn_type_tcp" value="tcp" <%1171%> > <%931%> </TD>
+</TR>
+
+<tr>
+    <td width="50%" align="left" nowrap style="padding-left:10px;"><%1172%> &nbsp; <input type="text" name="openvpn_service_port" id="vpn_port" value = "<%1141%>" size="6" height="12" maxlength="8"></td>
+</tr>
+
+<TR>
+    <TD nowrap style="padding-left:10px;"><%1173%>
+<input type="radio" name="openvpn_redirectGW" id="vpn_access_auto" value="all" <%1174%> > <%1175%> 
+<input type="radio" name="openvpn_redirectGW" id="vpn_access_all" value="onlylan" <%1176%> > <%1177%>
+<input type="radio" name="openvpn_redirectGW" id="vpn_access_home" value="auto" <%1178%> > <%1179%> </TD>
+</TR>
+
+
+<tr><td colspan="2">
+<div id="oray_specific" style="display: block;">
+</div></td></tr>
+
+<tr><td height="12" colspan="2"><hr class='blueBar'></td></tr>
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="openvpn_help.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+
+<a name="helpframe-anchor"></a>
+<INPUT name="wan_protocol" id="wan_protocol" type="hidden" value= "<%765%>">
+<INPUT name="pppoe_dod" id="pppoe_dod" type="hidden" value= "<%822%>">
+<INPUT name="l2tp_dod" id="l2tp_dod" type="hidden" value= "<%1180%>">
+<INPUT name="pptp_dod" id="pptp_dod" type="hidden" value= "<%862%>">
+<INPUT name="dod_type_change" id="dod_type_change" type="hidden" value= "0">
+</form>
+
+</div>
+</body>
+</html>
+

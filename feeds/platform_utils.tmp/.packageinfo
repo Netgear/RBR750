@@ -1,0 +1,42 @@
+Source-Makefile: feeds/platform_utils/keyutils/Makefile
+Package: keyutils
+Version: 1.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: keyutils
+Maintainer: 
+Source: keyutils-1.1.tar.bz2
+Type: ipkg
+Description:   Keyutils is a set of utilities for managing the key retention facility
+  in the kernel, which can be used by filesystems, block devices and more
+  to gain and retain the authorization and encryption keys required to perform
+  secure operations.
+
+@@
+
+
+Source-Makefile: feeds/platform_utils/pm-utils/Makefile
+Package: pm-utils
+Version: 1.4.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +flock
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: Power Management Utilities
+Maintainer: 
+Source: pm-utils-1.4.1.tar.gz
+Type: ipkg
+Description:   Power Managment Utilities is a small collection of scripts to
+  suspend/hibernate system that can be used to run user supplied
+  scripts on suspend and resume
+http://pm-utils.freedesktop.org/wiki/
+
+@@
+
+

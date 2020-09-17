@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss/qca-nss-fw2-enterprise/Makefile
+Package: qca-nss-fw2-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw2
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: BIN-NSS.AK.J.CS-20-E.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+

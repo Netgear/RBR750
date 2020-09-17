@@ -1,0 +1,25 @@
+Source-Makefile: feeds/qca/net/qca-iface-mgr-10.4/Makefile
+Package: qca-iface-mgr-10.4
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-hostap||PACKAGE_qca-hostap-lite) @(!(PACKAGE_hostapd)) +libpthread +libnl +libwifisoncfg
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-hostap libnl libwifisoncfg
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Interface manager daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   User Space application to manage interfaces
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+source "qca/feeds/qca/net/qca-iface-mgr-10.4/Config.in"
+
+
+@@
+
+

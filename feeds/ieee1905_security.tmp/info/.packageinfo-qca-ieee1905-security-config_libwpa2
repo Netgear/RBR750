@@ -1,0 +1,20 @@
+Source-Makefile: feeds/ieee1905_security/qca-ieee1905-security-config/libwpa2/Makefile
+Package: libwpa2
+Submenu: IEEE1905.1 features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA2 Library
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This Package contains the wpa2 library
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

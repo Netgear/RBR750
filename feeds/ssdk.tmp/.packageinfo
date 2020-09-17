@@ -1,0 +1,91 @@
+Source-Makefile: feeds/ssdk/qca-psdk/Makefile
+Package: kmod-qca-psdk
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: qca-psdk
+Section: kernel
+Category: Kernel modules
+Title: PSDK driver
+Maintainer: 
+Source: qca-psdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: PSDK driver
+
+@@
+
+Package: qca-psdk-cli
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: Utilities
+Title: Shell application for QCA PSDK
+Maintainer: 
+Source: qca-psdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Shell application for QCA PSDK
+
+@@
+
+
+Source-Makefile: feeds/ssdk/qca-ssdk/Makefile
+Package: kmod-qca-ssdk-nohnat
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @!(TARGET_ipq_ipq40xx||TARGET_ipq40xx)||TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: qca-ssdk
+Build-Variant: nohnat
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for QCA SSDK
+Maintainer: 
+Source: qca-ssdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Kernel driver for QCA SSDK
+
+@@
+
+Package: kmod-qca-ssdk-hnat
+Submenu: Network Devices
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq40xx||TARGET_ipq40xx||TARGET_ar71xx||TARGET_ipq806x +kmod-ipt-extra +kmod-ipt-filter +(TARGET_ipq806x||TARGET_ipq):kmod-qca-rfs +kmod-ppp
+Conflicts: 
+Menu-Depends: 
+Provides: qca-ssdk
+Build-Variant: hnat
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for QCA SSDK (hnat)
+Maintainer: 
+Source: qca-ssdk-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Kernel driver for QCA SSDK (hnat)
+
+@@
+
+
+Source-Makefile: feeds/ssdk/qca-ssdk-shell/Makefile
+Package: qca-ssdk-shell
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: Utilities
+Title: Shell application for QCA SSDK
+Maintainer: 
+Source: qca-ssdk-shell-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Shell application for QCA SSDK
+
+@@
+
+

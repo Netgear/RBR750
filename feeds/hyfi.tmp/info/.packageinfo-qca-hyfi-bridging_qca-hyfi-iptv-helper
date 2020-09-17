@@ -1,0 +1,22 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-bridging/qca-hyfi-iptv-helper/Makefile
+Package: kmod-qca-hyfi-iptv-helper
+Submenu: Hy-Fi features
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @PACKAGE_kmod-qca-wifi-unified-profile||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-dakota-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-unified-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-lowmem-profile +kmod-bridge
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: PACKAGE_kmod-qca-wifi-unified-profile:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-dakota-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-unified-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-lowmem-profile:qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: IPTV on Wireless Interface Netfilter Module
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NETFILTER=y CONFIG_BRIDGE_NETFILTER=y
+Description:   This package installs the QCA Hy-Fi Netfilter for IPTV implementations on Wireless interface
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

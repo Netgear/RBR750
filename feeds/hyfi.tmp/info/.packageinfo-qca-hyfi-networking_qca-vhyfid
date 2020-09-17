@@ -1,0 +1,20 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-networking/qca-vhyfid/Makefile
+Package: qca-vhyfid
+Submenu: Hy-Fi features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +qca-ieee1905-init +libhyficommon +qca-hyd-plc +qca-plc-serv
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Virtual Hy-Fi daemon (For non-embedded PLC platforms)
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This package installs the Virtual Hy-Fi daemon. It is designed for non-embedded PLC platforms, and detects plugged in PLC devices. It requires qca-plc-host package. 
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

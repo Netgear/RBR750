@@ -1,0 +1,247 @@
+<HTML>
+<head>
+<%11%>
+<title>NETGEAR <%12%></title>
+<link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="css/button.css">
+<STYLE type="text/css">
+h1
+{
+    color:#9D98FF;
+}
+</STYLE>
+<%14%>
+<script type="text/javascript" src="repeater.js"></script>
+<script type="text/javascript" src="IA_finish.js"></script>
+<script type="text/javascript" src="script/changeUrl.js"></script>
+</head>
+<body onload="load_default(3);updateProgress();" bgcolor="#ffffff">
+<form method="POST" action="ia_finish.cgi">    
+<table style="width:100%;">
+<tr>
+<td>
+<div id="countdown" style="display: block;">
+<table align="left" border="0" width="100%">
+<tr>
+    <tr>
+        <td>
+            <h1 style="margin-top:15px;"><%2691%></h1>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+        <div id="view"><br>
+            <table border="0" cellpadding="0" cellspacing="0" width="90%">
+                <tr>
+                    <td width="48%"></td>
+                    <td>
+                        <img width="48" height="48" src="loading.gif"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </td>
+    </tr>
+</table>
+</div><!-- end countdown-->
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+<div id="summary" style="display: none;">
+<table align="left" border="0" width="100%">
+<tr>
+    <td colspan="2">
+        <h1 style="margin-top:15px;" id="ca_15_log"><%2692%></h1>
+    </td>
+</tr>
+
+<!--<tr> 
+    <td colspan="2" background="img/litepurple.gif" height="12">&nbsp; </td>
+</tr>-->
+<tr><td colspan="2"><div id="split_line" style="height:12px;overflow:hidden;"><table><div class="curve"></div></table></div></td></tr>
+
+<!--<tr><td colspan="2"><%2693%></td></tr>-->
+
+<tr>
+    <td id="24g_title" colspan="1" style="width:50%;"><b><%2694%></b></td>
+    <td id="5g_title" colspan="1" style="width:50%;"><b><%2695%></b></td>
+</tr>
+
+<tr>
+    <td id="24g_ssid" colspan="1" style="width:50%;" nowrap="nowrap">
+        <span><%2696%>:&nbsp;</span>
+        <span><%2697%></span>
+    </td>
+    <td id="5g_ssid" colspan="1" style="width:50%;" nowrap="nowrap">
+        <span><%2696%>:&nbsp;</span>
+        <span><%2698%></span>
+    </td>
+</tr>
+
+<tr>
+    <td id="24g_sec" colspan="1" style="width:50%;" nowrap="nowrap"><%2699%>:&nbsp;<%2700%></td>
+    <td id="5g_sec" colspan="1" style="width:50%;" nowrap="nowrap"><%2699%>:&nbsp;<%2701%></td>
+</tr>
+
+<tr>
+    <td id="24g_passPhrase" colspan="1" style="width:50%;" nowrap="nowrap">
+        <!------ 2.4G WEP DIV Start ------>
+        <div id="wep" style="display: none;">
+        <table align="left" border="0" width="100%">
+            
+        <tr><td nowrap="nowrap"><%182%>:&nbsp;<%2702%></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%2639%> <%2703%></td>
+            
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%188%><span id="key1" value="<%2704%>"><%2704%></span></td>
+            <td><input class="common_bt" type="button" id="cpy1" value="<%2705%>" onclick="copyToClipboard('key1')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%190%><span id="key2" value="<%2706%>"><%2706%></span></td>
+            <td><input class="common_bt" type="button" id="cpy2" value="<%2705%>" onclick="copyToClipboard('key2')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%192%><span id="key3" value="<%2707%>"><%2707%></span></td>
+            <td><input class="common_bt" type="button" id="cpy3" value="<%2705%>" onclick="copyToClipboard('key3')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%194%><span id="key4" value="<%2708%>"><%2708%></span></td>
+            <td><input class="common_bt" type="button" id="cpy4" value="<%2705%>" onclick="copyToClipboard('key4')"></td>
+        </tr>
+
+        </table>
+        </div><!-- end wep -->   
+        <!------ 2.4G WEP DIV End ------>
+
+        <!------ 2.4G WPA DIV Start ------>
+        <div id="wpa" style="display: none;">
+        <table align="left" border="0" width="100%">
+            
+        <tr>
+            <td nowrap="nowrap"><%2639%> <span id="pass" value="<%2703%>"><%2703%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_wpa" value="<%2705%>" onclick="copyToClipboard('pass')"></td>
+        </tr>
+
+        </table>
+        </div><!-- end wpa -->   
+        <!------ 2.4G WPA DIV End ------>
+    </td>
+    <td id="5g_passPhrase" colspan="1" style="width:50%;" nowrap="nowrap">
+        <!------ 5G WEP DIV Start ------>
+        <div id="wep_5g" style="display: none;">
+        <table align="left" border="0" width="100%">
+            
+        <tr><td nowrap="nowrap"><%182%>:&nbsp;<%2709%></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%2639%> <%2710%></td>
+            
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%188%><span id="key_5g1" value="<%2711%>"><%2711%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_5g1" value="<%2705%>" onclick="copyToClipboard('key_5g1')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%190%><span id="key_5g2" value="<%2712%>"><%2712%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_5g2" value="<%2705%>" onclick="copyToClipboard('key_5g2')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%192%><span id="key_5g3" value="<%2713%>"><%2713%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_5g3" value="<%2705%>" onclick="copyToClipboard('key_5g3')"></td>
+        </tr>
+
+        <tr>
+            <td nowrap="nowrap"><%194%><span id="key_5g4" value="<%2714%>"><%2714%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_5g4" value="<%2705%>" onclick="copyToClipboard('key_5g4')"></td>
+        </tr>
+
+        </table>
+        </div><!-- end wep -->   
+        <!------ 5G WEP DIV End ------>
+
+        <!------ 5G WPA DIV Start ------>
+        <div id="wpa_5g" style="display: none;">
+        <table align="left" border="0" width="100%">
+            
+        <tr>
+            <td nowrap="nowrap"><%2639%> <span id="pass_5g" value="<%2710%>"><%2710%></span></td>
+            <td><input class="common_bt" type="button" id="cpy_wpa_5g" value="<%2705%>" onclick="copyToClipboard('pass_5g')"></td>
+        </tr>
+
+        </table>
+        </div><!-- end wpa -->   
+        <!------ 5G WPA DIV End ------>
+    </td>
+</tr>
+
+<tr><td colspan="2" id="ca_15_log_3"><%2715%></td></tr>
+<tr id="pre_load_img" style="display:none;">
+    <td colspan="2">
+        <img src="img/button_test.gif">
+        <img src="img/button.gif">
+    </td>
+</tr>
+<tr id="img_xp" style="display:none;"><td colspan="2"><img src="WZC.jpg"></td></tr>
+<tr id="img_vista" style="display:none;"><td colspan="2"><img src="win7.JPG"></td></tr>
+<tr id="img_mac" style="display:none;"><td colspan="2"><img src="mac.JPG"></td></tr>
+<tr id="img_linux" style="display:none;"><td colspan="2"><img src="ubuntu-wireless.JPG"></td></tr>
+
+<!--<tr> 
+    <td colspan="2" background="img/litepurple.gif" height="12">&nbsp; </td>
+</tr>-->
+<tr><td colspan="2"><div id="split_line" style="height:12px;overflow:hidden;"><table><div class="curve"></div></table></div></td></tr>
+<tr>
+    <td colspan="2">&nbsp;&nbsp;</td>
+</tr>
+</table>
+</div><!-- end summary -->   
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<div id="button" style="display: none;">
+<table align="left" border="0" width="100%">
+
+<tr>
+    <!--<td><input name="continue" value="I have connected to the Extender network" onclick="url_change_ornot();" type="button"></td>-->
+    <td><input type="checkbox" name="checkbox" id="checkbox" onClick="buttonToggle();"><%2716%></td>
+</tr>
+    
+<tr>
+    <td align="right"><input class="short_common_gray_bt" name="continue" id="continue_button" value="<%1828%>" onclick="next_url();" type="button" disabled></td> 
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<input type="hidden" name="sec_type" value="<%2717%>">
+<input type="hidden" name="sec_type_5g" value="<%2718%>">
+<input type="hidden" name="mode" value="<%2719%>">
+<input type="hidden" name="apband" value="<%2720%>">
+<input type="hidden" name="enable_ap_mode" value="<%2721%>">
+<input type="hidden" name="current_page" value="IA_finish">
+</form>    
+</BODY>
+</HTML>

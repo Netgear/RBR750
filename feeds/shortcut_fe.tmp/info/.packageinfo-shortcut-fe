@@ -1,0 +1,38 @@
+Source-Makefile: feeds/shortcut_fe/shortcut-fe/Makefile
+Package: kmod-shortcut-fe
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for SFE
+Maintainer: 
+Source: shortcut-fe-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_EVENTS=y
+Description: Kernel driver for SFE
+
+@@
+
+Package: kmod-shortcut-fe-cm
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for SFE
+Maintainer: 
+Source: shortcut-fe-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: Kernel driver for SFE
+
+@@
+
+

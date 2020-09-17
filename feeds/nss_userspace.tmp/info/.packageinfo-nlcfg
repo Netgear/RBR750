@@ -1,0 +1,18 @@
+Source-Makefile: feeds/nss_userspace/nlcfg/Makefile
+Package: nlcfg
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +libnl +kmod-qca-nss-drv-netlink
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: Userspace utility for pushing rule into NSS
+Maintainer: 
+Source: 
+Type: ipkg
+Description:  A userspace utility for pushing rule into NSS.
+
+@@
+
+

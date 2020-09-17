@@ -1,0 +1,5 @@
+$(eval $(call PackageDir,qca-whc-init,qca-whc-init,))
+$(eval $(call PackageDir,qca-whc-lbd,qca-whc-lbd,))
+$(eval $(call PackageDir,qca-whc-luci,qca-whc-luci,))
+$(eval $(call PackageDir,qca-whc-repacd,qca-whc-repacd,))
+$(eval $(call PackageDir,whc,whc,))

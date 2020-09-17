@@ -1,0 +1,68 @@
+Source-Makefile: feeds/qca/net/qca-wifi-fw-10.4-ar71xx/Makefile
+Package: qca-wifi-fw-hw7-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR900B_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw7-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw9-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9984_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw9-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw10-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9888_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw10-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+

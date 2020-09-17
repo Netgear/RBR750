@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title>Debug Hidden Page</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+  </head>
+  
+  <body onLoad="loadSettings();">
+    <div id="fixedHeader">
+      <div class="mask">
+	    <div class="container">
+		  <header>
+		    <img id="logo" src="img/logos/genie.png" alt="Netgear genie logo" />
+		    <p id="byline"><%1235%> <%958%></p>
+		  </header>
+		</div>
+	  </div>
+	</div>
+
+
+    <div class="postSetup container">
+	  <div class="main">
+
+        <h1 style="font-size:24px">Debug Hidden Page</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <p><%416%>: <strong><%417%></strong></p>
+          <form id="enablePageForm" name="enablePageForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <input type="checkbox" name="action_Start_When_Boot_Up" value="Start_When_Boot_Up" onclick="document.forms['enablePageForm'].submit();" />&nbsp;&nbsp;<strong>Enable Debug Hidden Page after reboot</strong>
+            <input type="hidden" name="Start_When_Boot_Up" value="<%1236%>">
+            <input type="hidden" name="form" value="enablePageForm">
+          </form>
+        </div>
+        
+        <h1 style="font-size:18px">Hyper-Fi</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <form id="hyperFiForm" name="hyperFiForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <div class="column first">
+              <input type="submit" class="btn primary" name="enable_hyperFi" value="Enable Hyper-Fi" />
+            </div>
+            <div>
+              <p id="hyperFiStatus"></p>
+            </div>
+            <br /><br />
+            <input type="hidden" name="enable_hyperFi_clicked" value="<%1237%>">
+            <input type="hidden" name="form" value="hyperFiForm">
+          </form>
+          <form id="steeringForm" name="steeringForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <div class="column first">
+              <input type="submit" class="btn primary" name="enable_device_steering" value="Enable Device Steering" />
+            </div>
+            <div>
+              <p id="steeringStatus"></p>
+            </div>
+            <br /><br />
+            <input type="hidden" name="disable_device_steer" value="<%1238%>">
+            <input type="hidden" name="form" value="steeringForm">
+          </form>
+          <form id="hyperFiForm2" name="hyperFiForm2" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <div class="formElements">
+              <div class="column first">
+                <label for="mode">Log Mode</label>
+                <select id="mode" name="mode">
+                  <option value="">Log Mode</option>
+                  <option value="0">Normal Mode</option>
+                  <option value="1">File Mode</option>
+                  <option value="2">Console Mode</option>
+                </select>
+              </div>
+              <div class="column">
+                <label for="level">Level</label>
+                <select id="level" name="level">
+                  <option value="">Level</option>
+                  <option value="0">Debug</option>
+                  <option value="1">Verbose</option>
+                  <option value="2">Info</option>
+                  <option value="3">Warning</option>
+                  <option value="4">Error</option>
+                  <option value="5">Fatal Error</option>
+                </select>
+              </div>
+            </div>
+            <div class="formButtons">
+              <br />
+              <input type="submit" class="btn primary" name="enable_hyperFi_2" value="<%528%>" />
+            </div>
+            <input type="hidden" name="log_output_modes" value="<%1239%>">
+            <input type="hidden" name="log_output_level" value="<%1240%>">
+            <input type="hidden" name="form" value="hyperFiForm2">
+          </form>
+        </div>
+
+        <h1 style="font-size:18px"><%526%> (Local)</h1>
+		<div class="wifiSettings sectionWrap withBottomShadow clearfix">
+          <div class="sectionDetails general">
+            <form id="wifiSettingsForm" name="mainForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+              <div id="24g_network" class="column first">
+
+                <br />
+                <p style="height:16px"> </p>
+                <br />
+
+                <div class="manualNetworkInput">
+                  <ul class="formElements">
+                    <h3><%95%></h3>
+                    <li id="ssid_24g_row">
+                      <label for="ssid"><%539%></label>
+                      <input type="text" id="ssid" class="networkName" name="ssid" value="<%540%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"/>
+                    </li>
+                    <li id="channel_24g_row">
+                      <label for="channel"><%543%></label>
+                      <select class="w_channel" id="channel" name="channel">
+                        <option selected><%544%></option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                      </select>
+                    </li>
+                    <li id="opmode_24g_row">
+                      <label for="opmode"><%545%></label>
+                      <select class="opmode" id="opmode" name="opmode" onchange="chgCh(2);">
+                        <%546%>
+                      </select>
+                    </li>
+                    <li class="securityOptionsWrap">
+                      <label for="secType"><%550%></label>
+                      <select class="securityOptions" id="secType" name="sec_type" onchange="change_sec('24g', this.value)">
+                        <option value=""><%98%></option>
+                        <option value="None"><%99%></option>
+                        <option value="WEP"><%100%></option>
+                        <option value="WPA-PSK"><%551%></option>
+                        <option value="WPA2-PSK"><%552%></option>
+                        <option value="WPA-AUTO-PSK"><%553%></option>
+                      </select>
+                    </li>
+                    <li class="pwdInput">
+                      <label for="passphrase"><%104%></label>
+                      <input type="password" id="passphrase" class="primaryPwd" name="passphrase" value="<%131%>" />
+                      <label for="showPwd"><input id="showPwd" name="show_pwd" type="checkbox" class="showPwd" value="showPwd"><%455%></label>
+                      <label for="verifyPwd"><%105%></label>
+                      <input type="password" id="verifyPwd" class="verifyPwd" name="verify_pwd" value="<%131%>" disabled />
+                    </li>
+                    <li class="wepInput">
+                      <ul class="formElements">
+                        <li><strong><%554%></strong></li>
+                        <li>
+                          <select name="wep_enc" size=1 onchange="setKeys(wep_enc, key1, key2, key3, key4,2);">
+                            <option <%555%> value="1"><%107%></option>
+                            <option <%556%> value="2"><%108%></option>
+                          </select>
+                          <label><%106%>:</label>
+                        </li>
+                        <li><strong><%109%></strong></li>
+                        <li style="display:none">
+                          <input class="btn primary" type="button" name="keygen" value="<%557%>" onClick="calcPassphrase(wep_enc, passphraseStr, wep_key_no, key1, key2, key3, key4)" disabled>
+                          <input class="wepPwd" type="text" autocomplete="off" name="passphraseStr" size="14" maxlength="32" value="<%131%>">
+                          <label><%558%>: </label>
+                        </li>
+                        <li class="wepKeyField">
+                          <ul class="formElements">
+                            <li>
+                              <label><%110%></label>
+                              <input type="radio" <%559%> name="wep_key_no" value="1">                       
+                              <input type="text" autocomplete="off" name="key1" maxLength=32 size=34 value="<%560%>"
+                               onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[0].checked=true;">
+                            </li>
+                            <li>
+                              <label><%111%></label>
+                              <input type="radio" <%561%> name="wep_key_no" value="2">                       
+                              <input type="text" autocomplete="off" name="key2" maxLength=32 size=34 value="<%562%>"
+                              onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[1].checked=true;">
+                            </li>
+                            <li>
+                              <label><%112%></label>
+                              <input type="radio" <%563%> name="wep_key_no" value="3">                       
+                              <input type="text" autocomplete="off" name="key3" maxLength=32 size=34 value="<%564%>"
+                              onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[2].checked=true;">
+                            </li>
+                            <li>
+                              <label><%113%></label>
+                              <input type="radio" <%565%> name="wep_key_no" value="4">                       
+                              <input type="text" autocomplete="off" name="key4" maxLength=32 size=34 value="<%566%>"
+                              onkeydown="keyCheck(this)" onfocus="this.form.wep_key_no[3].checked=true;">
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="5g_network" class="column">
+                
+                <br />
+                <label><strong><%532%></strong></label>
+                <select id="wRegion" name="wregion" onchange="chgCh(1)" <%530%>>
+                  <%531%>
+                </select>
+                <br />
+
+                <div class="manualNetworkInput">
+                  <ul class="formElements">
+                    <h3><%114%></h3>
+                    <li id="ssid_5g_row">
+                      <label for="ssid5g"><%539%></label>
+                      <input type="text" id="ssid5g" class="networkName" name="ssid_5g" value="<%435%>" size="33" maxlength="32" onClick="if( have_alert==0 ){ alert(keep_ssid_warning); this.select(); have_alert = 1; }"/>
+                    </li>
+                    <li id="channel_5g_row">
+                      <label for="channel5g"><%543%></label>
+                      <select class="w_channel" id="channel5g" name="channel_5g" onChange="checkChannel();">
+                        <option selected><%544%></option>
+                      </select>
+                    </li>
+                    <li id="opmode_5g_row">
+                      <label for="opmode5g"><%545%></label>
+                      <select class="opmode1" id="opmode5g" name="opmode_5g" onchange="chgCh(3);">
+                        <%570%>
+                      </select>
+                    </li>
+                    <li class="securityOptionsWrap">
+                      <label for="secType5g"><%550%></label>
+                      <select class="securityOptions" id="secType5g" name="sec_type_5g" onchange="change_sec('5g', this.value)">
+                        <option value=""><%98%></option>
+                        <option value="None"><%99%></option>
+                        <option value="WEP"><%100%></option>
+                        <option value="WPA-PSK"><%551%></option>
+                        <option value="WPA2-PSK"><%552%></option>
+                        <option value="WPA-AUTO-PSK"><%553%></option>
+                      </select>
+                    </li>
+                    <li class="pwdInput">
+                      <label for="passphrase5g"><%104%></label>
+                      <input type="password" id="passphrase5g" class="primaryPwd" name="passphrase_5g" value="<%135%>" />
+                      <label for="showPwd5g"><input id="showPwd5g" name="show_pwd_5g" type="checkbox" class="showPwd" value="showPwd"><%455%></label>
+                      <label for="verifyPwd5g"><%105%></label>
+                      <input type="password" id="verifyPwd5g" class="verifyPwd" name="verify_pwd_5g" value="<%135%>" disabled />
+                    </li>                 
+                    <li class="wepInput">
+                      <ul class="formElements">
+                        <li><strong><%554%></strong></li>
+                        <li>
+                          <select name="wep_enc_5g" size=1 onchange="setKeys(wep_enc_5g, key5g1, key5g2, key5g3, key5g4,5);">
+                            <option <%572%> value="1"><%107%></option>
+                            <option <%573%> value="2"><%108%></option>
+                          </select>
+                          <label><%106%>:</label>
+                        </li>
+                        <li><strong><%109%></strong></li>
+                        <li style="display:none">
+                          <input class="btn primary" type="button" name="keygen_5g" value="<%557%>" onClick="calcPassphrase(wep_enc_5g, passphraseStr_5g, wep_key_no_5g, key5g1, key5g2, key5g3, key5g4)" disabled>
+                          <input class="wepPwd" type="text" autocomplete="off" name="passphraseStr_5g" size="14" maxlength="32" value="<%135%>">
+                          <label><%558%>: </label>
+                        </li>
+                        <li class="wepKeyField">
+                          <ul class="formElements">
+                            <li>
+                              <label><%110%></label>
+                              <input type="radio" <%574%> name="wep_key_no_5g" value="1">                       
+                              <input type="text" autocomplete="off" name="key5g1" maxLength=32 size=34 value="<%575%>"
+                               onkeydown="keyCheck_5g(this) " onfocus="this.form.wep_key_no_5g[0].checked=true;">
+                            </li>
+                            <li>
+                              <label><%111%></label>
+                              <input type="radio" <%576%> name="wep_key_no_5g" value="2">                       
+                              <input type="text" autocomplete="off" name="key5g2" maxLength=32 size=34 value="<%577%>"
+                              onkeydown="keyCheck_5g(this) " onfocus="this.form.wep_key_no_5g[1].checked=true;">
+                            </li>
+                            <li>
+                              <label><%112%></label>
+                              <input type="radio" <%578%> name="wep_key_no_5g" value="3">                       
+                              <input type="text" autocomplete="off" name="key5g3" maxLength=32 size=34 value="<%579%>"
+                              onkeydown="keyCheck_5g(this) " onfocus="this.form.wep_key_no_5g[2].checked=true;">
+                            </li>
+                            <li>
+                              <label><%113%></label>
+                              <input type="radio" <%580%> name="wep_key_no_5g" value="4">                       
+                              <input type="text" autocomplete="off" name="key5g4" maxLength=32 size=34 value="<%581%>"
+                              onkeydown="keyCheck_5g(this) " onfocus="this.form.wep_key_no_5g[3].checked=true;">
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+			  <div class="formButtons">
+                <input class="btn primary" name="save_bt" id="saveBt1" type="button" value="<%528%>">
+              </div>
+              <input type="hidden" name="wire_mode" value="<%88%>">
+              <input type="hidden" name="sta_band" value="<%605%>">              
+              <input type="hidden" name="ap_mode" value="<%120%>">
+              <input type="hidden" name="ap_band" value="<%121%>">
+
+              <input type="hidden" name="rootap_link_24g" value="<%606%>">
+              <input type="hidden" name="rootap_link_5g" value="<%607%>">
+
+              <input type="hidden" name="initChannel" value="<%613%>">
+              <input type="hidden" name="initChannel_5g" value="<%614%>">
+              <input type="hidden" name="tempSetting" value="<%615%>">
+              <input type="hidden" name="tempRegion" value="<%616%>">
+              <input type="hidden" name="setRegion" value="<%617%>">
+              <input type="hidden" name="ap_24g_sec" value="<%610%>">
+              <input type="hidden" name="ap_5g_sec" value="<%611%>">
+              <input type="hidden" name="security_type" value="">
+              <input type="hidden" name="security_type_5g" value="">
+              <input type="hidden" name="enable_ap" value="enable_ap_24g">
+              <input type="hidden" name="ssid_bc" value="ssid_bc_24g">
+              <input type="hidden" name="ssid_bc_5g" value="ssid_bc_5g">
+              <input type="hidden" name="form" value="wifiSettingsForm">
+            </form>
+		  </div><!-- end general settings -->                           
+        </div>
+		
+        <h1 style="font-size:18px">Mode</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <form id="modeForm" name="modeForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <input type="submit" class="btn primary" name="detection" value="AP Mode Detection" />
+            &nbsp;&nbsp;
+            <input type="submit" class="btn primary" name="ap" value="AP Mode" />
+            &nbsp;&nbsp;
+            <input type="submit" class="btn primary" name="extender" value="Extender Mode" />
+            <input type="hidden" name="form" value="modeForm">
+          </form>
+        </div>
+        		
+        <h1 style="font-size:18px">DFS</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <form id="DFSForm" name="DFSForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <div class="column first">
+              <input type="submit" class="btn primary" name="enable_DFS" value="Enable DFS" />
+            </div>
+            <div>
+              <p id="DFSStatus"></p>
+            </div>
+            <input type="hidden" name="enable_DFS_clicked" value="<%1241%>">
+            <input type="hidden" name="form" value="DFSForm">
+          </form>
+        </div>
+		
+		<h1 style="font-size:18px">Debug Log</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <form id="captureLogForm" name="captureLogForm" action="Debug.cgi" method="POST" target="" autocomplete="off">
+            <input type="submit" class="btn primary" name="action_Start_Capture" value="Capture Debug Log" />
+            <br /><br />
+            <input type="button" class="btn primary" value="Download Debug File" onclick="window.location.href = 'Debug_log.zip';clickDownloadButton();" />
+            <input type="hidden" name="capture_in_process" value="<%1242%>">
+            <input type="hidden" name="form" value="captureLogForm">
+          </form>
+        </div>
+
+        <h1 style="font-size:18px"><%664%></h1>
+        <div>
+          <ul class="formElements firmwareUpdateOptions clearfix">
+            <li class="checkUpdate roundCorners">
+              <p><strong><%698%></strong></p>
+              <p><%699%></p>
+              <div class="ftr">
+                <div class="centerButtons">
+                  <div><a class="btn primary" id="checkFwBt" href="UPG_upgrade_ver_check.htm"><%700%></a></div>
+                </div>
+              </div>          
+            </li>
+            <li class="updateFile roundCorners">
+              <form id="updateFirmwareForm" name="updateFirmwareForm" action="upgrade_check.cgi" method="POST" ENCTYPE="multipart/form-data" target="" autocomplete="off">
+                <p><strong><%701%></strong></p>
+                <p><%702%></p>
+                <div class="fileInputWidget">
+                  <input type="text" class="fakeInputField" /><a class="btn secondary fileInput"><%651%></a>
+                  <input type="file" name="update_file" id="updateFile" />
+                </div>
+                <div class="ftr">
+                  <div class="centerButtons">
+                    <div><input id="uploadBt" name="upload_bt" type="button" class="btn primary" value="<%703%>" disabled /></div>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+
+      </div> <!-- end main -->
+    </div> <!-- end container -->
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/pwdStrength.js"></script>
+    <script src="scripts/main.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="Debug.js"></script>
+    <%478%>
+    <script type="text/javascript" src="CheckData.js"></script>
+  </body>  
+</html>

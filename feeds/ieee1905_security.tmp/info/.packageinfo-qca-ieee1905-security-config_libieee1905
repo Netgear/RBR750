@@ -1,0 +1,21 @@
+Source-Makefile: feeds/ieee1905_security/qca-ieee1905-security-config/libieee1905/Makefile
+Package: libieee1905
+Submenu: IEEE1905.1 features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libhyficommon
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: libhyficommon
+Section: QCA
+Category: QCA Proprietary software
+Title: IEEE1905.1 Library
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This Package contains the IEEE1905.1 library
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

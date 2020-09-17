@@ -1,0 +1,18 @@
+Source-Makefile: feeds/qca_IOT/qca-iot/Makefile
+Package: qca-IOT
+Version: CNSS_W.QZ.3.0-00104-QZHW4024-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +kmod-tun +@KERNEL_POSIX_MQUEUE
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: qca-IOT - QCA402x
+Maintainer: 
+Source: qca-IOT-CNSS_W.QZ.3.0-00104-QZHW4024-1.tar.bz2
+Type: ipkg
+Description:   This package contains BLE /Zigbee/ Thread binaries for QCA402x
+
+@@
+
+

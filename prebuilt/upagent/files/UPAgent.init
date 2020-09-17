@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+START=93
+
+start() {
+    /usr/bin/upagent --log_debug --log_file /tmp/upagent.log &
+}
+
+stop() {
+    killall upagent
+    kill -17 1
+    rm /tmp/upagent.log
+}
+
+boot() {
+    start
+}
+
+restart() {
+    stop
+	d2 -c upstatus.addXdeviceIdDone false 
+    start
+}

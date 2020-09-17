@@ -1,0 +1,24 @@
+Source-Makefile: feeds/whc/qca-whc-lbd/Makefile
+Package: qca-whc-lbd
+Submenu: Whole Home Coverage features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +qca-whc-init +libhyficommon +libpthread +@BUSYBOX_CONFIG_STAT +@BUSYBOX_CONFIG_FEATURE_STAT_FORMAT @PACKAGE_kmod-qca-wifi-unified-profile||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-dakota-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-perf||PACKAGE_kmod-qca-wifi-akronite-perf||PACKAGE_kmod-qca-wifi-unified-perf||PACKAGE_kmod-mac80211||PACKAGE_kmod-qca-wifi-lowmem-profile +jansson +PACKAGE_kmod-mac80211:libnl +libwifisoncfg +LBD_SUPPORT_QSDK:qca-wifison-ext-lib
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: PACKAGE_kmod-qca-wifi-unified-profile:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-dakota-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-akronite-perf:qca-wifi PACKAGE_kmod-qca-wifi-perf:qca-wifi PACKAGE_kmod-qca-wifi-unified-perf:qca-wifi PACKAGE_kmod-qca-wifi-lowmem-profile:qca-wifi libhyficommon
+Section: QCA
+Category: QCA Proprietary software
+Title: Whole Home Coverage Load Balancing daemon
+Maintainer: Qualcomm Atheros
+Source: qca-whc-lbd-g24328de-dirty.tar.gz
+Type: ipkg
+Description:   This package installs the Whole Home Coverage Load Balancing daemon
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  source "qca/feeds/whc/qca-whc-lbd/Config.in"
+@@
+
+

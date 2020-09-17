@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%11%>
+<title>NETGEAR   Genie</title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+<%14%>
+
+  <style type="text/css">
+
+ table {
+    border-collapse: separate;
+    width:700px;
+    border: 0px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+td {
+    border: 1px solid #00;
+}
+
+table.ex1 {
+    table-layout: auto;
+}
+
+table.ex2 {
+    table-layout: fixed;
+}
+ 
+.genie_font{
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size:14px;
+    height:21px;
+    color:#404040;    
+    padding-left:20px; 
+}
+   
+  </style>
+
+
+  <script src="jquery.js"></script>
+  <script src="script/jquery.mousewheel.js"></script>
+  <script src="script/script.js"></script>
+  <link rel="stylesheet" href="form.css">
+
+  <script language="javascript" type="text/javascript">
+var showit = (document.layers) ? "show" : "visible";
+var hideit = (document.layers) ? "hide" : "hidden";
+var pgbarTimer = null;
+var pchar = "|"; // progress char
+var maxchars = 94;
+var delay_time = <%494%>;
+var charcount = 0;
+var NS4 = (document.layers);
+
+function setVisible(divID, setto)
+{
+  if (NS4)
+    document.layers[divID].visibility = setto;
+  else if (document.all)
+    document.all(divID).style.visibility = setto;
+  else if (document.getElementById)
+    document.getElementById(divID).style.visibility = setto;
+}
+
+function makeStr(strSize, fillChar)
+{
+  var temp = "";
+  for (i=0; i < strSize ; i ++)
+    temp = temp + fillChar;
+  return temp;
+}
+function stopAnimation()
+{
+    if(pgbarTimer != null)
+    clearTimeout(pgbarTimer);
+  setVisible('pgbar', hideit);
+}
+function updateProgress()
+{
+  console.log("updateProgress");
+  var cf = document;
+  var pf = document.forms[0];
+
+  if ( charcount == 1 )
+  {
+        pf.update_vpn_cert.style.display="none";
+
+        setVisible('pgbar', showit);
+  }
+  
+  if (charcount < maxchars)
+  {
+    charcount ++;
+    //document.all("progress").value = makeStr(charcount,pchar);
+          //document.forms[2].progress.value = makeStr(charcount,pchar);
+                var progress;
+                progress=document.getElementsByName("progress");
+                progress[0].value=makeStr(charcount,pchar);
+    setTimeout("updateProgress()",delay_time);
+    console.log("END of updateProgress");
+  }
+}
+function showAnimation()
+{
+  console.log("showAnimation");
+  updateProgress();
+  console.log("END of showAnimation");
+} 
+function checkData()
+{
+  console.log("checkData");
+  setTimeout("showAnimation()", 10);
+  console.log("END of checkData");
+  return true;
+}
+  </script>
+
+</head>
+
+<body class="page-body" onload="stopAnimation();">
+  <form id="target"  method="POST" action="openvpn_crt_update.cgi">
+  <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+	<table border="0" class="ex1">
+	  <tr style="height:10px">
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="centerTd">
+          <h2 style="color:373737;font-weight:normal;font-size:18px;"><%1224%></h2>
+         <!--
+         <tr>[[Attention]] A new OpenVPN configuration package for your router is available that enhances your router's security.</tr> 
+         <tr>You must update the OpenVPN configuration package for your router. </tr>
+         <tr>Once the OpenVPN configuration package is updated, the OpenVPN configuration package on all your clients; otherwise, </tr>
+         <tr>your clients won't be able to access your router using the VPN feature. </tr>
+         -->
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>       
+      <td>&nbsp;</td>
+      <td>
+			<table class="ex2">
+              <tr>
+                  <td colspan="2" align="center" class="" >
+                  <button  type="SUBMIT" NAME="update_vpn_cert" id="update_vpn_cert" VALUE=" <%1225%>" class="button-rule" onClick="buttonClick(this,'<%1225%>');return checkData();"><span class="roundleft_button">&nbsp;&nbsp;&nbsp;&nbsp; <%1225%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+
+                  </td>
+              </tr>
+      </table>
+      <table border="0"  class="subhead2-multi-table" >
+        <tr>
+          <td class="" colspan="2">
+          <div align="left" ID="pgbar" style="position:relative;top:0;left:0;visibility:hide;visibility:hidden;">
+            <table border="0" style="border-collapse:collapse;" >
+              <tr>
+                <td align="center"><h1><%1226%></h1></td>
+                <td nowrap align="center"> &nbsp; </td>
+                <td align="center" colspan="2" ><input type="text" id="progress" name="progress" class="prgbar" value="" style="color: blue" size="42"
+            contentEditable=false onkeydown="return false;" onbeforeeditfocus="return false;" onpaste="return false;"></td>
+                <td nowrap align="center"> &nbsp; </td>
+              </tr>
+            </table>
+          </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      <td>&nbsp;</td>	
+    </tr>
+  </table>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<script type="text/javascript">
+<!--
+var delay_time = <%540%>; 
+var count = 0; 
+function makeStr(strsize, fillchar)
+{
+	var temp = "";
+	for (i=0; i < strsize ; i ++)
+		temp = temp + fillchar;
+	return temp;
+}
+function updateProgress()
+{
+	var cf = document.forms[0];
+
+	if (count < delay_time)
+	{
+		count ++;
+		setTimeout("updateProgress()",1000);
+	}
+	else
+	{
+			window.location.href=cf.next_file.value;
+	}
+}
+//-->
+</script>
+<style type="text/css">
+
+html, body{
+    margin:0;
+    border:none;
+    background-color:transparent;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:10pt;
+    font-style:normal;
+    font-weight:normal;
+    background-color#ffffff;
+}
+</style>
+</head>
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="updateProgress()" style="margin:0px;background-color:#ffffff;padding-left:20px">
+<form id="target"  name="update">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+
+<div align="center">
+    <br><br>
+    <b><%541%></b>
+    <br><br>
+</div>
+<div class="waiting_img_div" align="center"><img src="img/wait.gif"></div>
+<input type="hidden" name="next_file" value="<%382%>">
+</form>
+</BODY>
+</html>

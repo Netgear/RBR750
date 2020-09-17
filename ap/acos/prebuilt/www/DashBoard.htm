@@ -1,0 +1,701 @@
+<html style="width:550px;background:#FFF">
+  <head>
+  <%11%>
+<script language="javascript" type="text/javascript" src="utility.js"></script>
+  <style type="text/css"> 
+
+      .warning-head{
+         height:50px;
+         display:-moz-inline-box;
+         display:inline-block;
+         width:30px;
+         background:url(img/warning.png) no-repeat;
+      }
+      .error-head{
+         height:50px;
+         display:-moz-inline-box;
+         display:inline-block;
+         width:30px;
+         background:url(img/error.png) no-repeat 0;
+      }
+
+      .warning-bottom{
+        width:34px;
+        height:34px;
+        font-family:Arial;
+        background:url("img/basic_homes.gif") no-repeat 0 -384px;
+        overflow:hidden;         
+      }
+
+      .error-bottom{   
+        width:34px;
+        height:34px;
+        font-family:Arial;
+        background:url("img/basic_homes.gif") no-repeat 0 -420px;
+        overflow:hidden;
+      }
+
+      .Status-normal{
+         font-size:14px;
+         font-weight:bold;
+         font-family: Arial,Simsun,Helvetica, sans-serif;;
+         color:#323232;     
+         white-space: nowrap;
+         overflow:hidden;         
+      }
+      
+      .Status-unnormal{
+         font-size:14px;
+         font-weight:bold;
+         font-family: Arial,Simsun, Helvetica, sans-serif;;
+         color:#ffffff;   
+         display:block;         
+      }
+      
+       .Condition-normal{
+         font-size:14px;
+         font-weight:bold;
+         font-family: Arial,Simsun,Helvetica, sans-serif;;
+         color:#43A800;  
+         white-space: nowrap;
+         overflow:hidden;     
+      }
+      
+      .Condition-unnormal{
+         font-size:12px;
+         font-weight:bold;
+         color:#ffffff;
+         text-decoration:underline;
+         font-family: Arial,Simsun,Helvetica, sans-serif;;
+         font-style: italic;         
+         overflow:hidden; 
+      }
+
+      .Status-wireless-normal{                
+         font-size:14px;
+         font-weight:bold;
+         font-family: Arial,Simsun,Helvetica, sans-serif;;
+         color:#323232;     
+         white-space: nowrap;
+         overflow:hidden;     
+      }
+      
+      .Status-wireless-unnormal{
+         font-size:14px;
+         font-weight:bold;
+         font-family: Arial,Simsun, Helvetica, sans-serif;;
+         color:#ffffff;   
+         display:block;      
+      }   
+
+      .subtext{
+         font-family: Arial,Simsun,Helvetica, sans-serif;
+         font-size:20px;font-weight:bold;
+         color:#323232
+      }
+
+      .font-family_jp{
+         font-family: Gothic,MS Gothic,Arial,Simsun,Helvetica,sans-serif;
+      }
+      .basic_home_icon {
+        height:192px;
+        width:192px;
+        padding-left:3px;
+        box-shadow: 0 7px 7px rgba(0,0,0,.12), 0 6px 3px rgba(0,0,0,.12);
+        border:1px solid #ccc;
+      } 
+    
+    #internet{
+      background:url("img/basic_homes.gif") no-repeat 0 0;
+      position:relative
+    }
+    #wireless{
+      background:url("img/basic_homes.gif") no-repeat -192px 0;
+      position:relative
+    }
+    #attached{
+      background:url("img/basic_homes.gif") no-repeat 0 -192px;
+      position:relative
+    }
+    #parental{
+      background:url("img/basic_homes.gif") no-repeat -192px -192px;
+      position:relative
+    }
+    #guest{
+      background:url("img/guest.png") no-repeat 0 0;
+      position:relative
+    }
+    .dashboard_zone{
+      width:650px;
+      margin-left:5px;
+      margin-top:5px;
+      height:auto;
+      background-color:#FFF;
+      float:left;
+      transition:all .3s;
+      padding-bottom:2.5%;
+      border-radius:5px;
+    }
+    .icon_main{
+      display:inline;
+      margin:2% 0 0 3%;
+      overflow:hidden;
+      min-width:192px;
+      float:left;
+      cursor:pointer;
+    }
+    .icon_name {
+      width:192px;
+      height:42px;
+      top:100px;
+      position:absolute;
+      font-size:18px;
+      color:#323232;
+      text-align:center;
+      overflow:hidden;
+      border-bottom:1px solid #ccc;
+    }
+    .icon_status{
+      position:absolute;
+      left:4px;
+      top:148px;
+      width:186px;
+      height:40px;
+      font-size:14px;
+      color:#323232;
+      text-align:center;
+      line-height:20px;
+    }
+    .marquee{
+      line-height:20px;
+    }
+    .marquee_label{
+      width:auto;
+      margin:0 auto;
+      white-space:nowrap;
+      overflow:hidden;
+      float:left;
+    }
+    .marquee_zone{
+      width:auto;
+      margin:0 auto;
+      white-space:nowrap;
+      overflow:hidden;
+    }
+    .marquee_zone div{
+      padding-left:15px;
+      display:inline;
+    }
+    .warning-bottom > span, .error-bottom > span{
+      color:#fff
+    }
+  </style>
+
+
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+    var adjustPageHeight;
+    var page_contain_width;
+    var page_contain_height;
+    var Speed=50;
+    var rTimer=[];
+    var sBaseSettingLink0="<%622%>";
+    var sBaseSettingLink1="<%2903%>";
+    var sBaseSettingLink2="<%2904%>";
+    var isCableWAN = "<%702%>";
+    var isCable = "<%703%>";
+  
+  $(document).ready(function(){
+  
+    var form=document.forms[0];
+    var gui_region = form.curlang.value;
+    adjustPageHeight = parent.adjustPageHeight;
+    page_contain_width = parent.document.body.clientWidth-270 > 735 ? parent.document.body.clientWidth-270 : 735;   
+    page_contain_height = parent.document.documentElement.clientHeight-160 > 470+adjustPageHeight ? parent.document.documentElement.clientHeight-160 : 470+adjustPageHeight;
+ 
+    setInternetState();
+    setWirelessState();
+    setAttachedDevicesState();
+    setParentalControlsState();
+    setGuestNetworkState();
+    queryCurrentStatus();
+      
+    marquee_board_init();
+    
+    $('.icon_status').each(function(){
+      if(($(this).find(".marquee").length == 0) && ($(this).find(">span").length <=1))
+        $(this).css("line-height","40px");
+    });
+
+    $('.subtext').each(function(){
+     if(gui_region=="Japanese"){
+        if($(this).text().length >= 9){   
+            $(this).css("font-size","17");
+        }       
+     }else{
+        if($(this).text().length >= 16){           
+            $(this).css("font-size","15");
+        }
+     }
+    });
+    $('div').each(function(){
+      if(gui_region=="Japanese")
+         $(this).addClass("font-family_jp"); 
+    });
+    $('span').each(function(){
+      if(gui_region=="Japanese")
+         $(this).addClass("font-family_jp"); 
+    });
+     
+ /*    
+    function setInternetState()
+    {
+      var Internet_Result = <%2905%>;
+      var isCableWAN = "<%702%>";
+      
+      if (isCableWAN == "1")
+      {
+        $('#internet_text').text("<%2906%>");
+      }
+      else
+      {
+         $('#internet_text').text("<%2907%>");
+      }
+
+      if(Internet_Result == 0){
+
+      }else{
+        $("#internet").prepend("<div class='error-head'></div>");
+        $('#internet_stat').addClass('error-bottom');
+      }
+
+      if(("<%622%>" != "") || (isCableWAN == "1")) {
+        if(Internet_Result == 0){
+          $('#internet').click(function(ev){ 
+            if (isCableWAN == "1")
+              location.href = "cable_connection.htm";
+            else
+              location.href = "<%622%>";
+
+            parent.$('#page').width(parseInt(page_contain_width));
+            parent.$('#page').height(parseInt(page_contain_height));
+            $('#page').css("margin-top","0");
+            $('#page').css("margin-left","30"); 
+
+            parent.$('.menuActive').removeClass('menuActive');
+            parent.$('#basic-int').addClass('menuActive'); 
+          });
+          if (isCableWAN != "1")
+            parent.$('#INT_menu').attr("href","<%622%>");
+        }else if(Internet_Result == 1){
+          $('#internet').click(function(ev){
+            if (isCableWAN == "1")
+              location.href = "cable_DocsisOffline.htm";
+            else
+              location.href = "<%2903%>";
+
+            parent.$('#page').width(parseInt(page_contain_width));
+            parent.$('#page').height(parseInt(page_contain_height));
+            parent.$('#page').css("margin-top","0");
+            parent.$('#page').css("margin-left","30");
+
+            parent.$('.menuActive').removeClass('menuActive');
+            parent.$('#basic-int').addClass('menuActive');
+
+          });
+          if (isCableWAN != "1")
+            parent.$('#INT_menu').attr("href","<%2903%>");
+        }else{
+          $('#internet').click(function(ev){ 
+            if (isCableWAN == "1")
+              location.href = "cable_DocsisOffline.htm";
+            else
+              location.href = "<%2904%>";
+
+            parent.$('#page').width(parseInt(page_contain_width));
+            parent.$('#page').height(parseInt(page_contain_height));
+            parent.$('#page').css("margin-top","0");
+            parent.$('#page').css("margin-left","30");
+
+            parent.$('.menuActive').removeClass('menuActive');
+            parent.$('#basic-int').addClass('menuActive');
+
+          });
+          if (isCableWAN != "1")
+            parent.$('#INT_menu').attr("href","<%2904%>");
+        }               
+      }
+               
+    }
+*/
+    function setInternetState()
+    {      
+      if (isCableWAN == "1")
+        $('#internet_text').text("<%2906%>");
+      else
+         $('#internet_text').text("<%2907%>");
+
+      if((sBaseSettingLink0 != "") || (isCableWAN == "1")) {
+          $('#internet').click(function(ev){ 
+            if (isCableWAN == "1")
+              location.href = "cable_DocsisOffline.htm";
+            else
+              location.href = sBaseSettingLink2;
+
+            parent.$('#page').width(parseInt(page_contain_width));
+            parent.$('#page').height(parseInt(page_contain_height));
+            parent.$('#page').css("margin-top","0");
+            parent.$('#page').css("margin-left","30");
+
+            parent.$('.menuActive').removeClass('menuActive');
+            parent.$('#basic-int').addClass('menuActive');
+
+          });
+          if (isCableWAN != "1")
+            parent.$('#INT_menu').attr("href",sBaseSettingLink2);              
+      }
+               
+    }
+    function setWirelessState()
+    {
+      var Wireless_Security_Result = "<%1840%>";
+      var ap_mode_flag = document.getElementsByName("ap_mode");
+      
+      if(ap_mode_flag[0].value=="1")
+      {
+        if(isCable == "1")
+        {
+            $("#wireless").prepend("<div class='warning-head'></div>");
+            $('#wlan_stat').addClass('warning-bottom');
+            $('#wlan_stat').css('height', '34px');
+        }
+        return;
+      }else if (Wireless_Security_Result == "None"){
+        $("#wireless").prepend("<div class='warning-head'></div>");
+        $('#wlan_stat').addClass('warning-bottom');
+        $('#wlan_stat').css('height', '34px');
+      }
+      
+      $('#wireless').click(function(ev){  
+        location.href = "<%595%>";
+        
+        parent.$('#page').width(parseInt(page_contain_width));
+        parent.$('#page').height(parseInt(page_contain_height));
+        parent.$('#page').css("margin-top","0");
+        parent.$('#page').css("margin-left","30");
+        
+        parent.$('.menuActive').removeClass('menuActive');
+        parent.$('#basic-wls').addClass('menuActive');   
+      });
+      parent.$('#WLS_menu').attr("href","<%595%>");
+    }
+
+    function setAttachedDevicesState()
+    {
+        
+      var AttachedDevices_Result = "<%2908%>";
+      var iqos_clicked=0;                    
+
+      $('#attached').click(function(ev){
+        if(!iqos_clicked){
+          location.href = "DEV_redirect.htm";
+          parent.$('#page').width(parseInt(page_contain_width));
+          parent.$('#page').height(parseInt(page_contain_height));
+          parent.$('#page').css("margin-top","0");
+          parent.$('#page').css("margin-left","30");
+         
+          parent.$('.menuActive').removeClass('menuActive');
+          parent.$('#basic-atd').addClass('menuActive'); 
+        }
+      });
+
+        if("<%703%>"=="1")
+        {
+            if("<%697%>"=="1")
+            {
+                if($("#attached").hasClass("icon_main basic_home_icon"))
+                {
+                    $("#attached").hide();
+                }
+            }
+        }
+    }
+
+    function setParentalControlsState()
+    {
+      var ParentalControls_Result = <%2909%>;
+                 
+      var support = <%2910%>;
+      if(support == 0){
+        $('#ParentalControls-condition').text("<%2911%>"); 
+      }else{ 
+        if(ParentalControls_Result == 1){
+            $('#ParentalControls-condition').text("<%2912%>");
+        }else if(ParentalControls_Result == 2){
+            $('#ParentalControls-condition').text("<%2913%>");
+        }else{
+            $('#ParentalControls-condition').text("<%2914%>");
+        }
+      } 
+      if("<%622%>" != ""){
+        $('#parental').click(function(ev){ 
+            parent.$('#PAR_menu').click();
+        });
+        /*
+        if(support == 0){
+          $('#parental').click(function(ev){     
+               window.open("http://www.netgear.com/lpc",'_blank','fullscreen=yes,toolbar=yes,location=yes,scrollbars=yes');                      
+          });                  
+        }else{ 
+          if(ParentalControls_Result == 0){
+            $('#parental').click(function(ev){  
+              window.open("http://www.netgear.com/lpc",'_blank','fullscreen=yes,toolbar=yes,location=yes,scrollbars=yes');
+              parent.$('.menuActive').removeClass('menuActive');
+              parent.$('#basic-par').addClass('menuActive');    
+            });
+            //parent.$('#PAR_menu').attr("href","http://www.netgear.com/lpc"); 
+            //parent.$('#PAR_menu2').attr("href","http://www.netgear.com/lpc");
+          }else{
+            $('#parental').click(function(){
+              window.open("http://netgear.opendns.com/",'_blank','fullscreen=yes,toolbar=yes,location=yes,scrollbars=yes');
+              parent.$('.menuActive').removeClass('menuActive');
+              parent.$('#basic-par').addClass('menuActive');    
+            });
+            //parent.$('#PAR_menu').attr("href","http://netgear.opendns.com/"); 
+            //parent.$('#PAR_menu2').attr("href","http://netgear.opendns.com/");
+          }
+        }
+        */
+      }  
+    }
+
+    function setGuestNetworkState()
+    {
+      $('#guest').click(function(ev){     
+        location.href = "<%706%>";
+        parent.$('#page').width(parseInt(page_contain_width));
+        parent.$('#page').height(parseInt(page_contain_height));
+        parent.$('#page').css("margin-top","0");
+        parent.$('#page').css("margin-left","30");
+        parent.$('.menuActive').removeClass('menuActive');
+        parent.$('#basic-gst').addClass('menuActive');  
+      });
+
+        if("<%703%>"=="1")
+        {
+            if("<%697%>"=="1")
+            {
+                if($("#guest").hasClass("icon_main basic_home_icon"))
+                {
+                    $("#guest").hide();
+                }
+            }
+        }
+    }
+  });
+  
+  function marquee_board_init()
+  {
+    marquee_board_active("wireless1");
+    marquee_board_active("wireless2");
+    marquee_board_active("guest1");
+    marquee_board_active("guest2");
+  }
+  function marquee_board_active(item)
+  {
+    if(marquee_board_enable(item)) {
+      $("#"+item+"-2").html($("#"+item+"-1").html());
+      rTimer[item]=setInterval(function(){marquee_zone_move(item);},Speed);
+
+      $("#"+item).hover( 
+        function(){
+          clearInterval(rTimer[item]);
+        }, function() {
+          rTimer[item]=setInterval(function(){marquee_zone_move(item);},Speed);
+        }
+      );
+    }
+    else 
+    {
+      $("#"+item+"-1").css("padding-left","5px");
+      $("#"+item+"-1").css("float","left");
+    }
+  }
+
+  function marquee_zone_move(item){
+    var obj2=document.getElementById(item+"-2");
+    var obj=document.getElementById(item);
+
+    if(obj2.offsetWidth - obj.scrollLeft <= 0){
+        obj.scrollLeft = 0;
+    }else{
+        var temp = obj.scrollLeft;
+        obj.scrollLeft++;
+        if(temp==$("#"+item).scrollLeft)
+           obj.scrollLeft=0;
+    }
+  }
+  function marquee_board_enable(item)
+  {
+    var obj=document.getElementById(item+"-1");
+    if(get_browser()=="Netscape") {
+        if ($(obj).length > 0) {
+            if (obj.scrollWidth + 12 > $("#"+item).innerWidth())
+                return true;    
+        }
+    }
+    else{
+        if ($(obj).length > 0)  
+        {
+            //console.log(item+"-1="+$(obj).innerWidth()+", "+item+"=" + $("#"+item).innerWidth());
+            if($(obj).innerWidth() - $("#"+item).innerWidth() > 0)
+            {
+              //console.log("marquee_board_enable");
+                return true;    
+            }
+        }
+    }
+
+    return false;
+  }
+  function queryCurrentStatus(){
+        $.ajax({
+            url: "ajax/basicStatus.cgi?"+(new Date).getTime(),
+            dateType : 'json',
+            type: "POST",
+            success: function(msg){
+                if(msg.hasOwnProperty('internet') && msg.hasOwnProperty('internet_head') && msg.hasOwnProperty('internet_text')){
+                  Internet_Result = msg.internet;
+                  if(Internet_Result == 0){
+                    if($("#internet").find('.error-head').length)
+                        $("#internet").find('.error-head').remove();
+                    if($('#internet_stat').hasClass('error-bottom'))
+                        $('#internet_stat').removeClass('error-bottom');
+                    $('#internet_stat').html(msg.internet_head+":&nbsp;<span class='Condition-normal'>"+msg.internet_text+"</span>");
+                  }
+                  else{
+                    if($("#internet").find('.error-head').length == 0)
+                        $("#internet").prepend("<div class='error-head'></div>");
+                    if(!$('#internet_stat').hasClass('error-bottom'))
+                        $('#internet_stat').addClass('error-bottom');
+                    $('#internet_stat').html(msg.internet_head+":&nbsp;<span class='Condition-unnormal'>"+msg.internet_text+"</span>");
+                  }
+                  
+                  if((sBaseSettingLink0 != "") || (isCableWAN == "1")) {
+                    if(Internet_Result == 0){
+                      $('#internet').click(function(ev){ 
+                        if (isCableWAN == "1")
+                          location.href = "cable_connection.htm";
+                        else
+                          location.href = sBaseSettingLink0;
+
+                        parent.$('#page').width(parseInt(page_contain_width));
+                        parent.$('#page').height(parseInt(page_contain_height));
+                        $('#page').css("margin-top","0");
+                        $('#page').css("margin-left","30"); 
+
+                        parent.$('.menuActive').removeClass('menuActive');
+                        parent.$('#basic-int').addClass('menuActive'); 
+                      });
+                      if (isCableWAN != "1")
+                        parent.$('#INT_menu').attr("href",sBaseSettingLink0);
+                    }else if(Internet_Result == 1){
+                      $('#internet').click(function(ev){
+                        if (isCableWAN == "1")
+                          location.href = "cable_DocsisOffline.htm";
+                        else
+                          location.href = sBaseSettingLink1;
+
+                        parent.$('#page').width(parseInt(page_contain_width));
+                        parent.$('#page').height(parseInt(page_contain_height));
+                        parent.$('#page').css("margin-top","0");
+                        parent.$('#page').css("margin-left","30");
+
+                        parent.$('.menuActive').removeClass('menuActive');
+                        parent.$('#basic-int').addClass('menuActive');
+
+                      });
+                      if (isCableWAN != "1")
+                        parent.$('#INT_menu').attr("href",sBaseSettingLink1);
+                    }else{
+                      $('#internet').click(function(ev){ 
+                        if (isCableWAN == "1")
+                          location.href = "cable_DocsisOffline.htm";
+                        else
+                          location.href = sBaseSettingLink2;
+
+                        parent.$('#page').width(parseInt(page_contain_width));
+                        parent.$('#page').height(parseInt(page_contain_height));
+                        parent.$('#page').css("margin-top","0");
+                        parent.$('#page').css("margin-left","30");
+
+                        parent.$('.menuActive').removeClass('menuActive');
+                        parent.$('#basic-int').addClass('menuActive');
+
+                      });
+                      if (isCableWAN != "1")
+                        parent.$('#INT_menu').attr("href",sBaseSettingLink2);
+                    }               
+                  }
+              
+                }
+              
+                if(msg.hasOwnProperty('satellites_num')){
+                    $("#satellite_num").html(msg.satellites_num);
+                }
+                if(msg.hasOwnProperty('devices_num')){
+                    $("#dev_num").html(msg.devices_num);
+                }
+              
+                setTimeout(queryCurrentStatus, 10000);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                setTimeout(queryCurrentStatus, 30000);
+            }
+        }); 
+    }
+  </script>
+  </head>
+  <body style="background-color:#FFF;margin:0;padding:0;width:605px;height:405px;">
+         <div class="dashboard_zone">
+            <div id="internet" class="icon_main basic_home_icon">
+              <div class="icon_name subtext"><span class="subtext" id="internet_text"></span></div>
+              <div id="internet_stat" class="icon_status Status-normal"><%2915%>:&nbsp;<span class='Condition-normal'><%2916%></span></div>
+            </div>
+            <div id="wireless" class="icon_main basic_home_icon">
+              <div class="icon_name subtext"><%624%></div>
+              <div id="wlan_stat" class="icon_status Status-wireless-normal"><%2917%></div>
+            </div>
+
+            <div id="attached" class="icon_main basic_home_icon">
+              <div class="icon_name subtext"><%625%></div>
+              <div id="attached_stat" class="icon_status Status-normal">
+                <span id="Satellites-status"><%2918%>:&nbsp;<span id="satellite_num" class="Condition-normal"><%2919%></span></span>
+                <br>
+                <span id="AttachedDevices-status"><%2920%>:&nbsp;<span id="dev_num" class="Condition-normal"><%2921%></span></span>
+              </div>
+            </div>
+            <div id="parental" class="icon_main basic_home_icon" style="display:none">
+              <div class="icon_name subtext"><%2922%></div>
+              <div id="parant_control_stat" class="icon_status Status-normal">
+                
+                <span id="ParentalControls-status"><%2915%>:&nbsp;<span id="ParentalControls-condition" class="Condition-normal"></span></span>
+              </div>
+            </div>
+
+            <div id="guest" class="icon_main basic_home_icon">
+              <div class="icon_name subtext"><%707%></div>
+              <div id="guestNetwork_stat" class="icon_status Status-wireless-normal"><%2923%></div>
+            </div>
+         </div>
+         
+         <form>
+          <input type="hidden" name="curlang" value="<%9%>">  
+          <input type="hidden" name="sta_mode" value="<%698%>">  
+          <input type="hidden" name="ap_mode" value="<%697%>">  
+         </form>
+  </body>
+ <head>
+  <%11%>
+</head> 
+</html>

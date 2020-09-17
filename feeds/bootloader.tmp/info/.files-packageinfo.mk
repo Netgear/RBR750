@@ -1,0 +1,6 @@
+$(eval $(call PackageDir,lk-qca,lk-qca,))
+$(eval $(call PackageDir,qca-legacy-uboot,qca-legacy-uboot,))
+$(eval $(call PackageDir,qca-romboot,qca-romboot,))
+$(eval $(call PackageDir,uboot-ipq40xx,uboot-ipq40xx,))
+$(eval $(call PackageDir,uboot-ipq806x,uboot-ipq806x,))
+$(eval $(call PackageDir,uboot-qca,uboot-qca,))

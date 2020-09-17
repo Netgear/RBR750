@@ -1,0 +1,38 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-luci/Makefile
+Package: luci-hyfi
+Submenu: Hy-Fi features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci +luci-mod-admin-core +luci-mod-admin-full
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Web UI
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Hy-Fi
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-hyfi-advanced
+Submenu: Hy-Fi features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci +luci-mod-admin-core +luci-mod-admin-full +luci-hyfi
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Web UI - Advanced
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Hy-Fi - Advanced
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

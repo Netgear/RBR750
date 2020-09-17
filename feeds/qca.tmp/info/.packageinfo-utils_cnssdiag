@@ -1,0 +1,19 @@
+Source-Makefile: feeds/qca/utils/cnssdiag/Makefile
+Package: cnssdiag
+Version: g24328de-dirty
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq_ipq806x||TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64 +qca-diag +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA cnssdiag utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA cnssdiag utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

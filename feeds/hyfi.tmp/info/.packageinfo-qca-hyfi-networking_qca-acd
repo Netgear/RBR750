@@ -1,0 +1,20 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-networking/qca-acd/Makefile
+Package: qca-acd
+Submenu: Hy-Fi features
+Version: master.131
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +qca-ieee1905-init +kmod-qca-hyfi-bridge +qca-hyctl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Auto-configuration
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This package installs the Hy-Fi Auto-configuration scripts
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

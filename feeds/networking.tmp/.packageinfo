@@ -1,0 +1,98 @@
+Source-Makefile: feeds/networking/accel_pptpd/Makefile
+Package: accel_pptpd
+Submenu: VPN
+Version: 0.8.5-2
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +ppp-mod-pptp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Accel pptp server
+Maintainer: 
+Source: accel-pptp-0.8.5.tar.bz2
+Type: ipkg
+Description: Accel pptp server
+https://downloads.sourceforge.net/project/accel-pptp/accel-pptp/
+
+@@
+
+
+Source-Makefile: feeds/networking/lacpd/Makefile
+Package: lacpd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libubox +libuci +libubus +ubus +ubusd +!PACKAGE_kmod-qca-ssdk-nohnat:kmod-qca-ssdk-hnat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Link aggregation control protocol Daemon
+Maintainer: Xiaoping Fan <xfan@codeaurora.org>
+Source: lacpd-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Link aggregation control protocol Daemon
+Xiaoping Fan <xfan@codeaurora.org>
+@@
+
+
+Source-Makefile: feeds/networking/openswan/Makefile
+Package: openswan
+Submenu: VPN
+Version: 2.6.41-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libgmp +kmod-openswan
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Openswan (daemon)
+Maintainer: 
+Source: openswan-2.6.41.tar.gz
+Type: ipkg
+Description:  Openswan is an IPsec implementation for Linux.
+ This package contains the Openswan user-land daemon.
+http://www.openswan.org/
+
+@@
+
+Package: kmod-openswan
+Submenu: Network Support
+Version: <LINUX_VERSION>+2.6.41-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Openswan (kernel module)
+Maintainer: 
+Source: openswan-2.6.41.tar.gz
+Type: ipkg
+Description:  Openswan is an IPsec implementation for Linux.
+ This package contains the Openswan kernel module.
+http://www.openswan.org/
+
+@@
+
+
+Source-Makefile: feeds/networking/rstp/Makefile
+Package: rstp
+Version: 2011-10-11-434d24bae108dbb21461a13a4abcf014afa8b029
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +PACKAGE_kmod-qca-ssdk-nohnat:kmod-qca-ssdk-nohnat +PACKAGE_kmod-qca-ssdk-hnat:kmod-qca-ssdk-hnat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Rapid Spanning Tree Protocol implement
+Maintainer: Stephen Hemminger <shemminger@vyatta.com>
+Source: rstp-2011-10-11-434d24bae108dbb21461a13a4abcf014afa8b029.tar.gz
+License: GPLv2
+Type: ipkg
+Description:   This package installs the RSTP daemon and tools
+http://git.kernel.org/cgit/linux/kernel/git/shemminger/rstp.git/
+Stephen Hemminger <shemminger@vyatta.com>
+@@
+
+

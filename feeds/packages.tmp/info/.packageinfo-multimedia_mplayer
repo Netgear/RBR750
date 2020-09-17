@@ -1,0 +1,20 @@
+Source-Makefile: feeds/packages/multimedia/mplayer/Makefile
+Package: mplayer
+Version: 1.1.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @!TARGET_ipq_ipq807x_64 @!TARGET_ipq_ipq60xx_64 +libbz2 +libpthread +libncurses +libmad +libmpg123 +libltdl +alsa-lib +liblzo +libSDL +libogg +libtheora +zlib +opencore-amr +libffmpeg-full +libspeex +libvpx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: sound
+Category: Sound
+Title: MPlayer
+Maintainer: 
+Source: MPlayer-1.1.1.tar.xz
+Type: ipkg
+Description: MPlayer can play most standard video formats out of the box
+and almost all others with the help of external codecs.
+http://www.mplayerhq.hu/
+
+@@
+
+

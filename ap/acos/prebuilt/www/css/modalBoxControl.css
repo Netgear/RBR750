@@ -1,0 +1,139 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #9E9E9E;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    color: white;
+}
+.modalButton{
+  width: 60%;
+  background-color: #97c453;
+  border-radius: 5px;
+  color: white;
+  height: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 51px;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+#modalBox div{
+  FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif;
+}
+.modalBox-title{
+  color: #333;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 20px;
+}
+.modal-body p{
+  text-align: center;
+  margin-left: 16%;
+  margin-right: 16%;
+  font-size: 13px;
+}
+#modalBox .learn-more-link{
+  width: 100%;
+  text-align: center;
+  float: left;
+  color: #09c;
+  margin-top: 5px;
+  text-decoration: none;
+}
+.modal-body-bottom-left,
+.modal-body-bottom-right,
+.modal-body-bottom-left div,
+.modal-body-bottom-right div,
+.modal-body-bottom-left input,
+.modal-body-bottom-right input{
+  float: left;
+}
+.modal-body-bottom-left{
+  margin-left: 32%;
+}
+#modalBox .modal-content{
+	min-height: 445px;
+    min-width: 480px;
+}
+.modal-body-bottom-left div{
+  font-size: 12px;
+  line-height: 18px;
+}
+.modal-body-bottom-right{
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #97c453;
+  cursor: pointer;
+}
+.modal-body-bottom-left input{
+  cursor: pointer;
+}
+.circle-disney-logo img{
+    height: 115px;
+    margin-left: 112px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}

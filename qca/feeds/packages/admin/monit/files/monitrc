@@ -1,0 +1,68 @@
+###############################################################################
+## Monit control file
+###############################################################################
+##
+## Start Monit in the background (run as a daemon):
+#
+set daemon  2              # check services at 2 seconds intervals
+with start delay 600    # optional: delay the first check by 10 mins (by
+#                           # default Monit check immediately after Monit start)
+#
+#
+## Set syslog logging. If you want to log to a standalone log file instead,
+## specify the full path to the log file
+#
+set logfile syslog
+
+#
+## Monit has an embedded HTTP interface which can be used to view status of
+## services monitored and manage services from a web interface. The HTTP
+## interface is also required if you want to issue Monit commands from the
+## command line, such as 'monit status' or 'monit restart service' The reason
+## for this is that the Monit client uses the HTTP interface to send these
+## commands to a running Monit daemon. See the Monit Wiki if you want to
+## enable SSL for the HTTP interface.
+#
+set httpd port 2812 and
+    use address localhost  # only accept connection from localhost
+    allow localhost        # allow localhost to connect to the server and
+    allow admin:monit      # require user 'admin' with password 'monit'
+
+check file satellite with path /tmp/satellite
+
+check host gateway with address $$GATEWAY$$
+   if failed ping count 1 with timeout 1 seconds
+   then exec "/usr/sbin/error_recovery.sh gateway_ping failed"
+   else if succeeded
+   then exec "/usr/sbin/error_recovery.sh gateway_ping succeeded"
+   depends on satellite
+   group recovery_monitor
+
+check network ath1 with interface ath1
+       if failed link
+       then exec "/usr/sbin/error_recovery.sh ath1 failed"
+       else if succeeded
+       then exec "/usr/sbin/error_recovery.sh ath1 succeeded"
+       group recovery_monitor
+
+check network ath12 with interface ath12
+       if failed link
+       then exec "/usr/sbin/error_recovery.sh ath12 failed"
+       else if succeeded
+       then exec "/usr/sbin/error_recovery.sh ath12 succeeded"
+       group recovery_monitor
+
+check network ath0 with interface ath0
+       if failed link
+       then exec "/usr/sbin/error_recovery.sh ath0 failed"
+       else if succeeded
+       then exec "/usr/sbin/error_recovery.sh ath0 succeeded"
+       group recovery_monitor
+
+check network ath2 with interface ath2
+       if failed link
+       then exec "/usr/sbin/error_recovery.sh ath2 failed"
+       else if succeeded
+       then exec "/usr/sbin/error_recovery.sh ath2 succeeded"
+       group recovery_monitor
+

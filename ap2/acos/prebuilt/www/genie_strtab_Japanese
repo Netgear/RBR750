@@ -1,0 +1,901 @@
+bh_internet_checking ="インターネット接続をチェックしています。 お待ちください…";
+bh_config_net_connection ="インターネット接続を設定しています。";
+bh_connection_further_action ="まだインターネットに接続していません。";
+bh_want_genie_help ="NETGEAR Genieをご利用になりますか？";
+bh_yes_mark ="はい。";
+bh_no_genie_help ="いいえ。インターネット接続を自分で設定します。";
+bh_no_genie_help_confirm ="インターネット接続を設定するには、ネットワーク設定の経験が必要です。 よろしいですか？";
+bh_have_saved_copy ="保存してあるルータ設定を使用して、設定を復元します。"
+bh_next_mark ="次へ";
+bh_detecting_connection ="インターネット接続を検出しています。";
+bh_plz_wait_process ="このプロセスには1～2分かかります。お待ちください...";
+bh_no_cable ="ルータのインターネットポートにイーサネットケーブルが接続されていません。";
+bh_wizard_setup_nowan_check ="ケーブルがブロードバンドモデムポートとルータインターネットポートの両方にしっかりと接続されていることを確認してください。";
+bh_click_try_again ="イーサネットケーブルを確認した後、<b>［やり直す］</b>をクリックしてください。";
+bh_try_again ="やり直す";
+bh_pppoe_connection ="PPPoE DSLインターネット接続が検出されました。";
+bh_enter_info_below ="必要な情報を以下に力してください。";
+bh_pppoe_login_name ="ユーザ名";
+bh_ddns_passwd ="パスワード";
+bh_ISP_namePasswd_error ="プロバイダのユーザ名とパスワードが間違っています。";
+bh_enter_info_again ="必要な情報をもう一度入力してください。";
+bh_pptp_connection ="PPTPインターネット接続が検出されました。";
+bh_basic_pptp_servip ="サーバアドレス";
+bh_sta_routes_gtwip ="ゲートウェイ IP アドレス";
+bh_basic_pptp_connection_id ="接続 ID/名前";
+bh_bpa_connection ="BigPondインターネット接続が検出されました"; 
+bh_basic_bpa_auth_serv ="認証サーバ"
+bh_basic_pppoe_idle ="アイドルタイムアウト (分)"
+bh_L2TP_connection ="L2TPインターネット接続が検出されました。";
+bh_L2TP_MyIP ="マイ IP アドレス";
+bh_L2TP_subnetmask ="サブネットマスク";
+bh_no_internet_ip ="インターネット接続を検出中に問題が生じました";
+bh_no_internet_ip2 ="インターネット接続を検出中に問題が生じました - IPアドレス";
+bh_no_internet_ip3 ="インターネット接続を検出中に問題が生じました - MACアドレス";
+bh_if_have_static_ip ="ご利用のサービスプロバイダは、あなたに固定 (スタティック) IPアドレスを提供していますか？ 多くの場合、IPアドレスは固定ではなく、プロバイダから自動的に配布されます。 ";
+bh_yes_correct ="はい。 プロバイダから固定 (スタティック) IPアドレスを割り当てられています。";
+bh_not_have_static_ip ="いいえ。プロバイダから固定 (スタティック) IPアドレスは取得していません。";
+bh_do_not_know ="わかりません。 ";
+bh_select_option ="オプションを選択し、<b>［次へ］</b>をクリックします。";
+bh_select_an_option ="まずオプションを選択してください。";
+bh_fix_ip_setting ="固定インターネットIP設定;
+bh_enter_ip_setting ="インターネットプロバイダから提供された固定IP設定を入力し、<b>［次へ］</b>をクリックします。";
+bh_info_mark_ip ="IPアドレス";
+bh_info_mark_mask ="サブネットマスク";
+bh_constatus_defgtw="デフォルトゲートウェイ"
+bh_preferred_dns ="推奨されるDNSサーバ";
+bh_alternate_dns ="別のDNSサーバ";
+bh_genie_cannot_find_ip ="次の理由が原因である可能性があります：";
+bh_genie_cannot_find_ip_reason1 ="1.  モデムの電源が入っていません。";
+bh_genie_cannot_find_ip_reason1_desc ="この問題を解決するには、ブロードバンドモデムの電源を一旦切り、再起動してください。ご利用のモデムがバッテリー利用の場合、バッテリーを一度取り外してから再度挿入し、モデムの電源を入れなおしてください。";
+bh_genie_cannot_find_ip_reason2 ="2.  イーサネットケーブルが完全に接続されていないか、または間違った場所に接続されています。";
+bh_genie_cannot_find_ip_reason2_desc ="この問題を解決するには、イーサネットケーブルがブロードバンドモデムポートとルータのインターネットポートの両方にしっかりと接続されていることを確認してください。";
+bh_select_no_IP_option ="以下からいずれかのオプションを選択し、<b>［次へ］</b>をクリックします：";
+bh_select_no_IP_option1 ="モデムの電源を入れなおし、2分間待ちました。";
+bh_select_no_IP_option2 ="イーサネットケーブルの問題を修正しました。";
+bh_select_no_IP_option3 ="いずれでもない";
+bh_use_pc_mac ="コンピュータまたは他のルータでインターネットサービスに接続したことがある場合、NETGEAR Genieは以前使用したものと同じMACアドレスを使用することができます。";
+bh_mac_in_product_label ="MACアドレスは機器固有の番号です。  コンピュータやルータのMACアドレスは製品ラベルに記載されています。";
+bh_enter_mac ="ここにMACアドレスを入力します。";
+bh_mac_format ="(書式：AABBCCDDEEFF)";
+bh_settings_restoration ="ルータ設定の復元";
+bh_browser_file ="以前に保存したルータ設定のバックアップファイルを選択し、<b>［次へ］</b>をクリックします。";
+bh_back_mark ="戻る";
+bh_settings_restoring ="ルータ設定を復元中"; 
+bh_plz_waite_restore ="このプロセスには数分かかります。お待ちください …";
+bh_apply_connection ="インターネット接続設定を適用する";
+bh_plz_waite_apply_connection ="このプロセスには1～2分かかります。お待ちください...";
+bh_netword_issue ="ネットワーク接続の問題";
+bh_cannot_connect_internet ="ルータは現在の設定ではインターネットに接続できません。";
+bh_plz_reveiw_items ="以下のアイテムをご覧ください。";
+bh_cable_connection ="- 正しくケーブル接続されているか確認してください。 ルータのインストールガイドをご参照ください。";
+bh_modem_power_properly ="- ブロードバンドモデムの電源を一旦切り、再起動してください。ご利用のモデムがバッテリー利用の場合、バッテリーを一度取り外してからもう一度挿入し、モデムの電源を入れなおしてください。";
+bh_try_again_or_manual_config ="もう一度NETGEAR Ginieをご利用になりますか？";
+bh_I_want_manual_config ="いいえ。インターネット接続を自分で設定します。";
+bh_manual_config_connection ="インターネット接続を自分で設定します。";
+bh_congratulations ="おめでとうございます！";
+bh_connect_success_1 ="インターネットに接続しました。";
+bh_connect_success_2 ="このルータは次のワイヤレスネットワーク名 (SSID) であらかじめ設定されており、 ";
+bh_network_key ="ネットワークキー (パスワード)";
+bh_rollover_help_text ="ご利用のルータには、不正なアクセスからネットワークを保護するためのWPA2-PSKワイヤレスセキュリティが設定されています。 このワイヤレスネットワークに接続するには、ネットワークキー (パスワード) が必要になります。 初期設定のネットワークキー（パスワード）は、シリアルナンバーのようにこのルータ固有のものです。  変更したい場合は、ルータ管理画面のワイヤレス設定画面で行えます。"; 
+bh_wireless_name ="ワイヤレスネットワーク名 (SSID)";
+bh_wireless ="ワイヤレス  ";
+bh_wpa_wpa2_passpharse ="ネットワークキー (パスワード)";
+bh_print_this ="これを印刷";
+bh_take_to_internet ="インターネットに接続する";
+bh_plz_wait_moment ="しばらくお待ちください...";
+bh_not_support_print ="コンピュータはプリンタに対応していません。";
+bh_login_name_null ="ユーザ名は空欄にできません。";
+bh_password_error ="無効なパスワードです。"
+bh_idle_time_null ="アイドル時間を入力してください。\n";
+bh_invalid_idle_time ="無効なアイドル時間です。 正しい数値を入力してください。\n";
+bh_invalid_myip ="無効なIPアドレスです。 もう一度入力するか、空白にしてください";
+bh_invalid_gateway ="無効なゲートウェイIPアドレスです。 もう一度入力してください。";
+bh_bpa_invalid_serv_name ="無効な認証サーバIPアドレスです。";
+bh_invalid_servip_length ="ラベルは63文字以下で設定してください。\n";
+bh_invalid_ip ="無効なIPアドレスです。 もう一度入力してください。";
+bh_invalid_mask ="無効なサブネットマスクです。 もう一度入力してください。\n";
+bh_same_subnet_ip_gtw ="IPアドレスとゲートウェイIPアドレスは同じサブネットに設定してください。\n";
+bh_same_lan_wan_subnet ="LAN IPアドレスとWAN IPアドレスは異なるサブネットに設定してください。";
+bh_filename_null ="ファイル名は空欄にできません。";
+bh_not_correct_file ="正しいファイルを割り当ててください。 ファイル形式は *.です。";
+bh_ask_for_restore ="警告！ \n設定ファイルを復元すると、現在の設定をすべて消去します。 \n実行してよろしいですか？";
+bh_invalid_primary_dns ="無効なプライマリDNSアドレスです。 もう一度入力してください。\n";
+bh_invalid_second_dns ="無効なセカンダリDNSアドレスです。 もう一度入力してください。\n";
+bh_dns_must_specified ="DNSアドレスを指定してください。";
+bh_invalid_mac ="無効なMACアドレスです。;
+bh_failure_head ="エラー";
+bh_few_second ="この画面はあと数秒で自動的に前の画面に戻ります...";
+bh_important ="重要な更新";
+bh_wanlan_conflict_info ="プロバイダとの競合を避けるため、ルータのIPアドレスは次のように更新されました。";
+bh_continue_mark ="続ける";
+bh_connect_no_sec1 ="ワイヤレスセキュリティはこのルータでは有効になっていません。 NETGEARは、ワイヤレスセキュリティを有効にし、"
+bh_connect_no_sec2 ="ここをクリック";
+bh_connect_no_sec3 ="ネットワークを保護することを推奨します。"
+bh_firmware_version ="ルータのファームウェアバージョン";
+bh_multi_login_info ="現在、他のコンピュータからログインしています。 複数台のコンピュータから同時にログインすることはできません。 他のコンピュータからからログインすると、現在ログインしているコンピュータはログアウトします。 続けますか？"
+bh_no_mark ="いいえ"
+RU_fixip_warn="Внимание! Вы используете фиксированный (статический) IP-адрес для вашего внутреннего интерфейса доступа к локальным ресурсам провайдера. Для того чтобы доступ к ресурсам работал корректно, вам необходимо по завершению текущей настройки указать статические маршруты. Для их настройки перейдите в меню «Статические маршруты» и следуйте соответствующим указаниям в справке. Используйте IP-адрес шлюза, который предоставил вам провайдер, в качестве шлюза назначения для каждого из добавленных маршрутов."
+
+wait_for_searching="NETGEAR Genieは近くのWiFiネットワークを検出しています。 <br>この操作には1分ほどかかります。"
+ca_wireless_ap="既存のネットワークの名前を選択してください。"
+sel_24g="ワイヤレス・エクステンダーとルーター間の通信に2.4GHz 帯のワイヤレス・ネットワークを選択："
+refresh_mark="更新"
+continue_mark="続ける"
+guest_table_ssid="SSID"
+info_mark_chan="チャネル"
+ca_ap_signal="シグナル"
+guest_table_secur="セキュリティ"
+ca_manual_wl_ssid="自分のワイヤレスSSIDを手動入力"
+sel_5g="ワイヤレス・エクステンダーとルーター間の通信に5GHz 帯のワイヤレス・ネットワークを選択："
+ca_ap_head=選択されたワイヤレスネットワークのセキュリティ設定を入力"
+network_24g="2.4GHzにおける既存のネットワーク:"
+info_mark_ssid="ネットワーク名 (SSID)"
+email_none="なし"
+r_wep="WEP"
+wpapsk="WPA-PSK [TKIP]"
+r_wpa2="WPA2-PSK [AES]"
+sec_enc_head="セキュリティ暗号化 (WEP)"
+ca_12_encr="暗号化の強度"
+sec_key="セキュリティ暗号化 (WEP) キー"
+sec_phr="パスワード（ネットワークキー）:"
+generate_mark="生成"
+sec_key1="キー1:"
+sec_key2="キー2:"
+sec_key3="キー3:"
+sec_key4="キー4:"
+sec_863_or_64h="(8-63文字または64桁の16進数)"
+wpa_decribion1="ご利用のルータでアクセス制御リスト (ACL) が有効な場合、以下のMACアドレスを必ずルータのアクセス制御リスト (ACL) に追加してください。"
+wpa_decribion2="ご利用のワイヤレスアダプタのMACアドレスはです"
+wpa_decribion3=" "
+ca_mac="このデバイスのMACアドレス"
+network_5g="5GHzにおける既存のネットワーク:"
+back_mark=" <戻る"
+ca_retry_head="エクステンダーは既存のネットワークに接続できませんでした。"
+ca_retry_message="パスフレーズをもう一度入力し、やり直してください。<br><br>正しいパスフレーズを入力してもエクステンダーが既存のワイヤレスネットワークに接続できない場合、エクステンダーをルータの近くに移動するか、またはより見通しの良い場所に置いてください。エクステンダーのLEDを確認し、問題を排除してください。LEDの詳細については、インストールガイド及び商品のユーザマニュアルに説明しています。<br><br>別のネットワークを選択する場合は、[キャンセル] をクリックしてください。<br>  "
+keep_ssid_warning="ご利用のデバイスで無線性能を最大限に活用するには、エクステンダーネットワークに対して固有のSSIDを使用することを推奨します。また、既存のネットワークで十分にカバーできない場合にのみ、エクステンダーネットワークを使用してください。"
+ca_apsetting_head="エクステンダーネットワークの設定を入力します。"
+info_mark_2g_ssid="2.4GHzネットワーク名 (SSID)：
+info_mark_5g_ssid="5GHzネットワーク名 (SSID):"
+eth_bind_band="WiFiへのイーサネットポートは、次の帯域を使用しています："
+ca_ap_use_same_sec="既存のネットワークと同じセキュリティモードとパスワードを使用してください。"
+r_wpas="WPA-PSK [TKIP] + WPA2-PSK [AES]"
+route_title="ルータ形式"
+wait_for_connect="NETGEAR genie は既存のワイヤレスルーターとエクステンダーのワイヤレス接続をセットアップします。<br>これには数秒かかります。"
+wait_for_connect2="NETGEAR genie に設定を適用しています。<br>これにはおよそ1分程かかります。"
+ca_15_logging_1="インストールはまもなく完了します。"
+ca_15_logging_2="エクステンダーネットワークが作成されました:"
+ca_15_repeater_24g="エクステンダーネットワーク (2.4GHz b/g/n):"
+ca_15_repeater_5g=" エクステンダーネットワーク (5GHz a/n):"
+ca_15_ssid="ワイヤレスネットワーク名 (SSID)"
+ca_15_sec="セキュリティタイプ"
+cp_passwd="パスワードコピー"
+ca_15_logging_3="ワイヤレスデバイスを新しいエクステンダーネットワークに接続しなおす必要があります。ワイヤレスデバイス（ノートPC、タブレット、スマートフォン、ゲーム機等）では、ワイヤレスマネージャーを使用して新しいエクステンダーネットワーク（上記）を検出し、接続します。例えばノートPCでは、次のようにWindows ワイヤレスマネージャーを使ってコンピューターを新しいエクステンダーネットワークに接続します。"
+ca_checkbox="無線 LAN デバイスを接続後 [続ける] ボタンをクリックします。"
+next_mark="続ける"
+ca_con_success_head="おめでとうございます！ エクステンダーは正常に既存のネットワークと接続されました。"
+finish="完了"
+ca_connect_uncomplete_head="エクステンダーを既存のルータまたはゲートウェイに近づけてください。"
+ca_connect_uncomplete_1="接続速度LEDは赤です。これは、エクステンダーが既存のワイヤレスネットワークに良好な状態で接続されていないことを意味します。"
+ca_connect_uncomplete_2="<b> エクステンダーをルータの近くに移動するか、またはより見通しの良い場所に移動してから、[やり直す] をクリックしてください。</b><br><br> "
+ca_connect_uncomplete_3="別のネットワークを選択する場合は、[キャンセル] をクリックします。<br><br> "
+ca_connect_uncomplete_4="そのまま設定を完了するには、[完了] をクリックします。<br> "
+ca_connect_uncomplete_5=" "
+tryagain_mark="やり直す"
+ca_connect_uncomplete_wpa="選択されたネットワークは利用できなくなりました。 既存のネットワークの設備がエクステンダーの近くにあることを確認してください。"
+24g_flag="2.4GHz"
+5g_flag="5GHz"
+select_network="1-ネットワークを選択"
+apply_sec="2-セキュリティを適用"
+connect_network="3-エクステンダーを設定"
+config_repeater="4-設定を最終化"
+review_setting="5-設定を確認"
+ca_change_24g="エクステンダー 2.4GHzのネットワーク名 (SSID) は次のとおり変更されました"
+ca_change_5g="エクステンダー 5GHzのネットワーク名 (SSID) は次のとおり変更されました"
+ca_change_5g_2="また、5GHzのネットワーク名 (SSID) は次のとおり変更されました"
+ca_follow="。 \n\n指示に従い、設定を完了してください。"
+ca_con_success="接続速度を示すLEDが緑色の場合、エクステンダーは最高速度で既存のネットワークに接続されていることを意味します。"
+ca_con_amber="接続速度を示すLEDが黄色の場合、エクステンダーは良好な速度で既存のネットワークに接続されていることを意味します。"
+ca_retry_message1="パスフレーズをもう一度入力し、やり直してください。"
+ca_retry_message2="正しいパスフレーズを入力してもエクステンダーが既存のワイヤレスネットワークに接続できない場合、エクステンダーをルータの近くに移動するか、またはより見通しの良い場所に置いてください。エクステンダーのLEDを確認し、問題を排除してください。LEDの詳細については、インストールガイド及び商品のユーザマニュアルに説明しています。"
+ca_retry_message3="別のネットワークを選択する場合は、[キャンセル] をクリックしてください。"
+sec_type="セキュリティオプション"
+select_country="国または地域を選択してください"
+select_band_head="Select the WiFi band you would like to connect your devices to:"
+performance_head="FastLane technology offers maximum performance by using both 2.4 and 5GHz bands to create one fast connection. To configure FastLane technology, you will need a dual band router."
+
+select="選択"
+security_null="ワイヤレスネットワークのセキュリティモードを選択してください。"
+coun_select1="--- 地域を選択 ---"
+coun_af="アフリカ"
+coun_au="オーストラリア"
+coun_eu="ヨーロッパ"
+coun_jp="日本"
+coun_mx="メキシコ"
+coun_na="北アメリカ"
+back_mark_2="戻る"
+coun_select="現在お住まいの場所を選択してください。"
+ssid_same="2.4G と 5G の SSID が同じです"
+ssid_null="SSIDは空白にできません。"
+a_notssid="SSIDで使用できない文字が含まれます。"
+alert_wpapsk="重要\nゲストネットワークのWPA-PSK [TKIP] は\"最大 54Mbps\" (レガシーG) モードでのみ有効です。Nモードでは使用できません。\n速度 N のサポートを利用するには、ゲストネットワークでWPA2-PSK [AES] を使用することをお勧めします。"
+alert_autopsk="重要\nWPA-PSK [TKIP] のみ、 \"最大54Mbps\" (レガシーG) レートで動作しますが、Nレートは動作しません。\nNレートを完全にサポートするには、WPA2-PSK [AES] を使用することを推奨します。"
+skip_mark="スキップ"
+cancel_mark="キャンセル"
+passphrase_notice="パスフレーズは8～63桁のASCII文字、またはちょうど64文字の16進数で設定してください。16進数は次のいずれかです：0，1，2，...，8，9，A，B，C，D，E，F。"
+a_notallowpassp="この文字はパスフレーズに使用できません。"
+m_key64="無効なキー。\n\nキーの長さは 16 進数（0 ～ 9 および A ～ F）文字 10 桁または ASCII 文字 5 桁にしてください。"
+m_key128="無効なキー。\n\nキーの長さは 16 進数（0 ～ 9 および A ～ F）文字 26 桁または ASCII 文字 13 桁にしてください。"
+ca_add_bookmark="\"エクステンダー の設定\"をブックマークに追加しますか？"
+
+ca_configure="ワイヤレス・エクステンダーを構成"
+ca_notice1="インターネットに接続できません。"
+ca_notice2="NETGEAR Genieをご利用になりますか？";
+wizard_setup_yes="はい"
+ca_select_no="いいえ。インターネット接続を自分で設定します。";
+wps_next_mark="次へ"
+
+//20120215 Netgear update GUI
+menu1="ステップ 1：ワイヤレスネットワークの選択"
+menu2="ステップ 2：エクステンダーのセットアップ"
+menu3="ステップ 3：設定の適用"
+ca_notice1_1="ワイヤレスエクステンダーはルーターに接続されていません。NETGEAR genie を使って接続しますか？"
+ca_ap_manual_head="既存のルーターのワイヤレスネットワーク設定を入力してください"
+ca_wireless_ap_24g="ご利用の 2.4GHz ワイヤレスネットワークの名前を選択してください。"
+ca_wireless_ap_5g="ご利用の 5GHz ワイヤレスネットワークの名前を選択してください。"
+sel_5g_des_1="エクステンダーはデュアルバンド（2.4GHz/5GHz）に対応しています。"
+sel_5g_des_2="接続したい2.4GHzワイヤレスネットワークを選択し、<b>続ける</b> をクリックして5GHzネットワークを選択、または<b>スキップ</b>をクリックして直接5GHzネットワークを選択します。"
+not_support_5g="ルーターは 5GHz 帯域に対応していません。"
+confirm_24g="2.4GHz のセットアップをスキップするには、5GHz ネットワークのセットアップが必要です。さもないとデバイスは既存のネットワークに接続することができません。 \n続行してよろしいですか?"
+set_late_5g="後で設定する"
+
+//user select network type
+private_network="プライベートネットワーク"
+public_network="パブリックネットワーク（これを選択するとNAT/firewallを有効にします）"
+ca_wifi_head="このワイヤレスネットワーク ("
+ca_wifi_head_rest=") はプライベートホームネットワークですか、それともパブリックネットワーク（ホテルやカフェ等）ですか?"
+ca_wire_head="ケーブルはプライベートホームネットワークに接続されていますか、それともパブリックネットワーク（ホテルやカフェ等）に接続されていますか？"
+
+genie_menu1="ステップ 1：インターネット接続の検出"
+genie_menu2="ステップ 2：エクステンダーのセットアップ"
+genie_menu3="ステップ 3：設定の適用"
+
+sel_2g_des_1="エクステンダーはデュアルバンド（2.4GHz/5GHz）に対応しています。"
+sel_2g_des_2="接続したい2.4GHzワイヤレスネットワークを選択し、<b>続ける</b> をクリックして5GHzネットワークを選択、または<b>スキップ</b>をクリックして直接5GHzネットワークを選択します。"
+
+link_rate_localization1="エクステンダーがルーターまたはゲートウェイおよびクライアントに接続した後2分以内にエクステンダーの矢印LEDが点滅しているか確認します。 矢印の点滅は、よりよいWiFiパフォーマンスを得るためにエクステンダーを別の場所に移動させる必要があることを示します。 <br>良好なWiFiパフォーマンスが得られる場所にエクステンダーがある場合、矢印LEDは点滅しません。"
+link_rate_localization2="左矢印LEDが点滅："
+link_rate_localization3="エクステンダーをルーターまたはゲートウェイに近づけてください。 それが不可能な場合、ルーターとエクステンダー間を遮るものがないようにしてください。"
+link_rate_localization4="右矢印LEDが点滅："
+link_rate_localization5="エクステンダーをクライアント（エクステンダーのWi-Fiネットワークを使用しているワイヤレスコンピューターまたはデバイス）の場所に近づけてください。"
+router_link_rate_behavior="<b>ルーターリンクLEDは次のように動作します：</b><br>緑：ケーブルが接続されており、IPを取得しています<br>赤：ケーブルが接続されていますが、IPが取得できません<br>消灯：ケーブルが接続されていません"
+client_link_rate_behavior="<b>クライアントリンクLEDは次のように動作します：</b><br>緑：高品質<br>黄色：中品質<br>赤：低品質"
+
+internet_via_WiFi="デバイスをエクステンダーとして機能するように設定しました。"
+internet_via_Wired="デバイスをアクセスポイントとして機能するように設定しました。"
+
+ca_15_repeater="エクステンダーネットワーク"
+ca1_15_checkbox="私のコンピュータは、エクステンダーネットワークに接続しました。(このチェックボックスを選択すると、[続ける] のボタンが有効になります。)"
+extender_info="コンピューターまたはモバイル端末のワイヤレスネットワークマネージャーで以下の設定を行い、エクステンダーネットワークに接続してください。"
+disable_dhcp="Internal DHCP Server will be disabled. Do you want to continue?"
+
+﻿/////////////////////////////////////////////New GUI Strings////////////////////////////////////////////////////////
+
+save_upper="保存"
+cancel_upper="キャンセル"
+back_upper="戻る"
+next_upper="次へ"
+ok_lower="OK"
+
+//screen1.html
+choose_mode="操作モードを選択してください"
+welcome_genie="NETGEAR genie へようこそ。 エクステンダーをどのように使いますか？"
+ap_mark="アクセスポイント"
+
+//howToUse.html
+extend_exist_network="ワイヤレスエクステンダーを選択すると、既存のワイヤレスネットワークの範囲を拡張できます。"
+wifi_hotspot="アクセスポイントを選択すると、既存の有線接続につなげてワイヤレスホットスポットを作成できます。"
+
+//screen2.html
+genie_setup="NETGEAR genie セットアップへようこそ"
+setup_option="接続を開始します。セットアップ方法を選択してください。"
+connect_extender_browser="ブラウザーベースのウィザードを使ってエクステンダーに接続します。画面の指示に従ってエクステンダーのワイヤレスネットワーク名 (SSID) とパスワードを選択します。"
+smart_setup="NETGEAR genie かんたん設定"
+connect_extender_wps="下記の [WPS (WiFi Protected Setup)] ボタンを押すか、エクステンダー本体の WPS ボタンを押してエクステンダーに接続します。この機能を使うには、お使いのルーターが WPS に対応している必要があります。"
+wps_setup_new="WPS (WiFi Protected Setup)"
+
+//screen3-access.html
+look_internet_conn="インターネット接続を検出しています。"
+connect_detect="接続が検出されました"
+no_connect_detect="接続が検出されませんでした"
+
+//screen4-access.html
+decect_conn="接続の問題が検出されました"
+not_find_conn="インターネット接続が検出できませんでした。"
+try_str="次のいずれかを行い、もう一度試してみてください。"
+restart_router_info="ルーターの電源をオフにした後再度電源を入れます。電源を入れてからルーターが起動するまで 2 分程待ちます。"
+check_info="イーサネットケーブルがエクステンダーとルーターの正しいポートにしっかりと接続されていることを確認します。"
+operation_tip="次の中からオプション一つ選択し、[もう一度試す] をクリックして続けます："
+operation_process="モデムを再起動して 2 分間待ちました。"
+problem_info="イーサネットケーブルの接続の問題を修復しました。"
+none_info="上記のいずれでもない。"
+try_again_sign="もう一度試す"
+
+//screen5-access.html
+conn_type="接続先の選択"
+inquery_network_conn="お使いの有線接続はプライベートネットワークに接続されていますか？パブリックネットワークに接続されていますか？"
+setting_network="有線ホームネットワークに接続されている場合は、この設定を使用します。"
+home_network_mark="プライベートネットワーク"
+firewall_enable="NAT ファイアウォールを有効にして追加の保護レイヤーを作成します。ホテルやカフェの有線ネットワークに接続している場合は、この設定を使用します。"
+network_public="パブリックネットワーク"
+
+//networkTypeNote.html
+network_type_note="悪意のあるプログラムがインターネット上をスキャンしてスパムや個人情報の収集に利用できそうなデバイスを探しています。多くのアプリケーションは意図せずに接続をオープンにしたままにしており、悪意のあるソフトウェアがこれらのアプリケーションに接続すると、システムをコントロールしてマルウェアをインストールします。NAT ファイアウォールはこれらの悪意のあるスキャンや接続をブロックします。"
+
+//screen6-access.html
+info_ap="アクセスポイントネットワークのワイヤレスネットワーク名 (SSID) を入力し、セキュリティ設定を選択してください。"
+band_24g="2.4GHz ネットワーク"
+band_5g="5GHz ネットワーク"
+
+//securitySettingsNote.html
+security_setting_note="ワイヤレスネットワーク名 (SSID) は好きな名前を付けることができます。エクステンダーネットワークの設定を行う場合、既存のネットワークと同じワイヤレスネットワーク名 (SSID) を付けることができますが、既存のネットワークと区別するために、異なるワイヤレスネットワーク名 (SSID) を付けることを推奨します。"
+
+//screen7-access.html
+apply_settings="設定を適用しています。<br/>これには数分かかります。"
+mark_setting="設定が適用されました"
+
+//screen8-access-dual-connected.html
+success_create_ap="アクセスポイントのセットアップが完了しました。"
+24g_ap_network="2.4GHz アクセスポイントネットワーク"
+5g_ap_network="5GHz アクセスポイントネットワーク"
+
+//screen8-access-dual-notConnected.html
+info_fail_conn="アクセスポイントのセットアップを行いましたが、インターネット接続を検出できませんでした。"
+run_setup="もう一度セットアップを行ってください。"
+
+//screen10-access-connected.html
+ap_up_tip="アクセスポイントは動作を開始しました。"
+ap_24g_setting="アクセスポイントワイヤレス設定 (2.4GHz)"
+ap_5g_setting="アクセスポイントワイヤレス設定 (5GHz)"
+
+//screen10-access-notConnected.html
+conn_ap_info="アクセスポイントに接続するには以下の [かんたん設定] ボタンを選択します。"
+
+//screen3-extender.html
+select_network_title="ネットワークを選択"
+select_network_extend="無線LANエリアを拡張したい既存のワイヤレスネットワークを選択してください。"
+deselect_wifi="無線LANエリアを拡張しない場合は、下記のチェックボックスの選択を解除してください。"
+learn_more_mark="詳しくはこちら »"
+24g_wifi="2.4GHz ワイヤレスネットワーク"
+wpa_wpa2_sec="WPA/WPA2-PSK"
+wpa2_psk="WPA2-PSK"
+manual_input_ssid="ワイヤレスネットワーク名 (SSID) を手動で入力する"
+pwd_char="パスワードを入力 （8-63 文字）："
+verify_pwd="パスワードの確認："
+scan_str="スキャン中"
+5g_wifi="5GHz ワイヤレスネットワーク"
+
+//selectNetworkNote.html
+recommend_info="パフォーマンスを維持するために、無線LANエリアを拡張する既存のネットワークは少なくとも 60% 以上の信号強度があるものを選択してください。"
+
+//screen4-extender.html
+24g_network="2.4GHz 既存のネットワーク"
+
+//screen4b-extender.html
+enter_pwd="パスワードを入力"
+pwd_enter_tip="選択した既存のワイヤレスネットワークのネットワークキー（パスワード）を入力します。"
+5g_network="5GHz 既存のネットワーク"
+network_selected="選択したネットワーク："
+protocol_sec="セキュリティ："
+show_pwd="ネットワークキー（パスワード）を表示"
+
+//screen5-extender.html
+security_setting="セキュリティ設定を入力"
+wifi_enter_tip="エクステンダーネットワークのワイヤレスネットワーク名 (SSID) を入力し、セキュリティ設定を選択してください。"
+24g_extend="2.4GHz エクステンダーネットワーク"
+same_exist_pwd="既存のネットワークと同じパスワードを使用"
+use_differ_pwd="異なるパスワードを使用"
+5g_extend="5GHz エクステンダーネットワーク"
+
+//screen6-extender-dual.html
+extender_success_conn="エクステンダーは既存のワイヤレスネットワークに接続しました。"
+main_network_conn="以下の接続情報を使ってワイヤレスデバイスを新しく作成されたワイヤレスネットワークに接続します。"
+
+//screen7-extender.html
+title_register="登録"
+info_register_extender="日本でお買い上げのお客様は、[登録しない] を選択し、ネットギアジャパンの<br />ウェブサイト（http://www.netgear.jp/supportInfo/）よりユーザー登録を行ってください。"
+skip_reg_mark="登録しない »"
+first_name_mark="名"
+last_name_mark="姓"
+email_lable="メールアドレス"
+country_lable="国"
+date_purchase="購入日"
+serial_num="シリアル番号"
+info_product="製品は改造したものか、またはシリアル番号が付いていません。"
+genie_mark="NETGEAR genie をお気に入りに登録"
+info_comm="ネットギアからの情報をメールで受け取る"
+install_info="WiFi Analytics アプリをインストール（Android のみ対応）"
+country_af="Afghanistan"
+country_aland="Åland Islands"
+country_alb="Albania"
+country_alg="Algeria"
+country_am="American Samoa"
+country_and="Andorra"
+country_ang="Angola"
+country_an="Anguilla"
+country_ant="Antarctica"
+country_anba="Antigua and Barbuda"
+country_arg="Argentina"
+country_arm="Armenia"
+country_aru="Aruba"
+country_aus="Austria"
+country_az="Azerbaijan"
+country_bah="Bahamas"
+country_bahr="Bahrain"
+country_ban="Bangladesh"
+country_bar="Barbados"
+country_bela="Belarus"
+country_belg="Belgium"
+country_beli="Belize"
+country_ben="Benin"
+country_ber="Bermuda"
+country_bhu="Bhutan"
+country_bol="Bolivia, Plurinational State of"
+country_boss="Bonaire, Sint Eustatius and Saba"
+country_boh="Bosnia and Herzegovina"
+country_bot="Botswana"
+country_bou="Bouvet Island"
+country_bra="Brazil"
+country_bri="British Indian Ocean Territory"
+country_bru="Brunei Darussalam"
+country_bul="Bulgaria"
+country_burf="Burkina Faso"
+country_buru="Burundi"
+country_cam="Cambodia"
+country_camer="Cameroon"
+country_cav="Cape Verde"
+country_cay="Cayman Islands"
+country_cenaf="Central African Republic"
+country_cha="Chad"
+country_chi="Chile"
+country_chr="Christmas Island"
+country_coc="Cocos (Keeling) Islands"
+country_col="Colombia"
+country_com="Comoros"
+country_con="Congo"
+country_cor="Congo, the Democratic Republic of the"
+country_cki="Cook Islands"
+country_cos="Costa Rica"
+country_ci="Côte d'Ivoire"
+country_cro="Croatia"
+country_cub="Cuba"
+country_cur="Curaçao"
+country_cyp="Cyprus"
+country_cze="Czech Republic"
+country_den="Denmark"
+country_dj="Djibouti"
+country_dom="Dominica"
+country_dop="Dominican Republic"
+country_ecu="Ecuador"
+country_egy="Egypt"
+country_eis="El Salvador"
+country_eqc="Equatorial Guinea"
+country_eri="Eritrea"
+country_est="Estonia"
+country_eth="Ethiopia"
+country_fim="Falkland Islands (Malvinas)"
+country_fai="Faroe Islands"
+count_fi="Fiji"
+count_fin="Finland"
+country_fg="French Guiana"
+country_fp="French Polynesia"
+country_fst="French Southern Territories"
+country_ga="Gabon"
+country_gam="Gambia"
+country_geo="Georgia"
+country_ger="Germany"
+country_gha="Ghana"
+country_gib="Gibraltar"
+country_gre="Greece"
+country_grd="Greenland"
+country_gra="Grenada"
+country_guad="Guadeloupe"
+coun_gm="Guam"
+country_gua="Guatemala"
+country_guer="Guernsey"
+country_gui="Guinea"
+country_gub="Guinea-Bissau"
+coun_gua="Guyana"
+coun_hai="Haiti"
+country_himi="Heard Island and McDonald Islands"
+country_hs="Holy See (Vatican City State)"
+country_ho="Honduras"
+coun_hk="Hong Kong"
+coun_hu="Hungary"
+coun_ice="Iceland"
+coun_ind="Indonesia"
+coun_iir="Iran, Islamic Republic of"
+coun_ira="Iraq"
+coun_ire="Ireland"
+coun_iom="Isle of Man"
+coun_ita="Italy"
+coun_jam="Jamaica"
+coun_jer="Jersey"
+coun_jo="Jordan"
+coun_kaz="Kazakhstan"
+coun_ken="Kenya"
+coun_kir="Kiribati"
+coun_kdp="Korea, Democratic People's Republic of"
+coun_kp="Korea, Republic of"
+coun_ku="Kuwait"
+coun_ky="Kyrgyzstan"
+coun_lap="Lao People's Democratic Republic"
+coun_la="Latvia"
+coun_leb="Lebanon"
+coun_les="Lesotho"
+coun_lib="Liberia"
+coun_lia="Libya"
+coun_lin="Liechtenstein"
+coun_lth="Lithuania"
+coun_lu="Luxembourg"
+coun_mac="Macao"
+coun_may="Macedonia, the former Yugoslav Republic of"
+coun_mad="Madagascar"
+coun_mal="Malawi"
+coun_mald="Maldives"
+coun_mali="Mali"
+coun_malt="Malta"
+coun_mari="Marshall Islands"
+coun_mar="Martinique"
+coun_mau="Mauritania"
+coun_maur="Mauritius"
+coun_mye="Mayotte"
+coun_mfs="Micronesia, Federated States of"
+coun_mor="Moldova, Republic of"
+coun_mon="Monaco"
+coun_mona="Mongolia"
+coun_mot="Montenegro"
+coun_moe="Montserrat"
+coun_moc="Morocco"
+coun_moz="Mozambique"
+coun_myr="Myanmar"
+coun_nam="Namibia"
+coun_nau="Nauru"
+coun_nep="Nepal"
+coun_net="Netherlands"
+coun_nec="New Caledonia"
+coun_nez="New Zealand"
+coun_nic="Nicaragua"
+coun_nig="Niger"
+coun_nigr="Nigeria"
+coun_niu="Niue"
+coun_noi="Norfolk Island"
+coun_nom="Northern Mariana Islands"
+coun_now="Norway"
+coun_om="Oman"
+coun_pak="Pakistan"
+coun_pal="Palau"
+coun_pto="Palestinian Territory, Occupied"
+coun_pan="Panama"
+coun_neca="New Caledonia"
+coun_para="Paraguay"
+coun_per="Peru"
+coun_phi="Philippines"
+coun_pit="Pitcairn"
+coun_pol="Poland"
+coun_por="Portugal"
+coun_pur="Puerto Rico"
+coun_qat="Qatar"
+coun_rui="Réunion"
+coun_rom="Romania"
+coun_rf="Russian Federation"
+coun_rwa="Rwanda"
+coun_sb="Saint Barthélemy"
+coun_sht="Saint Helena, Ascension and Tristan da Cunha"
+coun_skn="Saint Kitts and Nevis"
+coun_sl="Saint Lucia"
+coun_sm="Saint Martin (French part)"
+coun_spm="Saint Pierre and Miquelon"
+coun_svg="Saint Vincent and the Grenadines"
+coun_sam="Samoa"
+coun_smo="San Marino"
+coun_stp="Sao Tome and Principe"
+coun_sab="Saudi Arabia"
+coun_sen="Senegal"
+coun_ser="Serbia"
+coun_sey="Seychelles"
+coun_sil="Sierra Leone"
+coun_smd="Sint Maarten (Dutch part)"
+coun_slk="Slovakia"
+coun_slv="Slovenia"
+coun_sid="Solomon Islands"
+coun_som="Somalia"
+coun_saf="South Africa"
+coun_sgs="South Georgia and the South Sandwich Islands"
+coun_ssu="South Sudan"
+coun_spn="Spain"
+coun_sln="Sri Lanka"
+coun_sud="Sudan"
+coun_sur="Suriname"
+coun_sjm="Svalbard and Jan Mayen"
+coun_swl="Swaziland"
+coun_swe="Sweden"
+coun_swz="Switzerland"
+coun_sar="Syrian Arab Republic"
+coun_tp="Taiwan, Province of China"
+coun_tas="Tajikistan"
+coun_tur="Tanzania, United Republic of"
+coun_thl="Thailand"
+coun_til="Timor-Leste"
+coun_tgo="Togo"
+coun_tok="Tokelau"
+coun_ton="Tonga"
+coun_trt="Trinidad and Tobago"
+coun_tun="Tunisia"
+coun_tuk="Turkey"
+coun_tis="Turkmenistan"
+coun_tci="Turks and Caicos Islands"
+coun_tuv="Tuvalu"
+coun_uga="Uganda"
+coun_ukr="Ukraine"
+coun_uae="United Arab Emirates"
+coun_ukm="United Kingdom"
+coun_usmi="United States Minor Outlying Islands"
+coun_ury="Uruguay"
+coun_uzb="Uzbekistan"
+coun_vat="Vanuatu"
+coun_vbr="Venezuela, Bolivarian Republic of"
+coun_vnm="Viet Nam"
+coun_vib="Virgin Islands, British"
+coun_vius="Virgin Islands, U.S."
+coun_wf="Wallis and Futuna"
+coun_wsh="Western Sahara"
+coun_yem="Yemen"
+coun_zam="Zambia"
+coun_zbw="Zimbabwe"
+
+//registerInfoNote.html
+new_product_info="製品の無償保証を受けるには、製品をお買い上げ後 30 日以内にユーザー登録が必要になります。"
+register_at="ユーザー登録は <a href="http://www.netgear.jp/supportInfo/" target="_blank">http://www.netgear.jp/supportInfo/</p> より行ってください。"
+
+//screen8-extender-good.html
+wifi_setting="ワイヤレス設定"
+pwd_setting="パスワード設定"
+do_more="詳細設定"
+acc_schedule="スケジュールアクセス"
+wifi_cov="ワイヤレスカバレッジ
+fast_lane="FastLane"
+usb_port="USB ポート"
+//extender_conn_run="エクステンダーは動作を開始しました。"
+extender_conn_run="Orbiウォールプラグサテライトの接続が完了しました。"
+conn_again="かんたん設定"
+conn_24g_netwk="既存のネットワーク接続 (2.4GHz)"
+conn_5g_netwk="既存のネットワーク接続 (5GHz)"
+extend_24g_status="<span id="wallPlug_02">Orbiサテライト WiFiステータス(2.4 GHz)</span><span id="wallPlug_02_wp">Orbiウォールプラグサテライト WiFiステータス(2.4 GHz)</span>"
+extend_5g_status="<span id="wallPlug_03">Orbiサテライト WiFiステータス(5 GHz)</span><span id="wallPlug_03_wp">Orbiウォールプラグサテライト WiFiステータス(5 GHz)</span>"
+wf_analytics_app="WiFi Analytics アプリ"
+opti_wifi="Android 向けの無料アプリを使ってワイヤレスネットワークを最適化できます。"
+install_now_mark="インストール »"
+help_inquer="カスタマーサポート"
+way_submit_question="メールや電話を使ってカスタマーサポートへ質問できます。"
+foot_lic="ライセンス"
+foot_search="ヘルプを検索"
+
+//screen8-extender-noConnection.html
+info_improve_conn="接続を改善するには、エクステンダーをルーターに近づけます。"
+
+//wifiSettings.html
+region_setting="地域の設定："
+enable_2g_5g="2.4GHz、5GHz ワイヤレスを有効にする"
+enable_2g="2.4GHz ワイヤレスを有効にする"
+enable_5g="5GHz ワイヤレスを有効にする"
+broadcast_network="このワイヤレスネットワーク名 (SSID) をブロードキャストする"
+get_ip_dynamically="ルーターから IP アドレスを動的に取得"
+wifi_device="ワイヤレスデバイス"
+disable_access_ctrl="アクセスコントロールを無効にする"
+add_wifi_dev="ワイヤレスデバイスの追加"
+pin_enable="WPS PIN を有効にする"
+disable_pin_info="ピンの入力に"
+fail_entry="回失敗すると、PIN が無効になります。"
+led_blink="PIN が自動的に無効になった場合も WPS LED はゆっくり点滅を続けます。"
+keep_24g_wifi_setting="2.4GHz ネットワークの既存のワイヤレス設定を維持"
+keep_5g_wifi_setting="5GHz ネットワークの既存のワイヤレス設定を維持"
+wifi_disable="ワイヤレスを無効にする"
+
+//pwdSettings.html
+pwd_protect_info="パスワード保護を有効にしたりパスワードを変更することでエクステンダー管理画面への権限のないアクセスから保護します。"
+pwd_on="パスワード オン"
+pwd_off="パスワード オフ"
+new_user_nm="新しいユーザー名"
+new_pwd_char="新しいパスワード （8-32 文字）："
+
+//backUpSettings.html
+create_backup_file="ワイヤレスエクステンダーの現在の設定のバックアップを作成します。"
+backup_upper="バックアップ"
+restore_settings_way="以前に作成したバックアップファイルを選択して設定を復元します。"
+browse_upper="参照"
+reset_lower="リセット"
+restore_default_setting="すべての設定を工場出荷時の状態に復元します。"
+reset_upper="リセット"
+restore_upper="復元"
+
+//fwUpdate.html
+check_update="アップデートの確認"
+check_online="アップデートの確認"
+upload_file="ファイルをアップロード"
+select_update_file="新しいファームウェアファイルを選択します。"
+upload_upper="アップロード"
+
+//accessSchedule.html
+wifi_access_schedule="この機能を使用すると特定の期間すべてのユーザーのアクセスをコントロールすることができます。また、この機能はペアレンタルコントロールやセキュリティとして使用することもできます。スケジュールアクセスは設定した時間に基づいてインターネットアクセスを無効にできます。"
+access_on="スケジュールアクセスをオンにする"
+access_off="スケジュールアクセスをオフにする"
+sel_days="曜日を選択"
+only_weekdays="平日のみ"
+only_weekend="土日のみ"
+time_for_days="すべての曜日で同じ時間"
+select_time_for_days="曜日ごとに時間を選択"
+24_hours="24 時間"
+sys_clock="エクステンダー時計"
+sync_with_clock="時計を同期"
+maintain_internal_clock="内部ワイヤレスエクステンダー時計を設定します。ワイヤレスアクセススケジュールを正しく動作させるために、正しい設定を行う必要があります。"
+
+//accessScheduleNote.html
+access_schedule_inter="アクセススケジュールを有効にすると、指定した日の間無線と有線のインターネット接続が無効になります。"
+
+//guestNetwork.html
+guest_network_info="ゲストネットワークを有効にすると、ゲストのためのワイヤレスネットワークを作成します。ワイヤレスデバイスはプライベートネットワークに接続することなくゲストネットワークに接続でき、インターネットに接続できます。"
+band_mark="帯域幅"
+ssid_mark="ワイヤレスネットワーク名 (SSID)"
+broadcast_ssid="ワイヤレスネットワーク名 (SSID) をブロードキャスト"
+add_guest_netw="ゲストネットワークの追加"
+
+//connectedeviceInfo.html
+conn_dev_for="接続デバイス："
+
+//wifiCoverage.html
+adjust_extend_wifi_info="エクステンダーワイヤレスネットワークの出力と範囲を調整します。カバレッジが小さいエリアは、低いパーセントの出力パワーを選択します。カバレッジが大きいエリアは、高いパーセントの出力パワーを選択します。"
+wireless_out_power="ワイヤレス出力パワー"
+
+//fastLane.html
+fast_lane_head="FastLane Technology"
+enable_fastlane_info="FastLane Technology モードを有効にすると、2 つの帯域幅を使用して一つの高速接続を実現します。 HD ストリーミングやゲームに最適です。"
+basic_option="<strong>基本</strong> - デバイスは 2.4 GHz と 5 GHz どちらにも接続可能です。2.4 GHz と 5 GHz 両方の帯域幅を同時に拡張しますが、ワイヤレスパフォーマンスは普通です。"
+fastlane_option="<strong>FastLane Technology</strong> - 最大のパフォーマンスを提供しますが、 2.4 GHz または 5 Hz どちらか片方の帯域幅のみ接続可能です。"
+extender_info_one="ルーター - エクステンダー間は 2.4 GHz のみで接続し、エクステンダー-デバイス間は 5GHz のみで接続します。"
+extender_info_two="ルーター - エクステンダー間は 5GHz のみで接続し、エクステンダー- デバイス間は 2.4GHz のみで接続します。（ルーターが 5GHz に対応している必要があります。）"
+
+//usbPort.html
+general_mark="基本"
+usb_port_on="USB ポート オン"
+usb_port_off="USB ポート オフ"
+share_content="コンテンツを共有"
+share_printer="プリンターを共有"
+
+update_mark="アップデート"
+network_neighbor="近隣ネットワーク"
+conn_device="接続デバイス"
+avai_space="空き容量"
+add_folder_sign="フォルダーを追加"
+content_scan_tip="コンテンツのスキャン （新しいファイルの追加時）"
+
+//csrf_timeout.htm
+csrf_timeout="タイムスタンプが期限切れになりました。<br> メニューをクリックしてページを再度表示させてください。"
+
+//web_login.html
+login_page="ユーザーログイン"
+login_email="メールアドレス"
+login_passwd="パスワード"
+login_checkbox="記録する"
+login_btn="ログイン"
+login_help="ユーザー名とパスワードのヘルプ"
+login_setup_btn="新しいエクステンダーのセットアップ"
+login_error="ユーザー名とパスワードが一致しません。"
+extender_setup="アカウントの作成"
+passwod_recovery="メールアドレスとパスワードが以下に表示されます："
+extender_accept_1="利用規約に同意します"
+extender_accept_2=""オプション"のマークがない欄はすべて必須です"
+
+//extra strings
+pwd_tip_text="このパスワードを 5GHz ネットワークにも使用する"
+foot_search_ph="検索項目を入力・・・"
+setup_later="後でセットアップする"
+later_note="[後でセットアップする] を選択してセットアップをスキップすることができます。後でセットアップを行うときは手動でエクステンダーを既存のネットワークに接続する必要があります。"
+
+//AP mode page
+connection_issue_note1="エクステンダーがルーターに接続できません。"
+connection_issue_note2="ケーブルがエクステンダーとルーターのポートに正しく接続されていることを確認してください。"
+ap_select_no_1="エクステンダーを自分で設定する。"
+ap_select_no_2="アクセスポイントモードの固定 IP アドレスを自分で設定する。"
+ap_try_again_or_manual_config="NETGEAR genie かんたん設定 でもう一度試してみますか？"
+ap_fixed_ip_setting_note="メモ：<b>次へ</b>をクリックすると、このエクステンダーに新しい IP アドレスが割り当てられます。このとき、ブラウザーがネットワークから切断される場合があります。エクステンダーに再度接続するには、デバイスの IP アドレスの変更が必要になる場合があります。その後ブラウザーを閉じて再度ブラウザーを開きます。"
+
+browser_support="インストールに NETGEAR genie を使用するには、ブラウザーのバージョンをInternet Explorer  8 以上にアップデートすることを推奨します。"
+
+pwd_short="短すぎます"
+pwd_long="長すぎます"
+pwd_weak="弱い"
+pwd_good="良い"
+pwd_strong="強い"
+pwd_same="ユーザー名とパスワードが同じ。"
+pwd_no_match="一致しません。"
+pwd_error_1="パスワードは次で構成される必要があります："
+pwd_error_2=" 文字"
+see_more="もっと見る"
+see_less="閉じる"
+
+amber_info="オレンジは <b>中程度の接続状態</b>を示します"
+green_info="緑は<b>接続状態が良い</b>ことを示します"
+red_info="赤は<b>接続状態が悪い</b>ことを示します"
+closer_extender="コンピューターやモバイル端末をエクステンダーに近づけます"
+closer_router="エクステンダーをルーターに近づけます。"
+extender_str="エクステンダー"
+device_str="デバイス"
+pwd_answer="回答"
+ethernet_link="イーサネット"
+re_enter_pwd="パスワードの再入力"
+router_str="ルーター"
+
+password_tip="エクステンダー設定ページのパスワードを選択します。"
+question_tip="ユーザー名またはパスワードを忘れた場合、質問に回答することで復旧することができます。"
+error_email_addr="無効なメールアドレスです。"
+
+mode_repeater="<span id="wallPlug_mode_repeater">Orbiサテライト</span><span id="wallPlug_mode_repeater_wp">Orbiウォールプラグサテライト</span>"
+mode_wifiwan="<span id="wallPlug_mode_wifiwan">Orbiサテライト</span><span id="wallPlug_mode_wifiwan_wp">Orbiウォールプラグサテライト</span>"
+mode_ap="ワイヤレスアクセスポイント"
+mode_router="ワイヤレスアクセスポイント"
+
+ques1_0="質問を選択してください。";
+ques1_1="あなたが最初に購入したNETGEAR製品の名前は？";
+ques1_2="あなたが最初に通った学校の名前は？";
+ques1_3="あなたの一番上のお姉さんの下の名前は？";
+ques1_4="あなたの一番上のお兄さんの下の名前は？";
+ques1_5="あなたが生まれた都市は？";
+ques1_6="あなたのおばあさんの下の名前は？";
+ques1_7="あなたのおじいさんの下の名前は？";
+ques1_8="高校を卒業したのは西暦何年 (YYYY)？";
+ques1_9="あなたの初めての勤め先は？";
+ques2_0="質問を選択";
+ques2_1="あなたの一番下の妹の下の名前は？";
+ques2_2="あなたの一番下の弟の下の名前は？";
+ques2_3="あなたの父親のミドルネームは？";
+ques2_4="あなたの母親のミドルネームは？";
+ques2_5="あなたの初めての上司の名前（名）は？";
+ques2_6="あなたの母親が生まれた都市は？";
+ques2_7="あなたの父親が生まれた都市は？";
+ques2_8="あなたの親友の下の名前は？";
+
+info_signal_strength="信号強度"
+
+ca_15_repeater_24g_new="2.4 GHz エクステンダーネットワーク"
+ca_15_repeater_5g_new="5 GHz エクステンダーネットワーク"
+network_name="ネットワーク名"
+network_ssid="ネットワーク名 (SSID):"
+wlan_ap_security="セキュリティ:"
+sec_off="なし"
+
+lan_mark_ip="IPアドレス"
+lan_mark_subnet="IP サブネットマスク"
+lan_mark_gateway="ゲートウェイ IP アドレス"
+basic_int_primary_dns="プライマリ DNS"
+basic_int_second_dns="セカンダリDNS"
+
+sn_registered="このシリアル番号は既にシステムに登録されています。製品の登録ありがとうございます。"
+check_answer_info="入力された情報はルータに保存された情報と一致しません。 もう一度入力してください。";
+email_tip="メールアドレスは、 my.netgear.com のカスタマーポータルサイトと同様に、この製品の管理者アカウント名として使用されます。my.netgear.com のアカウントをお持ちの場合は、同じメールアドレスをお使いください。"
+
+DFS_radar_mark="以前にレーダーで検出されたため、このDFSチャンネルは許可されていません。"
+DFS_radar_mark0=" 別のチャンネルに変更するか、少し待ってください。"
+DFS_radar_mark1="分"
+DFS_radar_mark2="秒待ってからこのチャンネルを使用してください。"
+
+
+
+orbi_satellite="Orbiウォールプラグサテライト"
+ia_hijack_title="<span id="wallPlug_ia_hijack_title">OrbiサテライトはOrbiネットワークに接続していません。</span><span id="wallPlug_ia_hijack_title_wp">OrbiウォールプラグサテライトはOrbiネットワークに接続していません。</span>"
+ia_hijack_content1="次のような原因が考えられます。<br>"
+ia_hijack_content2="<span id="wallPlug_ia_hijack_content2">&bull;OrbiサテライトとOrbiルーターとの距離が離れすぎています。<br></span><span id="wallPlug_ia_hijack_content2_wp">&bull;OrbiウォールプラグサテライトとOrbiルーターとの距離が離れすぎています。<br></span>"
+ia_hijack_content3="<span id="wallPlug_ia_hijack_content3">Orbiサテライトの電源を切り、OrbiウォールプラグサテライトをOrbiルーターに近い場所に設置した後、再び起動します。OrbiサテライトがOrbiネットワークに接続するまで、約2分間お待ちください。<br></span><span id="wallPlug_ia_hijack_content3_wp">Orbiウォールプラグサテライトの電源を切り、OrbiウォールプラグサテライトをOrbiルーターに近い場所に設置した後、再び起動します。OrbiウォールプラグサテライトがOrbiネットワークに接続するまで、約2分間お待ちください。<br></span>"
+ia_hijack_content4="<span id="wallPlug_ia_hijack_content4">&bull;Orbiサテライトの設定が正しくない可能性があります。<br></span><span id="wallPlug_ia_hijack_content4_wp">&bull;Orbiウォールプラグサテライトの設定が正しくない可能性があります。<br></span>"
+ia_hijack_content5="<span id="wallPlug_ia_hijack_content5">OrbiルーターおよびOrbiサテライトの電源が入っていることを確認し、それぞれの機器の<b>Sync</b>ボタンを押します。OrbiサテライトがOrbiネットワークに接続するまで、約2分間お待ちください。</span><span id="wallPlug_ia_hijack_content5_wp">OrbiルーターおよびOrbiウォールプラグサテライトの電源が入っていることを確認し、それぞれの機器の<b>Sync</b>ボタンを押します。OrbiウォールプラグサテライトがOrbiネットワークに接続するまで、約2分間お待ちください。</span>"
+

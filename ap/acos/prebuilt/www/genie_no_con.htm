@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<%11%>
+<title>NETGEAR   Genie</title>
+<link rel="stylesheet" href="<%296%>">
+<script language="javascript" type="text/javascript">
+<!--
+function checkSel(){
+	if (document.formname.WANDetc[0].checked == true){
+		window.location.href="genie_detwan.htm";
+	}else if (document.formname.WANDetc[1].checked == true){
+		window.location.href="genie_detwan.htm";
+	}else if (document.formname.WANDetc[2].checked == true){
+		window.location.href="genie_ph_fail.htm";
+    <%449%>
+  }else if (document.formname.WANDetc[3].checked == true){
+    window.location.href="genie_detwwan.htm";
+    <%450%>
+  }else{
+		alert("<%2859%>");
+	}
+}
+
+function loadSettings()
+{
+
+        <%451%>;     
+        if(top.parent.frames['topframe'] != null){           	          
+           top.parent.frames['topframe'].location="genie_top.htm"; 
+        }
+	var cf = document.forms[0];	
+	cf.WANDetc[1].checked = false;
+	cf.WANDetc[0].checked = false;
+	cf.WANDetc[2].checked = false;
+    <%449%>
+    cf.WANDetc[3].checked = false;
+    <%450%>
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#ffffff" onLoad="loadSettings();document.forms[0].elements[0].focus();">
+<form name="formname"> 
+<table border="0" cellpadding="0" cellspacing="0" width="99%">
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="centerTd">
+		<h2 style="color:#ff0000;"><%2880%></h2>
+        </td>
+	<td>&nbsp;</td>
+
+</tr>
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%2881%></p></td>
+	<td>&nbsp;</td>
+<tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%2882%></p></td>
+	<td>&nbsp;</td>
+<tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p style="padding-left:20px"><%2883%></p></td>
+	<td>&nbsp;</td>
+<tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%2884%></p></td>
+	<td>&nbsp;</td>
+<tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p style="padding-left:20px"><%2885%><p></td>
+	<td>&nbsp;</td>
+<tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%2886%></p></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td  class="textRow centerTd"  colspan="2" onFocus="this.blur()"><input type="radio"  checked name="WANDetc" value="Yes"><span style="padding-left:10px;"><%2887%></span></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd" colspan="2" nowrap onFocus="this.blur()"><input type="radio" name="WANDetc" value="No"><span style="padding-left:10px;"><%2888%></span></td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd" colspan="2" nowrap onFocus="this.blur()"><input type="radio" name="WANDetc" value="None"><span style="padding-left:10px;"><%2889%></span></td>
+	<td>&nbsp;</td>
+</tr>
+<%460%>
+<tr>
+    <td>&nbsp;</td>
+    <td class="textRow centerTd" colspan="2" nowrap onFocus="this.blur()"><input type="radio" name="WANDetc" value="WWan"><span style="padding-left:10px;"><%2890%></span></td>
+    <td>&nbsp;</td>
+</tr>
+<%462%>
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd2">
+		<button class = "purpleBtn" width=100px name="next" onClick="checkSel();" type="Button"><span><%303%></span></button>
+	</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

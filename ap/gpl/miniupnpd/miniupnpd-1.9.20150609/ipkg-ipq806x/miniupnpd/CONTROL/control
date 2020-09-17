@@ -1,0 +1,10 @@
+Package: miniupnpd
+Version: 1.9.20150609-1
+Depends: libc, iptables, libip4tc, libip6tc, ip6tables
+Source: qca/feeds/routing/miniupnpd
+License: BSD-3-Clause
+Section: net
+Maintainer: Markus Stenberg <fingon@iki.fi>
+Architecture: ipq806x
+Installed-Size: 51728
+Description:  Lightweight UPnP IGD, NAT-PMP & PCP daemon

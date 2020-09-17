@@ -1,0 +1,20 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-bridging/qca-hyctl/Makefile
+Package: qca-hyctl
+Submenu: Hy-Fi features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-qca-hyfi-bridge +qca-libhyfi-bridge
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Control and Configuration command line utility
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This package installs the Hy-Fi control command line utility
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

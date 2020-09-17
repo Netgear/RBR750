@@ -1,0 +1,20 @@
+Source-Makefile: feeds/hyfi/qca-hyfi-bridging/qca-libhyfi-bridge/Makefile
+Package: qca-libhyfi-bridge
+Submenu: Hy-Fi features
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-qca-hyfi-bridge
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Hy-Fi Bridging API Library
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This package installs the Hy-Fi Bridging API Library
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

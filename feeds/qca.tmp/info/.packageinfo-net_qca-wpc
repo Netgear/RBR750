@@ -1,0 +1,24 @@
+Source-Makefile: feeds/qca/net/qca-wpc/Makefile
+Package: qca-wpc
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @!TARGET_ipq_ipq807x_64 @!TARGET_ipq_ipq60xx_64 +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Positioning
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wifi Positioning
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+

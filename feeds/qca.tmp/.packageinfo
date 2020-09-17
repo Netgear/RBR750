@@ -1,0 +1,2160 @@
+Source-Makefile: feeds/qca/net/qca-acfg/Makefile
+Package: qca-acfg
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(!(PACKAGE_hostapd)) +libgcc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Configuration Utility
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  QCA configuration utility provides a set of library
+ API's through which user applications can configure
+ and register events for wifi driver and hostap
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-hostap/Makefile
+Package: qca-hostap
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_hostapd)) +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: default
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains the IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+Package: qca-wpa-supplicant
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-default
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-hostap-lite
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_hostapd)) +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: lite
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator for lite profile
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains the IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-supplicant-lite
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-lite
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant for lite profile
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant for lite profile
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-supplicant-macsec
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl @TARGET_ipq806x||TARGET_ipq +DEFAULT_kmod-qca-nss-macsec:kmod-qca-nss-macsec
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-macsec
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant (MACSEC)
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant (MACSEC)
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-hostapd-cli
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-hostap||PACKAGE_qca-hostap-lite) +librt +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator command line interface
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains a command line utility to control the
+ IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-cli
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-wpa-supplicant||PACKAGE_qca-wpa-supplicant-macsec||PACKAGE_qca-wpa-supplicant-lite) +librt +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant command line interface
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant command line interface
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-iface-mgr-10.4/Makefile
+Package: qca-iface-mgr-10.4
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-hostap||PACKAGE_qca-hostap-lite) @(!(PACKAGE_hostapd)) +libpthread +libnl +libwifisoncfg
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-hostap libnl libwifisoncfg
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Interface manager daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   User Space application to manage interfaces
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+source "qca/feeds/qca/net/qca-iface-mgr-10.4/Config.in"
+
+
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-lowi/Makefile
+Package: qca-lowi
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread qca-hostap-10.4 @(!(PACKAGE_hostapd)) +librt +libpthread +libnl +libxml2 +USE_UCLIBCXX:uclibcxx +USE_LIBSTDCXX:libstdcpp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-hostap-10.4
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Location WiFi Interface
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Location WiFi Interface
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wifi/Makefile
+Package: kmod-qca-wifi-akronite-perf
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ipq806x +TARGET_ipq806x:kmod-qca-nss-drv
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: akronite-perf
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-akronite-perf-emu
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ipq806x +TARGET_ipq806x:kmod-qca-nss-drv
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: akronite-perf-emu
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf-emu
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf-emu
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf-emu
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-akronite-perf-emu
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-perf
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: perf
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-perf
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-perf
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-perf
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-perf
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-unified-perf
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: unified-perf
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-unified-perf
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-unified-perf
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-unified-perf
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-unified-perf
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-dakota-perf
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ipq806x||TARGET_ipq +TARGET_ipq806x:kmod-qca-nss-drv
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: dakota-perf
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-dakota-perf
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-dakota-perf
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-dakota-perf
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-dakota-perf
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-unified-profile
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ipq806x||TARGET_ar71xx||TARGET_ipq +TARGET_ipq_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq807x:kmod-qca-nss-drv +TARGET_ipq_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq_ipq60xx:kmod-qca-nss-drv +TARGET_ipq_ipq60xx_64:kmod-qca-nss-drv
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: unified-profile
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-unified-profile
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-unified-profile
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-unified-profile
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-unified-profile
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-lowmem-profile
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211)) @TARGET_ipq +TARGET_ipq_ipq807x:kmod-qca-nss-drv
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: lowmem-profile
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-lowmem-profile
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-lowmem-profile
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-lowmem-profile
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-lowmem-profile
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-minimal-profile
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211))
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: minimal-profile
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-minimal-profile
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-minimal-profile
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-minimal-profile
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-minimal-profile
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+Package: kmod-qca-wifi-debug-profile
+Menu: 1
+Prereq-Check: 1
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +libgcc +libc +wireless-tools +librt +iproute2 +kmod-cfg80211-linux +libxml2 +libnl +qca-cfg80211 @(!(PACKAGE_kmod-ath&&PACKAGE_kmod-mac80211))
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-wifi
+Build-Variant: debug-profile
+Build-Depends: qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic qca-wifi-fw-hw2-10.4-asic qca-wifi-fw-hw3-10.4-asic qca-wifi-fw-hw4-10.4-emu_bb qca-wifi-fw-hw4-10.4-emu_m2m qca-wifi-fw-hw4-10.4-asic qca-wifi-fw-hw5-10.4-asic qca-wifi-fw-hw6-10.4-asic qca-wifi-fw-hw5-10.4-emu_bb qca-wifi-fw-hw5-10.4-emu_m2m qca-wifi-fw-hw7-10.4-asic qca-wifi-fw-hw8-10.4-asic qca-wifi-fw-hw9-10.4-asic qca-wifi-fw-hw11-10.4-asic qca-wifi-hk-fw-hw1-10.4-asic qca-wifi-hk-fw-hw1-debug-asic qca-wifi-cyp-fw-hw1-11.0-asic
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wireless LAN Driver
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wireless LAN Driver
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+	menu "custom source directory"
+		depends on PACKAGE_kmod-qca-wifi-debug-profile
+	config qca-wifi_USE_CUSTOM_SOURCE_DIR
+		depends on PACKAGE_kmod-qca-wifi-debug-profile
+		bool "Use custom source directory"
+		default n
+	config qca-wifi_CUSTOM_SOURCE_DIR
+		depends on qca-wifi_USE_CUSTOM_SOURCE_DIR
+		string "Custom source directory"
+		default ""
+	endmenu
+	menu "overwrite package version"
+		depends on PACKAGE_kmod-qca-wifi-debug-profile
+	config qca-wifi_USE_CUSTOM_VERSION
+		depends on PACKAGE_kmod-qca-wifi-debug-profile
+		bool "Use custom package version"
+		default n
+
+	config qca-wifi_CUSTOM_VERSION
+		depends on qca-wifi_USE_CUSTOM_VERSION
+		string "qca-wifi version as string (default version: g24328de-dirty)"
+		default "g24328de-dirty"
+
+	endmenu
+if TARGET_ipq_ipq40xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ40xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ar71xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for ar71xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq806x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ806x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+endif
+if TARGET_ipq_ipq807x
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq807x_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ807x 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+if TARGET_ipq_ipq60xx_64
+   config WIFI_TARGET_WIFI_2_0
+	bool "Enable WIFI_2_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 2.0 in boards
+   config WIFI_TARGET_WIFI_3_0
+	bool "Enable WIFI_3_0 support for IPQ60xx 64bit platform"
+	default y
+	help
+	   This option enables support for WiFi 3.0 in boards
+   config WIFI_EMULATION_WIFI_3_0
+	bool "Enable EMULATION_WIFI_3_0 support for Emulation platform"
+	default n
+	help
+	   This option enables support for Emulation/VP WiFi 3.0 on RUMI
+endif
+config WIFI_MEM_DEBUG
+    bool "Enable WiFi memory debug support"
+    default n
+    help
+       This option enables memory debug support in WiFi modules
+config WIFI_LOG_UTILS
+    bool "Enable logging through user space application"
+    default n
+    help
+       This enables sending host driver logs to user space application (cnss_diag)
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wifi-fw-10.2.4/Makefile
+Package: qca-wifi-fw-hw3-10.4-asic
+Version: CNSS.PS.3.10-00027-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR9887_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw3-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-CNSS.PS.3.10-00027-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware(-hw3-10.4-asic) used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw6-10.4-asic
+Version: CNSS.PS.3.10-00027-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR9888_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw6-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-CNSS.PS.3.10-00027-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware(-hw6-10.4-asic) used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wifi-fw-10.4/Makefile
+Package: qca-wifi-fw-hw2-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR900B_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw2-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw4-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9984_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw4-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw5-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -IPQ4019_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw5-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw11-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9888_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw11-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wifi-fw-10.4-ar71xx/Makefile
+Package: qca-wifi-fw-hw7-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -AR900B_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw7-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw9-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9984_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw9-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+Package: qca-wifi-fw-hw10-10.4-asic
+Version: WLAN.BL.3.10-00057-S-1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCA9888_hw_2
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw10-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-WLAN.BL.3.10-00057-S-1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wpc/Makefile
+Package: qca-wpc
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @!TARGET_ipq_ipq807x_64 @!TARGET_ipq_ipq60xx_64 +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Positioning
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Wifi Positioning
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+
+Source-Makefile: feeds/qca/net/qca-wrapd/Makefile
+Package: qca-wrapd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-hostap||PACKAGE_qca-hostap-lite) @(!(PACKAGE_hostapd)) +libpthread +libnl +qca-cfg80211
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-hostap
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA wrapd daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   User Space application to support QWRAP feature
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+
+Source-Makefile: feeds/qca/utils/btdiag/Makefile
+Package: btdiag
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: - QCA ART Driver & tools
+Maintainer: Qualcomm Atheros
+Source: -g24328de-dirty.tar.gz
+Type: ipkg
+Description: - QCA ART Driver & tools
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+
+Source-Makefile: feeds/qca/utils/cnssdiag/Makefile
+Package: cnssdiag
+Version: g24328de-dirty
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq_ipq806x||TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64 +qca-diag +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA cnssdiag utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA cnssdiag utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/ftm/Makefile
+Package: ftm
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +libnl +libtcmd +qca-diag +librt +qca-IOT
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA ftm utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA ftm utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/libtcmd/Makefile
+Package: libtcmd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +libpthread +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA libtcmd utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA libtcmd utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/qca-cfg80211/Makefile
+Package: qca-cfg80211
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libnl +libpthread +libxml2 +iw
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA cfg80211 utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA cfg80211 utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/qca-cnss-daemon/Makefile
+Package: qca-cnss-daemon
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +libnl +libpthread +qca-qmi-framework +qca-qmi +qca-data
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux QMI sotware
+Maintainer: 
+Source: qca-cnss-daemon-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Linux QMI sotware
+
+@@
+
+
+Source-Makefile: feeds/qca/utils/qca-icm/Makefile
+Package: qca-icm
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread kmod-qca-wifi +libpthread qca-spectral +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Intelligent channel manager
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Intelligent channel manager
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/qca-spectral/Makefile
+Package: qca-spectral
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +libnl +qca-cfg80211
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Spectral Analysis
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Spectral Analysis
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+
+Source-Makefile: feeds/qca/utils/qca-thermald-10.4/Makefile
+Package: qca-thermald-10.4
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Thermal Mitigation daemon
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   This package is IPQ Thermal Mitigation daemon.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+
+Source-Makefile: feeds/qca/utils/qcmbr-10.4/Makefile
+Package: qcmbr-10.4
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: - QCA ART Driver & tools
+Maintainer: Qualcomm Atheros
+Source: qcmbr-g24328de-dirty.tar.gz
+Type: ipkg
+Description: - QCA ART Driver & tools
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+Package: qcmbr-10.4-netlink
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt +libnl-tiny
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: netlink
+Section: QCA
+Category: QCA Proprietary software
+Title: netlink - QCA ART Driver & tools
+Maintainer: Qualcomm Atheros
+Source: qcmbr-g24328de-dirty.tar.gz
+Type: ipkg
+Description: netlink - QCA ART Driver & tools
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+
+@@
+
+
+Source-Makefile: feeds/qca/utils/qmsct_client/Makefile
+Package: qmsct_client
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA qmsct_client utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA qmsct_client utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

@@ -1,0 +1,24 @@
+Source-Makefile: feeds/qca_hk/net/qca-hk/Makefile
+Package: qca-wifi-hk-fw-hw1-10.4-asic
+Version: WLAN.HK.2.0-01692-QCAHKSWPL_SILICONZ-1.227513.1.228539.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: -QCAHK_hw_1
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Wifi Firmware-hw1-10.4-asic
+Maintainer: Qualcomm Atheros
+Source: qca-wifi-fw-QCA8074-WLAN.HK.2.0-01692-QCAHKSWPL_SILICONZ-1.227513.1.228539.1.tar.bz2
+Type: ipkg
+Description:     This package contains the qca-wifi firmware(-hw1-10.4-asic) used in 10.x drivers
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  
+  
+@@
+
+

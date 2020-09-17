@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+start() {
+    /usr/bin/dalh --log_debug --log_file /tmp/dalh.log &
+}
+
+stop() {
+    killall dalh
+    kill -17 1
+    rm /tmp/dalh.log
+}
+
+boot() {
+    start
+}
+
+restart() {
+    stop
+    start
+}

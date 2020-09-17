@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<style type="text/css">
+.ntpTB tr:nth-child(10), .ntpTB tr:nth-child(11), .ntpTB tr:nth-child(12){
+  line-height:25px;
+}
+.ntpTB tr:nth-child(12) td{
+  padding-left:20px;
+}
+#ntp_warning_msg{
+    display:none;
+    color:red;
+    font-weight:bold;
+}
+</style>
+
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+var isInited = 0;
+var sParameter = "";
+var iWaitCount = 0;
+var iQueryFreq = 5;
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+        
+        /*        
+        hid_time_zone = $("input[name=hid_time_zone]").val();
+        if (hid_time_zone.match("0"))
+          hid_time_zone = hid_time_zone.replace(/0/, "GMT-0") 
+        else
+        {
+          if(hid_time_zone.match("-"))
+            hid_time_zone = hid_time_zone.replace(/-/, "GMT+") 
+          else
+            hid_time_zone = "GMT-"+hid_time_zone
+        }
+        if($("select[name=time_zone] option[value='"+hid_time_zone+"']").length)
+            $("select[name=time_zone]").val(hid_time_zone);
+        */
+        var select_ntp = <%3082%>;
+        //cf.time_zone.options[eval(select_ntp)].selected =true;
+        $('select#time_zone')[0].selectedIndex = eval(select_ntp);
+
+        if ($("input[name=schedule_daylightadjust]").val() == "1")
+            $("input[name=adjust][value=adjust]").attr('checked', true);
+        
+        hid_ntp_policy = $("input[name=hid_ntp_policy]").val();
+        if ((hid_ntp_policy == "1") || (hid_ntp_policy == "0"))
+            $("input[name=ntp_policy][value="+hid_ntp_policy+"]").attr('checked', true);    
+            
+        actionURL=$("form:eq(0)").attr("action");
+        aStr = actionURL.split("?");
+        if(aStr.length == 2)
+            sParameter = "?"+aStr[1];
+        else
+            sParameter = "";
+   
+        queryNTPStatus();
+    });
+
+    function sSecondFormat(x){
+        return ("0"+x).slice(-2);
+    }
+    function handleNTPStatus(){
+        sTime=$("#current_time").html();
+        if(sTime != ""){
+            aTime=sTime.split(":");
+            aTime[aTime.length-1]=sSecondFormat(parseInt(aTime[aTime.length-1])+1);
+            if(aTime[aTime.length-1] > 59){
+                aTime[aTime.length-1]=59;
+                iWaitCount=iQueryFreq;
+            }
+            sTime = aTime.join(":");
+            $("#current_time").html(sTime);
+        }
+        iWaitCount++;
+        if(iWaitCount < iQueryFreq){
+            return setTimeout(handleNTPStatus, 1000);
+        }
+        iWaitCount=0;
+        queryNTPStatus();
+    }
+    function queryNTPStatus(){
+        $.ajax({
+            url: "ajax/ntpStatus.cgi"+sParameter,
+            dateType : 'json',
+            type: "POST",
+            success: function(msg){
+              $("#current_time").html(msg.time);
+              if(msg.status != 0){
+                $("#ntp_warning_msg").show();
+                iQueryFreq=5;
+              }
+              else{
+                $("#ntp_warning_msg").hide();
+                iQueryFreq=20;
+              }
+              
+              if(msg.hasOwnProperty('time')){
+                  if(msg.time.length <= 0) {
+                    $("#ntp_warning_msg").show();
+                  } 
+              }
+              
+              setTimeout(handleNTPStatus, 1000);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                //$("#ntp_warning_msg").show();
+                $("#current_time").html("");
+                setTimeout(handleNTPStatus, 1000);
+            }
+        }); 
+    }
+//-->
+    function setTimeZoneIndex()
+    {
+        var form = document.forms[0];
+        form.time_zone_index.value = form.time_zone.selectedIndex;
+    
+    }
+</script>
+</head>
+<body  onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="ntpSettings.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%712%></div>
+<table border="0" style="height:370px"  class="subhead2-table">
+    <tr align="left" valign="middle">
+        <td align="center" colspan="2" class="table-seperate-border">
+            <button class="button-cancel" type="reset" name="Cancel" id="Cancel" value="<%83%>" onClick="location.href='NTP_settings.htm';"><%83%></button>
+            <button value="<%78%>"  onclick="buttonClick(this,'<%78%>'); setTimeZoneIndex()" type="submit" name="action" id="apply" class=<%79%> ><%81%></button>
+        </td>
+    </tr>
+    <tr>
+        <td class="scrollpane-table-seperate-border" colspan="2">
+            <div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+                <table class="ntpTB" style="border-collapse:collapse;width:99%">
+                    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+                    <tr>
+                        <td><b><%1324%>: &nbsp; <span id="current_time"></span></b><BR></td>
+                        <td><span id="ntp_warning_msg"><%3083%></span></td>
+                    </tr>
+                    <tr><td><p></p></td></tr>
+                    <tr>
+                        <td nowrap><input type="radio" name="ntp_policy" id="ntp_use_default" value="0"><%3084%></td>
+                        <td nowrap align="right"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap><input type="radio" name="ntp_policy" id="ntp_use_preferred" value="1"><%3085%></td>
+                        <td nowrap align="right"></td>
+                    </tr>
+                    <tr>
+                        <td nowrap ><%3086%><input type="text" name="ntp_primary_server" id="ntp_primary_server" value="<%3087%>"></td>
+                        <td nowrap align="right"></td>
+                    </tr>
+	        <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+	        <tr>
+	            <td colspan="2"><b><%3088%></b></a></td></tr>
+	        <tr>
+	            <td colspan="2">
+	                <SELECT name="time_zone" id="time_zone" size="1">
+			 <option value="GMT+12" selected>(GMT-12:00) International Date Line West</option><!--0-->
+			 <option value="GMT+11" >(GMT-11:00) Midway Island, Samoa</option>        <!--1-->
+			 <option value="GMT+10" >(GMT-10:00) Hawaii</option>        <!--2-->
+			 <option value="GMT+9" >(GMT-09:00) Alaska</option>          <!--3-->
+			 <option value="GMT+8" >(GMT-08:00) Pacific Time (US & Canada); Tijuana</option>          <!--4-->
+			 <option value="GMT+7" >(GMT-07:00) Arizona, Chihuahua, La Paz, Mazatlan</option>        <!--5-->
+			 <option value="GMT+7" >(GMT-07:00) Mountain Time (US & Canada)</option>        <!--6-->
+			 <option value="GMT+6" >(GMT-06:00) Central America, Central Time (US & Canada)</option>        <!--7-->
+			 <option value="GMT+6" >(GMT-06:00) Guadalajara, Mexico City, Monterrey, Saskatchewan</option>        <!--8-->
+			 <option value="GMT+5" >(GMT-05:00) Bogota, Lima, Quito</option>      <!--9--><!--8-->
+			 <option value="GMT+5" >(GMT-05:00) Eastern Time (US & Canada)</option>      <!--10--><!--9-->
+			 <option value="GMT+5" >(GMT-05:00) Indiana (East)</option>        <!--11--><!--10-->
+			 <option value="GMT+4" >(GMT-04:00) Atlantic Time (Canada), Caracas, La Paz, Santiago</option>          <!--12--><!--11-->
+			 <option value="GMT+35" >(GMT-03:30) Newfoundland</option>     <!--13--><!--12-->
+			 <option value="GMT+3" >(GMT-03:00) Brasilia, Buenos Aires, Georgetown, Greenland</option>          <!--14--><!--13-->
+			 <option value="GMT+2" >(GMT-02:00) Mid-Atlantic</option>          <!--15--><!--14-->
+			 <option value="GMT+1" >(GMT-01:00) Azores, Cape Verde Is.</option>          <!--16--><!--15-->
+			 <option value="GMT-0" >(GMT) Casablanca, Monrovia</option>        <!--17--><!--16-->
+			 <option value="GMT-0" >(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</option>        <!--18--><!--17-->
+			 <option value="GMT-1" >(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>         <!--19--><!--18-->
+			 <option value="GMT-1" >(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>         <!--20--><!--19-->
+			 <option value="GMT-1" >(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>         <!--21--><!--20-->
+			 <option value="GMT-1" >(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb, West Central Africa</option>         <!--22--><!--21-->
+			 <option value="GMT-2" >(GMT+02:00) Athens, Beirut, Istanbul, Minsk</option>         <!--23--><!--22-->
+			 <option value="GMT-2" >(GMT+02:00) Bucharest, Cairo, Harare, Pretoria</option>         <!--24--><!--23-->
+			 <option value="GMT-2" >(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius, Jerusalem</option>         <!--25--><!--24-->
+			 <option value="GMT-3" >(GMT+03:00) Baghdad, Kuwait, Nairobi, Riyadh, Tehran</option>         <!--26--><!--25-->
+			 <option value="GMT-4" >(GMT+04:00) Moscow, St. Petersburg, Volgograd</option>         <!--27--><!--26-->
+			 <option value="GMT-4" >(GMT+04:00) Abu Dhabi, Muscat, Baku, Tbilisi, Yerevan, Kabul</option>           <!--28--><!--27-->
+			 <option value="GMT-5" >(GMT+05:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>         <!--29--><!--28-->
+			 <option value="GMT-55" >(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi, Kathmandu</option>    <!--30--><!--29-->
+			 <option value="GMT-6" >(GMT+06:00) Almaty, Astana, Dhaka, Sri Jayawardenepura, Rangoon, Yekaterinburg</option>         <!--31--><!--30-->
+			 <option value="GMT-7" >(GMT+07:00) Bangkok, Jakarta, Hanoi, Novosibirsk</option>           <!--32--><!--31-->
+			 <option value="GMT-8" >(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi, Krasnoyarsk</option>       <!--33--><!--32-->
+			 <option value="GMT-8" >(GMT+08:00) Ulaan Bataar, Kuala Lumpur, Singapore, Perth, Taipei</option>       <!--34--><!--33-->
+			 <option value="GMT-9" >(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Irkutsk</option>           <!--35--><!--34-->
+			 <option value="GMT-95" >(GMT+09:30) Adelaide, Darwin</option>      <!--36-->
+			 <option value="GMT-10" >(GMT+10:00) Brisbane, Canberra, Melbourne, Sydney</option>       <!--37--><!--35-->
+			 <option value="GMT-10" >(GMT+10:00) Yakutsk</option>     <!--38--><!--36-->
+			 <option value="GMT-10" >(GMT+10:00) Guam, Port Moresby, Hobart</option>     <!--39--><!--37-->
+			 <option value="GMT-11" >(GMT+11:00) Vladivostok</option>       <!--40--><!--38-->
+			 <option value="GMT-11" >(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>         <!--41--><!--39-->
+			 <option value="GMT-12" >(GMT+12:00) Fiji, Auckland, Wellington, Marshall Is.</option>       <!--42--><!--40-->
+			 <option value="GMT-12" >(GMT+12:00) Kamchatka, Magadan</option>       <!--43--><!--41-->
+			 <option value="GMT-13" >(GMT+13:00) Nukualofa</option>         <!--44--><!--42-->
+			 </SELECT></td></tr>
+	        <tr>
+	            <td colspan="2">
+	                <input type="checkbox" name="adjust" id="adjust" value="adjust"><%3089%></td></tr>
+
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr valign="middle" align="center">
+        <td class="table-seperate-border" colspan="2" style="padding-left:0px">
+            <div class="help-frame-div" > 
+                <iframe id="helpframe"  src="NTP_settings_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> 
+            </div>
+        </td>
+    </tr>
+</table>
+
+    <img class="subfooter-image" src="img/subhead2-bottom.gif">
+    <div class="subhead2-bottom" >
+        <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+        <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+        <span class="button-help-arrow">
+        <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+        <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+    </div>
+
+    <input type="hidden" name="schedule_daylightadjust" value= "<%3090%>">
+    <input type="hidden" name="hid_time_zone" value="<%370%>">
+    <input type="hidden" name="hid_ntp_policy" value="<%3091%>">
+    <input type="hidden" name="time_zone_index" value="">
+    <a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+</html>
+

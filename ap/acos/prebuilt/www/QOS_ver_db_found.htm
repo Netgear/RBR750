@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+    $(document).ready(function()
+    {	
+        var newFiles=<%2233%>;
+        var cf = document.forms[0];
+        if(newFiles & 0X1){
+            document.getElementById("signautre_result1").style.display="block";
+            document.getElementById("signautre_result2").style.display="block";
+        }
+        if(newFiles & 0X2){
+            document.getElementById("engine_result").style.display="block";
+        }
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+
+
+function goHome(){
+    is_basic="<%2234%>";
+    if(is_basic=="1")
+        window.location.href="QOS_down_streaming_iqos_basic.htm";
+    else
+        window.location.href="QOS_down_streaming.htm";
+}
+//-->
+</script>
+</head>
+<body  style="margin:0px;background-color:#e5e5e5">
+<form id="target"  name="formname" method="POST" action="ver_result_db_cgi_main.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue"> 
+<table border="0"   width="100%">
+
+<tr>
+<td colspan="2">
+	<h1><%2232%></H1>
+</td>
+</tr>
+
+<tr> 
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td colspan="2"><b><%2235%></b></td>
+</tr>
+<tr></tr>
+<tr id="signautre_result1" style="display: none;">
+	<td width="50%"><%2236%></td>
+        <td width="50%">v<%2237%></td>
+</tr>
+<tr></tr>
+<tr id="signautre_result2" style="display: none;">
+	<td width="50%"><%2238%></td>
+        <td width="50%">v<%2239%></td>
+</tr>
+<tr></tr>
+<tr id="engine_result" style="display: none;">
+	<td colspan="2">New Performance Optimization Engine found.</td>
+</tr>
+<tr>
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		&nbsp;&nbsp;&nbsp;<button type="SUBMIT" value="<%745%>" name="Yes" class=<%2138%> onclick="buttonClick(this,'<%745%>');" ><span class="<%1671%>">&nbsp;&nbsp; <%745%></span><span class="<%1672%>">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+		&nbsp;&nbsp;&nbsp;<button type="BUTTON" value="<%746%>" name="No" class="button-rule" onClick="buttonClick(this,'<%746%>');goHome();"><span class="roundleft_button">&nbsp;&nbsp; <%746%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+	</td></tr>
+</table>
+</form>
+<p></p>
+</body>
+</html>
+

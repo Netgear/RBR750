@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <META name="description" content="<%2551%>">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META http-equiv="Pragma" content="no-cache">
+<META HTTP-equiv="Cache-Control" content="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Debug Hidden Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="script/modernizr.min.js"></script>
+<script src="script/lang.js"></script>
+<script src="script/script.js"></script>
+  </head>
+  
+  <body onLoad="loadSettings();">
+    <div id="fixedHeader">
+      <div class="mask">
+	    <div class="container">
+		  <header>
+		    <img id="logo" src="img/genie.png" alt="Netgear genie logo" />
+		    <p id="byline"><%2551%> <%2552%></p>
+		  </header>
+		</div>
+	  </div>
+	</div>
+
+
+    <div class="postSetup container">
+	  <div class="main">
+
+<!--		  
+        <div class="sectionWrap withBottomShadow clearfix">
+          <form id="enablePageForm" name="enablePageForm" action="Debug.cgi?id=2026196696" method="POST" target="" autocomplete="off">
+            <input type="checkbox" name="action_Start_When_Boot_Up" value="Start_When_Boot_Up" onclick="document.forms['enablePageForm'].submit();" />&nbsp;&nbsp;<strong>Enable Debug Hidden Page after reboot</strong>
+            <input type="hidden" name="Start_When_Boot_Up" value="">
+            <input type="hidden" name="form" value="enablePageForm">
+          </form>
+        </div>
+-->		  
+        
+        <h1 style="font-size:18px">Basic Information</h1>
+        <div class="sectionWrap withBottomShadow clearfix">
+          <p><strong>Firmware Version: </strong><%2553%></p>
+          <p><strong>CPU Load: </strong><%2554%>%</p>
+          <p><strong>Memory Usage(Used/Total): </strong><%2555%> MB/<%2556%> MB</p>
+<!--
+          <p><strong>Flash Usage(Used/Total): </strong><%2557%> MB/<%2558%> MB</p>
+-->
+<!--		  
+          <p><strong>Network Session(Active/Total): </strong>820/65536</p>
+-->		  
+          <p><strong>System Uptime: </strong><%2559%></p>
+<!--		  
+          <form id="enablePageForm" name="enablePageForm" action="Debug.cgi?id=2026196696" method="POST" target="" autocomplete="off">
+            <input type="checkbox" name="action_Start_When_Boot_Up" value="Start_When_Boot_Up" onclick="document.forms['enablePageForm'].submit();" />&nbsp;&nbsp;<strong>Enable Debug Hidden Page after reboot</strong>
+            <input type="hidden" name="Start_When_Boot_Up" value="">
+            <input type="hidden" name="form" value="enablePageForm">
+          </form>
+-->		  
+        </div>
+
+        <h1 style="font-size:18px">Debug Log Capture</h1>
+		<div class="sectionWrap withBottomShadow clearfix">
+			<div class="sectionDetails general">
+				<form id="debugLogForm" name="debugLogForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
+					<input type="checkbox" name="action_Start_When_Boot_Up" value="1" onclick="document.forms['debugLogForm'].submit();" />&nbsp;&nbsp;<strong>Start Debug Log Capture when boot up</strong>
+					<br /><br />
+					<input type="checkbox" name="action_Enable_LANWAN_Packet_Capture" value="1" onclick="document.forms['debugLogForm'].submit();" />&nbsp;&nbsp;<strong>Enable LAN/WAN Packet Capture</strong>
+					<br /><br />
+                    <!--
+					<input type="checkbox" name="action_Enable_Roaming_Debug" value="1" onclick="document.forms['debugLogForm'].submit();" />&nbsp;&nbsp;<strong>Enable Roaming Debug</strong>
+					<br /><br /> -->
+                    <div id="EnableWifiDebug" style="display:none">
+					<input type="checkbox" name="action_Enable_Wifi_Debug" value="1" onclick="document.forms['debugLogForm'].submit();" />&nbsp;&nbsp;<strong>Enable Wifi Debug</strong>
+					<br /><br />
+		            <p style="display:inline">Wifi Debug Options<input type="text" name="wifi_debug_option" value="<%2560%>" style="display:inline; width:25%" /></p>
+					<input type="hidden" name="Start_When_Boot_Up" value="<%2561%>">
+					<input type="hidden" name="Enable_Wifi_Debug" value="<%2562%>">
+                    </div>
+					<!--  <input type="hidden" name="Enable_Roaming_Debug" value="<%2563%>">   -->
+							
+					<input type="hidden" name="form" value="enablePageForm">
+						
+					<br /><br />
+					<input type="button" class="btn primary" id="action_Start_Capture" name="action_Start_Capture" onclick="return check_capture_packets('push');" value="Start Capture"/>
+					<div id="txt_capture_in_progress" style="display: none;"><strong>Debug Log capturing in progress, Please wait at least 1 minute.</strong></div>
+					<br /><br />
+					
+					<input type="button" class="btn disabled" id="Save_Debug_File" value="Save Debug File" onclick="save_debug_log();" />
+					<br /><br />
+					<input type="hidden" name="form_name" value="debugLogForm">
+					<input type="hidden" name="Enable_LANWAN_Packet_Capture" value="<%2564%>">	
+					<input type="hidden" name="capture_in_process" value="<%2565%>">
+					
+				</form>
+			</div>
+            <%2566%>
+			<div class="sectionDetails general">
+				<form id="sentLogForm" name="sentLogForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
+					<p style="display:inline">Sent log to Netgear</p>
+					<input type="button" class="btn primary" id="action_Sent_log" name="action_Sent_log" value="SENT" onclick="document.forms['sentLogForm'].submit();" />
+					<input type="hidden" name="form_name" value="sentLogForm">
+					<br /><br />
+				</form>
+			</div>
+            <%2567%>
+
+			<div class="sectionDetails general">
+				<form id="telnetEnableForm" name="telnetEnableForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
+					<input type="checkbox" name="action_telnet_enable" value="<%2568%>" onclick="document.forms['telnetEnableForm'].submit();" />&nbsp;&nbsp;<strong>Enable Telnet</strong>
+					<input type="hidden" name="telnet_enable" value="<%2568%>">
+					<input type="hidden" name="form_name" value="telnetEnableForm">
+				</form>
+			</div>
+			<div class="sectionDetails general" style="display:none">
+				<form id="rstpEnableForm" name="rstpEnableForm" action="DebugWP.cgi" method="POST" target="" autocomplete="off">
+					<input type="checkbox" name="action_rstp_enable" value="<%2569%>" onclick="document.forms['rstpEnableForm'].submit();" />&nbsp;&nbsp;<strong>Enable RSTP</strong>
+					<input type="hidden" name="rstp_enable" value="<%2569%>">
+					<input type="hidden" name="form_name" value="rstpEnableForm">
+				</form>
+			</div>
+<!--
+            <%2570%>
+            <div class="sectionDetails general">
+                <form id="ControlFWBetaAcceptanceEnableForm" name="ControlFWBetaAcceptanceEnableForm" action="DebugControlFW.cgi" method="POST" target="" autocomplete="off">
+                    <input type="checkbox" name="action_beta_acceptance" onclick="document.forms['ControlFWBetaAcceptanceEnableForm'].submit();" <%2571%> />&nbsp;&nbsp;<strong>Enable Beta Acceptance</strong>
+                    <input type="hidden" name="beta_acceptance" value="<%2572%>">
+                </form>
+            </div> 
+            <%2573%>
+-->
+
+            <%2574%>
+            <div class="sectionDetails general">
+                <form id="CMDebugEnableForm" name="CMDebugEnableForm" action="cableDebug.cgi" method="POST" target="" autocomplete="off">
+                    <input type="checkbox" name="action_cm_debug_enable" onclick="document.forms['CMDebugEnableForm'].submit();" <%2575%> />&nbsp;&nbsp;<strong>Enable CM Debug</strong>
+                    <input type="hidden" name="cm_debug_enable" value="<%2576%>">
+                </form>
+            </div>
+            <div class="sectionDetails general">
+                <form id="CMScanEnableForm" name="CMScanEnableForm" action="cableScan.cgi" method="POST" target="" autocomplete="off">
+                    <input type="checkbox" name="action_cm_scan_enable" onclick="document.forms['CMScanEnableForm'].submit();" <%2577%> />&nbsp;&nbsp;<strong>Enable CM Scan (system will reboot)</strong>
+                    <input type="hidden" name="cm_scan_enable" value="<%2578%>">
+                </form>
+            </div>            
+            <%2579%>
+
+		</div>
+		
+      </div> <!-- end main -->
+    </div> <!-- end container -->
+
+<!--    <script src="script/jquery.min.js"></script> -->
+    <script src="jquery.js"></script>
+    <script src="script/pwdStrength.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="script/DebugWP.js"></script>
+    <script language="javascript" type="text/javascript" src="func.js"></script>
+<script language="javascript" type="text/javascript" src="msg.js"></script>
+<script language="javascript" type="text/javascript" src="utility.js"></script>
+<script language="javascript" type="text/javascript" src="browser.js"></script>
+<script language="javascript" type="text/javascript" src="md5.js"></script>
+
+    <script type="text/javascript" src="CheckData.js"></script>
+  </body>  
+</html>
+

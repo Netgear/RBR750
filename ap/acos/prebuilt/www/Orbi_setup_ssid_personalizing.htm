@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%14%>
+<link rel="stylesheet" href="<%296%>">
+<script language="javascript" type="text/javascript">
+    var HttpClient = function() {
+        this.get = function(aUrl, aCallback) {
+            var anHttpRequest = new XMLHttpRequest();
+            anHttpRequest.onreadystatechange = function() { 
+                aCallback(anHttpRequest.status); // OK:200
+            }
+
+            anHttpRequest.open( "GET", aUrl, true );            
+            anHttpRequest.send( null );
+        }
+    }
+    
+    function wait()
+    {    
+        setTimeout("redirect()",50000);
+    }
+
+    function redirect()
+    {
+        var client = new HttpClient();
+        client.get('Orbi_setup_wifi_complete.htm', function(response) {
+            if (response == "200")
+            {
+                window.location.href='Orbi_setup_wifi_complete.htm';
+                return;
+            }
+        });
+    }
+</script>
+</head>
+<body>
+<div  class="dialog-content">
+    <div class="wizard-card">
+        <div>
+            <img src="img/logo_netg.png" style="display:block; margin:auto;">
+        </div>
+        <div class = "desc-title" style="padding-top: 20px;">
+            <%463%>
+        </div>
+        <div class = "desc-text" style="padding-top: 6px; padding-bottom: 44px">
+            <%464%>
+        </div>
+        <div class = "master-pin-wrapper">
+            <div class = "pin-wrapper-prewifi">
+                <img class = "pin-wifi" src="img/pin_wireless.png">
+                <div class = "pin-title"> <%366%> </div>
+                <div class = "pin-desc"> <%367%> </div> 
+            </div>
+        </div>
+        <div id="wait_next">
+            <div class = "desc-title" style="padding-top: 30px;">
+                <%465%>
+            </div>
+            <button id="next" class="button-nav" style="display:block; margin:auto;margin-top:41px" onClick="redirect();">
+                <span><%466%></span>
+            </button>
+        </div>
+        <form name="personalizing">
+            <input type="hidden" name="next_file" value="<%382%>">
+        </form>
+    </div>
+ </div> 
+</body>

@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss/qca-nss-fw-eip-cp/Makefile
+Package: qca-nss-fw-eip-cp
+Menu: 1
+Submenu: Network Devices
+Version: 2.8.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-eip
+Section: kernel
+Category: Kernel modules
+Title: EIP197 firmware binaries - cp
+Maintainer: 
+Source: BIN-EIP197.CP.2.8.1.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (cp) for QCA chipset
+
+@@
+
+

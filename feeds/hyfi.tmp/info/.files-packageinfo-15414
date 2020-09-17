@@ -1,0 +1,10 @@
+hyfi
+qca-hyfi-bridging/qca-hyctl
+qca-hyfi-bridging/qca-hyfi-bridge
+qca-hyfi-bridging/qca-hyfi-iptv-helper
+qca-hyfi-bridging/qca-hyfi-qdisc
+qca-hyfi-bridging/qca-libhyfi-bridge
+qca-hyfi-luci
+qca-hyfi-networking/qca-acd
+qca-hyfi-networking/qca-hyd
+qca-hyfi-networking/qca-vhyfid

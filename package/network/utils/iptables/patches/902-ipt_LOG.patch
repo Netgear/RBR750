@@ -1,0 +1,12 @@
+diff -ruN a/include/linux/netfilter_ipv4/ipt_LOG.h b/include/linux/netfilter_ipv4/ipt_LOG.h
+--- a/include/linux/netfilter_ipv4/ipt_LOG.h	2018-08-08 16:53:46.590713644 +0800
++++ b/include/linux/netfilter_ipv4/ipt_LOG.h	2018-08-08 16:55:35.510717323 +0800
+@@ -13,7 +13,7 @@
+ struct ipt_log_info {
+ 	unsigned char level;
+ 	unsigned char logflags;
+-	char prefix[30];
++	char prefix[280];
+ };
+ 
+ #endif /*_IPT_LOG_H*/

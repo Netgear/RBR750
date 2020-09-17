@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss_host/qca-rfs/Makefile
+Package: kmod-qca-rfs
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq806x||TARGET_ipq_ipq40xx||TARGET_ipq40xx +kmod-ipt-conntrack
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel module for QCA Receiving Flow Steering
+Maintainer: 
+Source: qca-rfs-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: Kernel module for QCA Receiving Flow Steering
+
+@@
+
+

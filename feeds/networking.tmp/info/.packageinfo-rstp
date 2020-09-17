@@ -1,0 +1,20 @@
+Source-Makefile: feeds/networking/rstp/Makefile
+Package: rstp
+Version: 2011-10-11-434d24bae108dbb21461a13a4abcf014afa8b029
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +PACKAGE_kmod-qca-ssdk-nohnat:kmod-qca-ssdk-nohnat +PACKAGE_kmod-qca-ssdk-hnat:kmod-qca-ssdk-hnat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Title: Rapid Spanning Tree Protocol implement
+Maintainer: Stephen Hemminger <shemminger@vyatta.com>
+Source: rstp-2011-10-11-434d24bae108dbb21461a13a4abcf014afa8b029.tar.gz
+License: GPLv2
+Type: ipkg
+Description:   This package installs the RSTP daemon and tools
+http://git.kernel.org/cgit/linux/kernel/git/shemminger/rstp.git/
+Stephen Hemminger <shemminger@vyatta.com>
+@@
+
+

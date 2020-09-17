@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <%0%>
+  <title>NETGEAR <%647%></title>
+  <link rel="stylesheet" href="styles/main.css">
+  <%2%>
+</head>
+  <body class="reboot setup">
+
+    <%3%>
+
+    <form id="mainForm" action="update.cgi" method="POST" target="" >
+      <div id="content">
+        <div class="container">
+
+          <div class="main simpleChoiceWrapper clearfix">
+            <div id="probar">
+              <center>
+                <p><%1200%></p>
+                <br>
+                <div>
+                  <img id="probar_img" src="img/bar_00.gif"></img>
+                </div>   
+              </center>
+            </div>
+
+            <div id="button" style="display: none;">
+              <div class="centerButtons">
+                <div class="processButtons">
+                  <a class="btn primary" name="continue" onclick="redirect();return false;"><%1194%></a>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: none;">
+              <img src="img/bar_00.gif"></img>
+              <img src="img/bar_11.gif"></img>
+              <img src="img/bar_22.gif"></img>
+              <img src="img/bar_33.gif"></img>
+              <img src="img/bar_44.gif"></img>
+              <img src="img/bar_55.gif"></img>
+              <img src="img/bar_66.gif"></img>
+              <img src="img/bar_77.gif"></img>
+              <img src="img/bar_88.gif"></img>
+              <img src="img/bar_99.gif"></img>
+            </div>
+
+          </div> <!-- end main -->
+        </div> <!-- end container -->
+      </div>
+    <input type="hidden" name="next_file" value="<%1092%>">
+    </form>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script type="text/javascript">
+    <!--
+    var maxchars = 10; 
+    var delay_time = <%1195%>; // msecs
+    var charcount = 0; 
+    var total_time = <%1196%>;; // msecs
+    var bar_pic = ['bar_00.gif', 'bar_11.gif', 'bar_22.gif', 'bar_33.gif', 'bar_44.gif', 'bar_55.gif', 'bar_66.gif', 'bar_77.gif', 'bar_88.gif', 'bar_99.gif'];
+
+    $(function() {
+      calc_prgbar();
+      updateProgress();
+    });
+
+    function calc_prgbar()
+    {
+      delay_time = total_time/10;
+    }
+
+    function updateProgress()
+    {
+      var cf = document.forms["mainForm"];
+      if (charcount < maxchars)
+      {
+        document.getElementById("probar_img").src = "img/" + bar_pic[charcount];
+        charcount ++;
+        setTimeout("updateProgress()",delay_time);
+      }
+      else
+      {
+        document.getElementById("probar").style.display="none";
+        document.getElementById("button").style.display="block";
+      }
+    }
+
+    function redirect()
+    {
+      var cf = document.forms["mainForm"];
+      top.location.href=cf.next_file.value;
+    }
+
+    //-->
+    </script>
+</body>
+</html>

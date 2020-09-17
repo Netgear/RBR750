@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss/qca-nss-fw-hk-retail/Makefile
+Package: qca-nss-fw-hk-retail
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-hk
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: BIN-NSS.HK.J.CS-20-R.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+

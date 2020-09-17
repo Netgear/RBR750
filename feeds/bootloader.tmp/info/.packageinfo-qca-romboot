@@ -1,0 +1,91 @@
+Source-Makefile: feeds/bootloader/qca-romboot/Makefile
+Package: qca-romboot-ar934x
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ar934x
+Build-Depends: qca-romboot/host
+Build-Types: host
+Section: boot
+Category: Boot Loaders
+Title: Rom boot code for ar934x
+Maintainer: 
+Source: qca-romboot-g24328de-dirty.tar.xz
+Type: ipkg
+Description:     This package contains the assembly code requied to init the chip and
+    perform specific initialization prior to the bootloader. It's mainly
+    executed before the bootloader for NAND boot.
+    This package generates code for the ar934x SoC.
+http://www.qca.qualcomm.com
+
+@@
+
+Package: qca-romboot-qca955x
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: qca955x
+Build-Depends: qca-romboot/host
+Build-Types: host
+Section: boot
+Category: Boot Loaders
+Title: Rom boot code for qca955x
+Maintainer: 
+Source: qca-romboot-g24328de-dirty.tar.xz
+Type: ipkg
+Description:     This package contains the assembly code requied to init the chip and
+    perform specific initialization prior to the bootloader. It's mainly
+    executed before the bootloader for NAND boot.
+    This package generates code for the qca955x SoC.
+http://www.qca.qualcomm.com
+
+@@
+
+Package: qca-romboot-qca955x_target_drv
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: qca955x_target_drv
+Build-Depends: qca-romboot/host
+Build-Types: host
+Section: boot
+Category: Boot Loaders
+Title: Rom boot code for qca955x_target_drv
+Maintainer: 
+Source: qca-romboot-g24328de-dirty.tar.xz
+Type: ipkg
+Description:     This package contains the assembly code requied to init the chip and
+    perform specific initialization prior to the bootloader. It's mainly
+    executed before the bootloader for NAND boot.
+    This package generates code for the qca955x_target_drv SoC.
+http://www.qca.qualcomm.com
+
+@@
+
+Package: qca-romboot-fw2
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ar71xx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: qca-romboot/host
+Build-Types: host
+Section: boot
+Category: Boot Loaders
+Title: Second stage firmware for target
+Maintainer: 
+Source: qca-romboot-g24328de-dirty.tar.xz
+Type: ipkg
+Description:   This package contains the 2nd stage firmware corresponding to the target
+device.
+http://www.qca.qualcomm.com
+
+@@
+
+

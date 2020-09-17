@@ -1,0 +1,19 @@
+Source-Makefile: feeds/bootloader/uboot-ipq40xx/Makefile
+Package: uboot-ipq40xx
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: boot
+Category: Boot Loaders
+Title: U-boot for ipq40xx  based platforms
+Maintainer: 
+Source: uboot-1.0-g24328de-dirty.tar.bz2
+Type: ipkg
+Description: U-boot for ipq40xx  based platforms
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+

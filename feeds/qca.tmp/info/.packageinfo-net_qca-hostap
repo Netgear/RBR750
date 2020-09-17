@@ -1,0 +1,138 @@
+Source-Makefile: feeds/qca/net/qca-hostap/Makefile
+Package: qca-hostap
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_hostapd)) +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: default
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains the IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+
+
+@@
+
+Package: qca-wpa-supplicant
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-default
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-hostap-lite
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_hostapd)) +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: lite
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator for lite profile
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains the IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-supplicant-lite
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-lite
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant for lite profile
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant for lite profile
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-supplicant-macsec
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @ @(!(PACKAGE_wpa-supplicant)) +libopenssl +libnl @TARGET_ipq806x||TARGET_ipq +DEFAULT_kmod-qca-nss-macsec:kmod-qca-nss-macsec
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: supplicant-macsec
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant (MACSEC)
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant (MACSEC)
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-hostapd-cli
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-hostap||PACKAGE_qca-hostap-lite) +librt +libnl +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: Hostap authenticator command line interface
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:  This package contains a command line utility to control the
+ IEEE 802.1x/WPA/EAP/RADIUS Authenticator.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: qca-wpa-cli
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @(PACKAGE_qca-wpa-supplicant||PACKAGE_qca-wpa-supplicant-macsec||PACKAGE_qca-wpa-supplicant-lite) +librt +libopenssl +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: WPA Supplicant command line interface
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: WPA Supplicant command line interface
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

@@ -1,0 +1,34 @@
+Source-Makefile: feeds/wigig_utils_oss/wigig-mac80211/Makefile
+Package: wigig-mac80211
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: Network
+Title: mac80211 - wireless configuration scripts
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   mac80211-scripts is the Linux wireless LAN (802.11) configuration scripts.
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+Config:
+  	menu "overwrite package version"
+		depends on PACKAGE_wigig-mac80211
+	config wigig-mac80211_USE_CUSTOM_VERSION
+		depends on PACKAGE_wigig-mac80211
+		bool "Use custom package version"
+		default n
+
+	config wigig-mac80211_CUSTOM_VERSION
+		depends on wigig-mac80211_USE_CUSTOM_VERSION
+		string "wigig-mac80211 version as string (default version: )"
+		default ""
+
+	endmenu
+@@
+
+

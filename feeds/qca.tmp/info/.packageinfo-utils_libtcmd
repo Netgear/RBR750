@@ -1,0 +1,19 @@
+Source-Makefile: feeds/qca/utils/libtcmd/Makefile
+Package: libtcmd
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +libpthread +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA libtcmd utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA libtcmd utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

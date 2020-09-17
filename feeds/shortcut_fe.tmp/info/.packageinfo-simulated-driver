@@ -1,0 +1,19 @@
+Source-Makefile: feeds/shortcut_fe/simulated-driver/Makefile
+Package: kmod-shortcut-fe-drv
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Simulated sfe driver for ECM
+Maintainer: 
+Source: shortcut-fe-simulated-driver-g24328de-dirty.tar.gz
+Type: ipkg
+Description: Simulated sfe driver for ECM
+
+@@
+
+

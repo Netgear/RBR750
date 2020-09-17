@@ -1,0 +1,52 @@
+Source-Makefile: feeds/qca_platform_utils/qca-qmi-framework/Makefile
+Package: qca-qmi-framework
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64 +libpthread +PACKAGE_qmi:qmi
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux QMI framework software
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Linux QMI framework software
+
+@@
+
+Package: kmod-testssr
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: TEST SSR-RPROC driver
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_IPQ_SUBSYSTEM_RESTART_TEST
+Description:   This driver provides support for the testing of SSR-RPROC.
+
+@@
+
+Package: kmod-qmi-test-app
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Add QMI ping_pong test application
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_MSM_TEST_QMI_CLIENT
+Description:   Add QMI ping_pong test application
+
+@@
+
+

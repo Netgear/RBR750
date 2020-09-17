@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="<%296%>">	
+  <title>NETGEAR Genie</title>
+	
+	
+  <script >
+    var mode = <%2812%>
+    function submit()
+    {
+      document.forms["target"].submit();
+    }
+
+    function clickHere()
+    {
+      var mode = <%2813%>;
+      if(mode == "1"){
+        window.open ('start.htm','_blank','fullscreen=yes,toolbar=yes,locaiton=yes');
+      }else{
+        if(parent.$("#BasicTab").hasClass('current')){
+            parent.loadPage("WLG_wireless_dual_band.htm");
+        }else{
+            parent.loadPage2("WLG_wireless_dual_band.htm");
+        }        	
+      }
+
+    }
+
+    function showPassphrase()
+    {
+      <%2814%>    	
+      if(document.forms[0].wireless_2g_security.value==document.forms[0].wireless_5g_security.value)
+         document.getElementById("secuirty_2g").style.display="none";
+      else
+      <%2815%>    	
+         document.getElementById("secuirty_2g").style.display="block";
+    	
+    }
+
+  </script>
+</head>
+
+<body style="background-color:#ffffff">
+<form id="target"  name="formname" method="POST" action="congratulations.cgi" target="_parent">
+	<table border="0">
+    <tr style="height:10px">
+      <td width="35%">&nbsp;</td><td  width="15%">&nbsp;</td><td  width="15%">&nbsp;</td><td  width="35%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td><td class="centerTd"><h2><%2816%></h2></td><td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td><td class="textRow centerTd" colspan="2"><%312%></td><td>&nbsp;</td>
+    </tr>
+    <tr style="height:10px">
+      <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <%2817%>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="textRow centerTd" style="<%2818%>"><%2819%></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td><td></td><td>&nbsp;</td>
+    </tr>
+    <%2820%>
+    <%2821%>
+    <tr>
+
+      <td>&nbsp;</td><td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;font-size:16px"><b><u><%2822%></u></b></td><td>&nbsp;</td><td>&nbsp;</td>
+<!--
+<td>&nbsp;</td><td class="textRow centerTd" style="<%2818%>"><span style="display:-moz-inline-box;display:inline-block;width:300px;"><b><h4><u><%2822%></u><h4></b></td><td>&nbsp;</td>
+-->
+    </tr>	
+    <%2823%>
+    <tr>
+      <td>&nbsp;</td><td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;"><%2824%></span></td><td style="white-space:pre;"><span><b><%375%></span></b></td><td>&nbsp;</td>
+    </tr>	
+      <tr style="<%2818%>">	
+        <td>&nbsp;</td>	
+        <td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;"><%2825%><span title="<%2826%>"><%2827%>:</span></span></td><td><span><b><%2828%></span></b></td>
+        <td>&nbsp;</td>
+      </tr>
+    <%2821%>
+    <tr>
+      <td>&nbsp;</td><td></td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td><td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;font-size:16px"><b><u><%2829%></u></b></td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>	
+    <%2823%>
+  <%1565%>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;"><%2830%></span></td><td style="white-space:pre;"><span><b><%2831%></b></span></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr style="<%2832%>">
+      <td>&nbsp;</td>
+      <td class="textRow centerTd"><span style="display:-moz-inline-box;display:inline-block;width:300px;"><%2825%><span title="<%2826%>"><%2827%>:</span></span></td><td><span><b><%2833%></span></b></td>
+      <td>&nbsp;</td>
+    </tr>
+  <%1583%> 
+
+    <%2821%>
+    <tr>
+      <td>&nbsp;</td><td></td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="textRow centerTd"></td>
+      <td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <%2823%>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="textRow centerTd">		
+      
+        <button class = "purpleBtn2"  onclick="window.print();return false;"><span><%2834%>&nbsp;&nbsp;&nbsp;</span></button>
+        <span style="display:-moz-inline-box;display:inline-block;width:100px;"></span>
+        </td>
+	  <td>
+        <button class = "purpleBtn2"  onclick="window.location.href='genie_download.htm';return false;"><span><%303%> &nbsp;&nbsp;&nbsp;</span></button>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <input type="hidden" name="wireless_2g_security" value="<%367%>" />
+  <input type="hidden" name="wireless_5g_security" value="<%2835%>" />
+</form>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>NETGEAR Router Orbi</title>
+<%11%>
+<script src="jquery.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/tabs.css">
+<link rel="stylesheet" type="text/css" href="css/button.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<style type="text/css">
+.firm_version{
+  font-family:Arial; 
+  font-weight:700; 
+  font-size: 14px; 
+  color:#7d706c;
+}
+.download-orbi-banner{
+ 	font-size: 14.4px;
+	margin-left: 75px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #00a1de;
+    width: 587px;
+    padding: 18px 15px 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial;
+    <!--margin-bottom: 10px;-->
+}
+.download-btn-orbi {
+    margin-right: 35px;
+    line-height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-decoration: none;
+    border-radius: 3px;
+    display: inline-block;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: #00a1de;
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+	white-space:nowrap;
+}
+.download-btn-orbi:hover {
+    opacity: .8;
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+</style>
+<script type="text/javascript">
+var gui_lang_local;
+var load_page = 0;
+var is_loading_page = 0;
+var adjustPageHeight = 0;
+var num_nosubLarge = 0;
+var num_submenuLarge = 0;
+
+function LangInit() {
+    //alert("1");
+    var isIE = navigator.userAgent.search("MSIE") > -1; 
+    var isFirefox = navigator.userAgent.search("Firefox") > -1;
+    var isOpera = navigator.userAgent.search("Opera") > -1;
+    var isSafari = navigator.userAgent.search("Safari") > -1;
+  
+    var isIE8=navigator.appVersion.indexOf("MSIE 8") > -1;  
+    var form=document.forms[0];
+    var lang = form.curlang.value;
+    //notification of R7000 full feature
+    //<%588%>       
+
+    <%589%>    
+    //When the multilanguage droplsit switched to Japanese and Hungarian disappear. 
+    if((isIE && isIE8 && lang == "Japanese") || (isIE && isIE8 && lang == "Hungarian"))
+    {
+        //alert("no change");
+    }else
+    {
+    <%590%>    
+    <%731%>
+        //alert("change");
+        $('#lang_menu_li').css("float", "right");
+        $('#lang_menu_li').css("padding-right", "25px");
+        $('#lang_menu_li').css("margin-bottom", "10px");
+    <%732%>
+    <%733%>
+        $("#lang_menu_li").hide();
+        $("#language").attr('disabled', true);
+    <%734%>
+    <%589%>    
+    }
+    <%590%> 
+    
+    if("<%508%>"=="1" & 0)
+    {
+        if($('#firmware_update').hasClass("firmware-update-hint-long")) {
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "480px");
+        } else if(isSafari) {
+            //alert("");
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "410px");
+        } else if(isOpera) {
+            //alert("");
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "0px");
+        } else if(isIE) {
+            //alert("");
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "-10px");
+        } else if($('#firmware_update').hasClass("firmware-update-hint-long-long")) {
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "530px");
+        }  else {
+            $('#ModuleName').css("position", "relative");
+            $('#ModuleName').css("right", "410px");
+        }
+    }
+    else
+    {
+        $('#ModuleName').css("position", "relative");
+        $('#ModuleName').css("right", "0px");    
+    }
+    
+    change_size();
+    
+     if (!chgBrsLang()) /* no page is loadded */
+     {
+        if(<%594%>)
+            top.loadPage("<%595%>");
+        else
+            top.loadPage("DashBoard.htm");
+     }
+        //}
+     try {
+        document.execCommand("BackgroundImageCache", false, true);  
+     } catch (e){}
+}
+
+$(document).ready(function(){
+    $('#basic_label').click(function(ev){
+        $("#basic-pane", top.document).show();
+        $("#adv-pane", top.document).hide();
+        $('.subHeader', top.document).hide();
+        $('.menuActive', top.document).removeClass('menuActive');
+        $('#home', top.document).addClass('menuActive');
+        top.loadPage("DashBoard.htm");        
+    });
+    $('#advanced_label').click(function(ev){         
+        $("#basic-pane", top.document).hide();
+        $("#adv-pane", top.document).show();
+        $('.subHeader', top.document).hide();   
+        $('.noSubActive', top.document).removeClass('noSubActive');
+        $('.noSubActiveLarge', top.document).removeClass('noSubActiveLarge');
+        $('.SubMenuActive', top.document).addClass('SubMenu');   
+        $('.SubMenuActive', top.document).removeClass('SubMenuActive');
+        $('.SubMenuActiveLarge', top.document).addClass('SubMenuLarge');
+        $('.SubMenuActiveLarge', top.document).addClass('SubMenu');
+        $('.SubMenuActiveLarge', top.document).addClass('Large');
+        $('.SubMenuActiveLarge', top.document).removeClass('SubMenuActiveLarge');
+        $('.SubActive', top.document).addClass('Sub');
+        $('.SubActive', top.document).removeClass('SubActive');
+        if($('#adv_home', top.document).hasClass('noSubLarge')) 
+            $('#adv_home', top.document).addClass('noSubActiveLarge');  
+        else
+            $('#adv_home', top.document).addClass('noSubActive');  
+        $('.subHeader:visible', top.document).slideUp('fast');  
+        top.loadPage2("ADVANCED_home.htm");      
+    });
+
+      
+    
+    $("ul.tabs").tabs(".pane"); 
+    
+    $("#basic_label").click();
+    LangInit();
+      
+    <%596%>;
+
+    $('.subHeader').hide();
+    var pnpx = "<%597%>"
+    if(pnpx == 1){        
+        $("#advanced_label").click();       
+        pnpx = 0;
+    }
+    
+    
+});   
+
+function ShowLanguageList()
+{   //alert("10");
+    var suportlanguage = $("input[name=srptlang]").val().split(" ");
+    var gui_region = $("input[name=curlang]").val();
+        var gui_lang = $("input[name=gui_lang]").val();
+        var local_srpt = $("input[name=local_srptlang]").val().split(" "); 
+        var i;
+    for(i=0; i < suportlanguage.length; i++)
+    {
+            if((suportlanguage[i] == gui_region) ||
+            ((suportlanguage[i] == "TraditionalChinese") && (gui_region=="TChinese")) ||
+            ((suportlanguage[i] == "SimplifiedChinese") && (gui_region=="Chinese")))
+            {
+            document.write('<option value='+gui_region+' selected >'+local_srpt[i]+'</option>');
+        }else{
+            document.write('<option value='+suportlanguage[i]+'>'+local_srpt[i]+'</option>');
+                }
+
+  if(((suportlanguage[i] == "TraditionalChinese") && (gui_lang=="TChinese")) ||
+            ((suportlanguage[i] == "SimplifiedChinese") && (gui_lang=="Chinese")) ||
+                (suportlanguage[i] == gui_lang)){              
+                   gui_lang_local = local_srpt[i];
+                }
+    }
+
+  
+               
+}
+
+function resetLanguageList()
+{   //alert("11");
+    var i;
+    var suportlanguage = $("input[name=srptlang]").val().split(" ");
+    var gui_region = $("input[name=curlang]").val();
+    var langList = document.getElementById("language");
+
+    for(i=0; i < suportlanguage.length; i++)
+    {
+        if((suportlanguage[i] == gui_region) ||
+                ((suportlanguage[i] == "TraditionalChinese") && (gui_region=="TChinese")) ||
+                ((suportlanguage[i] == "SimplifiedChinese") && (gui_region=="Chinese")))
+        {       
+            langList.selectedIndex = i;
+            return;
+        }
+    }   
+}
+
+function calculate_string_pixel(str)
+{   //alert("12");
+    var obj = document.getElementById("ruler");
+    obj.innerHTML = str;
+    return obj.offsetWidth;
+
+}
+
+function chgLang()
+{   //alert("13");
+    var gui_region = $("input[name=curlang]").val();
+    var choice = $("select[name=choicelang]").val();
+    var auto_block = $("input[name=auto_block]").val(); 
+    var suportlanguage = $("input[name=srptlang]").val().split(" ");
+    var local_srpt = $("input[name=local_srptlang]").val().split(" "); 
+
+    for(i=0; i < suportlanguage.length; i++)
+    {
+            if(suportlanguage[i] == choice)
+                choice=local_srpt[i];
+    }
+ 
+    if (choice != gui_region){      
+        setTimeout(function(){
+            ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ choice + "?");
+            if(ret==1){
+                if($("#basic_label").closest("li").hasClass('current')){
+                    top.loadPage("LANG_check_redirect.htm");
+                }else{
+                    top.loadPage2("LANG_check_redirect.htm");
+                }
+            }
+            else
+                resetLanguageList();
+        },10);
+    }
+ 
+    if($("#basic_label").closest("li").hasClass('current')){
+        top.loadPage("LANG_brs_conflict.htm");
+    }else{
+        top.loadPage2("LANG_brs_conflict.htm");
+    }
+}
+
+function chgBrsLang()
+{   //alert("14");
+ 
+        var gui_region = $("input[name=curlang]").val();
+        var brslang = $("input[name=first_brs_lang]").val();
+        var choice = $("select[name=choicelang]").val(); 
+        var auto_block = $("input[name=auto_block]").val();
+        var gui_lang = $("input[name=gui_lang]").val();
+
+        if(choice == "Auto"){
+            if(auto_block == "0"){
+
+                if(gui_lang != brslang)
+                  {
+                    if(brslang =="TChinese")
+                        ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+" Traditional Chinese?");
+                    else
+                        ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ brslang + "?");
+                    if(ret==1){
+                        if($("#basic_label").closest("li").hasClass('current')){
+                           top.loadPage("LANG_check_redirect2.htm");
+                        }else{
+                           top.loadPage2("LANG_check_redirect2.htm");
+                        }
+                    }else{
+                        if($("#basic_label").closest("li").hasClass('current')){
+                            top.loadPage("auto_block.htm");
+                        }else{
+                            top.loadPage2("auto_block.htm");
+                        }
+                   }
+                   return true;
+               }
+            }
+        }
+        
+        return false;
+}
+
+
+function fw_upgrade_hint()
+{   //alert("15");
+    if($("#basic_label").closest("li").hasClass('current'))
+        $('#advanced_label').click();
+    top.loadPage2("UPG_upgrade.htm");
+}
+
+function gui_logout()
+{   //alert("16");
+    top.location.href="LGO_logout.htm";
+}
+
+
+function change_size()
+{
+    setLanglistPosition();
+}
+
+function adsFunction() 
+{						
+	document.getElementById("orbi-alert").style.display="none";
+	document.adctrl.submit();	
+}
+
+function load_settings()
+{
+	var form = document.forms[0];
+	var need_hide_ads = form.enable_ad_show.value;
+
+	if(need_hide_ads==0){
+		document.getElementById("orbi-alert").style.display="none";		
+	} 
+	
+	return 0;
+}
+	
+</script>
+</head>
+<body style="padding:8px 0 0 0;margin:0;background-color:#FFFFFF;" onload="load_settings();change_size();" onResize="change_size()">
+
+<table style="height:76px;width:100%;padding:0" CELLPADDING=0 CELLSPACING=0 class="newtopframe">
+<tr>
+    <td style="padding-left:20px">
+        <img style="position:relative; left:-7px; height:57px; width:auto;" src="img/genie.png" >
+    </td>
+    <!--Add Banner-->
+    <td>
+    <div class="download-orbi-banner" id="orbi-alert"><%735%>
+    	<div><a href="http://orbi-app.com/" class="download-btn-orbi" target="_blank"><%736%></a></div>
+		<div><span onclick="adsFunction()" class="cross" id="app_cross" name="app_cross"><img src="img/cross.png" class="cross" alt=""/></span></div>
+	</div>
+    </td>
+    <td style="text-align:right;padding-right:25px">
+        <button type="button" value="BUTTON"  onClick="gui_logout();" name="logout" id="logout" class="button-logout"><%603%></button>
+        <div class="firm_version" id="firm_version">
+        <%604%>
+        <br>
+          <%605%>
+        </div>
+        </td>
+</tr>
+</table>
+
+
+<form name="frmLanguage">
+<%606%>
+<%607%>
+    <input type="hidden" name="curlang" id="curlang" value="Auto"> 
+<%608%>
+<%609%>
+    <input type="hidden" name="curlang" id="curlang" value="<%9%>"> 
+<%610%>
+<%611%>
+<%612%>
+    <input type="hidden" name="curlang" id="curlang" value="<%9%>">
+<%613%>
+    <input type="hidden" name="local_srptlang" value="<%614%>">
+    <input type="hidden" name="srptlang" value="<%615%>">
+    <input type="hidden" name="select_region" value="">
+    <input type="hidden" name="first_brs_lang" value="<%616%>"> 
+    <input type="hidden" name="auto_block" value="<%617%>">
+    <input type="hidden" name= "gui_lang" value="<%9%>">
+    <input type="hidden" name= "gui_lang_local" value="<%616%>">
+	<input type="hidden" name= "enable_ad_show" value="<%737%>">
+</form> 
+<form name="adctrl"  method="POST" action="adctrl.cgi">   
+   <input type="hidden" name= "enable_ad_show" value="0">
+</form>     
+<!-- tabs -->
+<div class="topmenubar">
+    <div class="topmenu">
+        <ul class="tabs" >
+            <li><div id="basic_label" class="tab" onFocus="this.blur()" href="#"><span><%618%></span></div></li>
+            <li><div id="advanced_label" class="tab" onFocus="this.blur()" href="#"><span><%619%></span></div></li>  
+        </ul>
+    </div>
+
+    <%738%>
+    <div id="firmware_update" class="button-info" onClick="fw_upgrade_hint();"  style="display:inline;">
+    <span class=roundleft_update>&nbsp;&nbsp;<%739%> <%740%> <%741%></span><span class=roundright_update>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+    <%742%>
+    <div id="lang_menu_li" class="top_lang">
+       <select name="choicelang" size="1" id="language" <%620%> onchange="chgLang();this.blur();">
+       <script>ShowLanguageList();</script>
+       </select>
+    </div>
+</div>                                           
+
+</body>
+</html>

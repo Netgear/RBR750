@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <%0%>
+        <title><%1141%></title>
+        <link rel="stylesheet" href="styles/main.css">
+        <%2%>
+    </head>
+  <body class="langSettings postSetup twoColumns" onLoad="delayedLoad()">
+
+        <%410%>
+
+        
+      <div class="container sliderWrap">
+        
+        <%1136%>
+
+        
+        <div id="slider">
+          <div class="main clearfix">
+          
+          
+          <h1><%1189%></h1>
+          
+          <form id="target" name="mainForm" action="message.cgi" method="post" onSubmit="return false">
+
+
+            <ul class="formElements">
+              <li><hr></li>
+              <li>
+                <p class="instruction"><b><%1190%></b></p>
+              </li>
+              <li><hr></li>
+            </ul>
+
+            <div id="warning" style="display: none;">
+              <p class="instruction"><%1191%></p>
+            </div>
+
+            <div id="quitblock" style="display: none;">
+            <div class="formButtons bottom">
+              <div class="mobileFooter">
+                <div class="mobileCenterButtons">
+                  <div>
+                    <input class="btn primary" type="button" name="quit" value="<%1192%>" onclick="top.location.replace('close_process.htm');">
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <input type="hidden" name="next_file" value="<%1092%>">
+            <input type="hidden" name="pnpxstart" value="0">
+          </form>
+                                
+        </div> <!-- end main -->
+        <%440%>
+        <%441%>
+
+        </div> 
+        
+      </div> <!-- end container -->
+    
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/pwdStrength.js"></script>
+      <script src="scripts/main.js"></script>
+      <script language="javascript" type="text/javascript">
+        function delayedLoad()
+        {
+            var nextF = document.forms["mainForm"].next_file.value;
+            var pnpxstatus=document.forms["mainForm"].pnpxstart.value;
+            if (nextF == "historyBack"){
+                document.getElementById("warning").style.display="block";
+                setTimeout("history.back()", 6000);
+            }else{
+                if(pnpxstatus==1){
+                    document.getElementById("quitblock").style.display="block";
+                }else{
+                    document.getElementById("warning").style.display="block";
+                    setTimeout("location.replace('" + nextF + "')", 6000);
+                }
+            }
+        }
+      </script>
+  </body>
+</html>
+

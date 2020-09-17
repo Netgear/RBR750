@@ -1,0 +1,6 @@
+clk-debug
+gpio-debug
+qca-diag
+qca-qmi-framework
+qca-time-services
+qca-wlanfw-upgrade

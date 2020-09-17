@@ -1,0 +1,36 @@
+Source-Makefile: feeds/whc/whc/Makefile
+Package: whc
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +qca-whc-lbd +qca-whc-repacd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Whole Home Coverage - selects all Whole Home Coverage components for build
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Meta package which selects all Whole Home Coverage components required for build
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: whc-ui
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc-lbd +luci-whc-lbd-advanced +luci-whc-lbd-diaglog +luci-whc-repacd +luci-whc-repacd-advanced
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Whole Home Coverage - selects all Whole Home Coverage web interface components
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Meta package which selects all Whole Home Coverage web interface components
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

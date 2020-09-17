@@ -1,0 +1,147 @@
+Source-Makefile: feeds/qca_platform_utils/clk-debug/Makefile
+Package: clk-debug
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux Clock Debug script
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   This package contains a Clock Debug script which can be used
+  internally by QCA to check the status of Clocks easily and
+  quickly.
+
+@@
+
+
+Source-Makefile: feeds/qca_platform_utils/gpio-debug/Makefile
+Package: gpio-debug
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux GPIO Debug script
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   This package contains a GPIO Debug script which can be used
+  internally by QCA to check the status of GPIO pins easily and
+  quickly without involving manual calculations
+
+@@
+
+
+Source-Makefile: feeds/qca_platform_utils/qca-diag/Makefile
+Package: qca-diag
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64||TARGET_ipq807x||TARGET_ipq807x_64 +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux diag software
+Maintainer: 
+Source: qca-diag-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Linux diag software
+
+@@
+
+
+Source-Makefile: feeds/qca_platform_utils/qca-qmi-framework/Makefile
+Package: qca-qmi-framework
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64 +libpthread +PACKAGE_qmi:qmi
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux QMI framework software
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Linux QMI framework software
+
+@@
+
+Package: kmod-testssr
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: TEST SSR-RPROC driver
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_IPQ_SUBSYSTEM_RESTART_TEST
+Description:   This driver provides support for the testing of SSR-RPROC.
+
+@@
+
+Package: kmod-qmi-test-app
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Add QMI ping_pong test application
+Maintainer: 
+Source: qca-qmi-framework-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_MSM_TEST_QMI_CLIENT
+Description:   Add QMI ping_pong test application
+
+@@
+
+
+Source-Makefile: feeds/qca_platform_utils/qca-time-services/Makefile
+Package: qca-time-services
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64 +libpthread +qca-qmi-framework
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Time Services software
+Maintainer: 
+Source: qca-time-services-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Time Services software
+
+@@
+
+
+Source-Makefile: feeds/qca_platform_utils/qca-wlanfw-upgrade/Makefile
+Package: qca-wlanfw-upgrade
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64 +squashfs4
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux Wlan Firmware Upgrade script
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   This package contains a wlan firmware upgrade script which can be used
+  internally by QCA to update the wlan firmware components like q6 and m3 images.
+
+@@
+
+

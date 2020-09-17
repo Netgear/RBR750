@@ -1,0 +1,36 @@
+Source-Makefile: feeds/bootloader/uboot-ipq806x/Makefile
+Package: uboot-ipq806x
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: boot
+Category: Boot Loaders
+Title: U-boot for IPQ806x based platforms
+Maintainer: 
+Source: u-boot-g24328de-dirty.tar.bz2
+Type: ipkg
+Description: U-boot for IPQ806x based platforms
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+Package: uboot-ipq806x-fwupgrade-tools
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: boot
+Category: Boot Loaders
+Title: U-boot images tools (dumpimage, mkimage)
+Maintainer: 
+Source: u-boot-g24328de-dirty.tar.bz2
+Type: ipkg
+Description: U-boot images tools (dumpimage, mkimage)
+http://www.denx.de/wiki/U-Boot
+
+@@
+
+

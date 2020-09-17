@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<%0%>
+<title><%1019%></title>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" type="text/css" href="styles/login/inputs.css">
+<link rel="stylesheet" type="text/css" href="styles/login/main.css">
+<link rel="stylesheet" type="text/css" href="styles/login/images.css">
+
+<%2%>
+<script src="scripts/modernizr.min.js"></script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/pwdStrength.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/pwdRecovery.js"></script>
+<script src="scripts/jquery.placeholder.js"></script>
+<script language="javascript" type="text/javascript">
+ if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_check_answer_info").style.display="none";
+	 }
+$.noConflict();
+jQuery(document).ready(function($) {
+    $(function() {
+      // Invoke the placeholder plugin for IE8 IE9
+      $('input, textarea').placeholder();
+      // That's it, really.
+    });
+});
+</script>
+</head>
+
+<body>
+    <%3%>
+
+<ui-view>
+    <div id="content">
+    <div class="container">
+    <div class="main regsimpleChoiceWrapper clearfix">
+    <p id="byheadline" ><%1019%></p>
+    <br>
+    <form id="pwdSettingsForm" name="pwdSettingsForm" action="web_login_pwd_recovery.cgi" method="POST"  autocomplete="off">
+    <br>
+    <li>
+        <script language="javascript" type="text/javascript">
+        <!--
+        recoveryQuestion1();  
+        //-->
+        </script>
+    </li>
+    <br>
+    <li>
+        <input type="text" required=""  placeholder="<%641%>" name="answer1" id="answer1" size="64" maxlength="64" value=""> 
+        <div class="<%1049%>"><%1050%></div>
+    </li>
+    <br>
+    <li>
+        <script language="javascript" type="text/javascript">
+        <!--
+        recoveryQuestion2();  
+        //-->
+        </script>
+    </li>
+    <br>
+    <li>
+        <input type="text" required="" name="answer2" id="answer2" placeholder="<%641%>" size="64" maxlength="64" value="">
+        <div class="<%1051%>"><%1050%></div>
+    </li>
+    <br>
+    <div id="fixedFooter">
+        <div class="container">
+        <footer>
+            <div class="centerButtons">
+                <div class="processButtons">
+                <a id="backStep" class="btn secondary" href="web_login.html"><%19%></a>
+                <button id="nextStep" class="btn primary" type="submit"><%70%></button>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    <!--[if IE 8]><div class="backgroundColorChangeIE8"></div><![endif]-->
+    </div>
+</ui-view>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss/qca-nss-fw-cp-retail/Makefile
+Package: qca-nss-fw-cp-retail
+Menu: 1
+Submenu: Network Devices
+Version: 254-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-cp
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: BIN-NSS.CP.2.0-254-R.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+

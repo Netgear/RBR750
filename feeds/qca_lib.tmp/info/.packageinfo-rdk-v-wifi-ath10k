@@ -1,0 +1,19 @@
+Source-Makefile: feeds/qca_lib/rdk-v-wifi-ath10k/Makefile
+Package: rdk-v-wifi-ath10k
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libnl +wpad-mesh
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: RDK-V HAL API Library
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Description:   This Package contains the RDK-V HAL API Functionality Library
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

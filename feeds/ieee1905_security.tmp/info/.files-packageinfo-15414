@@ -1,0 +1,6 @@
+qca-ieee1905-security-config/libieee1905
+qca-ieee1905-security-config/libstorage
+qca-ieee1905-security-config/libwpa2
+qca-ieee1905-security-config/qca-ieee1905-init
+qca-ieee1905-security-config/qca-wsplcd
+qca-wsplc-luci

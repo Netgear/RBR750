@@ -1,0 +1,18 @@
+Source-Makefile: feeds/qca/utils/qca-cnss-daemon/Makefile
+Package: qca-cnss-daemon
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64 +libnl +libpthread +qca-qmi-framework +qca-qmi +qca-data
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux QMI sotware
+Maintainer: 
+Source: qca-cnss-daemon-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Linux QMI sotware
+
+@@
+
+

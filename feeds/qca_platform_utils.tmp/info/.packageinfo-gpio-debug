@@ -1,0 +1,20 @@
+Source-Makefile: feeds/qca_platform_utils/gpio-debug/Makefile
+Package: gpio-debug
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Linux GPIO Debug script
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   This package contains a GPIO Debug script which can be used
+  internally by QCA to check the status of GPIO pins easily and
+  quickly without involving manual calculations
+
+@@
+
+

@@ -1,0 +1,10 @@
+--- a/pppd/plugins/rp-pppoe/discovery.c
++++ b/pppd/plugins/rp-pppoe/discovery.c
+@@ -428,6 +428,7 @@
+ 	    }
+ 	}
+     } while (conn->discoveryState != STATE_RECEIVED_PADO);
++	system("touch /tmp/PADO");
+ }
+ 
+ /***********************************************************************

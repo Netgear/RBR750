@@ -1,0 +1,82 @@
+Source-Makefile: feeds/nss_host/qca-nss-ecm/Makefile
+Package: kmod-qca-nss-ecm-noload
+Menu: 1
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +TARGET_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq807x:kmod-qca-nss-drv +TARGET_ipq_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq807x:kmod-qca-nss-drv +TARGET_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq_ipq60xx:kmod-qca-nss-drv +TARGET_ipq_ipq60xx_64:kmod-qca-nss-drv +iptables-mod-extra +kmod-ipt-conntrack +kmod-pppoe @!LINUX_3_18 +kmod-l2tp +kmod-pppol2tp +kmod-pptp +kmod-shortcut-fe-drv +kmod-bonding
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-nss-ecm
+Build-Variant: noload
+Section: kernel
+Category: Kernel modules
+Title: QCA NSS Enhanced Connection Manager (ECM) (with noload features)
+Maintainer: 
+Source: qca-nss-ecm-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_BRIDGE_NETFILTER=y CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: QCA NSS Enhanced Connection Manager (ECM) (with noload features)
+
+@@
+
+Package: kmod-qca-nss-ecm-standard
+Menu: 1
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +TARGET_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq807x:kmod-qca-nss-drv +TARGET_ipq_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq807x:kmod-qca-nss-drv +TARGET_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq_ipq60xx:kmod-qca-nss-drv +TARGET_ipq_ipq60xx_64:kmod-qca-nss-drv +iptables-mod-extra +kmod-ipt-conntrack +kmod-pppoe @!LINUX_3_18
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-nss-ecm
+Build-Variant: standard
+Section: kernel
+Category: Kernel modules
+Title: QCA NSS Enhanced Connection Manager (ECM)
+Maintainer: 
+Source: qca-nss-ecm-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_BRIDGE_NETFILTER=y CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: QCA NSS Enhanced Connection Manager (ECM)
+
+@@
+
+Package: kmod-qca-nss-ecm-premium-noload
+Menu: 1
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +TARGET_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq807x:kmod-qca-nss-drv +TARGET_ipq_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq807x:kmod-qca-nss-drv +TARGET_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq_ipq60xx:kmod-qca-nss-drv +TARGET_ipq_ipq60xx_64:kmod-qca-nss-drv +iptables-mod-extra +kmod-ipt-conntrack +kmod-pppoe @!LINUX_3_18 +kmod-qca-hyfi-bridge +kmod-qca-mcs +kmod-nat46 +kmod-l2tp +kmod-pppol2tp +kmod-pptp +kmod-shortcut-fe-drv +kmod-bonding
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-nss-ecm-premium
+Build-Variant: premium
+Section: kernel
+Category: Kernel modules
+Title: QCA NSS Enhanced Connection Manager (ECM) (with premium features)
+Maintainer: 
+Source: qca-nss-ecm-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_BRIDGE_NETFILTER=y CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: QCA NSS Enhanced Connection Manager (ECM) (with premium features)
+
+@@
+
+Package: kmod-qca-nss-ecm-premium
+Menu: 1
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: +TARGET_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq806x:kmod-qca-nss-drv +TARGET_ipq_ipq807x:kmod-qca-nss-drv +TARGET_ipq_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq807x:kmod-qca-nss-drv +TARGET_ipq807x_64:kmod-qca-nss-drv +TARGET_ipq_ipq60xx:kmod-qca-nss-drv +TARGET_ipq_ipq60xx_64:kmod-qca-nss-drv +iptables-mod-extra +kmod-ipt-conntrack +kmod-pppoe @!LINUX_3_18 +kmod-qca-hyfi-bridge +kmod-qca-mcs +kmod-nat46 +kmod-l2tp +kmod-pppol2tp +kmod-pptp +kmod-shortcut-fe-drv +kmod-bonding
+Conflicts: 
+Menu-Depends: 
+Provides: kmod-qca-nss-ecm
+Build-Variant: premium
+Section: kernel
+Category: Kernel modules
+Title: QCA NSS Enhanced Connection Manager (ECM) (with premium features)
+Maintainer: 
+Source: qca-nss-ecm-g24328de-dirty.tar.gz
+Type: ipkg
+Kernel-Config: CONFIG_BRIDGE_NETFILTER=y CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: QCA NSS Enhanced Connection Manager (ECM) (with premium features)
+
+@@
+
+

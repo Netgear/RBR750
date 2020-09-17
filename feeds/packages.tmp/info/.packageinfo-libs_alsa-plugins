@@ -1,0 +1,66 @@
+Source-Makefile: feeds/packages/libs/alsa-plugins/Makefile
+Package: alsa-plugins-oss
+Version: 1.0.28-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +alsa-lib +libncursesw +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: sound
+Category: Sound
+Title: ALSA (Advanced Linux Sound Architecture) Plugins oss
+Maintainer: 
+Source: alsa-plugins-1.0.28.tar.bz2
+Type: ipkg
+Description:  ALSA (Advanced Linux Sound Architecture) oss Plugins required for audio.
+
+@@
+
+Package: alsa-plugins-speex
+Version: 1.0.28-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +alsa-lib +libncursesw +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: sound
+Category: Sound
+Title: ALSA (Advanced Linux Sound Architecture) Plugins Speex
+Maintainer: 
+Source: alsa-plugins-1.0.28.tar.bz2
+Type: ipkg
+Description:  ALSA (Advanced Linux Sound Architecture) Speex Plugins required for audio.
+
+@@
+
+Package: alsa-plugins-full
+Version: 1.0.28-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +alsa-lib +libncursesw +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: sound
+Category: Sound
+Title: ALSA (Advanced Linux Sound Architecture) Plugins full
+Maintainer: 
+Source: alsa-plugins-1.0.28.tar.bz2
+Type: ipkg
+Description: ALSA (Advanced Linux Sound Architecture) Plugins full
+
+@@
+
+Package: alsa-plugins-gcs
+Version: 1.0.28-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +ffmpeg +libspeexdsp graphite-client
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: sound
+Category: Sound
+Title: ALSA (Advanced Linux Sound Architecture) Plugins gcs
+Maintainer: 
+Source: alsa-plugins-1.0.28.tar.bz2
+Type: ipkg
+Description: ALSA (Advanced Linux Sound Architecture) Plugins gcs
+
+@@
+
+

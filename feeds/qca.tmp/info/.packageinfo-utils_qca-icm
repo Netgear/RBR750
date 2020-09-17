@@ -1,0 +1,20 @@
+Source-Makefile: feeds/qca/utils/qca-icm/Makefile
+Package: qca-icm
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread kmod-qca-wifi +libpthread qca-spectral +libnl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Depends: kmod-qca-wifi
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Intelligent channel manager
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA Intelligent channel manager
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

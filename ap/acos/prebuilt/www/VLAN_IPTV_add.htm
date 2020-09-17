@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+    classes.num.all.fontFamily = "Courier";
+    classes.num.all.fontSize = "10pt" ;
+</style>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var msg = "";
+    var vlan_id = parseInt(cf.vlan_id.value,10);
+    var vlan_prio = parseInt(cf.vlan_prio.value,10);
+    var vlan_rule=cf.vlan_rule_name.value.split(" ");
+    var i = 0, conflict, reply;
+
+
+    if (cf.vlan_name.value.match( /[^\x21-\x7E]/ ) || cf.vlan_name.value == "" )
+    {
+        msg+="<%2950%>\n";
+        alert(msg);
+        return false;
+    }
+    if ((!_isNumeric(cf.vlan_id.value)) || isNaN(vlan_id) || vlan_id > 4094 || vlan_id < 1) {
+        alert("<%2951%>");
+        return false;
+    }
+
+    if ( vlan_id == 4094 || vlan_id == 4093) {
+        alert("<%2952%>");
+        return false;
+    }
+        
+    if ((!_isNumeric(cf.vlan_prio.value)) || isNaN(vlan_prio) || vlan_prio > 7 || vlan_prio < 0) {
+        alert("<%2953%>");
+        return false;
+    }
+    while(typeof vlan_rule[i] != "undefined")
+    {
+        if (vlan_rule[i]==cf.vlan_name.value)
+        {
+            conflict = true;
+            break;
+        }
+        i++;
+    }
+    if (conflict) {
+        alert("<%2954%> "+cf.vlan_name.value+" <%2955%>");
+        return false;
+    }
+
+    if(cf.vlan_ports_0.checked || cf.vlan_ports_1.checked || cf.vlan_ports_2.checked || cf.vlan_ports_3.checked || cf.vlan_ports_4.checked)
+    {
+        if(<%2926%>cf.vlan_ports_0.checked && <%2927%>cf.vlan_ports_1.checked && cf.vlan_ports_2.checked && cf.vlan_ports_3.checked && cf.vlan_ports_4.checked)   
+        {
+            alert("<%2956%>");
+            return false;
+        }
+    }
+    else
+    {
+        alert("<%2957%>");
+        return false;
+    }
+
+
+    
+    return true;
+}
+
+//-->
+</script> 
+</head>
+<body  onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="vlan_rule.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%2958%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='VLAN_IPTV.htm'" type="Button" id="cancel" name="cancel" class="button-cancel" ><%84%></button>
+<button value="<%913%>" onClick="buttonClick(this,'<%913%>');if(!checkData()) return false;" type="SUBMIT" id="apply" name="apply" class=<%79%> ><%913%></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr><td>
+<table border="0"   width="100%">
+
+<tr>
+    <td nowrap><%2939%></td>
+    <td width="50%" align="left"><input type="text" id="vlan_name" name="vlan_name" size="15" maxlength="10"></td>
+</tr>
+<tr>
+    <td nowrap><%2940%></td>
+    <td width="50%" align="left">
+        <input type="text" id="vlan_id" name="vlan_id" class="num" size="10" maxlength="4">
+    <%2959%>
+    </td>
+</tr>
+<tr>
+    <td nowrap><%2941%></td>
+    <td width="50%" align="left">
+        <input type="text" id="vlan_prio" name="vlan_prio" class="num" size="10" maxlength="1" value="0">
+    <%2960%>
+    </td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td nowrap colspan=2>
+    <td style="<%2926%>display: none<%2927%>">
+      <input type="checkbox" id="vlan_ports_0" name="vlan_ports_0">Port1
+    </td>
+    <td>
+      <input type="checkbox" id="vlan_ports_1" name="vlan_ports_1">Port2
+    </td>
+    <td>
+      <input type="checkbox" id="vlan_ports_2" name="vlan_ports_2">Port3
+    </td>
+ <%1559%>    
+    <td>
+      <input type="checkbox" id="vlan_ports_3" name="vlan_ports_3">Port4
+    </td>
+ <%1569%>   
+<!--    
+    <input type="checkbox" name="vlan_ports_4">WiFi-2.4G
+    <input type="checkbox" name="vlan_ports_5">WiFi-5G
+-->    
+<%2935%>
+    <input type="checkbox"  style="display: none;" name="vlan_ports_6" name="vlan_ports_6">
+<%2936%>
+
+   </td>
+    
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+
+</table></td></tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="VLAN_IPTV_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+<input type="hidden" name="vlan_rule_name" value="<%2947%>">
+<INPUT name="vlan_mode" type="hidden" value="add">
+  <input type="hidden" name="wifi_dual_5g_band" value="<%2212%>">
+
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+</html>
+

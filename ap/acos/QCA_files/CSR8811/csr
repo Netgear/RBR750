@@ -1,0 +1,152 @@
+#!/bin/sh
+
+usage() {
+	cat <<EOF
+Usage: $0 [load|reload|pause|reset|uartoff]
+          [txtest|rxtest|d0|dh1|]
+Example:
+ load    : #load
+ reload  : #SW reset and reload 
+ pause   : #Pause Tx
+ reset   : #Warm reset
+ uartoff : #GPIO:8,9,10,11 no control by DK
+ dh1     : #Example for DH1 on frequency 2402 (channel 0)
+EOF
+	exit 1
+}
+
+
+csr_load() {
+#### SW reset CSR8811
+echo 48 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio48/direction 
+echo 0 > /sys/class/gpio/gpio48/value
+echo 1 > /sys/class/gpio/gpio48/value
+
+
+### Load CSR8811 configuration pskey file by bcsp protocol
+bccmd -t bcsp -b 115200 -d /dev/ttyQHS0 psload -r /etc/bluetooth/pb_207_csr8x11.psr
+
+### Initiate CSR8811 by any , which meah will auto change from bcsp(TXD/RXD) to H4(RTS/CTS)
+hciattach -s 115200 /dev/ttyQHS0 bcsp 115200
+#hcidump -X &
+hciconfig hci0 up
+hciconfig -a
+
+#hcitool scan &
+echo "[csr]==> load done"
+}
+
+csr_reload() {
+killall hciattach
+
+echo 0 > /sys/class/gpio/gpio48/value
+echo 1 > /sys/class/gpio/gpio48/value
+
+### Load CSR8811 configuration pskey file by bcsp protocol
+bccmd -t bcsp -b 115200 -d /dev/ttyQHS0 psload -r /etc/bluetooth/pb_207_csr8x11.psr
+
+### Initiate CSR8811 by any , which meah will auto change from bcsp(TXD/RXD) to H4(RTS/CTS)
+hciattach -s 115200 /dev/ttyQHS0 bcsp 115200
+
+hciconfig hci0 up
+hciconfig -a
+echo "[csr]==> reload done"
+}
+
+csr_uartoff() {
+#<set GPIO:8,9,10,11 no control by DK>
+#Control UART1 by remote PC which is connected to DK UART1 
+#by USB to RS232 cable (jump 4 wires on UART1 of DK)
+#
+devmem2 0x01008000 w 0x0
+devmem2 0x01009000 w 0x0
+devmem2 0x0100a000 w 0x0
+devmem2 0x0100b000 w 0x0
+echo "GPIO:8,9,10,11 no control by DK DONE."
+}
+
+reset(){
+echo "#<warm reset>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 4d 0e 02 40 00 00 00 00 00 00 00 00 00 00
+
+}
+
+pause() {
+echo "#<pause>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 12 34 04 50 00 00 00 00 00 00 00 00 00 00
+
+}
+
+csr_d0() {
+echo "#<DH5>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 03 00 04 50 00 00 17 00 0f 00 53 01 00 00
+echo "#<2-DH5>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 04 00 04 50 00 00 17 00 1e 00 a7 02 00 00
+echo "#<3-DH5>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 05 00 04 50 00 00 17 00 1f 00 fd 03 00 00
+echo "#<frequency=2402>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 09 00 04 50 00 00 04 00 62 09 32 ff 00 00
+echo "#<frequency=2441>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 09 00 04 50 00 00 04 00 89 09 32 ff 00 00
+echo "#<frequency=2480>"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 09 00 04 50 00 00 04 00 b0 09 32 ff 00 00
+
+exit 1
+}
+
+csr_dh1() {
+echo "#Example for DH1 on frequency 2402 (channel 0)"
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 03 00 04 50 00 00 17 00 0f 00 53 01 00 00
+hcitool cmd 0x3F 0x0013 c2 02 00 09 00 09 00 04 50 00 00 04 00 62 09 32 ff 00 00
+echo "#You can measure DH1 waveform on frequency 2402 by Litepoint IE GUI (192.168.100.250)"
+echo " Stop TX by warm_reset command:"
+echo " hcitool cmd 0x3F 0x0013 c2 02 00 09 00 4d 0e 02 40 00 00 00 00 00 00 00 00 00 00"
+exit 1
+}
+
+
+txtest(){
+#Pause:
+#hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x00 0x00 0x00 0x000 0x00 0x00 0x00 0x00
+
+echo "************************************************************"
+echo "Tx test"
+echo "************************************************************"
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x17 0x00 0x04 0x00 0x1b 0x00 0x00 0x00
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x16 0x00 0xe2 0x04 0x53 0x07 0x01 0x00
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x04 0x00 0x89 0x09 0x32 0xff 0x00 0x00
+exit 1
+}
+ 
+rxtest(){
+##RX test
+sudo echo "************************************************************"
+sudo echo "Rx test"
+sudo echo "************************************************************"
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x17 0x00 0x04 0x00 0x1b 0x00 0x00 0x00
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x16 0x00 0xe2 0x04 0x53 0x07 0x01 0x00
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x18 0x00 0x02 0x00 0x00 0x71 0x00 0x00 
+hcitool cmd 0x3f 0x00 0xc2 0x02 0x00 0x09 0x00 0x12 0x34 0x04 0x50 0x00 0x00 0x13 0x00 0x89 0x09 0x00 0x00 0x00 0x00
+##sleep 10 seconds for hq event if set PSKEY_HQ_HOST_TIMEOUT &01fb = 1 (1 second)
+sleep 10
+exit 1
+}
+
+
+
+case "$1" in
+	reset) reset;;
+	pause) pause;;
+	load) csr_load;;
+	reload) csr_reload;;
+	uartoff) csr_uartoff;;
+	d0) csr_d0;;
+	dh1) csr_dh1;;
+	txtest) txtest;;
+	rxtest) rxtest;;
+	--help|help) usage;;
+	*) usage;;
+esac
+
+

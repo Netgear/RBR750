@@ -1,0 +1,21 @@
+Source-Makefile: feeds/qca_mcs/qca-mcs-lkm/Makefile
+Package: kmod-qca-mcs
+Submenu: Network Support
+Version: <LINUX_VERSION>+g24328de-dirty-1
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: QCA Multicast Snooping Support
+Maintainer: Qualcomm Atheros, Inc.
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NETFILTER=y CONFIG_BRIDGE_NETFILTER=y
+Description:   This package installs the IGMP/MLD Snooping Module
+http://www.qca.qualcomm.com
+Qualcomm Atheros, Inc.
+@@
+
+

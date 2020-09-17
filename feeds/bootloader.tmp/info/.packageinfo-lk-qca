@@ -1,0 +1,53 @@
+Source-Makefile: feeds/bootloader/lk-qca/Makefile
+Package: lk-ipq40xx
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ipq40xx
+Section: boot
+Category: Boot Loaders
+Title: lk bootloader for IPQ40xx based platforms
+Maintainer: 
+Source: lk-af-g24328de-dirty.tar.xz
+Type: ipkg
+Description: lk bootloader for IPQ40xx based platforms
+
+@@
+
+Package: lk-ipq806x
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ipq806x
+Section: boot
+Category: Boot Loaders
+Title: lk bootloader for IPQ806x based platforms
+Maintainer: 
+Source: lk-af-g24328de-dirty.tar.xz
+Type: ipkg
+Description: lk bootloader for IPQ806x based platforms
+
+@@
+
+Package: lk-ipq807x
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq807x||TARGET_ipq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ipq807x
+Section: boot
+Category: Boot Loaders
+Title: lk bootloader for IPQ807x based platforms
+Maintainer: 
+Source: lk-af-g24328de-dirty.tar.xz
+Type: ipkg
+Description: lk bootloader for IPQ807x based platforms
+
+@@
+
+

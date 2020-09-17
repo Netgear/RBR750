@@ -1,0 +1,110 @@
+Source-Makefile: feeds/whc/qca-whc-luci/Makefile
+Package: luci-whc
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci +luci-mod-admin-core +luci-mod-admin-full
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-whc-lbd
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI - Load Balancing
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage - Load Balancing
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-whc-lbd-advanced
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc-lbd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI - Load Balancing Advanced
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage - Load Balancing Daemon Advanced Settings
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-whc-lbd-diaglog
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc-lbd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI - Load Balancing Diagnostic Logging
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage - Load Balancing Daemon Diagnostic Logging Settings
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-whc-repacd
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI - Range Extender
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage RE Placement and Auto-Configuration Daemon
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-whc-repacd-advanced
+Submenu: Whole Home Coverage features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-whc-repacd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: WHC Web UI - Range Extender Advanced
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for Whole Home Coverage - RE Placement and Auto-Configuration Daemon Advanced Settings
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

@@ -1,0 +1,21 @@
+Source-Makefile: feeds/platform_utils/pm-utils/Makefile
+Package: pm-utils
+Version: 1.4.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +flock
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Title: Power Management Utilities
+Maintainer: 
+Source: pm-utils-1.4.1.tar.gz
+Type: ipkg
+Description:   Power Managment Utilities is a small collection of scripts to
+  suspend/hibernate system that can be used to run user supplied
+  scripts on suspend and resume
+http://pm-utils.freedesktop.org/wiki/
+
+@@
+
+

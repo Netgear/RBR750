@@ -1,0 +1,56 @@
+Source-Makefile: feeds/nss/qca-nss-fw/Makefile
+Package: qca-nss-fw-retail
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+Package: qca-nss-fw-carrier
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - carrier
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (carrier) for QCA chipset
+
+@@
+
+Package: qca-nss-fw-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+

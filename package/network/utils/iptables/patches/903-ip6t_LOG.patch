@@ -1,0 +1,13 @@
+diff --git a/include/linux/netfilter_ipv6/ip6t_LOG.h b/include/linux/netfilter_ipv6/ip6t_LOG.h
+index fb346f9..9dd5579 100644
+--- a/include/linux/netfilter_ipv6/ip6t_LOG.h
++++ b/include/linux/netfilter_ipv6/ip6t_LOG.h
+@@ -13,7 +13,7 @@
+ struct ip6t_log_info {
+ 	unsigned char level;
+ 	unsigned char logflags;
+-	char prefix[30];
++	char prefix[280];
+ };
+ 
+ #endif /*_IPT_LOG_H*/

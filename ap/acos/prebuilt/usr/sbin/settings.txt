@@ -1,0 +1,36 @@
+//
+// Trial Configuration (valid until November 1, 2017)
+//
+customer = "v3trial"
+licensekey = "9d2a56a659f51a00-S22f8aa6c1b393f0a-Caf22fb5e5227cbf4-C579ecb640de79a0e-C41d6bb4eb3287597-Ca929b84388dd0e23-C2dc45a4866b313ee-4f11f29a2b2dde38"
+
+// engine configuration
+threadnum = "2"
+testlength = "15"
+latencytestlength = "5"
+tracelevel = "3"
+
+apiurl = "http://www.speedtest.net/api/embed/api.php"
+
+servers = [
+{
+	serverid = "3894"
+	url = "http://sfo.speedtest.net/speedtest/upload.php"
+},
+{
+	serverid = "935"
+	host = "wdc.speedtest.net:8080"
+},
+{
+	serverid = "2855"
+	host = "ams.speedtest.net:8080"
+},
+
+//Uncomment and change the IP address to test against your local server
+
+//,{
+//	serverid = "1"
+//	host = "192.168.1.2:8080"
+//}
+
+]

@@ -1,0 +1,19 @@
+Source-Makefile: feeds/qca/utils/qca-cfg80211/Makefile
+Package: qca-cfg80211
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libnl +libpthread +libxml2 +iw
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA cfg80211 utils
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description: QCA cfg80211 utils
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

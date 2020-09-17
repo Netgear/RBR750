@@ -1,0 +1,18 @@
+Source-Makefile: feeds/qca_platform_utils/qca-time-services/Makefile
+Package: qca-time-services
+Version: g24328de-dirty-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x||TARGET_ipq807x_64 +libpthread +qca-qmi-framework
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: QCA Time Services software
+Maintainer: 
+Source: qca-time-services-g24328de-dirty.tar.gz
+Type: ipkg
+Description: QCA Time Services software
+
+@@
+
+

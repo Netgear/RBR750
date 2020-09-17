@@ -1,0 +1,919 @@
+bh_internet_checking ="正在检查因特网连接；请稍候。";
+bh_config_net_connection ="正在配置因特网连接";
+bh_connection_further_action ="您尚未连接到因特网。";
+bh_want_genie_help ="需要NETGEAR精灵为您提供帮助吗？";
+bh_yes_mark =" 是 ";
+bh_no_genie_help ="不需要，我想自己配置因特网连接。";
+bh_no_genie_help_confirm ="配置因特网连接需要具备联网经验。确实要配置吗？";
+bh_have_saved_copy ="我备份过路由器的设置。我想将路由器恢复为这些设置。";
+bh_next_mark =" 下一步 ";
+bh_detecting_connection ="正在检测因特网连接";
+bh_plz_wait_process ="该过程需要花费一至两分钟时间；请稍候...";
+bh_no_cable ="路由器的因特网端口未插入以太网电缆。";
+bh_wizard_setup_nowan_check ="请务必将电缆牢固插入宽带调制解调器端口及路由器的因特网端口。";
+bh_click_try_again ="检查以太网线缆后，请单击<b>重试</b>。";
+bh_try_again ="重试";
+bh_pppoe_connection ="检测到PPPoE因特网连接";
+bh_enter_info_below ="请在下面输入所需的信息。";
+bh_pppoe_login_name ="用户名";
+bh_ddns_passwd ="密码";
+bh_ISP_namePasswd_error ="ISP用户名和/或密码不正确";
+bh_enter_info_again ="请再次输入所需的信息。";
+bh_pptp_connection ="检测到PPTP因特网连接";
+bh_basic_pptp_servip ="服务器地址";
+bh_sta_routes_gtwip ="默认网关";
+bh_basic_pptp_connection_id ="连接ID/名称";
+bh_bpa_connection ="检测到BigPond因特网连接"; 
+bh_basic_bpa_auth_serv ="认证服务器";
+bh_basic_pppoe_idle ="闲置超时（分钟）";
+bh_L2TP_connection="检测到L2TP因特网连接";
+bh_L2TP_MyIP="我的IP地址";
+bh_L2TP_subnetmask="子网掩码";
+bh_no_internet_ip ="检测因特网连接时遇到问题";
+bh_no_internet_ip2 ="检测因特网连接时遇到问题 - IP地址";
+bh_no_internet_ip3 ="检测因特网连接时遇到问题 - MAC地址";
+bh_if_have_static_ip ="因特网服务提供商(ISP)是否为您分配了固定（静态）IP地址？这是一种<b>极其罕见</b>的特殊部署。 ";
+bh_yes_correct ="是的。我的ISP为我分配了固定（静态）IP地址。";
+bh_not_have_static_ip ="没有，我未从ISP处获得固定（静态）IP地址。";
+bh_do_not_know ="我不知道。 ";
+bh_select_option ="请选择一个选项，然后单击“下一步"继续。";
+bh_select_an_option ="请先选择一个选项。";
+bh_fix_ip_setting ="固定因特网IP设置";
+bh_enter_ip_setting ="请输入因特网服务提供商分配的固定IP地址，然后单击“下一步"继续。";
+bh_info_mark_ip ="IP地址";
+bh_info_mark_mask ="子网掩码";
+bh_constatus_defgtw="缺省网关";
+bh_preferred_dns ="首选DNS服务器";
+bh_alternate_dns ="备用DNS服务器";
+bh_genie_cannot_find_ip ="这很可能是由以下原因之一造成的：";
+bh_genie_cannot_find_ip_reason1 ="1.您在执行接线步骤期间没有重启调制解调器。";
+bh_genie_cannot_find_ip_reason1_desc ="要解决此问题，请重启调制解调器（先关闭电源，再重新打开）。如果调制解调器带有备用电池，则要重启调制解调器，您可能需要取出电池再重新插入。开关一次电源以后，请等待2分钟，直到调制解调器完全启动为止。";
+bh_genie_cannot_find_ip_reason2 ="2.黄色的以太网线缆未完全插入，或插入了错误的位置。";
+bh_genie_cannot_find_ip_reason2_desc ="要解决此问题，请务必将黄色的以太网线缆牢固插入宽带调制解调器端口及路由器的因特网端口。";
+bh_select_no_IP_option ="选择以下选项之一，然后单击<b>下一步</b>继续：";
+bh_select_no_IP_option1 ="我刚刚重启调制解调器并等待了2分钟。";
+bh_select_no_IP_option2 ="我已纠正以太网线缆问题。";
+bh_select_no_IP_option3 ="不存在上述问题。";
+bh_use_pc_mac ="如果您之前使用计算机或另一台路由器连接到因特网服务，则NETGEAR精灵可以使用之前能够正常工作的MAC地址。";
+bh_mac_in_product_label ="MAC地址是一个唯一的编号。您可以在计算机或路由器的产品标签上找到其MAC地址。";
+bh_enter_mac ="请在这里输入MAC地址。";
+bh_mac_format ="（格式AABBCCDDEEFF）";
+bh_settings_restoration ="恢复路由器设置";
+bh_browser_file ="请选择您保存的路由器设置备份文件，然后单击“下一步"继续。";
+bh_back_mark ="上一步";
+bh_settings_restoring ="正在恢复路由器设置"; 
+bh_plz_waite_restore ="该过程需要花费几分钟时间；请稍候...";
+bh_apply_connection ="正在应用因特网连接设置";
+bh_plz_waite_apply_connection ="该过程需要花费一至两分钟时间；请稍候...";
+bh_netword_issue ="网络连接问题";
+bh_cannot_connect_internet ="很遗憾，路由器无法使用当前设置连接至因特网。";
+bh_plz_reveiw_items ="请检查以下项目。";
+bh_cable_connection ="- 确保电缆连接正确。有关说明，请参阅路由器安装指南。";
+bh_modem_power_properly ="- 检查宽带调制解调器是否已正确重启。如果您使用的是带有备用电池的调制解调器，请取出电池再重新插入，以重启调制解调器。";
+bh_try_again_or_manual_config ="您希望NETGEAR精灵重试一次吗？";
+bh_I_want_manual_config ="不需要，我想自己配置因特网连接。";
+bh_manual_config_connection ="我想自己配置因特网连接";
+bh_congratulations ="恭喜！";
+bh_connect_success_1 ="您已成功连接至因特网。";
+bh_connect_success_2 ="该路由器已预设以下唯一的无线网络名称(SSID)和";
+bh_network_key ="网络密钥(密码)";
+bh_rollover_help_text ="您的路由器已预设WPA2-PSK无线安全设置，以防您的网络遭受未经授权的访问。要加入该无线网络，您必须输入网络密钥（密码）。这些预设设置对于该设备是唯一的，就像序列号一样。如需更改它们，可稍后在路由器Web GUI的“无线设置"屏幕中进行更改。";
+bh_wireless_name ="无线网络标识(SSID)";
+bh_wireless ="无线";
+bh_wpa_wpa2_passpharse ="网络密钥(密码)"; 
+bh_print_this ="打印此页";
+bh_take_to_internet ="带我畅游因特网";
+bh_plz_wait_moment ="请等待一会...";
+bh_not_support_print ="计算机不支持打印机。";
+bh_login_name_null ="用户名不能为空！";
+bh_password_error ="密码无效！";
+bh_idle_time_null ="请输入闲置超时时间。<br>";
+bh_invalid_idle_time ="闲置超时时间无效，请输入正确的数字。<br>";
+bh_invalid_myip ="我的IP地址无效，请重新输入或者不填。";
+bh_invalid_gateway ="网关IP地址无效，请重新输入！";
+bh_bpa_invalid_serv_name ="认证服务器IP地址无效";
+bh_invalid_servip_length ="标签字符数不应超过63个。<br>";
+bh_invalid_ip ="IP地址无效，请重新输入！";
+bh_invalid_mask ="子网掩码无效，请重新输入！<br>";
+bh_same_subnet_ip_gtw ="IP地址与网关地址必须在同一子网！<br>";
+bh_same_lan_wan_subnet ="局域网IP地址与广域网IP地址不能在同一子网！<br>";
+bh_filename_null ="文件名不能为空！";
+bh_not_correct_file ="请分配正确文件。 文件格式为*.";
+bh_ask_for_restore ="警告！<br>从配置文件中恢复设置之后，当前所有设置均会被擦除。<br>确实要恢复设置吗？";
+bh_invalid_primary_dns ="主域名服务器地址无效，请重新输入！<br>";
+bh_invalid_second_dns ="从域名服务器地址无效，请重新输入！<br>";
+bh_dns_must_specified ="必须指定DNS地址。";
+bh_invalid_mac ="无效的MAC地址！";
+bh_failure_head ="故障";
+bh_few_second ="这张网页将在几秒钟内自动跳转到相应的页面。";
+bh_important ="重要的更新";
+bh_wanlan_conflict_info ="为了避免和你的网络提供商的IP地址发生冲突, 路由器的IP地址已经更新到";
+bh_continue_mark ="继续";
+bh_connect_no_sec1 = "无线安全未在此路由器上启用。NETGEAR强烈建议";
+bh_connect_no_sec2 = "请单击此处";
+bh_connect_no_sec3 = "启用无线安全保护你的网络。";
+bh_firmware_version = "路由器固件版本";
+bh_multi_login_info = "您当前是从另一台设备登录的。一次只能登录一台设备。如果您从该设备登录，则另一台设备将注销。要继续吗？";
+bh_no_mark = "否";
+DFS_radar_mark="不允许使用该 DFS 频道，因为该雷达之前已检测过。您可以更改其它频道或等待";
+RU_fixip_warn="Внимание! Вы используете фиксированный (статический) IP-адрес для вашего внутреннего интерфейса доступа к локальным ресурсам провайдера. Для того чтобы доступ к ресурсам работал корректно, вам необходимо по завершению текущей настройки указать статические маршруты. Для их настройки перейдите в меню «Статические маршруты» и следуйте соответствующим указаниям в справке. Используйте IP-адрес шлюза, который предоставил вам провайдер, в качестве шлюза назначения для каждого из добавленных маршрутов."
+
+wait_for_searching="NETGEAR精灵正在搜索您附近的WiFi网络。 <br>这通常需要1分钟。"
+ca_wireless_ap="选择现有网络的名称。"
+sel_24g="选择将扩展器连接到路由器的2.4GHz 无线网络："
+refresh_mark="刷新"
+continue_mark="继续"
+guest_table_ssid="SSID"
+info_mark_chan="频道"
+ca_ap_signal="信号"
+guest_table_secur="安全"
+ca_manual_wl_ssid="手动输入我的无线SSID"
+sel_5g="选择将扩展器连接到路由器的5GHz 无线网络："
+ca_ap_head="输入所选无线网络的安全设置"
+network_24g="2.4GHz中的现有网络："
+info_mark_ssid="名称(SSID)"
+email_none="无"
+r_wep="WEP"
+wpapsk="WPA-PSK [TKIP]"
+r_wpa2="WPA2-PSK [AES]"
+sec_enc_head="安全加密(WEP)"
+ca_12_encr="加密强度"
+sec_key="安全加密(WEP)密钥"
+sec_phr="密码（网络密钥）："
+generate_mark="生成"
+sec_key1="密钥1："
+sec_key2="密钥2："
+sec_key3="密钥3："
+sec_key4="密钥4："
+sec_863_or_64h="(8-63个字符或64个十六进制数字)"
+wpa_decribion1="如果路由器中已启用了访问控制列表(ACL)，请确保将以下MAC地址添加到路由器的访问控制列表(ACL)中。"
+wpa_decribion2="您的无线适配器MAC地址为 "
+wpa_decribion3=" "
+ca_mac="此设备的MAC地址为"
+network_5g="5GHz中的现有网络："
+back_mark="<上一步"
+ca_retry_head="扩展器无法连接到您的现有网络。"
+ca_retry_message="请重新输入密码，再重试。<br><br>如果输入的密码正确，但扩展器无法连接到现有无线网络，<br>您可能需要将扩展器移到更接近路由器或视线更佳的位置。<br>请检查扩展器 LED 指示灯来确定问题。产品安装指南和用户手册中<br>提供了 LED 指示灯相关说明。<br><br>单击“取消”可选择其他网络。"
+keep_ssid_warning="为确保为您的设备提供最佳的无线性能，NETGEAR建议为扩展器网络保留唯一的SSID，并且只有在现有网络无法提供良好的覆盖范围时才连接到扩展器网络。"
+ca_apsetting_head="输入扩展网络的设置。"
+info_mark_2g_ssid="2.4GHz网络名称(SSID)： "
+info_mark_5g_ssid="5GHz网络名称(SSID)："
+eth_bind_band="连接至WiFi的以太网端口使用下列频段： "
+ca_ap_use_same_sec = "使用与现有网络相同的安全设置和密码。"
+r_wpas="WPA-PSK [TKIP] + WPA2-PSK [AES]"
+route_title="路由器表格"
+wait_for_connect="NETGEAR genie 正在设置现有 WiFi 路由器和扩展器之间的 WiFi 连接。<br>这需要几秒钟。"
+wait_for_connect2="NETGEAR genie 正在应用设置。<br>这大约需要 1 分钟。"
+ca_15_logging_1="现在，您即将完成安装过程。"
+ca_15_logging_2="已创建您的扩展器网络："
+ca_15_repeater_24g="扩展器网络(2.4GHz b/g/n)："
+ca_15_repeater_5g=" 扩展器网络 (5GHz a/n/ac):"
+ca_15_ssid="无线网络名称(SSID)"
+ca_15_sec="安全类型"
+cp_passwd="复制密码"
+ca_15_logging_3="现在，您需要重新连接您的无线设备，接入新的扩展器网络。 在您的无线设备（如笔记本电脑、平板电脑、智能手机和游戏机等）上，使用无线管理程序查找新的扩展器网络（以上所述）并进行连接。 例如，在笔记本电脑上，您可能使用 Windows WiFi 管理器（如下所示）将您的 PC 连接到新的扩展器网络。"
+ca_checkbox="连接您的 WiFi 设备后，请单击继续按钮。"
+next_mark="继续"
+ca_con_success_head="恭喜！ 扩展器已成功连接到现有网络。"
+finish="完成"
+ca_connect_uncomplete_head="请缩短扩展器与现有路由器或网关之间的距离。"
+ca_connect_uncomplete_1="链路速率LED为红色。这表示扩展器与现有无线网络之间没有良好的连接。"
+ca_connect_uncomplete_2="<b> NETGEAR建议您缩短扩展器与路由器之间的距离，或将扩展器移到视线更佳的位置，然后单击“重试”。</b><br><br> "
+ca_connect_uncomplete_3="如果想要选择其他网络，请单击“取消”。<br><br> "
+ca_connect_uncomplete_4="若要就此完成设置，请单击“完成”。<br> "
+ca_connect_uncomplete_5=" "
+tryagain_mark="重试"
+ca_connect_uncomplete_wpa="所选网络不再可用。请确保现有网络设备位于扩展器的覆盖范围之内。"
+24g_flag="2.4GHz"
+5g_flag="5GHz"
+select_network="1-选择网络"
+apply_sec="2-应用安全设置"
+connect_network="3-配置扩展器"
+config_repeater="4-完成设置"
+review_setting="5-复查设置"
+ca_change_24g="扩展器2.4GHz网络名称(SSID)已更改为"
+ca_change_5g="扩展器5GHz网络名称(SSID)已更改为"
+ca_change_5g_2="，而5GHz网络名称(SSID)已更改为"
+ca_follow="。\n\n按照本说明操作来完成设置。"
+ca_con_success="链路速率LED为绿色，这表示扩展器正以最佳的速度连接到现有网络。"
+ca_con_amber="链路速率LED为琥珀色，这表示扩展器正以良好的速度连接到现有网络。"
+ca_retry_message1="请重新输入密码，再重试。"
+ca_retry_message2="如果输入了正确的密码，但扩展器无法连接您的现有网络，您可能需要缩短扩展器与路由器之间的距离，或将扩展器移到视线更佳的位置。检查扩展器LED来隔离问题。产品的安装指南和用户指南中提供了LED指示灯的相关说明。"
+ca_retry_message3="若要选择不同的网络，请单击“取消”。"
+sec_type="安全选项"
+select_country="请选择您的所属国家或地区"
+select_band_head="Select the WiFi band you would like to connect your devices to:"
+performance_head="FastLane technology offers maximum performance by using both 2.4 and 5GHz bands to create one fast connection. To configure FastLane technology, you will need a dual band router."
+
+select="选择"
+security_null="请选择该无线网络的的安全模式。"
+coun_select1="--- 选择地区 ---"
+coun_af="非洲"
+coun_as="亚洲"
+coun_au="澳大利亚"
+coun_ca="加拿大"
+coun_eu="欧洲"
+coun_fr="法国"
+coun_is="以色列"
+coun_jp="日本"
+coun_mx="墨西哥"
+coun_sa="南美洲"
+coun_us="美国"
+coun_ko="韩国"
+coun_middle_east="中东"
+coun_ru="俄罗斯"
+coun_ch="中国" 
+coun_in="印度" 
+coun_ma="马来西亚"
+coun_middle_east_asy="中东(Algeria/Syria/Yemen)"
+coun_middle_east_ilq="中东(Iran/Labanon/Qatar)"
+coun_middle_east_tetk="中东(Turkey/Egypt/Tunisia/Kuwait)"
+coun_middle_east_sa="中东(Saudi Arabia)"
+coun_middle_east_uae="中东(United Arab Emirates)"
+coun_si="新加坡"
+coun_tw="台湾"
+coun_na="北美"
+back_mark_2="上一步"
+coun_select="请正确选择所在地区。"
+ssid_same="2.4G 和 5G 具有相同的 SSID"
+ssid_null="SSID不能为空！"
+a_notssid="使用了不允许用于SSID的字符。"
+alert_wpapsk="要点\n WPA-PSK [TKIP] 只能在“最高 54Mbps ”（旧G）的模式下运行，而不能在 N 模式下运行。\n NETGEAR 建议您使用  WPA2-PSK [AES] ，以获得充分的 N 速率支持。"
+alert_autopsk="要点\n WPA-PSK [TKIP] 只能在“最高 54Mbps ”（旧G）的速率下运行，而不能在 N 速率下运行。\n NETGEAR 建议您使用  WPA2-PSK [AES] ，以获得充分的 N 速率支持。"
+skip_mark="跳过"
+cancel_mark="取消"
+passphrase_notice="密码由8~63个ASCII字符或64个十六进制数字组成。十六进制数字为以下所示字符之一：0, 1, 2, ..., 8, 9, A, B, C, D, E, F。"
+a_notallowpassp="密码中使用了不允许的字符"
+m_key64="密钥无效。\n\n密钥长度应为 10 位十六进制（0 到 9 及 A 到 F）字符或 5 位 ASCII 字符。"
+m_key128="密钥无效。\n\n密钥长度应为 26 位十六进制（0 到 9 及 A 到 F）字符或 13 位 ASCII 字符。"
+ca_add_bookmark="是否要将\"扩展器配置\"添加为书签？"
+
+ca_configure="正在配置扩展器"
+ca_notice1="您无法连接到因特网。"
+ca_notice2="需要NETGEAR精灵为您提供帮助吗？";
+wizard_setup_yes="是。"
+ca_select_no="不需要，我想自己配置因特网连接。";
+wps_next_mark="下一步"
+
+//20120215 Netgear update GUI
+menu1="第 1 步：选择 WiFi 网络"
+menu2="第 2 步：设置扩展器"
+menu3="第 3 步：应用设置"
+ca_notice1_1="您的 WiFi 扩展器未连接到路由器。是否需要 NETGEAR 精灵提供帮助？"
+ca_ap_manual_head="输入现有路由器的无线网络设置"
+ca_wireless_ap_24g="选择 2.4GHz 无线网络的名称。"
+ca_wireless_ap_5g="选择 5GHz 无线网络的名称。"
+sel_5g_des_1="扩展器同时支持 2.4GHz 和 5GHz 频段。"
+sel_5g_des_2="如果路由器不支持 5GHz 频段，请选择“我的路由器不支持 5GHz 频段。”，然后单击<b>继续</b>"
+not_support_5g="我的路由器不支持5GHz频段。"
+
+//user select network type
+private_network="私有网络"
+public_network="公共网络（选择此项将会启用 NAT/防火墙）"
+ca_wifi_head="这个 WiFi 网络 ("
+ca_wifi_head_rest=") 是家庭私有网络还是公共网络（比如，在宾馆或咖啡厅）？"
+ca_wire_head="有线是连接到家庭私有网络还是公共网络（比如，在宾馆或咖啡厅）？"
+
+genie_menu1="第 1 步：检测互联网连接"
+genie_menu2="第 2 步：设置扩展器"
+genie_menu3="第 3 步：应用设置"
+
+sel_2g_des_1="扩展器支持双带宽：2.4GHz 和 5GHz。"
+sel_2g_des_2="选择想要连接到的 2.4GHz WiFi 网络，然后单击 <b>Continue（继续），选择 5GHz 网络，或者直接单击 <b>Skip</b>（跳过）按钮，选择 5GHz 网络。"
+
+link_rate_localization1="在扩展器与路由器/网关和客户端连好后的 2 分钟内，请查看扩展器上的箭头 LED 指示灯是否闪烁。如果闪烁，则表示您需要将扩展器移到 WiFi 性能更好的其他位置上。<br>扩展器在 WiFi 性能良好的位置上时，箭头 LED 指示灯不会闪烁。"
+link_rate_localization2="左侧箭头 LED 正在闪烁："
+link_rate_localization3="缩短扩展器和路由器或网关之间的距离。如果这不可能，请尝试改善路由器和扩展器之间的视线。"
+link_rate_localization4="右侧箭头 LED 正在闪烁："
+link_rate_localization5="缩短扩展器和客户端（使用扩展器 WiFi 网络的无线计算机或设备）之间的距离。"
+router_link_rate_behavior="<b>路由器 LED 指示灯状态如下：</b><br>绿色：网线已连接，并已获得 IP<br>红色：网线已连接，但未能获得 IP<br>熄灭：未连接网线"
+client_link_rate_behavior="<b>客户端 LED 指示灯状态如下：</b><br>绿色：质量良好<br>橙色：质量一般<br>红色：质量差"
+
+internet_via_WiFi="您已将设备设置为作为扩展器使用。"
+internet_via_Wired="您已将设备设置为作为接入点使用。"
+
+ca_15_repeater="扩展器网络"
+ca1_15_checkbox="我的计算机已连接到扩展器网络。（选中此复选框可激活“继续”按钮。）"
+extender_info="请通过您的无线配置文件管理器软件（Windows和NETGEAR适配器向导等）使用如下所示信息重新连接扩展器网络。"
+disable_dhcp="Internal DHCP Server will be disabled. Do you want to continue?"
+
+/////////////////////////////////////////////New GUI Strings////////////////////////////////////////////////////////
+
+save_upper="保存"
+cancel_upper="取消"
+back_upper="后退"
+next_upper="下一步"
+ok_lower="完成"
+
+//screen1.html
+choose_mode="选择操作模式"
+welcome_genie="欢迎使用 NETGEAR 精灵！ 您想要如何使用扩展器？"
+ap_mark="接入点"
+
+//howToUse.html
+extend_exist_network="选择 WiFi 范围扩展器，允许您扩大现有 WiFi 网络的覆盖范围。"
+wifi_hotspot="选择接入点，允许您在已经存在有线连接的位置创建 WiFi 热点。"
+
+//screen2.html
+genie_setup="欢迎使用 NETGEAR 精灵设置"
+setup_option="现在让您来实现连接。 选择下面一个设置选项。"
+connect_extender_browser="使用基于浏览器的安装向导连接扩展器。 智能设置允许您为扩展器选择唯一的网络名称和密码。"
+smart_setup="智能设置"
+connect_extender_wps="通过按下面的 WPS 设置或扩展器上的物理按钮连接到扩展器。 要使用此功能，现有扩展器必须支持 WPS。"
+wps_setup_new="WiFi 保护设置 (WPS)"
+
+//screen3-access.html
+look_internet_conn="正在查找互联网连接。"
+connect_detect="检测到连接"
+no_connect_detect="未检测到任何连接"
+
+//screen4-access.html
+decect_conn="检测连接时出现问题"
+not_find_conn="找不到互联网连接。"
+try_str="尝试下面的操作之一，然后重试。"
+restart_router_info="通过关机然后再开机的方法，重新启动路由器。 重新启动后等待 2 分钟，以便路由器启动。"
+check_info="确保您使用了正确的以太网端口且电缆已牢固插到扩展器和路由器上的端口。"
+operation_tip="选择以下选项之一，然后单击重试继续："
+operation_process="我刚刚重启调制解调器并等待了 2 分钟。"
+problem_info="我已纠正以太网线缆问题。"
+none_info="以上均不是。"
+try_again_sign="重试"
+
+//screen5-access.html
+conn_type="连接位置"
+inquery_network_conn="您的有线以太网连接是连接到私有网络还是连接到公共网络？"
+setting_network="如果您连接到有线家庭网络连接，请使用此设置。"
+home_network_mark="家庭网络"
+firewall_enable="启用 NAT 防火墙，增加一层保护。 如果您连接到宾馆或咖啡厅的有线网络，请使用此设置。"
+network_public="公共网络"
+
+//networkTypeNote.html
+network_type_note="恶意僵尸网络不断地扫描互联网中可利用的设备，以便发送垃圾邮件或实现身份盗用。 许多应用程序无意地使连接处于打开状态。 如果恶意软件连接到这些应用程序，它们可以利用漏洞来获得您的系统的控制权并安装恶意程序。 NAT 防火墙阻止这些恶意扫描和连接。"
+
+//screen6-access.html
+info_ap="输入您的接入点网络的网络名称和安全设置。"
+band_24g="2.4GHz 网络"
+band_5g="5GHz 网络"
+
+//securitySettingsNote.html
+security_setting_note="在此页面上，您可以采用与您的现有网络相同的名称命名您的扩展网络。 但是，建议您使用不同的网络名称，因为这让您能够知道何时在使用扩展网络。"
+
+//screen7-access.html
+apply_settings="正在应用您的设置。 <br/>这可能需要一些时间。"
+mark_setting="设置已应用"
+
+//screen8-access-dual-connected.html
+success_create_ap="您成功创建了一个接入点。"
+24g_ap_network="2.4GHz 接入点网络"
+5g_ap_network="5GHz 接入点网络"
+
+//screen8-access-dual-notConnected.html
+info_fail_conn="您已创建了接入点，但未检测到互联网连接。"
+run_setup="尝试再次运行设置。"
+
+//screen10-access-connected.html
+ap_up_tip="您的接入点已上线运行。"
+ap_24g_setting="接入点无线设置 (2.4GHz)"
+ap_5g_setting="接入点无线设置 (5GHz)"
+
+//screen10-access-notConnected.html
+conn_ap_info="选择下面的智能设置按钮连接您的接入点。"
+
+//screen3-extender.html
+select_network_title="选择您的网络"
+select_network_extend="选择您想要扩展的现有网络。"
+deselect_wifi="如果您不想扩展两个 WiFi 频段，则取消选中下面的复选框，从而取消选择 WiFi 频段。"
+learn_more_mark="了解详情 »"
+24g_wifi="2.4GHz WiFi 网络"
+wpa_wpa2_sec="WPA/WPA2-PSK"
+wpa2_psk="WPA2-PSK"
+manual_input_ssid="手动输入网络名称 (SSID)"
+pwd_char="输入密码（8-63 个字符）："
+verify_pwd="验证密码："
+scan_str="正在扫描"
+5g_wifi="5GHz WiFi 网络"
+
+//selectNetworkNote.html
+recommend_info="为获得理想的扩展网络性能，建议您要扩展的现有网络至少应有 60% 的信号强度。"
+
+//screen4-extender.html
+24g_network="2.4GHz 现有网络"
+
+//screen4b-extender.html
+enter_pwd="输入密码"
+pwd_enter_tip="输入您选择的现有 WiFi 网络的密码（网络密钥）。"
+5g_network="5GHz 现有网络"
+network_selected="选择的网络："
+protocol_sec="安全协议："
+show_pwd="显示密码"
+
+//screen5-extender.html
+security_setting="输入安全设置"
+wifi_enter_tip="输入您的扩展 WiFi 网络的网络名称和安全设置。"
+24g_extend="2.4GHz 扩展网络"
+same_exist_pwd="与现有网络密码相同"
+use_differ_pwd="使用不同的密码"
+5g_extend="5GHz 扩展网络"
+
+//screen6-extender-dual.html
+extender_success_conn="扩展器已成功连接至现有 WiFi 网络"
+main_network_conn="使用下面的凭据连接任何已启用 WiFi 的设备，如同连接到您的主网络一样。"
+
+//screen7-extender.html
+title_register="注册"
+info_register_extender="注册您的扩展器，以便收到关于软件更新<br />和新产品促销的通知。"
+skip_reg_mark="跳过注册 »"
+first_name_mark="名字"
+last_name_mark="姓氏"
+email_lable="电子邮件"
+country_lable="国家和地区"
+date_purchase="购买日期"
+serial_num="序列号"
+info_product="我的产品已翻新或没有序列号"
+genie_mark="收藏 NETGEAR 精灵书签"
+info_comm="向我发送 NETGEAR 的电子邮件通信"
+install_info="安装 WiFi 分析应用程序（仅 Android）"
+country_af="阿富汗"
+country_aland="奥兰群岛"
+country_alb="阿尔巴尼亚"
+country_alg="阿尔及利亚"
+country_am="美属萨摩亚群岛"
+country_and="安道尔"
+country_ang="安哥拉"
+country_an="安圭拉"
+country_ant="南极洲"
+country_anba="安提瓜和巴布达"
+country_arg="阿根廷"
+country_arm="亚美尼亚"
+country_aru="阿鲁巴"
+country_aus="澳大利亚"
+country_az="阿塞拜疆"
+country_bah="巴哈马"
+country_bahr="巴林"
+country_ban="孟加拉国"
+country_bar="巴巴多斯"
+country_bela="白俄罗斯"
+country_belg="比利时"
+country_beli="伯利兹"
+country_ben="贝宁"
+country_ber="百慕大群岛"
+country_bhu="不丹"
+country_bol="玻利维亚多民族国"
+country_boss="博内尔，圣尤斯特歇斯和沙巴"
+country_boh="波黑"
+country_bot="博茨瓦纳"
+country_bou="布维岛"
+country_bra="巴西"
+country_bri="英属印度洋领地"
+country_bru="文莱达鲁萨兰国"
+country_bul="保加利亚"
+country_burf="布基纳法索"
+country_buru="布隆迪"
+country_cam="柬埔寨"
+country_camer="喀麦隆"
+country_cav="佛得角"
+country_cay="开曼群岛"
+country_cenaf="中非共和国"
+country_cha="乍得"
+country_chi="智利"
+country_chr="圣诞岛"
+country_coc="科科斯（基林）群岛"
+country_col="哥伦比亚"
+country_com="科摩罗"
+country_con="刚果"
+country_cor="刚果民主共和国"
+country_cki="库克群岛"
+country_cos="哥斯达黎加"
+country_ci="科特迪瓦"
+country_cro="克罗地亚"
+country_cub="古巴"
+country_cur="库拉索岛"
+country_cyp="塞浦路斯"
+country_cze="捷克共和国"
+country_den="丹麦"
+country_dj="吉布提"
+country_dom="多米尼加"
+country_dop="多米尼加共和国"
+country_ecu="厄瓜多尔"
+country_egy="埃及"
+country_eis="萨尔瓦多"
+country_eqc="赤道几内亚"
+country_eri="厄立特里亚"
+country_est="爱沙尼亚"
+country_eth="埃塞俄比亚"
+country_fim="福克兰群岛（马尔维纳斯群岛）"
+country_fai="法罗群岛"
+count_fi="斐济"
+count_fin="芬兰"
+country_fg="法属圭亚那"
+country_fp="法属波里尼西亚"
+country_fst="法属南半球领地"
+country_ga="加蓬"
+country_gam="冈比亚"
+country_geo="格鲁吉亚"
+country_ger="德国"
+country_gha="加纳"
+country_gib="直布罗陀"
+country_gre="希腊"
+country_grd="格陵兰"
+country_gra="格林纳达"
+country_guad="瓜德罗普岛"
+coun_gm="关岛"
+country_gua="危地马拉"
+country_guer="格恩西岛"
+country_gui="几内亚"
+country_gub="几内亚比绍共和国"
+coun_gua="圭亚那"
+coun_hai="海地"
+country_himi="赫德岛和麦克唐纳群岛"
+country_hs="罗马教廷（梵蒂冈城国）"
+country_ho="洪都拉斯"
+coun_hk="香港"
+coun_hu="匈牙利"
+coun_ice="冰岛"
+coun_ind="印度尼西亚"
+coun_iir="伊朗伊斯兰共和国"
+coun_ira="伊拉克"
+coun_ire="爱尔兰"
+coun_iom="马恩岛"
+coun_ita="意大利"
+coun_jam="牙买加"
+coun_jer="泽西岛"
+coun_jo="约旦"
+coun_kaz="哈萨克斯坦"
+coun_ken="肯尼亚"
+coun_kir="基里巴斯"
+coun_kdp="朝鲜民主主义人民共和国"
+coun_kp="大韩民国"
+coun_ku="科威特"
+coun_ky="吉尔吉斯斯坦"
+coun_lap="老挝人民民主共和国"
+coun_la="拉脱维亚"
+coun_leb="黎巴嫩"
+coun_les="莱索托"
+coun_lib="利比里亚"
+coun_lia="利比亚"
+coun_lin="列支敦士登"
+coun_lth="立陶宛"
+coun_lu="卢森堡"
+coun_mac="中国澳门"
+coun_may="马其顿王国，前南斯拉夫共和国"
+coun_mad="马达加斯加"
+coun_mal="马拉维"
+coun_mald="马尔代夫"
+coun_mali="马里"
+coun_malt="马耳他"
+coun_mari="马绍尔群岛"
+coun_mar="马提尼克岛"
+coun_mau="毛利塔尼亚"
+coun_maur="毛里求斯"
+coun_mye="马约特岛"
+coun_mfs="密克罗尼西亚联邦"
+coun_mor="摩尔多瓦共和国"
+coun_mon="摩纳哥"
+coun_mona="蒙古"
+coun_mot="门的内哥罗"
+coun_moe="蒙特塞拉特岛"
+coun_moc="摩洛哥"
+coun_moz="莫桑比克"
+coun_myr="缅甸"
+coun_nam="纳米比亚"
+coun_nau="瑙鲁"
+coun_nep="尼泊尔"
+coun_net="荷兰"
+coun_nec="新喀里多尼亚"
+coun_nez="新西兰"
+coun_nic="尼加拉瓜"
+coun_nig="尼日尔"
+coun_nigr="尼日利亚"
+coun_niu="纽埃岛"
+coun_noi="诺福克岛"
+coun_nom="北马里亚纳群岛"
+coun_now="挪威"
+coun_om="阿曼"
+coun_pak="巴基斯坦"
+coun_pal="帕劳群岛"
+coun_pto="巴勒斯坦被占领土"
+coun_pan="巴拿马"
+coun_neca="新喀里多尼亚"
+coun_para="巴拉圭"
+coun_per="秘鲁"
+coun_phi="菲律宾"
+coun_pit="皮特凯恩岛"
+coun_pol="波兰"
+coun_por="葡萄牙"
+coun_pur="波多黎各"
+coun_qat="卡塔尔"
+coun_rui="留尼汪岛"
+coun_rom="罗马尼亚"
+coun_rf="俄罗斯联邦"
+coun_rwa="卢旺达"
+coun_sb="圣巴泰勒米岛"
+coun_sht="圣赫勒拿、阿森松与特里斯坦达库尼亚"
+coun_skn="圣基茨和尼维斯"
+coun_sl="圣卢西亚"
+coun_sm="法属圣马丁"
+coun_spm="圣皮埃尔和密克隆群岛"
+coun_svg="文森特和格林纳丁斯岛"
+coun_sam="萨摩亚群岛"
+coun_smo="圣马力诺"
+coun_stp="圣多美和普林希比"
+coun_sab="沙特阿拉伯"
+coun_sen="塞内加尔"
+coun_ser="塞尔维亚"
+coun_sey="塞舌尔"
+coun_sil="塞拉利昂"
+coun_smd="荷属圣马丁"
+coun_slk="斯洛伐克"
+coun_slv="斯洛文尼亚"
+coun_sid="索罗门群岛"
+coun_som="索马里"
+coun_saf="南非"
+coun_sgs="南乔治亚与南桑威奇群岛"
+coun_ssu="南苏丹"
+coun_spn="西班牙"
+coun_sln="斯里兰卡"
+coun_sud="苏丹"
+coun_sur="苏里南"
+coun_sjm="斯瓦尔巴特和扬马延岛"
+coun_swl="斯威士兰"
+coun_swe="瑞典"
+coun_swz="瑞士"
+coun_sar="阿拉伯叙利亚共和国"
+coun_tp="中国台湾省"
+coun_tas="塔吉克斯坦"
+coun_tur="坦桑尼亚联合共和国"
+coun_thl="泰国"
+coun_til="东帝汶"
+coun_tgo="多哥"
+coun_tok="托克劳"
+coun_ton="汤加"
+coun_trt="特立尼达和多巴哥"
+coun_tun="突尼斯"
+coun_tuk="土耳其"
+coun_tis="土库曼斯坦"
+coun_tci="特克斯和凯科斯群岛"
+coun_tuv="图瓦卢"
+coun_uga="乌干达"
+coun_ukr="乌克兰"
+coun_uae="阿拉伯联合酋长国"
+coun_ukm="英国"
+coun_usmi="美国本土外小岛屿"
+coun_ury="乌拉圭"
+coun_uzb="乌兹别克斯坦"
+coun_vat="瓦努阿图"
+coun_vbr="委内瑞拉玻利瓦尔共和国"
+coun_vnm="越南"
+coun_vib="英属维尔京群岛"
+coun_vius="美属维尔京群岛"
+coun_wf="瓦利斯和富图纳群岛"
+coun_wsh="西撒哈拉"
+coun_yem="也门"
+coun_zam="赞比亚"
+coun_zbw="津巴布韦"
+
+//registerInfoNote.html
+new_product_info="注册您的 WiFi 扩展器后，可以访问产品支持、软件更新通知和有关新产品的信息。"
+register_at="您还可以在 <a href="http://my.netgear.com/registration" target="_blank">my.netgear.com/registration</p> 注册"
+
+//screen8-extender-good.html
+wifi_setting="WiFi设置"
+pwd_setting="密码设置"
+do_more="更多操作"
+acc_schedule="访问计划"
+wifi_cov="WiFi 覆盖"
+fast_lane="FastLane"
+usb_port="USB 端口"
+//extender_conn_run="您的 WiFi 扩展器连接运行正常。"
+extender_conn_run="您的奥秘分身扩展已连接。"
+conn_again="智能设置"
+conn_24g_netwk="现有网络的连接 (2.4GHz)"
+conn_5g_netwk="现有网络的连接 (5GHz)"
+extend_24g_status="<span id="wallPlug_02">奥秘分身扩展 WiFi 状态 (2.4 GHz)</span><span id="wallPlug_02_wp">奥秘墙插式分身扩展 WiFi 状态 (2.4 GHz)</span>"
+extend_5g_status="<span id="wallPlug_03">奥秘分身扩展 WiFi 状态 (5 GHz)</span><span id="wallPlug_03_wp">奥秘墙插式分身扩展 WiFi 状态 (5 GHz)</span>"
+wf_analytics_app="WiFi 分析应用程序"
+opti_wifi="使用免费的 Android 应用程序优化您的 WiFi 网络。"
+install_now_mark="立即安装 »"
+help_inquer="需要帮助？"
+way_submit_question="通过即时聊天、电子邮件或电话向我们的支持团队提交问题。"
+foot_lic="许可"
+foot_search="搜索帮助"
+
+//screen8-extender-noConnection.html
+info_improve_conn="移动扩展器，使之靠近路由器，可以改善连接。"
+
+//wifiSettings.html
+region_setting="地区设置："
+enable_2g_5g="启用 2.4GHz 和 5GHz WiFi"
+enable_2g="启用 2.4GHz WiFi"
+enable_5g="启用 5GHz WiFi"
+broadcast_network="广播此网络名称 (SSID)"
+get_ip_dynamically="从路由器动态获取 IP 地址"
+wifi_device="WiFi 设备"
+disable_access_ctrl="禁用访问控制"
+add_wifi_dev="添加 WiFi 设备"
+pin_enable="启用 WPS PIN"
+disable_pin_info="在"
+fail_entry="次输入 PIN 失败后自动禁用 PIN，以防止 PIN 泄漏。"
+led_blink="如果已自动禁用 PIN，设备 WPS LED 将会不断缓慢闪烁"
+keep_24g_wifi_setting="保留 2.4Ghz 网络的现有 WiFi 设置"
+keep_5g_wifi_setting="保留 5Ghz 网络的现有 WiFi 设置"
+wifi_disable="禁用 WiFi"
+
+//pwdSettings.html
+pwd_protect_info="开启或关闭密码保护或更改密码，防止对扩展器 Web 菜单和智能设置的未授权访问。"
+pwd_on="密码开启"
+pwd_off="密码关闭"
+new_user_nm="新用户名"
+new_pwd_char="新密码（8-32 个字符）："
+
+//backUpSettings.html
+create_backup_file="创建当前 WiFi 扩展器设置的备份文件。"
+backup_upper="备份"
+restore_settings_way="从以前保存的文件恢复设置。"
+browse_upper="浏览"
+reset_lower="重置"
+restore_default_setting="将所有设置恢复到出厂默认设置。"
+reset_upper="重置"
+restore_upper="恢复"
+
+//fwUpdate.html
+check_update="检查更新"
+check_online="在线检查"
+upload_file="上传更新文件"
+select_update_file="查找并选择设备上的更新文件。"
+upload_upper="上传"
+
+//accessSchedule.html
+wifi_access_schedule="您可以使用此功能控制一天中特定时间段内所有用户的访问权限。 您还可以使用此功能来实现家长控制或安全功能。 访问计划将根据您设置的时间来禁用您的互联网访问。"
+access_on="访问计划开启"
+access_off="访问计划关闭"
+sel_days="选择某天"
+only_weekdays="仅工作日"
+only_weekend="仅周末"
+time_for_days="所有日子采用相同时间"
+select_time_for_days="为选定日子选择时间"
+24_hours="24 小时"
+sys_clock="扩展器时钟"
+sync_with_clock="同步时钟"
+maintain_internal_clock="设置内部 WiFi 扩展器时钟。 为了让 WiFi 访问计划正确执行，您的设置需要准确无误。"
+
+//accessScheduleNote.html
+access_schedule_inter="启用访问计划还会在指定的日子禁用无线和有线连接的互联网访问。"
+
+//guestNetwork.html
+guest_network_info="来宾网络为来宾创建单独的无线网络。 无线设备可以加入来宾网络并连接到互联网，而不访问您的私有网络。"
+band_mark="频段"
+ssid_mark="网络名称(SSID)"
+broadcast_ssid="广播网络名称 (SSID)"
+add_guest_netw="添加来宾网络"
+
+//connectedeviceInfo.html
+conn_dev_for="连接的设备所在网络："
+
+//wifiCoverage.html
+adjust_extend_wifi_info="调节扩展 WiFi 网络的输出和覆盖范围。 如需较小的覆盖区域，请选择较低的输出功率百分比。 如需较大的覆盖区域，请选择较高的输出功率百分比。"
+wireless_out_power="无线输出功率"
+
+//fastLane.html
+fast_lane_head="FastLane 技术"
+enable_fastlane_info="通过启用 FastLane 技术模式，您可以使用两个 WiFi 频段建立一个超高速连接；尤其适合高清晰度流媒体和游戏。"
+basic_option="<strong>基本</strong> - 同时在 2.4 和 5GHz 频段上连接设备。 同时扩展两个 WiFi 频段（2.4 和 5GHz），但会降低 WiFi 性能。"
+fastlane_option="<strong>FastLane 技术</strong> – 提供最高的性能，但将连接限制到一个频段（2.4 或 5GHz）。"
+extender_info_one="路由器与扩展器连接仅采用 2.4 GHz，扩展器与设备连接仅采用 5GHz。"
+extender_info_two="路由器与扩展器连接仅采用 5GHz，扩展器与设备连接仅采用 2.4GHz（路由器必须支持 5GHz 频段）。"
+
+//usbPort.html
+general_mark="一般"
+usb_port_on="USB 端口开启"
+usb_port_off="USB 端口关闭"
+share_content="共享内容"
+share_printer="共享打印机"
+
+update_mark="更新"
+network_neighbor="网上邻居"
+conn_device="连接的设备"
+avai_space="可用空间"
+add_folder_sign="添加文件夹"
+content_scan_tip="内容扫描（添加新文件时）"
+
+//csrf_timeout.htm
+csrf_timeout="抱歉，您的时间戳已过期。<br> 请单击菜单以重新进入页面。"
+
+//web_login.html
+login_page="用户登录"
+login_email="电子邮件"
+login_passwd="密码"
+login_checkbox="记住我"
+login_btn="登录"
+login_help="用户名和密码帮助"
+login_setup_btn="新扩展器设置"
+login_error="用户名和密码不匹配。"
+extender_setup="创建帐户"
+passwod_recovery="您的电子邮件和密码在下面列出："
+extender_accept_1="我接受服务条款"
+extender_accept_2="所有字段均必填，除非标为“可选”"
+
+//extra strings
+pwd_tip_text="对 5GHz 网络使用此密码"
+foot_search_ph="键入搜索词…"
+setup_later="以后设置"
+later_note="您可以按以后设置以跳过设置。您必须以后运行设置，以将扩展器连接至现有网络。"
+
+//AP mode page
+connection_issue_note1="扩展器无法连接到路由器。"
+connection_issue_note2="确保以太网电缆牢固地插到扩展器和路由器上的端口。"
+ap_select_no_1="我想自己配置扩展器。"
+ap_select_no_2="我想为接入点模式配置静态 IP 地址。"
+ap_try_again_or_manual_config="是否要让智能设置再次尝试？"
+ap_fixed_ip_setting_note="注意：在您单击<b>下一步</b>之后，此扩展器会分配到一个新 IP 地址。 如果发生此情况，您的浏览器可能会断开与网络的连接。 要重新连接到扩展器，您可能需要更改您设备的 IP 地址。 然后关闭浏览器窗口，重新启动浏览器。"
+
+browser_support="NETGEAR 建议您将 Internet Explorer 浏览器升级到 Internet Explorer 8 或更高版本，以便使用网件精灵进行安装。"
+
+pwd_short="太短"
+pwd_long="太长"
+pwd_weak="弱"
+pwd_good="好"
+pwd_strong="强"
+pwd_same="用户名和密码不一致。"
+pwd_no_match="不匹配！"
+pwd_error_1="密码的组成应为 "
+pwd_error_2=" 字符"
+see_more="太多"
+see_less="太少"
+
+amber_info="琥珀色表示<b>连接良好</b>"
+green_info="绿色表示<b>连接最佳</b>"
+red_info="红色表示<b>连接较差</b>"
+closer_extender="移动计算机或移动设备向扩展器靠近"
+closer_router="移动扩展器向路由器靠近。"
+extender_str="扩展器"
+device_str="设备"
+pwd_answer="回答"
+ethernet_link="以太网"
+re_enter_pwd="重新输入密码"
+router_str="路由器"
+
+password_tip="为您的扩展器设置页面选择密码。"
+question_tip="如果您忘记了用户名或密码，您可以回答此问题以找回它们。"
+error_email_addr="电子邮件地址无效。"
+
+mode_repeater="<span id="wallPlug_mode_repeater">奥秘分身扩展</span><span id="wallPlug_mode_repeater_wp">奥秘墙插式分身扩展</span>"
+mode_wifiwan="<span id="wallPlug_mode_wifiwan">奥秘分身扩展</span><span id="wallPlug_mode_wifiwan_wp">奥秘墙插式分身扩展</span>"
+mode_ap="WiFi 接入点"
+mode_router="WiFi 接入点"
+
+ques1_0="选择一个问题"
+ques1_1="您购买的第一款 NETGEAR 产品的名称是什么？"
+ques1_2="您就读的第一所学校的名称是什么？"
+ques1_3="您的姐姐名字是什么？"
+ques1_4="您的哥哥名字是什么？"
+ques1_5="您出生于哪个城市？"
+ques1_6="您的祖母名字是什么？"
+ques1_7="您的祖父名字是什么？"
+ques1_8="您是哪一年 (YYYY) 从中学毕业的？"
+ques1_9="您的第一个老板的名字是什么？"
+ques2_0="选择一个问题"
+ques2_1="您的妹妹名字是什么？"
+ques2_2="您的弟弟名字是什么？"
+ques2_3="您的父亲名字是什么？"
+ques2_4="您的母亲名字是什么？"
+ques2_5="您的第一个经理的名字是什么？"
+ques2_6="您的母亲出生于哪个城市？"
+ques2_7="您的父亲出生于哪个城市？"
+ques2_8="您最要好的朋友名字是什么？"
+
+info_signal_strength="信号强度"
+ca_15_repeater_24g_new="2.4 GHz 扩展器网络"
+ca_15_repeater_5g_new="5 GHz 扩展器网络"
+network_name="网络名称"
+network_ssid="网络名称(SSID)："
+wlan_ap_security="安全："
+sec_off="无"
+
+lan_mark_ip="IP地址"
+lan_mark_subnet="IP子网掩码"
+lan_mark_gateway="网关IP地址"
+basic_int_primary_dns="首选域名服务器"
+basic_int_second_dns="从域名服务器"
+
+sn_registered="此序列号已经在我们的系统中注册。 感谢您注册产品。"
+check_answer_info="您输入的信息与扩展器中保存的信息不一致。请重新输入。"
+email_tip="此电子邮件地址将用作本产品以及客户门户网站 my.netgear.com 的管理帐户名称。 如果您之前已在 my.netgear.com 上创建了帐户，请在此处使用相同的电子邮件地址。"
+
+DFS_radar_mark="不允许使用该 DFS 频道，因为该雷达之前已检测过。"
+DFS_radar_mark0="您可以更改其它频道或等待 "
+DFS_radar_mark1="分钟"
+DFS_radar_mark2="秒后再使用该频道。"
+
+
+
+
+orbi_satellite="奥秘分身扩展"
+ia_hijack_title="<span id="wallPlug_ia_hijack_title">您的奥秘分身扩展尚未连接到奥秘网络</span><span id="wallPlug_ia_hijack_title_wp">您的奥秘墙插式分身扩展尚未连接到奥秘网络</span>"
+ia_hijack_content1="原因可能如下：<br>"
+ia_hijack_content2="<span id="wallPlug_ia_hijack_content2">&bull;您的奥秘分身扩展可能离奥秘本体路由太远。<br></span><span id="wallPlug_ia_hijack_content2_wp">&bull;您的奥秘墙插式分身扩展可能离奥秘本体路由太远。<br></span>"
+ia_hijack_content3="<span id="wallPlug_ia_hijack_content3">请关闭奥秘分身扩展，将其放置在离奥秘本体路由更近的地方，然后重新打开。请等待两分钟，奥秘分身扩展将连接到奥秘网络。<br></span><span id="wallPlug_ia_hijack_content3_wp">请关闭奥秘墙插式分身扩展，将其放置在离奥秘本体路由更近的地方，然后重新打开。请等待两分钟，奥秘墙插式分身扩展将连接到奥秘网络。<br></span>"
+ia_hijack_content4="<span id="wallPlug_ia_hijack_content4">&bull;您的奥秘分身扩展可能未正确设置。<br></span><span id="wallPlug_ia_hijack_content4_wp">&bull;您的奥秘墙插式分身扩展可能未正确设置。<br></span>"
+ia_hijack_content5="<span id="wallPlug_ia_hijack_content5">请确保您的奥秘本体路由和奥秘分身扩展均已打开，然后按下两台设备上的 <b>Sync</b> 按钮。请等待两分钟，奥秘分身扩展将连接到奥秘网络。</span><span id="wallPlug_ia_hijack_content5_wp">请确保您的奥秘本体路由和奥秘墙插式分身扩展均已打开，然后按下两台设备上的 <b>Sync</b> 按钮。请等待两分钟，奥秘墙插式分身扩展将连接到奥秘网络。</span>"
+

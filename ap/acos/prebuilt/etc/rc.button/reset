@@ -1,0 +1,84 @@
+#!/bin/sh
+
+[ "${ACTION}" = "released" ] || exit 0
+
+. /lib/functions.sh
+
+logger "$BUTTON pressed for $SEEN seconds"
+
+if [ `nvram show time_zone | grep -c "-"` -gt 0 ]
+then
+ time_zone=`nvram get time_zone | sed  "s/\-/GMT+/g"`
+else
+ time_zone=`nvram get time_zone | sed  "s/\+/GMT-/g"`
+fi
+
+MON=$(date +"%m")
+
+case $MON in
+           01)
+               FIXMON="1";;
+           02)
+               FIXMON="2";;
+           03)
+               FIXMON="3";;
+           04)
+               FIXMON="4";;
+           05)
+               FIXMON="5";;
+           06)
+               FIXMON="6";;
+           07)
+               FIXMON="7";;     
+           08)
+               FIXMON="8";;
+           09)
+               FIXMON="9";;    
+           *)
+               FIXMON=$MON;;
+esac
+
+DAY=$(date +"%d")
+
+case $DAY in
+           01)
+               FIXDAY="1";;
+           02)
+               FIXDAY="2";;
+           03)
+               FIXDAY="3";;
+           04)
+               FIXDAY="4";;
+           05)
+               FIXDAY="5";;
+           06)
+               FIXDAY="6";;
+           07)
+               FIXDAY="7";;     
+           08)
+               FIXDAY="8";;
+           09)
+               FIXDAY="9";;    
+           *)
+               FIXDAY=$DAY;;
+esac
+
+if [ "$SEEN" -lt 1 ]
+then
+	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 2" >>/tmp/media/nand/router-analytics/reboot_by_user.txt
+	echo "REBOOT" > /dev/console
+	#sync
+	#reboot
+elif [ "$SEEN" -gt 5 ]
+then
+	#clear known devices
+	rm -fr /tmp/media/nand/device-info-table/knowndevices
+	#clear arlo/d2 config
+	rm -fr /tmp/media/nand/arlo/
+
+	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 3" >>/tmp/media/nand/router-analytics/reboot_by_user.txt 
+	echo "FACTORY RESET" > /dev/console
+	#jffs2reset -y && reboot &
+fi
+
+return 0

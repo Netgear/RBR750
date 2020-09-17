@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+START=99
+
+start() {
+    d2 -c bstcfg[0].URL "https://netgearup-dev.s3-us-west-2.amazonaws.com/"
+    /usr/bin/bst_daemon --log_debug --log_file /tmp/bst.log &
+}
+
+stop() {
+    killall bst_daemon
+    kill -17 1
+    rm /tmp/bst.log
+}
+
+boot() {
+    start
+}
+
+restart() {
+    stop
+    start
+}

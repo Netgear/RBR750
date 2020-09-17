@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Orbi Router <%12%></title> 
+
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<style type="text/css">
+.subhead2-multi-table{
+  margin:30px 0px 30px 50px;
+  border-collapse:collapse;
+  width:90%;
+}
+.subrow td{
+  padding-left:15px;
+}
+#full-page-container{
+  padding-left:20px;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+var t,objFrame,loadingImg;
+var retry_count = 0;
+var iWPSStatusQuery = 0;
+var maxWPSStatusQuery = 40;
+var sParameter = "";
+
+    $(document).ready(function()
+    {     
+        var sUrl=$("form:eq(0)").attr('action');
+        aStr = sUrl.split("?");
+        if(aStr.length == 2)
+            sParameter = "?"+aStr[1];
+        else
+            sParameter = "";
+        queryWPSresult();
+    });  
+/*    
+    function wait1()
+    {
+        //<%297%>;
+        var sync_has_result = 0;
+	if(<%508%>=="2" ||
+		<%508%>=="3" )
+        {
+            sync_has_result = 1;
+        }
+        retry_count ++;
+                
+        loadingImg = new Image();
+        loadingImg.src = "loading.gif";
+        objFrame  = document.getElementById("loading");
+        objFrame.src = loadingImg.src;   
+        if(sync_has_result || retry_count > 10)		
+            t = setTimeout('queryWPSresult()',1500);    
+        else
+            t = setTimeout('wait1()',1500);
+                
+        if(top.parent.frames['topframe'] != null )
+            top.parent.frames['topframe'].location="genie_top.htm"; 
+         
+        if(parent.document.getElementById("container"))
+            parent.checkMenuDisable();
+                
+        return false;
+    }
+
+    function do_submit()
+    {     
+        document.forms[0].submit();
+        objFrame.src = loadingImg.src;  
+        clearTimeout(t);
+	 return true;
+    }
+    */
+    function queryWPSresult(){
+        iWPSStatusQuery++;
+        clearTimeout(t);
+        if(iWPSStatusQuery > maxWPSStatusQuery)
+            nextpage();
+        
+        $.ajax({
+            url: "ajax/wps_sync_result"+sParameter,
+            dateType : 'json',
+            type: "POST",
+            success: function(data){               
+                if(data.hasOwnProperty('rsp')){
+                    if(data.rsp != 1)
+                        nextpage();
+                }
+                
+                t = setTimeout(queryWPSresult, 3000);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                t = setTimeout(queryWPSresult, 3000);
+            }
+        }); 
+    }
+    function nextpage(){
+        location.href='Orbi_sync_satellite_result.htm';
+    }
+//-->
+</script>
+       
+</head>
+<body  onload="change_size();" class="page-body" onResize="change_size();">
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"><%495%></div>
+
+<div class="button_zone">
+  <button value="<%496%>"  onClick="backPage();" name="back" id="back" class=<%79%> > <%496%></button>
+</div>
+
+<div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<form name="formname" method="POST" action="wps_sync_result.cgi">
+<input type="hidden" name="disable_menu" value="true">
+<table border="0" class="subhead2-multi-table" cellpadding="3">
+<tr>
+	<td colspan=2><%497%></td>
+</tr>
+<tr>
+  <td align="center" colspan=2><img style="padding: 20px 0px 10px 0px" src="img/sync_here.png"></td>
+</tr>
+<tr>
+  <td colspan=2 align="center">
+    <div class = "LoadingImg" style="border:0; padding-top: 20px;padding-bottom:10px" >
+            <img id="loading" src="loading.gif" frameborder="0" border="0" >
+        </div>
+        <div class = "desc-text" style = "margin-top: 8px">
+            <%509%>
+        </div>
+	</td>
+</tr>
+<tr class="subrow">
+    <td colspan=2><p><%501%></p></td>
+</tr>
+<tr class="subrow">
+	<td><img class="" src="img/led_blue.png" style="vertical-align:middle;"><b style="padding:15px;"><%502%></b></td>
+</tr>
+<tr class="subrow">
+	<td colspan=2><%503%></td>
+</tr>
+<tr class="subrow">
+	<td><img class="" src="img/led_amber.png" style="vertical-align:middle;"><b style="padding:15px;"><%504%></b></td>
+</tr>
+<tr class="subrow">
+	<td colspan=2><%505%></TD>
+</tr>
+<tr class="subrow">
+	<td><img class="" src="img/led_magenta.png" style="vertical-align:middle;"><b style="padding:15px;"><%506%></b></td>
+</tr>
+<tr class="subrow">
+	<td nowrap colspan=2><%507%></td>
+</tr>
+</TBODY>
+</TABLE>
+</form>
+</body>
+</HTML>

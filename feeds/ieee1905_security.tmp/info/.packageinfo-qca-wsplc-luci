@@ -1,0 +1,38 @@
+Source-Makefile: feeds/ieee1905_security/qca-wsplc-luci/Makefile
+Package: luci-wsplc
+Submenu: IEEE1905.1 features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci +luci-mod-admin-core +luci-mod-admin-full
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: IEEE1905.1 Security Web UI
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for 1905.1 AP Auto Configuration and Security
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+Package: luci-wsplc-advanced
+Submenu: IEEE1905.1 features
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +luci +luci-mod-admin-core +luci-mod-admin-full +luci-wsplc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: IEEE1905.1 Security Web UI - Advanced
+Maintainer: Qualcomm Atheros
+Source: 
+Type: ipkg
+Description:   Luci WebUI for 1905.1 AP Auto Configuration and Security - Advanced
+http://www.qca.qualcomm.com
+Qualcomm Atheros
+@@
+
+

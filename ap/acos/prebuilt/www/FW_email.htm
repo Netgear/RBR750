@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+var AlertTimeDisabled = false;
+var AlertHourDisabled = false;
+
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function disable_am(disable_flag)
+{
+	var cf = document.forms[0];
+	cf.cfAlert_am[0].disabled = disable_flag;
+	cf.cfAlert_am[1].disabled = disable_flag;
+}
+
+function OnAlertChange()
+{
+	var cf = document.forms[0];
+	var index = cf.cfAlert_Select.selectedIndex;
+	if ( (index == 0) || (index == 1) || (index == 4) )
+	{
+		cf.cfAlert_Day.selectedIndex = 0;
+		cf.cfAlert_Hour.selectedIndex= 0;
+		cf.cfAlert_Day.disabled = true;
+		cf.cfAlert_Hour.disabled = true;
+		AlertTimeDisabled = true;
+		AlertHourDisabled = true;
+		disable_am(true);
+	}
+	else if(index == 2) // daily
+	{
+		cf.cfAlert_Day.selectedIndex = 0;
+		cf.cfAlert_Day.disabled = true;
+		cf.cfAlert_Hour.disabled = false;
+		AlertTimeDisabled = true;
+		AlertHourDisabled = false;
+		disable_am(false);
+
+	}
+	else if(index == 3) // weekly
+	{
+		cf.cfAlert_Day.disabled = false;
+		cf.cfAlert_Hour.disabled = false;
+		AlertTimeDisabled = false;
+		AlertHourDisabled = false;
+		disable_am(false);
+	}
+}
+function checkData()
+{
+    var cf = document.forms[0];
+    cf.email_alert.value = "0";
+    cf.time_day.value = "";
+    cf.time_hour.value = "";
+    cf.time_type.value = "0";
+
+    if(!cf.email_notify.checked) cf.email_enable.value = 0;
+    else
+    {
+        cf.email_enable.value = 1;
+        var tmp=cf.email_smtp.value.split(".");
+        if(tmp.length < 3)
+        {
+            alert("<%1234%>");
+            cf.email_smtp.focus();
+            return false;
+        }
+
+        if(cf.email_addr.value == "")
+        {
+	    alert("Please fill email Address");
+	    return false;
+        }
+
+
+        if(cf.email_addr.value.indexOf("@", 0) == -1 ||
+           cf.email_addr.value.indexOf(".", 0) == -1)
+        {
+            alert("<%1235%>");
+            cf.email_addr.focus();
+            return false;
+        }
+
+        if (cf.smtp_auth.checked)
+            cf.auth_enable.value = 1;
+        else
+            cf.auth_enable.value = 0;
+
+        if(cf.block_site.checked)
+            cf.email_alert.value = "1";
+
+        cf.time_type.value = cf.cfAlert_Select.options[cf.cfAlert_Select.selectedIndex].value;
+
+        if(cf.cfAlert_Select.selectedIndex == 2)// daily
+        {
+            if(cf.cfAlert_Hour.selectedIndex < 0)
+            {
+                return false;
+            }
+            if(!cf.cfAlert_am[0].checked && !cf.cfAlert_am[1].checked)
+            {
+                return false;
+            }
+            cf.time_hour.value = cf.cfAlert_Hour.options[cf.cfAlert_Hour.selectedIndex].value;
+            if(cf.cfAlert_am[1].checked) cf.time_hour.value = parseInt(cf.time_hour.value) + 12;
+        }
+
+        if(cf.cfAlert_Select.selectedIndex == 3) // weekly
+        {
+            if(cf.cfAlert_Day.selectedIndex < 0)
+            {
+                return false;
+            }
+            if(cf.cfAlert_Hour.selectedIndex < 0)
+            {
+                return false;
+            }
+            if(!cf.cfAlert_am[0].checked && !cf.cfAlert_am[1].checked)
+            {
+                return false;
+            }
+            cf.time_day.value = cf.cfAlert_Day.options[cf.cfAlert_Day.selectedIndex].value;
+            cf.time_hour.value = cf.cfAlert_Hour.options[cf.cfAlert_Hour.selectedIndex].value;
+            if(cf.cfAlert_am[1].checked) cf.time_hour.value = parseInt(cf.time_hour.value) + 12;
+        }
+		
+		if(isNumeric(cf.smtp_port,65535))
+		{
+		alert("The port number must be less than 65536.");
+		cf.smtp_port.focus();
+		return false;		
+		}
+	    if(parseInt(cf.smtp_port.value,10) < 1)
+	    {
+		alert("The port number must be bigger than 0.");
+		cf.smtp_port.focus();
+		return false;
+        }
+    }
+    return true;
+}
+
+function init()
+{
+    var cf = document.forms[0];
+
+    var email_enable = "<%1236%>";
+    if (email_enable == "1")
+    {
+        cf.email_notify.checked = true;
+
+        if (cf.auth_enable.value == 0)
+        {
+            cf.auth_user.disabled = true;
+            cf.auth_pwd.disabled = true;
+        }
+    }
+    else
+    {
+        cf.smtp_auth.disabled = true;
+        cf.block_site.disabled = true;
+        cf.email_smtp.disabled = true;
+        cf.email_addr.disabled = true;
+        cf.smtp_port.disabled = true;
+        cf.auth_user.disabled = true;
+        cf.auth_pwd.disabled = true;
+        cf.cfAlert_Select.disabled = true;
+        cf.cfAlert_Day.disabled = true;
+        cf.cfAlert_Hour.disabled = true;
+        cf.cfAlert_am[0].disabled = true;
+        cf.cfAlert_am[1].disabled = true;
+    }
+
+    var mode = "<%1237%>";
+    cf.cfAlert_Select.selectedIndex = parseInt(mode, 10);
+
+    var day = "<%1238%>";
+    cf.cfAlert_Day.selectedIndex = parseInt(day, 10);
+
+    var hour = "<%1239%>";
+    cf.cfAlert_Hour.selectedIndex = parseInt(hour, 10);
+
+    var am = "<%1240%>";
+
+    //Full, None
+    if (mode == "0" || mode == "1" || mode == "4")
+    {
+        cf.cfAlert_Day.disabled = true;
+        cf.cfAlert_Hour.disabled = true;
+        cf.cfAlert_am[0].disabled = true;
+        cf.cfAlert_am[1].disabled = true;
+    }
+    //Daily
+    else if (mode == "2")
+    {
+        cf.cfAlert_Day.disabled = true;
+        if (am == "pm")
+            cf.cfAlert_am[1].checked = true;
+        else
+            cf.cfAlert_am[0].checked = true;
+    }
+    //Weekly
+    else if(mode == "3")
+    {
+        if(am == "pm")
+            cf.cfAlert_am[1].checked = true;
+        else
+            cf.cfAlert_am[0].checked = true;
+    }
+}
+
+function setGray()
+{
+    var cf = document.forms[0];
+
+    if(cf.email_notify.checked)
+    {
+        cf.smtp_auth.disabled = false;
+        cf.block_site.disabled = false;
+        cf.email_smtp.disabled = false;
+        cf.email_addr.disabled = false;
+        cf.auth_user.disabled = false;
+        cf.auth_pwd.disabled = false;
+        cf.smtp_port.disabled = false;
+        cf.cfAlert_Select.disabled = false;
+    }
+    else
+    {
+        cf.smtp_auth.disabled = true;
+        cf.block_site.disabled = true;
+        cf.email_smtp.disabled = true;
+        cf.email_addr.disabled = true;
+        cf.auth_user.disabled = true;
+        cf.auth_pwd.disabled = true;
+        cf.smtp_port.disabled = true;
+        cf.cfAlert_Select.disabled = true;
+        cf.cfAlert_Day.disabled = true;
+        cf.cfAlert_Hour.disabled = true;
+        cf.cfAlert_am[0].disabled = true;
+        cf.cfAlert_am[1].disabled = true;
+    }
+}
+
+function CancelAction()
+{
+    var cf = document.forms[0];
+
+    cf.result.value="cancel";
+    return true;
+}
+
+function setAuthGray()
+{
+    var cf = document.forms[0];
+
+    if(cf.smtp_auth.checked)
+    {
+        cf.auth_user.disabled = false;
+        cf.auth_pwd.disabled = false;
+    }
+    else
+    {
+        cf.auth_user.disabled = true;
+        cf.auth_pwd.disabled = true;
+    }
+}
+//-->
+</script>
+</head>
+<BODY bgColor=#ffffff onload="change_size();init();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  action=fwEmail.cgi method="POST" name=formname>
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%652%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+  <td align="center" colspan="2" class="table-seperate-border">
+    <button class="button-cancel" type="reset" name="Cancel" id="cancel" value="<%83%>" onClick="location.href='WLG_adv_qca.htm';reset();loadSettings();"><%83%></button>
+    <button class="button-apply2" type="submit" name="Apply" id="apply" value="<%78%>" onClick="return checkData();"><%78%></button>
+  </td>
+</tr>
+
+<!--
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT" name="cfAlert_Apply" class="button-apply" style="padding-left:10px; background-color: #00ADE6" ><%81%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onclick="buttonClick(this,'<%83%>');CancelAction()" type="SUBMIT" name="Cancel" class="button-cancel" style="padding-left:10px"><%84%></button>
+</td>
+</tr>
+-->
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+    
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    <tr>
+        <td colspan="2"><input type="checkbox" name="email_notify" id="email_notify" value="1" onclick="javascript:setGray();" <%1241%>><b><%1242%></b></td></tr>
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    <tr>
+        <td colspan="2"><a href="javascript:loadhelp('FW_email','receive')" tabindex="-1"><b><%1243%></b> </a></td></tr>
+    <tr>
+        <td nowrap>&nbsp;<%1244%>:</td>
+        <td width="50%" align="left">
+            <input type="text" name="email_addr" id="email_addr" value="<%1245%>" size="24" maxlength="50"></td></tr>
+    <tr>
+        <td nowrap><%1246%>:</td>
+        <td width="50%" align="left">
+            <input type="text" name="email_smtp" id="email_smtp" value="<%1247%>" size="24" maxlength="50"></td></tr>
+    <tr>
+        <td nowrap><%1248%>:</td>
+        <td width="50%" align="left">
+            <input type="text" name="smtp_port" id="email_port" value="<%1249%>" size="4" maxlength="50"></td></tr>
+
+    <tr>
+        <td colspan="2" ><input type="checkbox" name="smtp_auth" id="smtp_auth" value="1" onclick = "javascript:setAuthGray();" <%1250%>>
+        <a href="javascript:loadhelp('FW_email','receive')" tabindex="-1"><B><%1251%></B></a></td></tr>    
+    <tr>
+        <td><%383%></td>
+        <td align=left width="50%"><INPUT maxLength="64" name="auth_user" id="auth_user" size="24" value= "<%1252%>"> </td></tr>
+    <tr>
+        <td><%833%></td>
+        <td align=left width="50%"><INPUT type="password" maxLength="64" name="auth_pwd" id="auth_pwd" size="24" value= "<%1253%>"> </td></tr>
+    
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    <tr>
+        <td colspan="2"><a href="javascript:loadhelp('FW_email','alert')" tabindex="-1"><input type="checkbox" name="block_site" id="alert_blocksite" value="1" <%1254%>><b><%1255%></b></a></td></tr>
+    <tr>
+        <td colspan="2" nowrap><%1256%></td></tr>
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    <tr>
+	    <td colspan="2" nowrap><a href="javascript:loadhelp('FW_email','schedule')" tabindex="-1"><b><%1257%></b></a></td></tr>
+    <tr>
+	    <td colspan="2">
+	        <select name="cfAlert_Select" id="alert_schedule_type" size="1" onchange="OnAlertChange();">
+	            <option selected value=0><%1258%></option>
+	            <option value=1><%1259%></option>
+	            <option value=2><%570%></option>
+	            <option value=3><%1260%></option>
+	            <option value=4><%171%></option></select></td></tr>
+    <tr>
+	    <td colspan="2"><%1261%> &nbsp;
+	        <select name="cfAlert_Day" id="alert_day" size="1" onFocus="if (AlertTimeDisabled) this.blur()">
+	            <option selected value=0><%572%></option>
+	            <option value=1><%573%></option>
+	            <option value=2><%574%></option>
+	            <option value=3><%575%></option>
+	            <option value=4><%576%></option>
+	            <option value=5><%577%></option>
+	            <option value=6><%578%></option></select></td></tr>
+    <tr>
+	    <td colspan="2"><%1262%>
+		    <select name="cfAlert_Hour" id="alert_hour" size="1" onFocus="if (AlertHourDisabled) this.blur()">
+		        <option selected value=0>0:00</option>
+		        <option value=1>1:00</option>
+		        <option value=2>2:00</option>
+		        <option value=3>3:00</option>
+		        <option value=4>4:00</option>
+		        <option value=5>5:00</option>
+		        <option value=6>6:00</option>
+		        <option value=7>7:00</option>
+		        <option value=8>8:00</option>
+		        <option value=9>9:00</option>
+		        <option value=10>10:00</option>
+		        <option value=11>11:00</option></select>
+                <input type="radio"  checked name="cfAlert_am" id="alert_am" value="am">a.m.
+                <input type="radio" name="cfAlert_am" id="alert_pm" value="pm">p.m.</td></tr>
+    <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+    
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="FW_email_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+<!--
+<INPUT name=doloaded_mail type=hidden value= "<%1263%>">
+-->
+<INPUT name=email_enable type=hidden value= "<%1264%>">
+<INPUT name=email_alert type=hidden value= "<%1265%>">
+<!--
+<INPUT name=port_assign_method type=hidden value= "<%1266%>">
+-->
+<INPUT name=auth_enable type=hidden value= "<%1267%>">
+<!--
+<INPUT name=smtp_check type=hidden value= "<%1268%>">
+-->
+<INPUT name=time_type type=hidden value= "<%1269%>">
+<INPUT name=time_day type=hidden value= "<%1270%>">
+<INPUT name=time_hour type=hidden value= "<%1271%>">
+<INPUT name=result type=hidden value= "apply">
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+ <head>
+  <%11%>
+</head>
+</html>
+

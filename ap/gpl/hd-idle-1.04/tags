@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+CC	Makefile	/^CC        ?= $(CROSS_COMPILE)gcc$/;"	m
+DEFAULT_IDLE_TIME	hd-idle.c	125;"	d	file:
+DISKSTATS	hd-idle.c	/^typedef struct DISKSTATS {$/;"	s	file:
+DISKSTATS	hd-idle.c	/^} DISKSTATS;$/;"	t	typeref:struct:DISKSTATS	file:
+IDLE_TIME	hd-idle.c	/^typedef struct IDLE_TIME {$/;"	s	file:
+IDLE_TIME	hd-idle.c	/^} IDLE_TIME;$/;"	t	typeref:struct:IDLE_TIME	file:
+INC_DIRS	Makefile	/^INC_DIRS   = $/;"	m
+LD	Makefile	/^LD         = $(CC)$/;"	m
+LIBS	Makefile	/^LIBS    = $/;"	m
+LIB_DIRS	Makefile	/^LIB_DIRS   = $/;"	m
+OBJS	Makefile	/^OBJS    = $(SRCS:.c=.o)$/;"	m
+SRCS	Makefile	/^SRCS    = hd-idle.c$/;"	m
+STAT_FILE	hd-idle.c	124;"	d	file:
+TARGET	Makefile	/^TARGET  = hd-idle$/;"	m
+TARGET_DIR	Makefile	/^  TARGET_DIR = $(DESTDIR)\/usr$/;"	m
+TARGET_DIR	Makefile	/^  TARGET_DIR ?= \/usr\/local$/;"	m
+daemonize	hd-idle.c	/^static void daemonize(void)$/;"	f	file:
+debug	hd-idle.c	/^int debug;$/;"	v
+disk_name	hd-idle.c	/^static char *disk_name(char *path)$/;"	f	file:
+dprintf	hd-idle.c	127;"	d	file:
+ds_root	hd-idle.c	/^DISKSTATS *ds_root;$/;"	v
+get_diskstats	hd-idle.c	/^static DISKSTATS *get_diskstats(const char *name)$/;"	f	file:
+idle_time	hd-idle.c	/^  int                idle_time;$/;"	m	struct:DISKSTATS	file:
+idle_time	hd-idle.c	/^  int                idle_time;$/;"	m	struct:IDLE_TIME	file:
+it_root	hd-idle.c	/^IDLE_TIME *it_root;$/;"	v
+last_io	hd-idle.c	/^  time_t             last_io;$/;"	m	struct:DISKSTATS	file:
+log_spinup	hd-idle.c	/^static void log_spinup(DISKSTATS *ds)$/;"	f	file:
+logfile	hd-idle.c	/^char *logfile = "\/dev\/null";$/;"	v
+main	hd-idle.c	/^int main(int argc, char *argv[])$/;"	f
+name	hd-idle.c	/^  char               name[50];$/;"	m	struct:DISKSTATS	file:
+name	hd-idle.c	/^  char              *name;$/;"	m	struct:IDLE_TIME	file:
+next	hd-idle.c	/^  struct DISKSTATS  *next;$/;"	m	struct:DISKSTATS	typeref:struct:DISKSTATS::DISKSTATS	file:
+next	hd-idle.c	/^  struct IDLE_TIME  *next;$/;"	m	struct:IDLE_TIME	typeref:struct:IDLE_TIME::IDLE_TIME	file:
+phex	hd-idle.c	/^static void phex(const void *p, int len, const char *fmt, ...)$/;"	f	file:
+reads	hd-idle.c	/^  unsigned int       reads;$/;"	m	struct:DISKSTATS	file:
+spindown	hd-idle.c	/^  time_t             spindown;$/;"	m	struct:DISKSTATS	file:
+spindown_disk	hd-idle.c	/^static void spindown_disk(const char *name)$/;"	f	file:
+spinup	hd-idle.c	/^  time_t             spinup;$/;"	m	struct:DISKSTATS	file:
+spun_down	hd-idle.c	/^  unsigned int       spun_down : 1;$/;"	m	struct:DISKSTATS	file:
+writes	hd-idle.c	/^  unsigned int       writes;$/;"	m	struct:DISKSTATS	file:

@@ -1,0 +1,20 @@
+Source-Makefile: feeds/weave/libweave/Makefile
+Package: libweave
+Version: 1.4-eae016cab6044d22b150afdf6f3f3cb5cc1c79fd
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread +libexpat +libopenssl +libpthread +libevent2 +libcurl +libavahi-client +googletest +libevhtp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Title: Google Weave library
+Maintainer: 
+Source: libweave-1.4-eae016cab6044d22b150afdf6f3f3cb5cc1c79fd.tar.gz
+Type: ipkg
+Description: 	libWeave is the library to with device side implementation of
+	Weave protocol.
+https://weave.googlesource.com/weave/libweave
+
+@@
+
+

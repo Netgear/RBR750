@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<script language=JavaScript type="text/javascript">
+
+var t;
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            window.clearTimeout(t);
+            buttonFilter();
+        });
+        
+        $("#disconnect").click(function() {
+            buttonClick(this,'release_mark');
+            $("input[name=action]").val('release_mark');
+            $("#target").submit();
+        });
+        $("#connect").click(function() {
+            buttonClick(this,'renew_mark');
+            $("input[name=action]").val('renew_mark');
+            $("#target").submit();
+        });
+    });
+
+
+
+function Fresh() 
+{
+	var cf = document.forms[0];
+	if(cf.refreshScrn.value == "yes")
+		t = window.setTimeout("location.href='RST_st_dhcp.htm'",10000);
+// reload if not connected	
+}
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" text=black onLoad="Fresh()">
+
+<form id="target"  name="frmStDhcp" method="POST" action="st_dhcp.cgi">
+<table border="0" width="100%">
+    <tr>
+        <td colspan="2" align="left" nowrap><h1><%1116%> </h1></td>
+    </tr> 
+</table>
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+    <tr> 
+        <td height="12"><hr class='blueBar'></td>
+    </tr>
+</table>
+
+<table width="95%" border="1" cellspacing="0" cellpadding="4" align="center" id="dhcp_connect">
+	<tr>
+		<td NOWRAP width="50%"><b><%806%></b></td>
+        <%1008%>
+		<td NOWRAP width="50%"><%292%></td>
+        <%1010%>
+        <%1011%>
+        <td NOWRAP width="50%"><%1623%></td>
+        <%1013%>
+	</tr>
+	
+	<tr>
+		<td NOWRAP><b><%433%></b></td>
+        <%1008%>
+		<td NOWRAP><%293%></td>
+        <%1010%>
+        <%1011%>
+        <td NOWRAP width="50%"><%1624%></td>
+        <%1013%>        
+	</tr>
+	<tr>
+		<td NOWRAP><b><%1625%></b></td>
+        <%1008%>
+		<td NOWRAP><%448%></td>
+        <%1010%>
+        <%1011%>
+        <td NOWRAP width="50%"><%1626%></td>
+        <%1013%>           
+	</tr>
+	<tr>
+		<td NOWRAP><b><%1627%></b></td>
+		<td NOWRAP><%1628%></td>
+	</tr>
+	<tr>
+		<td NOWRAP><b><%1629%></b></td>
+        <%1008%>
+        <td NOWRAP><%1630%></td>
+        <%1010%>
+        <%1011%>
+        <td NOWRAP width="50%"><%1631%><br><%1632%></td>
+        <%1013%>                   
+	</tr>
+	<tr>
+		<td NOWRAP><b><%1633%></b></td>
+		<td NOWRAP><%1634%></td>
+	</tr>
+	<tr>
+		<td NOWRAP><b><%1635%></b></td>
+		<td NOWRAP><%1636%></td>
+	</tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+    <tr>
+        <td align="center" nowrap>
+            <br><button type="button" value="<%1637%>" name="disconnect" id="disconnect" class="button-common"><%1637%></button>
+            <button type="button" value="<%1638%>" name="connect" id="connect" class="button-common" <%1639%>><%1638%></button>
+        </td>
+    </tr>
+    <tr> 
+        <td height="12"><hr class='blueBar'></td>
+    </tr>
+ <TR>
+ <TD align="center"><button type="button" value="<%774%>" name="close" id="close" class="button-common" onclick="buttonClick(this,'<%774%>');self.close();"><%774%></button></TD>
+</TR>
+</TABLE>
+
+<input type="hidden" name="buttonHit" value="">
+<input type="hidden" name="buttonValue" value="">
+<input type="hidden" name="action" value="">
+<input type="hidden" name="refreshScrn" value="no">
+</form>
+
+</body>
+</html>
+

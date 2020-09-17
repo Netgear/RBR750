@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <%0%>
+    <title><%40%></title>
+    <link rel="stylesheet" href="styles/main.css">
+    <%2%>
+    </head>
+  <body class="home setup">
+
+    <%3%>
+
+      <form id="mainForm" action="access_sche.cgi" method="POST" target="" >
+        <div id="content">
+          <div class="container">
+            <div class="main simpleChoiceWrapper">
+
+              <h1><%1099%></h1>
+                <div class="column simpleChoice first">
+                    <a class="btn wide primary" id="btn_yes"><i class="icon-range-extender" aria-hidden="true"><span></span></i><%60%></a>
+                </div>
+                <div class="column simpleChoice">
+                    <a class="btn wide primary" href="start.htm"><i class="icon-range-extender" aria-hidden="true"><span></span></i><%61%></a>
+                </div>
+
+            </div> <!-- end main -->
+          </div> <!-- end container -->
+        </div>
+        <input name="disable_sche" type=hidden value="0">
+      </form>
+
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script type="text/javascript">
+      if("<%12%>" != "3"){
+		 document.getElementById("wallPlug_ca_configure").style.display="none";
+	 }
+	 
+      $.noConflict();
+      jQuery(document).ready(function($) {
+        $('body').msgload();
+        $("#btn_yes").on('click',function () {
+          var msg = "<%1100%>";
+          $('body').msgshow(msg);
+
+          var cf = document.forms["mainForm"];
+          cf.disable_sche.value = "1";
+          cf.submit();
+        });
+      });
+    </script>
+  </body>
+</html>
+

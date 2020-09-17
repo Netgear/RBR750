@@ -1,0 +1,20 @@
+Source-Makefile: feeds/nss/qca-nss-fw-eip-hk/Makefile
+Package: qca-nss-fw-eip-hk
+Menu: 1
+Submenu: Network Devices
+Version: 2.5.7-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-eip
+Section: kernel
+Category: Kernel modules
+Title: EIP197 firmware binaries - hk
+Maintainer: 
+Source: BIN-EIP197.HK.2.5.7.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (hk) for QCA chipset
+
+@@
+
+

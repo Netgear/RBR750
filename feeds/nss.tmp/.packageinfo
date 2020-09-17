@@ -1,0 +1,234 @@
+Source-Makefile: feeds/nss/aq-fw-download/Makefile
+Package: aq-fw-download
+Version: 1.0-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq||TARGET_ipq40xx||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: QCA
+Category: QCA Proprietary software
+Title: Aquantia FW downloader utitlity
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   Aquantia FW downloader utitlity
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw/Makefile
+Package: qca-nss-fw-retail
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+Package: qca-nss-fw-carrier
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - carrier
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (carrier) for QCA chipset
+
+@@
+
+Package: qca-nss-fw-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 1.0-00281-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: NSS.AK.1.0-00281.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-cp-enterprise/Makefile
+Package: qca-nss-fw-cp-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 254-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-cp
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: BIN-NSS.CP.2.0-254-E.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-cp-retail/Makefile
+Package: qca-nss-fw-cp-retail
+Menu: 1
+Submenu: Network Devices
+Version: 254-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-cp
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: BIN-NSS.CP.2.0-254-R.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-eip-cp/Makefile
+Package: qca-nss-fw-eip-cp
+Menu: 1
+Submenu: Network Devices
+Version: 2.8.1-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq60xx||TARGET_ipq_ipq60xx_64
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-eip
+Section: kernel
+Category: Kernel modules
+Title: EIP197 firmware binaries - cp
+Maintainer: 
+Source: BIN-EIP197.CP.2.8.1.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (cp) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-eip-hk/Makefile
+Package: qca-nss-fw-eip-hk
+Menu: 1
+Submenu: Network Devices
+Version: 2.5.7-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-eip
+Section: kernel
+Category: Kernel modules
+Title: EIP197 firmware binaries - hk
+Maintainer: 
+Source: BIN-EIP197.HK.2.5.7.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (hk) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-hk-enterprise/Makefile
+Package: qca-nss-fw-hk-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-hk
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: BIN-NSS.HK.J.CS-20-E.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw-hk-retail/Makefile
+Package: qca-nss-fw-hk-retail
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq_ipq807x||TARGET_ipq_ipq807x_64||TARGET_ipq807x_32||TARGET_ipq807x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw-hk
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: BIN-NSS.HK.J.CS-20-R.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw2-enterprise/Makefile
+Package: qca-nss-fw2-enterprise
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw2
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - enterprise
+Maintainer: 
+Source: BIN-NSS.AK.J.CS-20-E.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (enterprise) for QCA chipset
+
+@@
+
+
+Source-Makefile: feeds/nss/qca-nss-fw2-retail/Makefile
+Package: qca-nss-fw2-retail
+Menu: 1
+Submenu: Network Devices
+Version: 20-1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread @TARGET_ipq806x||TARGET_ipq_ipq806x
+Conflicts: 
+Menu-Depends: 
+Provides: qca-nss-fw2
+Section: kernel
+Category: Kernel modules
+Title: NSS firmware binaries - retail
+Maintainer: 
+Source: BIN-NSS.AK.J.CS-20-R.tar.bz2
+Type: ipkg
+Description:   This package contains the NSS firmwares (retail) for QCA chipset
+
+@@
+
+

@@ -1,0 +1,19 @@
+tests/promote.o: tests/promote.c \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdc-predef.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdio.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/features.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/glibc-types.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/cdefs.h \
+ /home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/alltypes.h
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdc-predef.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/stdio.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/features.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/glibc-types.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/sys/cdefs.h:
+
+/home/vvenkata/vijay/Orbi-ntgr-rtm-ja-10.0/qsdk/staging_dir/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16/include/bits/alltypes.h:

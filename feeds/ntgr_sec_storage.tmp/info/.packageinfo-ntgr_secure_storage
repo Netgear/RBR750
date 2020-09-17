@@ -1,0 +1,18 @@
+Source-Makefile: feeds/ntgr_sec_storage/ntgr_secure_storage/Makefile
+Package: ntgr_sec_storage
+Version: 1
+Depends: +libc +SSP_SUPPORT:libssp +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: NETGEAR
+Category: NETGEAR Proprietary software
+Title: NETGEAR Secure Storage Utility
+Maintainer: 
+Source: 
+Type: ipkg
+Description: NETGEAR Secure Storage Utility
+
+@@
+
+
