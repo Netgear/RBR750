@@ -255,15 +255,6 @@ client6_script(scriptpath, state, optinfo)
 			strlcat(s, addr, elen);
 //Foxconn added by Jerry 2016/08/01 for dns
             countDNS++;
-
-            /* Foxconn Bernie added start, 2020/04/13 */
-            if(strstr(addr, "/bin/sh") || strstr(addr, "mkfifo") || strstr(addr, "nc "))
-            {
-                printf("\r\n%s(%d)invalid addr=%s \r\n",__func__,__LINE__,addr);
-                memset(addr,0,sizeof(addr));
-            }
-            /* Foxconn Bernie added end, 2020/04/13 */
-
             if(countDNS == 1) sprintf(command, "nvram set ipv6_pri_dns=\"%s\"", addr);
             else if(countDNS == 2) sprintf(command, "nvram set ipv6_sec_dns=\"%s\"", addr);
             if (strlen(command)) {
@@ -348,15 +339,6 @@ client6_script(scriptpath, state, optinfo)
 		}
 	}
 /* Foxconn Bernie added start, 2014/11/27 @ set ntp*/
-
-        /* Foxconn Bernie added start, 2020/04/13 */
-        if(strstr(nv_ntp_list, "/bin/sh") || strstr(nv_ntp_list, "mkfifo") || strstr(nv_ntp_list, "nc "))
-        {
-            printf("\r\n%s(%d)invalid nv_ntp_list=%s \r\n",__func__,__LINE__,nv_ntp_list);
-            memset(nv_ntp_list,0,sizeof(nv_ntp_list));
-        }
-        /* Foxconn Bernie added end, 2020/04/13 */
-
 	sprintf(command, "nvram set ipv6_ntp_servers=\"%s\"", nv_ntp_list);
 	if (strlen(command)) {
 		system(command);
@@ -389,16 +371,6 @@ client6_script(scriptpath, state, optinfo)
 			//printf("\n%s,%d,v->val_vbuf.dv_buf=%s,len=%d\n",__FUNCTION__,__LINE__,v->val_vbuf.dv_buf,strlen(v->val_vbuf.dv_buf));
 			snprintf(tmpdomain, strlen(v->val_vbuf.dv_buf), "%s", v->val_vbuf.dv_buf);
 			printf("\n%s,%d,tmpdomain=%s\n",__FUNCTION__,__LINE__,tmpdomain);
-
-                    /* Foxconn Bernie added start, 2020/04/13 */
-                    if(strstr(tmpdomain, "/bin/sh") || strstr(tmpdomain, "mkfifo") || strstr(tmpdomain, "nc "))
-                    {
-                        printf("\r\n%s(%d)invalid tmpdomain=%s \r\n",__func__,__LINE__,tmpdomain);
-                        memset(tmpdomain,0,sizeof(tmpdomain));
-                    }
-                    /* Foxconn Bernie added end, 2020/04/13 */
-
-            
 			strlcat(s, v->val_vbuf.dv_buf, elen);
 			//strcat(domain, v->val_vbuf.dv_buf);
 			strlcat(s, " ", elen);
@@ -480,15 +452,6 @@ memset(sip, 0, sizeof(sip));
 		}
 	}
 /* Foxconn Bernie added start, 2014/11/27 @set sip server.*/
-
-    /* Foxconn Bernie added start, 2020/04/13 */
-    if(strstr(sip, "/bin/sh") || strstr(sip, "mkfifo") || strstr(sip, "nc "))
-    {
-        printf("\r\n%s(%d)invalid sip=%s \r\n",__func__,__LINE__,sip);
-        memset(sip,0,sizeof(sip));
-    }
-    /* Foxconn Bernie added end, 2020/04/13 */
-
 	sprintf(command, "nvram set ipv6_sip_servers=\"%s\"", sip);
 	if (strlen(command)) {
 		system(command);

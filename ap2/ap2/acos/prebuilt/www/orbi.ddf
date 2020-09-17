@@ -1,0 +1,17 @@
+#
+# EX3700 Device Description File
+#
+
+#
+# The application name is exactly the same string as
+#     - <app name> in device description file
+#     - <app name> in SW Integration API
+#     - <app name> in the filename for the app package running on devices
+#     - <app name> subfolder under the sw-app folder on the NETGEAR update server for the app package.
+#     - NewAppName in AppSystem SOAP APIs
+#
+
+[applications]
+hyper-fi  1.0.0.0
+
+

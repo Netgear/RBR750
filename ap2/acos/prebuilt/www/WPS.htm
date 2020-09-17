@@ -15,34 +15,34 @@
         
       <div class="container sliderWrap">
         
-        <%1169%>
+        <%1166%>
         
         <div id="slider">
           <div class="main clearfix">
           
           <h1><%694%></h1>
-          <p><%1170%> <a id="learnMore" class='tipLink'><%5%></a></p>
+          <p><%1167%> <a id="learnMore" class='tipLink'><%5%></a></p>
           
             <form name="mainForm" action="wps_method.cgi" method="POST" target="">
 
             <ul class="formElements wpsMethod">
                 <li><hr /></li>
                 <li class="elementsInline">
-                  <label><input type="radio" id="pbc" name="wps_type" value="Push Button" checked><%1171%></label>
-                  <label><input type="radio" id="pin" name="wps_type" value="PIN Number"><%1172%></label>
+                  <label><input type="radio" id="pbc" name="wps_type" value="Push Button" checked><%1168%></label>
+                  <label><input type="radio" id="pin" name="wps_type" value="PIN Number"><%1169%></label>
                 </li>
                 <li><hr /></li>
             </ul>
 
             <ul class="formElements pbcSection">
-              <p><%1173%></p>
+              <p><%1170%></p>
               <center class="simpleChoice">
                 <a class="btn primary" id="wpsBt"><%18%></a>
               </center>
             </ul>
 
             <ul class="formElements pinSection" style="display:none;">
-              <p><%1174%></p>
+              <p><%1171%></p>
               <input type="text" id="pinNum" name="pin_num" maxlength="9" value="">
 
               <div class="formButtons bottom">
@@ -82,9 +82,9 @@
       $.noConflict();
 
       jQuery(document).ready(function($) {
-        var msgStr = "<p><%1175%></p>"
-          + "<p><%1176%></p>"
-          + "<p><%1177%></p>";
+        var msgStr = "<p><%1172%></p>"
+          + "<p><%1173%></p>"
+          + "<p><%1174%></p>";
         $('.tipLink').data('msg', msgStr);
 
         $("#wpsBt").on('click',function () {
@@ -93,7 +93,7 @@
           cf.submit();
         });
 
-        if("<%1178%>" == "Enabled")
+        if("<%1175%>" == "Enabled")
           $('#pin').prop('disabled', true);
         else
           $('#pin').prop('disabled', false);
@@ -126,18 +126,18 @@
           }
           else
           {
-            alert("<%1179%>");
+            alert("<%1176%>");
             return false;
           }
         }
         else
         if (lpin.length != 4 && lpin.length != 8) {
-          alert("<%1179%>");
+          alert("<%1176%>");
           return false;
         }
         
         if (parseInt(cf.pin_num.value, 10) != cf.pin_num.value) {
-          alert("<%1179%>");
+          alert("<%1176%>");
           return false;
         }
         
@@ -153,7 +153,7 @@
           accum += 1 * (parseInt(lpin / 1) % 10);
 
           if (0 != (accum % 10)) {
-            alert("<%1180%>");
+            alert("<%1177%>");
             return false;
           }
         }

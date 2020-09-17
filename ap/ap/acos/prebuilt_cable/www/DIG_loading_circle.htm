@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<script type="text/javascript">
+<!--
+var delay_time = <%540%>;
+var diff = parseInt(238 / delay_time)+1;
+var count = 0;
+var bar_length = 0; 
+function makeStr(strsize, fillchar)
+{
+	var temp = "";
+	for (i=0; i < strsize ; i ++)
+		temp = temp + fillchar;
+	return temp;
+}
+function updateProgress()
+{
+	var cf = document.forms[0];
+
+	if (count < delay_time)
+	{
+		count ++;
+        bar_length = bar_length + diff;
+        document.getElementById("bluebar_middle").style.width = bar_length+'px';
+		setTimeout("updateProgress()",1000);
+	}
+	else
+	{
+		window.location.href=cf.next_file.value;
+	}
+}
+//-->
+</script>
+<style type="text/css">
+.wizard_words_div{ width:80%; padding:5% 10% 0px 10%; font-family:Arial; font-size:10pt; font-weight:normal; color:#404040; }
+.wizard_words_div h1 { font-family:Arial; font-size:12pt; font-weight:bold; color:#9D98FF; }
+.wait_main_content {text-align:center; position:relative;top:-37px}
+.bluebar_div {z-index:999; display:inline-block; width:258px; *display:inline; zoom:1}
+.bluebar_div .bluebar_left{width:10px; height:8px; float:left; background: url(img/blue_bar.png) no-repeat 0 0;}
+.bluebar_div .bluebar_middle{ width:0px;height:8px; float:left; background: url(img/blue_bar.png) no-repeat -10px 0;}
+.bluebar_div .bluebar_right{width:0px; height:8px; float:left; background: url(img/blue_bar.png) no-repeat -248px 0;}
+
+</style>
+</head>
+<body onLoad="updateProgress()" style="line-height:19px;margin:0px;background-color:#ffffff;padding-left:20px">
+<form id="target"  name="update">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+
+<div class="wizard_words_div" align="center">
+    <br><br>
+    <b><%542%></b>
+    <br><br>
+</div>
+<div class="new_waiting_img_div" align="center"><img src="img/progress_bar.png" alt="waiting" />
+</div>
+<div class="wait_main_content">
+	<div class="bluebar_div">
+		<div class="bluebar_left"></div>
+		<div class="bluebar_middle" id="bluebar_middle"></div>
+		<div class="bluebar_right"></div>
+	</div>
+</div>
+
+<input type="hidden" name="next_file" value="<%382%>">
+</form>
+</BODY>
+</html>

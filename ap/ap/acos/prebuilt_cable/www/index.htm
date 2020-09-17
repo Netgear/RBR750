@@ -1,0 +1,45 @@
+<html><head>
+<%11%>
+<title>NETGEAR Router Orbi Index</title>
+<script language="javascript" type="text/javascript">
+function loadnext() {
+  var showit=(document.layers)?"show":"block";
+  var hideit=(document.layers)?"hide":"none";
+  var el = "alltext";
+
+  if (document.all)
+    document.all(el).style.display = hideit ;
+  else if (document.getElementById)
+    document.getElementById(el).style.display = hideit ;
+  else if (document.layers)
+    document.layers[el].visibility = hideit ;
+
+    if("<%580%>" == "1")
+    {   
+        if("<%581%>" == "1")
+		{
+		    top.location.replace("IA_IP_SUBNET.htm");
+		}else
+		    top.location.replace("http://orbilogin.com/APP_index.htm");
+    }
+    else if ("<%581%>" == "1")
+        top.location.replace("start_update.htm");
+    else if ("<%582%>" == "1" || 
+             "<%582%>" == "3")
+        top.location.replace("traffic_start_update.htm");
+    else
+	    top.location.replace("start.htm");
+}
+</script></head>
+<body bgcolor="#ffffff" text="#666666" onload="loadnext()"> 
+<div ID="alltext" STYLE="position:absolute;left:50px;top:200px;">
+<font face="Arial,Helvetica">
+<h4><%583%></h4>
+<p><%584%>
+<P><%585%>
+<P><%586%></p>
+</font>
+</div>
+</body>
+</html>
+

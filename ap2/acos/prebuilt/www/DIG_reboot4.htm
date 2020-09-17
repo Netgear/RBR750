@@ -17,9 +17,9 @@ function ShowLanguageList()
     var local_srpt = form.local_srptlang.value.split(" ");
     var gui_lang_local;
 
-    if("<%1133%>" == "1")
+    if("<%1130%>" == "1")
     {
-        if("<%1134%>" == "1")
+        if("<%1131%>" == "1")
             form.curlang.value = "Auto";
         else
             form.curlang.value = "<%914%>";
@@ -236,7 +236,7 @@ header {
           <div class="main simpleChoiceWrapper clearfix">
             <div id="probar">
               <center>
-                <p><%1193%></p>
+                <p><%1190%></p>
                 <br>
                 <div>
                   <img id="probar_img" src="img/bar_00.gif"></img>
@@ -247,7 +247,7 @@ header {
             <div id="button" style="display: none;">
               <div class="centerButtons">
                 <div class="processButtons">
-                  <a class="btn primary" name="continue" id="connectedNetwork" onclick="redirect();return false;"><%1194%></a>
+                  <a class="btn primary" name="continue" id="connectedNetwork" onclick="redirect();return false;"><%1191%></a>
                 </div>
               </div>
             </div>
@@ -268,16 +268,16 @@ header {
           </div> <!-- end main -->
         </div> <!-- end container -->
       </div>
-    <input type="hidden" name="next_file" value="<%1092%>">
-    <input type="hidden" name="change_domain" value="<%1197%>">
+    <input type="hidden" name="next_file" value="<%1089%>">
+    <input type="hidden" name="change_domain" value="<%1194%>">
     </form>
 
     <script type="text/javascript">
     <!--
     var maxchars = 10; 
-    var delay_time = <%1195%>; // msecs
+    var delay_time = <%1192%>; // msecs
     var charcount = 0; 
-    var total_time = <%1196%>;; // msecs
+    var total_time = <%1193%>;; // msecs
     var bar_pic = ['bar_00.gif', 'bar_11.gif', 'bar_22.gif', 'bar_33.gif', 'bar_44.gif', 'bar_55.gif', 'bar_66.gif', 'bar_77.gif', 'bar_88.gif', 'bar_99.gif'];
 
     function calc_prgbar()
@@ -340,10 +340,10 @@ header {
                 change_url(nextF);
             else
             {
-                if(("1" == "<%1198%>") || 
+                if(("1" == "<%1195%>") || 
                    ("static" == "<%623%>"))
                 {
-                    var lan_ip = "<%1199%>";
+                    var lan_ip = "<%1196%>";
                     top.location.href = "http://" + lan_ip + "/" + nextF;
                 }
                 else

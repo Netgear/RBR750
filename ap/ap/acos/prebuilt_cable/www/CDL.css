@@ -1,0 +1,524 @@
+html, body 
+{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif; 	
+	background-color:#7F7F7F;
+}
+
+h1{
+	padding-left:5%;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+        font-weight:bold;
+        color:#F32A31;
+                
+}
+
+h2{
+	padding-left:0%;
+	font-size:20px;
+	font-family: Arial, Helvetica, sans-serif;
+        font-weight:bold;
+        color:#9d98ff;                
+}
+
+.topframe{
+	background-color:#2b2b2b;
+	color:#ffffff;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0;
+	padding: 0;
+	height: 90px;
+}
+
+
+.WNRTitle{
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top:0px;
+        padding-bottom:40px;
+	margin-top: 0px;
+	padding-left:20px;
+        height: 50px;
+	line-height:80%;
+	font-weight:bold;
+	font-size:14px;
+}
+
+button 
+{
+	position: relative;
+	border: 0; 
+	padding: 0;
+	cursor: pointer;
+	overflow: visible; /* removes extra side padding in IE */      
+}
+
+button::-moz-focus-inner 
+{
+	border: none;  /* overrides extra padding in Firefox */
+}
+
+button span 
+{ 
+	position: relative;
+	display: block; 
+	white-space: nowrap;	
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{
+	/* Safari and Google Chrome only - fix margins */
+	button span 
+	{
+		margin-top: 0px;
+	}
+}
+
+
+/* OPTIONAL BUTTON STYLES for applying custom look and feel: */		
+button.greyBtn 
+{
+        font-family: Arial, Helvetica, sans-serif; 
+	margin-left:0px;
+	padding: 0 15px 0 0; 
+	margin-right:5px; 
+	font-size:12px; 
+	font-weight:bold;
+	text-align: center; 
+	background: url(grey_button_sprite.gif) no-repeat right -45px;
+}
+	
+button.greyBtn span 
+{
+  font-family: Arial, Helvetica, sans-serif;
+	padding: 5px 0 7px 17px; 
+	height:24px; 
+	background:  url(grey_button_sprite.gif) no-repeat left top; 
+	color:#fff; 
+}
+
+button.purpleBtn 
+{
+        font-family: Arial, Helvetica, sans-serif; 
+	margin-left:0px;
+	padding: 0 15px 0 0; 
+	margin-right:5px; 
+	font-size:12px; 
+	font-weight:bold;
+	text-align: center; 
+	background: url(button_sprite.gif) no-repeat right -45px;
+}
+	
+button.purpleBtn span 
+{
+  font-family: Arial, Helvetica, sans-serif;
+	padding: 5px 0 7px 17px; 
+	height:24px; 
+	background:  url(button_sprite.gif) no-repeat left top; 
+	color:#fff; 
+}
+
+button.purpleBtn2
+{
+  font-family: Arial, Helvetica, sans-serif;
+	padding: 0px 5px 0px 0px; 
+	margin-right:5px 0px 30px 0px; 
+	font-weight:bold;
+	font-size:12px; 
+  height:24px;
+ 	text-align: center; 
+	background: transparent url(button_sprite_1.gif) no-repeat right top;
+}
+	
+button.purpleBtn2 span 
+{
+        font-family: Arial, Helvetica, sans-serif;
+	padding: 5px 0 5px 17px; 
+	height:24px; 
+	background:  url(button_sprite_2.gif) no-repeat left top; 
+	color:#fff; 
+}
+	
+
+	
+
+button.greenBtn2 
+{
+  font-family: Arial, Helvetica, sans-serif;
+	padding: 0px 5px 0px 0px; 
+	margin-right:5px 0px 30px 0px; 
+	font-weight:bold;
+	font-size:12px; 
+  height:24px;
+ 	text-align: center; 
+	background: transparent url(g_button_sprite_1.gif) no-repeat right top;
+}
+	
+button.greenBtn2 span
+{
+        font-family: Arial, Helvetica, sans-serif;
+	padding: 5px 0 5px 17px; 
+	font-size:12px; 
+  height:24px;
+	background: transparent url(g_button_sprite_2.gif) no-repeat left top; 
+	color:#fff; 
+}
+	
+
+
+button.greenBtn 
+{ 
+
+       font-family: Arial, Helvetica, sans-serif;
+	padding: 0 15px 0 0; 
+	margin-right:5px; 
+	margin-left:30px;
+	font-size:12px; 
+	text-align: center;
+	font-weight:bold;	      
+	background: url(g_button_sprite.gif) no-repeat right -45px;        
+}
+	
+button.greenBtn span 
+{
+    font-family:Arial;
+	padding: 5px 0 7px 20px; 
+	height:24px; 
+	background: url(g_button_sprite.gif) no-repeat left top; 
+	color:#fff;
+}
+
+button.button-nav, button.button-nav-skip {
+    height: 35px;
+    width: 260px;
+    background-color: #00B4F5;
+    text-align: center;
+    border: 0;
+    margin-top: 40px;
+}
+
+button.button-nav2 {
+    height: 35px;
+    width: 320px;
+    background-color: #00B4F5;
+    text-align: center;
+    border: 0;
+    margin-top: 40px;
+}
+
+button.button-nav3 {
+    height: 35px;
+    width: 100px;
+    background-color: #00B4F5;
+    text-align: center;
+    border: 0;
+    margin-top: 40px;
+}
+
+button.button-disabled {
+    height: 35px;
+    width: 260px;
+    background-color: #666;
+	color: #FFF;
+    text-align: center;
+    border: 0;
+    margin-top: 40px;
+}
+button.button-nav-skip:hover
+{
+    background-color:#E8E8E8;
+    -o-transition: background-color .20s ease-out;
+    -webkit-transition: background-color .20s ease-out;
+    -moz-transition: background-color .20s ease-out;
+    transition:  background-color .20s ease-out;
+}
+
+button.button-nav-skip-btn {
+    background-color: transparent;
+    width: 260px;
+    height: 35px;
+}
+
+button.button-nav-skip, .button-nav-skip {
+    background-color: transparent;
+    height: 35px;
+}
+
+button.button-nav span, button.button-nav2 span, button.button-nav3 span, button.button-nav-skip span, .button-nav-skip span {
+    color: #FFF;
+    font-size: 14px;
+    text-align: center;
+}
+
+button.button-nav-skip span, button.button-nav-skip-btn span {
+    color: #00B4F5;
+}
+
+.dialog-content
+{
+    background-color: #ffffff;
+    width: 570px;
+    min-height: 400px;
+    height:500px;
+    #overflow-y:auto;
+    transform: translate(0px, 50px) translateX(-50%);
+    position: absolute; 
+    left: 50%;
+    word-break:break-all
+}
+
+.wizard-card
+{
+    padding:25px;
+}
+
+.desc-text
+{
+    text-align: center;
+    color: #AAAAAA;
+    font-size: 12px;
+	word-break:keep-all;
+}
+
+.desc-title 
+{
+    text-align: center;
+    color: #434343;
+    font-size: 18px;
+}
+
+.float-left 
+{
+    margin-left: 16px;
+}
+
+.input-text-box-one
+{
+    padding-top: 22px;
+    width: 230px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-text-box-one .input-title.non-active-val {
+    font-size: 12px;
+    cursor: default;
+    top: 24px;
+    color: #AAAAAA !important;
+}
+
+.input-text-box-one .input-title.non-active-val2 {
+    font-size: 12px;
+    -webkit-transform: translateY(140%);
+    transform: translateY(140%);
+    -moz-transform: translateY(140%);
+    -ms-transform: translateY(140%);
+    -o-transform: translateY(140%);
+    cursor: default;
+    top: 24px;
+    color: #AAAAAA !important;
+}
+
+.input-text-box-one input {
+    height: 30px;
+    z-index: 1000000000;
+    background: transparent;
+    position: relative;
+    border:1px; border-bottom-style: solid;
+    border-top-style: none;
+    border-left-style:none;
+    border-right-style:none;
+    width:90%;
+}
+
+.input-wrapper
+{
+    width: 48%;
+    padding-left: 0;
+    display: inline-block;
+}
+
+.input-wrapper-right {
+    margin-left: 0;
+    padding-right: 0px;
+    margin-right: 0px !important;
+}
+
+.input-wrapper input {
+    height: 30px;
+    z-index: 1000000000;
+    background: transparent;
+    position: relative;
+    border:1px; border-bottom-style: solid;
+    border-top-style: none;
+    border-left-style:none;
+    border-right-style:none;
+    width:90%;
+}
+
+.input-wrapper .input-title.non-active-val {
+    font-size: 12px;
+    cursor: default;
+    top: 24px;
+    color: #AAAAAA !important;
+}
+
+.input-wrapper .input-title.non-active-val2 {
+    font-size: 12px;
+    -webkit-transform: translateY(130%);
+    transform: translateY(130%);
+    -moz-transform: translateY(130%);
+    -ms-transform: translateY(130%);
+    -o-transform: translateY(130%);
+    cursor: default;
+    top: 24px;
+    color: #AAAAAA !important;
+}
+
+.input-title.disabled {
+    color: #AAAAAA !important;
+}
+
+.selector-title {
+    font-size: 12px;
+    cursor: default;
+    top: 24px;
+    color: #AAAAAA !important;
+}
+
+.inputRow
+{
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size:16px;
+    color:#404040; 
+}
+
+.master-pin-wrapper
+{
+    margin-left:auto; 
+    margin-right:auto; 
+    display:flex;
+}
+
+.pin-wrapper-admin
+{
+    margin-left:auto;
+}
+
+.pin-wrapper-prewifi
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.pin-wrapper-wifi
+{
+	margin-right:auto; 
+	margin-left: 1%;
+}
+
+.pin-admin
+{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-bottom: 5px;
+}
+
+.pin-wifi
+{
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-bottom: 5px;
+}
+
+.pin-title
+{
+	float: left; 
+	width: 100%; 
+	text-align: center; 
+	color: #434343; 
+	font-size:14px
+}
+
+.pin-desc
+{
+	float: left; 
+	width: 100%; 
+	text-align: center; 
+	color: #AAAAAA;
+	font-size:12px
+}
+
+.centerTd
+{
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size:14px;
+    height:25px;
+    color:#404040;    
+    width:550px;
+    padding-left:20px;
+	padding-right:20px;
+}
+
+.centerTd2
+{
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size:14px;
+    height:25px;
+    color:#404040;    
+    width:600px;
+    margin-left:10px;
+}
+
+.centerTd3
+{
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size:14px;
+	height:25px;
+    color:#404040;    
+	padding-left:0px;
+}
+
+.textRow
+{
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size:14px;
+    height:15px;
+    color:#404040;
+    word-break:keep-all;	
+}
+
+.LoadingImg{
+    text-align:center;                
+    line-height:20%;
+}
+
+.spaceRow30
+{
+    height:30px;
+}
+
+.input-title.active {
+    font-size: 12px;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    color: #00A1DE;
+    cursor: default;
+    top: 24px;
+}
+
+.checked{width:28px; height: 24px; position:relative;float:left; background: url(img/genie_download.jpg) no-repeat -50px -105px;}
+.uncheck{width:28px; height: 24px; position:relative;float:left; background: url(img/genie_download.jpg) no-repeat -20px -105px;}
+.grey_dot{width:20px; height: 20px; position:relative;float:left; background: url(img/genie_download.jpg) no-repeat -20px -70px;}
+.black_dot{width:20px; height: 20px; position:relative;float:left; background: url(img/genie_download.jpg) no-repeat 0px -70px;}
+.gren_show{width:18px; height: 18px; position:relative;float:left; background: url(img/genie_download.jpg) no-repeat 0px -50px;}
+.choice_font{margin:10px; font-size:12px; font-weight: bold;}
+.gray_choice_font{margin:10px; color:gray; font-family:Verdana;font-size:12px; font-weight: bold;}

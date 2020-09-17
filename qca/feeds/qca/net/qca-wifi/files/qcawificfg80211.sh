@@ -931,9 +931,11 @@ disable_qcawificfg80211() {
 # AP - 0x10 | 0x02 | 0x08 = 0x1A
 
 #File contains product ID of CAP and RE
-. /etc/product_id
+local PROD_ID_FILE="/etc/product_id"
 NTGR_OUI="00146c"
 NTGR_PRODUCT_TYPE="07" # Orbi
+NTGR_CAP_PRODUCT_ID=`grep CAP $PROD_ID_FILE | cut -d: -f2` # Orbi router
+NTGR_RE_PRODUCT_ID=`grep RE $PROD_ID_FILE | cut -d: -f2`   # Orbi satellite
 NTGR_VERSION="00" # Currently not defined
 NTGR_RESERVED="00"
 
@@ -1816,9 +1818,10 @@ enable_qcawificfg80211() {
 			*ac:HT40-) "$device_if" "$ifname" mode 11ACVHT40MINUS;;
 			*ac:HT40) "$device_if" "$ifname" mode 11ACVHT40;;
 			*axg:HT20) "$device_if" "$ifname" mode 11GHE20;;
-			*axg:HT40-) "$device_if" "$ifname" mode 11GHE40MINUS;;
-			*axg:HT40+) "$device_if" "$ifname" mode 11GHE40PLUS;;
-			*axg:HT40) "$device_if" "$ifname" mode 11GHE40;;
+			# Netgear enforce 20MHz for all 2.4GHz interface
+			*axg:HT40-) "$device_if" "$ifname" mode 11GHE20;;
+			*axg:HT40+) "$device_if" "$ifname" mode 11GHE20;;
+			*axg:HT40) "$device_if" "$ifname" mode 11GHE20;;
 			*axg:*) "$device_if" "$ifname" mode 11GHE20;;
 			*axa:HT20) "$device_if" "$ifname" mode 11AHE20;;
 			*axa:HT40+) "$device_if" "$ifname" mode 11AHE40PLUS;;
@@ -1877,10 +1880,11 @@ enable_qcawificfg80211() {
 			               hwmode=11ACVHT80_80
 				   fi
 			       fi;;
+			# Netgear enforce HT20 for 2.4GHz radio
 			*axg:HT20) hwmode=11GHE20;;
-			*axg:HT40-) hwmode=11GHE40MINUS;;
-			*axg:HT40+) hwmode=11GHE40PLUS;;
-			*axg:HT40) hwmode=11GHE40;;
+			*axg:HT40-) hwmode=11GHE20;;
+			*axg:HT40+) hwmode=11GHE20;;
+			*axg:HT40) hwmode=11GHE20;;
 			*axg:*) hwmode=11GHE20;;
 			*axa:HT20) hwmode=11AHE20;;
 			*axa:HT40+) hwmode=11AHE40PLUS;;

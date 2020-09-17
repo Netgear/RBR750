@@ -1,0 +1,167 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<META name="description" content="R7000">
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<META http-equiv="Pragma" content="no-cache">
+<META HTTP-equiv="Cache-Control" content="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT">
+
+<title>NETGEAR Router</title> 
+<link rel="stylesheet" href="css/table_noh.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+<link rel="stylesheet" href="css/form2.css">
+<style type="text/css">
+.boxline{width: 680px; height: 230px; margin-left: 50%; position: relative; left: -330px;}
+.box {width: 200px; height: 200px; float: left; position: relative; margin-left: 20px; margin-top: 20px; border-width: 1px; border-style:solid; border-color:#a8a8aa;}
+.radio_box{width: 90%; height: 30px; border-bottom-width: 1px; border-bottom-style:solid; border-bottom-color:#a8a8aa;  font-size: 13px; font-weight: bold; color: black; position: relative; top: 10px; padding-left: 10%;}
+.icon, .icon_select{width:120px; height: 120px; position: absolute; bottom: 20px; left: 40px; cursor: pointer;}
+.icon img, .icon_select img{width:120px; height:120px}
+.icon { background-color: #5db5e5;}
+.icon_select { background-color: #6abd49;}
+</style>
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<script language="javascript" type="text/javascript" src="func.js"></script>
+<script language="javascript" type="text/javascript" src="msg.js"></script>
+<script language="javascript" type="text/javascript" src="utility.js"></script>
+<script language="javascript" type="text/javascript" src="browser.js"></script>
+<script language="javascript" type="text/javascript" src="md5.js"></script>
+<script language="javascript" type="text/javascript" src="wep.js"></script>
+
+<script language="javascript" type="text/javascript" src="script/opmode.js"></script>
+
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function loadSettings()
+{
+	var cf = document.forms[0];
+	
+	/* Get operation modes */
+	/* TODO: use asp function to get nvram values */
+	var operation_mode = cf.pre_mode.value;
+	if( operation_mode == "ap" )
+	{
+		cf.operation_type[1].checked = true;
+		$("#ap").removeClass("icon").addClass("icon_select");
+	}
+	else if(operation_mode == "extender")
+	{
+		cf.operation_type[2].checked = true;
+		$("#extender").removeClass("icon").addClass("icon_select");
+	}
+	else
+	{
+		cf.operation_type[0].checked = true;
+		$("#router").removeClass("icon").addClass("icon_select");
+	}
+	
+	return;
+}
+
+function extender_mode_click()
+{
+    var cf = document.forms[0];
+	  
+    if(cf.enable_smart_mesh.value=="1")
+    {
+        if(confirm(" <%3247%> ")!=true)
+            return false;
+    }
+    else if(cf.enable_band_steering.value=="1")
+    {
+        if(confirm(" <%3248%> ")!=true)
+            return false;
+    }
+    
+ 		location.href="WLG_opmode_extender_dual_band.htm";
+
+    
+}
+
+
+
+function checkData(){
+
+  return true;
+}
+
+
+//-->
+</script>
+</head>
+<body  onLoad="change_size();loadSettings();" class="page-body"  onload="change_size();"  onResize="change_size();" >
+<img class="cover-image" src="img/cover-image_noh.gif">
+<img class="body-image" src="img/subhead2-background_noh.jpg">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="opmode.cgi" NAME=general>
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+  <img class="subtop-image" src="img/subhead2-top_noh.gif">
+<div class="subhead2"> <%663%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="top">
+<td align="center" colspan="2" class="table-seperate-border2">
+<button class="button-cancel" type="reset" name="Cancel" value="<%83%>" onClick="location.href='WLG_opmode_main.htm';"><%83%></button>
+<button class="<%3238%>" type="button" name="Apply" value="<%78%>" onClick="return select_type();" ><%78%></button>
+
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+<tr><td>    
+<div class="boxline">
+	<div class="box ui-corner-all router">
+		<div class="radio_box"><input type="radio" name="operation_type" onclick="select_type(0)" value=0> <%3239%></div>
+		<div id="router" class="icon" onclick="select_type(0)"><img src="img/opmode_router.gif"></div>
+	</div>
+	<div class="box ui-corner-all ap">
+		<div class="radio_box"><input type="radio" name="operation_type" onclick="select_type(1)" value=1> <%3240%></div>
+		<div id="ap" class="icon" onclick="select_type(1)"><img src="img/opmode_ap.gif"></div>
+	</div>
+	<div class="box ui-corner-all extender">
+		<div class="radio_box"><input type="radio" name="operation_type" onclick="return extender_mode_click();" value=2> <%3249%></div>
+		<div id="extender" class="icon" onclick="return extender_mode_click();"><img src="img/opmode_extender.gif"></div>
+	</div>
+</div>
+ </td></tr>
+
+  
+</table></div></td></tr>
+
+</table>
+
+
+
+<INPUT type="hidden" name="pre_mode" value="<%3241%>" >
+<INPUT type="hidden" name="enable_smart_mesh" value="<%3246%>" >
+<INPUT type="hidden" name="enable_band_steering" value="<%285%>" >
+
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+</html>

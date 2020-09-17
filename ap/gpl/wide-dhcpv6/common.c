@@ -125,7 +125,6 @@ int debug_thresh;
 int reconfig_phase;
 struct iana_information ianaInfo = {"",-1,-1,64,0}; /* Foxconn Bernie modified, 2015/01/16 @ ce logo*/
 struct iapd_information iapdInfo = {"","",-1,-1,1,"",-1,-1};
-int iana_option = 0;  /* Foxconn Neil added, this var indicates whether actual option is iana that is opposite to iapd option 2020/04/17  */
 
 /* Foxconn Bernie added end, 2014/11/27 */
 long sol_max_rt; /* Foxconn Bernie added , 2015/9/14@ support sol max rt option */
@@ -2659,8 +2658,7 @@ copyin_option(type, p, ep, list)
 				ianaInfo.plen = ia_addr.plen;
 				//printf("\n%s,%d,save IANA INFO iaaddr=%s plen=%d pltime=%lu vltime=%lu\n",__FUNCTION__,__LINE__,ianaInfo.iaaddr,ianaInfo.plen,ianaInfo.pltime,ianaInfo.vltime);
 
-			  } 
-                iana_option = 1;
+			  }
 				dprintf2(LOG_INFO, FNAME,
 				    "send IA_NA address to ianaAcos"
 				    "%s pltime=%lu vltime=%lu",

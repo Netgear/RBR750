@@ -26,9 +26,9 @@ function ShowLanguageList()
     var gui_lang = form.gui_lang.value;
     var local_srpt = form.local_srptlang.value.split(" ");
 
-    if("<%1133%>" == "1")
+    if("<%1130%>" == "1")
     {
-        if("<%1134%>" == "1")
+        if("<%1131%>" == "1")
             form.curlang.value = "Auto";
         else
             form.curlang.value = "<%914%>";

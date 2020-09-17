@@ -558,9 +558,7 @@ again:   /* Foxconn added pling 01/25/2016 */
 		/* If fixed src port 123 not work, try random src port.
 		 * Or vice versa: if random port not work, try 123.
 		 */
-		}
-#if 0
-                else if (!retry_count) {
+		} else if (!retry_count) {
 #define NTP_QUERY_SRCPORT 123
 			retry_count++;
 			if (udp_local_port == NTP_QUERY_SRCPORT)
@@ -571,7 +569,7 @@ again:   /* Foxconn added pling 01/25/2016 */
 			goto again;
 		/* Foxconn added end pling 01/25/2016 */
 		}
-#endif
+
 		close(usd);
 	}
 

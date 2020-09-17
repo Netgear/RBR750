@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%14%>
+<link rel="stylesheet" href="<%296%>">
+<style type="text/css">
+.pin-wrapper-wifi{
+    margin-left:auto;
+	margin-right:auto;
+}
+</style>
+<script src="script/script.js"></script>
+<script language="javascript" type="text/javascript">
+    function printPage()
+    {
+        if (window.print)
+            window.print(); 
+        else
+        {
+            alert("no support Print");
+            return false;
+        }
+        return false;
+    }
+
+function wait()
+{
+<%360%>
+	chgTimeZone();
+<%361%>
+
+}
+
+<%360%>
+function chgTimeZone()
+{
+    var form = document.forms[0];
+	var wan_ipaddr = form.wan_ipaddr.value;
+	var timezone_state = form.timezone_state.value;
+	var time_zone = form.time_zone.value;
+	var CPE_timezone = new Date().getTimeZoneOffsetWithDst()/-60;
+
+	if (time_zone == "+55")
+		time_zone= "+5.5";
+	else if (time_zone == "+95")
+		time_zone = "+9.5";
+	else if (time_zone == "-35")
+		time_zone = "-3.5";
+
+	// Abort if user is remote access. 
+	if(wan_ipaddr == location.host)
+		return -1;
+	
+	// Abort if user is manual configured. 
+	if(timezone_state == "ManualConfigured")
+		return -1;
+		
+	// Abort if timezone between router and local system is the same
+	if(time_zone == CPE_timezone)
+		return -1;
+
+	form.targetTimezone.value = CPE_timezone;
+	
+	return 0;
+}
+<%361%>
+</script>
+</head>
+<body onLoad="wait();">
+<form name="formname" method="POST" action="ver_check_upgrade.cgi">
+<div  class="dialog-content">
+    <div id="card_orbi_config_complete" class="wizard-card">
+        <div>
+            <img src="img/logo_netg.png" style="display:block; margin:auto;">
+        </div>
+        <div class = "desc-title" style="padding-top: 20px;">
+            <%362%>
+        </div>
+        <div class = "desc-text" style="padding-top: 6px; padding-bottom: 44px">
+            <%538%>
+        </div>
+        <div class = "master-pin-wrapper">
+            <div class = "pin-wrapper-wifi">
+                <img class = "pin-wifi" src="img/pin_wireless.png">
+                <div class = "pin-title"> <%366%> </div>
+                <div class = "pin-desc"> <%367%> </div> 
+            </div>
+        </div>
+        <div class = "input-text-box-one">
+            <button id="next" class="button-nav" style="display:block; width:230;margin:auto;" type="submit">
+                <span><%303%></span>
+            </button>
+            <button id="print" class="button-nav-skip-btn" style="display:block; width:230;margin-top: 10px" onClick="return printPage();">
+                <span><span><%539%></span>
+            </button>
+        </div>
+    </div>
+ </div>
+ <input type="hidden" name="Check" class="button-rule"  value="Check">
+ <input type="hidden" name="OrbiCheck" class="button-rule"  value="OrbiCheck">
+<%360%>
+<input type="hidden" name="wan_ipaddr" value="<%292%>">
+<input type="hidden" name="timezone_state" value="<%369%>">
+<input type="hidden" name="time_zone" value="<%370%>">
+<input type="hidden" name="targetTimezone" value="">
+<%361%>
+
+ </form>
+</body>

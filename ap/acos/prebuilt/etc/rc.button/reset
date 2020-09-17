@@ -65,11 +65,7 @@ esac
 
 if [ "$SEEN" -lt 1 ]
 then
-	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 2" >/tmp/media/nand/router-analytics/latest_reboot_data.txt
 	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 2" >>/tmp/media/nand/router-analytics/reboot_by_user.txt
-	cat /tmp/media/nand/router-analytics/reboot_by_user.txt | tail -n 5 > /tmp/media/nand/router-analytics/reboot_by_user_tmp.txt
-	mv -f /tmp/media/nand/router-analytics/reboot_by_user_tmp.txt /tmp/media/nand/router-analytics/reboot_by_user.txt
-	echo "1" >/tmp/media/nand/router-analytics/latest_reboot_normal.txt
 	echo "REBOOT" > /dev/console
 	#sync
 	#reboot
@@ -80,11 +76,7 @@ then
 	#clear arlo/d2 config
 	rm -fr /tmp/media/nand/arlo/
 
-	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 3" >/tmp/media/nand/router-analytics/latest_reboot_data.txt
-	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 3" >>/tmp/media/nand/router-analytics/reboot_by_user.txt
-	cat /tmp/media/nand/router-analytics/reboot_by_user.txt | tail -n 5 > /tmp/media/nand/router-analytics/reboot_by_user_tmp.txt
-	mv -f /tmp/media/nand/router-analytics/reboot_by_user_tmp.txt /tmp/media/nand/router-analytics/reboot_by_user.txt
-	echo "1" >/tmp/media/nand/router-analytics/latest_reboot_normal.txt
+	echo "`date +"%Y/$FIXMON/$FIXDAY %T"`, reason: 3" >>/tmp/media/nand/router-analytics/reboot_by_user.txt 
 	echo "FACTORY RESET" > /dev/console
 	#jffs2reset -y && reboot &
 fi

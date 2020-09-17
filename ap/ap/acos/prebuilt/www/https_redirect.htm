@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script src="jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mainpage.css"> 
+<script>
+
+function change_url()
+{   
+    //alert("change_url");
+    //if("orbilogin.com" == check_top_url())
+        window.location.href = "https://orbilogin.com" + "/" + "start.htm";
+}  
+
+</script>
+</head>
+    <body onLoad="change_url();">
+        <div id="page_contain">
+            <!-- <iframe id="content_frame" name="content_frame" allowtransparency="true" height="100%" width="100%" scrolling="auto" frameborder="0"></iframe> -->
+            <iframe id="content_frame" name="content_frame" allowtransparency="true" height="100%" width="100%" frameborder="0" border="0" cellspacing="0" scrolling="no" onFocus="this.blur()" src=""></iframe> 
+        </div>
+        
+        <div id="preloaded-images">
+            <img src="img/wait.gif" width="1" height="1" alt="">
+        </div>
+    </body>
+</html>

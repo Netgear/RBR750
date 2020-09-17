@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+# Mos 2017/10/24, add restart_daemon for restart_all_processes
+# "killall -SIGALRM restart_daemon" to execute restart_all_processes
+
+START=99
+
+
+start() {
+
+	/usr/sbin/restart_daemon
+	#csr load
+	#echo '=== csr load done ===' > /dev/console
+	echo '=== S99restart_daemon init. done ===' > /dev/console
+}
+

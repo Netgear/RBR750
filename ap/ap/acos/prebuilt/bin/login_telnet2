@@ -1,0 +1,44 @@
+#!/bin/sh
+
+if [ "$(/usr/sbin/nvram get disable_telnet_login)" = "1" ] ;then
+        exec /bin/ash --login
+fi
+
+echo " === LOGIN ==============================="
+echo "  Please enter your account and password,"
+echo "  It's the same with DUT GUI"
+echo " ------------------------------------------"
+
+
+RETRY_COUNT=3
+INDEX=1
+while [ $INDEX -le $RETRY_COUNT ]
+do
+
+echo -n "telnet account: "
+read username
+echo -n "telnet password: "
+read -s passwd
+if [ "$passwd" = "" ] ;then
+read -s passwd
+fi
+
+passwd_digest=`echo -n $passwd | openssl dgst -sha256 | cut -d" " -f 2`
+http_username=`nvram get http_username`
+http_passwd=`nvram get http_passwd_digest`
+
+#echo "http username: $http_username, password: $http_passwd"
+if [  "$username" != "$http_username" ] || [ "$passwd_digest" != "$http_passwd" ] ; then
+        echo -e "\nLogin failed."
+        read
+#       exit 0
+else
+
+exec /bin/ash --login
+break
+fi
+
+INDEX=$((${INDEX}+1))
+
+done
+

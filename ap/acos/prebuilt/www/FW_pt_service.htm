@@ -20,8 +20,8 @@
 <%14%>
 <script language="javascript" type="text/javascript">
 <!-- hide script from old browsers
-var df_sel = <%1960%>;
-var fwpt_action = <%1961%>;
+var df_sel = <%1982%>;
+var fwpt_action = <%1983%>;
 
   
     $(document).ready(function()
@@ -67,7 +67,7 @@ function setDisable(disable)
 function loadSettings()
 {
 	var cf = document.forms[0];
-	var src_ip_type = "<%1962%>";
+	var src_ip_type = "<%1984%>";
 	if (src_ip_type == "2")
 	{
 		var src_ip = cf.src_ip.value.split(".");
@@ -87,22 +87,22 @@ function loadSettings()
 	}
 	setsrc();
 
-	var pt_type = "<%1963%>";
+	var pt_type = "<%1985%>";
 	if (pt_type == "17")
 		cf.pt_type.selectedIndex = 1;
 	else
 		cf.pt_type.selectedIndex = 0;
-	cf.pt_port.value = "<%1964%>";
+	cf.pt_port.value = "<%1986%>";
 
-	var in_port_type = "<%1965%>";
+	var in_port_type = "<%1987%>";
 	if (in_port_type == "6")
 		cf.in_port_type.selectedIndex = 1;
 	else if (in_port_type == "17")
 		cf.in_port_type.selectedIndex = 2;
 	else
 		cf.in_port_type.selectedIndex = 0;
-	cf.in_port_start.value = "<%1966%>";
-	cf.in_port_end.value = "<%1967%>";
+	cf.in_port_start.value = "<%1988%>";
+	cf.in_port_end.value = "<%1989%>";
 
 	if (df_sel)
 		setDisable(true);
@@ -116,7 +116,7 @@ function checkPort(name, port)
 	if (port.length == 0)
 		msg = name + " <%1%>";
 	if (isNaN(portNum) || portNum < 1 || portNum > 65534 || !_isNumeric(portNum))
-		msg = "<%1968%>" + name + "<%1969%>";
+		msg = "<%1990%>" + name + "<%1991%>";
 	return msg;
 }
 
@@ -126,11 +126,11 @@ function checkData()
 	var msg = "";
 
 	if (cf.pt_name.value.length == 0)
-		msg += "<%1970%>";
+		msg += "<%1992%>";
 
 	if(cf.pt_name.value==""||cf.pt_name.value.match( /[^\x20-\x7E]/ ))
 	{
-		alert("<%1307%>");
+		alert("<%1300%>");
 		cf.pt_name.focus();
 		return false;
 	}
@@ -148,15 +148,15 @@ function checkData()
 		}
 	}
 
-	msg += checkPort("<%1971%>", cf.pt_port.value);
+	msg += checkPort("<%1993%>", cf.pt_port.value);
 
-	msg += checkPort("<%1972%>", cf.in_port_start.value);
+	msg += checkPort("<%1994%>", cf.in_port_start.value);
 
 	if (cf.in_port_end.value.length > 0)
 	{
-		msg += checkPort("<%1973%>", cf.in_port_end.value);
+		msg += checkPort("<%1995%>", cf.in_port_end.value);
 		if (parseInt(cf.in_port_end.value,10) < parseInt(cf.in_port_start.value,10))
-			msg += "<%1974%>";
+			msg += "<%1996%>";
 	}
 
 	if (msg.length > 0)
@@ -187,7 +187,7 @@ function checkData()
 <form id="target"  name="formname" action="fwpt_service.cgi" method="POST">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1975%></div>
+<div class="subhead2"> <%1997%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -205,17 +205,17 @@ function checkData()
 <td colspan="2">
 	<table border ="0" cellpadding ="0" cellspacing ="3" width="100%">
 	<tr>
-	<td colspan="2"><tabindex="-1"><b><%1976%></b></a></td></tr>
+	<td colspan="2"><tabindex="-1"><b><%1998%></b></a></td></tr>
 	<tr>
-	<TD NOWRAP width="37%"><%1286%></td>
-	<TD NOWRAP width="63%"><input type="text" name="pt_name" id="pt_name" size="15" maxlength="30" value="<%1977%>"></td>
+	<TD NOWRAP width="37%"><%1279%></td>
+	<TD NOWRAP width="63%"><input type="text" name="pt_name" id="pt_name" size="15" maxlength="30" value="<%1999%>"></td>
 	</tr>
 	<tr>
-	<td nowrap width="37%"><%1955%></td>
+	<td nowrap width="37%"><%1977%></td>
 	<td nowrap width="63%">
 	<select name="src_ip_type" id="src_ip_type" onChange="setsrc();">
-		<option value="Any"><%1978%></option>
-		<option value="Single address"><%1979%></option>
+		<option value="Any"><%2000%></option>
+		<option value="Single address"><%2001%></option>
 	</select>
 	</td>
 	</tr>
@@ -230,36 +230,36 @@ function checkData()
 	</span></td>
 	</tr>      
 	<tr>
-	<TD NOWRAP width="37%"><%918%></td>
+	<TD NOWRAP width="37%"><%909%></td>
 	<TD NOWRAP width="63%">
 		<select name="pt_type" id="pt_type" size="1">
-		<option value="TCP"><%940%></option>
-		<option value="UDP"><%941%></option>
+		<option value="TCP"><%931%></option>
+		<option value="UDP"><%932%></option>
 		</SELECT></TD>
 	</TR>
 	<tr>
-	<TD NOWRAP width="37%"><%1971%></td>
+	<TD NOWRAP width="37%"><%1993%></td>
 	<TD NOWRAP width="63%"><input type="text" class="num" name="pt_port" id="pt_port" size="6" maxlength="5" >(1~65534)</td>
 	</tr>
 	<tr>
 	<td colspan="2" height="12"><hr class='blueBar'></td></tr>
 	<tr>
-	<td colspan="2"><tabindex="-1"><b><%1954%></b></a></td></tr>
+	<td colspan="2"><tabindex="-1"><b><%1976%></b></a></td></tr>
 	<tr>
-	<TD NOWRAP width="37%"><%998%>:</td>
+	<TD NOWRAP width="37%"><%989%>:</td>
 	<TD NOWRAP width="63%">
 		<select name="in_port_type" id="in_port_type" size="1">
-		<option value="TCP/UDP"><%942%></option>
-		<option value="TCP"><%940%></option>
-		<option value="UDP"><%941%></option>
+		<option value="TCP/UDP"><%933%></option>
+		<option value="TCP"><%931%></option>
+		<option value="UDP"><%932%></option>
 		</SELECT></TD>
 	</TR>
 	<tr>
-	<TD NOWRAP width="37%"><%943%></td>
+	<TD NOWRAP width="37%"><%934%></td>
 	<TD NOWRAP width="63%"><input type="text" class="num" name="in_port_start" id="in_port_start" size="6" maxlength="5">(1~65534)</td>
 	</tr>
 	<tr>
-	<TD NOWRAP width="37%"><%944%></td>
+	<TD NOWRAP width="37%"><%935%></td>
 	<TD NOWRAP width="63%"><input type="text" class="num" name="in_port_end" id="in_port_end" size="6" maxlength="5">(1~65534)</td>
 	</tr>
 	</table>
@@ -281,7 +281,7 @@ function checkData()
 
 
 
-<input type="hidden" name="src_ip" value="<%1980%>">
+<input type="hidden" name="src_ip" value="<%2002%>">
 <input type="hidden" name="out_port_type" value="0">
 <a name="helpframe-anchor"></a>
 </form>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%14%>
+<link rel="stylesheet" href="<%296%>">
+<script language="javascript" type="text/javascript">
+
+function showQuestion1()
+{
+	var selected = [ "", "", "", "", "", "", "", "", "", ""];
+	
+	selected[<%313%>] = "selected";
+	
+	document.open();
+	document.write("<select name=\"question1\">");
+		document.write("<option " + selected[0] + " value=\"0\"><%314%></option>");
+		document.write("<option " + selected[1] + " value=\"1\"><%315%></option>");
+		document.write("<option " + selected[2] + " value=\"2\"><%316%></option>");
+		document.write("<option " + selected[3] + " value=\"3\"><%317%></option>");
+		document.write("<option " + selected[4] + " value=\"4\"><%318%></option>");
+		document.write("<option " + selected[5] + " value=\"5\"><%319%></option>");
+		document.write("<option " + selected[6] + " value=\"6\"><%320%></option>");
+		document.write("<option " + selected[7] + " value=\"7\"><%321%></option>");
+		document.write("<option " + selected[8] + " value=\"8\"><%322%></option>");
+		document.write("<option " + selected[9] + " value=\"9\"><%323%></option>");
+	document.write("</select>");
+	document.close();
+	return true;
+}
+function showQuestion2()
+{
+	var selected = [ "", "", "", "", "", "", "", "", "", ""];
+	
+	selected[<%324%>] = "selected";
+	
+	document.open();
+	document.write("<select name=\"question2\">");
+		document.write("<option " + selected[0] + " value=\"0\"><%325%></option>");
+		document.write("<option " + selected[1] + " value=\"1\"><%326%></option>");
+		document.write("<option " + selected[2] + " value=\"2\"><%327%></option>");
+		document.write("<option " + selected[3] + " value=\"3\"><%328%></option>");
+		document.write("<option " + selected[4] + " value=\"4\"><%329%></option>");
+		document.write("<option " + selected[5] + " value=\"5\"><%330%></option>");
+		document.write("<option " + selected[6] + " value=\"6\"><%331%></option>");
+		document.write("<option " + selected[7] + " value=\"7\"><%332%></option>");
+		document.write("<option " + selected[8] + " value=\"8\"><%333%></option>");
+	document.write("</select>");	
+	document.close();
+	
+	return true;
+}
+
+function checkData()
+{
+	var cf = document.forms[0];
+	var msg = "";
+	if(cf.sysNewPasswd.value.length >= 1 || cf.sysConfirmPasswd.value.length >= 1)
+	{
+		if (cf.sysNewPasswd.value.length == 33 || cf.sysConfirmPasswd.value.length == 33)
+		{
+
+			alert("<%334%>");
+			
+
+			return false;
+		}
+		if(cf.sysNewPasswd.value != cf.sysConfirmPasswd.value)
+		{
+
+			msg+= "<%335%>";
+			
+
+			cf.sysConfirmPasswd.focus();
+		}
+	}    
+	
+	if (msg.length > 1)
+	{
+		alert(msg);
+		return false;
+	}
+	if(cf.answer1.value.length < 1 || cf.answer1.value.length > 64)
+	{
+		alert("<%336%>");
+		return false;
+	}
+	if(cf.answer2.value.length < 1 || cf.answer2.value.length > 64)
+	{
+		alert("<%336%>");
+		return false;
+	}
+
+	if(cf.question1.value == 0 || cf.question2.value == 0)
+	{
+		alert("<%337%>");
+		return false;
+	}
+	
+	return true;
+}
+
+</script>
+</head>
+<body  bgcolor="#E8E8E8">
+<form name="formname" method="POST" action="wizsatpassword.cgi">
+ <div  class="dialog-content">
+	<div class="wizard-card">
+		<div>
+			<img src="img/logo_netg.png" style="display:block; margin:auto;">
+		</div>
+		
+		<div class = "desc-title" style="padding-top: 20px;">
+            <%338%>
+		</div>
+		<div class = "desc-text" style="padding-top: 6px; padding-bottom: 20px">
+		    <%339%>
+		</div>
+		<div class="float-left">
+			<div class = "input-wrapper">
+				<div class = "input-title non-active-val disable active">
+					<%340%>
+				</div>
+				<input type="text" value="admin " disabled="disable">
+			</div>
+			<div class = "input-wrapper input-wrapper-right">
+				<input type="password" name="sysNewPasswd">
+			</div>
+		</div>
+		<div class="float-left" style="margin-top:20px">
+			<div class = "input-wrapper">
+			</div>
+			<div class = "input-wrapper input-wrapper-right">
+				<input type="password" value="sysConfirmPasswd">
+			</div>
+		</div>
+
+		<div class="float-left" style="margin-top:20px">
+			<div class = "selector-title">
+				<%341%>
+			</div>
+			<div>
+			 	<script language="javascript" type="text/javascript">
+                	showQuestion1();
+             	</script>
+             </div>
+		</div>
+
+		<div class="float-left" style="margin-top:10px">
+			<div class = "input-wrapper input-wrapper-right">
+				<input type="password" name="answer1">
+			</div>
+		</div>
+
+		<div class="float-left" style="margin-top:5px">
+			<div class = "selector-title">
+				<%342%>
+			</div>
+			<div>
+			 	<script language="javascript" type="text/javascript">
+                	showQuestion2();
+             	</script>
+             </div>
+		</div>
+
+		<div class="float-left" style="margin-top:10px">
+			<div class = "input-wrapper input-wrapper-right">
+				<input type="password" name="answer2">
+			</div>
+		</div>
+
+		<div>
+			<button class="button-nav" style="display:block; margin:auto;margin-top: 28px" onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT">
+				<span><%303%></span>
+			</button>
+		</div>
+	</div>
+ </div>
+ </form>
+</body>

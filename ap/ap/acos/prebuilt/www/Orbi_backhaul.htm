@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script src="jquery.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            buttonFilter();
+        });     
+    });
+function check(){
+    $("input[name=buttonSelect]").val('2');
+    $("#regenBackhaulform").submit();
+}
+
+//-->
+</script>
+</head>
+<body  style="margin:0px;padding-left:20px">
+<form id="regenBackhaulform" action="wlg_adv.cgi" method="post">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<input type="hidden" name="gen_backhaul_pwd">
+<input type="hidden" name="gen_backhaul_confirm">
+<table border="0"   width="100%">
+<tr>
+    <td colspan="2">
+        <h1><%3138%></h1>
+    </td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr><td colspan="2"><%3139%><%3140%></td></tr>
+<tr>
+    <td colspan="2">
+        <%3141%>
+        
+        <%3142%>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr>
+    <td colspan="2">
+        
+        <input type="checkbox" name="no_conn_ignore" value="1"><%3143%>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center"><br><br><br>
+        <button type="button" name="cancel" id="cancel" value="<%753%>" class="button-cancel" onClick="location.href='WLG_adv_qca.htm';"><%83%></button>
+        <button type="button" name="continue" id="continue" value="<%754%>" class="button-apply2" onClick="buttonClick(this,'<%2597%>');check();"><%2597%></button>
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

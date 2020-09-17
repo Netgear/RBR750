@@ -6,16 +6,16 @@
 
 <script type="text/javascript">
 <!--
-<%2004%>
+<%2026%>
 var pchar = "||"; // progress char
-<%2005%>
-<%1235%>
+<%2027%>
+<%1228%>
 var maxchars = 50;
-<%1236%>
-<%1237%>
+<%1229%>
+<%1230%>
 var maxchars = 50; 
-<%1238%>
-var delay_time = <%1239%>; // msecs
+<%1231%>
+var delay_time = <%1232%>; // msecs
 var charcount = 0; 
 var barbuffer = "";
     function makeStr(strSize, fillChar)
@@ -45,19 +45,19 @@ var barbuffer = "";
       
         if (charcount < maxchars)
         {
-            <%2006%>
+            <%2028%>
             if( charcount < 6 )
                 var pchar = "||"; // progress char
             else
                 var pchar = "|"; // progress char
             charcount ++;
             cf.progress.value = makeStr1(charcount,pchar);
-            <%2007%>
+            <%2029%>
             
-            <%2004%>
+            <%2026%>
             charcount ++;
             cf.progress.value = makeStr(charcount,pchar);
-            <%2005%>
+            <%2027%>
             
             setTimeout("updateProgress()",delay_time);
         }
@@ -83,7 +83,7 @@ H1 {
     <tr>
     </tr>
     <tr>
-        <td align="left"><h1><%1234%></h1></td>
+        <td align="left"><h1><%1227%></h1></td>
         <td nowrap align="left"> &nbsp; </td>
         <td nowrap><input type="text" name="progress" style="prgbar" value=""></td>
         <td nowrap align="left"> &nbsp; </td>

@@ -33,7 +33,7 @@ function editName()
 
     var cf = document.forms["mainForm"];
     if(cf.sel_name.value.length == 0)//not select
-        alert("<%1110%>");
+        alert("<%1107%>");
     else
     {
         document.getElementById("pro_name_edit").style.display = block_str;
@@ -45,7 +45,7 @@ function checkData()
     var cf=document.forms["mainForm"];
     if(cf.sel_name.value.length == 0)//not select
     {
-        alert("<%1111%>"); 
+        alert("<%1108%>"); 
         return false;
     }
     return true;
@@ -55,13 +55,13 @@ function checkData()
 </head>
 <body onload="loadSettings();" class="page-body">
 <form id="target" name="mainForm" method="POST" action="profile.cgi">
-<div class="subhead2"> <%1112%></div>
+<div class="subhead2"> <%1109%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td style="padding-top:10px;padding-bottom:10px" align="center" colspan="2" class="table-seperate-border">
 &nbsp;&nbsp;&nbsp;<button value="<%488%>" type="reset" name="Cancel" class="button-rule" ><%488%></button>
-&nbsp;&nbsp;&nbsp;<button value="<%1113%>"  onclick="return checkData();" type="submit" name="Apply" class="button-apply" ><%1113%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1110%>"  onclick="return checkData();" type="submit" name="Apply" class="button-apply" ><%1110%></button>
 </td>
 </tr>
 
@@ -70,12 +70,12 @@ function checkData()
 <table style="border-collapse:collapse;width:97%">
 
 <tr>
- <td nowrap colspan="2"><b><%1114%></b></td>
+ <td nowrap colspan="2"><b><%1111%></b></td>
 </tr>
 <tr>
 <td colspan="2">
 <table border="1" cellpadding="2" cellspacing="0" width="100%" style="border-collapse:separate;word-break:break-all;word-wrap:break-word">
-<%1115%>
+<%1112%>
 </table>
 </td>
 </tr>
@@ -84,16 +84,16 @@ function checkData()
 </tr>
 <tr>
 <td nowrap align="center" colspan="2">
-&nbsp;&nbsp;&nbsp;<button value="<%1116%>"  onclick="return editName();" type="button" name="Edit" class="button-rule" ><%1116%></button>
-&nbsp;&nbsp;&nbsp;<button value="<%1117%>" onclick="return checkData();" type="submit" name="Delete" class="button-rule" ><%1117%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1113%>"  onclick="return editName();" type="button" name="Edit" class="button-rule" ><%1113%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1114%>" onclick="return checkData();" type="submit" name="Delete" class="button-rule" ><%1114%></button>
 </td>
 </tr>
 
 <tr id="pro_name_edit" style="display: none;">
 <td colspan="2">
-<b><%1118%>:</b>
+<b><%1115%>:</b>
 &nbsp;&nbsp;&nbsp;<input type="text" name="profile_name" value="" size="20" maxlength="20">
-&nbsp;&nbsp;&nbsp;<button value="<%1119%>"  onclick="return checkData();" type="submit" name="Save" class="button-apply" ><%1119%></button>
+&nbsp;&nbsp;&nbsp;<button value="<%1116%>"  onclick="return checkData();" type="submit" name="Save" class="button-apply" ><%1116%></button>
 </td>
 </tr>
 </table></div></td></tr>

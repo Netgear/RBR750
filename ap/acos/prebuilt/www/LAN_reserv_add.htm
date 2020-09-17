@@ -66,16 +66,16 @@ function checkData()
 {
 	var cf = document.forms[0];
 	var msg = "";
-	var resrv_ips = "<%1429%>";
-	var resrv_macs = "<%1430%>";
-	var resrv_name = "<%1431%>";
+	var resrv_ips = "<%1422%>";
+	var resrv_macs = "<%1423%>";
+	var resrv_name = "<%1424%>";
     var rv_ip = resrv_ips.split("&nbsp;");
 	var rv_mac = resrv_macs.split("&nbsp;");
 	var rv_dv_name=resrv_name.split("|");	
 	var i, conflict, reply;
 
-	var str_dhcp_start = "<%1417%>";
-	var str_dhcp_end = "<%1418%>"
+	var str_dhcp_start = "<%1410%>";
+	var str_dhcp_end = "<%1411%>"
 	var dhcp_startaddr = str_dhcp_start.split(".");
 	var dhcp_endaddr = str_dhcp_end.split(".");
 
@@ -85,11 +85,11 @@ function checkData()
 
 	if(checkMacStr(cf.rsv_mac))
 		msg+= "<%0%>\n";
-	//msg+= checkBlank(cf.dv_name, "<%978%>");
+	//msg+= checkBlank(cf.dv_name, "<%969%>");
     if (cf.dv_name.value.length < 1)
-		msg+="<%1040%>\n";
+		msg+="<%1031%>\n";
 	if (cf.dv_name.value.match( /[^\x20-\x7E]/ ))
-		msg+="<%1041%>\n";	
+		msg+="<%1032%>\n";	
 
 	if (msg.length > 1)
 	{
@@ -113,7 +113,7 @@ function checkData()
         i++;
     }
     if (conflict) {
-        reply = confirm("<%1432%>");
+        reply = confirm("<%1425%>");
         if (!reply)
             return false;
     }
@@ -146,14 +146,14 @@ function sel(ipaddr, name, macaddr)
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1407%></div>
+<div class="subhead2"> <%1400%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
-<button value="<%976%>" onClick="buttonClick(this,'<%976%>');location.href='LAN_reserv_add.htm'" type="Button" name="refresh" id="refresh" class="button-common" ><%976%></button>
+<button value="<%967%>" onClick="buttonClick(this,'<%967%>');location.href='LAN_reserv_add.htm'" type="Button" name="refresh" id="refresh" class="button-common" ><%967%></button>
 <button value="<%84%>" onClick="buttonClick(this,'<%84%>');location.href='LAN_lan.htm'" type="Button" name="cancel" id="cancel" class="button-cancel" ><%84%></button>
-<button value="<%922%>" onClick="buttonClick(this,'<%922%>');if(!checkData()) return false;" type="SUBMIT" name="apply" id="add" class=<%79%> ><%922%></button>
+<button value="<%913%>" onClick="buttonClick(this,'<%913%>');if(!checkData()) return false;" type="SUBMIT" name="apply" id="add" class=<%79%> ><%913%></button>
 
 </td>
 </tr>
@@ -163,7 +163,7 @@ function sel(ipaddr, name, macaddr)
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
- <td colspan="2" ><a href="javascript:loadhelp('LAN_reserv_add','reserved')" tabindex="-1"><b><%1433%></b></a></td>
+ <td colspan="2" ><a href="javascript:loadhelp('LAN_reserv_add','reserved')" tabindex="-1"><b><%1426%></b></a></td>
 </tr>
 
 
@@ -173,13 +173,13 @@ function sel(ipaddr, name, macaddr)
     <tr>
      <th nowrap align="center" width="10%">&nbsp;</th>
      <th nowrap align="center" width="10%"># </th>
-     <th nowrap align="center" width="20%"><%814%></th>
-     <th nowrap align="center" width="30%"><%978%></th>
-     <th nowrap align="center" width="30%"><%979%></th>
+     <th nowrap align="center" width="20%"><%806%></th>
+     <th nowrap align="center" width="30%"><%969%></th>
+     <th nowrap align="center" width="30%"><%970%></th>
     </tr>
 </thead>
 <tbody>
-<%1434%>
+<%1427%>
 </tbody>
 </table></td></tr>
 
@@ -190,7 +190,7 @@ function sel(ipaddr, name, macaddr)
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
-	<td nowrap><%814%></td>
+	<td nowrap><%806%></td>
 	<td width="50%" align="left">
 		<input type="text" name="rsv_ip1" id="rsv_ipaddress1" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
 		<input type="text" name="rsv_ip2" id="rsv_ipaddress2" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
@@ -198,11 +198,11 @@ function sel(ipaddr, name, macaddr)
 		<input type="text" name="rsv_ip4" id="rsv_ipaddress4" class="num" size="4" maxlength="3" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td>
 </tr>
 <tr>
-	<td nowrap><%979%></td>
+	<td nowrap><%970%></td>
 	<td width="50%" align="left"><input type="text" name="rsv_mac" id="rsv_mac" class="num" size="17" maxlength="17"></td>
 </tr>
 <tr>
-	<td nowrap><%978%></td>
+	<td nowrap><%969%></td>
 	<td width="50%" align="left">
 		<input type="text" name="dv_name" id="device_name" size="20" maxlength="32">
 	</td>
@@ -227,10 +227,10 @@ function sel(ipaddr, name, macaddr)
 <input type="hidden" name="macaddr" value="">
 <INPUT name=rsv_ip type=hidden value="">
 <INPUT name=rsv_mode type=hidden value="add">
-<input type="hidden" name="reserved_ips" value="<%1429%>">
-<input type="hidden" name="reserved_macs" value="<%1430%>">
-<input type="hidden" name="reserved_devname" value="<%1431%>">
-<input type="hidden" name="lanIP" value="<%1300%>">
+<input type="hidden" name="reserved_ips" value="<%1422%>">
+<input type="hidden" name="reserved_macs" value="<%1423%>">
+<input type="hidden" name="reserved_devname" value="<%1424%>">
+<input type="hidden" name="lanIP" value="<%1293%>">
 <a name="helpframe-anchor"></a>
 </form>
 </div>

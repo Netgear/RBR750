@@ -1,0 +1,55 @@
+{
+  "suite": {
+    "global": {
+      "engine": {
+        "threadCount": 4,
+        "testDurationSeconds": 15,
+        "packetSizeBytes": 32000000,
+        "isUploadFirst": false
+      }
+    },
+    "testStage": {
+      "latency": {
+        "pingCount": 5
+      }
+    }
+  },
+  "app": {
+    "traceLevel": 2,
+    "customerName": "v3trial",
+    "licenseKey": "8c1da2bb5eb1e82f-C3c8f9b0276fb061c-7bd6b32fa51d16dd",
+    "saveTestResultUrl": "http:\/\/www.speedtest.net\/api\/embed\/api.php"
+  },
+  "servers": [{
+    "id": "10395",
+    "host_functional": "1",
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "Speedtest.net",
+    "host": "sea.host.speedtest.net:8080"
+  },
+  {
+    "id": "10392",
+    "host_functional": "1",
+    "name": "Los Angeles, CA",
+    "country": "United States",
+    "sponsor": "Speedtest.net",
+    "host": "lax.host.speedtest.net:8080"
+  },
+  {
+    "id": "2855",
+    "host_functional": "1",
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "sponsor": "Speedtest.net",
+    "host": "ams2.speedtest.net:8080"
+  },
+  {
+    "id": "5249",
+    "host_functional": "1",
+    "name": "Seoul",
+    "country": "South Korea",
+    "sponsor": "Speedtest.net",
+    "host": "kr12.host.speedtest.net:8080"
+  }]
+}

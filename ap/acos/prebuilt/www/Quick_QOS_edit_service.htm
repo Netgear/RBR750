@@ -96,17 +96,17 @@ classes.num.all.fontSize = "10pt" ;
 			{
 				if (cf.qos_service_policy.value == "") 
 				{ 
-					alert("<%2038%>");
+					alert("<%2060%>");
 					return false;
 				}
 				if (cf.qos_port_start.value == "") 
 				{ 
-					alert("<%2046%>");
+					alert("<%2068%>");
 					return false;
 				}
 				if (cf.qos_port_end.value == "") 
 				{ 
-					alert("<%2046%>");
+					alert("<%2068%>");
 					return false;
 				}				
 			}
@@ -115,12 +115,12 @@ classes.num.all.fontSize = "10pt" ;
 		{
 			if (cf.qos_device_policy.value == "") 
 			{ 
-				alert("<%2038%>");
+				alert("<%2060%>");
 				return false;
 			}
 			if (cf.qos_device_name.value == "") 
 			{ 
-				alert("<%1040%>");
+				alert("<%1031%>");
 				return false;
 			}
 			if (!check_mac())
@@ -176,7 +176,7 @@ classes.num.all.fontSize = "10pt" ;
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <div>
 <img class="subtop-image" src="img/subhead2-top.gif">
-<div class="subhead2"> <%2039%></div>
+<div class="subhead2"> <%2061%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -190,64 +190,64 @@ classes.num.all.fontSize = "10pt" ;
 <table style="border-collapse:collapse;width:99%">
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr><td><table border ="0"   width="100%">
-	<tr><td colspan="2" tabindex="-1"><b><%2040%></b></a></td></tr>
+	<tr><td colspan="2" tabindex="-1"><b><%2062%></b></a></td></tr>
 	
 <tr><td colspan="2"><div id="edit_new_service" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
-	<tr><td width="50%"><%2041%></td>
+	<tr><td width="50%"><%2063%></td>
 	<td><input type="text" name="qos_service_policy" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%2040%></td>
+	<tr><td width="50%"><%2062%></td>
 	<td><select name="new_qos_priorityList" size="1" style="height:20px;width:100px">
-		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		<option value="0"><%2064%></option><option value="1"><%2065%></option><option value="2"><%2066%></option><option value="3"><%2067%></option>
 		</select></td></tr>
 	<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
-	<tr><td width=50% tabindex=-1><%998%></td>
-	<td width=50%><select name="qos_protocol"><option value="TCP/UDP" selected><%942%></option><option value="TCP"><%940%></option>
-		<option value="UDP"><%941%></option></select></td></tr>
-	<tr><td width=50% tabindex=-1><%943%></td>
+	<tr><td width=50% tabindex=-1><%989%></td>
+	<td width=50%><select name="qos_protocol"><option value="TCP/UDP" selected><%933%></option><option value="TCP"><%931%></option>
+		<option value="UDP"><%932%></option></select></td></tr>
+	<tr><td width=50% tabindex=-1><%934%></td>
 		<td width=50% class="num"><input type="text" name="qos_port_start" size=6 maxlength=5>(1~65535)</td></tr>
-    <tr><td width=50% tabindex=-1><%944%></td>
+    <tr><td width=50% tabindex=-1><%935%></td>
         <td width=50% class="num"><input type="text" name="qos_port_end" size=6 maxlength=5>(1~65535)</td></tr>
     <tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
 	</table></div></td></tr>
 	
 <tr><td colspan="2"><div id="edit_custom_service" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
-	<tr><td width="50%"><%2041%></td>
-	<td ><%2047%></td></tr>
-	<tr><td width="50%"><%2048%></td>
-	<td ><%2047%></td></tr>
-	<tr><td width="50%"><%2040%></td>
+	<tr><td width="50%"><%2063%></td>
+	<td ><%2069%></td></tr>
+	<tr><td width="50%"><%2070%></td>
+	<td ><%2069%></td></tr>
+	<tr><td width="50%"><%2062%></td>
 	<td><select name="custom_qos_priorityList" size="1" style="height:20px;width:100px">
-		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		<option value="0"><%2064%></option><option value="1"><%2065%></option><option value="2"><%2066%></option><option value="3"><%2067%></option>
 		</select></td></tr>
     <tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
 	</table></div></td></tr>
 	
 <tr><td colspan="2"><div id="edit_device" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
-	<tr><td width="50%"><%2041%></td>
+	<tr><td width="50%"><%2063%></td>
 	<td><input type="text" name="qos_device_policy" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%979%></td>
+	<tr><td width="50%"><%970%></td>
 	<td><input type="text" name="qos_mac_address" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%978%></td>
+	<tr><td width="50%"><%969%></td>
 	<td><input type="text" name="qos_device_name" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%2040%></td>
+	<tr><td width="50%"><%2062%></td>
 	<td><select name="device_priorityList" size="1" style="height:20px;width:100px">
-		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		<option value="0"><%2064%></option><option value="1"><%2065%></option><option value="2"><%2066%></option><option value="3"><%2067%></option>
 		</select></td></tr>
 	<tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
 	</table></div></td></tr>
 
 <tr><td colspan="2"><div id="edit_lan_port" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
-	<tr><td width="50%"><%2041%></td>
+	<tr><td width="50%"><%2063%></td>
 	<td><input type="text" name="qos_lan_port_policy" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%2049%></td>
+	<tr><td width="50%"><%2071%></td>
 	<td><input type="text" name="qos_lan_port_num" size="20" maxlength="32"></td></tr>
-	<tr><td width="50%"><%2040%></td>
+	<tr><td width="50%"><%2062%></td>
 	<td><select name="lan_port_priority_list" size="1" style="height:20px;width:100px">
-		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		<option value="0"><%2064%></option><option value="1"><%2065%></option><option value="2"><%2066%></option><option value="3"><%2067%></option>
 		</select></td></tr>
 	<tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
 	</table></div></td></tr>
@@ -269,10 +269,10 @@ classes.num.all.fontSize = "10pt" ;
 </div>
 <a name="helpframe-anchor"></a>
 
-<input type="hidden" name="quick_qos_rule_value" value="<%2050%>">
-<input type="hidden" name="service_type" value="<%2051%>">
-<input type="hidden" name="quick_qos_rule_edit" value="<%2052%>">
-<input type="hidden" name="quick_qos_priority_edit" value="<%2053%>">
+<input type="hidden" name="quick_qos_rule_value" value="<%2072%>">
+<input type="hidden" name="service_type" value="<%2073%>">
+<input type="hidden" name="quick_qos_rule_edit" value="<%2074%>">
+<input type="hidden" name="quick_qos_priority_edit" value="<%2075%>">
 <input type="hidden" name="mac1" value="">
 <input type="hidden" name="mac2" value="">
 <input type="hidden" name="mac3" value="">

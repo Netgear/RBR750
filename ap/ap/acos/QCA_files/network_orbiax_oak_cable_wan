@@ -1,0 +1,34 @@
+package network
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'auto'
+
+config switch
+	option name 'switch0'
+
+config interface 'lan'
+	option ifname 'eth0 eth1 eth2 eth3'
+	option force_link '1'
+	option type 'bridge'
+	option proto 'static'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option multicast_querier '0'
+	option igmp_snooping '0'
+	option ieee1905managed '1'
+
+config interface 'wan'
+	option ifname 'eth4'
+	option proto 'dhcp'	
+
+config interface 'wan6'
+	option ifname 'eth4'
+	option proto 'dhcpv6'
+

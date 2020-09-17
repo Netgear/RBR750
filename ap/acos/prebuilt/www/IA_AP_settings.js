@@ -261,7 +261,7 @@ function CheckData()
     {
         if(cf.ssid.value==cf.ssid_5g.value)
         {
-            alert("<%2595%>");
+            alert("<%2612%>");
             return false;
         }
         if (cf.ssid.value == "")

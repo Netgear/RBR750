@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="css/parentalControls.css">
+
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+       
+        $(".ios-badge").click(function(){
+            window.open('https://itunes.apple.com/us/app/circle-home/id1037062934','_blank');
+        });
+        $(".play-badge").click(function(){
+            window.open('https://play.google.com/store/apps/details?id=com.circlemedia.circlehome','_blank');
+        });
+    });
+/*
+var apply_button_grayout=0;
+
+function mode_select(mode)
+{
+
+   	var cf=document.forms[0];
+
+    if(mode==1)
+    {
+        if(cf.parentalSelect.value==3)
+        {
+        	  cf.parentalSelect_tmp.value=3;
+        	  show_confirm_page();
+        }
+        else if(cf.parentalSelect.value==1)
+        {
+            cf.parentalSelect.value=2;
+            cf.circle_status_pic.src="img/enabled.jpg";
+            $("#circle_message").css("display","block");
+        }
+        else if(cf.parentalSelect.value==2)
+        {
+            cf.parentalSelect.value=1;
+            cf.circle_status_pic.src="img/disabled.jpg";
+            $("#circle_message").css("display","none");
+        }
+    }
+    else if(mode==2)
+    {
+        if(cf.parentalSelect.value==2)
+        {
+        	  cf.parentalSelect_tmp.value=2;
+        	  show_confirm_page();
+        }
+        else if(cf.parentalSelect.value==1)
+        {
+            cf.parentalSelect.value=3;
+            cf.opendns_status_pic.src="img/enabled.jpg";
+        }
+        else if(cf.parentalSelect.value==3)
+        {
+        	  cf.parentalSelect.value=1;
+            cf.opendns_status_pic.src="img/disabled.jpg";
+        }
+    }
+    
+    if(apply_button_grayout==1)
+        ungrayout_applybtn("Apply");
+}
+*/
+
+
+function loadvalue()
+{
+	var cf=document.forms[0];
+
+	if(cf.enable_circle_control.value == "1")
+	{
+        cf.parentalSelect.value=2;
+        //cf.circleplc[0].checked = true;
+        cf.standard_plc[1].checked = true;
+        enable=1;
+	}
+	else if(cf.enable_opendns_control.value == "1")
+	{
+        cf.parentalSelect.value=3;
+       // cf.circleplc[1].checked = true;
+        cf.standard_plc[0].checked = true;
+        enable=2;
+    }
+    else
+    {
+        cf.parentalSelect.value=1;
+       // cf.circleplc[1].checked = true;
+		cf.standard_plc[1].checked = true;
+		enable=0;
+    }	
+/*
+  if(cf.parental_control_apply.value!="1" && cf.enable_circle_control.value != "1" && cf.enable_opendns_control.value != "1")
+  {
+      grayout_applybtn("Apply");
+      apply_button_grayout=1;
+  }
+  */
+   
+    if(cf.standard_plc[0].checked == true)
+		$("#standard_plc_radio").removeClass("toggle-off");
+}
+
+function apply_check()
+{  
+    var cf = document.forms[0];
+	
+	if( cf.standard_plc[0].checked == true)
+	{
+		$("input[name=parentalSelect]").val(3);
+		
+	}
+	else
+		$("input[name=parentalSelect]").val(1);
+
+	cf.submit();
+}
+
+var enable;
+function change_plc(id)
+{
+    var cf = document.forms[0];
+  if(id == "1"){
+        if(cf.standard_plc[0].checked == true){
+            $("#standard_plc_radio").removeClass("toggle-off");
+        }
+        else
+            $("#standard_plc_radio").addClass("toggle-off");
+    } 
+}
+//-->
+</script>
+</head>
+<body  onload="change_size();loadvalue();" class="page-body"  onResize="change_size();" >
+  <img class="cover-image" src="<%74%>">
+  <img class="body-image" src="<%75%>">
+  <div id="full-page-container">
+    <form id="target"  name="formname" method="POST" action="circle_control.cgi">
+      <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue"> 
+      <img class="subtop-image" src="<%76%>">
+      <div class="subhead2"> <%543%></div>
+      
+      <table border="0" style="height:370px" class="subhead2-table">
+        <tr align="left" valign="middle">
+          <td align="center" colspan="2" class="table-seperate-border">
+            <button class="button-cancel" type="button" name="Cancel" value="<%83%>" onClick="buttonClick(this,'<%83%>');reset();loadSettings();"><%83%></button>
+            <button class="button-apply2" type="button" name="Apply" value="<%78%>" onClick="buttonClick(this,'<%78%>');apply_check()"><%78%></button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="scrollpane-table-seperate-border">
+            <div class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:no">
+            
+            <table id="parentalControlsTable" width="97%" border="0" cellpadding="0" cellspacing="3" style="border-collapse:collapse">
+                <tbody>
+                    <tr><td colspan="2"><hr class="blueBar"></td></tr>
+                    <tr><td colspan="2">&nbsp;</td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="toggle toggle-off" id="circleplc_radio" style="display:none">
+                                <label class="toggle-radio" for="toggleOption2"><%544%></label>
+                                <input type="radio" name="circleplc" id="toggleOption1" value="1" onclick="change_plc('0')">
+                                <label class="toggle-radio" for="toggleOption1"><%545%></label>
+                                <input type="radio" name="circleplc" id="toggleOption2" value="0" onclick="change_plc('0')">
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr class="switch-table-wrapper">
+                        <td colspan="2">
+                            <div class="toggle toggle-off" id="standard_plc_radio">
+                                <label class="toggle-radio" for="toggleOption4"><%544%></label>
+                                <input type="radio" name="standard_plc" id="toggleOption3" value="1" onclick="change_plc('1')">
+                                <label class="toggle-radio" for="toggleOption3"><%545%></label>
+                                <input type="radio" name="standard_plc" id="toggleOption4" value="0" onclick="change_plc('1')">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="right-block">
+                        <td colspan="2"><b><%546%></b>
+                        </td>
+                    </tr>
+                    <tr class="right-block">
+                        <td colspan="2" style="height:30px"><%547%></td>
+                    </tr>
+                    <tr class="right-block">
+                        <td colspan="2" style="height:20px"><a class="linktype" target="_blank" href="http://www.netgear.com/discover/apps/lpc"><span style="color:#00ADE6;text-decoration:underline"><%548%></span></a></td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="blueBar"></td></tr>
+                    <tr>
+                        <td colspan="2" style="height:30px" class="footer-info-text"><%549%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:15px" class="footer-info-text"><%550%></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height:15px" class="footer-info-text"><%551%></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </div>
+          </td>
+        </tr>
+      </table>
+    
+      <INPUT name="ipv6_proto" type=hidden value= "disable">
+      <a name="helpframe-anchor"></a>
+      <input type="hidden" name="enable_circle_control" value="<%552%>">
+      <input type="hidden" name="enable_opendns_control" value="<%553%>">
+      <input type="hidden" name="parental_control_apply" value="<%554%>">
+      <input type="hidden" name="parentalSelect_tmp" value="">
+      <input type="hidden" name="parentalSelect" value="">
+    </form>
+  </div>
+</body>
+</html>

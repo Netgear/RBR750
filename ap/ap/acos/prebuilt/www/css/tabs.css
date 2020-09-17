@@ -1,0 +1,192 @@
+
+
+/* root element for tabs  */
+ul.tabs { 
+    list-style:none; 
+    margin:0px;
+    padding-left:10px;
+    height:34px;
+    background-color:#ffffff;
+    font-family:arial;
+    white-space: nowrap;	
+    border-bottom:solid 1px #c1c1c1;
+    
+    /*
+    padding-top:5px;
+    overflow: hidden;
+    */
+}
+
+/* single tab */
+ul.tabs li { 
+	  float:left;	 
+	  text-indent:0; 
+    margin-left:3px;
+	  list-style-image:none !important;
+    display: block; 
+    /*
+    padding:0;
+    background-color:transparent;
+    */
+}
+
+
+/* link inside the tab. uses a background image */
+ul.tabs a, ul.tabs div.tab { 
+	font-size:17px;
+	font-weight:bold;
+  font-family: Arial;
+	display:block;
+	/*width: 110px;*/
+	text-align:center;	
+	text-decoration:none;
+	color:#aaa;
+	padding:4.5px 10px 0px 10px;
+	position:relative;   
+	top:0px;	  
+  border:solid 1px #c1c1c1;
+  border-radius: 4PX 4PX 0 0;
+  background: #E8E8E8;
+  line-height:28.5px;
+  cursor: pointer;
+  /*
+	height: 30px;  
+	line-height:30px;  
+  */
+}
+
+ul.tabs a:active , ul.tabs div.tab:active{
+	outline:none;
+}
+
+/* when mouse enters the tab move the background image */
+        		
+
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a, ul.tabs div.current, ul.tabs div.current:hover, ul.tabs li.current div.tab {
+	cursor:default !important; 
+	color:#000 !important;
+  border-bottom: solid 1px #FFFFFF;
+  background: #FFFFFF;
+}
+
+
+
+.firmware-update-hint{
+    background-image:url("../img/firmware-hint-background.gif");
+    background-position:0px -1px;
+    background-repeat:no-repeat;
+    margin-left:40px;
+    margin-top:3px;
+    float:left;
+    width:380px;
+    height: 22px;
+    font-weight:bold;
+    position: relative;
+    right: -350px;
+    top: 33px;
+    z-index:5;
+
+}
+
+
+.firmware-update-hint-short{
+
+    background-position:0px -1px;
+    background-repeat:no-repeat;
+    margin-left:40px;
+    margin-top:3px;
+    float:left;
+    width:380px;
+    height: 22px;
+    font-weight:bold;
+    position: relative;
+    right: -350px;
+    top: 33px;
+    z-index:5;
+
+}
+
+
+
+
+.language-option{
+	font-family:Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif;
+  margin-top:4px;
+  margin-bottom:5px;
+  font-size:12px;
+  font-weight:normal;
+	}
+
+firmware_update_click a:hover{
+	   mouse:pointer;
+}
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+/* initially all panes are hidden */ 
+.panes .pane {
+	display:none;
+
+}
+
+
+.button-info span.roundleft_update{
+	padding: 4px 0px 15px 20px; 
+	/*margin:30px;*/
+    border:0px;
+	height:22px; 
+	font-weight:bold;
+	background: transparent url("../img/roundleft_update.gif") no-repeat;
+	color:#F2F2F2; 
+    cursor: pointer;
+	white-space:nowrap;
+    font-size:11px;
+}
+
+.roundright_update{
+	padding: 4px 5px 15px 0px; 
+	margin:0px;
+    width:20px;
+    border:0px;
+	height:22px; 
+	font-weight:bold;
+	background: url("../img/roundright_update.gif") no-repeat;
+	color:#F2F2F2; 
+	white-space:nowrap;
+    cursor: pointer;
+    font-size:11px;
+}
+
+.roundright_update_org{
+	padding: 4px 0px 4px 0px; 
+	margin:0px;
+    width:20px;
+    border:0px;
+	height:22px; 
+	font-weight:bold;
+	background: url("../img/roundright_update.gif") no-repeat top right;
+	color:#F2F2F2; 
+	white-space:nowrap;
+    cursor: pointer;
+}
+
+.topmenubar{
+    width:100%;
+    height:34px;
+    border-bottom:solid 1px #c1c1c1;
+} 
+.topmenu{
+    float:left;
+    
+}
+.top_lang{
+    position:absolute;
+    top:90px;
+    right:25px;
+}
+#firmware_update{
+    position:absolute;
+    top:90px;
+	margin-left:50px;
+    /*left:300px;*/
+    font-style: italic;
+}

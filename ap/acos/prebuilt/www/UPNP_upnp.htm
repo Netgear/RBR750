@@ -73,7 +73,7 @@ function CheckAdverTimeVal(vField)
 		return false;
 	}
 	if((vField.value >1440 )||(vField.value <= 0 )){
-		alert(vField.name + " <%1747%>");
+		alert(vField.name + " <%1740%>");
 		vField.value = vField.form.hiddenAdverTime.value;
 		vField.focus();
 		return false;
@@ -95,7 +95,7 @@ function CheckTimeToLiveVal(vField)
 		return false	
 	}
 	if((vField.value > 255 )||(vField.value <= 0 )){
-		alert(vField.name + " <%1748%>")
+		alert(vField.name + " <%1741%>")
 		vField.value = vField.form.hiddenTimeToLive.value
 		vField.focus()
 		return false 
@@ -148,12 +148,12 @@ function init()
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
  
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%678%></div>
+<div class="subhead2"> <%679%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
-<button value="<%976%>" OnClick="buttonClick(this,'<%976%>');fresh();" type="button" name="refresh" id="refresh" class="button-common"><%976%></button>
+<button value="<%967%>" OnClick="buttonClick(this,'<%967%>');fresh();" type="button" name="refresh" id="refresh" class="button-common"><%967%></button>
 <button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='UPNP_upnp.htm'" type="button" name="cancel" id="cancel" class="button-cancel" ><%84%></button>
 <button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return finishchech()" type="submit" name="apply" id="apply" class=<%79%> ><%81%></button>
 
@@ -167,21 +167,21 @@ function init()
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 
-<tr><td nowrap width="46%"><input type="checkbox" name="UPnP" id="upnp" value="UPnP"><B><a href="javascript:loadhelp('UPNP_upnp','turnon')" tabindex="-1"><%1749%></a></B></td>
+<tr><td nowrap width="46%"><input type="checkbox" name="UPnP" id="upnp" value="UPnP"><B><a href="javascript:loadhelp('UPNP_upnp','turnon')" tabindex="-1"><%1742%></a></B></td>
 <td nowrap width="54%"></td></tr>
  
-<tr><td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','adv')" tabindex="-1"><%1750%></a> </B><%1751%></td>
-<td nowrap width="54%" align="right"><input type="text" class="num" name="AdverTime" id="adver_time" size="5" maxlength="4" value="<%1752%>" onFocus="this.select();" ></td>
+<tr><td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','adv')" tabindex="-1"><%1743%></a> </B><%1744%></td>
+<td nowrap width="54%" align="right"><input type="text" class="num" name="AdverTime" id="adver_time" size="5" maxlength="4" value="<%1745%>" onFocus="this.select();" ></td>
 </tr>
 
 <tr>
- <td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','live')" tabindex="-1"><%1753%></a></b> <%1754%></td>
-	<td nowrap width="54%" align="right"><input type="text" class="num" name="TimeToLive" id="time_to_live" size="5" maxlength="3" value="<%1755%>" onFocus="this.select();" ></td>
+ <td nowrap width="46%"><B><a href="javascript:loadhelp('UPNP_upnp','live')" tabindex="-1"><%1746%></a></b> <%1747%></td>
+	<td nowrap width="54%" align="right"><input type="text" class="num" name="TimeToLive" id="time_to_live" size="5" maxlength="3" value="<%1748%>" onFocus="this.select();" ></td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
- <td colspan="2"><b><a href="javascript:loadhelp('UPNP_upnp','table')" tabindex="-1"><%1756%></a></b></td>
+ <td colspan="2"><b><a href="javascript:loadhelp('UPNP_upnp','table')" tabindex="-1"><%1749%></a></b></td>
 </tr>
 
 <tr>
@@ -190,15 +190,15 @@ function init()
 <table id="upnp_portmap" class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th width="10%" align="center"><span class="thead"><%1684%></span></th>
-      <th width="15%" align="center"><span class="thead"><%939%></span></th>
-      <th width="15%" align="center"><span class="thead"><%1757%></span></th>
-      <th width="15%" align="center"><span class="thead"><%1758%></span></th>
-      <th width="25%" align="center"><span class="thead"><%814%></span></th>
+      <th width="10%" align="center"><span class="thead"><%1677%></span></th>
+      <th width="15%" align="center"><span class="thead"><%930%></span></th>
+      <th width="15%" align="center"><span class="thead"><%1750%></span></th>
+      <th width="15%" align="center"><span class="thead"><%1751%></span></th>
+      <th width="25%" align="center"><span class="thead"><%806%></span></th>
     </tr> 
   </thead>
   <tbody>
-	<!><%1759%><!>
+	<!><%1752%><!>
   </tbody>
 </table>
 </td>
@@ -223,9 +223,9 @@ function init()
 
  
 
-<input type="hidden" value="<%1760%>" name="hiddenTurnUPnPOn">
-<input type="hidden" value="<%1752%>" name="hiddenAdverTime">
-<input type="hidden" value="<%1755%>" name="hiddenTimeToLive">
+<input type="hidden" value="<%1753%>" name="hiddenTurnUPnPOn">
+<input type="hidden" value="<%1745%>" name="hiddenAdverTime">
+<input type="hidden" value="<%1748%>" name="hiddenTimeToLive">
 
 <a name="helpframe-anchor"></a>
 </form>

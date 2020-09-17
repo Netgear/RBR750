@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script src="jquery.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            buttonFilter();
+        });     
+    });
+function check(){
+    $("input[name=buttonSelect]").val('2');
+    $("#rebootform").submit();
+}
+function goHome() {
+    if(top.$("#basic-pane").is(":visible")){
+         top.loadPage("DashBoard.htm");
+    }else{
+         top.loadPage2("ADVANCED_home.htm");
+    }
+}
+//-->
+</script>
+</head>
+<body  style="margin:0px;padding-left:20px">
+<form id="rebootform" action="newgui_adv_home.cgi" method="post">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<input type="hidden" name="buttonSelect">
+<table border="0"   width="100%">
+<tr>
+    <td colspan="2">
+        <h1><%751%></h1>
+    </td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2" align="center">
+        <b><%752%></b>
+    </td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+    <td colspan="2" height="12"><hr class='blueBar'></td>
+</tr>
+<tr>
+    <td colspan="2" align="center"><br><br><br>
+        <button type="button" name="yes" id="yes" value="<%753%>" class="button-common" onClick="buttonClick(this,'<%753%>');check()"><%753%></button>
+        <button type="button" name="no" id="no" value="<%754%>" class="button-common" onClick="buttonClick(this,'<%754%>');goHome();"><%754%></button>
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

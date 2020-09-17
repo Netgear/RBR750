@@ -1,0 +1,1215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>NETGEAR Router Orbi</title>
+<%11%>
+<script src="jquery.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mainpage.css"> 
+<link rel="stylesheet" type="text/css" href="css/tabs.css">
+<link rel="stylesheet" type="text/css" href="css/button.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<link rel="stylesheet" type="text/css" href="css/modalBoxControl.css">
+<script type="text/javascript">
+var gui_lang_local;
+var load_page = 0;
+var is_loading_page = 0;
+var adjustPageHeight = 0;
+var num_nosubLarge = 0;
+var num_submenuLarge = 0;
+function OnSubmitForm()
+{    //alert("1*");
+        var text = $('#searchText').val();
+        
+        var URItext = encodeURIComponent(text);
+            
+        URItext =  "http://support.netgear.com/app/answers/list/kw/" + URItext; 
+        document.searchform.action = URItext;
+    
+        return true;
+    
+}
+
+$(document).ready(function(){
+//alert("2*");           
+    adjustPageLayout();
+      
+    <%595%>;
+         
+    liveMenuClick();
+    advanceMenu();
+    $('.subHeader').hide();
+    var pnpx = "<%596%>"
+    if(pnpx == 1){        
+        $("#advanced_label").click();
+        $("#basic-pane").css("display","none");
+        $("#adv-pane").css("display","block");        
+        pnpx = 0;      
+    }
+ 
+    $(".noSub").first().addClass("noSubActive");
+    $('.basic-menu-div').first().addClass('menuActive'); 
+});   
+
+function checkMenuDisable()
+{   //alert("2");
+    var basic_page = document.getElementById('page').contentWindow;
+    var advanced_page = document.getElementById('formframe').contentWindow;
+
+    try {
+        if(basic_page.document.getElementsByName("disable_menu")[0]) {
+            dieMenuClick();
+            setTimeout('checkMenuDisable()',1500); 
+        } else if(advanced_page.document.getElementsByName("disable_menu")[0]) {
+            dieMenuClick();
+            setTimeout('checkMenuDisable()',1500); 
+        } else {
+            liveMenuClick();
+        }
+    }
+    catch (e){
+        liveMenuClick();
+    }
+}
+
+function dieMenuClick()
+{   //alert("3");
+    $('.noSub').die("click");
+    $('.noSubLarge').die("click");
+    $('.noSubActive').die("click");
+    $('.noSubActiveLarge').die("click");
+    $('.SubMenu').die("click");
+    $('.SubMenuLarge').die("click");
+    $('.SubMenuActive').die("click");
+    $('.SubMenuActiveLarge').die("click");
+
+    $("#basic_label").die("click");
+    $("#advanced_label").die("click");
+    $('.basic-menu-div').die("click");
+    
+    $('.basic-menu-div').live("click", function(ev){ 
+        return false;
+    });
+    $('.noSub , .noSubLarge , .noSubActive, .noSubActiveLarge').live("click", function(ev){ 
+        return false;
+    }); 
+ 
+    return true;
+}
+
+function liveMenuClick()
+{   //alert("4");
+      var isie = navigator.userAgent.search("MSIE") > -1;
+      var ap_mode_flag = document.getElementsByName("enable_apmode");
+      var sta_mode_flag = document.getElementsByName("enable_stamode");
+      var ext_mode_flag = document.getElementsByName("enable_extmode");
+      var repeater_flag = document.getElementsByName("repeater");
+      var repeater_an_flag = document.getElementsByName("repeater_an");
+      var downloader_flag = document.getElementsByName("have_usb_attached");
+
+    $('.noSub , .noSubLarge , .noSubActive, .noSubActiveLarge').die("click");
+    $('.basic-menu-div').die("click");
+    
+    // basic-cab
+    // $("#basic-wls").show();
+    if("<%701%>"=="1")
+    {
+        $("#basic-cab").show();
+        $("#event_log").show();
+        $("#internet").hide();
+    }
+    else
+    {
+        $("#basic-cab").hide();
+        $("#event_log").hide();
+        $("#internet").show();
+    }
+    if("<%702%>"=="1")
+    {
+        if("<%696%>"=="1")
+        {
+            $("#wireless").hide();
+            $("#attached").hide();
+            $("#parental").hide();
+            $("#guest").hide();
+            $("#satellite").hide();
+            $("#setup_bt").hide();
+            $("#set_hdr").hide();
+            $("#security_bt").hide();
+            $("#security_settings_header").hide();
+            $("#log").hide();
+            $("#adv_attached").hide();
+            $("#bak_set").hide();
+            $("#passwd").hide();
+            $("#ntp").hide();
+            $("#upgrade").hide();
+            $("#wladv").hide();
+            $("#forwarding_triggering").hide();
+            $("#dns").hide();
+            $("#vpn").hide();
+            $("#static").hide();
+            $("#remote").hide();
+            $("#upnp").hide();
+            $("#ipv6").hide();
+            $("#traffic").hide();
+        }
+    }
+      
+    if(ap_mode_flag[0].value=="1" || repeater_flag[0].value=="1" || repeater_an_flag[0].value=="1")
+    {
+        if($("#internet").hasClass("basic-menu-div"))
+        {
+            $("#internet").addClass('basic-menu-div-gray');
+            $("#internet").removeClass('basic-menu-div');
+            if($("#parental").hasClass("basic-menu-div")){
+                $("#parental").addClass('basic-menu-div-gray');
+                $("#parental").removeClass('basic-menu-div');
+                $('#parental').bind('contextmenu', function(e) {
+                    e.preventDefault();
+                });
+            }
+        }
+        $("#internet").addClass("disabled");
+        //$("#wireless").hide();
+        //$("#attached").hide();
+        $("#parental").addClass("disabled");
+        //$("#guest").hide();
+        //$("#satellite").hide();
+
+        $("#adv_setup_wizard").addClass("disabled");
+        //$("#setup_bt").hide();
+        $("#adv_internet").addClass("disabled");
+        $("#wan").addClass("disabled");
+        $("#lan").addClass("disabled");
+        $("#devname").addClass("disabled");
+        //$("#security_bt").hide();
+        $("#adv_parental").addClass("disabled");
+        $("#access_control").addClass("disabled");
+        $("#block_site").addClass("disabled");
+        $("#block_services").addClass("disabled");
+
+        //$("#log").hide();
+        //$("#adv_attached").hide();
+        //$("#bak_set").hide();
+        //$("#passwd").hide();
+        //$("#ntp").hide();
+        //$("#upgrade").hide();
+
+        //$("#wladv").hide();
+        $("#forwarding_triggering").addClass("disabled");
+        //$("#dns").hide();
+        $("#vpn").addClass("disabled");
+        //$("#static").hide();
+        $("#remote").addClass("disabled");
+        $("#upnp").addClass("disabled");
+        $("#ipv6").addClass("disabled");
+        $("#traffic").addClass("disabled");
+        $("#vlan").addClass("disabled");
+    }  
+    else if( ext_mode_flag[0].value=="1" ){
+        if($("#internet").hasClass("basic-menu-div")){
+            $("#internet").addClass('basic-menu-div-gray');
+            $("#internet").removeClass('basic-menu-div');
+        }
+        if($("#guest").hasClass("basic-menu-div")){
+            $("#guest").addClass('basic-menu-div-gray');
+            $("#guest").removeClass('basic-menu-div');
+        }
+    }
+    else if( sta_mode_flag[0].value=="1" ){
+        if($("#internet").hasClass("basic-menu-div")){
+            $("#internet").addClass('basic-menu-div-gray');
+            $("#internet").removeClass('basic-menu-div');
+        }
+        if($("#wireless").hasClass("basic-menu-div")){
+            $("#wireless").addClass('basic-menu-div-gray');
+            $("#wireless").removeClass('basic-menu-div');
+        }
+        if($("#parental").hasClass("basic-menu-div")){
+            $("#parental").addClass('basic-menu-div-gray');
+            $("#parental").removeClass('basic-menu-div');
+        }
+        if($("#guest").hasClass("basic-menu-div")){
+            $("#guest").addClass('basic-menu-div-gray');
+            $("#guest").removeClass('basic-menu-div');
+        }
+    }
+        $("#basic-dlr").live("click", function(ev){
+          $.ajax({
+            url: 'usb_check.php',
+            method: 'POST',
+            data: {
+            },
+            success: function(resp) {
+            
+              if(resp == "unavailable")
+              {
+                alert("<%597%>");
+                return false;
+              }
+              else
+              {
+                $('.menuActive').removeClass('menuActive');
+                $("#basic-dlr").addClass('menuActive');
+                var path = $("#basic-dlr").children("a").attr("href");      
+                loadPage(path);
+              }
+            
+            }
+          });
+        });
+      
+      
+      $('.basic-menu-div').live("click", function(ev){
+        if($(this)[0].getAttribute('id') != "basic-dlr")
+        {  
+          $('.menuActive').removeClass('menuActive');
+          $(this).addClass('menuActive');
+          var path = $(this).children("a").attr("href");      
+          loadPage(path);
+        }
+         ev.preventDefault();
+
+      }); 
+      <%598%>
+      $('.basic-menu-eco-div').live("click", function(ev){  
+         $('.menuActive').removeClass('menuActive');
+         $(this).addClass('menuActive');
+         var path = $(this).children("a").attr("href");      
+         loadPage(path);
+         ev.preventDefault();
+
+      });
+      <%599%>
+
+         
+      $('.noSub').live("click",function(ev){     
+          $("#first").hide();            
+          if( !$(this).hasClass('noSubGray') & !$(this).hasClass('noSubGrayLarge')){                  
+                $('.noSubActive').removeClass('noSubActive'); 
+                $('.noSubActiveLarge').removeClass('noSubActiveLarge');  
+                $('.SubActive').addClass('Sub');
+                $('.SubActive').removeClass('SubActive');
+                $('.SubMenuActive').addClass('SubMenu'); 
+                $('.SubMenuActiveLarge').addClass('SubMenuLarge');
+                $('.SubMenuActiveLarge').addClass('SubMenu');
+                $('.SubMenuActiveLarge').addClass('Large');
+                $('.SubMenuActiveLarge').removeClass('SubMenuActiveLarge');
+                $('.SubMenuActive').removeClass('SubMenuActive');
+                if($(this).hasClass('noSubLarge'))
+                    $(this).addClass('noSubActiveLarge'); 
+                else
+                    $(this).addClass('noSubActive'); 
+                $('.subHeader:visible').slideUp('fast');      
+                var path = $(this).children("a").attr("href");      
+                loadPage2(path);
+                ev.preventDefault();
+          }else{
+               return false;
+          }                               
+      });
+
+      $('.noSubLarge').live("click",function(ev){     
+          $("#first").hide();            
+          if( !$(this).hasClass('noSubGray') & !$(this).hasClass('noSubGrayLarge')){                  
+                $('.noSubActive').removeClass('noSubActive'); 
+                $('.noSubActiveLarge').removeClass('noSubActiveLarge');  
+                $('.SubActive').addClass('Sub');
+                $('.SubActive').removeClass('SubActive');
+                $('.SubMenuActive').addClass('SubMenu'); 
+                $('.SubMenuActiveLarge').addClass('SubMenuLarge');
+                $('.SubMenuActiveLarge').addClass('SubMenu');
+                $('.SubMenuActiveLarge').addClass('Large');
+                $('.SubMenuActiveLarge').removeClass('SubMenuActiveLarge');
+                $('.SubMenuActive').removeClass('SubMenuActive');
+                if($(this).hasClass('noSubLarge'))
+                    $(this).addClass('noSubActiveLarge'); 
+                else
+                    $(this).addClass('noSubActive'); 
+                $('.subHeader:visible').slideUp('fast');      
+                var path = $(this).children("a").attr("href");      
+                loadPage2(path);
+                ev.preventDefault();
+          }else{
+               return false;
+          }                               
+      });    
+      
+       $('.noSubGray').live("click",function(){                    
+            return false;
+       });
+       $('.noSubGrayLarge').live("click",function(){                    
+            return false;
+       });
+      
+     $('.basic-menu-div-gray').live("click",function(){           
+         return false;
+     });      
+      
+
+      $('.SubMenu').live("click",function(ev){   
+         $("#first").hide();     
+         if( !$(this).hasClass('SubMenuDisable') && !$(this).hasClass('SubMenuLargeDisable')){  
+            $('.noSubActive').removeClass('noSubActive');
+            $('.noSubActiveLarge').removeClass('noSubActiveLarge');
+            $('.SubMenuActive').addClass('SubMenu');
+            $('.SubMenuActive').removeClass('SubMenuActive');
+            $('.SubMenuActiveLarge').addClass('SubMenuLarge');
+            $('.SubMenuActiveLarge').addClass('SubMenu');
+            $('.SubMenuActiveLarge').addClass('Large');
+            $('.SubMenuActiveLarge').removeClass('SubMenuActiveLarge');
+            if($(this).hasClass('Large'))
+               $(this).addClass('SubMenuActiveLarge');
+            else
+               $(this).addClass('SubMenuActive');
+        $(this).removeClass('SubMenu');
+        $(this).removeClass('SubMenuLarge');
+            var path = $(this).children("a").attr("href");      
+            loadPage2(path);
+            ev.preventDefault();
+         }else{           
+            return false;
+         }
+      });
+      
+      $('.SubMenuActive').live("click",function(ev){    
+         $("#first").hide();
+         var path = $(this).children("a").attr("href");      
+         loadPage2(path);
+         ev.preventDefault();
+      });
+      
+      $('.SubMenuActiveLarge').live("click",function(ev){
+         $("#first").hide();
+         var path = $(this).children("a").attr("href");      
+         loadPage2(path);
+         ev.preventDefault();
+      });
+    
+      
+      
+      $('#go').click(function(ev){     
+        var text = $('#searchText').val();
+        var URItext = encodeURIComponent(text);
+        
+        
+        URItext =  "http://support.netgear.com/app/answers/list/kw/" + URItext;
+        window.open(URItext,'_blank','fullscreen=yes,toolbar=yes,locaiton=yes,scrollbars=yes');
+      });
+     
+     $('.SubMenuDisable').live("click",function(){           
+         return false;
+     });
+  
+    $('.SubMenuLargeDisable').live("click",function(){         
+         return false;
+     });
+
+     /*
+     $('.SubMenuDisable').each(function(){
+         if($(this).text().length >= 28){              
+              $(this).addClass('SubMenuDisableLarge');
+              $(this).removeClass('SubMenuDisable');
+         }                     
+     });
+    
+     $('.SubMenuLargeDisable').each(function(){
+         if($(this).text().length < 28){              
+              $(this).addClass('SubMenuDisable');
+              $(this).removeClass('SubMenuLargeDisable');
+         }                     
+     }); 
+    */
+}
+  
+function advanceMenu() { //alert("5");
+    var downloader_flag = document.getElementsByName("have_usb_attached");
+    $('.subHeader').hide();
+
+    $('.Sub').click(function() {
+        $('#first').hide();
+        var checkElement = $(this).next();
+        if((checkElement.is('li')) && (checkElement.is(':visible'))) {
+            $('.subHeader:visible').slideUp('fast');
+            $(this).removeClass('SubActive');
+            $(this).addClass('Sub');
+            return false;
+        }
+        if((checkElement.is('li')) && (!checkElement.is(':visible'))) { 
+            $('.subHeader:visible').slideUp('fast');
+            if ($(this)[0].getAttribute('id') == "downloader_header") {
+                $.ajax({
+                    url: 'usb_check.php',
+                    method: 'POST',
+                    data: {
+                    },
+                    success: function(resp) {
+       
+                        if(resp == "available")
+                        {
+                            checkElement.slideDown('normal');      
+                            $('.SubActive').addClass('Sub');
+                            $('.SubActive').removeClass('SubActive');
+                            $(this).addClass('SubActive');
+                            $(this).removeClass('Sub');
+                            return false;
+                        }
+                        else if(resp == "unavailable")
+                        {
+                            alert("<%597%>");
+                            return false;
+                        }
+                    }
+                });
+            }
+            else {
+                checkElement.slideDown('normal');      
+                $('.SubActive').addClass('Sub');
+                $('.SubActive').removeClass('SubActive');
+                $(this).addClass('SubActive');
+                $(this).removeClass('Sub');
+                return false;
+            }
+        }
+    });      
+}
+  
+function adjustPageLayout()
+{
+    //alert("6");
+    var entry = 0;
+    $('.subMenu_text').each(function(){
+        if($(this)[0].clientHeight > 16){
+            if($(this)[0].parentNode.parentNode.parentNode.getAttribute('id') == "adv_settings_header")
+                num_submenuLarge++;
+            var menuHeight = $($(this)[0].parentNode.parentNode.parentNode).css('height');
+            var menuHeight2 = menuHeight.replace("px", "");
+            $($(this)[0].parentNode.parentNode.parentNode).css('height',(parseInt(menuHeight2)+12)+"px"); 
+            $($(this)[0].parentNode.parentNode).addClass('Large');
+            $($(this)[0].parentNode.parentNode).addClass('SubMenuLarge');
+        }else{
+            $($(this)[0].parentNode.parentNode).removeClass('Large');
+            $($(this)[0].parentNode.parentNode).removeClass('SubMenuLarge');
+        }
+    });
+ 
+    
+    $('.subMenu_text').each(function(){
+        if($(this)[0].parentNode.parentNode.parentNode.getAttribute('id') == "security_settings_header")
+            entry++;
+    });
+    
+    $('.nosub_text').each(function(){
+        if($(this)[0].clientHeight > 16){
+            num_nosubLarge++;
+            if($($(this)[0].parentNode.parentNode).hasClass('noSubGray'))
+                $($(this)[0].parentNode.parentNode).addClass('noSubGrayLarge');
+            else
+                $($(this)[0].parentNode.parentNode).addClass('noSubLarge');
+            $($(this)[0].parentNode.parentNode).removeClass('noSub');
+            $($(this)[0].parentNode.parentNode).removeClass('noSubGray');
+        }else{
+            $($(this)[0].parentNode.parentNode).removeClass('noSubLarge');
+            $($(this)[0].parentNode.parentNode).removeClass('noSubGrayLarge');
+        }
+    });       
+    
+    adjustPageHeight = 16 * num_nosubLarge + 15 * num_submenuLarge;
+    /*
+    $('.basic-menu').css("height",adjustPageHeight);
+    $('.advance-menu').css("height",adjustPageHeight);
+    $('#basic-table').css("height",adjustPageHeight);
+    $('#advance-table').css("height",adjustPageHeight);    
+    */
+}
+
+function loadPage(path)
+{   //alert("7");
+         load_page = 1;
+         topframe=$("#topframe").contents();
+         if(!$("#basic_label",topframe).closest("li").hasClass("current")){
+            $("ul.tabs li",topframe).removeClass("current");
+            $("#basic_label",topframe).closest("li").addClass("current");
+         }
+         if($("#adv-pane").is(":visible")){
+            $("#adv-pane").hide();
+            $("#basic-pane").show();
+        }
+            
+        var page_contain_width = document.body.clientWidth-220 > 735 ? document.body.clientWidth-220 : 735;
+        var page_contain_height = document.documentElement.clientHeight-160 > 470+adjustPageHeight ? document.documentElement.clientHeight-160 : 470+adjustPageHeight;
+        $('.basic-menu').css("height", page_contain_height);
+
+         if(path.search("DashBoard.htm") != -1){
+            var page_width = page_contain_width - 90;
+            var page_height = page_contain_height - 45;         
+         
+            $('#page_contain').width(parseInt(page_contain_width));  
+            $('#page_contain').height(parseInt(page_contain_height));  
+            $('#page_contain').css("margin-top","5");
+            if($.browser.msie){
+               $('#page_contain').html("<iframe id=\"page\" src='' scrolling=\"no\" style=\" background-color:#f1f1f1;width:"+page_width+"px;height:"+page_height+"px;margin-top:0;margin-left:0px\" frameborder=\"0\" border=\"0\" cellspacing=\"0\" onFocus=\"this.blur()\"></iframe>");
+            }else{  
+               $('#page').attr("scrolling","no");
+               $('#page').width(parseInt(page_width));
+               $('#page').height(parseInt(page_height));
+               $('#page').css("margin-top","0");
+               $('#page').css("margin-left","30"); 
+               
+            }      
+            $('#page').css("visibility","hidden");
+            $('#page_contain').addClass('main-page-contain-loading');
+            $('#page').delay(1000).attr("src",path); 
+                  
+            $('#page').load(function(){              
+                $('#page').css("visibility","visible");
+                $('#page_contain').removeClass('main-page-contain-loading');    
+               
+            }) 
+            if(!$('#home').hasClass('menuActive')){
+                $('.subHeader', top.document).hide();
+                $('.menuActive', top.document).removeClass('menuActive');
+                $('#home', top.document).addClass('menuActive');
+            }
+          
+         }else if(path.search("netgear") != -1){
+            window.open(path,'_blank','fullscreen=yes,toolbar=yes,location=yes,scrollbars=yes');
+         }else{
+            var page_width = page_contain_width - 10;
+            var page_height = page_contain_height - 0;         
+ 
+            $('#page_contain').width(parseInt(page_contain_width));  
+            $('#page_contain').height(parseInt(page_contain_height));  
+            $('#page_contain').css("margin-top","5");            
+            if($.browser.msie){
+             $('#page_contain').html("<iframe id=\"page\" src='' scrolling=\"no\" style=\"background-color:#f1f1f1;width:"+page_width+"px;height:"+page_height+"px;margin-top:0px;margin-left:0px\" frameborder=\"0\" border=\"0\" cellspacing=\"0\" onFocus=\"this.blur()\"></iframe>");
+            }else{  
+               $('#page').attr("scrolling","no");
+               $('#page').css("overflow-x","hidden");
+               $('#page').css("overflow-y","hidden");
+               $('#page').width(parseInt(page_width));
+               $('#page').height(parseInt(page_height));
+               $('#page').css("margin-top","0");
+               $('#page').css("margin-left","30");                 
+                 
+            }     
+            $('#page').css("visibility","hidden");
+            $('#page_contain').addClass('main-page-contain-loading');             
+            $('#page').attr("src",path); 
+            $('#page').load(function() 
+            {         
+                 $('#page').css("visibility","visible");    
+                 $('#page_contain').removeClass('main-page-contain-loading'); 
+                   
+            });  
+            
+            BasicMenuActiveStyle(path);
+            //clear adv iframe 
+            $('#page_contain2 iframe').attr('src', '');
+         } 
+        
+         return false;
+}
+function BasicMenuActiveStyle(path){
+    topframe=$("#topframe").contents();
+    if(!$("#basic_label",topframe).closest("li").hasClass("current"))
+        return;
+    sCurrentMenu = $(".basic-menu > div.menuActive > a").attr("href"); 
+    if(path == sCurrentMenu)
+        return;
+    $(".basic-menu-div > a").each(function(){
+        if(path == $(this).attr("href")){
+            $(".basic-menu > div.menuActive").removeClass("menuActive");
+            $(this).parent("div").addClass("menuActive");
+        }
+    });
+
+} 
+
+function loadPage2(path) {  //alert("8");
+        load_page = 2;
+        topframe=$("#topframe").contents();
+        if(!$("#advanced_label",topframe).closest("li").hasClass("current")){
+            $("ul.tabs li",topframe).removeClass("current");
+            $("#advanced_label",topframe).closest("li").addClass("current");
+        }
+        if($("#basic-pane").is(":visible")){
+            $("#basic-pane").hide();
+            $("#adv-pane").show();
+        }
+        while(is_loading_page==1){}
+        is_loading_page=1;
+        var page_contain_width = document.body.clientWidth-220 > 735 ? document.body.clientWidth-220 : 735;
+        var page_contain_height = document.documentElement.clientHeight-160 > 470+adjustPageHeight ? document.documentElement.clientHeight-160 : 470+adjustPageHeight;
+        $('.advance-menu').css("height", page_contain_height);
+        var gui_region = $("#curlang",topframe).val();
+        if(gui_region=="Spanish"){
+        $('.advance-menu li.SubMenuLarge span').css("width", "175px");
+        $('.advance-menu li.SubMenuActiveLarge span').css("width", "175px");
+        }
+        if(path.search("ADVANCED_home.htm") != -1){            
+            var page_width = page_contain_width - 90;
+            var page_height = page_contain_height - 45;         
+            $('#page_contain2').width(parseInt(page_contain_width));  
+            $('#page_contain2').height(parseInt(page_contain_height));  
+            $('#page_contain').css("margin-top","5");
+            if($.browser.msie){
+                $('#page_contain2').html("<iframe id=\"formframe\" src='' scrolling=\"no\" style=\"background-color:#f1f1f1;width:"+page_width+"px;height:"+page_height+"px;margin-top:0;margin-left:0px\" frameborder=\"0\" border=\"0\" cellspacing=\"0\" onFocus=\"this.blur()\"></iframe>");
+            }else{  
+                $('#formframe').attr("scrolling","no");
+                $('#formframe').width(parseInt(page_width));
+                $('#formframe').height(parseInt(page_height));
+                $('#formframe').css("margin-top","0");
+                $('#formframe').css("margin-left","50");
+            }  
+            $('#formframe').css("visibility","hidden");             
+            $('#formframe').attr("src",path);
+            $('#formframe').load(function() 
+            {                 
+                 $('#formframe').css("visibility","visible");
+                 $('#page_contain2').removeClass('main-page-contain-loading');                                              
+            }); 
+
+           //because advance home have two menu button
+            if(!$('#status').hasClass('SubMenuActive') && !$('#adv_home').hasClass('noSubActiveLarge')){
+                $('.subHeader').hide();   
+                $('.noSubActive').removeClass('noSubActive');
+                $('.noSubActiveLarge').removeClass('noSubActiveLarge');
+                $('.SubMenuActive').addClass('SubMenu');   
+                $('.SubMenuActive').removeClass('SubMenuActive');
+                $('.SubMenuActiveLarge').addClass('SubMenuLarge');
+                $('.SubMenuActiveLarge').addClass('SubMenu');
+                $('.SubMenuActiveLarge').addClass('Large');
+                $('.SubMenuActiveLarge').removeClass('SubMenuActiveLarge');
+                $('.SubActive').addClass('Sub');
+                $('.SubActive').removeClass('SubActive');
+                if($('#adv_home').hasClass('noSubLarge')) 
+                    $('#adv_home').addClass('noSubActiveLarge');  
+                else
+                    $('#adv_home').addClass('noSubActive');  
+                $('.subHeader:visible').slideUp('fast');  
+            }
+ 
+        }else if(path.search("netgear") != -1){
+            window.open(path,'_blank','fullscreen=yes,toolbar=yes,location=yes,scrollbars=yes');
+        }else{
+            var page_width = page_contain_width - 10;
+            var page_height = page_contain_height - 0;          
+               
+            $('#page_contain2').width(parseInt(page_contain_width));  
+            $('#page_contain2').height(parseInt(page_contain_height));                                          
+            
+            if($.browser.msie){ //alert("8 * ");
+               $('#page_contain2').html("<iframe id=\"formframe\" src='' scrolling=\"no\" style=\"background-color:#f1f1f1;width:"+page_width+"px;height:"+page_height+"px;overflow-x:hidden;margin-top:0px;margin-left:0px\" frameborder=\"0\" border=\"0\" cellspacing=\"0\" onFocus=\"this.blur()\"></iframe>");
+           }else{  //alert("8 ** ");
+               $('#formframe').attr("scrolling","no");
+               $('#formframe').css("overflow-x","hidden");
+               $('#formframe').css("overflow-y","hidden");
+               $('#formframe').width(parseInt(page_width));
+               $('#formframe').height(parseInt(page_height));
+               $('#formframe').css("margin-top","0");
+               $('#formframe').css("margin-left","30");  
+           }    
+           $('#formframe').css("visibility","hidden");
+           $('#page_contain2').addClass('main-page-contain-loading');
+           $('#formframe').attr("src",path);
+           $('#formframe').load(function() 
+           {                 
+                $('#formframe').css("visibility","visible");
+                $('#page_contain2').removeClass('main-page-contain-loading');                                             
+           }); 
+           
+           //clear basic iframe 
+           $('#page_contain iframe').attr('src', '');
+           MenuActiveStyle(path);
+           
+        }       
+        is_loading_page=0;
+  
+        return false;
+}
+function MenuActiveStyle(path){
+    topframe=$("#topframe").contents();
+    if(!$("#advanced_label",topframe).closest("li").hasClass("current"))
+        return;
+    sCurrentMenu = $("#adv-pane li.SubMenuActive > a").attr("href"); 
+    if(path == sCurrentMenu)
+        return;
+    $(".advance-menu > li > ul > li > a").each(function(){
+        if(path == $(this).attr("href")){
+            $("li.SubMenuActive").parent("ul").parent("li").css('display', 'none');
+            $("li.SubMenuActive").addClass("SubMenu").removeClass("SubMenuActive");
+
+            $(this).parent("li").addClass("SubMenuActive");
+            SubMenuObject=$(this).parent("li").parent("ul").parent("li");
+            if(SubMenuObject.length == 0)
+                return;
+            SubMenuObject.css('display', 'list-item');
+            SubMenuIndex=$(".advance-menu > li").index(SubMenuObject);
+            $(".advance-menu > li.SubActive").addClass("Sub").removeClass("SubActive");
+            
+            if($(".advance-menu > li:eq("+(SubMenuIndex-1)+")").hasClass("Sub"))
+               $(".advance-menu > li:eq("+(SubMenuIndex-1)+")").addClass("SubActive").removeClass("Sub");
+        }
+    });
+
+} 
+/*
+function setParentalControls()
+{   //alert("9");
+     var ParentalControls_Result = 0;
+                     
+     var support = 1;
+                                       
+     if(support == 0){
+          $('#PAR_menu').attr("href","http://www.netgear.com/lpc"); 
+          $('#PAR_menu2').attr("href","http://www.netgear.com/lpc");                  
+     }else{ 
+         if(ParentalControls_Result == 0){
+             $('#PAR_menu').attr("href","http://www.netgear.com/lpc"); 
+             $('#PAR_menu2').attr("href","http://www.netgear.com/lpc");  
+         }else{          
+             $('#PAR_menu').attr("href","http://netgear.opendns.com/"); 
+             $('#PAR_menu2').attr("href","http://www.netgear.com/lpc");  
+         }
+     }                              
+}
+*/
+function calculate_string_pixel(str)
+{   //alert("12");
+    var obj = document.getElementById("ruler");
+    obj.innerHTML = str;
+    return obj.offsetWidth;
+
+}
+
+function change_size()
+{   //alert("17");
+    setFooterClass();
+    subpage_resize();
+}
+
+var timezone_alert_once=0;
+function chgTimeZone()
+{
+<%360%>
+  var ATD_Active_set = "<%703%>";  
+  
+  //alert("ATD_Active_set = "+ATD_Active_set); 
+  
+  if(ATD_Active_set == 1)
+  { 
+    //alert("ATD active already set, ignore local device passive !!"); 
+		return -1;  
+  }
+  
+  if(timezone_alert_once == 1)
+  { 
+		return -1;  
+  }
+    
+    var form = document.forms[0];
+	var wan_ipaddr =  "<%292%>";
+	var timezone_state =  "<%369%>";
+	var time_zone = "<%370%>";
+	if (time_zone == "+55")
+		time_zone= "+5.5";
+	else if (time_zone == "+95")
+		time_zone = "+9.5";
+	else if (time_zone == "-35")
+		time_zone = "-3.5";
+
+	// Abort if user is remote access. 
+	if(wan_ipaddr == location.host)
+		return -1;
+	
+	// Abort if user is manual configured. 
+	if(timezone_state == "ManualConfigured")
+		return -1;
+		
+	// Abort if timezone between router and local system is the same 
+	if(time_zone == (new Date().getTimeZoneOffsetWithDst())/-60)
+		return -1;
+		
+	ret = confirm("Need to auto config timezone?");
+	if(ret)
+	{
+		console.log("loadPage");
+		loadPage("FW_autoTimeZone_redirect.htm");
+	}
+	timezone_alert_once=1;
+<%361%>
+	return 0;
+}
+
+</script>
+</head>
+<body style="padding:0;margin:0;background-color:#FFFFFF;" onload="change_size();chgTimeZone();" onResize="change_size();">
+<table width="100%" CELLPADDING=0 CELLSPACING=0 style="padding:0;margin:0;" id="all">
+<tr width="100%">
+<td style="width:100%;height:100%">
+<table CELLPADDING=0 CELLSPACING=0 style="height:520px;width:100%;margin:0;padding:0">    
+<tr>
+<td>
+
+<div id="top">
+    <iframe name="topframe" id="topframe" src="top.htm" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+</div>
+<!-- tab "panes" -->
+<div class="pane" id="basic-pane">
+<table width="100%" CELLPADDING="0" CELLSPACING="0" id="basic-table" style="padding:0;margin:0;height:480px">
+<tr>
+<td style="background-color:#FFFFFF;width:200px;font-size:13px;">
+    <div class="basic-menu">
+            <div class="basic-menu-div" id="home"><a href="DashBoard.htm"><span><%620%></span></a></div>
+            <div class="basic-menu-div" id="basic-cab"><a href="cable_connection.htm" id="CAB_menu"><span><%704%></span></a></div>
+            <div class="basic-menu-div" id="internet"><a href="<%621%>" id="INT_menu"><span><%622%></span></a></div>
+            <div class="basic-menu-div" id="wireless"><a href="<%594%>" id="WLS_menu"><span><%623%></span></a></div>
+            <div class="basic-menu-div" id="attached"><a href="DEV_redirect.htm"><span><%624%></span></a></div>
+       <!-- 
+            <%625%>
+            <div class="basic-menu-div" id="basic-arlo"><a href="arlo.htm"><span><%626%></span></a></div>
+            <%627%> -->
+            <div class="basic-menu-div" id="parental" style = "display:none"><a href="Parental_controls.htm" id="PAR_menu"><span><%543%></span></a></div>
+	    <div class="basic-menu-div" id="guest"><a href="<%705%>"><span><%706%></span></a></div>
+	    <div class="basic-menu-div" id="satellite"><a href="Orbi_add_new_satellite.htm"><span><%707%></span></a></div>
+		<!--Add Banner-->
+	    <!--<div>
+	    	<div class="card-orbi-app">
+				  <div class="card-orbi-app-header"> <img src="img/orbi-logo.png" alt="">
+				    <p><%708%></p>
+				    <span class="desktop"> <a href="http://orbi-app.com/" class="orbi_app" target="_blank"><%709%></a></span> </div>
+				  <div class="device-content">
+				    <div class="disp-cell"><img src="img/device.png" alt=""/> </div>
+				    <div class="disp-cell"><div class="app-icon"><img src="img/orbi-app.svg"  class="" alt=""/></div><a href="https://itunes.apple.com/us/app/netgear-orbi/id1182184397?mt=8" class="mb app-store" target="_blank"><img src="img/app-store-badge-us-black.png" alt=""/></a> <a href="https://play.google.com/store/apps/details?id=com.dragonflow.android.orbi&amp;hl=en_IN" class="google-store" target="_blank"><img src="img/google-play-badge-us.png" alt=""/></a></div>
+				  </div>
+				  <div class="card-orbi-app-footer"><img src="img/logo-netgear.png" alt=""></div>
+			</div>
+	    </div>-->
+		<div>
+		    <div class="card-orbi-app">
+                <div class="card-orbi-app-header"> <img src="img/orbi-logo.svg"  alt=""/>
+                  <p><%708%></p>     
+                  <span class="desktop"> <a href="http://orbi-app.com/" class="orbi_app" target="_blank"><%709%></a></span>     
+                </div>
+                <div class="device-content">
+                <div class="disp-cell"><img src="img/device.png" alt=""/> </div>
+                <div class="disp-cell"><div class="app-icon"><img src="img/orbi-app.svg"  class="" alt=""/></div> <a href="http://orbi-app.com/" class="mb app-store" target="_blank"><img src="img/app-store-badge-us-black.svg" alt=""/></a> <a href="http://orbi-app.com/" class="google-store" target="_blank"><img src="img/google-play-badge-us.svg" alt=""/></a></div>
+                </div>
+                <div class="card-orbi-app-footer"><img src="img/logo-netgear.svg" alt=""/></div>
+            </div>
+		</div>
+        </div>
+</td>
+<td style="background-color:#FFFFFF;width:760px;height:480px;">
+<div id="page_contain" >
+<iframe id="page" style="width:600px;height:405px;margin-left:0px" name="page"  frameborder="0" border="0" cellspacing="0" scrolling="no" onFocus="this.blur()" src=""></iframe>       
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="pane" id="adv-pane">
+<table CELLPADDING=0 CELLSPACING=0 id="advance-table" style="padding:0;margin:0;height:480px;border:0;width:960px;">
+<tr style="height:480px;">
+<td style="background-color:#FFFFFF;width:200px;">
+<ul id="menu" class="advance-menu"> 
+    <li class="noSub" id="adv_home"><a href="ADVANCED_home.htm"><span class="nosub_text"><%628%></span></a></li>
+    <li class="<%629%>" id="adv_setup_wizard" style="display:none"><a href="<%630%>"><span class="nosub_text"><%631%></span></a></li>
+    <li class="Sub" id="setup_bt"><a href="#"><%632%></a></li> 
+    <li  class="subHeader" id="set_hdr"> 
+        <ul style="width:100%;height:auto">                               
+            <li class="<%633%> SubMenuWDS" id="adv_internet"><a href="<%621%>" onClick="return false"><span class="subMenu_text"><%634%></span></a></li>                                     
+            <li class="SubMenu" id="adv_wireless"><a href="<%594%>" onClick="return false"><span class="subMenu_text"><%77%></span></a></li>
+            <li class="SubMenu" id="adv_guest"><a href="<%705%>" onClick="return false"><span class="subMenu_text"><%706%></span></a></li>
+            <li class="<%633%> SubMenuWDS" id="wan"><a href="WAN_wan.htm" onClick="return false"><span class="subMenu_text"><%636%></span></a></li>
+            <li class="<%637%> SubMenuWDS" id="lan"><a href="LAN_lan.htm" onClick="return false"><span class="subMenu_text"><%638%></span></a></li>
+            <li class="<%635%> SubMenu SubMenuWDS SubMenuEXT" id="qos"><a href="QOS_down_streaming.htm" onClick="return false"><span class="subMenu_text"><%639%></span></a></li>
+            <%640%>
+            <li class="<%637%> SubMenuWDS" id="devname"><a href="DEV_name.htm" onClick="return false"><span class="subMenu_text"><%641%></span></a></li>
+            <%642%>
+        </ul>                           
+    </li>              
+                   
+          <li class="Sub"   id="security_bt"><a href="#"><%643%></a></li>
+          <li  class="subHeader">   
+              <ul id="security_settings_header" style="width:100%;height:auto">                            
+                    <li class="<%633%> SubMenuWDS" id="adv_parental" style="display:none"><a href="Parental_controls.htm" id="PAR_menu2" target="_blank"><span class="subMenu_text"><%543%></span></a></li>
+                    <%644%>
+                    <li class="<%633%> SubMenuWDS" id="access_control"><a href="DEV_control.htm" onClick="return false"><span class="subMenu_text"><%710%></span></a></li>
+                    <%646%>
+                    <li class="<%633%> SubMenuWDS" id="block_site"><a href="BKS_keyword.htm" onClick="return false"><span class="subMenu_text"><%647%></span></a></li>
+                    <li class="<%633%> SubMenuWDS"id="block_services"><a href="BKS_service.htm" onClick="return false"><span class="subMenu_text"><%648%></span></a></li>
+                      <li class="<%635%> SubMenu SubMenuWDS SubMenuAP SubMenuEXT" id="schedule"><a href="FW_schedule.htm" onClick="return false"><span class="subMenu_text"><%649%></span></a></li>
+                      <li class="<%650%> SubMenu SubMenuWDS SubMenuAP SubMenuEXT" id="email"><a href="FW_email.htm" onClick="return false"><span class="subMenu_text"><%651%></span></a></li>
+              </ul>                         
+          </li>  
+          <li class="Sub" id="admin_bt"><a href="#"><%652%></a></li>
+          <li  class="subHeader">
+
+              <ul style="width:100%;height:auto">  
+            
+                  <li class="SubMenu" id="status"><a href="ADVANCED_home.htm" onClick="return false"><span style="border:0;" class="subMenu_text"><%653%></span></a></li>
+                      <li class="<%654%> SubMenuWDS SubMenuAP SubMenuEXT" id="log"><a href="FW_log.htm" onClick="return false"><span class="subMenu_text"><%655%></span></a></li>
+                      <li class="SubMenu" id="adv_attached"><a href="DEV_redirect.htm" onClick="return false"><span class="subMenu_text"><%624%></span></a></li>
+                      <li class="SubMenu" id="bak_set"><a href="BAK_backup.htm" onClick="return false"><span class="subMenu_text"><%656%></span></a></li>
+                      <li class="SubMenu" id="passwd"><a href="PWD_password.htm" onClick="return false"><span class="subMenu_text"><%711%></span></a></li>
+                      <li class="SubMenu" id="ntp"><a href="NTP_settings.htm" onClick="return false"><span class="subMenu_text"><%712%></span></a></li>
+                      <li class="SubMenu" id="event_log"><a href="cable_EventLog.htm" onClick="return false"><span class="subMenu_text"><%713%></span></a></li>
+                      <li class="SubMenu" id="upgrade"><a href="UPG_upgrade.htm" onClick="return false"><span class="subMenu_text"><%658%></span></a></li>
+                </ul>
+          </li>  
+          <li class="Sub" id="advanced_bt"><a href="#"><%659%></a></li>
+          <li  class="subHeader">      
+
+          <ul id="adv_settings_header" style="width:100%;height:auto;display:block;">          
+                     
+                  <li class="SubMenu" id="wladv"><a href="<%660%>" onClick="return false"><span class="subMenu_text"><%661%></span></a></li>
+                      <!--
+                      <li id="rae" class="SubMenu"><a href="WLG_opmode_main_extender.htm" onClick="return false"><span class="subMenu_text" id="advanced_rae"><%663%></span></a></li>
+                      -->
+                      <%714%>
+                      <li id="rae" class="<%715%>"><a href="WLG_opmode_main.htm" onClick="return false"><span class="subMenu_text" id="advanced_rae"><%716%></span></a></li>
+                      <%717%>
+
+                      <%718%>
+                      <li id="rae" class="<%715%>"><a href="WLG_opmode_main_cable.htm" onClick="return false"><span class="subMenu_text" id="advanced_rae"><%719%></span></a></li>
+                      <%720%>
+                      <!--
+                      <li id="ap_head" class="<%668%> SubMenuWDS SubMenuAP"><a href="WLG_ap_dual_band.htm" onClick="return false"><span class="subMenu_text"><%669%></span></a></li>
+                      -->
+                      <!--
+                      <li id="wds_head" class="<%637%> SubMenuWDS"><a href="<%670%>" onClick="return false"><span class="subMenu_text"><%671%></span></a></li>
+                      -->
+                      <li id="forwarding_triggering"  class="<%673%>  SubMenuWDS"><a href="FW_forward3.htm" onClick="return false"><span class="subMenu_text"><%674%></span></a></li>
+                      <li class="SubMenu SubMenuWDS SubMenuEXT SubMenuAP" id="dns"><a href="DNS_ddns.htm" onClick="return false"><span class="subMenu_text"><%675%></span></a></li>   
+                      <li class="<%633%> SubMenuWDS" id="vpn"><a href="OPENVPN.htm" onClick="return false"><span class="subMenu_text"><%683%></span></a></li>                      
+                      <li class="SubMenu SubMenuWDS SubMenuEXT SubMenuAP" id="static"><a href="STR_routes.htm" onClick="return false"><span class="subMenu_text"><%676%></span></a></li>                        
+                      <li class="<%633%> SubMenuWDS" id="remote"><a href="FW_remote.htm" onClick="return false"><span class="subMenu_text"><%721%></span></a></li>                       
+                      <li class="<%633%> SubMenuWDS" id="upnp"><a href="UPNP_upnp.htm" onClick="return false"><span class="subMenu_text"><%678%></span></a></li>
+                      <li class="<%633%> SubMenuWDS" id="ipv6"><a href="<%679%>" onClick="return false"><span class="subMenu_text"><%680%></span></a></li>
+                      <li class="<%633%> SubMenuWDS" id="traffic"><a href="<%681%>" onClick="return false"><span class="subMenu_text"><%682%></span></a></li>
+                      <%714%>
+                      <%722%>
+                      <li class="<%633%> SubMenuWDS" id="vlan"><a href="VLAN_IPTV.htm" onClick="return false"><span class="subMenu_text"><%723%></span></a></li>
+                      <%724%>
+                      <%717%>
+		      
+<!--
+                      <li class="SubMenu"><a href="fbwifi.htm" onClick="return false"><span class="subMenu_text"><%684%></span></a></li>
+-->
+          </ul>
+          </li>  
+          <!--
+          <li class="noSub" >
+          		<div>
+			    	<div class="card-orbi-app">
+						  <div class="card-orbi-app-header"> <img src="img/orbi-logo.png" alt="">
+						    <p></p> Maximize your performance, security and controls.
+						    <p></p> Download our app now.
+						    </div>
+						  <div class="device-content">
+						    <div class="disp-cell"><img src="img/device.png" alt=""> </div>
+						    <div class="disp-cell"><a href="https://itunes.apple.com/us/app/netgear-orbi/id1182184397?mt=8" class="mb app-store" target="_blank"><img src="img/app-store-badge-us-black.png" alt=""></a> <a href="https://play.google.com/store/apps/details?id=com.dragonflow.android.orbi&amp;hl=en_IN" class="google-store" target="_blank"><img src="img/google-play-badge-us.png" alt=""></a></div>
+						  </div>
+						  <div class="card-orbi-app-footer"><img src="img/logo-netgear.png" alt=""></div>
+					</div>
+	    		</div>
+        
+          </li>
+          -->
+      </ul>   
+</td>
+<td style="background-color:#FFFFFF">
+<div id="page_contain2">
+<iframe id="formframe" name="formframe" style="width:600px;height:405px;margin-left:0px"  frameborder="0" border="0" cellspacing="0" scrolling="no" onFocus="this.blur()"></iframe>       
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<!-- tab "panes" -->
+</table>
+</td>
+
+
+</tr>
+
+</table>
+
+<div id="container" class="container_center">
+<div id="footer" class="footer">
+    <img class="footer_img" src="img/footer.png">
+<div id="support">
+    <a target="_blank" href="<%725%>"><b><%685%></b></a> &nbsp;
+    <a target="_blank" href="<%726%>"><%727%></a> | 
+    <a target="_blank" href="<%686%>"><%687%></a> | 
+    <a target="_blank" href="<%725%>"><%689%></a> |
+    <a target="_blank" href="OpenSourceLicense.html"><%690%></a>
+</div>
+<div id="search" align=right>
+    <b> <%691%> </b>
+    <input type="text" id="search_text" name="search" value="<%692%>" onkeypress="detectEnter('num',event);" onFocus="this.select();" >
+    <input id="search_button" class="search_button" type="button" name="dosearch" value="<%693%>" onClick="do_search();">
+</div>
+</div>
+</div>
+
+<div id="preloaded-images">
+   <img src="img/basic-white-button.gif" width="1" height="1" alt="">  
+   <img src="img/firmware-hint-background.gif" width="1" height="1" alt="">
+   <img src="img/barrow.jpg" width="1" height="1" alt="">
+   <img src="img/basic-white-button.gif" width="1" height="1" alt="">
+   <img src="img/firmware-hint-background.gif" width="1" height="1" alt="">
+   <img src="img/barrow.jpg" width="1" height="1" alt="">
+   <img src="img/subMenuActive.png" width="1" height="1" alt="">
+   <img src="img/subMenuActiveLarge.png" width="1" height="1" alt="">
+   <img src="img/barrow_down.jpg" width="1" height="1" alt="">
+   <img src="img/basic-purple-button.gif" width="1" height="1" alt="">
+   <img src="img/roundedcornr_637010.gif" width="1" height="1" alt="">
+   <img src="img/warrow.jpg" width="1" height="1" alt="">
+   <img src="img/wait.gif" width="1" height="1" alt="">
+   <img src="img/main-page-bottom.gif" width="1" height="1" alt="">
+   <img src="img/gray-button.gif" width="1" height="1" alt="">
+    <input type="hidden" name="repeater" value="<%694%>">
+    <input type="hidden" name="repeater_an" value="<%695%>">
+    <input type="hidden" name="enable_apmode" value="<%696%>">   
+    <input type="hidden" name="enable_stamode" value="<%697%>">   
+    <input type="hidden" name="enable_extmode" value="<%698%>">   
+    <input type="hidden" name="have_usb_attached" value="<%699%>">
+</div>
+
+<script type="text/javascript">
+
+function showModalById(modalId){
+    $("#modalBox").show();
+    $(".modal-content").hide();
+    $(".modal-content-armor").hide();
+    $("#"+modalId).show();
+}
+
+function showArmorPopup(){
+    armor_enable="<%728%>";
+    if(armor_enable==2 || ($("input[name=no_remind_armor]").val() == "1") || ($("input[name=enable_apmode]").val() == "1") ) {
+        //alert("hidden armor popup");    
+        $("#modalBox").hide();
+    } else {
+        //alert("show armor popup");
+        $("#modalBox").show();
+        $(".modal-content").hide();
+        $(".modal-content-armor").hide();
+        showModalById("armor-popup");
+    }                    
+}    
+
+$(document).ready(function(){
+    parental_control_support="<%729%>";
+    if (parental_control_support=="2") {
+    /* RBR850 hasn't integrate the Circle, no need to check. 
+       if (($("input[name=no_remind]").val() == "1") || ($("input[name=enable_circle]").val() == "1")|| ($("input[name=enable_apmode]").val() == "1")) {
+       $("#modalBox").hide();
+       showArmorPopup();
+       }
+       else {
+       showModalById("circle-popup");    
+       }  
+     */
+        $("#modalBox").hide();
+        <%730%>        
+            showArmorPopup();
+        <%731%>        
+    
+    } else if (parental_control_support == "1") {         
+        $('#PAR_menu').attr("href","http://netgear.opendns.com/"); 
+        $('#PAR_menu2').attr("href","http://netgear.opendns.com/")
+    } else {        
+        $('#PAR_menu').attr("href","http://www.netgear.com/lpc"); 
+        $('#PAR_menu2').attr("href","http://www.netgear.com/lpc");
+    }
+});
+
+function jump_circle(type)
+{
+    $("#modalBox").hide();
+    if( type == "enable" ){
+        $.post("circle.php",{enable_circle:"1"}); 
+        if( document.getElementById("circle_jump").checked == true)
+            $.post("circle.php",{enable_circle:"1",never_remind_me:"1"}); 
+        else
+            $.post("circle.php",{enable_circle:"1"}); 
+        loadPage('Parental_controls.htm');
+    } 
+    else{   
+
+        if( document.getElementById("circle_jump").checked == true)
+            $.post("circle.php",{never_remind_me:"1"}); 
+
+        showArmorPopup();
+    }    
+
+}
+
+function jump_armor(type)
+{
+    $("#modalBox").hide();
+    if( type == "skip" ){
+        //alert("jump_armor skip");
+        $.post("armor.php",{never_remind_me_armor:"1"}); 
+        //alert(".....armor php");
+    } 
+    else{    
+        //alert("jump_armor close");
+    }    
+    <%360%>
+        chgTimeZone();
+    <%361%>
+}
+
+</script>
+
+    <input type="hidden" name="no_remind" value="<%732%>">
+    <input type="hidden" name="no_remind_armor" value="<%733%>">
+    <input type="hidden" name="enable_circle" value="<%552%>">    
+    <div id="modalBox" class="modal">
+        <div id="circle-popup" class="modal-content">
+            <div class="modal-header">
+                <span class="close modal-close-circle" onclick="jump_circle('skip')">x</span>
+                <div class="modalBox-title"><%734%></div>
+                <div class="circle-disney-logo"><img src="img/circle_with_disney_blue.png" style="display:block; margin:auto; padding-top:28px"></div>
+            </div>
+            <div class="modal-body">
+                <p><%735%></p>
+                <span><a class="learn-more-link" target="_blank" href="http://www.netgear.com/circle"><%548%></a></span>
+                <div class="modalButton" name="st_circle_enable" onclick="jump_circle('enable')"><%736%></div>
+                <div class="modal-body-bottom">
+                    <div class="modal-body-bottom-left">
+                        <input type="checkbox" name="circle_jump" id="circle_jump">
+                        <div><%533%></div>
+                    </div>
+                    <div class="modal-body-bottom-right">
+                        <div class="modal-skip" onclick="jump_circle('skip')"><%527%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="armor-popup" class="modal-content-armor">
+            <div class="modal-header">
+                <span id="armor_close" name="armor_close" class="armor-close" onclick="jump_armor('close')"><img src="img/armor_close.png" style="width:13px;height:13px;margin:6px"></span>
+                <div class="modalBox-title_armor"><%737%></div>
+                <div class="circle-disney-logo"><img src="img/armor_white.png" style="display:block; margin:auto; padding-top:28px"></div>
+            </div>
+            <div class="modal-body">
+                <%738%>
+                <div class="modalButton-armor-QR" id="armor_app" name="armor_app"><img src="img/armor_QR.png" style="width:62px;height:62.76px"><p>Scan to download the Orbi app</p></div>
+                <div class="modalButton-armor" id="armor_nvrm" name="armor_nvrm" onclick="jump_armor('skip')"><%533%></div>   
+		            <div class="modalButton-armor-done" id="armor_done" style="display:none"><img src="img/armor_updated.png" style="width:16px; height: 16px; color: #FFFFFF;"> &nbsp;&nbsp;Preference updated</div>
+            </div>
+        </div>        
+    </div>
+                                               
+
+</body>
+</html>

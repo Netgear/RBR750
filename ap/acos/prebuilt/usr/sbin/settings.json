@@ -17,39 +17,78 @@
   "app": {
     "traceLevel": 2,
     "customerName": "v3trial",
-    "licenseKey": "8c1da2bb5eb1e82f-C3c8f9b0276fb061c-7bd6b32fa51d16dd",
+    "licenseKey": "ffd9c02e5db101fb-C3c8f9b0276fb061c-4808f6048ab2b20d",
     "saveTestResultUrl": "http:\/\/www.speedtest.net\/api\/embed\/api.php"
   },
   "servers": [{
+    "id": "15751",
+    "host_functional": "1",
+    "name": "Everett, WA",
+    "country": "United States",
+    "sponsor": "Green House Data",
+    "host": "speedtest1.us-west-02.greenhousedata.com:8080"
+  }, {
+    "id": "14209",
+    "host_functional": "1",
+    "name": "Redmond Ridge, WA",
+    "country": "United States",
+    "sponsor": "Verizon",
+    "host": "ware.ost.myvzw.com:8080"
+  }, {
+    "id": "9551",
+    "host_functional": "1",
+    "name": "Langley, WA",
+    "country": "United States",
+    "sponsor": "Whidbey Telecom",
+    "host": "ost.whidbey.net:8080"
+  }, {
+    "id": "14232",
+    "host_functional": "1",
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "Frontier",
+    "host": "seattle.wa.speedtest.frontier.com:8080"
+  }, {
+    "id": "8864",
+    "host_functional": "1",
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "CenturyLink, Inc",
+    "host": "seattle.speedtest.centurylink.net:8080"
+  }, {
+    "id": "6199",
+    "host_functional": "1",
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "Wowrack",
+    "host": "speedtest01.wowrack.com:8080"
+  }, {
     "id": "10395",
     "host_functional": "1",
     "name": "Seattle, WA",
     "country": "United States",
     "sponsor": "Speedtest.net",
     "host": "sea.host.speedtest.net:8080"
-  },
-  {
-    "id": "10392",
+  }, {
+    "id": "1782",
     "host_functional": "1",
-    "name": "Los Angeles, CA",
+    "name": "Seattle, WA",
     "country": "United States",
-    "sponsor": "Speedtest.net",
-    "host": "lax.host.speedtest.net:8080"
-  },
-  {
-    "id": "2855",
+    "sponsor": "Comcast",
+    "host": "stosat-rvlt-01.sys.comcast.net:8080"
+  }, {
+    "id": "5033",
     "host_functional": "1",
-    "name": "Amsterdam",
-    "country": "Netherlands",
-    "sponsor": "Speedtest.net",
-    "host": "ams2.speedtest.net:8080"
-  },
-  {
-    "id": "5249",
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "AT&T",
+    "host": "sea.speedtest.sbcglobal.net:8080"
+  }, {
+    "id": "11329",
     "host_functional": "1",
-    "name": "Seoul",
-    "country": "South Korea",
-    "sponsor": "Speedtest.net",
-    "host": "kr12.host.speedtest.net:8080"
+    "name": "Seattle, WA",
+    "country": "United States",
+    "sponsor": "Green House Data, Inc",
+    "host": "speedtest3.us-west-02.greenhousedata.com:8080"
   }]
 }

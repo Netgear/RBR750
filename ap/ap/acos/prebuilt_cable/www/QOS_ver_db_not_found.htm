@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+
+    $(document).ready(function()
+    {	
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+
+
+function goHome(){
+	if (top.tophideframe)
+		top.close();
+	else
+    {
+        is_basic="<%2214%>";
+        if(is_basic=="1")
+            window.location.href="QOS_down_streaming_iqos_basic.htm";
+        else
+            window.location.href="QOS_down_streaming.htm";
+	}	
+}
+function preCheck(){
+    var cancel_button = document.getElementById("cancel_button");
+    var quit_button = document.getElementById("quit_button");
+    
+    if (top.tophideframe){
+        cancel_button.style.display = "none";
+        quit_button.style.display = "block";
+    }else{
+        cancel_button.style.display = "block";
+        quit_button.style.display = "none";
+    }    
+}
+//-->
+</script>
+</head>
+<body  onLoad="preCheck();" style="margin:0px;background-color:#e5e5e5">
+<form id="target"  name="formname" method="POST" action="ver_result.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue"> 
+<table border="0"   width="100%">
+
+<tr>
+<td colspan="2">
+	<h1><%2220%></H1>
+</td>
+</tr>
+
+<tr> 
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center"><b><%2221%></b></td>
+</tr>
+<tr></tr>
+
+<tr> 
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr>
+	<td colspan="2" id="cancel_button" align="center">
+		&nbsp;&nbsp;&nbsp;<button type="BUTTON" value="<%496%>" name="back" class="button-rule" onClick="buttonClick(this,'<%496%>');goHome();"><span class="roundleft_button">&nbsp;&nbsp; <%496%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+	</td>
+	<td colspan="2" id="quit_button" align="center">
+		&nbsp;&nbsp;&nbsp;<button type="BUTTON" value="<%1683%>" name="quit" class="button-rule" onClick="buttonClick(this,'<%1683%>');top.location.replace('close_process.htm');"><span class="roundleft_button">&nbsp;&nbsp; <%1683%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+	</td>    
+    </tr>
+</table>
+</form>
+<p></p>
+</body>
+</html>
+

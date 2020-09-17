@@ -118,7 +118,7 @@ function checkData()
 {
     var cf = document.forms[0];
     var msg = "";
-	var openvpnEnable = "<%799%>";
+	var openvpnEnable = "<%791%>";
     
     if (!cf.single_pppoe_login.checked)
     {
@@ -137,7 +137,7 @@ function checkData()
             cf.PDAddr5.value == "" && cf.PDAddr6.value == "" &&
             cf.PDAddr7.value == "" && cf.PDAddr8.value == "")
         {
-            alert("<%2708%>");
+            alert("<%2724%>");
             return false;
             //pri_dns = 1;
         }
@@ -146,12 +146,12 @@ function checkData()
                  checkFiled(cf.PDAddr5) || checkFiled(cf.PDAddr6) ||
                  checkFiled(cf.PDAddr7) || checkFiled(cf.PDAddr8))
         {
-            alert("<%2709%>");
+            alert("<%2725%>");
             return false;
         }
         else if (checkUnicast(cf.PDAddr1))
         {
-            alert("<%2708%><%2710%>");
+            alert("<%2724%><%2726%>");
             return false;
         }
 
@@ -169,12 +169,12 @@ function checkData()
                  checkFiled(cf.SDAddr5) || checkFiled(cf.SDAddr6) ||
                  checkFiled(cf.SDAddr7) || checkFiled(cf.SDAddr8))
         {
-            alert("<%2711%>");
+            alert("<%2727%>");
             return false;
         }
         else if (checkUnicast(cf.SDAddr1))
         {
-            alert("<%2712%><%2710%>");
+            alert("<%2728%><%2726%>");
             return false;
         }
 
@@ -185,7 +185,7 @@ function checkData()
         {
             if (isIPv6Equals(cf.ipv6rd_wan_dns1_pri.value, cf.ipv6rd_wan_dns1_sec.value))
             {
-                alert("<%2713%>");
+                alert("<%2729%>");
                 return false;
             }
         }
@@ -198,7 +198,7 @@ function checkData()
            || !(isHex(cf.IPv6_interface_id1.value) && isHex(cf.IPv6_interface_id2.value) && isHex(cf.IPv6_interface_id3.value) && isHex(cf.IPv6_interface_id4.value)))
         {
 
-            msg+= "<%2714%>";
+            msg+= "<%2730%>";
         }
         else 
             cf.ipv6_interface_id.value = cf.IPv6_interface_id1.value+":"+cf.IPv6_interface_id2.value+":"+cf.IPv6_interface_id3.value+":"+cf.IPv6_interface_id4.value;
@@ -206,7 +206,7 @@ function checkData()
 	else
 		cf.ipv6_interfaceid_enable.value = 0;	
        	    
-    if(<%1804%><1280){
+    if(<%1797%><1280){
          msg+="MTU should not less than 1280 when IPV6 enable. Please change setting in WAN Setup.";
     }
     if (msg.length > 1)
@@ -216,7 +216,7 @@ function checkData()
     }
 /*
 	if(openvpnEnable == "enable"){
-		alert("<%2715%>");
+		alert("<%2731%>");
 		return false;
 	}
 */
@@ -232,7 +232,7 @@ function loadSettings()
     {
         document.getElementById("pppoe_share_login_display").style.display = "block";
 
-        var single_login = "<%800%>";
+        var single_login = "<%792%>";
         if (single_login == "1")
         {
             cf.single_pppoe_login.checked = true;
@@ -309,32 +309,32 @@ function loadSettings()
 <form id="target"  name="formname" method="POST" action="ipv6_pppoe.cgi" >
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue"> 
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1448%></div>
+<div class="subhead2"> <%1441%></div>
 <table border="0"     class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
 <button type="submit" value="SUBMIT"  onClick="buttonClick(this,'<%78%>');return checkData()" name="apply" class=<%79%> style="padding-left:10px"> <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
 <button type="button" value="BUTTON"  onClick="buttonClick(this,'<%83%>');reset();loadSettings();" name="Cancel" class="button-rule" style="padding-left:10px" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
-<button type="button" value="BUTTON"  onClick="buttonClick(this,'Refresh');location.reload();" name="Refresh" class="button-rule" style="padding-left:10px" ><span class="roundleft_button"><span class ="refresh-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%2716%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+<button type="button" value="BUTTON"  onClick="buttonClick(this,'Refresh');location.reload();" name="Refresh" class="button-rule" style="padding-left:10px" ><span class="roundleft_button"><span class ="refresh-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%2732%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
 </td>
 </tr>
 
 <tr><td colspan="2" class="scrollpane-table-seperate-border"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
 
 <tr>
- <td width="50%"><a><b><%2717%></b></a></td>
+ <td width="50%"><a><b><%2733%></b></a></td>
  <td width="50%" align="right">
     <select name="login_type" onChange="setServer()">
         <option><%408%></option>
-        <option><%2718%></option>
-        <option><%2719%></option>
-        <option><%2720%></option>
-        <option><%2721%></option>
-        <option><%2722%></option>
+        <option><%2734%></option>
+        <option><%2735%></option>
+        <option><%2736%></option>
+        <option><%2737%></option>
+        <option><%2738%></option>
         <option selected><%411%></option>
-        <option ><%2723%></option>
- 		<option ><%2724%></option>
+        <option ><%2739%></option>
+ 		<option ><%2740%></option>
     </select>
  </td>
 </tr>
@@ -344,7 +344,7 @@ function loadSettings()
 <div id="pppoe_share_login_display" style="display: none;">
 <table align="left" border="0" width="100%">
 <tr>
-    <td nowrap colspan="2"><input type="checkbox" name="single_pppoe_login" value="" onclick="check_login();"><b><%2775%></b></td>
+    <td nowrap colspan="2"><input type="checkbox" name="single_pppoe_login" value="" onclick="check_login();"><b><%2791%></b></td>
 </tr>
 </table>
 </div>
@@ -354,36 +354,36 @@ function loadSettings()
 <div id="pppoe_login_info_display" style="display: none;">
 <table align="left" border="0" width="100%">
 <tr>
-	<td><b><%840%></b></td>
-	<td align="right"><input type="text" name="pppoe_username" size="15" maxlength="63" value="<%2776%>"></td>
+	<td><b><%831%></b></td>
+	<td align="right"><input type="text" name="pppoe_username" size="15" maxlength="63" value="<%2792%>"></td>
 </tr>
 <tr>
-	<td><b><%842%></b></td>
-	<td align="right"><input type="password" name="pppoe_passwd" size="15" maxlength="63" value="<%2777%>"></td>
-</tr>
-
-<tr>
-	<td nowrap><%2778%> &nbsp;</td>
-	<td align="right"><input type="text" name="pppoe_servicename" maxlength="63" size="15" value="<%2779%>"></td>
+	<td><b><%833%></b></td>
+	<td align="right"><input type="password" name="pppoe_passwd" size="15" maxlength="63" value="<%2793%>"></td>
 </tr>
 
 <tr>
-<td width="50%" nowrap><b><%844%></b></td>
+	<td nowrap><%2794%> &nbsp;</td>
+	<td align="right"><input type="text" name="pppoe_servicename" maxlength="63" size="15" value="<%2795%>"></td>
+</tr>
+
+<tr>
+<td width="50%" nowrap><b><%835%></b></td>
 <td width="50%" align="right">
     <select name="pppoe_dod" onChange="" size="1">
-        <option value=0><%845%></option>
-        <option value=1><%846%></option>
-        <option value=2><%847%></option>
+        <option value=0><%836%></option>
+        <option value=1><%837%></option>
+        <option value=2><%838%></option>
     </select></td>
 </tr>
 </table>
 </div></td></tr>
 
 <tr>
-    <td colspan="2" ><b><%2726%></b></td>
+    <td colspan="2" ><b><%2742%></b></td>
 </tr>
 <tr>
-    <td colspan="2" ><img src="spacer.gif" width="20" height="12" border="0"><%2727%></td>
+    <td colspan="2" ><img src="spacer.gif" width="20" height="12" border="0"><%2743%></td>
 </tr>
 
 <!-- Add ipv6 wan dns settings begin -->
@@ -412,32 +412,32 @@ function loadSettings()
 <!-- Add ipv6 wan dns settings end-->
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
-    <td width="50%" colspan="2" ><b><%638%></b></td>
+    <td width="50%" colspan="2" ><b><%639%></b></td>
 </tr>
 <tr>
 
 </tr>
 <tr>
-    <td colspan="2" ><b><%2728%></b></td>
+    <td colspan="2" ><b><%2744%></b></td>
 </tr>
 <tr>
-    <td colspan="2" ><img src="spacer.gif" width="20" height="12" border="0"><%2729%></td>
+    <td colspan="2" ><img src="spacer.gif" width="20" height="12" border="0"><%2745%></td>
 </tr>
 <tr>
-	<td nowrap colspan="2"><b><%2730%></b></td>
+	<td nowrap colspan="2"><b><%2746%></b></td>
 </tr>
 <tr>
-	<td colspan="2" nowrap><input type="radio" name="IpAssign" value="dhcp" <%2731%>><%2732%></td>
+	<td colspan="2" nowrap><input type="radio" name="IpAssign" value="dhcp" <%2747%>><%2748%></td>
 </tr>
 <tr>
-	<td colspan="2" nowrap><input type="radio" name="IpAssign" value="auto" <%2733%>><%2723%></td>
+	<td colspan="2" nowrap><input type="radio" name="IpAssign" value="auto" <%2749%>><%2739%></td>
 </tr>
 <tr>
     <td colspan="2" ><img src="spacer.gif" width="20" height="1" border="0">
 </tr>
 
 <tr>
-    <td nowrap colspan="2"><input  type="checkbox" <%2734%> name="useInterfaceId" value="" onclick= "checkInterfaceID();"><b><%2735%></b></td>
+    <td nowrap colspan="2"><input  type="checkbox" <%2750%> name="useInterfaceId" value="" onclick= "checkInterfaceID();"><b><%2751%></b></td>
 </tr>
 <tr>
 	<td colspan="2" ><img src="spacer.gif" width="20" height="12" border="0"><input type="text" name="IPv6_interface_id1" class="num" size="4" maxlength="4" value="" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheckv6(this,0)">:<input type="text" name="IPv6_interface_id2" class="num" size="4" maxlength="4" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,0)">:<input type="text" name="IPv6_interface_id3" class="num" size="4" maxlength="4" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,0)">:<input type="text" name="IPv6_interface_id4" class="num" size="4" maxlength="4" value="" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheckv6(this,1)"></td>
@@ -459,13 +459,13 @@ function loadSettings()
 
 
 <input type="hidden" name="ipv6_interfaceid_enable" value="">
-<input type="hidden" name="ipv6_interface_id" value="<%2736%>">
+<input type="hidden" name="ipv6_interface_id" value="<%2752%>">
 <INPUT type="hidden" name="ipv6_proto" value= "pppoe">
-<INPUT type="hidden" name="wan_proto" value= "<%773%>">
-<INPUT type="hidden" name="single_login" value= "<%800%>">
-<INPUT type="hidden" name="ipv6rd_wan_dns_sel" value= "<%2737%>">
-<INPUT type="hidden" name="ipv6rd_wan_dns1_pri" value= "<%2738%>">
-<INPUT type="hidden" name="ipv6rd_wan_dns1_sec" value= "<%2739%>">
+<INPUT type="hidden" name="wan_proto" value= "<%765%>">
+<INPUT type="hidden" name="single_login" value= "<%792%>">
+<INPUT type="hidden" name="ipv6rd_wan_dns_sel" value= "<%2753%>">
+<INPUT type="hidden" name="ipv6rd_wan_dns1_pri" value= "<%2754%>">
+<INPUT type="hidden" name="ipv6rd_wan_dns1_sec" value= "<%2755%>">
 <a name="helpframe-anchor"></a>
 </form>
 

@@ -26,31 +26,6 @@
     });
 
 //-->
-function ddns_check()
-{
-	var ddns_enable_check = "<%1108%>";
-	var openvpnEnable = "<%799%>";
-
-	var cf = document.forms[0];
-
-	if(openvpnEnable == "disable"){
-		alert("<%1162%>");
-		cf.openvpnActive.focus();
-		return false;
-	}
-
-	if(ddns_enable_check == 0){
-		alert("<%1163%>");
-	}
-
-	return true;
-}
-
-function change_location(new_location)
-{
-	window.location.href = new_location;
-	return true;
-}
 </script> 
 </head>
 <body  onload="change_size();" class="page-body" onResize="change_size();" >
@@ -61,19 +36,18 @@ function change_location(new_location)
 <form id="target" method="POST" action="">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1210%> </div>
+<div class="subhead2"> <%1202%> </div>
 
 <table border="0" style="height:370px" class="subhead2-table">
 <tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
 <table style="border-collapse:collapse;width:99%">
 
 <TR>
-<TD nowrap><%1211%>
-<br><button type="BUTTON" value="windows_zip" name="windows" id="window" class="button-common" onclick="buttonClick(this,'windows_zip'); if(!ddns_check()) return false; change_location('windows.zip');"><%1168%></button>
+<TD nowrap><%1203%>
 </TR>
 
 <TR>
-<TD nowrap><%1212%>
+<TD nowrap><%1204%>
 </TR>
 
 </table>

@@ -42,12 +42,12 @@ function checkData()
     var cf = document.forms[0];
     var msg = "";
 	if( cf.dev_name.value.length < 1 )
-		msg+="<%1040%>\n";
+		msg+="<%1031%>\n";
     if (cf.dev_name.value.match( /[^\x20-\x7E]/ ))
-        msg+="<%1041%>\n";
+        msg+="<%1032%>\n";
 
     if (cf.is_edit_itself.value.length > 0 && cf.access_control_option.value.match("block")){
-        msg+="<%1046%>\n";
+        msg+="<%1037%>\n";
         cf.access_control_option.selectedIndex=0;
     }
     if (msg.length > 1) {
@@ -89,21 +89,21 @@ function checkData()
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 
 <tr>
-<td nowrap><%645%></td>
+<td nowrap><%646%></td>
 <td nowrap>
   <select name="access_control_option" id="allow_or_block_connect_device">                             
-  <option value='allow' <%1047%> > <%995%> </option>
-  <option value='block' <%1048%> > <%996%> </option>
+  <option value='allow' <%1038%> > <%986%> </option>
+  <option value='block' <%1039%> > <%987%> </option>
   </select> 
 </td>
 </tr>
 <tr>
-<td nowrap><%1044%></td>
-<td nowrap><input type="text" size="17" maxlength="17" name="mac" id="mac_addr" value="<%1049%>"></td>
+<td nowrap><%1035%></td>
+<td nowrap><input type="text" size="17" maxlength="17" name="mac" id="mac_addr" value="<%1040%>"></td>
 </tr>
 <tr>
-<td nowrap><%641%></td>
-<td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="dev_name" value="<%1050%>"></td>
+<td nowrap><%642%></td>
+<td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="dev_name" value="<%1041%>"></td>
 </tr>
 
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
@@ -127,8 +127,8 @@ function checkData()
 
 
     <input name="access_control_add_type" type="hidden" value="allowed_list">
-    <input name="is_edit_itself" type="hidden" value="<%1051%>">
-    <input name="orig_mac" type="hidden" value="<%1049%>">
+    <input name="is_edit_itself" type="hidden" value="<%1042%>">
+    <input name="orig_mac" type="hidden" value="<%1040%>">
     <input name="dev_mac" type="hidden" value="">
 </form>
 

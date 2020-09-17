@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<link rel="stylesheet" href="form.css">
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+
+    $(document).ready(function()
+    {	
+//           $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+    });
+	function check_data()
+	{
+		var cf = document.forms[0];
+		if (cf.qos_policy.value == "") 
+		{ 
+			alert("<%2038%>");
+			return false;
+		}		
+		return true;
+	}
+
+</script>
+</head>
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="change_size();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="img/cover-image.gif">
+<img class="body-image" src="img/subhead2-background.jpg">
+<div id="full-page-container">
+
+<form id="target"  name="qosaddrule" method="POST" action="quick_qos_add_serv.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<div>
+<img class="subtop-image" src="img/subhead2-top.gif">
+<div class="subhead2"> <%2039%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');return check_data();" type="submit" name="apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='QOS_down_streaming.htm'" type="button" name="cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<table style="border-collapse:collapse;width:99%">
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr><td><table border ="0"   width="100%">
+	<tr><td colspan="2" tabindex="-1"><b><%2040%></b></a></td></tr>
+	<tr><td width="40%"><%2041%></td>
+	<td><input type="text" name="qos_policy" size="20" maxlength="32"></td></tr>
+	<tr><td width="25%"><%2040%></td>
+	<td><select name="qos_priorityList" size="1" style="height:20px;width:100px">
+		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		</select></td></tr>
+	<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+	<tr><td width=50% tabindex=-1><%998%></td>
+	<td width=50%><select name="qos_protocol"><option value="TCP/UDP" selected><%942%></option><option value="TCP"><%940%></option>
+		<option value="UDP"><%941%></option></select></td></tr>
+	<tr><td width=50% tabindex=-1><%943%></td>
+		<td width=50% class="num"><input type="text" name="qos_port_start" size=6 maxlength=5>(1~65535)</td></tr>
+    <tr><td width=50% tabindex=-1><%944%></td>
+        <td width=50% class="num"><input type="text" name="qos_port_end" size=6 maxlength=5>(1~65535)</td></tr>
+    <tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
+</table></td></tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="QOS_main_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+</div>
+<a name="helpframe-anchor"></a>
+</form>
+</div>
+</body>
+</html>
+

@@ -75,14 +75,14 @@ function ddns_active()
     var currentProvider = 0;
     if (cf.sysDNSProviderlist.value == "NETGEAR")
         currentProvider = 4;
-    else if (cf.sysDNSProviderlist.value == "No-IP")
+    else if (cf.sysDNSProviderlist.value == "www/var/dynupdate.no-ip.com")
         currentProvider = 3;
 	
 	if(currentProvider == 4)
 	{
 		if(cf.sysDNSActive.checked)
 		{
-			<%1085%>
+			<%1076%>
 		    if(cf.account[1].checked)
 			{
 				cf.sysDNSHost_Netgear.disabled = false;
@@ -107,7 +107,7 @@ function ddns_active()
 
 		}else
 		{	
-			<%1086%>
+			<%1077%>
 			if(cf.account[1].checked)
 			{
 				
@@ -118,7 +118,7 @@ function ddns_active()
 				cf.sysDNSEmail_Netgear.value = "";
 				cf.sysDNSPassword_Netgear.value = "";
 				$("input[name=netgearRegisterActive]").attr('disabled', 'disabled');
-				<%1087%>
+				<%1078%>
 				document.getElementById("text_host_result_id").style.display="none";
 				document.getElementById("text_email_result_id").style.display="none";
 				document.getElementById("text_pass_result_register_id").style.display="none";
@@ -176,14 +176,14 @@ var Is3322Specific = false;
 function chgDns()
 {
     var cf =document.forms[0];
-    var netgear_haveaccount = "<%1088%>";
+    var netgear_haveaccount = "<%1079%>";
 	var imgSrc=document.getElementById('help-button');
   
     // var currentProvider = cf.sysDNSProviderlist.value;
     var currentProvider = 0;
     if (cf.sysDNSProviderlist.value == "NETGEAR")
         currentProvider = 4;
-    else if (cf.sysDNSProviderlist.value == "No-IP")
+    else if (cf.sysDNSProviderlist.value == "www/var/dynupdate.no-ip.com")
         currentProvider = 3;
   
     if (currentProvider == 2)//www.ORAY.cn
@@ -219,7 +219,7 @@ function chgDns()
       loadhelp2('DNS_ddns');
 		
         diableButton = document.getElementsByName("Button");
-        diableButton[0].outerHTML='<button  onClick="" type="button" name="Button" id="show_status" value="<%1089%>" class="button-common"><%1089%> </button>';
+        diableButton[0].outerHTML='<button  onClick="" type="button" name="Button" id="show_status" value="<%1080%>" class="button-common"><%1080%> </button>';
         diableButton[0].style.cursor='default';
     }
 	else if(currentProvider == 4)//NETGEAR
@@ -262,7 +262,7 @@ function chgDns()
 				document.getElementById("text_host_result_account_id").style.display="none";
 				document.getElementById("text_pass_result_register_id").style.display="none";
 				document.getElementById("register_error").style.display="none";
-				<%1087%>
+				<%1078%>
 
 //			$('#helpframe').attr('src', 'DNS_ddns_Netgear_no_h.htm')
 
@@ -328,7 +328,7 @@ function chgDns()
 		
 		
         enableButton = document.getElementsByName("Button");
-        enableButton[0].outerHTML='<button  onClick="buttonClick(this,\'<%1089%>\');ShowResult()" type="button" name="Button" id="show_status" value="<%1089%>" class="button-common" ><%1089%> </button>';
+        enableButton[0].outerHTML='<button  onClick="buttonClick(this,\'<%1080%>\');ShowResult()" type="button" name="Button" id="show_status" value="<%1080%>" class="button-common" ><%1080%> </button>';
         enableButton[0].style.cursor='default';
     }
 }
@@ -336,30 +336,30 @@ function chgDns()
 function checkData()
 {
     var cf = document.forms[0];
-	var old_hostname  = "<%1090%>";
-	var openvpnEnable = "<%799%>";
+	var old_hostname  = "<%1081%>";
+	var openvpnEnable = "<%791%>";
     var msg = "";
     
     // var currentProvider = cf.sysDNSProviderlist.value;
     var currentProvider = 0;
     if (cf.sysDNSProviderlist.value == "NETGEAR")
         currentProvider = 4;
-    else if (cf.sysDNSProviderlist.value == "No-IP")
+    else if (cf.sysDNSProviderlist.value == "www/var/dynupdate.no-ip.com")
         currentProvider = 3;
     
     if(cf.sysDNSActive.checked)
     {
         if(currentProvider != 2)
-            msg+= checkBlank(cf.sysDNSHost, "<%1091%>");
+            msg+= checkBlank(cf.sysDNSHost, "<%1082%>");
         msg+= checkBlank(cf.sysDNSUser, "<%383%>");
-        msg+= checkBlank(cf.sysDNSPassword, "<%842%>");
+        msg+= checkBlank(cf.sysDNSPassword, "<%833%>");
 	}
     
     if(currentProvider == 2)
     {
         if (cf.sysDNSUser.value.match( /[^a-zA-Z0-9\_\-]/ ))
         {      
-            alert("<%802%>");
+            alert("<%794%>");
             return false;    
         }
     }
@@ -368,51 +368,51 @@ function checkData()
     {
         if(cf.sysDNSUser.value.length < 3)
         {
-            alert("<%1092%>");
+            alert("<%1083%>");
             return false;    
         }
 
         if(cf.sysDNSUser.value.length > 64)
         {      
-            alert("<%1093%>");
+            alert("<%1084%>");
             return false;    
         }
 
         if(cf.sysDNSPassword.value.length < 6)
         {
-            alert("<%1094%>");
+            alert("<%1085%>");
             return false;    
         }
 
         if(cf.sysDNSPassword.value.length > 64)
         {      
-            alert("<%1095%>");
+            alert("<%1086%>");
             return false;    
         }
 
         if (!cf.sysDNSUser.value.match( /^[a-zA-Z](?!.*_$)[a-zA-Z0-9_]*$/ ))
         {      
-            alert("<%802%>");
+            alert("<%794%>");
             return false;    
         }
     }
     
     if (cf.sysDNSHost.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%1096%>");
+        alert("<%1087%>");
         return false;
     }
 
     if (cf.sysDNSUser.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%1097%>");
+        alert("<%1088%>");
         return false;
     }
     
 	
     if (cf.sysDNSPassword.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%1098%>");
+        alert("<%1089%>");
         return false;
     }
     
@@ -424,7 +424,7 @@ function checkData()
 
 	if(openvpnEnable == "enable"){
 		if(cf.sysDNSHost.value != old_hostname){
-			alert("<%1099%>");
+			alert("<%1090%>");
 		}
 	}
     return true;
@@ -451,7 +451,7 @@ function statusChange(Index)
 		
 			
 		if(cf.sysDNSHost_Netgear.value == "" && cf.sysDNSEmail_Netgear.value == "" && cf.sysDNSPassword_Netgear.value == "")		
-			<%1087%>
+			<%1078%>
 		
 	
 	
@@ -509,9 +509,9 @@ function account_check()
 	emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 	if(cf.sysDNSActive.checked)
 	{
-		msg+= checkBlank(cf.sysDNSPassword_Netgear_account, "<%1100%>");
-	    msg+= checkBlank(cf.sysDNSEmail_Netgear_account, "<%1101%>");
-		msg+= checkBlank(cf.sysDNSHost_Netgear_account, "<%1102%>");
+		msg+= checkBlank(cf.sysDNSPassword_Netgear_account, "<%1091%>");
+	    msg+= checkBlank(cf.sysDNSEmail_Netgear_account, "<%1092%>");
+		msg+= checkBlank(cf.sysDNSHost_Netgear_account, "<%1093%>");
 			//alert("checkblank"+msg);
 	
 		if (msg.length > 1)
@@ -523,7 +523,7 @@ function account_check()
 		if(email.search(emailRule) == -1)
 		{
 			//alert("lnvalid email format");
-			//cf.text_email_result_account.value="<%1103%>";
+			//cf.text_email_result_account.value="<%1094%>";
 			document.getElementById("text_email_result_account_id").style.display="block";
 			document.getElementById("Netgear_account_email_no").style.display="block";
 			return false;
@@ -534,11 +534,11 @@ function account_check()
 			document.getElementById("Netgear_account_email_no").style.display="none";
 		}
 	
-		if (cf.sysDNSHost_Netgear_account.value.match( /[^a-zA-Z0-9\-]/ ))
+		if (cf.sysDNSHost_Netgear_account.value.match( /[^a-zA-Z0-9\_\-]/ ))
 	    {
 		
 	        //cf.text_host_account_result.value="The characters allowed here are '0'~'9', 'a'~'z', 'A'~'Z', and hyphen '-'";
-			//cf.text_host_account_result.value="<%1104%>";
+			//cf.text_host_account_result.value="<%1095%>";
 			document.getElementById("text_host_result_account_id").style.display="block";
 			document.getElementById("Netgear_img_account_host_no").style.display="block";
 	        return false;
@@ -551,13 +551,13 @@ function account_check()
 	
 		if (cf.sysDNSPassword_Netgear_account.value.match( /[^\x20-\x7E]/ ))
 	    {
-	        alert("<%1105%>");
+	        alert("<%1096%>");
 	        return false;
 	    }
 	
 		if(cf.sysDNSHost_Netgear_account.value.length > 114)
 		{
-			//cf.text_host_account_result.value="<%1104%>";
+			//cf.text_host_account_result.value="<%1095%>";
 			document.getElementById("text_host_result_account_id").style.display="block";
 			document.getElementById("Netgear_img_account_host_no").style.display="block";
 			return false;
@@ -571,7 +571,7 @@ function account_check()
 		if(cf.sysDNSEmail_Netgear_account.value.length > 48)
 		{
 			//cf.text_email_result_account.value="The email address can be up to 48 characters";
-			//cf.text_email_result_account.value=	"<%1106%>";
+			//cf.text_email_result_account.value=	"<%1097%>";
 			document.getElementById("text_email_result_account_id").style.display="block";
 			document.getElementById("Netgear_account_email_no").style.display="block";
 			return false;
@@ -600,14 +600,17 @@ function account_check()
 
 function register_check()
 {
-    var cf = document.forms[0];
-    var password=cf.sysDNSPassword_Netgear.value; 
-    var email=cf.sysDNSEmail_Netgear.value;
-    var msg = "";
-    emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-    msg+= checkBlank(cf.sysDNSPassword_Netgear, "<%1100%>");
-    msg+= checkBlank(cf.sysDNSEmail_Netgear, "<%1101%>");
-    msg+= checkBlank(cf.sysDNSHost_Netgear, "<%1102%>");
+	 var cf = document.forms[0];
+	 var password=cf.sysDNSPassword_Netgear.value; 
+	 //var confirmpassword=cf.sysDNSConfirmPassword_Netgear.value;
+	 var email=cf.sysDNSEmail_Netgear.value;
+	 var msg = "";
+	 emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+	msg+= checkBlank(cf.sysDNSPassword_Netgear, "<%1091%>");
+    msg+= checkBlank(cf.sysDNSEmail_Netgear, "<%1092%>");
+	//msg+= checkBlank(cf.sysDNSConfirmPassword_Netgear, "<%1098%>");
+	msg+= checkBlank(cf.sysDNSHost_Netgear, "<%1093%>");
+		//alert("checkblank"+msg);
 	
 	if (msg.length > 1)
     {
@@ -619,7 +622,7 @@ function register_check()
 	if(email.search(emailRule) == -1)
 	{
 		//alert("lnvalid email format");
-		//cf.text_email_result.value="<%1103%>";
+		//cf.text_email_result.value="<%1094%>";
 		document.getElementById("text_email_result_id").style.display="block";
 		document.getElementById("Netgear_register_email_no").style.display="block";
 		return false;
@@ -629,17 +632,16 @@ function register_check()
 		document.getElementById("text_email_result_id").style.display="none";
 		document.getElementById("Netgear_register_email_no").style.display="none";
 	}
-    
-    if (cf.sysDNSHost_Netgear.value.match( /[^a-zA-Z0-9\-]/ ))
-    {
-        alert("<%1104%>");
-        return false;
-    }
+	// if (cf.sysDNSHost_Netgear.value.match( /[^a-zA-Z0-9\_\-]/ ))
+    //{
+    //    alert("The hostname is not valid. The characters allowed here are '0'~'9', 'a'~'z', 'A'~'Z', and hyphen '-'");
+    //    return false;
+    //}
 	
 	
 	if (cf.sysDNSPassword_Netgear.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%1098%>");
+        alert("<%1089%>");
         return false;
     }
 	return true;
@@ -729,15 +731,64 @@ function sendhostcheck()
 				
 		if(cf.email_graycheck.value == "0" && cf.password_graycheck.value == "0" && cf.host_graycheck.value == "0")
 		{
-			<%1107%>
+			<%1099%>
 		}else if(cf.email_graycheck.value == "-1" || cf.password_graycheck.value == "-1" || cf.host_graycheck.value == "-1")
 		{
-			<%1087%>
+			<%1078%>
 			return false;
 		}
 				
 		return true;
 }
+
+
+//function hostformatcheck()
+//{
+//	var cf = document.forms[0];
+//	var host=cf.sysDNSHost_Netgear.value;
+	
+	
+//	if(host != "")
+//	{
+//		if(cf.sysDNSHost_Netgear.value.length > 114 || cf.sysDNSHost_Netgear.value.match( /[^a-zA-Z0-9\_\-]/ ))
+//		{
+			//alert("A password has to be at least 6 characters and at most 32 characters");
+			//cf.text_host_result.value="<%1095%>";
+		//	document.getElementById("Netgear_img_no").style.display="block";
+		//	document.getElementById("text_host_result_id").style.display="block";
+		//	cf.host_graycheck.value  = "-1";
+		
+		//}
+		//else
+		//{
+			//cf.text_host_result.value="";
+		//	document.getElementById("Netgear_img_no").style.display="none";
+		//	document.getElementById("text_host_result_id").style.display="none";
+		//	cf.host_graycheck.value = "0";
+			
+		//}
+	//}else
+	//{
+			//cf.text_host_result.value="";
+	//		document.getElementById("Netgear_img_no").style.display="none";
+	//		document.getElementById("text_host_result_id").style.display="none";
+	//		cf.host_graycheck.value = "-1";
+	//}
+	
+	
+	
+	//if(cf.email_graycheck.value == "0" && cf.password_graycheck.value == "0" && cf.host_graycheck.value == "0")
+	//{
+	//	ungrayout_button("NRegister");
+	//}else if(cf.email_graycheck.value == "-1" || cf.password_graycheck.value == "-1" || cf.host_graycheck.value == "-1")
+	//{
+	//	grayout_button("NRegister");
+	//	return false;
+	//}
+	//return true;
+	
+//}
+
 
 function hostcheck_account()
 {
@@ -746,10 +797,10 @@ function hostcheck_account()
 	
 	if(host_account != "")
 	{
-		if(cf.sysDNSHost_Netgear_account.value.length > 114 || cf.sysDNSHost_Netgear_account.value.match( /[^a-zA-Z0-9\-]/ ))
+		if(cf.sysDNSHost_Netgear_account.value.length > 114 || cf.sysDNSHost_Netgear_account.value.match( /[^a-zA-Z0-9\_\-]/ ))
 		{
 			
-			//cf.text_host_account_result.value="<%1104%>";
+			//cf.text_host_account_result.value="<%1095%>";
 			document.getElementById("text_host_result_account_id").style.display="block";
 			document.getElementById("Netgear_img_account_host_no").style.display="block";
 			return false;
@@ -784,7 +835,7 @@ function passwordcheck_press()
 			if(cf.sysDNSPassword_Netgear.value.length > 32)
 			{
 				//alert("A password has to be at least 6 characters and at most 32 characters");
-				//cf.text_pass_register_result.value="<%1105%>";
+				//cf.text_pass_register_result.value="<%1096%>";
 				document.getElementById("Netgear_img_register_no").style.display="block";
 				document.getElementById("text_pass_result_register_id").style.display="block";
 				cf.password_graycheck.value = "-1";
@@ -827,10 +878,10 @@ function passwordcheck_press()
 	
 	if(cf.email_graycheck.value == "0" && cf.password_graycheck.value == "0" && cf.host_graycheck.value == "0")
 	{
-		<%1107%>
+		<%1099%>
 	}else if(cf.email_graycheck.value == "-1" || cf.password_graycheck.value == "-1" || cf.host_graycheck.value == "-1")
 	{
-		<%1087%>
+		<%1078%>
 		return false;
 	}
 	return true;
@@ -849,7 +900,7 @@ function passwordcheck()
 		if(cf.sysDNSPassword_Netgear.value.length > 32 || cf.sysDNSPassword_Netgear.value.length < 6)
 		{
 			//alert("A password has to be at least 6 characters and at most 32 characters");
-			//cf.text_pass_register_result.value="<%1105%>";
+			//cf.text_pass_register_result.value="<%1096%>";
 			document.getElementById("Netgear_img_register_no").style.display="block";
 			document.getElementById("text_pass_result_register_id").style.display="block";
 			cf.password_graycheck.value = "-1";
@@ -900,10 +951,10 @@ function passwordcheck()
 	
 	if(cf.email_graycheck.value == "0" && cf.password_graycheck.value == "0" && cf.host_graycheck.value == "0")
 	{
-		<%1107%>
+		<%1099%>
 	}else if(cf.email_graycheck.value == "-1" || cf.password_graycheck.value == "-1" || cf.host_graycheck.value == "-1")
 	{
-		<%1087%>
+		<%1078%>
 		return false;
 	}
 	return true;
@@ -919,7 +970,7 @@ function passwordcheck_account()
 		if(cf.sysDNSPassword_Netgear_account.value.length > 32 || cf.sysDNSPassword_Netgear_account.value.length < 6)
 		{
 			//alert("Your password must be at least 6 characters long and at most 64 characters long");
-			//cf.text_pass_result_account.value="<%1105%>";
+			//cf.text_pass_result_account.value="<%1096%>";
 			document.getElementById("text_pass_result_account_id").style.display="block";
 			document.getElementById("Netgear_account_confirm_no").style.display="block";
 			return false;
@@ -951,7 +1002,7 @@ function formatcheck()
 		if(cf.sysDNSEmail_Netgear.value.length > 48)
 		{
 			//alert("The email address can be up to 48 characters");
-			//cf.text_email_result.value="<%1106%>";
+			//cf.text_email_result.value="<%1097%>";
 			document.getElementById("text_email_result_id").style.display="block";
 			document.getElementById("Netgear_register_email_no").style.display="block";
 			cf.email_graycheck.value="-1";
@@ -960,7 +1011,7 @@ function formatcheck()
 		else if(email.search(emailRule) == -1)
 		{
 			//alert("lnvalid email format");
-			//cf.text_email_result.value="<%1103%>";
+			//cf.text_email_result.value="<%1094%>";
 			document.getElementById("text_email_result_id").style.display="block";
 			document.getElementById("Netgear_register_email_no").style.display="block";
 			cf.email_graycheck.value="-1";
@@ -984,10 +1035,10 @@ function formatcheck()
 	//alert(cf.email_graycheck.value+":"+cf.password_graycheck.value+":"+cf.confirmpass_graycheck.value);
 	if(cf.email_graycheck.value == "0" && cf.password_graycheck.value == "0" && cf.host_graycheck.value == "0")
 	{
-		<%1107%>
+		<%1099%>
 	}else if(cf.email_graycheck.value == "-1" || cf.password_graycheck.value == "-1" || cf.host_graycheck.value == "-1")
 	{
-		<%1087%>
+		<%1078%>
 		return false;
 	}
 	
@@ -1004,7 +1055,7 @@ function formatcheck_account()
 	{
 		if(cf.sysDNSEmail_Netgear_account.value.length > 48)
 		{
-			//cf.text_email_result_account.value="<%1106%>";
+			//cf.text_email_result_account.value="<%1097%>";
 			document.getElementById("text_email_result_account_id").style.display="block";
 			document.getElementById("Netgear_account_email_no").style.display="block";
 			return false;
@@ -1012,7 +1063,7 @@ function formatcheck_account()
 		else if(email_account.search(emailRule) == -1)
 		{
 			//alert("lnvalid email format");
-			//cf.text_email_result_account.value="<%1103%>";
+			//cf.text_email_result_account.value="<%1094%>";
 			document.getElementById("text_email_result_account_id").style.display="block";
 			document.getElementById("Netgear_account_email_no").style.display="block";
 			return false;
@@ -1066,14 +1117,14 @@ function loadSettings()
 {
 
     var cf = document.forms[0];
-    var ddnsEnable = "<%1108%>";
-    var ddnsServer = "<%1109%>";
-    var ddnsWildCard = "<%1110%>";
-	var netgear_haveaccount = "<%1088%>";
-	var netgear_hostcheck_status = "<%1111%>";
-	var hostname = "<%1112%>";
-	var email = "<%1113%>";
-	var pawd = "<%1114%>";
+    var ddnsEnable = "<%1100%>";
+    var ddnsServer = "<%1101%>";
+    var ddnsWildCard = "<%1102%>";
+	var netgear_haveaccount = "<%1079%>";
+	var netgear_hostcheck_status = "<%1103%>";
+	var hostname = "<%1104%>";
+	var email = "<%1105%>";
+	var pawd = "<%1106%>";
 	var netgear_create_result;
 	var email_confirm;	
 	
@@ -1098,7 +1149,7 @@ function loadSettings()
         cf.sysDNSWildCard.checked = false;
 
 	
-	var success_status_nvram = "<%1115%>";
+	var success_status_nvram = "<%1107%>";
 	cf.success_status.value=success_status_nvram;	
 		
 	if (ddnsServer == "4")
@@ -1119,11 +1170,11 @@ function loadSettings()
 
 		
 		
-		netgear_create_result="<%1116%>";
+		netgear_create_result="<%1108%>";
 		
 		if(press_cancel_flag != "1") //press cancel button not show confirm email
 		{
-			email_confirm="<%1117%>";
+			email_confirm="<%1109%>";
 		}
 		else
 		{
@@ -1161,7 +1212,7 @@ function loadSettings()
 			
 				if(netgear_create_result != "-1")
 				{
-					<%1087%>
+					<%1078%>
 					cf.email_graycheck.value="-1";
 					cf.password_graycheck.value="-1";
 					cf.host_graycheck.value="-1";
@@ -1173,7 +1224,7 @@ function loadSettings()
 					cf.email_graycheck.value="0";
 					cf.password_graycheck.value="0";
 					cf.host_graycheck.value="0";
-					<%1107%>
+					<%1099%>
 				
 				}
 			
@@ -1227,14 +1278,14 @@ function loadSettings()
 <form id="target"  method="POST" action="ddns.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 <img class="subtop-image" src="<%76%>">
-<div class="subhead2"><%675%></div>
+<div class="subhead2"><%676%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
 <td align="center" colspan="2" class="table-seperate-border">
 
 <table cellpadding="0" cellspacing="3" width="100%">
-&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1089%>');ShowResult()" type="button" name="Button" id="show_status" value="<%1089%>" class="button-common"><%1089%> </button>
+&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1080%>');ShowResult()" type="button" name="Button" id="show_status" value="<%1080%>" class="button-common"><%1080%> </button>
 &nbsp;&nbsp;&nbsp;<button  value="<%83%>" onClick="buttonClick(this,'<%83%>');press_cancel();reset();loadSettings();" type="button" name="Cancel" id="cancel" class="button-cancel" style="padding-left:10px"><%84%></button>
 &nbsp;&nbsp;&nbsp;<button  value="<%78%>"  onClick="buttonClick(this,'<%78%>');return apply_pressed()" type="SUBMIT" name="Apply" id="apply" class="button-apply" style="padding-left:10px; background-color: #00ADE6" ><%81%></button>
 <input type="hidden" name="NApply" id="NApply">
@@ -1243,7 +1294,7 @@ function loadSettings()
 <!--
 <div id="common_button" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
-&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1089%>');ShowResult()" type="button" name="Button" id="show_status" value=<%1089%> class="button-common"><%1089%> </button>
+&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1080%>');ShowResult()" type="button" name="Button" id="show_status" value=<%1080%> class="button-common"><%1080%> </button>
 &nbsp;&nbsp;&nbsp;<button  value="<%83%>" onClick="buttonClick(this,'<%83%>');press_cancel();reset();loadSettings();" type="button" name="Cancel" id="cancel" class="button-cancel" style="padding-left:10px"><%84%></button>
 &nbsp;&nbsp;&nbsp;<button  value="<%78%>"  onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT" name="cfAlert_Apply" id="apply" class="button-apply" style="padding-left:10px; background-color: #00ADE6" ><%81%></button>
 
@@ -1268,7 +1319,7 @@ function loadSettings()
     
     <!--
 	<div id="netgear_button" style="display: block;">
-	&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1089%>');ShowResult()" type="button" name="NButton" id="NButton" value=<%1089%> class="button-common"><%1089%></button>
+	&nbsp;&nbsp;&nbsp;<button  onClick="buttonClick(this,'<%1080%>');ShowResult()" type="button" name="NButton" id="NButton" value=<%1080%> class="button-common"><%1080%></button>
 	&nbsp;&nbsp;&nbsp;<button value="<%83%>" onClick="buttonClick(this,'<%83%>');press_cancel();reset();loadSettings();" type="button" name="NCancel" id="NCancel" class="button-cancel" style="padding-left:10px"><%84%></button>
 	&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return account_check()" type="submit" name="NApply" id="NApply" class="button-apply" style="padding-left:10px; background-color: #00ADE6" ><%81%></button>
 	</div>
@@ -1282,17 +1333,17 @@ function loadSettings()
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
     <td colspan="2">
-    <input type="checkbox" name="sysDNSActive" value="dnsEnable" id="sys_dnsactive" onClick="ddns_active()"> <a href="javascript:loadhelp('DNS_ddns','setup')" tabindex="-1"><b><%1118%></b> </a> 
+    <input type="checkbox" name="sysDNSActive" value="dnsEnable" id="sys_dnsactive" onClick="ddns_active()"> <a href="javascript:loadhelp('DNS_ddns','setup')" tabindex="-1"><b><%1110%></b> </a> 
     </td>
 	
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
 <tr>
     <td width="50%" align="left" nowrap>
-    <a href="javascript:loadhelp('DNS_ddns','provider')" tabindex="-1"><b><%1119%></b></a> 
+    <a href="javascript:loadhelp('DNS_ddns','provider')" tabindex="-1"><b><%1111%></b></a> 
     </td>
     <td width="50%" align="left">
-    <select name="sysDNSProviderlist" id="sys_dnsprovider_list" size="1" onchange="chgDns()"><%1120%></select></td>
+    <select name="sysDNSProviderlist" id="sys_dnsprovider_list" size="1" onchange="chgDns()"><%1112%></select></td>
 
 
 </tr>
@@ -1301,16 +1352,16 @@ function loadSettings()
 	<div id="common_specific" style="display: block;">
 	<table cellpadding="0" cellspacing="3" width="100%">
 	<tr>
-	    <td width="50%" align="left" nowrap><%1091%></td>
-	 <td width="50%" align="left"><input type="text" name="sysDNSHost" id="sys_dnshost" value = "<%1090%>" size="32" maxlength="255"></td>
+	    <td width="50%" align="left" nowrap><%1082%></td>
+	 <td width="50%" align="left"><input type="text" name="sysDNSHost" id="sys_dnshost" value = "<%1081%>" size="32" maxlength="255"></td>
 	</tr>
 	<tr>
 	    <td width="50%" align="left"><%383%></td>
-	    <td width="50%" align="left"><input type="text" name="sysDNSUser" id="sys_dnsuser" value = "<%1121%>" size="32" maxlength="64"></td>
+	    <td width="50%" align="left"><input type="text" name="sysDNSUser" id="sys_dnsuser" value = "<%1113%>" size="32" maxlength="64"></td>
 	</tr>
 	<tr>
-	    <td width="50%" align="left"><%842%></td>
-	    <td width="50%" align="left"><input type="password" name="sysDNSPassword" id="sys_dnspassword" value = "<%1122%>" size="32" maxlength="64"></td>
+	    <td width="50%" align="left"><%833%></td>
+	    <td width="50%" align="left"><input type="password" name="sysDNSPassword" id="sys_dnspassword" value = "<%1114%>" size="32" maxlength="64"></td>
 	</tr>
 	</table>
 	</div>
@@ -1318,26 +1369,26 @@ function loadSettings()
 
 <tr><td colspan="2">
 <div id="3322_specific" style="display: block;">
-<input type="checkbox" name="sysDNSWildCard" value="wildEnable"><%1123%></a> 
+<input type="checkbox" name="sysDNSWildCard" value="wildEnable"><%1115%></a> 
 <table cellpadding="0" cellspacing="3" width="100%">
 </table></div></td></tr>
 <tr><td colspan="2">
 <div id="oray_specific" style="display: block;">
 <table cellpadding="0" cellspacing="3" width="100%">
         <tr class="basic-text">
-            <td width="75%" align="left" nowrap><b><%1124%>:</b></td>
-            <td width="25%" align="left" ><%1125%></td>
+            <td width="75%" align="left" nowrap><b><%1116%>:</b></td>
+            <td width="25%" align="left" ><%1117%></td>
         </tr>
         <tr class="basic-text">
-            <td width="75%" align="left" nowrap><%918%>:</td>
-            <td width="25%" align="left" ><%1126%></td>
+            <td width="75%" align="left" nowrap><%909%>:</td>
+            <td width="25%" align="left" ><%1118%></td>
         </tr>
         <tr class="basic-text">
-            <td width="75%" align="left" nowrap><%1127%>:</td>
-            <td width="25%" align="left" ><%1128%></td>
+            <td width="75%" align="left" nowrap><%1119%>:</td>
+            <td width="25%" align="left" ><%1120%></td>
         </tr>
         <tr class="basic-text">
-            <td width="75%" align="left" nowrap" ><%1129%>:</td>
+            <td width="75%" align="left" nowrap" ><%1121%>:</td>
             <td width="25%" align="left" nowrap="nowrap"><a class="linktype" target="_blank" href="http://www.oray.cn/passport/register.php"><u><font color="#0000ff">http://www.oray.cn/passport/register.php</font></u></a></td></tr>
         <tr><td width="75%" align="left" nowrap"></td>
             <td width="25%" align="left" nowrap="nowrap"><a class="linktype" target="_blank" href="http://www.oray.cn/peanuthull/service.php"><u><font color="#0000ff">http://www.oray.cn/peanuthull/service.php</font></u></a></td></tr>
@@ -1350,13 +1401,13 @@ function loadSettings()
 	<div id="Netgear_account_status" style="display: block;">
 	<table cellpadding="0" cellspacing="3" width="100%">
 	<tr>
-	<td colspan="2"> <b><%1130%></b></td>
+	<td colspan="2"> <b><%1122%></b></td>
 	</tr>
 	<tr>
-	<td colspan="2"><input type="radio"  name="account" id="account_yes" value="yes" onClick="statusChange(1)"><%1131%></td>
+	<td colspan="2"><input type="radio"  name="account" id="account_yes" value="yes" onClick="statusChange(1)"><%1123%></td>
 	</tr>
 	<tr>
-	<td colspan="2"><input type="radio"  name="account" id="account_no" value="no" onClick="statusChange(0)"><%1132%></td>
+	<td colspan="2"><input type="radio"  name="account" id="account_no" value="no" onClick="statusChange(0)"><%1124%></td>
 	</tr>
 	<tr><td height="12" colspan="2"><hr class='blueBar'></td></tr>
 	</table>
@@ -1369,17 +1420,17 @@ function loadSettings()
 	<table cellpadding="0" cellspacing="3" width="100%">
 	<tr>
 	     <td width="50%" align="left" nowrap>
-		 <b><%1133%></b>
+		 <b><%1125%></b>
 		 </td>
 	</tr>
 	<tr>
-	    <td width="50%" align="left"><b><%1102%>:</b>&nbsp;<%1112%>.mynetgear.com</td>
+	    <td width="50%" align="left"><b><%1093%>:</b>&nbsp;<%1104%>.mynetgear.com</td>
 	</tr>
 	<tr>
-	    <td width="50%" align="left"><b><%1101%>:</b>&nbsp;<%1113%></td>
+	    <td width="50%" align="left"><b><%1092%>:</b>&nbsp;<%1105%></td>
 	</tr>
 	<tr>
-		<td width="50%" align="left"><%1134%>&nbsp;&nbsp;<button value="<%1135%>" onClick="buttonClick(this,'<%1135%>');" type="submit" name="NReset" id="NReset"  class="button-common"><%1135%></button>&nbsp;&nbsp;<%1136%></td>
+		<td width="50%" align="left"><%1126%>&nbsp;&nbsp;<button value="<%1127%>" onClick="buttonClick(this,'<%1127%>');" type="submit" name="NReset" id="NReset"  class="button-common"><%1127%></button>&nbsp;&nbsp;<%1128%></td>
 	</tr>
 	</table>
 	</div>
@@ -1392,12 +1443,12 @@ function loadSettings()
 	<table cellpadding="0" cellspacing="3" width="100%">
 	<tr>
 	     <td width="50%" align="left" nowrap>
-		 <%1137%>
+		 <%1129%>
 		 </td>
 	</tr>
 
 	<tr>
-	    <td width="50%" align="left" nowrap><%1102%></td>
+	    <td width="50%" align="left" nowrap><%1093%></td>
 	 <td width="50%" align="left"><input type="text" name="sysDNSHost_Netgear" id="sys_dnshost_netgear" size="16" maxlength="114"   onkeyup="return sendhostcheck()">.mynetgear.com</td><!---->
 	 <td width="50%" align="left" id="Netgear_img" style="display: block;"> <img  src="DDNS_Yes.png"></td>
 	 <td width="50%" align="left" id="Netgear_img_no" style="display: block;"> <img  src="DDNS_No.png"></td>
@@ -1406,14 +1457,14 @@ function loadSettings()
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_host_result_id" style="display: block;text-align:left;color:#FF0000"><%1104%></div>
+		<div id="text_host_result_id" style="display: block;text-align:left;color:#FF0000"><%1095%></div>
 		<!--<input type="text" id="text_host_result_id" name="text_host_result" size="80" maxlength="55" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right" readonly>-->
 		</td>
 	</tr>
 	
 	
 	<tr>
-	    <td width="50%" align="left"><%1101%></td>
+	    <td width="50%" align="left"><%1092%></td>
 	    <td width="50%" align="left"><input type="text" name="sysDNSEmail_Netgear" id="sys_dnsmail" size="30" maxlength="48" onblur="return formatcheck()"></td>
 
 		<td width="50%" align="left" id="Netgear_register_email_no" style="display: block;"> <img src="DDNS_No.png"></td>
@@ -1422,21 +1473,21 @@ function loadSettings()
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_email_result_id" style="display: block;text-align:left;color:#FF0000"><%1103%></div>
+		<div id="text_email_result_id" style="display: block;text-align:left;color:#FF0000"><%1094%></div>
 		<!--<input type="text" id="text_email_result_id" name="text_email_result" size="50" maxlength="60" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right;margin-left: 30%" readonly>-->
 		</td>
 	</tr>
 	
 	<tr>
-	    <td width="50%" align="left"><%1100%></td>
-	    <td width="50%" align="left"><input type="text" name="sysDNSPassword_Netgear" id="sys_dnspassword_netgear" size="30" maxlength="32" onblur="return passwordcheck()" onkeyup="return passwordcheck_press()"></td><!--value = "<%1114%>"-->
+	    <td width="50%" align="left"><%1091%></td>
+	    <td width="50%" align="left"><input type="text" name="sysDNSPassword_Netgear" id="sys_dnspassword_netgear" size="30" maxlength="32" onblur="return passwordcheck()" onkeyup="return passwordcheck_press()"></td><!--value = "<%1106%>"-->
 		 <td width="50%" align="left" id="Netgear_img_register_no" style="display: block;"> <img src="DDNS_No.png"></td>
 	</tr>
 	
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_pass_result_register_id" style="display: block;text-align:left;color:#FF0000"><%1105%></div>
+		<div id="text_pass_result_register_id" style="display: block;text-align:left;color:#FF0000"><%1096%></div>
 		<!--<input type="text" id="text_pass_result_register_id" name="text_pass_register_result" size="80" maxlength="35" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right" readonly>-->
 		</td>
 	</tr>
@@ -1444,7 +1495,7 @@ function loadSettings()
 	<tr>
 		<td width="50%" align="left">
 		<div id="register_error" style="display: block;">
-		<font color="#FF0000"><%1138%></font>
+		<font color="#FF0000"><%1130%></font>
 		</div>
 		</td>
 	</tr>  
@@ -1454,12 +1505,12 @@ function loadSettings()
 		<table cellpadding="0" cellspacing="0" width="100%">
 		<tr>
 		<td align="left">
-			<input type="checkbox" id="netgearRegisterActive" name="netgearRegisterActive" value="1" onClick="netgear_register_active()" disabled> <%1139%>
+			<input type="checkbox" id="netgearRegisterActive" name="netgearRegisterActive" value="1" onClick="netgear_register_active()" disabled> <%1131%>
 		</td>
 		</tr>
         <tr>
         <td align="left" style="padding-top:5px">
-            <button value="<%1140%>" onClick="buttonClick(this,'<%1140%>');return register_check()" type="submit" name="NRegister" id="NRegister"  class="button-common" disabled><%1140%></button>
+            <button value="<%1132%>" onClick="buttonClick(this,'<%1132%>');return register_check()" type="submit" name="NRegister" id="NRegister"  class="button-common" disabled><%1132%></button>
         </td>
         </tr>
 		</table>
@@ -1474,43 +1525,43 @@ function loadSettings()
 	<table cellpadding="0" cellspacing="3" width="100%">
 
 	<tr>
-	    <td width="50%" align="left" nowrap><%1102%></td>
-	 	<td width="50%" align="left"><input type="text" name="sysDNSHost_Netgear_account" id="sys_dnshost_netgear_account" value = "<%1112%>" size="16" maxlength="114" onblur="return hostcheck_account()">.mynetgear.com</td>
+	    <td width="50%" align="left" nowrap><%1093%></td>
+	 	<td width="50%" align="left"><input type="text" name="sysDNSHost_Netgear_account" id="sys_dnshost_netgear_account" value = "<%1104%>" size="16" maxlength="114" onblur="return hostcheck_account()">.mynetgear.com</td>
 		<td width="50%" align="left" id="Netgear_img_account_host_no" style="display: block;"> <img src="DDNS_No.png"></td>
 	</tr>
 	
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_host_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1104%></div>
+		<div id="text_host_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1095%></div>
 		<!--<input type="text" id="text_host_result_account_id" name="text_host_account_result" size="80" maxlength="60" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right" readonly>-->
 		</td>
 	</tr>
 	
 	<tr>
-	    <td width="50%" align="left"><%1101%></td>
-	    <td width="50%" align="left"><input type="text" name="sysDNSEmail_Netgear_account" id="sys_dnsmail_netgear_account" value = "<%1113%>" size="30" maxlength="48" onblur="return formatcheck_account()"></td>
+	    <td width="50%" align="left"><%1092%></td>
+	    <td width="50%" align="left"><input type="text" name="sysDNSEmail_Netgear_account" id="sys_dnsmail_netgear_account" value = "<%1105%>" size="30" maxlength="48" onblur="return formatcheck_account()"></td>
 			<td width="50%" align="left" id="Netgear_account_email_no" style="display: block;"> <img src="DDNS_No.png"></td>
 	</tr>
 	
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_email_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1103%></div>
+		<div id="text_email_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1094%></div>
 		<!--<input type="text" id="text_email_result_account_id" name="text_email_result_account" size="50" maxlength="35" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right;margin-left: 30%" readonly>-->
 		</td>
 	</tr>
 	
 	<tr>
-	    <td width="50%" align="left"><%1100%></td>
-	    <td width="50%" align="left"><input type="password" name="sysDNSPassword_Netgear_account" id="sys_dnspassword_netgear_account" value = "<%1114%>" size="30" maxlength="32" onblur="return passwordcheck_account()"></td>
+	    <td width="50%" align="left"><%1091%></td>
+	    <td width="50%" align="left"><input type="password" name="sysDNSPassword_Netgear_account" id="sys_dnspassword_netgear_account" value = "<%1106%>" size="30" maxlength="32" onblur="return passwordcheck_account()"></td>
 		<td width="50%" align="left" id="Netgear_account_confirm_no" style="display: block;"> <img src="DDNS_No.png"></td>
 	</tr>
 	
 	<tr>
 		<td width="50%" align="left"></td>
 		<td width="50%" align="left">
-		<div id="text_pass_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1105%></div>
+		<div id="text_pass_result_account_id" style="display: block;text-align:left;color:#FF0000"><%1096%></div>
 		<!--<input type="text" id="text_pass_result_account_id" name="text_pass_result_account" size="80" maxlength="60" style="display: block;border-width:0;color:#FF0000;background-color:#FFFFFF;text-align:right" readonly>-->
 		</td>
 	</tr>
@@ -1519,7 +1570,7 @@ function loadSettings()
 		<td width="50%" align="left">
 		<div id="account_error" style="display: block;">
 		<table cellpadding="0" cellspacing="3" width="100%">
-		<%1141%>
+		<%1133%>
 		</table>
 		</div>
 		</td>
@@ -1534,13 +1585,13 @@ function loadSettings()
 	</tr>
 	
 	<tr>
-		<td width="50%" align="left"><%1142%></td>
+		<td width="50%" align="left"><%1134%></td>
 	</tr>
 	<tr>
-		<td width="50%" align="left"><%1143%></td>
+		<td width="50%" align="left"><%1135%></td>
 	</tr>
 
-	<!--<INPUT name=createres type=hidden value= "<%1141%>">-->
+	<!--<INPUT name=createres type=hidden value= "<%1133%>">-->
 	</table>
 	</div>
 </td></tr>

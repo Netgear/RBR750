@@ -1,0 +1,8 @@
+Configuration expiry date: 1554076800
+serverid: 9551
+isp: Verizon Wireless
+latency: 154
+jitter: 6.22
+download: 13237
+upload: 4124
+

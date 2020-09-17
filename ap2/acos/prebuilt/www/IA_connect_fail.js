@@ -64,7 +64,7 @@ function CheckData()
 
 function dfs_alert()
 {
-    var block_ch_time = "<%1088%>";
+    var block_ch_time = "<%1082%>";
     var minute = Math.floor(block_ch_time / 60);
     var second = Math.floor(block_ch_time % 60);
     var msg = "<%871%>" + "<%948%>"
@@ -78,7 +78,7 @@ function CheckSkip()
     var cf = document.forms["mainForm"];
 
     if("5" == cf.fail_band.value && 
-       "1" == "<%1089%>")
+       "1" == "<%1083%>")
     {
         dfs_alert();
         cf.skipBt.disabled=true;

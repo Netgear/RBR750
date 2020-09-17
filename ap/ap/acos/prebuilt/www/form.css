@@ -1,0 +1,201 @@
+P {
+	LIST-STYLE-POSITION: outside; FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #09c; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+BODY {
+	FONT-SIZE: 12px; MARGIN: 6px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif; color:#666;
+}
+A {
+	 COLOR: #7d706c; TEXT-DECORATION: none
+}
+
+.ttext {
+	FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif; TEXT-ALIGN: center
+}
+.subhead {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #09c; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+.num {
+	text-align:center
+}
+input{
+  FONT: 10pt "Courier New",Courier,serif; COLOR: #7d706c; border-radius: 4px; border: solid 1px; padding: 3px; border-color:#808080;
+}
+
+input:disabled{
+  background-color:#ddd;
+}
+.cancel_bt{width: 134px; background: url(img/button_cancel.gif) no-repeat; }
+.short_common_bt, .common_bt, .long_long_bt, .cancel_bt{ height: 22px; color: #f2f2f2; font-family: Arial; font-weight: Bold; font-size: 14px; background-color: transparent; border: none; cursor: pointer; padding-bottom: 2px;}
+.short_common_bt{width:99px; background: url(img/button_test.gif) no-repeat;}
+.common_bt{width:147px; background: url(./img/button.gif) no-repeat;}
+.long_long_bt{width:500px; background: url(./img/long_long_bt.gif) no-repeat;}
+
+.short_common_gray_bt{width:99px; background: url(img/button_test_gray.gif) no-repeat;}
+.short_common_gray_bt { height: 22px; color:#808080; font-family: Arial; font-weight: Bold; font-size: 14px; background-color: transparent; border: none; cursor: pointer; padding-bottom: 2px;}
+
+.tables{
+        font-family: Arial;
+        font-size: 12px;
+}
+
+.table_header{
+        color: #ffffff;
+        font-weight: Bold;
+        background-color: #767676;
+}
+
+.table_header td{
+        color: #ffffff;
+}
+
+.even_line{
+        background-color: #e5e5e5;
+}
+
+.odd_line{
+        background-color: white;
+}
+
+.subhead {
+	FONT-WEIGHT: bold; 
+    FONT-SIZE: 12px; 
+    COLOR: #ffffff; 
+    FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif;
+    background-color: #767676;
+}
+
+.subheadtext {
+        cursor:pointer;
+}
+
+.acl_allowed {
+	color: green;
+}
+
+.acl_blocked {
+	color: red;
+}
+
+.device-bwBarY {
+    margin:4px;
+    display:block;
+    height:14px;
+    border:#FFFFFF 0px solid;
+    background-image:url('barY.gif'); 
+    background-repeat:repeat;
+    float: left;
+}
+
+.device-bwBarX {
+    margin:4px;
+    display:block;
+    height:14px;
+    border:#FFFFFF 0px solid;
+    background-image:url('barX.gif'); 
+    background-repeat:repeat;
+    float: left;
+}
+
+.device-bwBarLabelPadding {
+    margin:4px;
+    line-height: 12px;
+    display:block;
+    height:12px;
+    width:10%;
+    border:#FFFFFF 2px solid;
+    background-color:#FFFFFF;
+    float: left;
+}
+.device-bwBarLabel {
+    height:12px;
+    display:block;
+    width:80px;
+    font-size:12px;
+}
+.device-icon{
+    vertical-align:middle;
+    margin-right:5px;
+}
+.dev-hide
+{
+    display: none;
+}
+
+.tbWhite
+{
+    font-family: Arial;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px 0 10px 0;
+}
+
+.tbWhite tr
+{
+  line-height:24px;
+}
+.tbWhite td, .tbWhite th
+{   border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.tbWhite thead > tr > td, .tbWhite thead > tr > th, .thead
+{
+  FONT-WEIGHT: bold; 
+  FONT-SIZE: 12px; 
+  COLOR: #666; 
+  FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif;
+  padding-left:3px;
+}
+.tbWhite tbody tr:first-child td
+{
+  border-top: 1px solid #ccc;
+}
+.tbWhite tr>td:first-child , .tbWhite th:first-child 
+{   
+  border-left: 0 solid transparent;
+    
+}
+
+.tbWhite tr:last-child td, .tbWhite tr:last-child th
+{
+  border-bottom: 0 solid transparent;
+}
+
+.tbWhite tr:last-child td:first-child 
+{
+  border-bottom-left-radius: 10px;
+}
+.tbWhite tr:last-child td:last-child 
+{
+  border-bottom-right-radius: 10px;
+}
+
+.tbWhite tbody tr:nth-child(even)
+{   
+  background-color:#e5e5e5;
+    
+}
+
+#ookla table span{
+FONT-SIZE: 14px;
+margin-top:15px;
+margin-left:40px;
+display:block; 
+font-family:"Arial Bold","Helvetica Bold",Arial,Helvetica,,Georgia;
+font-weight:bold;
+color:white;
+padding-right:5px;
+text-align:right;
+}
+
+.divselect{
+    height:20px;
+    width:150px;
+}
+

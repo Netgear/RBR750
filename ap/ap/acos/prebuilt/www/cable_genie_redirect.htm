@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<script src="jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mainpage.css"> 
+<script>
+
+function choice_redirect_page()
+{
+    var wizstage="<%1240%>";
+    var blank_state="<%580%>";
+    var content_frame = document.getElementById("content_frame");
+
+
+    if (wizstage == "0" || blank_state == "0") { /* 2019/05/29/ This state is for the setup wizard(in the main page) */
+        content_frame.setAttribute("src", "WIZ_sel.htm");
+    }
+    else if(wizstage == "1")
+    {
+        content_frame.setAttribute("src", "Orbi_welcome.htm");
+    }
+    else if(wizstage == "2")
+    {
+        content_frame.setAttribute("src", "Orbi_setup_wifi_complete.htm");
+    }
+    else if(wizstage == "3")
+    {
+        $('#content_frame').css("visibility","hidden");
+            $('#page_contain').addClass('main-page-contain-loading');             
+            $('#content_frame').attr("src", "UPG_upgrade.htm"); 
+            $('#content_frame').load(function() 
+            {                
+                 $('#content_frame').css("visibility","visible");    
+                 $('#page_contain').removeClass('main-page-contain-loading'); 
+                   
+            });  
+    }
+    else
+    {
+        top.location.replace("start.htm");
+    }
+}
+
+</script>
+</head>
+    <body onLoad="choice_redirect_page();">
+        <div id="page_contain">
+            <!-- <iframe id="content_frame" name="content_frame" allowtransparency="true" height="100%" width="100%" scrolling="auto" frameborder="0"></iframe> -->
+            <iframe id="content_frame" name="content_frame" allowtransparency="true" height="100%" width="100%" frameborder="0" border="0" cellspacing="0" scrolling="no" onFocus="this.blur()" src=""></iframe> 
+        </div>
+        
+        <div id="preloaded-images">
+            <img src="img/wait.gif" width="1" height="1" alt="">
+            <input type="hidden" id="wizard_marker" value="1">
+        </div>
+    </body>
+</html>

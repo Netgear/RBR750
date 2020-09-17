@@ -23,7 +23,7 @@ function checkKey(evt)
     if ((lastkeypressed != 13) && (lastkeypressed != 8) && ( keyTooBig ))
     {
         keyTooBig = false;
-        alert("<%1825%> " + keysize + " <%1826%>");
+        alert("<%1847%> " + keysize + " <%1848%>");
         chkSize(lastObj); // for NS 6/7
         return false;
     }
@@ -95,7 +95,7 @@ function CheckData_WEP(wepenc, wep_key_no, key, key1, key2, key3, key4)
 	if (wps_version == "2.0")
 	{
 		if (!show_tkip_or_wps_v20_msg) {
-			if (!confirm("<%2563%>")){
+			if (!confirm("<%2580%>")){
 				return false;
 			}
 		}
@@ -234,7 +234,7 @@ function CheckData_WPA(passphrase, sec_type)
 		if (sec_type == "WPA-PSK")
 		{
 			if (!show_tkip_or_wps_v20_msg) {
-				if (!confirm("<%2563%>")){
+				if (!confirm("<%2580%>")){
 					return false;
 				}
 			}
@@ -244,7 +244,7 @@ function CheckData_WPA(passphrase, sec_type)
 	}
     if(passphrase.value.length < 8)
     {
-        alert("<%2564%>");
+        alert("<%2581%>");
         passphrase.focus();
         return false;    
     }
@@ -252,7 +252,7 @@ function CheckData_WPA(passphrase, sec_type)
     {
         if ( isHex(passphrase.value) == false)
         {
-            alert("<%2564%>");
+            alert("<%2581%>");
             passphrase.value = "";
             passphrase.focus();
             return false;
@@ -293,7 +293,7 @@ function CheckData_Manual(ssid, security_type, passphrase, wepenc, wep_key_no, k
     
     if (security_type_value == -1) // not selected
     {
-        alert("<%2565%>");
+        alert("<%2582%>");
         security_type.focus();
         return false;
     }

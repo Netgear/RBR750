@@ -76,3 +76,71 @@ function check_wlan_debug()
 	}	
 }
 
+function loadSettings()
+{
+	
+    var cf = document.forms["ADVWLANForm"];
+	var cf2 = document.forms["debugLogForm"];
+	var cf3 = document.forms["telnetEnableForm"];
+	var cf5 = document.forms["rstpEnableForm"];
+	var cf4 = document.forms["CMScanEnableForm"];
+	
+	check_capture_packets("load");
+	
+	if(cf2.Start_When_Boot_Up.value == "1")
+		cf2.action_Start_When_Boot_Up.checked = true;
+	else
+		cf2.action_Start_When_Boot_Up.checked = false;
+	
+	
+	if(cf2.Enable_LANWAN_Packet_Capture.value == "1")
+		cf2.action_Enable_LANWAN_Packet_Capture.checked = true;
+	else
+		cf2.action_Enable_LANWAN_Packet_Capture.checked = false;
+		
+    /*
+	if(cf2.Enable_Roaming_Debug.value == "1")
+		cf2.action_Enable_Roaming_Debug.checked = true;
+	else
+		cf2.action_Enable_Roaming_Debug.checked = false;
+    */
+		
+	if(cf2.Enable_Wifi_Debug.value == "1")
+		cf2.action_Enable_Wifi_Debug.checked = true;
+	else
+		cf2.action_Enable_Wifi_Debug.checked = false;
+	
+	if(cf3.telnet_enable.value == "1")
+		cf3.action_telnet_enable.checked = true;
+	else
+		cf3.action_telnet_enable.checked = false;
+		
+       	if(cf5.rstp_enable.value == "1")
+		cf5.action_rstp_enable.checked = true;
+	else
+		cf5.action_rstp_enable.checked = false;
+		
+	if(cf4.cm_scan_enable.value == "1")
+		cf4.action_cm_scan_enable.checked = true;
+	else
+		cf4.action_cm_scan_enable.checked = false;
+	
+	
+	/*
+    if(cf.nvram_enable_band_steering.value == "1")
+		cf.enable_band_steering.checked = true;
+	else
+		cf.enable_band_steering.checked = false;
+	
+    if(cf.nvram_enable_multi_ap_steering.value == "1")
+		cf.enable_multi_ap_steering.checked = true;
+	else
+		cf.enable_multi_ap_steering.checked = false;		
+
+	cf.max_log_file_size.value = cf.nvram_max_debug_log_file_size.value;
+	
+	cf.debug_option.value = cf.nvram_debug_option.value;
+	*/
+	
+	return true;
+}

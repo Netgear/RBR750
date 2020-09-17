@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="script/sorttable.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+
+<script language="javascript" type="text/javascript">
+<!-- hide script from old browsers
+/*var time_german =  [
+                "12:00<%555%>","00:30<%556%>","01:00<%556%>","01:30<%556%>","02:00<%556%>","02:30<%556%>","03:00<%556%>","03:30<%556%>","04:00<%556%>","04:30<%556%>",
+                "05:00<%556%>","05:30<%556%>","06:00<%556%>","06:30<%556%>","07:00<%556%>","07:30<%556%>","08:00<%556%>","08:30<%556%>","09:00<%556%>","09:30<%556%>", 
+                "10:00<%556%>","10:30<%556%>","11:00<%556%>","11:30<%556%>","12:00<%557%>","12:30<%558%>","01:00<%558%>","01:30<%558%>","02:00<%558%>","02:30<%558%>",
+                "03:00<%558%>","03:30<%558%>","04:00<%558%>","04:30<%558%>","05:00<%558%>","05:30<%558%>","06:00<%558%>","06:30<%558%>","07:00<%558%>","07:30<%558%>", 
+                "08:00<%558%>","08:30<%558%>","09:00<%558%>","09:30<%558%>","10:00<%558%>","10:30<%558%>","11:00<%558%>","11:30<%558%>"
+            ];*/
+var time_german =  [
+                "12:00 midnight.","00:30 a.m.","01:00 a.m.","01:30 a.m.","02:00 a.m.","02:30 a.m.","03:00 a.m.","03:30 a.m.","04:00 a.m.","04:30 a.m.",
+                "05:00 a.m.","05:30 a.m.","06:00 a.m.","06:30 a.m.","07:00 a.m.","07:30 a.m.","08:00 a.m.","08:30 a.m.","09:00 a.m.","09:30 a.m.", 
+                "10:00 a.m.","10:30 a.m.","11:00 a.m.","11:30 a.m.","12:00 noon","12:30 p.m.","01:00 p.m.","01:30 p.m.","02:00 p.m.","02:30 p.m.",
+                "03:00 p.m.","03:30 p.m.","04:00 p.m.","04:30 p.m.","05:00 p.m.","05:30 p.m.","06:00 p.m.","06:30 p.m.","07:00 p.m.","07:30 p.m.", 
+                "08:00 p.m.","08:30 p.m.","09:00 p.m.","09:30 p.m.","10:00 p.m.","10:30 p.m.","11:00 p.m.","11:30 p.m."
+            ];
+var schedule_rules;
+function rebuildTimeSelect(sName)
+{
+  $("select[name="+sName+"] option").remove();
+  $.each(time_german,function(index,element){
+    $("select[name="+sName+"]").append($("<option></option>").attr("value", index).text(element));
+  });
+}
+
+$(document).ready(function()
+{	
+    rebuildTimeSelect("start_time");
+    rebuildTimeSelect("end_time");
+  
+    actionURL=$("form:eq(0)").attr("action");
+    aStr = actionURL.split("?");
+    if(aStr.length == 2)
+        sParameter = "?"+aStr[1];
+    else
+        sParameter = "";
+
+    querySatInfo();
+});
+function querySatInfo(){
+    $.ajax({
+        url: "ajax/get_sat_info"+sParameter,
+        data:"",
+        dataType : 'json',
+        type: "POST",
+        success: function(msg){
+            schedule_rules = msg.schedule_rules;
+            idx = parseInt($("input[name=sat_led_sche_rule]").val()) -1;
+            if(!schedule_rules.hasOwnProperty(idx)){
+               return;
+            }
+            $("#start_time").val(schedule_rules[idx].start);
+            $("#end_time").val(schedule_rules[idx].end);
+            $("#lightbright").val(schedule_rules[idx].bright);
+            
+            if(schedule_rules[idx].recurrence == 127){
+                $("#schedule_daily").attr('checked', true);
+            }
+            else{
+                $("#schedule_select").attr('checked', true);
+                for(i=0;i<7;i++){
+                    if((schedule_rules[idx].recurrence & Math.pow(2,i))){
+                        $("#weekly input:eq("+i+")").attr("checked", true);
+                    }
+                }
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+
+        }
+    }); 
+}
+function checkData()
+{
+  var set_start_index = parseInt($("select[name=start_time").val());
+  var set_end_index = parseInt($("select[name=end_time").val());
+
+  var seltype = $("input[name=selday]:eq(0)").attr("checked") ? 0: 1;
+
+  var selDays = 0;
+
+  if (seltype == 1)
+  {
+    $("#weekly input").each(function(index, value){
+      if ($(this).attr("checked") == true)
+        selDays++;
+    });
+  }
+  if(set_start_index == set_end_index )
+  {
+    alert("<%559%>");
+    return false;
+  }else if(set_start_index > set_end_index)	//Prevent the start time is set to large than the end time
+  {
+    alert("<%560%>");
+    return false;
+  }else if ((seltype == 1) && (selDays == 0))	//Prevent the SelDays, but no any day option has checked.
+  {
+    alert("<%561%>");
+    return false;
+  }else if (check_time_conflict())
+  {
+    alert("<%562%>");
+    return false;
+  } 
+    
+    current=parseInt($("input[name=sat_led_sche_rule]").val());
+    if(schedule_rules.hasOwnProperty(current-1)){
+        $("input[name=schedule_name]").val(schedule_rules[current-1].name);
+    }
+    
+  return true;
+
+}
+
+function check_time_conflict(){
+    current=parseInt($("input[name=sat_led_sche_rule]").val());
+    start=parseInt($("#start_time").val());
+    end=parseInt($("#end_time").val());
+    if($("#schedule_daily").attr('checked'))
+        day=127;
+    else{
+        day=0;
+        $("#weekly input").each(function(idx){
+            if($(this).attr('checked'))
+                day=day+Math.pow(2,idx);
+        });
+    }
+    
+    conflict_flag=0;
+    $.each(schedule_rules, function(idx, rule){
+        if((idx+1) == current){
+            //console.log("["+idx+"]current rule ignore");
+            return;
+        }
+            
+        if((rule.recurrence & day) == 0){
+            //console.log("["+idx+"]week not match rs="+(rule.recurrence & day));
+            return;
+        }
+        //console.log("["+idx+"]week match rs="+(rule.recurrence & day));
+        
+        for(i=start; i<end;i++){
+            if((i >= rule.start) & (i <rule.end)){
+                //console.log("conflict i="+i+", rule.start="+rule.start+", rule.end="+rule.end);
+                conflict_flag=1;
+            }
+            
+        }
+    });
+    
+    if(conflict_flag)
+        return true;
+    else
+        return false;
+}
+/*
+DEFAULT_FLAG: true means to select the daily option and disable all day options. false means to select the selday option and enable all day options.
+*/
+function selDayType(DEFAULT_FLAG)
+{
+  if(DEFAULT_FLAG)
+    $("input[name=selday]:eq(0)").attr("checked",true);
+  else
+    $("input[name=selday]:eq(1)").attr("checked",true);
+
+  $("#weekly input").attr("disabled", ((DEFAULT_FLAG) ? true : false));
+
+  return true;
+}
+
+/*
+Handle the select active from onClick of daily and selday
+*/
+function changWeek(VAL)
+{
+  switch(VAL)
+  {
+    case "daily":
+      selDayType(true);
+      break;
+    case "selday":
+      selDayType(false);
+      break;
+    default:
+      selDayType(true);
+      break;
+  }
+}
+
+</script>
+</head>
+
+<body onload="change_size();" class="page-body" onResize="change_size();" >
+  <img class="cover-image" src="<%74%>">
+  <img class="body-image" src="<%75%>">
+  <div id="full-page-container">
+
+    <form id="target"  name="frmschedules" method="POST" action="devices_led_sche.cgi">
+      <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+      <img class="subtop-image" src="<%76%>">
+      <div class="subhead2"> <%563%></div>
+      <table border="0" style="height:370px"  class="subhead2-table">
+
+        <tr align="left" valign="middle">
+          <td align="center" colspan="2" class="table-seperate-border">
+            <button class="button-cancel" type="reset" name="sche_cancel" id="cancel" onClick="location.href='DEV_device_edit.htm';"><%83%></button>
+            <button class="button-apply2" type="submit" name="sche_apply" id="apply" onClick="buttonClick(this,'<%78%>');return checkData();"><%78%></button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+          
+          <table style="border-collapse:collapse;width:99%">
+            <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+            <tr>
+              <td colspan="2" ><b><%564%> :</b></td></tr>
+            </tr>
+            <tr>
+              <td colspan="1" width="12%">
+                <%565%> :&nbsp;
+              </td>
+              <td colspan="1" >
+                <select name="start_time" id="start_time"></select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" width="12%" >
+                <%566%> :&nbsp;
+              </td>
+              <td colspan="1" >
+                <select name="end_time" id="end_time"></select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" width="12%">
+                <%567%> :&nbsp;
+              </td>
+              <td colspan="1" >
+                <select class="divselect" name="lightbright" id="lightbright">
+                    <!--<option value="0"><%568%></option>-->
+                    <option value="100">100%</option>
+                    <option value="75">75%</option>
+                    <option value="50">50%</option>
+                    <option value="25">25%</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" ><b><%569%></b></td>
+            </tr>
+            <tr>
+              <td colspan="2" ><input type="radio" name="selday" id="schedule_daily" value="daily" onclick="changWeek(this.value);"><%570%></td>
+            </tr>
+            <tr>
+              <td colspan="2" ><input type="radio" name="selday" id="schedule_select" value="selday" onclick="changWeek(this.value);"><%571%></td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <table cellpadding="0" cellspacing="3" width="100%" id="weekly">
+                  <tr>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="sun" id="cbox_sunday" value="sun"><%572%></div>
+                    </td>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="mon" id="cbox_monday" value="mon"><%573%></div>
+                    </td>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="tue" id="cbox_tuesday" value="tue"><%574%></div>
+                    </td>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="wed" id="cbox_wednesday" value="wed"><%575%></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="thu" id="cbox_thursday" value="thu"><%576%></div>
+                    </td>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="fri" id="cbox_friday" value="fri"><%577%></div>
+                    </td>
+                    <td>
+                      <div style="padding-left: 15%;"><input type="checkbox" name="sat" id="cbox_saturday" value="sat"><%578%></div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table></div>
+          </td>
+        </tr>
+        <!--
+        <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="WLG_wifi_sche_set_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+        -->
+        </table>
+      <img class="subfooter-image" src="img/subhead2-bottom.gif">
+      <div class="subhead2-bottom" >
+        <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+        <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+        <span class="button-help-arrow">
+        <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+        <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+      
+      <input name=schedule_name type=hidden value="Default">
+      <input name=sat_led_sche_rule type=hidden value= "<%579%>">
+      <input name=start_time_default type=hidden value= "0">
+      <input name=end_time_default type=hidden value= "24">
+      <a name="helpframe-anchor"></a>
+    </form>
+  </div>
+</body>
+</html>

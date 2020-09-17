@@ -1,0 +1,421 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+var isInited = 0;
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function BlockPeriodClick(cf)
+{
+	if(cf.checkboxNamehours.checked)
+	{
+		cf.starthour.disabled = true;
+		cf.startminute.disabled = true;
+		cf.endhour.disabled = true;
+		cf.endminute.disabled = true;
+		TimePeriodDisabled = true;
+	}
+	else
+	{
+		cf.starthour.disabled = false;
+		cf.startminute.disabled = false;
+		cf.endhour.disabled = false;
+		cf.endminute.disabled = false;
+		TimePeriodDisabled = false;
+	}
+	return;
+}
+
+function BlockAllClickCheck()
+{
+	var cf = document.forms[0];
+	if(cf.checkboxNameAll.checked)
+	{
+		cf.checkboxNameMon.checked = true;
+		cf.checkboxNameTue.checked = true;
+		cf.checkboxNameWed.checked = true;
+		cf.checkboxNameThu.checked = true;
+		cf.checkboxNameFri.checked = true;
+		cf.checkboxNameSat.checked = true;
+		cf.checkboxNameSun.checked = true;
+
+		cf.checkboxNameMon.disabled = true;
+		cf.checkboxNameTue.disabled = true;
+		cf.checkboxNameWed.disabled = true;
+		cf.checkboxNameThu.disabled = true;
+		cf.checkboxNameFri.disabled = true;
+		cf.checkboxNameSat.disabled = true;
+		cf.checkboxNameSun.disabled = true;
+	}
+	else
+	{
+		cf.checkboxNameMon.disabled = false;
+		cf.checkboxNameTue.disabled = false;
+		cf.checkboxNameWed.disabled = false;
+		cf.checkboxNameThu.disabled = false;
+		cf.checkboxNameFri.disabled = false;
+		cf.checkboxNameSat.disabled = false;
+		cf.checkboxNameSun.disabled = false;
+	}
+    BlockPeriodClick(cf);
+    
+    if (cf.enable_apmode.value == "1" || cf.enable_extmode.value == "1") {
+		cf.checkboxNameAll.disabled = true;
+		cf.checkboxNameSun.disabled = true;
+		cf.checkboxNameMon.disabled = true;
+		cf.checkboxNameTue.disabled = true;
+		cf.checkboxNameWed.disabled = true;
+		cf.checkboxNameThu.disabled = true;
+		cf.checkboxNameFri.disabled = true;
+		cf.checkboxNameSat.disabled = true;  
+        
+        cf.checkboxNamehours.disabled = true;
+		cf.starthour.disabled = true;
+		cf.startminute.disabled = true;
+		cf.endhour.disabled = true;
+		cf.endminute.disabled = true;        
+    }  
+    
+    
+	return;
+}
+
+function init()
+{
+	var cf = document.forms[0];
+	var temp;
+	var old;
+	BIN=new Array(4);
+	
+
+	if (cf.schedule_day.value == 127) //check everyday if all check except everyday
+	{
+		cf.checkboxNameAll.checked = true;
+    }
+
+	for(var i=0; i<8; i++)
+			BIN[i]=0;
+
+	if (cf.schedule_day.value > 1)
+	{
+		temp = cf.schedule_day.value;
+		for(var i=0; i<8; i++)
+		{
+			old = temp;
+			temp = Math.floor(temp/2);
+
+			if (temp >= 1)
+			{
+				if ((temp*2) != old)
+					BIN[7-i] = 1;
+				else
+					BIN[7-i] = 0;
+				if (temp == 1)
+				{
+					BIN[6-i] = temp;
+					i=7;
+				}
+			}
+			else
+				i=7;
+		}
+	}
+	else if (cf.schedule_day.value == 1)
+		BIN[7]=1;
+
+	if (BIN[0] == 1) //128
+		cf.checkboxNameAll.checked = true;
+	if (BIN[1] == 1) //64
+		cf.checkboxNameSun.checked = true;
+	if (BIN[2] == 1) //32
+		cf.checkboxNameMon.checked = true;
+	if (BIN[3] == 1) //16
+		cf.checkboxNameTue.checked = true;
+	if (BIN[4] == 1) //8
+		cf.checkboxNameWed.checked = true;
+	if (BIN[5] == 1) //4
+		cf.checkboxNameThu.checked = true;
+	if (BIN[6] == 1) //2
+		cf.checkboxNameFri.checked = true;
+	if (BIN[7] == 1) //1
+		cf.checkboxNameSat.checked = true;
+
+	if ((cf.schedule_starthour.value == 0) && (cf.schedule_startminute.value == 0) && (cf.schedule_endhour.value == 23) && (cf.schedule_endminute.value == 59))
+		cf.checkboxNamehours.checked = true;
+	else
+	{
+		cf.starthour.value = cf.schedule_starthour.value;
+		cf.startminute.value = cf.schedule_startminute.value;
+		cf.endhour.value = cf.schedule_endhour.value;
+		cf.endminute.value = cf.schedule_endminute.value;
+	}
+	if(cf.checkboxNamehours.checked == true)
+	{
+		cf.starthour.value = 0;
+		cf.startminute.value = 0;
+		cf.endhour.value = 24;
+		cf.endminute.value = 0;
+	}
+	BlockAllClickCheck();
+
+    isInited = 1;
+}
+
+function checkSchedule()
+{
+	var cf = document.forms[0];
+	var value = 0;
+
+
+	if (cf.checkboxNamehours.checked)
+		cf.schedule_alldayenable.value = 1;
+	else
+		cf.schedule_alldayenable.value = 0;
+
+	if (cf.checkboxNameAll.checked)
+		value = 128;
+	if (cf.checkboxNameSun.checked)
+		value = value + 64;
+	if (cf.checkboxNameMon.checked)
+		value = value + 32;
+	if (cf.checkboxNameTue.checked)
+		value = value + 16;
+	if (cf.checkboxNameWed.checked)
+		value = value + 8;
+	if (cf.checkboxNameThu.checked)
+		value = value + 4;
+	if (cf.checkboxNameFri.checked)
+		value = value + 2;
+	if (cf.checkboxNameSat.checked)
+		value = value + 1;
+
+	cf.schedule_day.value = value;
+
+	if (!(cf.checkboxNamehours.checked))
+	{
+		if((isNumeric(cf.starthour,23) || isNumeric(cf.endhour,23)
+		  ||isNumeric(cf.startminute,59) || isNumeric(cf.endminute,59)) 
+		  && ( cf.endhour.value != 24 && cf.endminute.value != 0 ) )
+		{
+			alert("<%1370%>");
+			return false;
+		}
+		else
+		{
+			cf.starthour.value = parseInt(cf.starthour.value,10);
+			cf.endhour.value = parseInt(cf.endhour.value,10);
+			cf.startminute.value = parseInt(cf.startminute.value,10);
+			cf.endminute.value = parseInt(cf.endminute.value,10);
+		}
+
+    	if (cf.starthour.value == cf.endhour.value &&
+    	    cf.startminute.value == cf.endminute.value)
+    	{
+    		alert("<%1370%>");
+    		return false;
+        }
+
+        if (cf.starthour.value == 24 && cf.startminute.value == 0)
+        {
+			alert("<%1370%>");
+			return false;
+		}
+
+		if (cf.endhour.value == 24 && cf.endminute.value == 0)
+		{
+			// allow end time to be 24:00
+            if ((cf.starthour.value < 0) || (cf.starthour.value > 23) ||
+                (cf.startminute.value < 0) || (cf.startminute.value > 59))
+            {
+                alert("<%1370%>");
+                return false;
+            }
+		}
+		else
+        if ((cf.starthour.value < 0) || (cf.starthour.value > 23) ||
+            (cf.endhour.value < 0) || (cf.endhour.value > 23) ||
+            (cf.startminute.value < 0) || (cf.startminute.value > 59) ||
+            (cf.endminute.value < 0) || (cf.endminute.value > 59))
+    	{
+    		alert("<%1370%>");
+    		return false;
+    	}
+
+    	if ((!_isNumeric(cf.starthour.value)) ||
+    	    (!_isNumeric(cf.endhour.value)) ||
+    	    (!_isNumeric(cf.startminute.value)) ||
+    	    (!_isNumeric(cf.endminute.value)))
+    	{
+    		alert("<%1370%>");
+    		return false;
+    	}
+
+    	if ((cf.starthour.value == '') || (cf.endhour.value == ''))
+    	{
+    		alert("<%1370%>");
+    		return false;
+    	}
+
+    	if ((cf.starthour.value != '') && (cf.endhour.value != ''))
+    	{
+    		if (cf.startminute.value == '')
+    			cf.startminute.value = 0;
+    		if (cf.endminute.value == '')
+    			cf.endminute.value = 0;
+    	}
+	}
+	return true;
+}
+
+function CancelAction()
+{
+    var cf = document.forms[0];
+
+    cf.result.value="cancel";
+    return true;
+}
+
+<%885%>
+function chSession(newsession)
+{
+    if(newsession == 2)
+        location.href = "FW_schedule_ppp2.htm";		
+    else if(newsession == 1)
+        location.href = "FW_schedule.htm";		
+}
+<%886%>
+//-->
+</script>
+</head>
+<body  onload="change_size();BlockAllClickCheck();init();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="POST" action="fwSchedule.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+	<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%649%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onclick="buttonClick(this,'<%83%>');CancelAction()" type="submit" name="action" id="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onclick="if(!isInited) return false; buttonClick(this,'<%78%>');if(!checkSchedule()) return false;" type="submit" name="action" id="apply" class=<%79%> ><%81%></button>
+
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+		
+        <tr> <td colspan="2">
+<%887%>			
+    			<input checked type="radio" name=pppoesession value=session1 onClick="chSession(1);"><%888%>
+    			<input type="radio" name=pppoesession value=session2 onClick="chSession(2);"><%889%><br>
+<%890%>			
+            </td>
+        </tr>
+        <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+		<tr>
+			<td colspan="2"><b><a href="javascript:loadhelp('FW_schedule','blocksch')" tabindex="-1"><%1371%>:</a></b></td></tr>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameAll" id="everyday" onclick="BlockAllClickCheck();" type="checkbox" value="checkboxValue"><%1372%> </TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameSun" id="sun" type="checkbox" value="checkboxValue" ><%572%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameMon" id="mon" type="checkbox" value="checkboxValue"><%573%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameTue" id="tue" type="checkbox" value="checkboxValue"><%574%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameWed" id="wed" type="checkbox" value="checkboxValue"><%575%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameThu" id="thu" type="checkbox" value="checkboxValue"><%576%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameFri" id="fri" type="checkbox" value="checkboxValue"><%577%></TD></TR>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNameSat" id="sat" type="checkbox" value="checkboxValue"><%578%></TD></TR>
+        <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+		<tr>
+			<td colspan="2"><b><a href="javascript:loadhelp('FW_schedule','blocksch')" tabindex="-1"><%1373%></a></b><%1374%></td></tr>
+        <TR>
+            <TD colSpan=2 colspan="2" >
+                <INPUT name="checkboxNamehours" id="all_day" onclick="BlockPeriodClick(this.form);" type="checkbox" value="checkboxValue"> <%1375%></TD></TR>
+        <TR>
+            <TD width="50%"><%1376%></TD>
+            <TD width="50%">
+                <INPUT class="num" maxLength="2" name="starthour" id="start_hour" onfocus="if(TimePeriodDisabled) this.blur()" size=3><%1377%>
+                <INPUT class="num" maxLength="2" name="startminute" id="start_minute" onfocus="if(TimePeriodDisabled) this.blur()" size=3><%1378%></TD></TR>
+        <TR>
+            <TD width="50%"><%1379%></TD>
+            <TD>
+                <INPUT class="num" maxLength="2" name="endhour" id="end_hour" onfocus="if(TimePeriodDisabled) this.blur()" size=3><%1377%>
+                <INPUT class="num" maxLength="2" name="endminute" id="end_minute" onfocus="if(TimePeriodDisabled) this.blur()" size=3><%1378%></TD></TR>
+        <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+        
+    </table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="FW_schedule_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+
+    <INPUT name=schedule_day type=hidden value= "<%1380%>">
+    <INPUT name=schedule_alldayenable type=hidden>
+    <INPUT name=schedule_starthour type=hidden value= "<%1381%>">
+    <INPUT name=schedule_startminute type=hidden value= "<%1382%>">
+    <INPUT name=schedule_endhour type=hidden value= "<%1383%>">
+    <INPUT name=schedule_endminute type=hidden value= "<%1384%>">
+    <INPUT name=result type=hidden value= "apply">
+    <INPUT type="hidden" name="enable_apmode" value="<%696%>">
+    <INPUT type="hidden" name="enable_extmode" value="<%698%>">
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+ <head>
+  <%11%>
+</head>
+</html>
+

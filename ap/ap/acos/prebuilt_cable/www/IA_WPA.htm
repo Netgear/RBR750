@@ -1,0 +1,79 @@
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript" src="repeater.js"></script>
+<script language="javascript" type="text/javascript">
+<!-- 
+function CheckData()
+{
+    var cf = document.forms[0];
+
+    if(cf.passphrase.value.length < 8)
+    {
+        alert("Insufficient passphrase length. It should be a minimum of 8 characters long.");
+        return false;    
+    }
+    if(cf.passphrase.value.length > 63)
+    {
+        if ( isHex(cf.passphrase.value) == false)
+        {
+            alert("The passphrase is too long. The maximum length is 63 characters.");
+            cf.passphrase.value = "";
+            return false;
+        }    
+    }
+    
+    if (cf.passphrase.value.match( /[^\x20-\x7E]/ ))
+    {
+        alert("Character is not allowed in passphrase.");
+        cf.passphrase.focus();
+        return false;
+    }
+    
+    return true;
+}
+//-->
+</script> 
+</head>
+<body bgcolor="#ffffff" onload="load_default(2);document.forms[0].elements[0].focus()">
+<form method="POST" action="ia_wpa.cgi">
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+<tr>
+	<td colspan="2"><h1>Please enter the security passphrase associated with your existing network</h1></td>
+</tr>
+<tr>
+    <td height=33%><img src="spacer.gif" width="25" height="18" border="0" alt=""></td>
+</tr>
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+<tr>
+ <td nowrap width="20%" align="left">Name(SSID):</td>
+ <td nowrap width="80%" align="left"><%2671%></td>
+</tr>
+<tr>
+ <td nowrap width="20%" align="left">Security:</td>
+ <td nowrap width="80%" align="left"><%2672%></td>
+</tr>
+<tr>
+ <td nowrap width="20%" align="left">PassPhrase:</td>
+ <td nowrap width="80%" align="left"><input type="text" name="passphrase" size="18" maxlength="33"></td>
+</tr>
+<tr> <!-- RULE -->
+ <td colspan="2" height="12"> <hr class='blueBar'></td>
+</tr>
+
+<tr>
+    <td><input type="button" name="back" value=" <Back" align="right" onclick="location.href='wizard_to_welcome.html'" ></td>
+    <td><input type="submit" name="Next" value=" Continue" align="right" onclick="CheckData();" ></td>
+</tr>
+</table>
+</form>
+<p>
+</p>
+</body>
+</html>
+

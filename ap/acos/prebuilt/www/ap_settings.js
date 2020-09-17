@@ -5,8 +5,8 @@ var changeMsg = "<%15%>";
 var notShown = true; // only shown region change message once
 var initialized = false;
 // "--",Africa,Asia,Australia,Canada,Europe,Israel,Japan,Korea,Mexico,Middle East,South America,USA
-var StartChannel = new Array(<%3365%>);
-var FinishChannel = new Array(<%3366%>);
+var StartChannel = new Array(<%3321%>);
+var FinishChannel = new Array(<%3322%>);
 
 /* region define:
  * value    -- region
@@ -38,15 +38,15 @@ var FinishChannel = new Array(<%3366%>);
  */
 var Channel_All_20M = 
     new Array (
-    <%3367%>
+    <%3323%>
         );
 var Channel_All_40M = 
     new Array (
-    <%3368%>
+    <%3324%>
         );
 var Channel_All_80M = 
     new Array (
-    <%3369%>
+    <%3325%>
         );
 
 var OpMode_BG_TEXT;
@@ -67,8 +67,8 @@ var OpMode_5G_80M_VALUE;
 var selected2=100,selected3=100, ch_selected=100;
 
 var curr_region = "<%20%>"
-var curr_channel_5g_value = "<%3327%>"
-var curr_channel_2g_value = "<%1941%>"
+var curr_channel_5g_value = "<%3283%>"
+var curr_channel_2g_value = "<%1963%>"
 
 
 var chgCh_cnt = 0;  
@@ -539,7 +539,7 @@ function CheckData()
     {
         if(cf.ssid.value==cf.ssid_5g.value)
         {
-            alert("<%2595%>");
+            alert("<%2612%>");
             return false;
         }    
         
@@ -713,7 +713,7 @@ function setChannel_5g()
     var ch_list = cf.w_channel_5g;
     //var index = cf.WRegion.options[cf.WRegion.selectedIndex].value;
     var index = cf.WRegion.selectedIndex;
-    var currChVal_5g = "<%3362%>";
+    var currChVal_5g = "<%3318%>";
     var len=0, i=0;
 
     ch_list.options.length = 100;
@@ -918,8 +918,8 @@ function setOpMode_24g_psr()
     {
         cf.opmode.disabled = false;
         cf.opmode.options.length = 2;
-        cf.opmode.options[0].text = "<%3370%>";
-        cf.opmode.options[1].text = "<%3371%>";
+        cf.opmode.options[0].text = "<%3326%>";
+        cf.opmode.options[1].text = "<%3327%>";
         cf.opmode.options[0].value = "145Mbps";
         cf.opmode.options[1].value = "300Mbps";
         cf.opmode.selectedIndex = currentMode;

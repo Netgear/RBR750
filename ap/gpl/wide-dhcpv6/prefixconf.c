@@ -86,7 +86,7 @@ static int pd_ifaddrconf __P((ifaddrconf_cmd_t, struct dhcp6_ifprefix *ifpfx));
 #define DHCP_PD	"/tmp/dhcp_pd"
 extern struct iana_information ianaInfo;
 extern struct iapd_information iapdInfo;
-extern int iana_option;
+
 void copy_mac_to_eui64(char *mac, char *ifid)
 {
 	ifid[8] = mac[0];
@@ -635,8 +635,7 @@ add_ifprefix(siteprefix, prefix, pconf)
 				iapdInfo.pltimePD);	
 		system(iapd_valid_lifetime_cmd_buf);
 		system(iapd_preferred_lifetime_cmd_buf);
-		system("nvram set RA_use_dynamic_lifetime=1");
-        iana_option = 0;
+		system("nvram set RA_use_dynamic_lifetime=1");		
 
 	}
 /* Foxconn Bernie added end, 2014/11/27 */	

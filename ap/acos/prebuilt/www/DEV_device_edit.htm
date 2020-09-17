@@ -89,7 +89,7 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider:after {
-  content: "<%1015%>";
+  content: "<%1006%>";
   left: 10px;
   bottom: 3px;
 }
@@ -196,7 +196,7 @@ input:checked + .enable_slider:after {
                 "03:00 p.m.","03:30 p.m.","04:00 p.m.","04:30 p.m.","05:00 p.m.","05:30 p.m.","06:00 p.m.","06:30 p.m.","07:00 p.m.","07:30 p.m.", 
                 "08:00 p.m.","08:30 p.m.","09:00 p.m.","09:30 p.m.","10:00 p.m.","10:30 p.m.","11:00 p.m.","11:30 p.m."
             ];
-    var aWeek =["<%1052%>","<%1053%>","<%1054%>","<%1055%>","<%1056%>","<%1057%>","<%1058%>","<%570%>"];
+    var aWeek =["<%1043%>","<%1044%>","<%1045%>","<%1046%>","<%1047%>","<%1048%>","<%1049%>","<%570%>"];
     var satTimerObj=null; 
 //    var satNotifyTimerObj=null;    
     var device_type_path="device_type/";
@@ -218,11 +218,11 @@ input:checked + .enable_slider:after {
         
         if($("input[name=hid_dev_category]").val() != "0")
         {
-          iconArray[0]={ "img" : unknown_device_icon, "txt" : "<%1013%>", "val" : "unknown(0)"};
-          iconArray[-1]={ "img" : unknown_device_icon, "txt" : "<%1059%>", "val" : "default(-1)"};
-          $.getJSON("device_type/device_type_fing.json"+sParameter, function (data){
+          iconArray[0]={ "img" : unknown_device_icon, "txt" : "<%1004%>", "val" : "unknown(0)"};
+          iconArray[-1]={ "img" : unknown_device_icon, "txt" : "<%1050%>", "val" : "default(-1)"};
+          $.getJSON("device_type/device_type.json"+sParameter, function (data){
             $.each(data, function(key,val){
-              iconArray[val["Device Index"]]={ "img" : device_type_path +"icon/"+val["Icon"], "txt" : val["Device type"], "val" : val["Device type"]};
+              iconArray[val["Device Index"]]={ "img" : device_type_path +"icon/"+val["Icon"], "txt" : val["Device type"], "val" : val["Device type"]+"("+val["Device Index"]+")"};
             });
 
             sDefaultValue = $("input[name=hid_dev_defaulttype]").val().replace(/^.+\(/g,"").replace(/\).*/g, "");
@@ -264,15 +264,12 @@ input:checked + .enable_slider:after {
                 });
             }
             if(iFound == 0)
-                $("select[name=sel_dev_type]").val(19).change();
+                $("select[name=sel_dev_type]").val(24).change();
           }); 
         }        
         else
         {
-            $(".NonSatellites").css('display','none');
-            var model_input = document.getElementById("orbi_model");
-            model_input.setAttribute("readonly", "true");
-            model_input.style.backgroundColor = "#cccccccc"
+          $(".NonSatellites").css('display','none');
         }
         
         $("#led_schedule").click(function(){
@@ -294,6 +291,14 @@ function loadSettings()
 	return 0;
 }
 
+function checkInputValid(checkdata) {
+    if ( (checkdata.match( /[\x22]/ )) || (checkdata.match( /[\x27]/ )) ) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 function checkData()
 {
     var cf = document.forms[0];
@@ -304,11 +309,16 @@ function checkData()
     
     if($("input[name=dev_model").is(":visible"))
         if( devModel.length < 1 )
-            msg+="<%1060%>\n";
+            msg+="<%1051%>\n";
 	if( devName.length < 1 )
-		msg+="<%1040%>\n";
+		msg+="<%1031%>\n";
     if (devName.match( /[^\x20-\x7E]/ ) || devModel.match( /[^\x20-\x7E]/ ))
-        msg+="<%1061%>\n";
+        msg+="<%1052%>\n";
+
+    if (checkInputValid(devName) || checkInputValid(devModel)) {
+        msg+="<%1052%>\n";
+    }
+
     if (msg.length > 1) {
         alert(msg);
         return false;
@@ -571,7 +581,7 @@ function enable_all_element(){
 <form id="target"  name="frmLan" method="POST" action="attached_device_edit.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 	<img class="subtop-image" src="<%76%>">
-<div class="subhead2"><%1062%></div>
+<div class="subhead2"><%1053%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -586,31 +596,31 @@ function enable_all_element(){
     <table style="border-collapse:collapse;width:99%">
       <tr><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr>
-      <td nowrap><%1063%></td>
-      <td nowrap><%1064%></td>
+      <td nowrap><%1054%></td>
+      <td nowrap><%1055%></td>
       <td id="device_type_icon" rowspan="5"></td>
       </tr>
       <tr>
-      <td nowrap><%1044%></td>
-      <td nowrap><%1065%></td>
-      </tr>
-      <tr>
-      <td nowrap><%1066%></td>
-      <td nowrap><input type="text" size="24" maxlength="30" name="dev_model" id="orbi_model" value="<%1067%>"></td>
-      </tr>
-      <tr>
-      <td nowrap><%641%></td>
-      <td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="orbi_name" value="<%1068%>"></td>
+      <td nowrap><%1035%></td>
+      <td nowrap><%1056%></td>
       </tr>
       <tr class="NonSatellites">
-      <td nowrap><%1069%></td>
+      <td nowrap><%1057%></td>
+      <td nowrap><input type="text" size="24" maxlength="30" name="dev_model" id="orbi_model" value="<%1058%>"></td>
+      </tr>
+      <tr>
+      <td nowrap><%642%></td>
+      <td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="orbi_name" value="<%1059%>"></td>
+      </tr>
+      <tr class="NonSatellites">
+      <td nowrap><%1060%></td>
       <td nowrap>
         <select name="sel_dev_type" id="orbi_devtype"></select>
       </td>
       </tr>
       <tr><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr class="OutdoorSAT">
-          <td nowrap><div class="page_sub_title"><%1070%></div></td>
+          <td nowrap><div class="page_sub_title"><%1061%></div></td>
           <td nowrap>
             <label class="switch">
                 <input type="checkbox" name="led_switch" id="led_switch" onclick="changeLedOnOff()"><div class="slider round"></div>
@@ -619,12 +629,12 @@ function enable_all_element(){
       </tr>
       <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr class="OutdoorSAT">
-          <td nowrap><div class="page_sub_title"><%1071%></div></td>
+          <td nowrap><div class="page_sub_title"><%1062%></div></td>
           <td nowrap></td>
       </tr>
       <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr class="OutdoorSAT">
-          <td nowrap><b style="color:#7d706c"><%1072%> :</b></td>
+          <td nowrap><b style="color:#7d706c"><%1063%> :</b></td>
           <td nowrap><select class="divselect" name="lightbright" id="lightbright" onchange="changeBrightness()">
             <!--<option value="0"><%568%></option>-->
             <option value="100">100%</option>
@@ -634,20 +644,20 @@ function enable_all_element(){
           </select></td>
       </tr>
       <tr class="OutdoorSAT">
-        <td colspan="2" nowrap><input type="checkbox" name="led_schedule" id="led_schedule" class="ImpactOnNTP" value="1"><b style="color:#7d706c"><%1073%></b></td>
+        <td colspan="2" nowrap><input type="checkbox" name="led_schedule" id="led_schedule" class="ImpactOnNTP" value="1"><b style="color:#7d706c"><%1064%></b></td>
       </tr>
       <tr class="OutdoorSAT">
-        <td colspan="2" nowrap style="color:red"><b id="ntp_warning" style="display:none"><%1074%></b></td>
+        <td colspan="2" nowrap style="color:red"><b id="ntp_warning" style="display:none"><%1065%></b></td>
       </tr>
       <tr class="OutdoorSAT">
-        <td colspan="2" nowrap><b><%1075%></b></td>
+        <td colspan="2" nowrap><b><%1066%></b></td>
       </tr>
       <tr class="OutdoorSAT">
         <td colspan="2" width="100%">
             <table id="sch_thead" class="tbWhite sortable" border="0" cellpadding="0" cellspacing="0" width="99%">
             <thead>
               <tr>
-                <td nowrap align="center" width="8%"><span class="subheadtext"><%1076%></span></td>
+                <td nowrap align="center" width="8%"><span class="subheadtext"><%1067%></span></td>
                 <td nowrap align="center" width="25%"><span class="subheadtext"><%565%></span></td>
                 <td nowrap align="center" width="25%"><span class="subheadtext"><%566%></span></td>
                 <td nowrap align="center" width="25%"><span class="subheadtext"><%569%></span></td>
@@ -660,17 +670,17 @@ function enable_all_element(){
         </td>
         <tr>
         <td class="OutdoorSAT" colspan="2" nowrap align="center">
-            <button type="submit" value="add" id="add_sche" name="add_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'add_white');"><%1077%></button>
+            <button type="submit" value="add" id="add_sche" name="add_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'add_white');"><%1068%></button>
             &nbsp;&nbsp;&nbsp;
-            <button type="submit" value="edit" id="edit_sche" name="edit_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'edit');"><%811%></button>
+            <button type="submit" value="edit" id="edit_sche" name="edit_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'edit');"><%803%></button>
             &nbsp;&nbsp;&nbsp;
-            <button type="submit" value="Delete" id="delete_sche" name="delete_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'Delete');"><%923%></button>
+            <button type="submit" value="Delete" id="delete_sche" name="delete_sche" class="button-common ImpactOnNTP" onclick="buttonClick(this,'Delete');"><%914%></button>
         </td>
       </tr>
     </tr>
       <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr class="OutdoorSAT">
-          <td nowrap><div class="page_sub_title"><%1078%></div></td>
+          <td nowrap><div class="page_sub_title"><%1069%></div></td>
           <td nowrap>
             <label class="enable_switch">
                 <input type="checkbox" name="sync_switch" id="sync_switch" onclick="changeSyncButton()"><div class="enable_slider round"></div>
@@ -678,7 +688,7 @@ function enable_all_element(){
           </td>
       </tr>
       <tr class="OutdoorSAT">
-        <td colspan="2" nowrap style="color:red"><b id="sync_btn_warning" style="display:none"><%1079%></b></td>
+        <td colspan="2" nowrap style="color:red"><b id="sync_btn_warning" style="display:none"><%1070%></b></td>
       </tr>
       <tr class="OutdoorSAT"><td colspan="3" height="12" ><hr class='blueBar'></td></tr>
       <tr><td>&nbsp;</td></tr>
@@ -700,13 +710,13 @@ function enable_all_element(){
   </div>
 
   <input name="access_control_add_type" type="hidden" value="allowed_list">
-  <input name="is_edit_itself" type="hidden" value="<%1051%>">
-  <input name="dev_mac" type="hidden" value="<%1065%>">
-  <input type="hidden" name="hid_dev_type" value="<%1080%>">
-  <input type="hidden" name="hid_dev_category" value="<%1081%>">
-  <input type="hidden" name="hid_dev_defaulttype" value="<%1082%>">
+  <input name="is_edit_itself" type="hidden" value="<%1042%>">
+  <input name="dev_mac" type="hidden" value="<%1056%>">
+  <input type="hidden" name="hid_dev_type" value="<%1071%>">
+  <input type="hidden" name="hid_dev_category" value="<%1072%>">
+  <input type="hidden" name="hid_dev_defaulttype" value="<%1073%>">
   <input type="hidden" name="dev_type" value="">
-  <input name="ntp_update_result" type="hidden" value="<%1083%>">
+  <input name="ntp_update_result" type="hidden" value="<%1074%>">
   
 </form>
 

@@ -42,22 +42,22 @@ function checkData()
 
     if (cf.vlan_name.value == "" || (cf.vlan_name.value.match( /[^\x21-\x7E]/ )))
     {
-        msg+="<%2949%>\n";
+        msg+="<%2950%>\n";
         alert(msg);
         return false;
     }
     if ((!_isNumeric(cf.vlan_id.value)) || isNaN(vlan_id) || vlan_id > 4094 || vlan_id < 1) {
-        alert("<%2950%>");
+        alert("<%2951%>");
         return false;
     }
         
     if ((!_isNumeric(cf.vlan_prio.value)) || isNaN(vlan_prio) || vlan_prio > 7 || vlan_prio < 0) {
-        alert("<%2952%>");
+        alert("<%2953%>");
         return false;
     }
 
     if ( vlan_id == 4094 || vlan_id == 4093) {
-        alert("<%2951%>");
+        alert("<%2952%>");
         return false;
     }
 
@@ -78,32 +78,32 @@ function checkData()
         i++;
     }
     if (conflict) {
-        alert("<%2953%> "+cf.vlan_name.value+" <%2954%>");
+        alert("<%2954%> "+cf.vlan_name.value+" <%2955%>");
         return false;
     }
     
     if (cf.vlan_name.value == "Internet")
         return true;
     
-    if(<%2917%>(!cf.vlan_ports_0.checked) && <%2918%>(!cf.vlan_ports_1.checked) && (!cf.vlan_ports_2.checked)
+    if(<%2926%>(!cf.vlan_ports_0.checked) && <%2927%>(!cf.vlan_ports_1.checked) && (!cf.vlan_ports_2.checked)
          && (!cf.vlan_ports_3.checked) && (!cf.vlan_ports_4.checked) && (!cf.vlan_ports_5.checked)
-<%2913%>
+<%2924%>
          && (!cf.vlan_ports_6.checked)
-<%2914%>
+<%2925%>
          )
     {
-        alert("<%2956%>");
+        alert("<%2957%>");
         return false;
     }
     
-    if(<%2917%>(cf.vlan_ports_0.checked) && <%2918%>(cf.vlan_ports_1.checked) && (cf.vlan_ports_2.checked)
+    if(<%2926%>(cf.vlan_ports_0.checked) && <%2927%>(cf.vlan_ports_1.checked) && (cf.vlan_ports_2.checked)
          && (cf.vlan_ports_3.checked) && (cf.vlan_ports_4.checked) && (cf.vlan_ports_5.checked)
-<%2913%>
+<%2924%>
          && (cf.vlan_ports_6.checked)
-<%2914%>
+<%2925%>
          )
     {
-        alert("<%2955%>");
+        alert("<%2956%>");
         return false;
     }
 
@@ -116,17 +116,17 @@ function checkData()
 function loadSettings()
 {
     var cf = document.forms[0];
-    cf.vlan_name.value = "<%2960%>";
+    cf.vlan_name.value = "<%2961%>";
     
     if(cf.vlan_name.value == "Internet")
     {
         document.getElementById("vlan_name").readOnly = true
         document.getElementById("vlan_support_lan").style.display = "none";
     }
-    cf.vlan_id.value = "<%2961%>";
-    cf.vlan_prio.value = "<%2962%>";
+    cf.vlan_id.value = "<%2962%>";
+    cf.vlan_prio.value = "<%2963%>";
     
-    var vlan_ports= "<%2963%>";
+    var vlan_ports= "<%2964%>";
     
     if (vlan_ports & 0x1)
         cf.vlan_ports_0.checked = true;
@@ -140,10 +140,10 @@ function loadSettings()
         cf.vlan_ports_4.checked = true;
     if (vlan_ports & 0x20)
         cf.vlan_ports_5.checked = true;
-<%2913%>
+<%2924%>
     if (vlan_ports & 0x40)
         cf.vlan_ports_6.checked = true;
-<%2914%>
+<%2925%>
 
 }
 
@@ -158,7 +158,7 @@ function loadSettings()
 <form id="target"  method="POST" action="vlan_rule.cgi">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
     <img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%2964%></div>
+<div class="subhead2"> <%2965%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -176,27 +176,27 @@ function loadSettings()
 <table border="0"   width="100%">
 
 <tr>
-    <td nowrap><%2937%></td>
+    <td nowrap><%2939%></td>
     <td width="50%" align="left" ><input type="text" id = "vlan_name" name="vlan_name" value="" size="15" maxlength="10"></td>
 </tr>
 <tr>
-    <td nowrap><%2938%></td>
+    <td nowrap><%2940%></td>
     <td width="50%" align="left">
         <input type="text" id="vlan_id" name="vlan_id" value="" class="num" size="10" maxlength="4">
-    <%2958%>
+    <%2959%>
     </td>
 </tr>
 <tr>
-    <td nowrap><%2939%></td>
+    <td nowrap><%2941%></td>
     <td width="50%" align="left">
         <input type="text" id="vlan_prio" name="vlan_prio" value="" class="num" size="10" maxlength="1">
-    <%2959%>
+    <%2960%>
     </td>
 </tr>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr id="vlan_support_lan">
     <td nowrap colspan=2>
-    <td style="<%2917%>display: none<%2918%>">
+    <td style="<%2926%>display: none<%2927%>">
       <input type="checkbox" id="vlan_ports_0" name="vlan_ports_0">Port1
     </td>
     <td>
@@ -205,18 +205,18 @@ function loadSettings()
     <td>
       <input type="checkbox" id="vlan_ports_2" name="vlan_ports_2">Port3
     </td>
- <%1566%>    
+ <%1559%>    
     <td>
       <input type="checkbox" id="vlan_ports_3" name="vlan_ports_3">Port4
     </td>
- <%1576%>       
+ <%1569%>       
 <!--    
     <input type="checkbox" name="vlan_ports_4">WiFi-2.4G
     <input type="checkbox" name="vlan_ports_5">WiFi-5G
 -->    
-<%2930%>
+<%2935%>
     <input type="checkbox"  style="display: none;" id="vlan_ports_6" name="vlan_ports_6">
-<%2931%>
+<%2936%>
 </td>
 </tr>
 <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
@@ -235,9 +235,9 @@ function loadSettings()
     <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
       </div>
 
-<input type="hidden" name="vlan_rule_name" value="<%2945%>">
-<input type="hidden" name="orig_vlan_name" value="<%2960%>">
-<INPUT name="vlan_enable" type="hidden" value= "<%2942%>">
+<input type="hidden" name="vlan_rule_name" value="<%2947%>">
+<input type="hidden" name="orig_vlan_name" value="<%2961%>">
+<INPUT name="vlan_enable" type="hidden" value= "<%2944%>">
 <INPUT name="vlan_mode" type="hidden" value="edit">
 
 <a name="helpframe-anchor"></a>

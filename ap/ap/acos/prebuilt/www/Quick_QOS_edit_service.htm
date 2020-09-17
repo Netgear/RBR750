@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<link rel="stylesheet" href="form.css">
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<STYLE TYPE="text/javascript">
+classes.num.all.fontFamily = "Courier";
+classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+
+    $(document).ready(function()
+    {	
+//           $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+    });
+
+	function init()
+	{
+		var cf = document.forms[0];
+		var quick_qos_edit_new_service;
+		var quick_qos_edit_device;
+
+		if(cf.quick_qos_rule_value.value == "0")
+		{
+			if(cf.service_type.value == "new")
+			{
+				
+				document.getElementById("edit_new_service").style.display="block";
+				document.getElementById("edit_custom_service").style.display="none";
+				quick_qos_edit_new_service = cf.quick_qos_rule_edit.value;
+				var quick_qos_new_service_param = quick_qos_edit_new_service.split("&");
+				cf.qos_service_policy.value = quick_qos_new_service_param[0];
+				cf.qos_protocol.value = quick_qos_new_service_param[1];
+				cf.qos_port_start.value = quick_qos_new_service_param[2];
+				cf.qos_port_end.value = quick_qos_new_service_param[3];
+				cf.new_qos_priorityList.value = cf.quick_qos_priority_edit.value;
+			}
+			if(cf.service_type.value == "custom")
+			{
+				document.getElementById("edit_custom_service").style.display="block";
+				document.getElementById("edit_new_service").style.display="none";
+				cf.custom_qos_priorityList.value = cf.quick_qos_priority_edit.value;
+			}
+			document.getElementById("edit_device").style.display="none";
+			document.getElementById("edit_lan_port").style.display="none";
+		}
+		else if(cf.quick_qos_rule_value.value == "1")
+		{
+			document.getElementById("edit_new_service").style.display="none";
+			document.getElementById("edit_custom_service").style.display="none";
+			document.getElementById("edit_device").style.display="block";
+			document.getElementById("edit_lan_port").style.display="none";
+			quick_qos_edit_device = cf.quick_qos_rule_edit.value;
+			var quick_qos_device_param = quick_qos_edit_device.split("&");
+			cf.qos_mac_address.value = quick_qos_device_param[0];
+			cf.qos_device_policy.value = quick_qos_device_param[1];
+			cf.qos_device_name.value = quick_qos_device_param[2];
+			cf.device_priorityList.value = cf.quick_qos_priority_edit.value;
+		}
+		else if(cf.quick_qos_rule_value.value == "2")
+		{
+			document.getElementById("edit_new_service").style.display="none";
+			document.getElementById("edit_custom_service").style.display="none";
+			document.getElementById("edit_device").style.display="none";
+			document.getElementById("edit_lan_port").style.display="block";
+			quick_qos_edit_device = cf.quick_qos_rule_edit.value;
+			var quick_qos_device_param = quick_qos_edit_device.split("&");
+			cf.qos_lan_port_policy.value = quick_qos_device_param[0];
+			cf.qos_lan_port_num.value = quick_qos_device_param[1];
+			cf.lan_port_priority_list.value = cf.quick_qos_priority_edit.value;
+		}
+		return true;
+	}
+	
+	function check_data()
+	{
+		var cf = document.forms[0];
+		if(cf.quick_qos_rule_value.value == "0")
+		{
+			if(cf.service_type.value == "new")
+			{
+				if (cf.qos_service_policy.value == "") 
+				{ 
+					alert("<%2038%>");
+					return false;
+				}
+				if (cf.qos_port_start.value == "") 
+				{ 
+					alert("<%2046%>");
+					return false;
+				}
+				if (cf.qos_port_end.value == "") 
+				{ 
+					alert("<%2046%>");
+					return false;
+				}				
+			}
+		}
+		else if(cf.quick_qos_rule_value.value == "1")
+		{
+			if (cf.qos_device_policy.value == "") 
+			{ 
+				alert("<%2038%>");
+				return false;
+			}
+			if (cf.qos_device_name.value == "") 
+			{ 
+				alert("<%1040%>");
+				return false;
+			}
+			if (!check_mac())
+			{
+				alert("<%0%>");
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	function check_mac()
+	{
+		var cf = document.forms[0];
+		var msg = "";
+		var m1;
+		var mac = cf.qos_mac_address.value.split(":");
+		
+		cf.mac1.value = mac[0];
+		cf.mac2.value = mac[1];
+		cf.mac3.value = mac[2];
+		cf.mac4.value = mac[3];
+		cf.mac5.value = mac[4];
+		cf.mac6.value = mac[5];
+		if(checkMacAddress(cf.mac1, cf.mac2, cf.mac3, cf.mac4, cf.mac5, cf.mac6))
+			msg += "<%0%>\n";
+		else if (cf.mac1.value == "00" && cf.mac2.value == "00" && cf.mac3.value == "00" && 
+			cf.mac4.value == "00" && cf.mac5.value == "00" && cf.mac6.value == "00")
+			msg += "<%0%>\n";
+		else if (cf.mac1.value == "FF" && cf.mac2.value == "FF" && cf.mac3.value == "FF" && 
+			cf.mac4.value == "FF" && cf.mac5.value == "FF" && cf.mac6.value == "FF")
+			msg += "<%0%>\n";
+		else {
+			m1 = parseInt(cf.mac1.value, 16);
+			if (m1 & 1)
+				msg += "<%0%>\n";
+		}
+		if (msg.length > 1) {
+			alert(msg);
+			return false;
+		}
+		return true;
+	}
+
+</script>
+</head>
+<body onload="change_size();init();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="img/cover-image.gif">
+<img class="body-image" src="img/subhead2-background.jpg">
+<div id="full-page-container">
+
+<form id="target"  name="qoseditrule" method="POST" action="quick_qos_edit_serv.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<div>
+<img class="subtop-image" src="img/subhead2-top.gif">
+<div class="subhead2"> <%2039%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+&nbsp;&nbsp;&nbsp;<button value="<%78%>"  onclick="buttonClick(this,'<%78%>');return check_data();" type="submit" name="apply" class=<%79%> > <span class="<%80%>" ><%81%>&nbsp;<span class="apply-icon">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="<%82%>">&nbsp;&nbsp;&nbsp;</span></button>
+&nbsp;&nbsp;&nbsp;<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='QOS_down_streaming.htm'" type="button" name="cancel" class="button-rule" ><span class="roundleft_button"><span class ="cancel-icon">&nbsp;&nbsp;&nbsp;&nbsp;<%84%></span></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<table style="border-collapse:collapse;width:99%">
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr><td><table border ="0"   width="100%">
+	<tr><td colspan="2" tabindex="-1"><b><%2040%></b></a></td></tr>
+	
+<tr><td colspan="2"><div id="edit_new_service" style="display: block;">
+<table cellpadding="0" cellspacing="3" width="100%">
+	<tr><td width="50%"><%2041%></td>
+	<td><input type="text" name="qos_service_policy" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%2040%></td>
+	<td><select name="new_qos_priorityList" size="1" style="height:20px;width:100px">
+		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		</select></td></tr>
+	<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+	<tr><td width=50% tabindex=-1><%998%></td>
+	<td width=50%><select name="qos_protocol"><option value="TCP/UDP" selected><%942%></option><option value="TCP"><%940%></option>
+		<option value="UDP"><%941%></option></select></td></tr>
+	<tr><td width=50% tabindex=-1><%943%></td>
+		<td width=50% class="num"><input type="text" name="qos_port_start" size=6 maxlength=5>(1~65535)</td></tr>
+    <tr><td width=50% tabindex=-1><%944%></td>
+        <td width=50% class="num"><input type="text" name="qos_port_end" size=6 maxlength=5>(1~65535)</td></tr>
+    <tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
+	</table></div></td></tr>
+	
+<tr><td colspan="2"><div id="edit_custom_service" style="display: block;">
+<table cellpadding="0" cellspacing="3" width="100%">
+	<tr><td width="50%"><%2041%></td>
+	<td ><%2047%></td></tr>
+	<tr><td width="50%"><%2048%></td>
+	<td ><%2047%></td></tr>
+	<tr><td width="50%"><%2040%></td>
+	<td><select name="custom_qos_priorityList" size="1" style="height:20px;width:100px">
+		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		</select></td></tr>
+    <tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
+	</table></div></td></tr>
+	
+<tr><td colspan="2"><div id="edit_device" style="display: block;">
+<table cellpadding="0" cellspacing="3" width="100%">
+	<tr><td width="50%"><%2041%></td>
+	<td><input type="text" name="qos_device_policy" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%979%></td>
+	<td><input type="text" name="qos_mac_address" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%978%></td>
+	<td><input type="text" name="qos_device_name" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%2040%></td>
+	<td><select name="device_priorityList" size="1" style="height:20px;width:100px">
+		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		</select></td></tr>
+	<tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
+	</table></div></td></tr>
+
+<tr><td colspan="2"><div id="edit_lan_port" style="display: block;">
+<table cellpadding="0" cellspacing="3" width="100%">
+	<tr><td width="50%"><%2041%></td>
+	<td><input type="text" name="qos_lan_port_policy" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%2049%></td>
+	<td><input type="text" name="qos_lan_port_num" size="20" maxlength="32"></td></tr>
+	<tr><td width="50%"><%2040%></td>
+	<td><select name="lan_port_priority_list" size="1" style="height:20px;width:100px">
+		<option value="0"><%2042%></option><option value="1"><%2043%></option><option value="2"><%2044%></option><option value="3"><%2045%></option>
+		</select></td></tr>
+	<tr><td colspan=2 height=12><hr class='blueBar'></td></tr>
+	</table></div></td></tr>
+
+</table></td></tr>
+</table></div></td></tr>
+
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="QOS_main_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+</div>
+<a name="helpframe-anchor"></a>
+
+<input type="hidden" name="quick_qos_rule_value" value="<%2050%>">
+<input type="hidden" name="service_type" value="<%2051%>">
+<input type="hidden" name="quick_qos_rule_edit" value="<%2052%>">
+<input type="hidden" name="quick_qos_priority_edit" value="<%2053%>">
+<input type="hidden" name="mac1" value="">
+<input type="hidden" name="mac2" value="">
+<input type="hidden" name="mac3" value="">
+<input type="hidden" name="mac4" value="">
+<input type="hidden" name="mac5" value="">
+<input type="hidden" name="mac6" value="">
+
+</form>
+</div>
+</body>
+</html>
+

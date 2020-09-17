@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%11%>
+<script src="jquery.js"></script>
+<%14%>
+<link rel="stylesheet" type="text/css" href="<%296%>">
+<style type="text/css">
+#terms_of_services{
+  width:100%;
+  height:200px;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  padding:3px;
+  border:#C9C9C9 1px solid;
+}
+#terms_of_services h1{
+    padding-left:0;
+    font-size:16px;
+    color:#434343;
+}
+#terms_of_services p{
+    font-size:14px;
+}
+#have_read+label{
+    word-break:break-word;
+    color:#434343;
+}
+#next:disabled{
+    color: #FFF;
+	background:#666;
+}
+[type="checkbox"]{
+	box-sizing:border-box;
+	position:absolute;left:-9999px;
+}
+[type="checkbox"]+label{
+	position:relative;
+	padding-left:35px;
+	cursor:pointer;
+	display:inline-block;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	text-align:left;
+	word-break:keep-all;
+}
+[type="checkbox"]+label:before{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:18px;
+	height:18px;
+	z-index:0;
+	border:#5A5A5A 2px solid;
+	border-radius:1px;
+	margin-top:2px;
+	transition:.2s;
+}
+[type="checkbox"]:checked+label:before{
+	top:-4px;
+	left:-5px;
+	width:12px;
+	height:22px;
+	border-top:transparent 2px solid;
+	border-left:transparent 2px solid;
+	border-right:#00A1DE 1px solid;
+	border-bottom:#00A1DE 1px solid;
+	-webkit-transform:rotate(40deg);
+	transform:rotate(40deg);
+	-webkit-backface-visibility:hidden;
+	backface-visibility:hidden;
+	-webkit-transform-origin:100% 100%;
+	transform-origin:100% 100%;
+}
+
+</style>
+<script type="text/javascript">
+
+    function nextPage()
+    {
+        window.location.href="Orbi_detwan_progress.htm";
+    }
+    
+    $(document).ready(function()
+    {
+        $("#have_read").click(function(){
+            if($('#have_read').is(":checked"))
+                $('#next').attr("disabled", false);
+            else
+                $('#next').attr("disabled", true);
+
+        });
+    });
+
+</script>
+</head>
+<body>
+<div  class="dialog-content">
+    <div id="card_tos" class="wizard-card">
+        <div>
+            <img src="img/logo_netg.png" style="display:block; margin:auto;">
+        </div>
+        <div class = "desc-title" style="padding-top: 27px;">
+            <%346%>
+        </div>
+        <div id="terms_of_services" style = "margin-top: 5px">
+            <%347%>
+            <%348%>
+            <%349%>
+            <%350%>
+            <%351%>
+            <%352%>
+            <%353%>
+            <%354%>
+            <%355%>
+            <%356%>
+            <%357%>
+            <%358%>
+        </div>
+        <div class = "desc-text" style = "margin-top: 5px">
+            <input type="checkbox" name="have_read" id="have_read">
+            <label for="have_read">
+            <%359%>
+            </label>
+        </div>
+        <button id="next" class="button-nav" style="display:block; margin:auto;margin-top: 53px" onclick="nextPage();" disabled>
+            <span><%303%></span>
+        </button>
+    </div>
+</div>
+</body>
+</html>

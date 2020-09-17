@@ -39,23 +39,23 @@ $(window).load(function() {
     var form=document.forms[0];
 	var lang = form.curlang.value;
     //notification of R7000 full feature
-    <%587%>		
+    <%588%>		
 
-    <%588%>	
+    <%589%>	
 	//When the multilanguage droplsit switched to Japanese and Hungarian disappear. 
     if((isIE && isIE8 && lang == "Japanese") || (isIE && isIE8 && lang == "Hungarian"))
 	{
 	    //alert("no change");
 	}else
 	{
-    <%589%>	
+    <%590%>	
 		//alert("change");
 		$('#lang_menu_li').css("float", "right");
  	    $('#lang_menu_li').css("padding-right", "25px");
         $('#lang_menu_li').css("margin-bottom", "10px");
-    <%588%>	
-	}
     <%589%>	
+	}
+    <%590%>	
 
 
 	
@@ -121,12 +121,12 @@ $(document).ready(function(){
 
     adjustPageLayout();
       
-    <%595%>;
+    <%596%>;
          
     liveMenuClick();
     advanceMenu();
     $('.subHeader').hide();
-    var pnpx = <%596%>
+    var pnpx = <%597%>
     if(pnpx == 1){        
         $("#AdvanceTab").click();
         $("#basic-pane").css("display","none");
@@ -263,7 +263,7 @@ function liveMenuClick()
          ev.preventDefault();
 
       }); 
-	  <%598%>
+	  <%599%>
 	  $('.basic-menu-eco-div').live("click", function(ev){  
          $('.menuActive').removeClass('menuActive');
          $(this).addClass('menuActive');
@@ -272,7 +272,7 @@ function liveMenuClick()
          ev.preventDefault();
 
       });
-	  <%599%>
+	  <%600%>
 
          
       $('.noSub').live("click",function(ev){              
@@ -717,7 +717,7 @@ function chgLang()
         var choice = form.choicelang.value;
         var auto_block = form.auto_block.value;      
         if (choice != gui_region){      
-                ret = confirm("<%600%> "+ gui_lang_local + ""+"<%601%> "+""+ choice + "?");
+                ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ choice + "?");
                 if(ret==1){
                     if($("#BasicTab").hasClass('current')){
                         loadPage("LANG_check_redirect.htm");
@@ -743,7 +743,7 @@ function chgBrsLang()
             if(auto_block == "0"){
 
                 if(gui_lang != brslang){
-                    ret = confirm("<%600%> "+ gui_lang_local + ""+"<%601%> "+""+ brslang + "?");
+                    ret = confirm("<%601%> "+ gui_lang_local + ""+"<%602%> "+""+ brslang + "?");
                     if(ret==1){
                         if($("#BasicTab").hasClass('current')){
                            loadPage("LANG_check_redirect2.htm");
@@ -811,10 +811,10 @@ function change_size()
         
     </td>
     <td style="text-align:right;padding-right:25px">
-        <button type="button" value="BUTTON"  onClick="gui_logout();" name="logout" class="button-rule" style="padding-left:10px" ><span class="roundleft_button">&nbsp;&nbsp;&nbsp;&nbsp;<%602%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
+        <button type="button" value="BUTTON"  onClick="gui_logout();" name="logout" class="button-rule" style="padding-left:10px" ><span class="roundleft_button">&nbsp;&nbsp;&nbsp;&nbsp;<%603%></span><span class="roundright_button">&nbsp;&nbsp;&nbsp;&nbsp;</span></button>
         <br><br style='line-height:8px'>
-        <b><%603%></b>
-        <br><%604%>
+        <b><%604%></b>
+        <br><%605%>
         </td>
 
 
@@ -823,22 +823,22 @@ function change_size()
 
 <table CELLPADDING=0 CELLSPACING=0 style="height:520px;width:100%;margin:0;padding:0">
 <form name="frmLanguage">
-<%605%>
 <%606%>
-    <input type="hidden" name="curlang" value="Auto"> 
 <%607%>
+    <input type="hidden" name="curlang" value="Auto"> 
 <%608%>
-	<input type="hidden" name="curlang" value="<%9%>"> 
 <%609%>
+	<input type="hidden" name="curlang" value="<%9%>"> 
 <%610%>
 <%611%>
-	<input type="hidden" name="curlang" value="<%9%>">
 <%612%>
-	<input type="hidden" name="local_srptlang" value="<%613%>">
-	<input type="hidden" name="srptlang" value="<%614%>">
+	<input type="hidden" name="curlang" value="<%9%>">
+<%613%>
+	<input type="hidden" name="local_srptlang" value="<%614%>">
+	<input type="hidden" name="srptlang" value="<%615%>">
 	<input type="hidden" name="select_region" value="">
-        <input type="hidden" name="first_brs_lang" value="<%615%>"> 
-        <input type="hidden" name="auto_block" value="<%616%>">
+        <input type="hidden" name="first_brs_lang" value="<%616%>"> 
+        <input type="hidden" name="auto_block" value="<%617%>">
         <input type="hidden" name= "gui_lang" value="<%9%>">
         <input type="hidden" name= "gui_lang_local" value="">
       
@@ -846,9 +846,9 @@ function change_size()
 <td>
 <!-- tabs -->
 <ul class="tabs" width="100%" >
-    <li><a id="BasicTab"class="current" onFocus="this.blur()" href="#"><span><%617%></span></a></li>
-    <li><a id="AdvanceTab" onFocus="this.blur()" href="#"><span><%618%></span></a></li>   
-    <li><%3158%></li>
+    <li><a id="BasicTab"class="current" onFocus="this.blur()" href="#"><span><%618%></span></a></li>
+    <li><a id="AdvanceTab" onFocus="this.blur()" href="#"><span><%619%></span></a></li>   
+    <li><%3114%></li>
     <li id="lang_menu_li" style="" >
        <select name="choicelang" size="1" id="lang_menu" class="selectbox" onchange="chgLang();this.blur();">
        <script>ShowLanguageList();</script>
@@ -861,14 +861,14 @@ function change_size()
 <tr>
 <td style="background-color:#E5E5E5;width:200px;font-size:12px;font-family:Arial;">
 	<div class="basic-menu">
-            <div class="basic-menu-div" id="basic-home"><a href="DashBoard.htm"><span><%620%></span></a></div>
-            <div class="basic-menu-div" id="basic-int"><a href="<%621%>" id="INT_menu"><span><%622%></span></a></div>
-            <div class="basic-menu-div" id="basic-wls"><a href="<%594%>" id="WLS_menu"><span><%623%></span></a></div>
-            <div class="basic-menu-div" id="basic-atd"><a href="DEV_redirect.htm"><span><%624%></span></a></div>
+            <div class="basic-menu-div" id="basic-home"><a href="DashBoard.htm"><span><%621%></span></a></div>
+            <div class="basic-menu-div" id="basic-int"><a href="<%622%>" id="INT_menu"><span><%623%></span></a></div>
+            <div class="basic-menu-div" id="basic-wls"><a href="<%595%>" id="WLS_menu"><span><%624%></span></a></div>
+            <div class="basic-menu-div" id="basic-atd"><a href="DEV_redirect.htm"><span><%625%></span></a></div>
             <div class="basic-menu-div" id="basic-par"><a href="http://netgear.opendns.com/" id="PAR_menu"><span><%543%></span></a></div>
-            <div class="basic-menu-div" id="basic-rea"><a href="USB_basic_main.htm"><span><%3159%></span></a></div>
-            <div class="basic-menu-div" id="basic-gst"><a href="<%705%>"><span><%706%></span></a></div>
-			<%3160%>
+            <div class="basic-menu-div" id="basic-rea"><a href="USB_basic_main.htm"><span><%3115%></span></a></div>
+            <div class="basic-menu-div" id="basic-gst"><a href="<%706%>"><span><%707%></span></a></div>
+			<%3116%>
 			<div>&nbsp;</div>
 			<div>&nbsp;</div>
 			<div>&nbsp;</div>
@@ -880,7 +880,7 @@ function change_size()
 			<div>&nbsp;</div>
 			<div>&nbsp;</div>
 			<div class="basic-menu-eco-div" id="basic-eco"><a href="https://genie.netgear.com/" id="ECO_menu"><span>genie+ Marketplace</span></a></div>
-			<%3161%>
+			<%3117%>
         </div>
 </td>
 <td style="background-color:#e5e5e5;width:760px;height:480px;font-family:Arial;">
@@ -897,79 +897,79 @@ function change_size()
 <tr style="height:480px;">
 <td style="background-color:#E5E5E5;width:200px;">
 <ul class="advance-menu"> 
-    <li class="noSub" id="adv-home"><a href="ADVANCED_home.htm"><span class="nosub_text"><%628%></span></a></li>
-    <li class="<%629%>" id="wizard"><a href="<%630%>"><span class="nosub_text"><%631%></span></a></li>
-    <li class="<%3162%> <%3163%>" id="wps-wizard"><a href="Add_WPS_Client.htm"><span class="nosub_text"><%3164%></span></a></li>
-    <li class="Sub" id="setup_header"><a href="#"><span><%632%></span></a></li> 
+    <li class="noSub" id="adv-home"><a href="ADVANCED_home.htm"><span class="nosub_text"><%629%></span></a></li>
+    <li class="<%630%>" id="wizard"><a href="<%631%>"><span class="nosub_text"><%632%></span></a></li>
+    <li class="<%3118%> <%3119%>" id="wps-wizard"><a href="Add_WPS_Client.htm"><span class="nosub_text"><%3120%></span></a></li>
+    <li class="Sub" id="setup_header"><a href="#"><span><%633%></span></a></li> 
     <li  class="subHeader" id="set_hdr"> 
         <ul style="width:100%;height:128px">                               
-            <li class="<%633%> SubMenuWDS" id="int_set"><a href="<%621%>" onClick="return false"><span class="subMenu_text"><%634%></span></a></li>                                     
-            <li class="<%668%> SubMenu" id="wireless_set"><a href="<%594%>" onClick="return false"><span class="subMenu_text"><%77%></span></a></li>
-            <li class="<%633%> SubMenuWDS" id="wan_set"><a href="WAN_wan.htm" onClick="return false"><span class="subMenu_text"><%636%></span></a></li>
-            <li class="<%637%> SubMenuWDS" id="LAN_set"><a href="LAN_lan.htm" onClick="return false"><span class="subMenu_text"><%638%></span></a></li>
-            <li class="<%668%> SubMenuWDS" id="Qos_set"><a href="QOS_down_streaming.htm" onClick="return false"><span class="subMenu_text"><%639%></span></a></li>
-            <li class="<%668%> SubMenu" id="guest_set"><a href="<%705%>" onClick="return false"><span class="subMenu_text"><%706%></span></a></li>
+            <li class="<%634%> SubMenuWDS" id="int_set"><a href="<%622%>" onClick="return false"><span class="subMenu_text"><%635%></span></a></li>                                     
+            <li class="<%669%> SubMenu" id="wireless_set"><a href="<%595%>" onClick="return false"><span class="subMenu_text"><%77%></span></a></li>
+            <li class="<%634%> SubMenuWDS" id="wan_set"><a href="WAN_wan.htm" onClick="return false"><span class="subMenu_text"><%637%></span></a></li>
+            <li class="<%638%> SubMenuWDS" id="LAN_set"><a href="LAN_lan.htm" onClick="return false"><span class="subMenu_text"><%639%></span></a></li>
+            <li class="<%669%> SubMenuWDS" id="Qos_set"><a href="QOS_down_streaming.htm" onClick="return false"><span class="subMenu_text"><%640%></span></a></li>
+            <li class="<%669%> SubMenu" id="guest_set"><a href="<%706%>" onClick="return false"><span class="subMenu_text"><%707%></span></a></li>
         </ul>				            
     </li>	           
-          <li class="Sub" id="USBStorage_header"><a href="#"><span><%1452%></span></a></li>
+          <li class="Sub" id="USBStorage_header"><a href="#"><span><%1445%></span></a></li>
 	  <li  class="subHeader">   
-	      <%3165%>
+	      <%3121%>
 	      <ul style="width:100%;height:74px">     
-	      <%3166%>
-              <%3167%>
+	      <%3122%>
+              <%3123%>
               <ul style="width:100%;height:56px">
-	      <%3168%>	      
-                  <li class="SubMenu"><a href="USB_basic_main.htm" onClick="return false"><span style="border:0;"><%3169%></span></a></li>
-		  <li class="SubMenu" id="Advanced_Settings"><a href="USB_adv_main.htm" onClick="return false"><span><%1453%></span></a></li>
-		  <%3165%>
-  		  <li class="SubMenu"><a href="UPNP_media.htm" onClick="return false"><span><%1464%></span></a></li>
-		  <%3166%>
+	      <%3124%>	      
+                  <li class="SubMenu"><a href="USB_basic_main.htm" onClick="return false"><span style="border:0;"><%3125%></span></a></li>
+		  <li class="SubMenu" id="Advanced_Settings"><a href="USB_adv_main.htm" onClick="return false"><span><%1446%></span></a></li>
+		  <%3121%>
+  		  <li class="SubMenu"><a href="UPNP_media.htm" onClick="return false"><span><%1457%></span></a></li>
+		  <%3122%>
   	    </ul>				            
           </li>	 
 			       
-          <li class="Sub"   id="security_header"><a href="#"><span><%643%></span></a></li>
+          <li class="Sub"   id="security_header"><a href="#"><span><%644%></span></a></li>
           <li  class="subHeader">   
               <ul id="security_settings_header" style="width:100%;height:128px">                            
-					<li class="<%633%> SubMenuWDS"><a href="http://www.netgear.com/lpc" id="PAR_menu2" target="_blank"><span style="border:0;" class="subMenu_text"><%543%></span></a></li>
-					<%644%>
-					<li class="<%650%> SubMenuWDS SubMenuAP" id="access_control"><a href="DEV_control.htm" onClick="return false"><span class="subMenu_text"><%645%></span></a></li>
-					<%646%>
-					<li class="<%633%> SubMenuWDS" id="blk_site"><a href="BKS_keyword.htm" onClick="return false"><span class="subMenu_text"><%647%></span></a></li>
-  		            <li class="<%633%> SubMenuWDS"id="blk_serv"><a href="BKS_service.htm" onClick="return false"><span class="subMenu_text"><%648%></span></a></li>
-		              <li class="<%650%> SubMenuWDS SubMenuAP" id="sche"><a href="FW_schedule.htm" onClick="return false"><span class="subMenu_text"><%649%></span></a></li>
-		              <li class="<%650%> SubMenuWDS SubMenuAP" id="email"><a href="FW_email.htm" onClick="return false"><span class="subMenu_text"><%651%></span></a></li>
+					<li class="<%634%> SubMenuWDS"><a href="http://www.netgear.com/lpc" id="PAR_menu2" target="_blank"><span style="border:0;" class="subMenu_text"><%543%></span></a></li>
+					<%645%>
+					<li class="<%651%> SubMenuWDS SubMenuAP" id="access_control"><a href="DEV_control.htm" onClick="return false"><span class="subMenu_text"><%646%></span></a></li>
+					<%647%>
+					<li class="<%634%> SubMenuWDS" id="blk_site"><a href="BKS_keyword.htm" onClick="return false"><span class="subMenu_text"><%648%></span></a></li>
+  		            <li class="<%634%> SubMenuWDS"id="blk_serv"><a href="BKS_service.htm" onClick="return false"><span class="subMenu_text"><%649%></span></a></li>
+		              <li class="<%651%> SubMenuWDS SubMenuAP" id="sche"><a href="FW_schedule.htm" onClick="return false"><span class="subMenu_text"><%650%></span></a></li>
+		              <li class="<%651%> SubMenuWDS SubMenuAP" id="email"><a href="FW_email.htm" onClick="return false"><span class="subMenu_text"><%652%></span></a></li>
               </ul>				            
           </li>	 
-          <li class="Sub" id="administration"><a href="#"><span><%652%></span></a></li>
+          <li class="Sub" id="administration"><a href="#"><span><%653%></span></a></li>
           <li  class="subHeader">
 
               <ul style="width:100%;height:128px">  
             
-                  <li class="SubMenu" id="router_status"><a href="ADVANCED_home.htm" onClick="return false"><span style="border:0;" class="subMenu_text"><%653%></span></a></li>
-		              <li class="<%654%> SubMenuWDS SubMenuAP" id="logs"><a href="FW_log.htm" onClick="return false"><span class="subMenu_text"><%655%></span></a></li>
-		              <li class="SubMenu" ><a href="DEV_redirect.htm" onClick="return false"><span class="subMenu_text"><%624%></span></a></li>
-		              <li class="SubMenu"><a href="BAK_backup.htm" onClick="return false"><span class="subMenu_text"><%656%></span></a></li>
-		              <li class="SubMenu"><a href="PWD_password.htm" onClick="return false"><span class="subMenu_text"><%657%></span></a></li>
-		              <li class="SubMenu"><a href="UPG_upgrade.htm" onClick="return false"><span class="subMenu_text"><%658%></span></a></li>
+                  <li class="SubMenu" id="router_status"><a href="ADVANCED_home.htm" onClick="return false"><span style="border:0;" class="subMenu_text"><%654%></span></a></li>
+		              <li class="<%655%> SubMenuWDS SubMenuAP" id="logs"><a href="FW_log.htm" onClick="return false"><span class="subMenu_text"><%656%></span></a></li>
+		              <li class="SubMenu" ><a href="DEV_redirect.htm" onClick="return false"><span class="subMenu_text"><%625%></span></a></li>
+		              <li class="SubMenu"><a href="BAK_backup.htm" onClick="return false"><span class="subMenu_text"><%657%></span></a></li>
+		              <li class="SubMenu"><a href="PWD_password.htm" onClick="return false"><span class="subMenu_text"><%658%></span></a></li>
+		              <li class="SubMenu"><a href="UPG_upgrade.htm" onClick="return false"><span class="subMenu_text"><%659%></span></a></li>
 	            </ul>
           </li>  
-          <li class="Sub" id="advset_header"><a href="#"><span><%659%></span></a></li>
+          <li class="Sub" id="advset_header"><a href="#"><span><%660%></span></a></li>
           <li  class="subHeader">      
 
           <ul id="adv_settings_header" style="width:100%;height:200px;display:block">          
           			 
-                  <li class="SubMenu" id="adv_wireless_set"><a href="<%660%>" onClick="return false"><span class="subMenu_text"><%661%></span></a></li>                 
-		              <li id="ap_head" class="<%668%> SubMenuWDS SubMenuAP"><a href="WLG_ap_dual_band.htm" onClick="return false"><span class="subMenu_text"><%669%></span></a></li>
-		              <li id="wds_head" class="<%637%> SubMenuWDS"><a href="<%670%>" onClick="return false"><span class="subMenu_text"><%671%></span></a></li>
-		              <li id="pf_head"  class="<%673%>  SubMenuWDS"><a href="FW_forward2.htm" onClick="return false"><span class="subMenu_text"><%674%></span></a></li>
-		              <li class="<%633%> SubMenuWDS" id="ddns"><a href="DNS_ddns.htm" onClick="return false"><span class="subMenu_text"><%675%></span></a></li>		                
-		              <li class="<%633%> SubMenuWDS" id="openvpn"><a href="OPENVPN.htm" onClick="return false"><span class="subMenu_text"><%683%></span></a></li>
-		              <li class="<%633%> SubMenuWDS" id="sta_rout"><a href="STR_routes.htm" onClick="return false"><span class="subMenu_text"><%676%></span></a></li>		                
-		              <li class="<%633%> SubMenuWDS" id="remote"><a href="FW_remote.htm" onClick="return false"><span class="subMenu_text"><%721%></span></a></li>		                
-		              <li class="<%633%> SubMenuWDS" id="upnp"><a href="UPNP_upnp.htm" onClick="return false"><span class="subMenu_text"><%678%></span></a></li>
-                              <li class="<%633%> SubMenuWDS"><a href="<%679%>" onClick="return false"><span class="subMenu_text"><%680%></span></a></li>
-                              <li class="<%633%> SubMenuWDS"><a href="<%681%>" onClick="return false"><span class="subMenu_text"><%682%></span></a></li>
-                              <li class="SubMenu"><a href="USB_settings.htm" onClick="return false"><span class="subMenu_text"><%1476%></span></a></li>
+                  <li class="SubMenu" id="adv_wireless_set"><a href="<%661%>" onClick="return false"><span class="subMenu_text"><%662%></span></a></li>                 
+		              <li id="ap_head" class="<%669%> SubMenuWDS SubMenuAP"><a href="WLG_ap_dual_band.htm" onClick="return false"><span class="subMenu_text"><%670%></span></a></li>
+		              <li id="wds_head" class="<%638%> SubMenuWDS"><a href="<%671%>" onClick="return false"><span class="subMenu_text"><%672%></span></a></li>
+		              <li id="pf_head"  class="<%674%>  SubMenuWDS"><a href="FW_forward2.htm" onClick="return false"><span class="subMenu_text"><%675%></span></a></li>
+		              <li class="<%634%> SubMenuWDS" id="ddns"><a href="DNS_ddns.htm" onClick="return false"><span class="subMenu_text"><%676%></span></a></li>		                
+		              <li class="<%634%> SubMenuWDS" id="openvpn"><a href="OPENVPN.htm" onClick="return false"><span class="subMenu_text"><%684%></span></a></li>
+		              <li class="<%634%> SubMenuWDS" id="sta_rout"><a href="STR_routes.htm" onClick="return false"><span class="subMenu_text"><%677%></span></a></li>		                
+		              <li class="<%634%> SubMenuWDS" id="remote"><a href="FW_remote.htm" onClick="return false"><span class="subMenu_text"><%721%></span></a></li>		                
+		              <li class="<%634%> SubMenuWDS" id="upnp"><a href="UPNP_upnp.htm" onClick="return false"><span class="subMenu_text"><%679%></span></a></li>
+                              <li class="<%634%> SubMenuWDS"><a href="<%680%>" onClick="return false"><span class="subMenu_text"><%681%></span></a></li>
+                              <li class="<%634%> SubMenuWDS"><a href="<%682%>" onClick="return false"><span class="subMenu_text"><%683%></span></a></li>
+                              <li class="SubMenu"><a href="USB_settings.htm" onClick="return false"><span class="subMenu_text"><%1469%></span></a></li>
           </ul>
           </li>	             
       </ul>   
@@ -998,75 +998,75 @@ function change_size()
 <div id="footer" class="footer">
 	<img class="footer_img" src="img/footer.gif">
 <div id="support">
-	<b> <%685%></b> &nbsp;
+	<b> <%686%></b> &nbsp;
 <%217%>
-		<a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> | 
+		<a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> | 
 <%218%>
 <%219%>
-                <a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> |
+                <a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> |
 <%220%>
 
 <%229%>
-		<a target="_blank" href="http://documentation.netgear.com/wndr4000/enu/202-10781-01/index.htm"><%727%></a> |
+		<a target="_blank" href="http://documentation.netgear.com/wndr4000/enu/202-10781-01/index.htm"><%725%></a> |
 <%230%>
 
 <%231%>
-		<a target="_blank" href="http://documentation.netgear.com/wndr3700v3/enu/202-10985-01/index.htm"><%727%></a> |
+		<a target="_blank" href="http://documentation.netgear.com/wndr3700v3/enu/202-10985-01/index.htm"><%725%></a> |
 <%232%>
 
 <%221%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%222%>
 
 <%223%>
-		<a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> | 
+		<a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> | 
 <%224%>
 
 <%225%>
-		<a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> | 
+		<a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> | 
 <%226%>
 
 <%227%>
-		<a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> | 
+		<a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> | 
 <%228%>
 
 <%233%>
-		<a target="_blank" href="http://downloadcenter.netgear.com/"><%727%></a> |
+		<a target="_blank" href="http://downloadcenter.netgear.com/"><%725%></a> |
 <%234%>
 
 <%235%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%236%>
 <%237%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%238%>
 <%239%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%240%>
 <%241%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%242%>
 <%243%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%244%>
 <%245%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%246%>
 <%247%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%248%>
 <%249%>
-		<a target="_blank" href="<%726%>"><%727%></a> | 
+		<a target="_blank" href="<%724%>"><%725%></a> | 
 <%250%>
-		<a target="_blank" href="<%686%>"><%687%></a> | 
+		<a target="_blank" href="<%687%>"><%688%></a> | 
 
 
-		<a target="_blank" href="<%688%>"><%689%></a>
+		<a target="_blank" href="<%689%>"><%690%></a>
 </div>
 <div id="search" align=right>
-	<b> <%691%> </b>
-	<input type="text" id="search_text" name="search" value="<%692%>" onkeypress="detectEnter('num',event);" onFocus="this.select();" >
-	<input id="search_button" class="search_button" type="button" name="dosearch" value="<%693%>" onClick="do_search();">
+	<b> <%692%> </b>
+	<input type="text" id="search_text" name="search" value="<%693%>" onkeypress="detectEnter('num',event);" onFocus="this.select();" >
+	<input id="search_button" class="search_button" type="button" name="dosearch" value="<%694%>" onClick="do_search();">
 </div>
 </div>
 </div>
@@ -1090,10 +1090,10 @@ function change_size()
    <img src="img/wait.gif" width="1" height="1" alt="">
    <img src="img/main-page-bottom.gif" width="1" height="1" alt="">
    <img src="img/gray-button.gif" width="1" height="1" alt="">
-    <input type="hidden" name="repeater" value="<%694%>">
-    <input type="hidden" name="repeater_an" value="<%695%>">
-    <input type="hidden" name="enable_apmode" value="<%696%>">   
-    <input type="hidden" name="enable_stamode" value="<%697%>">   
+    <input type="hidden" name="repeater" value="<%695%>">
+    <input type="hidden" name="repeater_an" value="<%696%>">
+    <input type="hidden" name="enable_apmode" value="<%697%>">   
+    <input type="hidden" name="enable_stamode" value="<%698%>">   
 </div>                                                
 <!-- This JavaScript snippet activates those tabs -->
 <script>
@@ -1102,7 +1102,7 @@ function change_size()
 $(function() {
 	// setup ul.tabs to work as tabs for each div  directly under div.panes
 	$("ul.tabs").tabs("> .pane");     
-        var pnpx = <%700%>
+        var pnpx = <%701%>
             if(pnpx == 1){           
             $("#AdvanceTab").click();
             $("#basic-pane").css("display","none");

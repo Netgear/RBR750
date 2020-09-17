@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Orbi Router <%12%></title> 
+
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<style type="text/css">
+.subhead2-multi-table{
+  margin:30px 0px 30px 50px;
+  border-collapse:collapse;
+  width:90%;
+}
+.subrow td{
+  padding-left:15px;
+}
+#full-page-container{
+  padding-left:20px;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+var submit_flag = false;    
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+ function backPage()
+{
+    location.href="Orbi_add_new_satellite.htm";
+}   
+
+function do_submit()
+{
+	var cf = document.forms[0];
+	cf.submit();
+	return true;
+}
+//-->
+</script>
+       
+</head>
+<body  onload="change_size();" class="page-body" onResize="change_size();">
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"><%495%></div>
+
+<div class="button_zone">
+  <button value="<%496%>"  onClick="backPage();" name="back" id="back" class=<%79%> > <%496%></button>
+
+</div>
+
+<div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+<table border="0" class="subhead2-multi-table" cellpadding="3">
+  <tr>
+    <td><%497%></td>
+  </tr>
+  <tr>
+    <td align="center"><img style="padding: 20px 0px 10px 0px" src="img/sync_here.png"></td>
+  </tr>
+  <tr class="subrow">
+    <td id="sync_success" nowrap="" style="padding-top: 10px;padding-bottom:10px"><%500%></td>
+  </tr>
+  <tr class="subrow">
+    <td><p><%501%></p></td>
+  </tr>
+  <tr class="subrow">
+    <td><img class="" src="img/led_blue.png" style="vertical-align:middle;"><b style="padding:15px;"><%502%></b></td>
+  </tr>
+  <tr class="subrow">
+    <td><%503%></td>
+  </tr>
+  <tr class="subrow">
+    <td><img class="" src="img/led_amber.png" style="vertical-align:middle;"><b style="padding:15px;"><%504%></b></td>
+  </tr>
+  <tr class="subrow">
+    <TD><%505%></TD>
+    </tr>
+  <tr class="subrow">
+    <td><img class="" src="img/led_magenta.png" style="vertical-align:middle;"><b style="padding:15px;"><%506%></b></td>
+  </tr>
+  <tr class="subrow">
+    <td nowrap><%507%></td>
+  </tr>
+</table>
+
+</body>
+</HTML>

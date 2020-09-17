@@ -1,0 +1,531 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="script/sorttable.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<style type="text/css">
+A {
+	 COLOR: blue; TEXT-DECORATION: underline
+}
+.DeviceICON{
+  float:left;
+}
+.DeviceICON img{
+  width:72px;
+  height:72px;
+}
+.DeviceInfo{
+  cursor:pointer;
+}
+.DeviceInfo span{
+  margin:4px 10px 4px 2px;
+  display:block;
+}
+#satellite_table .DeviceInfo span{
+  margin:1px 10px 1px 2px;
+  line-height:18px;
+}
+span[name=rule_device_type]{
+  display:none;
+}
+span[name=rule_category]{
+  display:none;
+}
+span[name*="rule_device_led"]{
+    color:#00ADE6;
+    text-decoration:underline;
+}
+.tbWhite tbody tr:nth-child(even){
+  background-color:#fff;
+}
+button[name=del_satellite]{
+    float:right;
+    margin-bottom:0px;
+}
+.tbWhite td, .tbWhite th{   
+    border-left: 0px solid #ccc;
+}
+.DeviceInfo_TB > tbody > tr > td:nth-child(2){
+    text-align:right;
+}
+img.VerticalMiddle{
+    vertical-align:middle;
+}
+span.TextPruple{
+    color:#9B1889;
+}
+span.TextGreen{
+    color:#00B050;
+}
+span.TextRed{
+    color:#FF0000;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+    <%1011%>
+    var device_type_path="device_type/";
+    var unknown_device_icon="img/Device_0.png";
+    var iconArray=[];
+    var sParameter="";
+    var del_lang="<%1012%>";
+    var allowed_lang="<%1007%>";
+    var blocked_lang="<%1008%>";
+    
+    var iDevicesStatusTimer=10000;
+    var iDevicesStatusQuery=0;
+    
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+      $("#target").submit(function() {
+          buttonFilter();
+      });
+      
+      var sUrl=$("form:eq(0)").attr('action');
+      aStr = sUrl.split("?");
+      if(aStr.length == 2)
+          sParameter = "?"+aStr[1];
+      else
+          sParameter = "";
+      
+      $(".tbWhite.sortable").each(function(){
+          iMaxWidth=0;
+          $(this).find(".DeviceInfo").each(function(){
+              iCuttentWidth=parseInt($(this)[0].scrollWidth);
+              if(iCuttentWidth > iMaxWidth)
+                  iMaxWidth=iCuttentWidth;
+          });
+          if((iMaxWidth+80) > parseInt($(this).find("th:eq(1)").width()))
+              $(this).find("th:eq(1)").css('width', (iMaxWidth+80) +"px");
+      });    
+            
+      iconArray[0]={ "img" : unknown_device_icon, "txt" : "<%1013%>", "val" : "unknown(0)"};
+      $.getJSON("device_type/device_type_fing.json"+sParameter, function (data){
+        $.each(data, function(key,val){
+              iconArray[val["Device Index"]]={ "img" : device_type_path +"icon/"+val["Icon"], "txt" : val["Device type"], "val" : val["Device type"]+"("+val["Device Index"]+")"};
+        });
+        queryDevicesStatus();
+/*
+        var DeviceType_index;
+        $("span[name=rule_device_type]").each(function(){
+          isSatellite=0;
+          if($(this).closest("table").attr('id') == 'satellite_table')
+            isSatellite=1;
+          sIcon=getDeviceICON($(this).html() , isSatellite);
+          $(this).closest("td").prepend(sIcon);
+          
+        });
+ */
+      });
+
+    });
+
+function getDeviceICON(sDeviceType, isSatellite, satModel){
+    
+    if(isSatellite==1) {
+        if(satModel == "RBS750") {
+            return "<div class='DeviceICON'><img src='img/satellite_rbs750.jpg'/></div>";
+        } else {
+            return "<div class='DeviceICON'><img src='img/satellite.jpg'/></div>";
+        }
+    }
+    else if(isSatellite==2)
+        return "<div class='DeviceICON'><img src='img/outdoor2.jpg'/></div>";
+    else if(isSatellite==3)
+        return "<div class='DeviceICON'><img src='img/voiceorbi.jpg'/></div>"; 
+        
+    DeviceType_index = sDeviceType.replace(/^.+\(/g,"").replace(/\).*/g, "");     
+    if(!iconArray.hasOwnProperty(DeviceType_index)){
+        DeviceType_index=19;
+
+        //recover older format.
+        $.each(iconArray, function(key,value){
+          if(key==0)    //skip unknown devices
+                return;
+          if(sDeviceType.toUpperCase() == value.txt.toUpperCase())
+            DeviceType_index = key;
+        });            
+    }
+    return "<div class='DeviceICON'><img src='"+iconArray[DeviceType_index].img+"' alt=\'"+iconArray[DeviceType_index].txt+"\' title=\'"+iconArray[DeviceType_index].txt+"\'/></div>";
+}
+function adjust_column_backColor()
+{
+    var enable_access_control = document.getElementsByName("enable_access_control");
+    var i;
+    if(enable_access_control[0].value != "1") { 
+        for(i=0 ; i<$('td[name=show_status]').length ; i++)
+        {
+            $('td[name=show_status]')[i].style.display = "none";    
+        }
+    }
+    
+}
+
+function loadSettings()
+{
+    adjust_column_backColor();
+}   
+function queryDevicesStatus(){
+    iDevicesStatusQuery++;
+    $.ajax({
+        url: "ajax/get_attached_devices"+sParameter,
+        dateType : 'json',
+        data: {'count':iDevicesStatusQuery},
+        type: "POST",
+        success: function(data){
+            if(data.hasOwnProperty('devices'))
+                updateDevicesTable(data.devices);
+            if(data.hasOwnProperty('satellites'))
+                updateSatellitesTable(data.satellites);    
+            if(data.hasOwnProperty('vpn_devices'))
+                updateVPNDevicesTable(data.vpn_devices);  
+            
+            $(".DeviceInfo").click(function(){
+                $("input[name=hid_type]").val($(this).find("span[name=rule_device_type]").text());
+                $("input[name=hid_model]").val($(this).find("span[name=rule_device_model]").text());
+                $("input[name=hid_name]").val($(this).find("span[name=rule_device_name]").text());
+                $("input[name=hid_ip]").val($(this).find("span[name=rule_device_ip]").text());
+                $("input[name=hid_mac]").val($(this).closest("table").closest("tr").find("span[name=rule_mac]").text());
+                $("input[name=hid_category]").val($(this).find("span[name=rule_category]").text());
+
+                $("#target").submit();
+            });
+            
+            setTimeout(queryDevicesStatus, iDevicesStatusTimer);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            //setTimeout(queryDevicesStatus, iDevicesStatusTimer);
+        }
+    }); 
+}
+function updateDevicesTable(data){
+    var index=0;
+    var sortItem;
+    var deviceTable = document.querySelector('#device_table');
+    var isReverse = 0;
+    $("#device_table > tbody > tr").remove(); 
+    sortItem = deviceTable.querySelectorAll('.sorttable_sorted,.sorttable_sorted_reverse')[0];
+    if (sortItem != null) {
+        if (sortItem.className == ' sorttable_sorted_reverse' ) {
+            isReverse = 1;
+        }
+        sortItem.classList.remove("sorttable_sorted", "sorttable_sorted_reverse");
+    }
+    
+    $.each(data, function(i, info){
+        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('name') ||
+          !info.hasOwnProperty('type') ||!info.hasOwnProperty('ip') ||!info.hasOwnProperty('connectionType')||
+          !info.hasOwnProperty('connectionImg') ||!info.hasOwnProperty('ConnectedOrbi') ||
+          !info.hasOwnProperty('category') ||!info.hasOwnProperty('status'))
+            return;
+            
+        sIcon=getDeviceICON(info.type , 0, 0);
+
+        if(info.status == 1)
+            sFirstTD="<span name=\"rule_status\" class=\"acl_allowed\">"+allowed_lang+"</span>";
+        else if(info.status == 0)
+            sFirstTD="<span name=\"rule_status\" class=\"acl_blocked\">"+blocked_lang+"</span>";
+        else
+            sFirstTD ="<span name='rule_status' class=''>"+(index+1)+"</span>";
+        
+        newtr = "<tr name='row_rules_wireless'><td nowrap align='center'>"+sFirstTD+"</td>";
+        newtr = newtr + "<td nowrap align='right'><table class='DeviceInfo_TB' border='0' cellpadding='0' cellspacing='0' width='100%'><tbody><tr><td style='border-top: 0px'>"+sIcon+"</td><td style='border-top: 0px'><div class='DeviceInfo'><span class='hidden' name='rule_device_type'>"+info.type+"</span><span name='rule_device_model'>"+info.model+"</span><span name='rule_device_name'>"+info.name+"</span><span name='rule_device_ip'>"+info.ip+"</span><span class='hidden' name='rule_category'>"+info.category+"</span></div></td></tr></tbody></table></td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_ip'>"+info.ip+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_mac' class=''>"+info.mac+"</span><input type='hidden' name='rule_status_org' value='"+info.status+"' disabled></td>";
+        newtr = newtr + "<td nowrap align='center'><img class='VerticalMiddle' src='"+info.connectionImg+"'/> &nbsp;&nbsp;<span name='rule_conn_type' class=''>"+info.connectionType+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_connected_orbi' class=''>"+info.ConnectedOrbi+"</span><br><span name='rule_connected_orbi_mac'>"+info.ConnectedOrbiMAC+"</span></td></tr>";
+        $('#device_table > tbody').append(newtr);
+        index++;
+    });
+    
+    if (sortItem != null) {
+        sortItem.click();
+        if (isReverse)
+            sortItem.click();
+    }
+}
+function updateSatellitesTable(data){
+    var index=0;
+    $("#satellite_table > tbody > tr").remove(); 
+    
+    $.each(data, function(i, info){
+        if(!info.hasOwnProperty('mac') ||!info.hasOwnProperty('model') ||!info.hasOwnProperty('name') ||
+          !info.hasOwnProperty('type') ||!info.hasOwnProperty('ip') ||!info.hasOwnProperty('connectionType')||
+          !info.hasOwnProperty('connectionImg') ||!info.hasOwnProperty('backhaulStatus') ||!info.hasOwnProperty('backhaulStatusStyle') ||!info.hasOwnProperty('ConnectedOrbi') ||
+          !info.hasOwnProperty('category') ||!info.hasOwnProperty('status') ||!info.hasOwnProperty('sat_type'))
+            return;
+
+        sIcon=getDeviceICON(info.type , info.sat_type, info.model);
+        sDelIcon="";
+        if(info.backhaulStatusStyle == 'TextRed')
+            sDelIcon = "<button value='del_satellite' onclick=\"buttonClick(this,'delete');\"  type='submit' name='del_satellite' class='button-square remove-bgicon'>"+del_lang+"</button>";
+
+        if(info.backhaulStatusStyle == 'TextRed')
+            sIP = "-";
+        else
+            sIP = info.ip;
+        special_sat_info = "";
+        if(info.sat_type == 2)
+        {
+            if(info.hasOwnProperty('led_status') && info.hasOwnProperty('led_brightness') && info.hasOwnProperty('led_sync')){
+                if(info.backhaulStatusStyle != 'TextRed'){
+                    if(info.led_status){
+                        special_sat_info = special_sat_info + "<span name='rule_device_led_status'><%1014%>: <%1015%></span>";
+                        special_sat_info = special_sat_info + "<span name='rule_device_led_brightness'><%1016%>: "+info.led_brightness+"%</span>";
+                    }
+                    else
+                        special_sat_info = special_sat_info + "<span name='rule_device_led_status'><%1014%>: <%568%></span>";
+                    if(info.led_sync)
+                        special_sat_info = special_sat_info + "<span name='rule_device_led_sync'><%499%>: <%544%></span>";
+                    else
+                        special_sat_info = special_sat_info + "<span name='rule_device_led_sync'><%499%>: <%545%></span>";
+                }
+            }
+        }
+        else if(info.sat_type == 3){
+            if(info.hasOwnProperty('voice_reg')){
+                special_sat_info = special_sat_info + "<span name='rule_device_voice_reg'>"+info.voice_reg+"</span>";
+            }
+        
+        }
+        newtr = "<tr name='row_rules'><td nowrap align='center'><span name='rule_device_name' class=''>"+(index+1)+"</span></td>";
+        newtr = newtr + "<td nowrap align='right'><table class='DeviceInfo_TB' border='0' cellpadding='0' cellspacing='0' width='100%'><tbody>";
+        newtr = newtr + "<tr><td style='border-top: 0px'>"+sIcon+"</td><td style='border-top: 0px'>";
+        newtr = newtr + "<div class='DeviceInfo'><span class='hidden' name='rule_device_type'>"+info.type+"</span><span name='rule_device_model'>"+info.model+"</span><span name='rule_device_name'>"+info.name+"</span>";
+        newtr = newtr + special_sat_info;
+        newtr = newtr + "<span name='rule_device_ip'>"+sIP+"</span><span class='hidden' name='rule_category'>"+info.category+"</span></div>";
+        newtr = newtr + "</td></tr></tbody></table></td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_ip'>"+sIP+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_mac' class=''>"+info.mac+"</span><input type='hidden' name='rule_status_org' value='"+info.status+"' disabled></td>";
+        if(info.backhaulStatusStyle == 'TextRed')
+            newtr = newtr + "<td nowrap align='center'><span name='rule_conn_type'>-</span></td>";
+        else
+            newtr = newtr + "<td nowrap align='center'><img class='VerticalMiddle' src='"+info.connectionImg+"'/> &nbsp;&nbsp;<span name='rule_conn_type' class=''>"+info.connectionType+"</span></td>";
+        if(info.backhaulStatusStyle == 'TextRed')
+            newtr = newtr + "<td nowrap align='center'><span name='rule_connected_orbi'>-</span></td>";
+        else    
+            newtr = newtr + "<td nowrap align='center'><span name='rule_connected_orbi' class=''>"+info.ConnectedOrbi+"</span><br><span name='rule_connected_orbi_mac'>"+info.ConnectedOrbiMAC+"</td>";
+        newtr = newtr + "<td nowrap align='center'><span name='rule_backhual_status' class='"+info.backhaulStatusStyle+"'>"+info.backhaulStatus+"</span>"+sDelIcon+"</td></tr>";
+        $('#satellite_table > tbody').append(newtr);
+        index++;
+    });
+    
+    $("button[name=del_satellite]").click(function(){
+        $("input[name=hid_mac]").val($(this).closest("tr").find("span[name=rule_mac]").html());
+    });
+}
+function updateVPNDevicesTable(data){
+    var index=0;
+    $("#vpndevices_table > tbody > tr").remove(); 
+    
+    $.each(data, function(i, info){
+        if(!info.hasOwnProperty('name') ||!info.hasOwnProperty('remoteip') ||!info.hasOwnProperty('localip') ||
+          !info.hasOwnProperty('connectiontime') )
+            return;
+
+        newtr = "<tr name='row_rules'><td nowrap align='center'><span>"+info.name+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span>"+info.remoteip+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span>"+info.localip+"</span></td>";
+        newtr = newtr + "<td nowrap align='center'><span>"+info.connectiontime+"</span></td></tr>";
+        $('#vpndevices_table > tbody').append(newtr);
+        index++;
+    });
+}
+/*
+function edit_dev(num)
+{
+    var cf = document.forms[0];
+    var rule_mac = getElementsByName_iefix("span", "rule_mac"); 
+    var rule_ip = getElementsByName_iefix("span", "rule_ip");
+    var rule_device_name = getElementsByName_iefix("span", "rule_device_name");
+    var form_target = document.getElementById("target");
+
+    cf.hid_mac.value = rule_mac[num].innerHTML;
+    cf.hid_ip.value = rule_ip[num].innerHTML;
+    cf.hid_name.value = rule_device_name[num].innerHTML;
+    var url = form_target.action.split("=");
+
+    cf.device_edit_name.value = 1;
+    cf.action="devices.cgi?id=" + url[1];
+    cf.submit();
+}
+*/
+//--></script></head>
+<body  onload="change_size();loadSettings();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  method="post" action="devices.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> <%624%></div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+<tr>
+        <%1017%>
+        <td nowrap colspan="2" align="right" id="access_control"><%1018%></td>
+        <%1019%>
+        <%1020%>
+        <td nowrap colspan="2" align="right" id="access_control"><%1021%></td>
+        <%1022%>	
+</tr>
+
+<tr>
+    <td>
+    <table border="0" cellpadding="3" cellspacing="0" width="100%">
+        <tr>
+            <td width="50%"></td>            
+            <td width="30%" align="left" id="access_control_turned">
+                <%645%>:
+				<!-- access_control_mode: 1: enabled 0: disabled -->
+				<%1023%>
+                <%1024%>
+				<%1025%>
+				<%1026%>
+                <%1027%>
+				<%1028%>
+				<br>
+				<!-- access_all_new_devices: 1: allow all 0: block all -->
+				<%1029%>
+            </td>
+            <td width="20%" align="right">
+                &nbsp;&nbsp;&nbsp;<button value="refresh" onclick="buttonClick(this,'Refresh');"  type="submit" name="refresh" id="refresh" class="button-common" ><%976%></button>
+            </td>
+        </tr>        
+    </table>
+    </td>
+</tr>
+<tr>
+ <td nowrap colspan="2">&nbsp;</td>
+</tr>
+
+<tr>
+ <td nowrap colspan="2"><b><%1030%></b></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table id="satellite_table" class="tbWhite sortable" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <%1023%>
+        <th nowrap align="center" width="5%"><span class="subheadtext"><%997%></span></th>
+        <%1025%>
+        <%1026%>
+        <th nowrap align="center" width="5%"><span class="subheadtext">#</span></th>
+        <%1028%>
+        <th nowrap align="center" width="18%"><span class="subheadtext"><%978%></span></th>
+        <th nowrap align="center" width="15%"><span class="subheadtext"><%814%></span></th>
+        <th nowrap align="center" width="15%"><span class="subheadtext"><%979%></span></th>
+        <th nowrap align="center" width="15%"><span class="subheadtext"><%998%></span></th>
+        <th nowrap align="center" width="15%"><span class="subheadtext"><%1031%></span></th>
+        <th nowrap align="center" width="17%"><span class="subheadtext"><%1032%></span></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	</table>
+	</td>
+</tr>
+
+<tr>
+ <td nowrap colspan="2">&nbsp;</td>
+</tr>
+<tr>
+ <td nowrap colspan="2"><b><%1033%></b></td>
+</tr>
+<tr>
+	<td colspan="2">
+	<table id="device_table" class="tbWhite sortable" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+      <%1023%>
+      <th nowrap align="center" width="8%"><span class="subheadtext"><%997%></span></th>
+      <%1025%>
+      <%1026%>
+      <th nowrap align="center" width="8%"><span class="subheadtext">#</span></th>
+      <%1028%>
+      
+      <th nowrap id="devNameColumn" align="center" width="19%"><span class="subheadtext"><%978%></span></th>
+      <th nowrap id="ipColumn" align="center" width="15%"><span class="subheadtext"><%814%></span></th>
+      <th nowrap id="macColumn" align="center" width="19%"><span class="subheadtext"><%979%></span></th>
+      <th nowrap id="connTypeColumn" align="center" width="19%"><span class="subheadtext"><%998%></span></th>
+      <th nowrap id="connOrbiColumn" align="center" width="19%"><span class="subheadtext"><%1031%></span></th>
+      
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	</table>
+	</td>
+</tr>
+<tr>
+ <td nowrap colspan="2">&nbsp;</td>
+</tr>
+<tr>
+ <td nowrap colspan="2"><b><%1034%></b></td>
+</tr>
+<tr>
+        <td colspan="2">
+        <table id="vpndevices_table" class="tbWhite sortable" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+                <th nowrap align="center" width="40%"><span class="subheadtext"><%978%></span></td>
+                <th nowrap align="center" width="20%"><span class="subheadtext"><%1035%></span></td>
+                <th nowrap align="center" width="20%"><span class="subheadtext"><%1036%></span></td>
+                <th nowrap align="center" width="20%"><span class="subheadtext"><%1037%></span></td>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+        </table>
+        </td>
+</tr>
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="DEV_device2_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+
+    <input name="enable_access_control" type="hidden" value= "<%1005%>">
+    <input type="hidden" name="hid_mac" value="">
+    <input type="hidden" name="hid_ip" value="">
+    <input type="hidden" name="hid_name" value="">
+    <input type="hidden" name="hid_type" value="">
+    <input type="hidden" name="hid_model" value="">
+    <input type="hidden" name="hid_category" value="">
+    <input type="hidden" name="device_edit_name" value="0">
+    <input type="hidden" name="user_refresh" value="1">
+<a name="helpframe-anchor"></a>
+</form>
+
+</div>
+</body>
+</html>
+

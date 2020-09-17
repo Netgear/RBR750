@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+        
+        load_vlan_rule_enable();
+
+    });
+
+function chgSel(index)
+{
+    document.forms[0].select.value = index;
+    return true;
+}
+
+var is_dual_5g=0;
+<%2913%>
+is_dual_5g=1;
+<%2914%>
+
+function loadSettings()
+{
+    var cf = document.forms[0];
+    var iptv_interface=cf.iptv_interfaces.value;
+
+    if (cf.vlan_enable.value == "enable")
+    {
+        cf.vlan_iptv_enable.checked=true;
+        cf.vlan_iptv_select[1].checked=true;
+        document.getElementById("vlan_iptv_check").style.display="block";
+        document.getElementById("iptv_check").style.display="none";
+        document.getElementById("vlan_check").style.display="block";
+        document.getElementById("vlan_check_button").style.display="block";
+    }
+    else if(cf.iptv_enable.value == "1")
+    {
+        cf.vlan_iptv_enable.checked=true;
+        cf.vlan_iptv_select[0].checked=true;
+        document.getElementById("vlan_iptv_check").style.display="block";
+        document.getElementById("iptv_check").style.display="block";
+        document.getElementById("vlan_check").style.display="none";
+        document.getElementById("vlan_check_button").style.display="none";
+    }
+    else
+    {
+        cf.vlan_iptv_enable.checked=false;
+        document.getElementById("vlan_iptv_check").style.display="none";
+        document.getElementById("iptv_check").style.display="none";
+        document.getElementById("vlan_check").style.display="none";
+        document.getElementById("vlan_check_button").style.display="none";
+    }
+    
+    if(iptv_interface & 0x1)
+      $("input[name=iptv_ports_0]").attr("checked", true);
+
+    if(iptv_interface & 0x2)
+      $("input[name=iptv_ports_1]").attr("checked", true);
+    
+    if(iptv_interface & 0x4)
+      $("input[name=iptv_ports_2]").attr("checked", true);
+        
+    if(iptv_interface & 0x8)
+      $("input[name=iptv_ports_3]").attr("checked", true);
+ <%2915%>     
+    if(cf.vlan_id_enable.value == "1")         
+        $("input[name=iptv_vlan_id_enable]").attr("checked", true);
+ <%2916%>
+<%2913%>
+    if(iptv_interface & 0x40)
+      $("input[name=iptv_ports_6]").attr("checked", true);
+
+<%2914%>
+
+}
+
+function load_vlan_rule_enable()
+{   
+    var cf = document.forms[0];
+    var vlan_rule = cf.vlan_rule_name.value.split(/\s/);
+    var vlan_rule_enable=cf.vlan_rule_enable.value.split(/\s/);
+    var i = 1;
+    while(typeof vlan_rule[i] != "undefined")
+    {
+        if(i == 1)
+        {
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_1.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_1.checked = false;
+            }
+        }
+
+        else if(i == 2)
+        {
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_2.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_2.checked = false;
+            }
+        }
+
+        else if(i == 3)
+        {
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_3.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_3.checked = false;
+            }
+        }
+
+        else if(i == 4)
+        {
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_4.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_4.checked = false;
+            }
+        }
+
+        else if(i == 5)
+        {
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_5.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_5.checked = false;
+            }
+        }
+
+        else if(i == 6)
+        {    
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_6.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_6.checked = false;
+            }
+        }
+
+        else if(i == 7)
+        {  
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_7.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_7.checked = false;
+            }
+        }
+
+        else if(i == 8)
+        {  
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_8.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_8.checked = false;
+            }
+        }
+
+        else if(i == 9)
+        {  
+            if((vlan_rule_enable[i] == 1))
+            {
+                cf.vlan_tag_checked_9.checked = true;
+            }
+            else
+            {
+                cf.vlan_tag_checked_9.checked = false;
+            }
+        }
+        i++;
+    }
+}
+
+function check_vlan_checkbox()
+{
+    var cf = document.forms[0];
+    document.getElementById("iptv_check").style.display="none";
+    document.getElementById("vlan_check").style.display="block";
+    document.getElementById("vlan_check_button").style.display="block";
+}
+
+function check_iptv_checkbox()
+{
+    var cf = document.forms[0];
+    document.getElementById("iptv_check").style.display="block";
+    document.getElementById("vlan_check").style.display="none";
+    document.getElementById("vlan_check_button").style.display="none";
+}
+
+function vlan_iptv_enable_click()
+{
+    var cf = document.forms[0];
+    if(cf.vlan_iptv_enable.checked==true)
+    {
+        document.getElementById("vlan_iptv_check").style.display="block";    	
+        if(!cf.vlan_iptv_select[0].checked && !cf.vlan_iptv_select[0].checked)
+        {
+            cf.vlan_iptv_select[1].checked=true;
+            document.getElementById("iptv_check").style.display="none";
+            document.getElementById("vlan_check").style.display="block";
+            document.getElementById("vlan_check_button").style.display="block";
+        }
+    }
+    else
+    {
+        document.getElementById("vlan_iptv_check").style.display="none";    	
+    }
+}
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var iptv_port_used = 0;
+    var iptv_interface=cf.iptv_interfaces.value;
+    if (cf.vlan_iptv_enable.checked && cf.vlan_iptv_select[0].checked)
+    {
+        if( <%2917%>(!cf.iptv_ports_0.checked) && <%2918%>(!cf.iptv_ports_1.checked) && (!cf.iptv_ports_2.checked) &&
+            (!cf.iptv_ports_3.checked)
+<%2913%>
+            && (!cf.iptv_ports_6.checked)
+<%2914%>
+            )
+        {
+            alert("<%2919%>");
+            return false;
+        }
+    }
+
+    if (cf.vlan_iptv_enable.checked && cf.vlan_iptv_select[0].checked)
+    {
+        if( <%2920%>(cf.iptv_ports_0.checked) && <%2921%>(cf.iptv_ports_1.checked) && (cf.iptv_ports_2.checked)	<%2922%>   
+	&&(cf.iptv_ports_3.checked)
+	<%2923%>  
+            )
+        {
+            alert("<%2924%>");
+            return false;
+        }
+    }
+    
+    iptv_interface=0x0;
+    if( cf.iptv_ports_0.checked )
+    {
+    	 iptv_interface |= 0x1;
+    }
+    if( cf.iptv_ports_1.checked )
+    {
+    	 iptv_interface |= 0x2;
+    }
+    if( cf.iptv_ports_2.checked )
+    {
+    	 iptv_interface |= 0x4;
+    }    	 
+    if( cf.iptv_ports_3.checked )
+    	 iptv_interface |= 0x8;	 
+<%2915%>	     
+    if( cf.iptv_vlan_id_enable.checked )
+    {
+    	 cf.vlan_id_enable.value = 1;
+    }else
+    {
+         cf.vlan_id_enable.value = 0;
+    }
+
+    if( cf.vlan_id_enable.value == 1 )
+    {
+        if( cf.iptv_vlan_id.value.length <= 0 )
+        {
+            alert("invalid vlan id input");
+            return false; 
+	}	
+    }
+       
+    if( cf.iptv_vlan_id.value.length > 0 )
+    {
+       var vlan_id_for_iptv =  parseInt(cf.iptv_vlan_id.value,10);
+       if(isNaN(vlan_id_for_iptv)) 
+       { 
+          alert("invalid vlan id input");
+          return false; 
+       }
+       
+       if(vlan_id_for_iptv > 4092 || vlan_id_for_iptv < 1)
+       {
+          alert("invalid vlan id input");
+          return false; 
+       }
+    }
+     <%2916%>   
+     	     	       	         	 
+}
+
+function confirmDel()
+{
+
+    var cf = document.forms[0];
+    var rule_name;
+    var vlan_rule=cf.vlan_rule_name.value.split(" ");
+  
+    if(cf.select.value<0)
+    {
+        alert("<%2925%>");
+          return false;
+    }
+    
+    if ( cf.select.value == 0)
+        rule_name = vlan_rule[0];
+    if ( cf.select.value == 1)
+        rule_name = vlan_rule[1];
+    if ( cf.select.value == 2)
+        rule_name = vlan_rule[2];
+    if ( cf.select.value == 3)
+        rule_name = vlan_rule[3];
+    if ( cf.select.value == 4)
+        rule_name = vlan_rule[4];
+    if ( cf.select.value == 5)
+        rule_name = vlan_rule[5];
+    if ( cf.select.value == 6)
+        rule_name = vlan_rule[6];
+    if ( cf.select.value == 7)
+        rule_name = vlan_rule[7];    
+    if ( cf.select.value == 8)
+        rule_name = vlan_rule[8];    
+    if ( cf.select.value == 9)
+        rule_name = vlan_rule[9];
+    if ( cf.select.value == 10)
+        rule_name = vlan_rule[10];
+   
+    iSelectValue=$("input[name=select]").val();
+    if(iSelectValue<0)
+    {
+        alert("<%2925%>");
+          return false;
+    }
+    rule_name=$("#vlan_table>tbody>tr:eq("+iSelectValue+")>td:eq(2)>span").html()
+
+    if(!confirm("<%2926%>" + rule_name + " ?"))
+        return false;
+    return true;    
+}
+//-->
+</script> 
+</head>
+<body  onload="change_size();loadSettings();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+  <div id="full-page-container">
+
+  <form id="target"  name="vlantag" method="POST" action="vlan.cgi">
+  <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+  <img class="subtop-image" src="<%76%>">
+  <div class="subhead2"> <%723%></div>
+    <table border="0"    style="height:370px"  class="subhead2-table">
+      <tr align="left" valign="middle">
+        <td align="center" colspan="2" class="table-seperate-border">
+          <button value="<%83%>" onclick="buttonClick(this,'<%83%>');"  type="reset" id="cancel" name="cancel" class="button-cancel" ><%84%></button>
+          <button value="<%78%>"  onclick="buttonClick(this,'<%78%>');return checkData();" type="submit" id="apply" name="apply" class=<%79%> > <%81%></button>
+        </td>
+  </tr>
+  <tr>
+  	<td class="scrollpane-table-seperate-border" colspan="2">
+  		<div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+  			<table style="border-collapse:collapse;width:99%">
+          <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+          <tr>
+            <td><input type="checkbox" id="vlan_iptv_enable" name="vlan_iptv_enable" value="enable" onclick="vlan_iptv_enable_click();"><%2927%></td>
+          </tr>
+          <tr>
+            <td colspan="2" nowrap style="padding-left:40px"> 
+              <div id="vlan_iptv_check" style="display: block;">
+                <table border="0" cellpadding="2" cellspacing="0" width="100%">
+  	              <tr>
+  	                <td>
+                      <input type="radio" id="vlan_iptv_select_by_bridge" name="vlan_iptv_select" value="iptv_enable" onClick="check_iptv_checkbox();"><b> <%2928%></b> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" nowrap style="padding-left:20px">
+                      <div id="iptv_check" style="display: block;">
+                        <table class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th colspan="6"><%2929%></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr style="background-color: #e5e5e5;">
+                              <td align="center">
+                                <label class="checkbox-container" style="<%2917%>display: none;<%2918%>">
+                                  <input type="checkbox" id="iptv_ports_0" name="iptv_ports_0">Port1
+                                </label>
+                              </td>
+                              <td align="center">
+                                <input type="checkbox" id="iptv_ports_1" name="iptv_ports_1">Port2
+                              </td>
+                               <td align="center">
+                                <input type="checkbox" id="iptv_ports_2" name="iptv_ports_2">Port3
+                              </td>
+<%1566%>                              
+                               <td align="center">
+                                <input type="checkbox" id="iptv_ports_3" name="iptv_ports_3">Port4
+                              </td>
+<%1576%>                              
+<!--                              
+                              <td align="center">
+                                <input type="checkbox" id="iptv_ports_4" name="iptv_ports_4">WiFi-2.4G
+                              </td>
+                              <td align="center">
+                                <input type="checkbox" id="iptv_ports_5" name="iptv_ports_5">WiFi-5G
+                              </td>
+-->                              
+                              <!--
+                              <td>
+                                <%2930%>
+                                    <input type="checkbox" style="display: none;" name="iptv_ports_6">
+                                <%2931%>
+                              </td>
+                              -->
+                            </tr>
+<%2932%>                              
+                            <tr style="background-color: #ffffff;">
+                         	<td colspan="4" >
+                         	    <input type="checkbox" id="iptv_vlan_id_enable" name="iptv_vlan_id_enable">Enable VLAN ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="6" name="iptv_vlan_id" id="iptv_vlan_id" value="<%2933%>">&nbsp;&nbsp;<b>if required; range: 1~4092</b>                               
+				</td>		
+                            </tr>
+<%2934%>                              
+                          <tbody>
+                        </table>                        
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" nowrap><input type="radio" id="vlan_iptv_select_by_VLANtag" name="vlan_iptv_select" value="vlan_enable" onClick="check_vlan_checkbox();"><b> <%2935%></b> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="padding-left:20px">
+                      <div id="vlan_check" style="display: block;">
+                        <table id="vlan_table" class="tbWhite" cellpadding="0" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                              <th nowrap width="6%"></th>
+                              <th nowrap width="6%"><%2936%></th>
+                              <th nowrap><%2937%></th>
+                              <th nowrap><%2938%></th>
+                              <th nowrap><%2939%></th>
+                              <th nowrap><%2929%></th>
+                              <th nowrap><%2940%></th>
+                            </tr>
+                          <thead>
+                          <tbody>
+                          <%2941%>    
+                          </tbody>                          
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+    	              <td colspan="2" align="center">
+    	                <div id="vlan_check_button" style="display: block;">
+                        &nbsp;&nbsp;&nbsp;<button type="Submit" value="<%922%>" id="Add" name="Add" class="button-common" onclick="buttonClick(this,'<%922%>');return checkData();" ><%922%></button>
+                        &nbsp;&nbsp;&nbsp;<button type="Submit" value="<%811%>" id="Edit" name="Edit" class="button-common" onclick="buttonClick(this,'<%811%>');return checkData();" ><%811%></button>
+                        &nbsp;&nbsp;&nbsp;<button type="Submit" value="<%923%>" id="Delete" name="Delete" class=<%902%> onclick="buttonClick(this,'<%923%>');return confirmDel();" ><%923%></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr><td>&nbsp;</td></tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" height="12" ><hr class='blueBar'></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  <tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="VLAN_IPTV_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+        <img class="subfooter-image" src="img/subhead2-bottom.gif">
+      <div class="subhead2-bottom" >
+      <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+      <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+      <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+      <span class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+    </div>
+	  
+<input type="hidden" name="select" value="-1">
+<INPUT name="vlan_enable" type="hidden" value= "<%2942%>">
+<INPUT name="iptv_enable" type="hidden" value= "<%2943%>">
+<INPUT name="iptv_interfaces" type="hidden" value= "<%2944%>">
+<input type="hidden" name="vlan_rule_name" value="<%2945%>">
+<input type="hidden" name="vlan_rule_enable" value="<%2946%>">
+<input type="hidden" name="vlan_id_enable" value="<%2947%>">
+<a name="helpframe-anchor"></a>
+  </form>
+  </div>
+</body>
+ <head>
+  <%11%>
+</head>
+</html>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title>
+<style>
+#loading {
+    position: absolute; width: 100%; height: 100%; background: url('img/spinner.gif') no-repeat center center;
+}
+</style>
+<script type="text/javascript">
+<!--
+var pchar = "||"; // progress char
+<%1235%>
+var maxchars = 50; 
+<%1236%>
+<%1237%>
+var maxchars = 50; 
+<%1238%>
+var delay_time = <%1239%>; // msecs
+
+var wizstage="<%1240%>";
+
+var charcount = 0; 
+
+    function makeStr(strSize, fillChar)
+    {
+        var temp = "";
+        for (i=0; i < strSize ; i ++)
+            temp = temp + fillChar;
+        return temp;
+    }
+    
+    function updateProgress()
+    {
+        var cf = document.forms[0];
+        if (charcount < maxchars)
+        {
+            charcount ++;
+            //cf.progress.value = makeStr(charcount,pchar);
+            setTimeout("updateProgress()",delay_time);
+        }
+        else{
+            if(wizstage == "2"){
+                cf.elements.next_file.value="UPG_upgrade_skip.htm";
+            }else{
+                cf.elements.next_file.value="<%382%>"; 
+            }
+            
+            cf.submit();
+
+        }
+            
+            //window.location.href=cf.next_file.value;
+    }
+//-->
+</script>
+<style type="text/css">
+TD {
+    FONT-SIZE: 12px; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+H1 {
+    FONT-WEIGHT: bold; FONT-SIZE: 16px;  COLOR: #09c; FONT-FAMILY: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, sans-serif
+}
+.prgbar { font-family:Arial; padding:0px; height: 20px; width: 200px; font-weight: bolder; font-size: 10pt; color: #0000FF}
+</style>
+</head>
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="updateProgress()" style="margin:0px;padding-left:20px">
+<form id="target"  name="update" action="reboot_update.cgi" method="post">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+<table border="0"   width="100%">
+    <tr>
+    </tr>
+
+    <tr>
+        <td align="left"><h1><%1234%></h1></td>
+    <!--        
+        <td nowrap align="left"> &nbsp; </td>
+        <td nowrap><input type="text" name="progress" class="prgbar" value=""></td>
+        <td nowrap align="left"> &nbsp; </td>
+    </tr>
+    <tr> 
+        <td colspan="4" height="12"><hr color="#0099CC"></td>
+    </tr>-->
+    <div id="loading"></div>
+</table>
+
+<input type="hidden" id="next_file" name="next_file" value="">
+</form>
+</BODY>
+</html>

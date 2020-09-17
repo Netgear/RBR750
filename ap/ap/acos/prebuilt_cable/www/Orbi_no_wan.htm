@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR Orbi Router</title>
+<%11%>
+<link rel="stylesheet" type="text/css" href="<%296%>">
+<script type="text/javascript">
+	function showFWVer()
+	{
+                ; 
+                if(top.parent.frames['topframe'] != null){               	          
+                   top.parent.frames['topframe'].location="genie_top.htm";          
+                }
+	}
+	
+	function checkSel()
+	{
+	    if(document.forms[0].no_cable_insert[0].checked==true)
+          location.href='Orbi_detwan_progress.htm';
+      else
+	      location.href='Orbi_detect_satellite_begin.htm';
+          //document.forms[0].submit();
+	}
+
+</script>
+<link rel="stylesheet" href="CDL.css">
+</head>
+<body bgcolor="#ffffff">
+<div  class="dialog-content">
+    <div class="wizard-card">
+       <div>
+            <img src="img/logo_netg.png" style="display:block; margin:auto;">
+        </div>	
+<form name="formname" method="POST" action="no_wan_cable.cgi">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="centerTd">
+		<h2 style="color:#ff0000;"><%470%></h2>
+        </td>
+	<td>&nbsp;</td>
+
+</tr>
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>	
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%345%></p></td>
+	<td>&nbsp;</td>
+</tr>
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow centerTd"><p><%471%></p></td>
+	<td>&nbsp;</td>
+</tr>
+</tr>
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow" style="padding-left:30px"><input checked type="radio" id="no_cable_insert_try_next" name="no_cable_insert" value="try_next"><%472%>
+</td>
+	<td>&nbsp;</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td class="textRow" style="padding-left:30px"><input type="radio" id="no_cable_insert_manual" name="no_cable_insert" value="manual"><%473%></td>
+	<td>&nbsp;</td>
+</tr>
+
+
+<tr style="height:10px">
+	<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+    <!-- div align="center">
+         <button class="waves-effect waves-light btn button-nav" value="submit" name="Next" onClick="checkSel();" onFocus="this.blur()" type="button">
+         <span><%303%></span>
+        </button>
+    </div>
+	<td>&nbsp;</td -->
+    <div align="center">   
+    <td class="textRow centerTd2">
+        <button class="waves-effect waves-light btn button-nav" id="Next" name="Next" onClick="checkSel();"  type="button"><span><%303%></span></button>
+    </td>
+    </div>   
+	<!--td class="textRow centerTd2" style="padding-left:180px">	
+		<button class="purpleBtn2" name="next" onClick="checkSel();" type="button"><span>Next&nbsp;&nbsp;&nbsp;</span></button>
+	</td>
+	<td>&nbsp;</td -->
+</form>
+</div>
+</div>
+</body>
+</html>

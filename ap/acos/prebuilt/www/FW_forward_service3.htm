@@ -367,12 +367,12 @@ function CheckPort(extportstr,intportstr)
 
     if(isValibPort(extportstr)) 
     {
-        alert("<%1303%>");
+        alert("<%1296%>");
         return true;
     }
     if(isValibPort(intportstr)) 
     {
-        alert("<%1304%>");
+        alert("<%1297%>");
         return true;
     }
     
@@ -381,7 +381,7 @@ function CheckPort(extportstr,intportstr)
     
     if(exttmplport.length != inttmplport.length)
     {
-        alert("<%1305%>");
+        alert("<%1298%>");
         return true;
     }
     for(i = 0; i < exttmplport.length; i++)
@@ -402,12 +402,12 @@ function CheckPort(extportstr,intportstr)
         
         if(exttport2.length > 2)
         {
-            alert("<%1303%>");
+            alert("<%1296%>");
             return true;
         }
         if(inttport2.length > 2)
         {
-            alert("<%1304%>");
+            alert("<%1297%>");
             return true;
         }
         
@@ -415,7 +415,7 @@ function CheckPort(extportstr,intportstr)
         {
             if(extmpport1!= extmpport2)
             {
-                alert("<%1305%>");
+                alert("<%1298%>");
                 return true;
             }
             exttport2.length = 1;
@@ -424,7 +424,7 @@ function CheckPort(extportstr,intportstr)
         {
             if(intmpport1!= intmpport2)
             {
-                alert("<%1305%>");
+                alert("<%1298%>");
                 return true;
             }
             inttport2.length = 1;
@@ -433,12 +433,12 @@ function CheckPort(extportstr,intportstr)
         {
             if(extmpport1 == null || extmpport1 =="" || extmpport1 < 1 || extmpport1 > 65534)
             {
-                alert("<%1303%>");
+                alert("<%1296%>");
                 return true;
             }
             if(intmpport1 == null || intmpport1=="" || intmpport1 < 1 || intmpport1 > 65534)
             {
-                alert("<%1304%>");
+                alert("<%1297%>");
                 return true;
             } 
             
@@ -446,12 +446,12 @@ function CheckPort(extportstr,intportstr)
             {
                 if(extmpport2 == null || extmpport2 =="" || extmpport2 < 1 || extmpport2 > 65534)
                 {
-                    alert("<%1303%>");
+                    alert("<%1296%>");
                     return true;
                 }
                 if(intmpport2 == null || intmpport2 =="" || intmpport2 < 1 || intmpport2 > 65534)
                 {
-                    alert("<%1304%>");
+                    alert("<%1297%>");
                     return true;
                 }
                 
@@ -470,7 +470,7 @@ function CheckPort(extportstr,intportstr)
                 
                 if((extmpport2 - extmpport1)!= (intmpport2 - intmpport1))
                 {
-                    alert("<%1305%>");
+                    alert("<%1298%>");
                     return true;
                 }
             }
@@ -484,7 +484,7 @@ function CheckPort(extportstr,intportstr)
                 intArray[1][i]=intmpport1;
 //                if(RuleCheck(extmpport1,extmpport1,intmpport1,intmpport1))
 //                {
-//                    alert("<%1306%>");
+//                    alert("<%1299%>");
 //                    return true;
 //                }
             }
@@ -497,7 +497,7 @@ function CheckPort(extportstr,intportstr)
                 intArray[1][i]=intmpport2;
 //                if(RuleCheck(extmpport1,extmpport2,intmpport1,intmpport2))
 //                {
-//                    alert("<%1306%>");
+//                    alert("<%1299%>");
 //                    return true;
 //                }
             }
@@ -508,7 +508,7 @@ function CheckPort(extportstr,intportstr)
     // Add the merge check of external and internal port
     if(CheckMerge(extArray,intArray,exttmplport.length))
     {
-        alert("<%1305%>");
+        alert("<%1298%>");
         return true;
     }
     return false;
@@ -520,7 +520,7 @@ function Check()
 
     if(cf.portname.value==""||cf.portname.value.match( /[^\x20-\x7E]/ ))
     {
-        alert("<%1307%>");
+        alert("<%1300%>");
         cf.portname.focus();
         return false;
     }
@@ -615,7 +615,7 @@ function internal_port_update()
 <form id="target"  name="formname" action="pforward.cgi" method="POST">
 <input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
 	<img class="subtop-image" src="<%76%>">
-<div class="subhead2"> <%1308%></div>
+<div class="subhead2"> <%1301%></div>
 <table border="0"    style="height:370px"  class="subhead2-table">
 
 <tr align="left" valign="middle">
@@ -630,38 +630,38 @@ function internal_port_update()
         <tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
         <tr>
 	        <td colspan="2">
-		        <table id="table_add_ports_custom_services" border ="0" cellpadding ="0" cellspacing ="3" width="100%">
+		        <table border ="0" cellpadding ="0" cellspacing ="3" width="100%">
 			        <tr>
-		 	            <TD NOWRAP width="37%"><%1286%></td>
+		 	            <TD NOWRAP width="37%"><%1279%></td>
 				        <TD NOWRAP width="63%">
 				            <input type="text" id="portname" name="portname" size="30" maxlength="30" value=""></td></tr>
 				    <tr>
-				        <TD NOWRAP width="37%"><%939%></td>
+				        <TD NOWRAP width="37%"><%930%></td>
 				        <TD NOWRAP width="63%">
 				            <select id="srvtype" name="srvtype" size="1">
-				                <option value="TCP/UDP"><%942%></option>
-				                <option value="TCP"><%940%></option>
-				                <option value="UDP"><%941%></option></SELECT></TD></TR>
+				                <option value="TCP/UDP"><%933%></option>
+				                <option value="TCP"><%931%></option>
+				                <option value="UDP"><%932%></option></SELECT></TD></TR>
 		            <tr>
-				        <TD NOWRAP width="37%"><%1309%></td>
+				        <TD NOWRAP width="37%"><%1302%></td>
 				        <TD NOWRAP width="63%">
 				            <input type="text" class="num" id="port_start" name="port_start" size="27" maxlength="256" value="" onBlur="internal_port_update()" onFocus="this.select();">(1~65534)	</td></tr>
 		            <tr>
-                    <TD  NOWRAP colspan="2"><%1310%></td>
+                    <TD  NOWRAP colspan="2"><%1303%></td>
                     </tr>
 		            <tr>
                        <TD colspan="2">
-                        <input type="checkbox" id="same_range" name="same_range" value="same_range" onClick="setInternalPortDisable();"> <%1311%> </td></tr>
+                        <input type="checkbox" id="same_range" name="same_range" value="same_range" onClick="setInternalPortDisable();"> <%1304%> </td></tr>
 
 		            <tr>
-				        <TD NOWRAP width="37%"><div id="intportcolor"><%1312%></div></td>
+				        <TD NOWRAP width="37%"><div id="intportcolor"><%1305%></div></td>
 				        <TD NOWRAP width="63%">
 				            <input type="text" class="num" id="internal_port_start" name="internal_port_start" size="27" maxlength="256" value="" onBlur="" onFocus="this.select();">(1~65534)	</td></tr>
 				    <tr>
-                    <TD  colspan="2"><div id="intporttype"><%1310%></div></td>
+                    <TD  colspan="2"><div id="intporttype"><%1303%></div></td>
                     </tr>
 		            <tr>
-				        <TD NOWRAP width="37%"><%1295%></td>
+				        <TD NOWRAP width="37%"><%1288%></td>
 				        <TD NOWRAP width="63%">
 				            <input type="text" class="num" id="server_ip1" name="server_ip1" size="4" maxlength="3" value="192" onFocus="this.select();" onkeydown="bscheck(event,this,1)" onkeyup="jumpcheck(this,0)">.
                             <input type="text" class="num" id="server_ip2" name="server_ip2" size="4" maxlength="3" value="168" onFocus="this.select();" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,0)">.
@@ -669,16 +669,16 @@ function internal_port_update()
                             <input type="text" class="num" id="server_ip4" name="server_ip4" size="4" maxlength="3" value="" onFocus="this.select();" onkeydown="bscheck(event,this,0)" onkeyup="jumpcheck(this,1)"></td></tr>
 			        <tr>
 				        <TD NOWRAP width="37%"><img src="spacer.gif" width="1" height="18" border="0" alt="" /></td>
-				        <TD NOWRAP width="63%"><%1313%></td></tr>
+				        <TD NOWRAP width="63%"><%1306%></td></tr>
                     <tr>
 				        <TD NOWRAP width="37%"><img src="spacer.gif" width="1" height="18" border="0" alt="" /></td>
 				        <TD NOWRAP width="63%">
-				            <table id="table_attached_devices" border="1" cellpadding="2" cellspacing="0" width="100%">
+				            <table border="1" cellpadding="2" cellspacing="0" width="100%">
                             <tr>
                              <td nowrap align="center" width="20%"><span class="thead"> &nbsp;</span></td>
-                             <td nowrap align="center" width="30%"><span class="thead"><%814%></span></td>
-                             <td nowrap align="center" width="50%"><span class="thead"><%978%></span></td>
-                            </tr><%1314%></table>
+                             <td nowrap align="center" width="30%"><span class="thead"><%806%></span></td>
+                             <td nowrap align="center" width="50%"><span class="thead"><%969%></span></td>
+                            </tr><%1307%></table>
 				        </td>
 				    </tr>				        
 			    </table></td></tr>
@@ -699,19 +699,19 @@ function internal_port_update()
 
 
     <input type="hidden" name="action" value="init">
-    <input type="hidden" name="oldService" value="<%1315%>">
-    <input type="hidden" name="oldService2" value="<%1316%>">
-    <input type="hidden" name="oldService3" value="<%1317%>">
-    <input type="hidden" name="oldType" value="<%1318%>">
+    <input type="hidden" name="oldService" value="<%1308%>">
+    <input type="hidden" name="oldService2" value="<%1309%>">
+    <input type="hidden" name="oldService3" value="<%1310%>">
+    <input type="hidden" name="oldType" value="<%1311%>">
     <input type="hidden" name="newType" value="">
-    <input type="hidden" name="oldSport" value="<%1319%>">
-    <input type="hidden" name="oldInternalSport" value="<%1320%>">
-    <input type="hidden" name="oldIP" value="<%1321%>">
+    <input type="hidden" name="oldSport" value="<%1312%>">
+    <input type="hidden" name="oldInternalSport" value="<%1313%>">
+    <input type="hidden" name="oldIP" value="<%1314%>">
     <input type="hidden" name="newIP" value="">
-    <input type="hidden" name="lanIP" value="<%1300%>">
-    <input type="hidden" name="entryData" value="<%1301%>">
-    <input type="hidden" name="arrange_flag" value="<%1302%>">
-    <input type="hidden" name="pf_services_tbl" value="<%1322%>">
+    <input type="hidden" name="lanIP" value="<%1293%>">
+    <input type="hidden" name="entryData" value="<%1294%>">
+    <input type="hidden" name="arrange_flag" value="<%1295%>">
+    <input type="hidden" name="pf_services_tbl" value="<%1315%>">
     
 
 <a name="helpframe-anchor"></a>

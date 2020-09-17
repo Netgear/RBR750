@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NETGEAR   Genie</title>
+<link rel="stylesheet" type="text/css" href="CDL.css">
+<script language="javascript" type="text/javascript">
+
+function toComplete()
+{
+	window.location.href="Orbi_setup_wifi_complete.htm";
+}
+
+</script>
+</head>
+<body>
+
+<form name="formname" method="POST" action="wizsetwifi.cgi">
+ <div  class="dialog-content">
+	<div class="wizard-card">
+		<div>
+			<img src="img/logo_netg.png" style="display:block; margin:auto;">
+		</div>
+		
+		<div class = "desc-title" style="padding-top: 20px;">
+            Personalize Your Orbi Router
+		</div>
+		<div class = "desc-text" style="padding-top: 6px; padding-bottom: 44px">
+		    Here’s your new WiFi credential while you wait. If you were connected using the preset WiFi credentials, it's time to connect using the new WiFi credential.
+		</div>
+
+		<div class = "master-pin-wrapper">
+			<div class = "pin-wrapper-prewifi">
+				<img class = "pin-wifi" src="img/pin_wireless.png">
+				<div class = "pin-title"> <%366%> </div>
+				<div class = "pin-desc"> <%367%> </div> 
+			</div>
+		</div>
+		<div>
+			<div class = "desc-title" style="padding-top: 20px;">
+            Make sure that you are connected to this WiFi network
+			</div>
+			<button class="button-nav" style="display:block; margin:auto;margin-top: 41px" onClick="buttonClick(this,'<%78%>'); return toComplete()" >
+				<span>I AM CONNECTED TO IT</span>
+			</button>
+		</div>
+	</div>
+ </div>
+ </form>
+</body>

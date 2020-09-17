@@ -34,7 +34,7 @@ function get_browser()
 
 function CloseWindow()
 {
-    var ca_close_window="<%2706%>"
+    var ca_close_window="<%2722%>"
     if(get_browser() != "Firefox"){
         if (confirm(ca_close_window)){
             top.window.opener = null;
@@ -58,7 +58,7 @@ function addfavorite()
 
 function msg_close()
 {
-    var ca_add_bookmark="<%2707%>";
+    var ca_add_bookmark="<%2723%>";
     
     if( get_browser() == "IE" || get_browser() == "Firefox")
     {

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Orbi Router <%12%></title> 
+
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<%14%>
+<style type="text/css">
+.subhead2-multi-table{
+  margin:30px 0px 30px 50px;
+  border-collapse:collapse;
+  width:90%;
+}
+.subrow td{
+  padding-left:15px;
+}
+#full-page-container{
+  padding-left:20px;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+var showit = (document.layers) ? "show" : "visible";
+var hideit = (document.layers) ? "hide" : "hidden";
+var NS4 = (document.layers);
+var animationTimer = null;
+var pgbarTimer = null;
+
+
+    $(document).ready(function()
+    {   
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+//        $("#target").submit(function() {
+//            buttonFilter();
+//        });
+
+    });
+
+function setVisible(divID, setto)
+{/*
+	if (NS4)
+		document.layers[divID].visibility = setto;
+	else if (document.all)
+		document.all(divID).style.visibility = setto;
+	else if (document.getElementById)
+		document.getElementById(divID).style.visibility = setto;
+  */
+  $("#"+divID).css("visibility",setto);
+}
+
+function stopAnimation()
+{
+	if(animationTimer != null)
+		clearTimeout(animationTimer);
+	setVisible('animation', hideit);
+	
+    if(pgbarTimer != null)
+		clearTimeout(pgbarTimer);
+	setVisible('pgbar', hideit);
+}
+
+function showAnimation()
+{
+	updateProgress();
+}
+
+
+function sleep(n)
+{
+    var start = new Date().getTime();
+    while(true)
+        if(new Date().getTime()-start > n)
+            break;
+}
+
+
+var pchar = "|"; // progress char
+var maxchars = 94;
+var delay_time = <%494%>;
+var charcount = 0;
+
+function makeStr(strSize, fillChar)
+{
+	var temp = "";
+	for (i=0; i < strSize ; i ++)
+		temp = temp + fillChar;
+	return temp;
+}
+
+function wpsProgress()
+{
+	var cf = document;
+	var pf = document.forms[0];
+	var df = document.forms[0];
+	if ( charcount == 1 )
+	{
+        pf.Upgrade.style.display="none";
+        pf.Cancel.style.display="none";
+        df.Check.style.display="none";
+        setVisible('animation', showit);
+        setVisible('pgbar', showit);
+	}
+	
+	if (charcount < maxchars)
+	{
+		charcount ++;
+		//document.all("progress").value = makeStr(charcount,pchar);
+      		//document.forms[2].progress.value = makeStr(charcount,pchar);
+                var progress;
+                progress=document.getElementsByName("progress");
+                progress[0].value=makeStr(charcount,pchar);
+		setTimeout("wpsProgress()",delay_time);
+	}
+}
+
+function is_ie6()
+{
+    var browser=navigator.appName 
+    var b_version=navigator.appVersion 
+    var version=b_version.split(";"); 
+    var trim_Version=version[1].replace(/[ ]/g,""); 
+
+    if(browser=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0") 
+        return true;
+    else
+        return false;
+}
+function backPage()
+{
+    location.href="Orbi_add_new_satellite.htm";
+}
+function do_submit()
+{
+	var cf = document.forms[0];
+	cf.submit();
+	return true;
+}
+
+//-->
+</script>
+       
+</head>
+<body  onload="change_size();stopAnimation();" class="page-body" onResize="change_size();">
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<img class="subtop-image" src="<%76%>">
+<div class="subhead2"><%495%></div>
+
+<div class="button_zone">
+  <button value="<%496%>"  onClick="backPage();" name="back" id="back" class=<%79%> > <%496%></button>
+</div>
+<form id="target"  method=post action="wps_activate_wps.cgi" >
+<div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto">
+  <table border="0" class="subhead2-multi-table" align="center" cellpadding="3">
+    <tr>
+      <td colspan=2><%497%></td>
+    </tr>
+    <tr>
+      <td colspan=2 align="center"><img style="padding: 20px 0px 10px 0px" src="img/sync_here.png"></td>
+    </tr>
+    <tr class="subrow">
+      <td nowrap><%498%></td>
+      <td id="sync_button" width="80%"><!--<input class="apply_bt" type="button" name="Sync" id="sync" value="SYNC" onClick="do_submit();">-->
+        <button value="<%499%>"  onClick="do_submit();" name="Sync" id="sync" class=<%79%> > <%499%></button>
+      </td>
+    </tr>
+  </table>
+</div>
+</form>
+</body>
+</HTML>

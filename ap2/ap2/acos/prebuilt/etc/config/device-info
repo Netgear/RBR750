@@ -1,0 +1,8 @@
+
+config table 'version'
+        option UAStringTableVer 'V0.0.0'
+        option MACTableVer 'V0.0.0'
+        option DeviceTypeIndexTableVer 'V0.0.0'
+        
+
+

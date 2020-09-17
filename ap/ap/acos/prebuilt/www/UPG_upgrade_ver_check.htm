@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<style>
+#loading {
+    position: absolute; width: 100%; height: 100%; background: url('img/spinner.gif') no-repeat center center;
+}
+</style>
+<script language="javascript" type="text/javascript">
+<!--
+var t,objFrame,loadingImg;
+
+    function wait1()
+    {
+        //<%1709%>
+         
+        t = setTimeout('do_submit()',20000);                 
+                
+    }
+
+    function do_submit()
+    {     
+        clearTimeout(t);
+	 //document.location.href="http://www.w3school.com.cn/tags/att_td_colspan.asp";
+	 document.forms[0].submit();
+        return true;
+    }
+function submit_form()
+{
+
+    document.forms[0].submit();
+    setTimeout('do_submit()',1000);
+}
+-->
+</script>
+</head>
+<body  onload="submit_form();">
+    <form id="upgrade_form" method="POST" action="ver_check_upgrade.cgi"  style="margin:0px"  >
+        <input type="hidden" name="Check" class="button-rule"  value="Check"  >
+        <!--
+        <div class = "LoadingImg" style="position: absolute; width: 100%; height: 100%; background: url('spinner.gif') no-repeat center center" >
+            <img id="loading" src="spinner.gif" frameborder="0" border="0" >
+        </div> -->
+        <div id="loading"></div>
+    </form>
+</body>
+</html>

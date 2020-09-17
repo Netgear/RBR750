@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<%11%>
+<title>NETGEAR Router <%12%></title> 
+<link rel="stylesheet" href="<%13%>">
+<link rel="stylesheet" href="css/scrollbar.css">
+<link rel="stylesheet" href="css/button.css">
+
+<script src="jquery.js"></script>
+<script src="script/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="script/sorttable.js"></script>
+<script src="script/script.js"></script>
+<link rel="stylesheet" href="form.css">
+<STYLE TYPE="text/javascript">
+	classes.num.all.fontFamily = "Courier";
+	classes.num.all.fontSize = "10pt" ;
+</style>
+<%14%>
+<script language="javascript" type="text/javascript">
+<!--
+  
+    $(document).ready(function()
+    {	
+//        $('.scroll-pane').jScrollPane('scrollbarMargin:5px');
+        $("#target").submit(function() {
+            buttonFilter();
+        });
+
+    });
+
+function loadSettings()
+{
+	var access_control_add_type = document.getElementsByName("access_control_add_type")[0].value;
+
+	return 0;
+}
+
+function checkData()
+{
+    var cf = document.forms[0];
+    var msg = "";
+	if( cf.dev_name.value.length < 1 )
+		msg+="<%1040%>\n";
+    if (cf.dev_name.value.match( /[^\x20-\x7E]/ ))
+        msg+="<%1041%>\n";
+
+    if (cf.is_edit_itself.value.length > 0 && cf.access_control_option.value.match("block")){
+        msg+="<%1046%>\n";
+        cf.access_control_option.selectedIndex=0;
+    }
+    if (msg.length > 1) {
+        alert(msg);
+        return false;
+    }
+	
+    cf.dev_mac.value = cf.mac.value.replace(/:/g,"");
+    cf.orig_mac.value = cf.orig_mac.value.replace(/:/g,"");
+
+    return true;			
+}
+
+//-->
+</script> 
+</head>
+<body  onload="change_size();loadSettings();" class="page-body"  onResize="change_size();" >
+<img class="cover-image" src="<%74%>">
+<img class="body-image" src="<%75%>">
+<div id="full-page-container">
+
+<form id="target"  name="frmLan" method="POST" action="access_control_edit.cgi">
+<input type="hidden" name="buttonHit"><input type="hidden" name="buttonValue">
+	<img class="subtop-image" src="<%76%>">
+<div class="subhead2"> Edit Device Name</div>
+<table border="0"    style="height:370px"  class="subhead2-table">
+
+<tr align="left" valign="middle">
+<td align="center" colspan="2" class="table-seperate-border">
+<button value="<%83%>" onClick="buttonClick(this,'<%83%>');location.href='DEV_control.htm'" type="BUTTON" name="Cancel" id="cancel" class="button-cancel" ><%84%></button>
+<button value="<%78%>"  onClick="buttonClick(this,'<%78%>');return checkData()" type="SUBMIT" name="action" id="apply" class=<%79%> ><%81%></button>
+
+</td>
+</tr>
+
+<tr><td class="scrollpane-table-seperate-border" colspan="2"><div id="main" class="scroll-pane" style="height:365px;width:620px;overflow:auto;scrolling:auto"><table style="border-collapse:collapse;width:99%">
+		
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+<tr>
+<td nowrap><%645%></td>
+<td nowrap>
+  <select name="access_control_option" id="allow_or_block_connect_device">                             
+  <option value='allow' <%1047%> > <%995%> </option>
+  <option value='block' <%1048%> > <%996%> </option>
+  </select> 
+</td>
+</tr>
+<tr>
+<td nowrap><%1044%></td>
+<td nowrap><input type="text" size="17" maxlength="17" name="mac" id="mac_addr" value="<%1049%>"></td>
+</tr>
+<tr>
+<td nowrap><%641%></td>
+<td nowrap><input type="text" size="24" maxlength="32" name="dev_name" id="dev_name" value="<%1050%>"></td>
+</tr>
+
+<tr><td colspan="2" height="12" ><hr class='blueBar'></td></tr>
+
+
+
+<tr><td>&nbsp;</td></tr>
+<tr><td colspan="2" height="12"><hr id="black_list_line2" class='blueBar' style="display:none"></td></tr>
+</table></div></td></tr>
+<tr valign="middle" align="center"><td class="table-seperate-border" colspan="2" style="padding-left:0px"><div class="help-frame-div" > <iframe id="helpframe"  src="DEV_control_h.htm" class="help-iframe" scrolling="no" name="helpframe" frameborder="0" onload="showHelpIframe();"></iframe> </div> </td> </tr>
+</table>
+<a name="helpframe-anchor"></a>
+   <img class="subfooter-image" src="img/subhead2-bottom.gif">
+<div class="subhead2-bottom" >
+    <span style="float:left;padding-left:10px;padding-top:5px"><img src="img/help-icon.gif" onmouseover="changeCursorPointer();" onclick="showHelpIframe();" onmouseout="changeCursorDefault();"></span>
+    <span class="subhead2-text" style="float:left;padding-left:3px;" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%266%> </span>
+    <span class="button-help-arrow">
+      <img src="img/helparrowdown-icon.gif" id="help-button" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();" ></span>
+    <span id="help_show_hidden" class="subhead2-text" style="text-decoration:underline;float:right;padding-right:10px" onclick="showHelpIframe();" onmouseover="changeCursorPointer();" onmouseout="changeCursorDefault();"> <%267%> </span>
+      </div>
+
+
+    <input name="access_control_add_type" type="hidden" value="allowed_list">
+    <input name="is_edit_itself" type="hidden" value="<%1051%>">
+    <input name="orig_mac" type="hidden" value="<%1049%>">
+    <input name="dev_mac" type="hidden" value="">
+</form>
+
+</div>
+</body>
+ 
+</html>
+

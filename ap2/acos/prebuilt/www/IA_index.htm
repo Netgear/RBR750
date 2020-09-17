@@ -8,7 +8,7 @@
 		<title><%13%></title>
 		<link rel="stylesheet" href="styles/main.css">
 		<script type="text/javascript">
-			if ("<%1044%>" == "1") {
+			if ("<%1038%>" == "1") {
 				top.location.href = "IA_select_mode.htm";
 			}
 		</script>
@@ -23,11 +23,11 @@
 	    <div class="container">
 	      <div class="main clearfix">
 				<div id="switchWiFi" style="display:none">
-				<h1><%1045%> <a id="learnMoreExtender" class="tipLink"><%5%></a></h1>
+				<h1><%1039%> <a id="learnMoreExtender" class="tipLink"><%5%></a></h1>
 				<p><div class="wifi switchDiv"></div>
 				</div>
 				<div id="switchWired" style="display:none">
-				<h1><%1046%> <a id="learnMoreAP" class="tipLink"><%5%></a></h1>
+				<h1><%1040%> <a id="learnMoreAP" class="tipLink"><%5%></a></h1>
 				<p><div class="wired switchDiv"></div>
 				</div>
 	    </div> <!-- end main -->
@@ -40,7 +40,7 @@
 	      	<div class="centerButtons">
 	  	    	<div class="processButtons">
 	  	    		<a class="btn secondary" style="text-transform:uppercase" id="setupLaterBt"><%8%></a>
-	  	    		<a class="btn primary" style="text-transform:uppercase" id="continueBt"><%1043%></a>
+	  	    		<a class="btn primary" style="text-transform:uppercase" id="continueBt"><%1037%></a>
 	  	    	</div>
 	  	    </div>			    
 	      </footer>
@@ -56,8 +56,8 @@
 
     $.noConflict();
     jQuery(document).ready(function($) {
-        <%1047%>
-        <%1048%>;
+        <%1041%>
+        <%1042%>;
 
         var msgStr = "<p><%9%></p>"
           + "<p><%10%></p>"
@@ -65,8 +65,8 @@
         $('.tipLink').data('msg', msgStr);
 
         var next_page;
-        var wire_mode = "<%1049%>";
-        var without_hw_switch_ap = "<%1044%>";
+        var wire_mode = "<%1043%>";
+        var without_hw_switch_ap = "<%1038%>";
         if (without_hw_switch_ap != "1") {
             if (wire_mode == "1") {
                 $('#switchWired').css('display', 'block');

@@ -91,7 +91,6 @@ int get_pd_fail = 0;
 long retrans_time = 1000;
 extern struct iana_information ianaInfo;
 extern struct iapd_information iapdInfo;
-extern int iana_option;
 char oldprefix[50]={""};
 int noaddr_haspd = 0; /* Foxconn Bernie added, 2015/01/16 */
 /* Foxconn Bernie added end, 2014/11/27 */
@@ -2741,34 +2740,18 @@ NEXTSTEP:
 	{
 		/* Foxconn Bernie modified start, 2015/01/16 @ ce logo*/
 		printf("\n[%s][%d]: The same prefix, do not feedback .. noaddr_haspd=%d\n", __FUNCTION__, __LINE__,noaddr_haspd);
-		char tmpcommand[256] = {0}, tmpcommand2[256] = {0};
+		char tmpcommand[256];
 		memset(tmpcommand, 0, sizeof(tmpcommand));
-		if(iana_option && strlen(ianaInfo.iaaddr)>0 && ianaInfo.vltime != 0 && (ianaInfo.pltime <= ianaInfo.vltime)) /* Foxconn Bernie modified , 2015/01/15@ ce logo, A client discards any addresses for which the preferred lifetime is
+		if(strlen(iapdInfo.prefix)==0 && strlen(ianaInfo.iaaddr)>0 && ianaInfo.vltime != 0 && (ianaInfo.pltime <= ianaInfo.vltime)) /* Foxconn Bernie modified , 2015/01/15@ ce logo, A client discards any addresses for which the preferred lifetime is
   		 greater than the valid lifetime. */
 		{
 			sprintf(tmpcommand, "dhcp6c_up %s %s %d ",
 							   dhcp6_interface,
 							   ianaInfo.iaaddr,
 							   ianaInfo.plen);
-
-            /* Foxconn Neil added, 2020/04/17, code added to make sure dhcp6c_up can run with all needed parameters  */
-		    if(strlen(iapdInfo.prefix)>0)
-		    {
-	            sprintf(tmpcommand2, " %s %d &",
-	                iapdInfo.prefix,
-			        iapdInfo.plen);
-
-	            if (!strlen(tmpcommand))
-	                sprintf(tmpcommand, "dhcp6c_up %s ", dhcp6_interface);
-
-	            strcat(tmpcommand, tmpcommand2);
-	        }
-            /* Foxconn Neil end, 2020/04/17, code added to make sure dhcp6c_up can run with all needed parameters  */            
 			printf("\n[%s][%d]: Only Get iana,iana pltime=%lu vltime=%lu feedback to acos (autoconfig)...,tmpcommand=%s.\n", __FUNCTION__, __LINE__,ianaInfo.pltime,ianaInfo.vltime,tmpcommand);
 			if (strlen(tmpcommand))
 				system(tmpcommand);
-
-            iana_option = 0;
 
 		}
 		else
